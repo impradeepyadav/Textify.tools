@@ -1,31 +1,51 @@
 # Textify.tools 🚀
 
-**Free Online Text Repeater Tool** — Repeat text up to 100,000 times instantly.
-
-## 🎯 Features
-- 🔁 Repeat text up to 100,000x
-- 🎨 Font styles (Bold, Italic, Cursive, etc.)
-- 🔣 Morse Code, Binary, Base64 converter
-- 👻 Glitch/Zalgo text generator
-- ✨ Text decorations & emoji support
-- 🔒 100% Client-side — No data storage
-
-## 📁 Pages
-- [Home](https://7t3xtools.store)
-- [About](https://7t3xtools.store/about.html)
-- [Contact](https://7t3xtools.store/contact.html)
-- [Privacy Policy](https://7t3xtools.store/privacy.html)
-- [Terms of Use](https://7t3xtools.store/terms.html)
-- [Disclaimer](https://7t3xtools.store/disclaimer.html)
+**Free Online Text Repeater Tool** — Instantly repeat text up to 100,000 times with additional text utilities.
 
 ## 🌐 Live Website
-[https://7t3xtools.store](https://7t3xtools.store)
+
+https://textify.tools
+
+---
+
+## ✨ Features
+
+* 🔁 Repeat text up to 100,000x
+* 🎨 Stylish fonts (Bold, Italic, Cursive, Fancy)
+* 🔣 Morse Code, Binary & Base64 converters
+* 👻 Glitch / Zalgo text generator
+* 😊 Emoji & symbol support
+* ⚡ Fast processing (runs in your browser)
+* 🔒 100% client-side — No data stored
+
+---
+
+## 📄 Pages
+
+* Home — https://textify.tools
+* About — https://textify.tools/about.html
+* Contact — https://textify.tools/contact.html
+* Privacy Policy — https://textify.tools/privacy.html
+* Terms of Use — https://textify.tools/terms.html
+* Disclaimer — https://textify.tools/disclaimer.html
+
+---
 
 ## 🛠️ Built With
-- HTML5
-- CSS3
-- JavaScript
-- Lucide Icons
 
-## 📄 License
+* HTML5
+* CSS3
+* JavaScript
+
+---
+
+## 🔐 Privacy
+
+This tool works entirely in your browser.
+No text is uploaded or saved on any server.
+
+---
+
+## 📜 License
+
 © 2026 Textify.tools — All rights reserved.
