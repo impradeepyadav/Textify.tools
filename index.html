@@ -1162,11 +1162,11 @@ result.push(decodedWords.join(" "));
 return result.join("\n");
 }
 
-
 // ================= TEXT ➜ BINARY =================
 function toBinary(text) {
     return text.split('').map(c => c.charCodeAt(0).toString(2).padStart(8, '0')).join(' ');
 }
+
 
 // ================= BINARY ➜ TEXT =================
 function binaryToText(str) {
@@ -1181,24 +1181,6 @@ function binaryToText(str) {
     
     return bins.map(b => String.fromCharCode(parseInt(b, 2))).join('');
 }
-        // --- BINARY MAP ---
-        function toBinary(text) {
-            return text.split('').map(char => {
-                return char.charCodeAt(0).toString(2).padStart(8, '0');
-            }).join(' ');
-        }
-
-        // --- BINARY DECODE ---
-        function binaryToText(str) {
-            str = str.replace(/[^01\s]/g, '');
-            if (!str) return "Invalid Binary Input";
-            let binaries = str.trim().split(/\s+/);
-            if (binaries.length === 1 && binaries[0].length > 8) {
-                 binaries = str.match(/.{1,8}/g) || [];
-            }
-            return binaries.map(bin => String.fromCharCode(parseInt(bin, 2))).join('');
-        }
-
         // --- FONT MAPPING ---
         const FONTS = {
             bold: (c) => {
