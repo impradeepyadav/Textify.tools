@@ -631,25 +631,23 @@ return result.join("\n");
 
 
 // ================= TEXT ➜ BINARY =================
-function toBinary(text){
-return text.split('').map(c=>c.charCodeAt(0).toString(2).padStart(8,'0')).join(' ');
+function toBinary(text) {
+    return text.split('').map(c => c.charCodeAt(0).toString(2).padStart(8, '0')).join(' ');
 }
-
 
 // ================= BINARY ➜ TEXT =================
-function binaryToText(str){
-
-str=str.replace(/[^01\s]/g,'');
-if(!str) return "";
-
-let bins=str.trim().split(/\s+/);
-
-if(bins.length===1 && bins[0].length>8)
-bins=str.match(/.{1,8}/g)||[];
-
-return bins.map(b=>String.fromCharCode(parseInt(b,2))).join('');
+function binaryToText(str) {
+    str = str.replace(/[^01\s]/g, '');
+    if (!str) return "Invalid Binary Input";
+    
+    let bins = str.trim().split(/\s+/);
+    
+    if (bins.length === 1 && bins[0].length > 8) {
+        bins = str.match(/.{1,8}/g) || [];
+    }
+    
+    return bins.map(b => String.fromCharCode(parseInt(b, 2))).join('');
 }
-
         // --- BINARY MAP ---
         function toBinary(text) {
             return text.split('').map(char => {
@@ -1038,31 +1036,6 @@ data-color="#FFC107"
 data-position="Right" 
 data-x_margin="18" 
 data-y_margin="18">
-</script>
-  <script type='text/javascript'>
-//<![CDATA[
-(function() {
-    var uri = window.location.toString();
-    var clean_uri = uri;
-
-    // Remove ?m=1 or &m=1 (Mobile parameters)
-    if (clean_uri.indexOf("?m=1") > 0) {
-        clean_uri = clean_uri.substring(0, clean_uri.indexOf("?m=1"));
-    } else if (clean_uri.indexOf("&m=1") > 0) {
-        clean_uri = clean_uri.substring(0, clean_uri.indexOf("&m=1"));
-    }
-
-    // Remove artifacts like %3D or %3D%3D
-    if (clean_uri.indexOf("%3D") > 0) {
-        clean_uri = clean_uri.substring(0, clean_uri.indexOf("%3D"));
-    }
-
-    // Sirf tab update karein agar URL change hua ho
-    if (uri !== clean_uri) {
-        window.history.replaceState({}, document.title, clean_uri);
-    }
-})();
-//]]>
 </script>
 <script>
   lucide.createIcons();
