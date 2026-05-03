@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="theme-color" content="#ffffff">
+    <title>Slug Generator – Create SEO-Friendly URL Slugs | Textify.tools</title>
+    <meta name="description" content="Free online slug generator: convert any text into a clean, SEO-friendly URL slug instantly. Works in your browser, 100% private.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://textify.tools/slug-generator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://textify.tools/slug-generator.html">
+    <meta property="og:title" content="Slug Generator – Create Clean URL Slugs | Textify.tools">
+    <meta property="og:description" content="Generate SEO-friendly URL slugs from any text. Fast, free, and client-side.">
+    
+    <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-6VGXXT81MB');
+    </script>
+</head>
+<body>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #0a0a0a;
+            --text-light: #525252;
+            --line: #e5e5e5;
+            --primary: #000000;
+            --hover: #f3f4f6;
+            --card: #fafafa;
+            --input-bg: #ffffff;
+            --input-border: #d4d4d4;
+            --footer-bg: #ffffff;
+            --footer-text: #333333;
+            --footer-heading: #000000;
+            --footer-link-hover: #000000;
+            --faq-bg: #fafafa;
+            --faq-active: #f3f4f6;
+            --table-header: #f3f4f6;
+            --table-hover: #fafafa;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --overlay-bg: rgba(0, 0, 0, 0.5);
+            --success-bg: #f0fdf4;
+            --success-text: #166534;
+            --sidebar-bg: #ffffff;
+            --accent: #f8fafc;
+            --toast-bg: #1f2937;
+            --toast-text: #ffffff;
+        }
+        body.dark-mode {
+            --bg: #0f172a;
+            --text: #f1f5f9;
+            --text-light: #94a3b8;
+            --line: #1e293b;
+            --primary: #ffffff;
+            --hover: #1e293b;
+            --card: #1e293b;
+            --input-bg: #1e293b;
+            --input-border: #334155;
+            --footer-bg: #ffffff;
+            --footer-text: #333333;
+            --footer-heading: #000000;
+            --footer-link-hover: #000000;
+            --faq-bg: #1e293b;
+            --faq-active: #334155;
+            --table-header: #1e293b;
+            --table-hover: #1e293b;
+            --shadow: rgba(0, 0, 0, 0.5);
+            --overlay-bg: rgba(0, 0, 0, 0.75);
+            --success-bg: #052e16;
+            --success-text: #86efac;
+            --sidebar-bg: #0f172a;
+            --accent: #1e293b;
+            --toast-bg: #f1f5f9;
+            --toast-text: #0f172a;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg); color: var(--text); min-height: 100vh;
+            display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+        }
+
+        /* HEADER */
+        header {
+            border-bottom: 1px solid var(--line); background: var(--bg);
+            display: flex; justify-content: center; align-items: center;
+            padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
+            position: relative; z-index: 100;
+        }
+        .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .logo {
+            display: flex; align-items: center; gap: 10px; text-decoration: none;
+            color: var(--text); font-size: 22px; font-weight: 800;
+        }
+        .logo-img {
+            width: 24px; height: 24px; border-radius: 4px; object-fit: contain;
+        }
+        .header-right { display: flex; align-items: center; gap: 12px; }
+        .desktop-nav { display: flex; gap: 15px; align-items: center; }
+        .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
+        .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
+        .tools-menu-container { position: relative; }
+        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; }
+        .tools-trigger:hover { color: var(--primary); background: var(--hover); }
+        .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
+        .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; min-width: 280px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
+        .tools-menu-container:hover .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
+        .tools-mega-menu a { display: block; padding: 9px 12px; border-radius: 8px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 2px; }
+        .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
+        .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
+        .theme-btn:hover { background: var(--hover); }
+        .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
+        .search-trigger:hover { border-color: var(--primary); color: var(--primary); }
+        .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; }
+        .hamburger-btn:hover { background: var(--hover); }
+        .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
+        .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
+        .hamburger-btn .menu-icon span:first-child { width: 16px; }
+        .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
+        .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
+        .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
+        .mobile-sidebar.active { left: 0; }
+        .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+        .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
+        .mobile-sidebar-logo .logo-img { width: 20px; height: 20px; }
+        .mobile-sidebar-close { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
+        .mobile-sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+        .mobile-sidebar-nav a { display: block; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; }
+        .mobile-sidebar-nav a:hover { background: var(--hover); color: var(--primary); }
+        .mobile-tools-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 10px; background: none; border: none; cursor: pointer; color: var(--text); font-weight: 500; font-size: 15px; font-family: inherit; transition: 0.2s; }
+        .mobile-tools-toggle:hover { background: var(--hover); color: var(--primary); }
+        .mobile-tools-toggle i { width: 16px; height: 16px; transition: transform 0.3s; }
+        .mobile-tools-toggle.active i { transform: rotate(180deg); }
+        .mobile-tools-menu { display: none; flex-direction: column; padding-left: 16px; gap: 2px; margin-bottom: 6px; }
+        .mobile-tools-menu.active { display: flex; }
+        .mobile-tools-menu a { font-size: 14px; padding: 10px 14px; color: var(--text-light); }
+        .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+        .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
+        .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
+        .search-overlay-full { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--overlay-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 300; display: flex; flex-direction: column; align-items: center; padding-top: 80px; opacity: 0; visibility: hidden; transition: 0.3s; }
+        .search-overlay-full.active { opacity: 1; visibility: visible; }
+        .search-container { width: 90%; max-width: 550px; display: flex; flex-direction: column; max-height: 80vh; }
+        .search-box { display: flex; align-items: center; gap: 10px; background: var(--bg); border-radius: 16px; padding: 8px 16px; border: 2px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 10px; }
+        .search-box input { flex: 1; border: none; background: transparent; font-size: 17px; color: var(--text); outline: none; font-family: inherit; padding: 10px 0; }
+        .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; max-height: 60vh; }
+        .search-results-list .search-result-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; border-bottom: 1px solid var(--line); }
+        .search-results-list .search-result-item:last-child { border-bottom: none; }
+        .search-results-list .search-result-item:hover { background: var(--hover); color: var(--primary); }
+        .search-results-list .search-result-item.hidden-item { display: none; }
+        .search-results-list .result-tag { font-size: 10px; background: var(--hover); padding: 3px 8px; border-radius: 12px; color: var(--text-light); text-transform: uppercase; font-weight: 600; }
+        .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
+        .search-no-result.show { display: block; }
+
+        main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
+        h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
+        textarea, input[type="text"] { width: 100%; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s; }
+        textarea:focus, input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
+        .btn { padding: 15px 26px; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; justify-content: center; transition: 0.2s; }
+        .btn-primary { background: var(--primary); color: var(--bg); width: 100%; }
+        .btn-primary:hover { opacity: 0.88; }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background: var(--hover); }
+        .output-area { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); display: none; }
+        .char-count-box { background: var(--success-bg); padding: 14px 18px; border-radius: 12px; margin-bottom: 20px; text-align: center; color: var(--success-text); font-weight: 600; font-size: 15px; border: 1px solid rgba(22,163,74,0.2); }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+        footer {
+            background: var(--footer-bg); color: var(--footer-text); padding: 60px 20px 25px; margin-top: 60px;
+            border-top: 1px solid #e5e5e5;
+        }
+        .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+        @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
+        .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
+        .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
+        .footer-bottom { max-width: 1000px; margin: 45px auto 0; padding-top: 22px; border-top: 1px solid #d4d4d4; display: flex; justify-content: space-between; font-size: 13px; color: #555; }
+        @media(max-width:768px) { .footer-bottom { flex-direction: column; gap: 8px; text-align: center; } }
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
+            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
+        }
+        @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
+    </style>
+
+    <header>
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                Textify.Tools
+            </a>
+            <div class="header-right">
+                <div class="desktop-nav">
+                    <div class="tools-menu-container">
+                        <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                        <div class="tools-mega-menu">
+                            <a href="/text-repeater.html">Text Repeater</a>
+                            <a href="/smart-paraphraser.html">Smart Paraphraser</a>
+                            <a href="/word-counter.html">Word Counter</a>
+                            <a href="/text-diff-checker.html">Text Diff Checker</a>
+                            <a href="/case-converter.html">Case Converter</a>
+                            <a href="/text-reverser.html">Text Reverser</a>
+                            <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
+                            <a href="/slug-generator.html">Slug Generator</a>
+                            <a href="/text-sorter.html">Text Sorter</a>
+                            <a href="/text-finder-replacer.html">Text Finder & Replacer</a>
+                            <a href="/character-remover.html">Character Remover</a>
+                            <a href="/password-generator.html">Password Generator</a>
+                            <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
+                        </div>
+                    </div>
+                    <a href="privacy.html">Privacy</a>
+                    <a href="/blog.html">Blog</a>
+                </div>
+                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+                    <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                </button>
+                <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                    <span class="menu-icon"><span></span><span></span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <div class="mobile-sidebar-header">
+            <a href="/" class="mobile-sidebar-logo">
+                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                Textify.Tools
+            </a>
+            <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
+        </div>
+        <div class="mobile-sidebar-nav">
+            <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
+            <div class="mobile-tools-menu" id="mobileToolsMenu">
+                <a href="/text-repeater.html">Text Repeater</a>
+                <a href="/smart-paraphraser.html">Smart Paraphraser</a>
+                <a href="/word-counter.html">Word Counter</a>
+                <a href="/text-diff-checker.html">Text Diff Checker</a>
+                <a href="/case-converter.html">Case Converter</a>
+                <a href="/text-reverser.html">Text Reverser</a>
+                <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
+                <a href="/slug-generator.html">Slug Generator</a>
+                <a href="/text-sorter.html">Text Sorter</a>
+                <a href="/text-finder-replacer.html">Text Finder & Replacer</a>
+                <a href="/character-remover.html">Character Remover</a>
+                <a href="/password-generator.html">Password Generator</a>
+                <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
+            </div>
+            <a href="privacy.html">Privacy</a>
+            <a href="/blog.html">Blog</a>
+        </div>
+        <div class="mobile-sidebar-actions">
+            <button onclick="openFullSearch(); closeMobileSidebar();"><i data-lucide="search"></i> Search</button>
+            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" style="display:none;"></i> Theme</button>
+        </div>
+    </div>
+
+    <div class="search-overlay-full" id="searchOverlayFull">
+        <div class="search-container">
+            <div class="search-box">
+                <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
+                <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
+                <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
+            </div>
+            <div class="search-results-list" id="fullSearchResultsList"></div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <main>
+        <h1>Slug Generator – Create SEO-Friendly URL Slugs</h1>
+        <p class="subtitle">Enter any text and instantly convert it into a clean, URL‑ready slug. Perfect for blog posts, product pages, and permalinks. Works entirely in your browser.</p>
+        
+        <input type="text" id="inputText" placeholder="Enter your title or text (e.g. 'How to Make Perfect Coffee')" />
+
+        <div style="display:flex;gap:10px;margin-bottom:30px;">
+            <button class="btn btn-primary" id="generateBtn" onclick="generateSlug()"><i data-lucide="link-2" width="18" height="18"></i> Generate Slug</button>
+            <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+        </div>
+
+        <div class="output-area" id="outputArea">
+            <div class="char-count-box" id="slugInfo"></div>
+            <input type="text" id="outputText" readonly style="font-size:18px;font-weight:500;">
+            <div style="display:flex;gap:10px;margin-top:15px;">
+                <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Slug</button>
+                <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadSlug()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+            </div>
+        </div>
+
+        <div style="margin-top:50px;border-top:1px solid var(--line);padding-top:30px;">
+            <h2>What is a URL Slug?</h2>
+            <p>A slug is the part of a URL that identifies a particular page in a readable way. For example, in <code>example.com/blog/how-to-make-coffee</code>, the slug is <strong>how‑to‑make‑coffee</strong>. Slugs help search engines and users understand the page content.</p>
+            <h2>How This Tool Works</h2>
+            <p>The Slug Generator converts your text to lowercase, removes special characters, and replaces spaces with hyphens. Multiple hyphens become single ones, and leading/trailing hyphens are removed. The result is a clean, URL‑safe string that you can copy directly.</p>
+            <h2>Tips for Great Slugs</h2>
+            <ul>
+                <li><strong>Keep it short</strong> – aim for 3‑5 words.</li>
+                <li><strong>Use hyphens</strong> to separate words (never underscores).</li>
+                <li><strong>Avoid special characters</strong> like &, %, or punctuation.</li>
+                <li><strong>Include keywords</strong> that describe the page content.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                    Textify.Tools
+                </a>
+                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+            </div>
+            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a></div>
+            <div><h5>ALL TOOLS</h5><a href="/text-repeater.html">Text Repeater</a><a href="/word-counter.html">Word Counter</a><a href="/case-converter.html">Case Converter</a><a href="/text-reverser.html">Text Reverser</a><a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a><a href="/text-diff-checker.html">Text Diff Checker</a><a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a><a href="/text-encoder-decoder.html">Text Encoder/Decoder</a><a href="/smart-paraphraser.html">Smart Paraphraser</a><a href="/password-generator.html">Password Generator</a><a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a></div>
+            <div><h5>LEGAL & INFO</h5><a href="disclaimer.html">Disclaimer</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+        </div>
+        <div class="footer-bottom"><div>&copy; 2026 Textify.tools. All rights reserved. Made with ❤️ for fun.</div><div>Designed for Fun & Testing</div></div>
+    </footer>
+
+    <script>
+        // Shared search data (same as main page)
+        const tools = [
+            { name: 'Text Repeater', link: '/text-repeater.html', keywords: 'repeat duplicate multiply copy paste' },
+            { name: 'Smart Paraphraser', link: '/smart-paraphraser.html', keywords: 'paraphrase rewrite rephrase article spinner' },
+            { name: 'Word Counter', link: '/word-counter.html', keywords: 'word count character counter letters' },
+            { name: 'Text Diff Checker', link: '/text-diff-checker.html', keywords: 'diff compare difference text comparison' },
+            { name: 'Case Converter', link: '/case-converter.html', keywords: 'uppercase lowercase title case sentence' },
+            { name: 'Text Reverser', link: '/text-reverser.html', keywords: 'reverse backwards mirror flip upside down' },
+            { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder.html', keywords: 'encode decode base64 url binary hex' },
+            { name: 'Slug Generator', link: '/slug-generator.html', keywords: 'slug url seo friendly permalink' },
+            { name: 'Text Sorter', link: '/text-sorter.html', keywords: 'sort order alphabetically lines list' },
+            { name: 'Text Finder & Replacer', link: '/text-finder-replacer.html', keywords: 'find replace search and replace bulk' },
+            { name: 'Character Remover', link: '/character-remover.html', keywords: 'remove delete characters punctuation spaces' },
+            { name: 'Password Generator', link: '/password-generator.html', keywords: 'password generator random strong secure' },
+            { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator.html', keywords: 'lorem ipsum placeholder dummy text generator' }
+        ];
+
+        function buildSearchList() {
+            const list = document.getElementById('fullSearchResultsList');
+            list.innerHTML = tools.map(tool => `
+                <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
+                    ${tool.name} <span class="result-tag">Tool</span>
+                </a>
+            `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
+        }
+
+        let toastTimer;
+        function showToast(msg, dur=3000) {
+            const t = document.getElementById('toast');
+            t.textContent = msg; t.classList.add('show');
+            clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
+        }
+
+        function toggleTheme() {
+            const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
+                  ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
+            if (b.classList.contains('dark-mode')) {
+                b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
+                if(ms) { ms.style.display='block'; mm.style.display='none'; }
+                localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
+            } else {
+                b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
+                if(ms) { ms.style.display='none'; mm.style.display='block'; }
+                localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
+            }
+            lucide.createIcons();
+        }
+        document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
+            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
+            if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
+        }
+
+        function openMobileSidebar() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeMobileSidebar() { document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow = ''; }
+        function toggleMobileTools() { document.querySelector('.mobile-tools-toggle').classList.toggle('active'); document.getElementById('mobileToolsMenu').classList.toggle('active'); }
+        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
+
+        function openFullSearch() { document.getElementById('searchOverlayFull').classList.add('active'); document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('fullSearchInput').focus(), 200); }
+        function closeFullSearch() { document.getElementById('searchOverlayFull').classList.remove('active'); document.body.style.overflow = ''; document.getElementById('fullSearchInput').value = ''; filterFullSearch(); }
+        function filterFullSearch() {
+            const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
+            const items = document.querySelectorAll('#fullSearchResultsList .search-result-item');
+            const nr = document.getElementById('fullNoResult'), qs = document.getElementById('fullSearchQuery');
+            let c = 0;
+            items.forEach(i => {
+                const kw = i.getAttribute('data-keywords') || '', t = i.textContent.toLowerCase();
+                if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
+                else { i.classList.add('hidden-item'); }
+            });
+            if (c === 0 && q !== '') { nr.classList.add('show'); qs.textContent = q; }
+            else { nr.classList.remove('show'); }
+        }
+        document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); }
+            if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
+        });
+
+        // Slug generation
+        function generateSlug() {
+            const input = document.getElementById('inputText').value.trim();
+            if (!input) { showToast('⚠️ Please enter some text first'); return; }
+            
+            let slug = input.toString()
+                .toLowerCase()
+                .trim()
+                .normalize('NFD')                   // normalize diacritics
+                .replace(/[\u0300-\u036f]/g, '')   // remove accents
+                .replace(/[^a-z0-9\s-]/g, '')      // remove non allowed chars
+                .replace(/[\s_]+/g, '-')           // replace spaces/underscores with hyphen
+                .replace(/-+/g, '-')               // collapse multiple hyphens
+                .replace(/^-+|-+$/g, '');          // trim leading/trailing hyphens
+            
+            if (!slug) slug = 'untitled'; // fallback
+            
+            document.getElementById('outputText').value = slug;
+            document.getElementById('slugInfo').innerHTML = `<strong>✅ Slug ready!</strong> &nbsp; Length: <strong>${slug.length}</strong> characters`;
+            document.getElementById('outputArea').style.display = 'block';
+            showToast('✅ Slug generated successfully!');
+        }
+
+        async function copyToClipboard() {
+            const textarea = document.getElementById('outputText');
+            const btn = document.getElementById('copyBtn');
+            const origHTML = btn.innerHTML;
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(textarea.value);
+                } else {
+                    textarea.focus(); textarea.select(); textarea.setSelectionRange(0, 99999);
+                    document.execCommand('copy');
+                }
+                btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!';
+                btn.style.background = '#16a34a';
+                lucide.createIcons();
+                showToast('📋 Slug copied to clipboard!');
+            } catch (err) {
+                textarea.focus(); textarea.select();
+                showToast('⚠️ Please press Ctrl+C to copy');
+            }
+            setTimeout(() => {
+                btn.innerHTML = origHTML;
+                btn.style.background = '';
+                lucide.createIcons();
+            }, 2000);
+        }
+
+        function downloadSlug() {
+            const text = document.getElementById('outputText').value;
+            const btn = document.getElementById('downloadBtn');
+            const origHTML = btn.innerHTML;
+            const blob = new Blob([text], {type: 'text/plain'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = 'slug.txt'; document.body.appendChild(a);
+            a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+            btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Downloaded!';
+            lucide.createIcons();
+            showToast('💾 Slug saved as file!');
+            setTimeout(() => {
+                btn.innerHTML = origHTML;
+                lucide.createIcons();
+            }, 2000);
+        }
+
+        function resetTool() {
+            document.getElementById('inputText').value = '';
+            document.getElementById('outputText').value = '';
+            document.getElementById('outputArea').style.display = 'none';
+        }
+
+        // Init
+        buildSearchList();
+        lucide.createIcons();
+    </script>
+</body>
+</html>
