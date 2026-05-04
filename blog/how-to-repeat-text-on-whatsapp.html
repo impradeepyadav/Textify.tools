@@ -162,6 +162,7 @@
     }
   </style>
 
+  <!-- ========== HEADER ========== -->
   <header>
     <div class="header-inner">
       <a href="/" class="logo">
@@ -188,7 +189,8 @@
               <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
             </div>
           </div>
-          <a href="privacy.html">Privacy</a>
+          <!-- ★ FIXED: absolute paths -->
+          <a href="/privacy.html">Privacy</a>
           <a href="/blog.html">Blog</a>
         </div>
         <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
@@ -203,6 +205,7 @@
     </div>
   </header>
 
+  <!-- ========== MOBILE SIDEBAR ========== -->
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
@@ -221,9 +224,12 @@
         <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
         <a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
         <a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a>
-        <a href="/password-generator.html">Password Generator</a><a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
+        <a href="/password-generator.html">Password Generator</a>
+        <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
       </div>
-      <a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a>
+      <!-- ★ FIXED: absolute paths -->
+      <a href="/privacy.html">Privacy</a>
+      <a href="/blog.html">Blog</a>
     </div>
     <div class="mobile-sidebar-actions">
       <button onclick="openFullSearch(); closeMobileSidebar();"><i data-lucide="search"></i> Search</button>
@@ -231,6 +237,7 @@
     </div>
   </div>
 
+  <!-- ========== SEARCH OVERLAY ========== -->
   <div class="search-overlay-full" id="searchOverlayFull">
     <div class="search-container">
       <div class="search-box">
@@ -242,6 +249,7 @@
     </div>
   </div>
 
+  <!-- ========== BLOG CONTENT ========== -->
   <main>
     <a href="/blog.html" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
 
@@ -267,7 +275,6 @@
 
     <h2>The Safe Method: One Long Message Instead of Many</h2>
     <p>The biggest risk of repeating text on WhatsApp is <strong>spamming</strong>. WhatsApp's algorithms can detect when an account sends dozens (or hundreds) of separate messages in a very short time. That can lead to a temporary ban or even a permanent account restriction. The solution? <strong>Send everything as one single message.</strong></p>
-
     <p>Instead of sending 100 individual messages, you can combine all repetitions into a single, scrollable message. This is perfectly normal behavior and won't trigger spam filters. Here's how to do it with Textify.tools:</p>
 
     <ol>
@@ -314,10 +321,10 @@
 
     <h2>Final Thoughts</h2>
     <p>Repeating text on WhatsApp is safe and easy if you follow the right technique. By using the Textify Text Repeater with the "New Line" separator, you create a single, long message that stays within WhatsApp's acceptable‑use policies. Whether you're celebrating a friend, testing an app, or just having fun – our tool is fast, free, and completely private.</p>
-
     <p>Ready to try it? <a href="/text-repeater.html">Open the Text Repeater</a> and start generating your message now.</p>
   </main>
 
+  <!-- ========== FOOTER ========== -->
   <footer>
     <div class="footer-grid">
       <div>
@@ -327,7 +334,8 @@
         </a>
         <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
       </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a></div>
+      <!-- ★ FIXED: absolute paths used everywhere -->
+      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about.html">About Us</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a><a href="/blog.html">Blog</a></div>
       <div><h5>ALL TOOLS</h5>
         <a href="/text-repeater.html">Text Repeater</a><a href="/word-counter.html">Word Counter</a><a href="/case-converter.html">Case Converter</a>
         <a href="/text-reverser.html">Text Reverser</a><a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
@@ -336,7 +344,7 @@
         <a href="/smart-paraphraser.html">Smart Paraphraser</a><a href="/password-generator.html">Password Generator</a>
         <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
       </div>
-      <div><h5>LEGAL & INFO</h5><a href="disclaimer.html">Disclaimer</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+      <div><h5>LEGAL & INFO</h5><a href="/disclaimer.html">Disclaimer</a><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a></div>
     </div>
     <div class="footer-bottom"><div>&copy; 2026 Textify.tools. All rights reserved. Made with ❤️ for fun.</div><div>Designed for Fun & Testing</div></div>
   </footer>
