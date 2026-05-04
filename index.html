@@ -37,10 +37,12 @@
             --card: #fafafa;
             --input-bg: #ffffff;
             --input-border: #d4d4d4;
+            /* Footer light */
             --footer-bg: #ffffff;
             --footer-text: #333333;
             --footer-heading: #000000;
             --footer-link-hover: #000000;
+            --footer-border: #e5e5e5;
             --faq-bg: #fafafa;
             --faq-active: #f3f4f6;
             --table-header: #f3f4f6;
@@ -66,10 +68,12 @@
             --card: #1e293b;
             --input-bg: #1e293b;
             --input-border: #334155;
-            --footer-bg: #ffffff;
-            --footer-text: #333333;
-            --footer-heading: #000000;
-            --footer-link-hover: #000000;
+            /* Footer dark – now properly dark */
+            --footer-bg: #1e293b;
+            --footer-text: #e2e8f0;
+            --footer-heading: #ffffff;
+            --footer-link-hover: #ffffff;
+            --footer-border: #334155;
             --faq-bg: #1e293b;
             --faq-active: #334155;
             --table-header: #1e293b;
@@ -204,12 +208,13 @@
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
         
+        /* Footer – completely adaptive to dark mode */
         footer {
             background: var(--footer-bg);
             color: var(--footer-text);
             padding: 60px 20px 25px;
             margin-top: 60px;
-            border-top: 1px solid #e5e5e5;
+            border-top: 1px solid var(--footer-border);
         }
         .footer-grid {
             max-width: 1000px;
@@ -242,11 +247,11 @@
             max-width: 1000px;
             margin: 45px auto 0;
             padding-top: 22px;
-            border-top: 1px solid #d4d4d4;
+            border-top: 1px solid var(--footer-border);
             display: flex;
             justify-content: space-between;
             font-size: 13px;
-            color: #555;
+            color: var(--footer-text);
         }
         @media(max-width:768px) { .footer-bottom { flex-direction: column; gap: 8px; text-align: center; } }
         
@@ -257,6 +262,7 @@
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     </style>
 
+    <!-- Header (unchanged) -->
     <header>
         <div class="header-inner">
             <a href="/" class="logo">
@@ -298,6 +304,7 @@
         </div>
     </header>
 
+    <!-- Mobile sidebar, search overlay, toast (unchanged) -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
@@ -346,6 +353,7 @@
 
     <div class="toast" id="toast"></div>
 
+    <!-- Main content (unchanged) -->
     <main>
         <h1>All Text Tools – Free, Fast & Private</h1>
         <p class="subtitle">A growing collection of browser‑based text utilities. No uploads, just functional tools you can trust.</p>
