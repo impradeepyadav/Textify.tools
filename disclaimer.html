@@ -11,7 +11,10 @@
   <meta property="og:type" content="website"><meta property="og:url" content="https://textify.tools/disclaimer.html">
   <meta property="og:title" content="Disclaimer - Textify.tools">
   <meta property="og:description" content="Read the disclaimer for Textify.tools. Learn about responsible use, limitations of liability, and our terms.">
-  <link rel="shortcut icon" href="favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  
+  <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6VGXXT81MB');</script>
 </head>
@@ -21,26 +24,26 @@
     :root {
       --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
       --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
-      --input-border: #d4d4d4; --footer-bg: #000000; --footer-text: #a3a3a3;
-      --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --input-border: #d4d4d4;
+      --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000; --footer-link-hover: #000000;
+      --footer-border: #e5e5e5;
       --faq-bg: #fafafa; --faq-active: #f3f4f6;
       --table-header: #f3f4f6; --table-hover: #fafafa; --shadow: rgba(0,0,0,0.1);
       --overlay-bg: rgba(0,0,0,0.5); --success-bg: #f0fdf4; --success-text: #166534;
       --sidebar-bg: #ffffff; --accent: #f8fafc;
       --toast-bg: #1f2937; --toast-text: #ffffff;
-      --scroll-top-bg: #000000; --scroll-top-text: #ffffff;
     }
     body.dark-mode {
       --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
       --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
-      --input-border: #334155; --footer-bg: #020617; --footer-text: #94a3b8;
-      --footer-heading: #ffffff; --footer-link-hover: #f1f5f9;
+      --input-border: #334155;
+      --footer-bg: #1e293b; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --footer-border: #334155;
       --faq-bg: #1e293b; --faq-active: #334155;
       --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0,0,0,0.5);
       --overlay-bg: rgba(0,0,0,0.75); --success-bg: #052e16; --success-text: #86efac;
       --sidebar-bg: #0f172a; --accent: #1e293b;
       --toast-bg: #f1f5f9; --toast-text: #0f172a;
-      --scroll-top-bg: #ffffff; --scroll-top-text: #0f172a;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -50,17 +53,14 @@
       display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
     }
     header {
-      border-bottom: 1px solid var(--line);
-      background: var(--bg);
+      border-bottom: 1px solid var(--line); background: var(--bg);
       display: flex; justify-content: center; align-items: center;
-      padding: 0 20px; height: 64px;
-      transition: background 0.3s, border-color 0.3s;
+      padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
       position: relative; z-index: 100;
     }
-    body.dark-mode header { background: var(--bg); }
     .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
-    .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
-    .logo i { color: var(--primary); width: 24px; height: 24px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
+    .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
     .desktop-nav { display: flex; gap: 15px; align-items: center; }
     .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
@@ -85,17 +85,11 @@
     .hamburger-btn .menu-icon span:first-child { width: 16px; }
     .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
     .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
-    .mobile-sidebar {
-      position: fixed; top: 0; left: -300px; width: 280px; height: 100vh;
-      background: var(--sidebar-bg); z-index: 160;
-      box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-      padding: 20px; display: flex; flex-direction: column;
-      transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow-y: auto;
-    }
+    .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
     .mobile-sidebar.active { left: 0; }
     .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
     .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
+    .mobile-sidebar-logo .logo-img { width: 20px; height: 20px; }
     .mobile-sidebar-close { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
     .mobile-sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
     .mobile-sidebar-nav a { display: block; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; }
@@ -126,28 +120,31 @@
     .search-no-result.show { display: block; }
     main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
     h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
-    h2 { font-size: 26px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
-    h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
+    h3 { font-size: 22px; font-weight: 700; margin: 30px 0 12px; }
     p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
     ul { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
-    .back-link { color: var(--primary); font-weight: 600; display: flex; align-items: center; gap: 5px; margin-bottom: 20px; text-decoration: none; }
-    .back-link:hover { opacity: 0.8; }
-    .content-card { background: var(--card); padding: 25px; border-radius: 14px; border: 1px solid var(--line); margin-top: 20px; }
-    footer { background: var(--footer-bg); color: var(--footer-text); padding: 60px 20px 25px; margin-top: 60px; }
+    footer {
+      background: var(--footer-bg); color: var(--footer-text);
+      padding: 60px 20px 25px; margin-top: 60px;
+      border-top: 1px solid var(--footer-border);
+    }
     .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
     @media (max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}@media(max-width:500px){.footer-grid{grid-template-columns:1fr;}}
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 45px auto 0; padding-top: 22px; border-top: 1px solid #374151; display: flex; justify-content: space-between; font-size: 13px; }
+    .footer-bottom { max-width: 1000px; margin: 45px auto 0; padding-top: 22px; border-top: 1px solid var(--footer-border); display: flex; justify-content: space-between; font-size: 13px; color: var(--footer-text); }
     @media(max-width:768px){.footer-bottom{flex-direction:column;gap:8px;text-align:center;}}
-    @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; } }
+    @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } }
     @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
   </style>
 
   <header>
     <div class="header-inner">
-      <a href="/" class="logo"><i data-lucide="repeat"></i> Textify.Tools</a>
+      <a href="/" class="logo">
+        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+        Textify.Tools
+      </a>
       <div class="header-right">
         <div class="desktop-nav">
           <div class="tools-menu-container">
@@ -159,9 +156,11 @@
               <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
               <a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
               <a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a>
+              <a href="/password-generator.html">Password Generator</a>
+              <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
             </div>
           </div>
-          <a href="privacy.html">Privacy</a><a href="#">Blog</a>
+          <a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a>
         </div>
         <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
           <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
@@ -178,7 +177,10 @@
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
-      <a href="/" class="mobile-sidebar-logo"><i data-lucide="repeat"></i> Textify.Tools</a>
+      <a href="/" class="mobile-sidebar-logo">
+        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+        Textify.Tools
+      </a>
       <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
     </div>
     <div class="mobile-sidebar-nav">
@@ -190,8 +192,10 @@
         <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
         <a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
         <a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a>
+        <a href="/password-generator.html">Password Generator</a>
+        <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
       </div>
-      <a href="privacy.html">Privacy</a><a href="#">Blog</a>
+      <a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a>
     </div>
     <div class="mobile-sidebar-actions">
       <button onclick="openFullSearch(); closeMobileSidebar();"><i data-lucide="search"></i> Search</button>
@@ -206,101 +210,120 @@
         <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
         <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
       </div>
-      <div class="search-results-list" id="fullSearchResultsList">
-        <a href="/text-repeater.html" class="search-result-item" data-keywords="text repeater repeat duplicate copy">Text Repeater <span class="result-tag">Tool</span></a>
-        <a href="/word-counter.html" class="search-result-item" data-keywords="word counter count characters words">Word Counter <span class="result-tag">Tool</span></a>
-        <a href="/case-converter.html" class="search-result-item" data-keywords="case converter uppercase lowercase title">Case Converter <span class="result-tag">Tool</span></a>
-        <a href="/text-reverser.html" class="search-result-item" data-keywords="text reverser reverse backwards flip">Text Reverser <span class="result-tag">Tool</span></a>
-        <a href="/slug-generator.html" class="search-result-item" data-keywords="slug generator url seo friendly">Slug Generator <span class="result-tag">Tool</span></a>
-        <a href="/text-sorter.html" class="search-result-item" data-keywords="text sorter sort alphabetically order">Text Sorter <span class="result-tag">Tool</span></a>
-        <a href="/text-diff-checker.html" class="search-result-item" data-keywords="text diff checker compare difference">Text Diff Checker <span class="result-tag">Tool</span></a>
-        <a href="/text-finder-replacer.html" class="search-result-item" data-keywords="text finder replacer find replace search">Text Finder & Replacer <span class="result-tag">Tool</span></a>
-        <a href="/character-remover.html" class="search-result-item" data-keywords="character remover remove delete chars">Character Remover <span class="result-tag">Tool</span></a>
-        <a href="/text-encoder-decoder.html" class="search-result-item" data-keywords="text encoder decoder base64 morse binary">Text Encoder/Decoder <span class="result-tag">Tool</span></a>
-        <a href="/smart-paraphraser.html" class="search-result-item" data-keywords="smart paraphraser rewrite rephrase article">Smart Paraphraser <span class="result-tag">Tool</span></a>
-        <div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>
-      </div>
+      <div class="search-results-list" id="fullSearchResultsList"></div>
     </div>
   </div>
 
   <main>
-    <a href="/" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Tool</a>
     <h1>Disclaimer</h1>
     <p><strong>Last Updated: February 09, 2026</strong></p>
 
-    <div class="content-card">
-      <h3 style="margin-top:0;">1. General Information</h3>
-      <p>The information provided by <strong>Textify.tools</strong> ("we," "us," or "our") on this website is intended for general informational and educational purposes only. All content is published in good faith; however, we make no representations, warranties, or guarantees of any kind, express or implied, regarding the accuracy, completeness, reliability, suitability, or availability of the information, tools, or results generated on this site.</p>
+    <h3>1. General Information</h3>
+    <p>The information provided by <strong>Textify.tools</strong> ("we," "us," or "our") on this website is intended for general informational and educational purposes only. All content is published in good faith; however, we make no representations, warranties, or guarantees of any kind, express or implied, regarding the accuracy, completeness, reliability, suitability, or availability of the information, tools, or results generated on this site.</p>
 
-      <h3>2. Nature of the Tools</h3>
-      <p>Textify.tools provides browser-based utility tools such as text repetition, formatting, encoding, decoding, and styling features. These tools are designed for learning, testing, formatting, and general productivity use.</p>
-      <p>Outputs generated by the tools may vary depending on browser, device, input data, or user configuration. We do not guarantee that generated results will meet specific third-party requirements.</p>
+    <h3>2. Nature of the Tools</h3>
+    <p>Textify.tools provides browser-based utility tools such as text repetition, formatting, encoding, decoding, and styling features. These tools are designed for learning, testing, formatting, and general productivity use.</p>
+    <p>Outputs generated by the tools may vary depending on browser, device, input data, or user configuration. We do not guarantee that generated results will meet specific third-party requirements.</p>
 
-      <h3>3. Responsible and Lawful Use</h3>
-      <p><strong>Textify.tools does not support or encourage misuse of its tools.</strong> Users must not use the website or generated content for activities that are unlawful, harmful, abusive, deceptive, or disruptive on any platform or service.</p>
-      <p>By using this website, you acknowledge and agree that:</p>
-      <ul>
-        <li>You will use the tools only for lawful and appropriate purposes.</li>
-        <li>You are solely responsible for how generated content is used, shared, or published.</li>
-        <li>You will comply with the rules, policies, and terms of any third-party platform where content is used.</li>
-        <li>Textify.tools is not responsible for misuse, user behavior, or resulting consequences.</li>
-      </ul>
+    <h3>3. Responsible and Lawful Use</h3>
+    <p><strong>Textify.tools does not support or encourage misuse of its tools.</strong> Users must not use the website or generated content for activities that are unlawful, harmful, abusive, deceptive, or disruptive on any platform or service.</p>
+    <p>By using this website, you acknowledge and agree that:</p>
+    <ul>
+      <li>You will use the tools only for lawful and appropriate purposes.</li>
+      <li>You are solely responsible for how generated content is used, shared, or published.</li>
+      <li>You will comply with the rules, policies, and terms of any third-party platform where content is used.</li>
+      <li>Textify.tools is not responsible for misuse, user behavior, or resulting consequences.</li>
+    </ul>
 
-      <h3>4. Third-Party Platforms and Services</h3>
-      <p>Textify.tools is not affiliated with, endorsed by, or responsible for any third-party platforms, including messaging apps, social networks, or websites where generated content may be used.</p>
-      <p>Any actions taken by third-party services (such as content removal, restrictions, suspensions, or account limitations) are solely governed by their respective policies.</p>
+    <h3>4. Third-Party Platforms and Services</h3>
+    <p>Textify.tools is not affiliated with, endorsed by, or responsible for any third-party platforms, including messaging apps, social networks, or websites where generated content may be used.</p>
+    <p>Any actions taken by third-party services (such as content removal, restrictions, suspensions, or account limitations) are solely governed by their respective policies.</p>
 
-      <h3>5. External Links Disclaimer</h3>
-      <p>This website may contain links to external websites or third-party content for convenience or informational purposes. Textify.tools does not control, monitor, or guarantee the accuracy, relevance, reliability, or availability of information found on external sites.</p>
-      <p>Accessing third-party links is done at the user's own risk.</p>
+    <h3>5. External Links Disclaimer</h3>
+    <p>This website may contain links to external websites or third-party content for convenience or informational purposes. Textify.tools does not control, monitor, or guarantee the accuracy, relevance, reliability, or availability of information found on external sites.</p>
+    <p>Accessing third-party links is done at the user's own risk.</p>
 
-      <h3>6. No Professional Advice</h3>
-      <p>The content and tools provided on Textify.tools do not constitute legal, technical, financial, medical, or professional advice. All information is provided for general educational and informational purposes only.</p>
-      <p>Users should seek appropriate professional guidance for specific needs or decisions.</p>
+    <h3>6. No Professional Advice</h3>
+    <p>The content and tools provided on Textify.tools do not constitute legal, technical, financial, medical, or professional advice. All information is provided for general educational and informational purposes only.</p>
+    <p>Users should seek appropriate professional guidance for specific needs or decisions.</p>
 
-      <h3>7. Limitation of Liability</h3>
-      <p>To the fullest extent permitted by applicable law, Textify.tools and its operators shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with:</p>
-      <ul>
-        <li>The use or inability to use the website or its tools</li>
-        <li>Reliance on generated content or outputs</li>
-        <li>Data loss, formatting issues, or unexpected results</li>
-        <li>Third-party platform actions or decisions</li>
-      </ul>
+    <h3>7. Limitation of Liability</h3>
+    <p>To the fullest extent permitted by applicable law, Textify.tools and its operators shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with:</p>
+    <ul>
+      <li>The use or inability to use the website or its tools</li>
+      <li>Reliance on generated content or outputs</li>
+      <li>Data loss, formatting issues, or unexpected results</li>
+      <li>Third-party platform actions or decisions</li>
+    </ul>
 
-      <h3>8. Availability and Changes</h3>
-      <p>We reserve the right to modify, suspend, or discontinue any part of the website or tools at any time without prior notice.</p>
+    <h3>8. Availability and Changes</h3>
+    <p>We reserve the right to modify, suspend, or discontinue any part of the website or tools at any time without prior notice.</p>
 
-      <h3>9. Updates to This Disclaimer</h3>
-      <p>This Disclaimer may be updated periodically to reflect changes in legal requirements, policies, or website functionality.</p>
+    <h3>9. Updates to This Disclaimer</h3>
+    <p>This Disclaimer may be updated periodically to reflect changes in legal requirements, policies, or website functionality.</p>
 
-      <h3>10. Acceptance</h3>
-      <p>By accessing or using Textify.tools, you acknowledge that you have read, understood, and agreed to this Disclaimer.</p>
+    <h3>10. Acceptance</h3>
+    <p>By accessing or using Textify.tools, you acknowledge that you have read, understood, and agreed to this Disclaimer.</p>
 
-      <h3>11. Trademark & Affiliation Notice</h3>
-      <p>The name "Textify" is utilized on this platform (Textify.tools) in a purely descriptive capacity to represent our text-utility services. Textify.tools is an independent entity and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with any other company, website, or brand operating under the "Textify" name.</p>
+    <h3>11. Trademark & Affiliation Notice</h3>
+    <p>The name "Textify" is utilized on this platform (Textify.tools) in a purely descriptive capacity to represent our text-utility services. Textify.tools is an independent entity and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with any other company, website, or brand operating under the "Textify" name.</p>
 
-      <h3>12. Ownership of Content</h3>
-      <p>The tools on Textify.tools are provided for users to process and format their own text. We do not claim ownership of the content entered, repeated, or generated by users.</p>
+    <h3>12. Ownership of Content</h3>
+    <p>The tools on Textify.tools are provided for users to process and format their own text. We do not claim ownership of the content entered, repeated, or generated by users.</p>
 
-      <h3>13. Descriptive & Fair Use Statement</h3>
-      <p>Our use of the term "Textify" is intended as "Descriptive Fair Use." It refers to the core function of the website—to modify or "ify" text.</p>
-    </div>
+    <h3>13. Descriptive & Fair Use Statement</h3>
+    <p>Our use of the term "Textify" is intended as "Descriptive Fair Use." It refers to the core function of the website—to modify or "ify" text.</p>
   </main>
 
   <footer>
     <div class="footer-grid">
       <div>
-        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;"><i data-lucide="repeat" width="20" height="20"></i> Textify.Tools</a>
-        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text repeater tool to repeat text multiple times instantly. Fast, secure, and easy to use.</p>
+        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+          Textify.Tools
+        </a>
+        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
       </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about.html">About Us</a><a href="contact.html">Contact Support</a><a href="privacy.html">Privacy</a><a href="#">Blog</a></div>
-      <div><h5>ALL TOOLS</h5><a href="/text-repeater.html">Text Repeater</a><a href="/word-counter.html">Word Counter</a><a href="/case-converter.html">Case Converter</a><a href="/text-reverser.html">Text Reverser</a><a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a><a href="/text-diff-checker.html">Text Diff Checker</a><a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a><a href="/text-encoder-decoder.html">Text Encoder/Decoder</a><a href="/smart-paraphraser.html">Smart Paraphraser</a></div>
+      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about.html">About Us</a><a href="contact.html">Contact Support</a><a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a></div>
+      <div><h5>ALL TOOLS</h5>
+        <a href="/text-repeater.html">Text Repeater</a><a href="/word-counter.html">Word Counter</a><a href="/case-converter.html">Case Converter</a>
+        <a href="/text-reverser.html">Text Reverser</a><a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
+        <a href="/text-diff-checker.html">Text Diff Checker</a><a href="/text-finder-replacer.html">Text Finder & Replacer</a>
+        <a href="/character-remover.html">Character Remover</a><a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
+        <a href="/smart-paraphraser.html">Smart Paraphraser</a><a href="/password-generator.html">Password Generator</a>
+        <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
+      </div>
       <div><h5>LEGAL & INFO</h5><a href="disclaimer.html">Disclaimer</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
     </div>
     <div class="footer-bottom"><div>&copy; 2026 Textify.tools. All rights reserved. Made with ❤️ for fun.</div><div>Designed for Fun & Testing</div></div>
   </footer>
 
   <script>
+    const tools = [
+      { name: 'Text Repeater', link: '/text-repeater.html', keywords: 'repeat duplicate multiply copy paste' },
+      { name: 'Smart Paraphraser', link: '/smart-paraphraser.html', keywords: 'paraphrase rewrite rephrase article spinner' },
+      { name: 'Word Counter', link: '/word-counter.html', keywords: 'word count character counter letters' },
+      { name: 'Text Diff Checker', link: '/text-diff-checker.html', keywords: 'diff compare difference text comparison' },
+      { name: 'Case Converter', link: '/case-converter.html', keywords: 'uppercase lowercase title case sentence' },
+      { name: 'Text Reverser', link: '/text-reverser.html', keywords: 'reverse backwards mirror flip upside down' },
+      { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder.html', keywords: 'encode decode base64 url binary hex' },
+      { name: 'Slug Generator', link: '/slug-generator.html', keywords: 'slug url seo friendly permalink' },
+      { name: 'Text Sorter', link: '/text-sorter.html', keywords: 'sort order alphabetically lines list' },
+      { name: 'Text Finder & Replacer', link: '/text-finder-replacer.html', keywords: 'find replace search and replace bulk' },
+      { name: 'Character Remover', link: '/character-remover.html', keywords: 'remove delete characters punctuation spaces' },
+      { name: 'Password Generator', link: '/password-generator.html', keywords: 'password generator random strong secure' },
+      { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator.html', keywords: 'lorem ipsum placeholder dummy text generator' }
+    ];
+
+    function buildSearchList() {
+      const list = document.getElementById('fullSearchResultsList');
+      list.innerHTML = tools.map(tool => `
+        <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
+          ${tool.name} <span class="result-tag">Tool</span>
+        </a>
+      `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
+    }
+
     function toggleTheme() {
       const b=document.body;const s=document.getElementById('sunIcon');const m=document.getElementById('moonIcon');
       const ms=document.getElementById('mobileSunIcon');const mm=document.getElementById('mobileMoonIcon');
@@ -338,6 +361,8 @@
     }
     document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l=>{l.addEventListener('click',()=>{closeFullSearch();});});
     document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){closeFullSearch();closeMobileSidebar();}if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openFullSearch();}});
+
+    buildSearchList();
     lucide.createIcons();
   </script>
 </body>
