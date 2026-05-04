@@ -11,7 +11,10 @@
   <meta property="og:type" content="website"><meta property="og:url" content="https://textify.tools/word-counter.html">
   <meta property="og:title" content="Word Counter - Count Words & Characters | Textify.tools">
   <meta property="og:description" content="Count words, characters, sentences, and paragraphs instantly with our free online word counter. Privacy-friendly, fast, and easy to use.">
-  <link rel="shortcut icon" href="favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  
+  <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6VGXXT81MB');</script>
 </head>
@@ -21,26 +24,26 @@
     :root {
       --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
       --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
-      --input-border: #d4d4d4; --footer-bg: #000000; --footer-text: #a3a3a3;
-      --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --input-border: #d4d4d4;
+      --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000; --footer-link-hover: #000000;
+      --footer-border: #e5e5e5;
       --faq-bg: #fafafa; --faq-active: #f3f4f6;
       --table-header: #f3f4f6; --table-hover: #fafafa; --shadow: rgba(0,0,0,0.1);
       --overlay-bg: rgba(0,0,0,0.5); --success-bg: #f0fdf4; --success-text: #166534;
       --sidebar-bg: #ffffff; --accent: #f8fafc;
       --toast-bg: #1f2937; --toast-text: #ffffff;
-      --scroll-top-bg: #000000; --scroll-top-text: #ffffff;
     }
     body.dark-mode {
       --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
       --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
-      --input-border: #334155; --footer-bg: #020617; --footer-text: #94a3b8;
-      --footer-heading: #ffffff; --footer-link-hover: #f1f5f9;
+      --input-border: #334155;
+      --footer-bg: #1e293b; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --footer-border: #334155;
       --faq-bg: #1e293b; --faq-active: #334155;
       --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0,0,0,0.5);
       --overlay-bg: rgba(0,0,0,0.75); --success-bg: #052e16; --success-text: #86efac;
       --sidebar-bg: #0f172a; --accent: #1e293b;
       --toast-bg: #f1f5f9; --toast-text: #0f172a;
-      --scroll-top-bg: #ffffff; --scroll-top-text: #0f172a;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -50,17 +53,14 @@
       display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
     }
     header {
-      border-bottom: 1px solid var(--line);
-      background: var(--bg);
+      border-bottom: 1px solid var(--line); background: var(--bg);
       display: flex; justify-content: center; align-items: center;
-      padding: 0 20px; height: 64px;
-      transition: background 0.3s, border-color 0.3s;
+      padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
       position: relative; z-index: 100;
     }
-    body.dark-mode header { background: var(--bg); }
     .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
-    .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
-    .logo i { color: var(--primary); width: 24px; height: 24px; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
+    .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
     .desktop-nav { display: flex; gap: 15px; align-items: center; }
     .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
@@ -85,17 +85,11 @@
     .hamburger-btn .menu-icon span:first-child { width: 16px; }
     .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
     .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
-    .mobile-sidebar {
-      position: fixed; top: 0; left: -300px; width: 280px; height: 100vh;
-      background: var(--sidebar-bg); z-index: 160;
-      box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-      padding: 20px; display: flex; flex-direction: column;
-      transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow-y: auto;
-    }
+    .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
     .mobile-sidebar.active { left: 0; }
     .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
     .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
+    .mobile-sidebar-logo .logo-img { width: 20px; height: 20px; }
     .mobile-sidebar-close { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
     .mobile-sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
     .mobile-sidebar-nav a { display: block; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; }
@@ -141,13 +135,22 @@
     .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); flex: 1; }
     .btn-primary:hover { opacity: 0.88; }
     .btn-outline:hover { background: var(--hover); }
-    footer { background: var(--footer-bg); color: var(--footer-text); padding: 60px 20px 25px; margin-top: 60px; }
+    .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+    .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); }
+    .faq-answer { display: none; padding: 16px 18px; color: var(--text-light); border-top: 1px solid var(--line); }
+    .faq-item.active .faq-answer { display: block; }
+    .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
+    footer {
+      background: var(--footer-bg); color: var(--footer-text);
+      padding: 60px 20px 25px; margin-top: 60px;
+      border-top: 1px solid var(--footer-border);
+    }
     .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
     @media (max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}@media(max-width:500px){.footer-grid{grid-template-columns:1fr;}}
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 45px auto 0; padding-top: 22px; border-top: 1px solid #374151; display: flex; justify-content: space-between; font-size: 13px; }
+    .footer-bottom { max-width: 1000px; margin: 45px auto 0; padding-top: 22px; border-top: 1px solid var(--footer-border); display: flex; justify-content: space-between; font-size: 13px; color: var(--footer-text); }
     @media(max-width:768px){.footer-bottom{flex-direction:column;gap:8px;text-align:center;}}
     @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } }
     @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
@@ -155,7 +158,10 @@
 
   <header>
     <div class="header-inner">
-      <a href="/" class="logo"><i data-lucide="repeat"></i> Textify.Tools</a>
+      <a href="/" class="logo">
+        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+        Textify.Tools
+      </a>
       <div class="header-right">
         <div class="desktop-nav">
           <div class="tools-menu-container">
@@ -167,9 +173,11 @@
               <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
               <a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
               <a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a>
+              <a href="/password-generator.html">Password Generator</a>
+              <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
             </div>
           </div>
-          <a href="privacy.html">Privacy</a><a href="#">Blog</a>
+          <a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a>
         </div>
         <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
           <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
@@ -186,7 +194,10 @@
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
-      <a href="/" class="mobile-sidebar-logo"><i data-lucide="repeat"></i> Textify.Tools</a>
+      <a href="/" class="mobile-sidebar-logo">
+        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+        Textify.Tools
+      </a>
       <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
     </div>
     <div class="mobile-sidebar-nav">
@@ -198,8 +209,10 @@
         <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
         <a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
         <a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a>
+        <a href="/password-generator.html">Password Generator</a>
+        <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
       </div>
-      <a href="privacy.html">Privacy</a><a href="#">Blog</a>
+      <a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a>
     </div>
     <div class="mobile-sidebar-actions">
       <button onclick="openFullSearch(); closeMobileSidebar();"><i data-lucide="search"></i> Search</button>
@@ -214,20 +227,7 @@
         <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
         <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
       </div>
-      <div class="search-results-list" id="fullSearchResultsList">
-        <a href="/text-repeater.html" class="search-result-item" data-keywords="text repeater repeat duplicate copy">Text Repeater <span class="result-tag">Tool</span></a>
-        <a href="/word-counter.html" class="search-result-item" data-keywords="word counter count characters words">Word Counter <span class="result-tag">Tool</span></a>
-        <a href="/case-converter.html" class="search-result-item" data-keywords="case converter uppercase lowercase title">Case Converter <span class="result-tag">Tool</span></a>
-        <a href="/text-reverser.html" class="search-result-item" data-keywords="text reverser reverse backwards flip">Text Reverser <span class="result-tag">Tool</span></a>
-        <a href="/slug-generator.html" class="search-result-item" data-keywords="slug generator url seo friendly">Slug Generator <span class="result-tag">Tool</span></a>
-        <a href="/text-sorter.html" class="search-result-item" data-keywords="text sorter sort alphabetically order">Text Sorter <span class="result-tag">Tool</span></a>
-        <a href="/text-diff-checker.html" class="search-result-item" data-keywords="text diff checker compare difference">Text Diff Checker <span class="result-tag">Tool</span></a>
-        <a href="/text-finder-replacer.html" class="search-result-item" data-keywords="text finder replacer find replace search">Text Finder & Replacer <span class="result-tag">Tool</span></a>
-        <a href="/character-remover.html" class="search-result-item" data-keywords="character remover remove delete chars">Character Remover <span class="result-tag">Tool</span></a>
-        <a href="/text-encoder-decoder.html" class="search-result-item" data-keywords="text encoder decoder base64 morse binary">Text Encoder/Decoder <span class="result-tag">Tool</span></a>
-        <a href="/smart-paraphraser.html" class="search-result-item" data-keywords="smart paraphraser rewrite rephrase article">Smart Paraphraser <span class="result-tag">Tool</span></a>
-        <div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>
-      </div>
+      <div class="search-results-list" id="fullSearchResultsList"></div>
     </div>
   </div>
 
@@ -274,17 +274,17 @@
       <p>All text processing happens locally in your browser. Your text is never uploaded to any server, stored, or shared. You can count words with complete peace of mind.</p>
 
       <h2>Frequently Asked Questions</h2>
-      <div class="faq-item" style="margin-bottom:16px; border:1px solid var(--line); border-radius:10px; overflow:hidden;">
-        <div class="faq-question" onclick="toggleFaq(this)" style="background: var(--faq-bg); padding:16px 18px; font-weight:600; cursor:pointer; display:flex; justify-content:space-between; align-items:center; color: var(--text);">How accurate is the word count?<i data-lucide="chevron-down" width="16"></i></div>
-        <div class="faq-answer" style="display:none; padding:16px 18px; color: var(--text-light);">Our word counter is highly accurate for standard English text. It counts words separated by spaces and handles punctuation correctly.</div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">How accurate is the word count?<i data-lucide="chevron-down" width="16"></i></div>
+        <div class="faq-answer">Our word counter is highly accurate for standard English text. It counts words separated by spaces and handles punctuation correctly.</div>
       </div>
-      <div class="faq-item" style="margin-bottom:16px; border:1px solid var(--line); border-radius:10px; overflow:hidden;">
-        <div class="faq-question" onclick="toggleFaq(this)" style="background: var(--faq-bg); padding:16px 18px; font-weight:600; cursor:pointer; display:flex; justify-content:space-between; align-items:center; color: var(--text);">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div>
-        <div class="faq-answer" style="display:none; padding:16px 18px; color: var(--text-light);">Yes! The word counter is fully responsive and works on all devices including iPhone and Android.</div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div>
+        <div class="faq-answer">Yes! The word counter is fully responsive and works on all devices including iPhone and Android.</div>
       </div>
-      <div class="faq-item" style="margin-bottom:16px; border:1px solid var(--line); border-radius:10px; overflow:hidden;">
-        <div class="faq-question" onclick="toggleFaq(this)" style="background: var(--faq-bg); padding:16px 18px; font-weight:600; cursor:pointer; display:flex; justify-content:space-between; align-items:center; color: var(--text);">Is my text private?<i data-lucide="chevron-down" width="16"></i></div>
-        <div class="faq-answer" style="display:none; padding:16px 18px; color: var(--text-light);">Absolutely. All counting happens locally in your browser. No data is sent anywhere.</div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div>
+        <div class="faq-answer">Absolutely. All counting happens locally in your browser. No data is sent anywhere.</div>
       </div>
     </div>
   </main>
@@ -292,17 +292,52 @@
   <footer>
     <div class="footer-grid">
       <div>
-        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;"><i data-lucide="repeat" width="20" height="20"></i> Textify.Tools</a>
+        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+          Textify.Tools
+        </a>
         <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools to repeat, count, and transform text. Fast, secure, and easy to use.</p>
       </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="#">Blog</a></div>
-      <div><h5>ALL TOOLS</h5><a href="/text-repeater.html">Text Repeater</a><a href="/word-counter.html">Word Counter</a><a href="/case-converter.html">Case Converter</a><a href="/text-reverser.html">Text Reverser</a><a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a><a href="/text-diff-checker.html">Text Diff Checker</a><a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a><a href="/text-encoder-decoder.html">Text Encoder/Decoder</a><a href="/smart-paraphraser.html">Smart Paraphraser</a></div>
+      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a></div>
+      <div><h5>ALL TOOLS</h5>
+        <a href="/text-repeater.html">Text Repeater</a><a href="/word-counter.html">Word Counter</a><a href="/case-converter.html">Case Converter</a>
+        <a href="/text-reverser.html">Text Reverser</a><a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
+        <a href="/text-diff-checker.html">Text Diff Checker</a><a href="/text-finder-replacer.html">Text Finder & Replacer</a>
+        <a href="/character-remover.html">Character Remover</a><a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
+        <a href="/smart-paraphraser.html">Smart Paraphraser</a><a href="/password-generator.html">Password Generator</a>
+        <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
+      </div>
       <div><h5>LEGAL & INFO</h5><a href="disclaimer.html">Disclaimer</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
     </div>
     <div class="footer-bottom"><div>&copy; 2026 Textify.tools. All rights reserved. Made with ❤️ for fun.</div><div>Designed for Fun & Testing</div></div>
   </footer>
 
   <script>
+    const tools = [
+      { name: 'Text Repeater', link: '/text-repeater.html', keywords: 'repeat duplicate multiply copy paste' },
+      { name: 'Smart Paraphraser', link: '/smart-paraphraser.html', keywords: 'paraphrase rewrite rephrase article spinner' },
+      { name: 'Word Counter', link: '/word-counter.html', keywords: 'word count character counter letters' },
+      { name: 'Text Diff Checker', link: '/text-diff-checker.html', keywords: 'diff compare difference text comparison' },
+      { name: 'Case Converter', link: '/case-converter.html', keywords: 'uppercase lowercase title case sentence' },
+      { name: 'Text Reverser', link: '/text-reverser.html', keywords: 'reverse backwards mirror flip upside down' },
+      { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder.html', keywords: 'encode decode base64 url binary hex' },
+      { name: 'Slug Generator', link: '/slug-generator.html', keywords: 'slug url seo friendly permalink' },
+      { name: 'Text Sorter', link: '/text-sorter.html', keywords: 'sort order alphabetically lines list' },
+      { name: 'Text Finder & Replacer', link: '/text-finder-replacer.html', keywords: 'find replace search and replace bulk' },
+      { name: 'Character Remover', link: '/character-remover.html', keywords: 'remove delete characters punctuation spaces' },
+      { name: 'Password Generator', link: '/password-generator.html', keywords: 'password generator random strong secure' },
+      { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator.html', keywords: 'lorem ipsum placeholder dummy text generator' }
+    ];
+
+    function buildSearchList() {
+      const list = document.getElementById('fullSearchResultsList');
+      list.innerHTML = tools.map(tool => `
+        <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
+          ${tool.name} <span class="result-tag">Tool</span>
+        </a>
+      `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
+    }
+
     function toggleTheme() {
       const b=document.body;const s=document.getElementById('sunIcon');const m=document.getElementById('moonIcon');
       const ms=document.getElementById('mobileSunIcon');const mm=document.getElementById('mobileMoonIcon');
@@ -341,7 +376,7 @@
     document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l=>{l.addEventListener('click',()=>{closeFullSearch();});});
     document.addEventListener('keydown',(e)=>{if(e.key==='Escape'){closeFullSearch();closeMobileSidebar();}if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openFullSearch();}});
 
-    function toggleFaq(e){const i=e.parentElement;i.classList.toggle('active');const icon=e.querySelector('svg');if(icon)icon.style.transform=i.classList.contains('active')?'rotate(180deg)':'rotate(0deg)';i.querySelector('.faq-answer').style.display=i.classList.contains('active')?'block':'none';}
+    function toggleFaq(e){const i=e.parentElement;i.classList.toggle('active');const icon=e.querySelector('svg');if(icon)icon.style.transform=i.classList.contains('active')?'rotate(180deg)':'rotate(0deg)';}
 
     // Word counter logic
     const inputText = document.getElementById('inputText');
@@ -389,6 +424,7 @@
       setTimeout(() => { btn.innerHTML = orig; lucide.createIcons(); }, 2000);
     }
 
+    buildSearchList();
     lucide.createIcons();
   </script>
 </body>
