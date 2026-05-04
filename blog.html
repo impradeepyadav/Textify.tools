@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#ffffff">
+  <title>Blog – Textify.tools</title>
+  <meta name="description" content="Tips, tutorials, and news about text tools, productivity, and online utilities from Textify.tools.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://textify.tools/blog.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://textify.tools/blog.html">
+  <meta property="og:title" content="Blog – Textify.tools">
+  <meta property="og:description" content="Learn how to use text tools effectively with our free guides and tutorials.">
+  
+  <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-6VGXXT81MB');
+  </script>
+</head>
+<body>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
+      --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
+      --input-border: #d4d4d4;
+      /* Footer – light mode (white) */
+      --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000; --footer-link-hover: #000000;
+      --footer-border: #e5e5e5;
+      --faq-bg: #fafafa; --faq-active: #f3f4f6;
+      --table-header: #f3f4f6; --table-hover: #fafafa; --shadow: rgba(0,0,0,0.1);
+      --overlay-bg: rgba(0,0,0,0.5); --success-bg: #f0fdf4; --success-text: #166534;
+      --sidebar-bg: #ffffff; --accent: #f8fafc;
+      --toast-bg: #1f2937; --toast-text: #ffffff;
+      --scroll-top-bg: #000000; --scroll-top-text: #ffffff;
+    }
+    body.dark-mode {
+      --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
+      --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
+      --input-border: #334155;
+      /* Footer – dark mode (dark grey) */
+      --footer-bg: #1e293b; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --footer-border: #334155;
+      --faq-bg: #1e293b; --faq-active: #334155;
+      --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0,0,0,0.5);
+      --overlay-bg: rgba(0,0,0,0.75); --success-bg: #052e16; --success-text: #86efac;
+      --sidebar-bg: #0f172a; --accent: #1e293b;
+      --toast-bg: #f1f5f9; --toast-text: #0f172a;
+      --scroll-top-bg: #ffffff; --scroll-top-text: #0f172a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg); color: var(--text); min-height: 100vh;
+      display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+    }
+
+    /* HEADER (same as main) */
+    header {
+      border-bottom: 1px solid var(--line); background: var(--bg);
+      display: flex; justify-content: center; align-items: center;
+      padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
+      position: relative; z-index: 100;
+    }
+    .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
+    .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
+    .header-right { display: flex; align-items: center; gap: 12px; }
+    .desktop-nav { display: flex; gap: 15px; align-items: center; }
+    .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
+    .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
+    .tools-menu-container { position: relative; }
+    .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; }
+    .tools-trigger:hover { color: var(--primary); background: var(--hover); }
+    .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
+    .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; min-width: 280px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
+    .tools-menu-container:hover .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
+    .tools-mega-menu a { display: block; padding: 9px 12px; border-radius: 8px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 2px; }
+    .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
+    .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
+    .theme-btn:hover { background: var(--hover); }
+    .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
+    .search-trigger:hover { border-color: var(--primary); color: var(--primary); }
+    .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; }
+    .hamburger-btn:hover { background: var(--hover); }
+    .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
+    .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
+    .hamburger-btn .menu-icon span:first-child { width: 16px; }
+    .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
+    .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
+    .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
+    .mobile-sidebar.active { left: 0; }
+    .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
+    .mobile-sidebar-logo .logo-img { width: 20px; height: 20px; }
+    .mobile-sidebar-close { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
+    .mobile-sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+    .mobile-sidebar-nav a { display: block; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; }
+    .mobile-sidebar-nav a:hover { background: var(--hover); color: var(--primary); }
+    .mobile-tools-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 10px; background: none; border: none; cursor: pointer; color: var(--text); font-weight: 500; font-size: 15px; font-family: inherit; transition: 0.2s; }
+    .mobile-tools-toggle:hover { background: var(--hover); color: var(--primary); }
+    .mobile-tools-toggle i { width: 16px; height: 16px; transition: transform 0.3s; }
+    .mobile-tools-toggle.active i { transform: rotate(180deg); }
+    .mobile-tools-menu { display: none; flex-direction: column; padding-left: 16px; gap: 2px; margin-bottom: 6px; }
+    .mobile-tools-menu.active { display: flex; }
+    .mobile-tools-menu a { font-size: 14px; padding: 10px 14px; color: var(--text-light); }
+    .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
+    .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
+    .search-overlay-full { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--overlay-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 300; display: flex; flex-direction: column; align-items: center; padding-top: 80px; opacity: 0; visibility: hidden; transition: 0.3s; }
+    .search-overlay-full.active { opacity: 1; visibility: visible; }
+    .search-container { width: 90%; max-width: 550px; display: flex; flex-direction: column; max-height: 80vh; }
+    .search-box { display: flex; align-items: center; gap: 10px; background: var(--bg); border-radius: 16px; padding: 8px 16px; border: 2px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 10px; }
+    .search-box input { flex: 1; border: none; background: transparent; font-size: 17px; color: var(--text); outline: none; font-family: inherit; padding: 10px 0; }
+    .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; max-height: 60vh; }
+    .search-results-list .search-result-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; border-bottom: 1px solid var(--line); }
+    .search-results-list .search-result-item:last-child { border-bottom: none; }
+    .search-results-list .search-result-item:hover { background: var(--hover); color: var(--primary); }
+    .search-results-list .search-result-item.hidden-item { display: none; }
+    .search-results-list .result-tag { font-size: 10px; background: var(--hover); padding: 3px 8px; border-radius: 12px; color: var(--text-light); text-transform: uppercase; font-weight: 600; }
+    .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
+    .search-no-result.show { display: block; }
+
+    /* BLOG CONTENT */
+    main { flex: 1; max-width: 1100px; margin: 30px auto; padding: 0 20px; width: 100%; }
+    h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
+    .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 40px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; margin-bottom: 40px; }
+    .post-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+    .post-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .post-card-img { width: 100%; height: 180px; background: var(--hover); display: flex; align-items: center; justify-content: center; color: var(--text); }
+    .post-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .post-card-date { font-size: 12px; color: var(--text-light); margin-bottom: 8px; }
+    .post-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
+    .post-card h3 a { text-decoration: none; color: var(--text); }
+    .post-card h3 a:hover { color: var(--primary); }
+    .post-card-excerpt { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 16px; flex: 1; }
+    .read-more { align-self: flex-start; background: var(--primary); color: var(--bg); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13px; transition: opacity 0.2s; }
+    .read-more:hover { opacity: 0.85; }
+    .load-more-container { text-align: center; margin: 20px 0 40px; }
+    .btn-load { background: var(--primary); color: var(--bg); border: none; padding: 14px 32px; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+    .btn-load:hover { opacity: 0.88; }
+    .btn-load:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* FOOTER – now uses CSS variables, works in dark mode too */
+    footer {
+      background: var(--footer-bg); color: var(--footer-text);
+      padding: 60px 20px 25px; margin-top: 60px;
+      border-top: 1px solid var(--footer-border);
+    }
+    .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+    @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
+    .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
+    .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
+    .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
+    .footer-bottom { max-width: 1000px; margin: 45px auto 0; padding-top: 22px; border-top: 1px solid var(--footer-border); display: flex; justify-content: space-between; font-size: 13px; color: var(--footer-text); }
+    @media(max-width:768px) { .footer-bottom { flex-direction: column; gap: 8px; text-align: center; } }
+
+    .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    @media (max-width: 768px) {
+      .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
+      header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
+    }
+    @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
+  </style>
+
+  <!-- ====== HEADER ====== -->
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+        Textify.Tools
+      </a>
+      <div class="header-right">
+        <div class="desktop-nav">
+          <div class="tools-menu-container">
+            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+            <div class="tools-mega-menu">
+              <a href="/text-repeater.html">Text Repeater</a><a href="/smart-paraphraser.html">Smart Paraphraser</a>
+              <a href="/word-counter.html">Word Counter</a><a href="/text-diff-checker.html">Text Diff Checker</a>
+              <a href="/case-converter.html">Case Converter</a><a href="/text-reverser.html">Text Reverser</a>
+              <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
+              <a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
+              <a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a>
+              <a href="/password-generator.html">Password Generator</a>
+              <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
+            </div>
+          </div>
+          <a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a>
+        </div>
+        <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+          <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+          <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+        </button>
+        <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+        <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+          <span class="menu-icon"><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile sidebar -->
+  <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
+  <div class="mobile-sidebar" id="mobileSidebar">
+    <div class="mobile-sidebar-header">
+      <a href="/" class="mobile-sidebar-logo">
+        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+        Textify.Tools
+      </a>
+      <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
+    </div>
+    <div class="mobile-sidebar-nav">
+      <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
+      <div class="mobile-tools-menu" id="mobileToolsMenu">
+        <a href="/text-repeater.html">Text Repeater</a><a href="/smart-paraphraser.html">Smart Paraphraser</a>
+        <a href="/word-counter.html">Word Counter</a><a href="/text-diff-checker.html">Text Diff Checker</a>
+        <a href="/case-converter.html">Case Converter</a><a href="/text-reverser.html">Text Reverser</a>
+        <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
+        <a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
+        <a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a>
+        <a href="/password-generator.html">Password Generator</a>
+        <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
+      </div>
+      <a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a>
+    </div>
+    <div class="mobile-sidebar-actions">
+      <button onclick="openFullSearch(); closeMobileSidebar();"><i data-lucide="search"></i> Search</button>
+      <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" style="display:none;"></i> Theme</button>
+    </div>
+  </div>
+
+  <!-- search overlay -->
+  <div class="search-overlay-full" id="searchOverlayFull">
+    <div class="search-container">
+      <div class="search-box">
+        <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
+        <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
+        <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
+      </div>
+      <div class="search-results-list" id="fullSearchResultsList"></div>
+    </div>
+  </div>
+
+  <!-- ====== BLOG CONTENT ====== -->
+  <main>
+    <h1>Textify Blog</h1>
+    <p class="subtitle">Tips, tutorials, and updates about text tools, productivity, and more.</p>
+    <div class="blog-grid" id="blogGrid"></div>
+    <div class="load-more-container" id="loadMoreContainer">
+      <button class="btn-load" id="loadMoreBtn" onclick="loadMorePosts()">Load More Posts</button>
+    </div>
+  </main>
+
+  <!-- ====== FOOTER (automatically adapts to dark mode) ====== -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+          Textify.Tools
+        </a>
+        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+      </div>
+      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a></div>
+      <div><h5>ALL TOOLS</h5>
+        <a href="/text-repeater.html">Text Repeater</a><a href="/word-counter.html">Word Counter</a><a href="/case-converter.html">Case Converter</a>
+        <a href="/text-reverser.html">Text Reverser</a><a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
+        <a href="/text-diff-checker.html">Text Diff Checker</a><a href="/text-finder-replacer.html">Text Finder & Replacer</a>
+        <a href="/character-remover.html">Character Remover</a><a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
+        <a href="/smart-paraphraser.html">Smart Paraphraser</a><a href="/password-generator.html">Password Generator</a>
+        <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
+      </div>
+      <div><h5>LEGAL & INFO</h5><a href="disclaimer.html">Disclaimer</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+    </div>
+    <div class="footer-bottom"><div>&copy; 2026 Textify.tools. All rights reserved.</div><div>Made with ❤️ for fun</div></div>
+  </footer>
+
+  <script>
+    // Tools search data
+    const tools = [
+      { name: 'Text Repeater', link: '/text-repeater.html', keywords: 'repeat duplicate multiply copy paste' },
+      { name: 'Smart Paraphraser', link: '/smart-paraphraser.html', keywords: 'paraphrase rewrite rephrase article spinner' },
+      { name: 'Word Counter', link: '/word-counter.html', keywords: 'word count character counter letters' },
+      { name: 'Text Diff Checker', link: '/text-diff-checker.html', keywords: 'diff compare difference text comparison' },
+      { name: 'Case Converter', link: '/case-converter.html', keywords: 'uppercase lowercase title case sentence' },
+      { name: 'Text Reverser', link: '/text-reverser.html', keywords: 'reverse backwards mirror flip upside down' },
+      { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder.html', keywords: 'encode decode base64 url binary hex' },
+      { name: 'Slug Generator', link: '/slug-generator.html', keywords: 'slug url seo friendly permalink' },
+      { name: 'Text Sorter', link: '/text-sorter.html', keywords: 'sort order alphabetically lines list' },
+      { name: 'Text Finder & Replacer', link: '/text-finder-replacer.html', keywords: 'find replace search and replace bulk' },
+      { name: 'Character Remover', link: '/character-remover.html', keywords: 'remove delete characters punctuation spaces' },
+      { name: 'Password Generator', link: '/password-generator.html', keywords: 'password generator random strong secure' },
+      { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator.html', keywords: 'lorem ipsum placeholder dummy text generator' }
+    ];
+
+    function buildSearchList() {
+      const list = document.getElementById('fullSearchResultsList');
+      list.innerHTML = tools.map(tool => `
+        <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
+          ${tool.name} <span class="result-tag">Tool</span>
+        </a>
+      `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
+    }
+
+    // Blog posts with Lucide icons
+    const allPosts = [
+      { slug: "how-to-repeat-text-on-whatsapp", title: "How to Repeat Text on WhatsApp Safely", date: "May 2, 2026", excerpt: "Learn the easiest way to send repeated messages on WhatsApp using online tools without getting banned.", icon: "message-circle" },
+      { slug: "text-repeater-for-instagram-bio", title: "Make Your Instagram Bio Stand Out with Text Repeater", date: "April 28, 2026", excerpt: "Decorations, fonts, and line breaks – use our text repeater to craft a unique Instagram bio.", icon: "sparkles" },
+      { slug: "top-5-text-tools-for-developers", title: "Top 5 Free Text Tools Every Developer Should Bookmark", date: "April 22, 2026", excerpt: "From diff checkers to case converters, these tools save hours of manual work.", icon: "code" },
+      { slug: "glitch-text-generator-guide", title: "Glitch & Zalgo Text: Cool Effects Explained", date: "April 18, 2026", excerpt: "How glitch text works and when to use it for creative projects.", icon: "wand-2" },
+      { slug: "password-generator-privacy", title: "Why Client-Side Password Generators Are Safer", date: "April 15, 2026", excerpt: "Understanding the privacy benefits of generating passwords directly in your browser.", icon: "shield-check" },
+      { slug: "what-is-lorem-ipsum", title: "What Is Lorem Ipsum and When to Use It", date: "April 12, 2026", excerpt: "The classic placeholder text explained – from history to modern design usage.", icon: "file-text" },
+      { slug: "slug-generator-seo-tips", title: "SEO-Friendly URL Slugs: Best Practices", date: "April 10, 2026", excerpt: "Create clean, readable URLs with our slug generator and improve your search rankings.", icon: "globe" },
+      { slug: "reverse-text-tricks", title: "5 Fun Ways to Use the Reverse Text Tool", date: "April 7, 2026", excerpt: "Prank friends, create mirror messages, or design puzzles with reversed text.", icon: "arrow-left-right" },
+      { slug: "case-converter-for-writers", title: "Case Converter: A Writer's Best Friend", date: "April 4, 2026", excerpt: "Fix CAPS LOCK accidents or convert headlines to title case instantly.", icon: "type" },
+      { slug: "textifier-tools-productivity-hacks", title: "5 Productivity Hacks with Textify Tools", date: "April 1, 2026", excerpt: "Combine multiple tools to supercharge your content workflow.", icon: "rocket" },
+      { slug: "word-counter-accuracy", title: "How Accurate is an Online Word Counter?", date: "March 28, 2026", excerpt: "We test our word counter against desktop apps – the results are impressive.", icon: "hash" },
+      { slug: "text-diff-checker-tutorial", title: "Spot Differences in Code Instantly with Text Diff Checker", date: "March 25, 2026", excerpt: "A quick guide to using the diff tool for comparing code snippets.", icon: "git-compare" },
+      { slug: "privacy-first-tools-matter", title: "Why Privacy-First Online Tools Matter in 2026", date: "March 22, 2026", excerpt: "With data breaches on the rise, client-side tools are becoming a necessity.", icon: "lock" },
+      { slug: "emoji-text-art", title: "Create Emoji Art with Text Repeater", date: "March 20, 2026", excerpt: "Use custom separators and emojis to craft amazing text patterns.", icon: "palette" },
+      { slug: "online-text-tools-roundup", title: "The Ultimate Online Text Tools Roundup", date: "March 18, 2026", excerpt: "A complete overview of free text manipulation tools available on Textify.", icon: "book-open" }
+    ];
+
+    let visiblePosts = 9;
+    const blogGrid = document.getElementById('blogGrid');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const loadMoreContainer = document.getElementById('loadMoreContainer');
+
+    function renderPosts(count) {
+      const postsToShow = allPosts.slice(0, count);
+      blogGrid.innerHTML = postsToShow.map(post => `
+        <div class="post-card">
+          <div class="post-card-img">
+            <i data-lucide="${post.icon}" width="48" height="48" stroke-width="1.5"></i>
+          </div>
+          <div class="post-card-body">
+            <span class="post-card-date">${post.date}</span>
+            <h3><a href="/blog/${post.slug}">${post.title}</a></h3>
+            <p class="post-card-excerpt">${post.excerpt}</p>
+            <a href="/blog/${post.slug}" class="read-more">Read More →</a>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function loadMorePosts() {
+      visiblePosts += 6;
+      if (visiblePosts >= allPosts.length) {
+        visiblePosts = allPosts.length;
+        loadMoreContainer.style.display = 'none';
+      }
+      renderPosts(visiblePosts);
+    }
+
+    renderPosts(visiblePosts);
+    if (visiblePosts >= allPosts.length) {
+      loadMoreContainer.style.display = 'none';
+    }
+
+    function toggleTheme() {
+      const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
+            ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
+      if (b.classList.contains('dark-mode')) {
+        b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
+        if(ms) { ms.style.display='block'; mm.style.display='none'; }
+        localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
+      } else {
+        b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
+        if(ms) { ms.style.display='none'; mm.style.display='block'; }
+        localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
+      }
+      lucide.createIcons();
+    }
+    document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+      document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
+      const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
+      if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
+    }
+
+    function openMobileSidebar() {
+      document.getElementById('mobileSidebar').classList.add('active');
+      document.getElementById('mobileSidebarOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileSidebar() {
+      document.getElementById('mobileSidebar').classList.remove('active');
+      document.getElementById('mobileSidebarOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function toggleMobileTools() {
+      document.querySelector('.mobile-tools-toggle').classList.toggle('active');
+      document.getElementById('mobileToolsMenu').classList.toggle('active');
+    }
+
+    function openFullSearch() {
+      document.getElementById('searchOverlayFull').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('fullSearchInput').focus(), 200);
+    }
+    function closeFullSearch() {
+      document.getElementById('searchOverlayFull').classList.remove('active');
+      document.body.style.overflow = '';
+      document.getElementById('fullSearchInput').value = '';
+      filterFullSearch();
+    }
+    function filterFullSearch() {
+      const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
+      const items = document.querySelectorAll('#fullSearchResultsList .search-result-item');
+      const nr = document.getElementById('fullNoResult'), qs = document.getElementById('fullSearchQuery');
+      let c = 0;
+      items.forEach(i => {
+        const kw = i.getAttribute('data-keywords') || '', t = i.textContent.toLowerCase();
+        if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
+        else { i.classList.add('hidden-item'); }
+      });
+      if (c === 0 && q !== '') { nr.classList.add('show'); qs.textContent = q; }
+      else { nr.classList.remove('show'); }
+    }
+
+    document.querySelectorAll('#fullSearchResultsList a, .mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', () => {
+      closeFullSearch();
+      closeMobileSidebar();
+    }));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); }
+      if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
+    });
+
+    buildSearchList();
+    lucide.createIcons();
+  </script>
+</body>
+</html>
