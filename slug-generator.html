@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
     <title>Slug Generator – Create SEO-Friendly URL Slugs | Textify.tools</title>
-    <meta name="description" content="Free online slug generator: convert any text into a clean, SEO-friendly URL slug instantly. Works in your browser, 100% private.">
+    <meta name="description" content="Free online slug generator: convert any text into a clean, SEO-friendly URL slug instantly. Supports bulk generation. Works in your browser, 100% private.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/slug-generator.html">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/slug-generator.html">
     <meta property="og:title" content="Slug Generator – Create Clean URL Slugs | Textify.tools">
-    <meta property="og:description" content="Generate SEO-friendly URL slugs from any text. Fast, free, and client-side.">
-    
+    <meta property="og:description" content="Generate SEO-friendly URL slugs from any text. Fast, free, and client-side. Now with bulk support.">
+
     <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
     <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
-    
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -28,61 +28,41 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
-            --bg: #ffffff;
-            --text: #0a0a0a;
-            --text-light: #525252;
-            --line: #e5e5e5;
-            --primary: #000000;
-            --hover: #f3f4f6;
-            --card: #fafafa;
-            --input-bg: #ffffff;
+            --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
+            --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
             --input-border: #d4d4d4;
-            --footer-bg: #ffffff;
-            --footer-text: #333333;
-            --footer-heading: #000000;
-            --footer-link-hover: #000000;
-            --faq-bg: #fafafa;
-            --faq-active: #f3f4f6;
-            --table-header: #f3f4f6;
-            --table-hover: #fafafa;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --overlay-bg: rgba(0, 0, 0, 0.5);
-            --success-bg: #f0fdf4;
-            --success-text: #166534;
-            --sidebar-bg: #ffffff;
-            --accent: #f8fafc;
-            --toast-bg: #1f2937;
-            --toast-text: #ffffff;
+            --footer-bg: #fafafa; --footer-text: #333333; --footer-heading: #000000; --footer-link-hover: #000000;
+            --footer-border: #e5e5e5; --footer-bottom-border: #d4d4d4; --footer-bottom-text: #555555;
+            --faq-bg: #fafafa; --faq-active: #f3f4f6;
+            --table-header: #f3f4f6; --table-hover: #fafafa; --shadow: rgba(0, 0, 0, 0.1);
+            --overlay-bg: rgba(0, 0, 0, 0.5); --success-bg: #f0fdf4; --success-text: #166534;
+            --success-border: rgba(22, 163, 74, 0.2); --sidebar-bg: #ffffff; --accent: #f8fafc;
+            --toast-bg: #1f2937; --toast-text: #ffffff;
+            --focus-ring: rgba(0, 0, 0, 0.06);
+            --mode-toggle-bg: #f3f4f6; --mode-btn-active-bg: #ffffff; --mode-btn-active-text: #000000;
+            --mode-btn-inactive-text: #6b7280; --bulk-row-hover: #f9fafb; --bulk-arrow-color: #9ca3af;
+            --code-bg: #f3f4f6; --code-text: #0a0a0a;
+            --how-to-bg: #f9fafb; --how-to-border: #e5e5e5;
         }
         body.dark-mode {
-            --bg: #0f172a;
-            --text: #f1f5f9;
-            --text-light: #94a3b8;
-            --line: #1e293b;
-            --primary: #ffffff;
-            --hover: #1e293b;
-            --card: #1e293b;
-            --input-bg: #1e293b;
+            --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
+            --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
             --input-border: #334155;
-            --footer-bg: #ffffff;
-            --footer-text: #333333;
-            --footer-heading: #000000;
-            --footer-link-hover: #000000;
-            --faq-bg: #1e293b;
-            --faq-active: #334155;
-            --table-header: #1e293b;
-            --table-hover: #1e293b;
-            --shadow: rgba(0, 0, 0, 0.5);
-            --overlay-bg: rgba(0, 0, 0, 0.75);
-            --success-bg: #052e16;
-            --success-text: #86efac;
-            --sidebar-bg: #0f172a;
-            --accent: #1e293b;
-            --toast-bg: #f1f5f9;
-            --toast-text: #0f172a;
+            --footer-bg: #0f172a; --footer-text: #94a3b8; --footer-heading: #f1f5f9; --footer-link-hover: #ffffff;
+            --footer-border: #1e293b; --footer-bottom-border: #1e293b; --footer-bottom-text: #94a3b8;
+            --faq-bg: #1e293b; --faq-active: #334155;
+            --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0, 0, 0, 0.5);
+            --overlay-bg: rgba(0, 0, 0, 0.75); --success-bg: #052e16; --success-text: #86efac;
+            --success-border: rgba(34, 197, 94, 0.25); --sidebar-bg: #0f172a; --accent: #1e293b;
+            --toast-bg: #f1f5f9; --toast-text: #0f172a;
+            --focus-ring: rgba(255, 255, 255, 0.08);
+            --mode-toggle-bg: #1e293b; --mode-btn-active-bg: #334155; --mode-btn-active-text: #f1f5f9;
+            --mode-btn-inactive-text: #94a3b8; --bulk-row-hover: #1a2236; --bulk-arrow-color: #64748b;
+            --code-bg: #1e293b; --code-text: #e2e8f0;
+            --how-to-bg: #1e293b; --how-to-border: #334155;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; background: var(--bg); transition: background 0.3s; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg); color: var(--text); min-height: 100vh;
@@ -97,13 +77,8 @@
             position: relative; z-index: 100;
         }
         .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
-        .logo {
-            display: flex; align-items: center; gap: 10px; text-decoration: none;
-            color: var(--text); font-size: 22px; font-weight: 800;
-        }
-        .logo-img {
-            width: 24px; height: 24px; border-radius: 4px; object-fit: contain;
-        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
+        .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
         .desktop-nav { display: flex; gap: 15px; align-items: center; }
         .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
@@ -119,12 +94,20 @@
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
-        .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
+        /* Compact search trigger – matches original header size */
+        .search-trigger {
+            background: var(--hover); border: 1px solid var(--line);
+            padding: 6px 14px;          /* compact padding */
+            border-radius: 20px;         /* slightly less round */
+            cursor: pointer; display: flex; align-items: center; gap: 6px;
+            color: var(--text-light); font-size: 13px; white-space: nowrap;
+        }
+        .search-trigger i { width: 16px; height: 16px; }   /* smaller icon to match compact header */
         .search-trigger:hover { border-color: var(--primary); color: var(--primary); }
         .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; }
         .hamburger-btn:hover { background: var(--hover); }
         .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
-        .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
+        .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; }
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
         .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
         .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
@@ -164,35 +147,102 @@
 
         main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
-        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
-        textarea, input[type="text"] { width: 100%; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s; }
-        textarea:focus, input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
-        .btn { padding: 15px 26px; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; justify-content: center; transition: 0.2s; }
+        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 24px; }
+
+        .how-to-section {
+            background: var(--how-to-bg); border: 1px solid var(--how-to-border); border-radius: 14px;
+            padding: 24px 26px; margin-bottom: 30px; transition: background 0.3s, border-color 0.3s;
+        }
+        .how-to-section h3 { font-size: 20px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+        .how-to-section .steps { display: flex; flex-direction: column; gap: 14px; }
+        .how-to-step { display: flex; gap: 12px; align-items: flex-start; }
+        .step-number { background: var(--primary); color: var(--bg); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+        .step-content { font-size: 15px; line-height: 1.6; color: var(--text); }
+        .step-content strong { color: var(--primary); }
+        .step-content code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 0.9em; color: var(--code-text); }
+
+        .mode-toggle { display: inline-flex; background: var(--mode-toggle-bg); border-radius: 12px; padding: 4px; gap: 2px; margin-bottom: 20px; transition: background 0.3s; }
+        .mode-btn { padding: 10px 20px; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; background: transparent; color: var(--mode-btn-inactive-text); transition: 0.25s; white-space: nowrap; display: flex; align-items: center; gap: 6px; }
+        .mode-btn.active { background: var(--mode-btn-active-bg); color: var(--mode-btn-active-text); box-shadow: 0 2px 8px var(--shadow); }
+        .mode-btn:hover:not(.active) { color: var(--mode-btn-active-text); }
+
+        textarea, input[type="text"] {
+            width: 100%; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px;
+            font-size: 16px; background: var(--input-bg); color: var(--text); resize: vertical;
+            font-family: inherit; margin-bottom: 22px; transition: 0.2s;
+        }
+        textarea:focus, input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px var(--focus-ring); }
+        #inputText { min-height: 56px; transition: min-height 0.3s, border-color 0.2s, box-shadow 0.2s; }
+        #inputText.bulk-mode { min-height: 180px; }
+
+        .line-count-badge { display: none; align-items: center; gap: 6px; font-size: 13px; color: var(--text-light); margin-top: -14px; margin-bottom: 18px; font-weight: 500; }
+        .line-count-badge.visible { display: flex; }
+        .line-count-badge .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #16a34a; flex-shrink: 0; }
+
+        .btn { padding: 15px 26px; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; justify-content: center; transition: 0.2s; font-family: inherit; }
         .btn-primary { background: var(--primary); color: var(--bg); width: 100%; }
         .btn-primary:hover { opacity: 0.88; }
-        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); flex-shrink: 0; }
         .btn-outline:hover { background: var(--hover); }
+        .btn-sm { padding: 8px 14px; font-size: 13px; border-radius: 8px; flex-shrink: 0; white-space: nowrap; }
+        .btn-xs { padding: 5px 10px; font-size: 11px; border-radius: 6px; flex-shrink: 0; white-space: nowrap; }
+
         .output-area { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); display: none; }
-        .char-count-box { background: var(--success-bg); padding: 14px 18px; border-radius: 12px; margin-bottom: 20px; text-align: center; color: var(--success-text); font-weight: 600; font-size: 15px; border: 1px solid rgba(22,163,74,0.2); }
+        .char-count-box { background: var(--success-bg); padding: 14px 18px; border-radius: 12px; margin-bottom: 20px; text-align: center; color: var(--success-text); font-weight: 600; font-size: 15px; border: 1px solid var(--success-border); }
+
+        .bulk-results-container { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; max-height: 500px; overflow-y: auto; padding-right: 4px; }
+        .bulk-results-container::-webkit-scrollbar { width: 6px; }
+        .bulk-results-container::-webkit-scrollbar-track { background: transparent; border-radius: 3px; }
+        .bulk-results-container::-webkit-scrollbar-thumb { background: var(--input-border); border-radius: 3px; }
+        .bulk-row { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: var(--card); border-radius: 10px; border: 1px solid var(--line); transition: 0.2s; flex-wrap: wrap; }
+        .bulk-row:hover { background: var(--bulk-row-hover); }
+        .bulk-num { font-size: 12px; font-weight: 700; color: var(--text-light); min-width: 28px; flex-shrink: 0; }
+        .bulk-original { font-size: 13px; color: var(--text-light); flex: 1 1 120px; min-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 220px; }
+        .bulk-arrow { color: var(--bulk-arrow-color); flex-shrink: 0; font-size: 14px; font-weight: 600; }
+        .bulk-slug { font-size: 14px; font-weight: 600; color: var(--code-text); background: var(--code-bg); padding: 5px 10px; border-radius: 6px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; flex: 1 1 180px; min-width: 120px; word-break: break-all; transition: background 0.3s, color 0.3s; }
+        .bulk-copy-btn { flex-shrink: 0; }
+        .bulk-actions-bar { display: flex; gap: 10px; flex-wrap: wrap; }
+
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
+
         footer {
             background: var(--footer-bg); color: var(--footer-text); padding: 60px 20px 25px; margin-top: 60px;
-            border-top: 1px solid #e5e5e5;
+            border-top: 1px solid var(--footer-border); transition: background 0.3s, color 0.3s, border-color 0.3s;
         }
         .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
-        .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
+        .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; transition: color 0.3s; }
         .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { max-width: 1000px; margin: 45px auto 0; padding-top: 22px; border-top: 1px solid #d4d4d4; display: flex; justify-content: space-between; font-size: 13px; color: #555; }
+        .footer-bottom { max-width: 1000px; margin: 45px auto 0; padding-top: 22px; border-top: 1px solid var(--footer-bottom-border); display: flex; justify-content: space-between; font-size: 13px; color: var(--footer-bottom-text); transition: color 0.3s, border-color 0.3s; }
         @media(max-width:768px) { .footer-bottom { flex-direction: column; gap: 8px; text-align: center; } }
+
+        .info-section { margin-top: 50px; border-top: 1px solid var(--line); padding-top: 30px; }
+        .info-section h2 { margin-top: 24px; margin-bottom: 10px; font-size: 22px; }
+        .info-section h2:first-child { margin-top: 0; }
+        .info-section p { line-height: 1.7; color: var(--text-light); }
+        .info-section ul { padding-left: 20px; line-height: 1.8; color: var(--text-light); }
+        .info-section code { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 0.9em; color: var(--code-text); transition: background 0.3s, color 0.3s; }
+
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
+            p.subtitle { font-size: 16px; } .how-to-section { padding: 18px 20px; }
+            .mode-btn { padding: 8px 14px; font-size: 13px; }
+            .bulk-row { gap: 6px; padding: 10px 12px; }
+            .bulk-original { max-width: 140px; font-size: 12px; }
+            .bulk-slug { font-size: 12px; padding: 4px 8px; }
+            .bulk-num { min-width: 20px; font-size: 11px; }
+            .bulk-arrow { font-size: 12px; }
+            .btn-sm { padding: 6px 10px; font-size: 11px; }
+            .bulk-actions-bar { gap: 6px; }
+            .bulk-actions-bar .btn { padding: 12px 16px; font-size: 13px; }
         }
-        @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
+        @media (min-width: 769px) {
+            .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; }
+        }
     </style>
 
     <header>
@@ -228,7 +278,7 @@
                     <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
                     <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
                 </button>
-                <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search" width="16" height="16"></i> Search tools...</button>
                 <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
                     <span class="menu-icon"><span></span><span></span></span>
                 </button>
@@ -248,22 +298,16 @@
         <div class="mobile-sidebar-nav">
             <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
             <div class="mobile-tools-menu" id="mobileToolsMenu">
-                <a href="/text-repeater.html">Text Repeater</a>
-                <a href="/smart-paraphraser.html">Smart Paraphraser</a>
-                <a href="/word-counter.html">Word Counter</a>
-                <a href="/text-diff-checker.html">Text Diff Checker</a>
-                <a href="/case-converter.html">Case Converter</a>
-                <a href="/text-reverser.html">Text Reverser</a>
+                <a href="/text-repeater.html">Text Repeater</a><a href="/smart-paraphraser.html">Smart Paraphraser</a>
+                <a href="/word-counter.html">Word Counter</a><a href="/text-diff-checker.html">Text Diff Checker</a>
+                <a href="/case-converter.html">Case Converter</a><a href="/text-reverser.html">Text Reverser</a>
                 <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
-                <a href="/slug-generator.html">Slug Generator</a>
-                <a href="/text-sorter.html">Text Sorter</a>
-                <a href="/text-finder-replacer.html">Text Finder & Replacer</a>
-                <a href="/character-remover.html">Character Remover</a>
+                <a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
+                <a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a>
                 <a href="/password-generator.html">Password Generator</a>
                 <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
             </div>
-            <a href="privacy.html">Privacy</a>
-            <a href="/blog.html">Blog</a>
+            <a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a>
         </div>
         <div class="mobile-sidebar-actions">
             <button onclick="openFullSearch(); closeMobileSidebar();"><i data-lucide="search"></i> Search</button>
@@ -286,16 +330,52 @@
 
     <main>
         <h1>Slug Generator – Create SEO-Friendly URL Slugs</h1>
-        <p class="subtitle">Enter any text and instantly convert it into a clean, URL‑ready slug. Perfect for blog posts, product pages, and permalinks. Works entirely in your browser.</p>
-        
-        <input type="text" id="inputText" placeholder="Enter your title or text (e.g. 'How to Make Perfect Coffee')" />
+        <p class="subtitle">Enter any text and instantly convert it into a clean, URL‑ready slug. Supports <strong>bulk generation</strong> — process multiple titles at once. Works entirely in your browser.</p>
+
+        <div class="how-to-section">
+            <h3><i data-lucide="book-open" width="20" height="20"></i> How to Use</h3>
+            <div class="steps">
+                <div class="how-to-step">
+                    <span class="step-number">1</span>
+                    <div class="step-content"><strong>Choose mode:</strong> Select <strong>Single Slug</strong> for one title, or <strong>Bulk Generate</strong> to process many lines at once.</div>
+                </div>
+                <div class="how-to-step">
+                    <span class="step-number">2</span>
+                    <div class="step-content"><strong>Enter text:</strong> In single mode, type or paste a phrase. In bulk mode, put each title on a new line.</div>
+                </div>
+                <div class="how-to-step">
+                    <span class="step-number">3</span>
+                    <div class="step-content"><strong>Generate:</strong> Click the <strong>Generate Slug</strong> button. Your clean URL slug(s) will appear instantly below.</div>
+                </div>
+                <div class="how-to-step">
+                    <span class="step-number">4</span>
+                    <div class="step-content"><strong>Copy or download:</strong> Use the <code>Copy</code> or <code>Download .txt</code> buttons. In bulk mode you can copy individual slugs or grab all at once.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mode-toggle" id="modeToggle">
+            <button class="mode-btn active" data-mode="single" onclick="switchMode('single')">
+                <i data-lucide="file-text" width="16" height="16"></i> Single Slug
+            </button>
+            <button class="mode-btn" data-mode="bulk" onclick="switchMode('bulk')">
+                <i data-lucide="files" width="16" height="16"></i> Bulk Generate
+            </button>
+        </div>
+
+        <textarea id="inputText" placeholder="Enter your title or text (e.g. 'How to Make Perfect Coffee')" rows="2"></textarea>
+
+        <div class="line-count-badge" id="lineCountBadge">
+            <span class="badge-dot"></span>
+            <span id="lineCountText">0 non-empty lines detected</span>
+        </div>
 
         <div style="display:flex;gap:10px;margin-bottom:30px;">
             <button class="btn btn-primary" id="generateBtn" onclick="generateSlug()"><i data-lucide="link-2" width="18" height="18"></i> Generate Slug</button>
             <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
         </div>
 
-        <div class="output-area" id="outputArea">
+        <div class="output-area" id="singleOutput">
             <div class="char-count-box" id="slugInfo"></div>
             <input type="text" id="outputText" readonly style="font-size:18px;font-weight:500;">
             <div style="display:flex;gap:10px;margin-top:15px;">
@@ -304,16 +384,26 @@
             </div>
         </div>
 
-        <div style="margin-top:50px;border-top:1px solid var(--line);padding-top:30px;">
+        <div class="output-area" id="bulkOutput">
+            <div class="char-count-box" id="bulkSlugInfo"></div>
+            <div class="bulk-results-container" id="bulkResultsContainer"></div>
+            <div class="bulk-actions-bar">
+                <button class="btn btn-primary btn-sm" id="bulkCopyAllBtn" onclick="bulkCopyAll()"><i data-lucide="copy" width="16" height="16"></i> Copy All Slugs</button>
+                <button class="btn btn-primary btn-sm" style="background:#16a34a;" id="bulkDownloadAllBtn" onclick="bulkDownloadAll()"><i data-lucide="download" width="16" height="16"></i> Download All (.txt)</button>
+                <button class="btn btn-outline btn-sm" onclick="bulkCopyOriginals()"><i data-lucide="clipboard-list" width="16" height="16"></i> Copy Originals</button>
+            </div>
+        </div>
+
+        <div class="info-section">
             <h2>What is a URL Slug?</h2>
             <p>A slug is the part of a URL that identifies a particular page in a readable way. For example, in <code>example.com/blog/how-to-make-coffee</code>, the slug is <strong>how‑to‑make‑coffee</strong>. Slugs help search engines and users understand the page content.</p>
             <h2>How This Tool Works</h2>
-            <p>The Slug Generator converts your text to lowercase, removes special characters, and replaces spaces with hyphens. Multiple hyphens become single ones, and leading/trailing hyphens are removed. The result is a clean, URL‑safe string that you can copy directly.</p>
+            <p>The Slug Generator converts your text to lowercase, removes special characters, and replaces spaces with hyphens. Multiple hyphens become single ones, and leading/trailing hyphens are removed. In <strong>bulk mode</strong>, each non‑empty line is processed individually — perfect for batch‑generating slugs for multiple pages or blog posts.</p>
             <h2>Tips for Great Slugs</h2>
             <ul>
                 <li><strong>Keep it short</strong> – aim for 3‑5 words.</li>
                 <li><strong>Use hyphens</strong> to separate words (never underscores).</li>
-                <li><strong>Avoid special characters</strong> like &, %, or punctuation.</li>
+                <li><strong>Avoid special characters</strong> like &amp;, %, or punctuation.</li>
                 <li><strong>Include keywords</strong> that describe the page content.</li>
             </ul>
         </div>
@@ -336,7 +426,6 @@
     </footer>
 
     <script>
-        // Shared search data (same as main page)
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater.html', keywords: 'repeat duplicate multiply copy paste' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser.html', keywords: 'paraphrase rewrite rephrase article spinner' },
@@ -345,7 +434,7 @@
             { name: 'Case Converter', link: '/case-converter.html', keywords: 'uppercase lowercase title case sentence' },
             { name: 'Text Reverser', link: '/text-reverser.html', keywords: 'reverse backwards mirror flip upside down' },
             { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder.html', keywords: 'encode decode base64 url binary hex' },
-            { name: 'Slug Generator', link: '/slug-generator.html', keywords: 'slug url seo friendly permalink' },
+            { name: 'Slug Generator', link: '/slug-generator.html', keywords: 'slug url seo friendly permalink bulk' },
             { name: 'Text Sorter', link: '/text-sorter.html', keywords: 'sort order alphabetically lines list' },
             { name: 'Text Finder & Replacer', link: '/text-finder-replacer.html', keywords: 'find replace search and replace bulk' },
             { name: 'Character Remover', link: '/character-remover.html', keywords: 'remove delete characters punctuation spaces' },
@@ -363,41 +452,61 @@
         }
 
         let toastTimer;
-        function showToast(msg, dur=3000) {
+        function showToast(msg, dur = 3000) {
             const t = document.getElementById('toast');
             t.textContent = msg; t.classList.add('show');
             clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
         }
 
-        function toggleTheme() {
-            const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
-                  ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (b.classList.contains('dark-mode')) {
-                b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
-                if(ms) { ms.style.display='block'; mm.style.display='none'; }
-                localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
-            } else {
-                b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
-                if(ms) { ms.style.display='none'; mm.style.display='block'; }
-                localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
+        function updateThemeUI() {
+            const isDark = document.body.classList.contains('dark-mode');
+            document.getElementById('sunIcon').style.display = isDark ? 'none' : 'block';
+            document.getElementById('moonIcon').style.display = isDark ? 'block' : 'none';
+            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
+            if (ms && mm) {
+                ms.style.display = isDark ? 'none' : 'block';
+                mm.style.display = isDark ? 'block' : 'none';
             }
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', isDark ? '#0f172a' : '#ffffff');
             lucide.createIcons();
         }
-        document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+            updateThemeUI();
+        }
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
-            document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
         }
+        updateThemeUI();
 
-        function openMobileSidebar() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
-        function closeMobileSidebar() { document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow = ''; }
-        function toggleMobileTools() { document.querySelector('.mobile-tools-toggle').classList.toggle('active'); document.getElementById('mobileToolsMenu').classList.toggle('active'); }
+        function openMobileSidebar() {
+            document.getElementById('mobileSidebar').classList.add('active');
+            document.getElementById('mobileSidebarOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileSidebar() {
+            document.getElementById('mobileSidebar').classList.remove('active');
+            document.getElementById('mobileSidebarOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        function toggleMobileTools() {
+            document.querySelector('.mobile-tools-toggle').classList.toggle('active');
+            document.getElementById('mobileToolsMenu').classList.toggle('active');
+        }
         document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
 
-        function openFullSearch() { document.getElementById('searchOverlayFull').classList.add('active'); document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('fullSearchInput').focus(), 200); }
-        function closeFullSearch() { document.getElementById('searchOverlayFull').classList.remove('active'); document.body.style.overflow = ''; document.getElementById('fullSearchInput').value = ''; filterFullSearch(); }
+        function openFullSearch() {
+            document.getElementById('searchOverlayFull').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => document.getElementById('fullSearchInput').focus(), 200);
+        }
+        function closeFullSearch() {
+            document.getElementById('searchOverlayFull').classList.remove('active');
+            document.body.style.overflow = '';
+            document.getElementById('fullSearchInput').value = '';
+            filterFullSearch();
+        }
         function filterFullSearch() {
             const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
             const items = document.querySelectorAll('#fullSearchResultsList .search-result-item');
@@ -414,56 +523,103 @@
         document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); }
-            if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
         });
 
-        // Slug generation
-        function generateSlug() {
-            const input = document.getElementById('inputText').value.trim();
-            if (!input) { showToast('⚠️ Please enter some text first'); return; }
-            
-            let slug = input.toString()
-                .toLowerCase()
-                .trim()
-                .normalize('NFD')                   // normalize diacritics
-                .replace(/[\u0300-\u036f]/g, '')   // remove accents
-                .replace(/[^a-z0-9\s-]/g, '')      // remove non allowed chars
-                .replace(/[\s_]+/g, '-')           // replace spaces/underscores with hyphen
-                .replace(/-+/g, '-')               // collapse multiple hyphens
-                .replace(/^-+|-+$/g, '');          // trim leading/trailing hyphens
-            
-            if (!slug) slug = 'untitled'; // fallback
-            
-            document.getElementById('outputText').value = slug;
-            document.getElementById('slugInfo').innerHTML = `<strong>✅ Slug ready!</strong> &nbsp; Length: <strong>${slug.length}</strong> characters`;
-            document.getElementById('outputArea').style.display = 'block';
-            showToast('✅ Slug generated successfully!');
+        let currentMode = 'single';
+        let bulkSlugsData = [];
+
+        function switchMode(mode) {
+            currentMode = mode;
+            const textarea = document.getElementById('inputText');
+            const lineCountBadge = document.getElementById('lineCountBadge');
+            const singleOutput = document.getElementById('singleOutput');
+            const bulkOutput = document.getElementById('bulkOutput');
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-mode') === mode));
+
+            if (mode === 'bulk') {
+                textarea.classList.add('bulk-mode');
+                textarea.rows = 8;
+                textarea.placeholder = 'Enter one title per line...\n\ne.g.\nHow to Make Perfect Coffee\n10 Tips for Better Sleep\nBest Restaurants in NYC';
+                lineCountBadge.classList.add('visible');
+                singleOutput.style.display = 'none';
+                bulkOutput.style.display = 'none';
+                updateLineCount();
+            } else {
+                textarea.classList.remove('bulk-mode');
+                textarea.rows = 2;
+                textarea.placeholder = "Enter your title or text (e.g. 'How to Make Perfect Coffee')";
+                lineCountBadge.classList.remove('visible');
+                bulkOutput.style.display = 'none';
+                if (document.getElementById('outputText').value) singleOutput.style.display = 'block';
+            }
+            lucide.createIcons();
         }
+
+        function updateLineCount() {
+            const lines = document.getElementById('inputText').value.split('\n').filter(l => l.trim() !== '');
+            const countEl = document.getElementById('lineCountText');
+            if (currentMode === 'bulk') {
+                document.getElementById('lineCountBadge').classList.add('visible');
+                countEl.textContent = lines.length === 0 ? '0 non-empty lines detected' : `${lines.length} non-empty line${lines.length === 1 ? '' : 's'} detected`;
+            }
+        }
+        document.getElementById('inputText').addEventListener('input', () => { if (currentMode === 'bulk') updateLineCount(); });
+
+        function processSlug(rawText) {
+            let slug = rawText.toString().toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9\s-]/g, '').replace(/[\s_]+/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, '');
+            return slug || 'untitled';
+        }
+
+        function generateSlug() {
+            const input = document.getElementById('inputText').value;
+            const singleOutput = document.getElementById('singleOutput');
+            const bulkOutput = document.getElementById('bulkOutput');
+
+            if (currentMode === 'single') {
+                const singleText = input.split('\n').map(l => l.trim()).filter(l => l !== '').join(' ');
+                if (!singleText) { showToast('⚠️ Please enter some text first'); return; }
+                const slug = processSlug(singleText);
+                document.getElementById('outputText').value = slug;
+                document.getElementById('slugInfo').innerHTML = `<strong>✅ Slug ready!</strong> &nbsp; Length: <strong>${slug.length}</strong> characters`;
+                singleOutput.style.display = 'block';
+                bulkOutput.style.display = 'none';
+                showToast('✅ Slug generated successfully!');
+            } else {
+                const lines = input.split('\n').map(l => l.trim()).filter(l => l !== '');
+                if (lines.length === 0) { showToast('⚠️ Please enter at least one line of text'); return; }
+                bulkSlugsData = lines.map(line => ({ original: line, slug: processSlug(line) }));
+                const container = document.getElementById('bulkResultsContainer');
+                container.innerHTML = bulkSlugsData.map((item, i) => `
+                    <div class="bulk-row">
+                        <span class="bulk-num">#${i+1}</span>
+                        <span class="bulk-original" title="${escapeHtml(item.original)}">${escapeHtml(item.original.length > 40 ? item.original.substring(0,40)+'…' : item.original)}</span>
+                        <span class="bulk-arrow">→</span>
+                        <code class="bulk-slug">${escapeHtml(item.slug)}</code>
+                        <button class="btn btn-primary btn-xs bulk-copy-btn" onclick="bulkCopySingle(${i})"><i data-lucide="copy" width="12" height="12"></i> Copy</button>
+                    </div>
+                `).join('');
+                document.getElementById('bulkSlugInfo').innerHTML = `<strong>✅ ${bulkSlugsData.length} slug${bulkSlugsData.length===1?'':'s'} generated!</strong> &nbsp; Total lines processed: <strong>${bulkSlugsData.length}</strong>`;
+                singleOutput.style.display = 'none';
+                bulkOutput.style.display = 'block';
+                lucide.createIcons();
+                showToast(`✅ ${bulkSlugsData.length} slug${bulkSlugsData.length===1?'':'s'} generated!`);
+            }
+        }
+
+        function escapeHtml(str) { const div = document.createElement('div'); div.textContent = str; return div.innerHTML; }
 
         async function copyToClipboard() {
             const textarea = document.getElementById('outputText');
             const btn = document.getElementById('copyBtn');
             const origHTML = btn.innerHTML;
             try {
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    await navigator.clipboard.writeText(textarea.value);
-                } else {
-                    textarea.focus(); textarea.select(); textarea.setSelectionRange(0, 99999);
-                    document.execCommand('copy');
-                }
+                if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(textarea.value);
+                else { textarea.focus(); textarea.select(); document.execCommand('copy'); }
                 btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!';
-                btn.style.background = '#16a34a';
-                lucide.createIcons();
-                showToast('📋 Slug copied to clipboard!');
-            } catch (err) {
-                textarea.focus(); textarea.select();
-                showToast('⚠️ Please press Ctrl+C to copy');
-            }
-            setTimeout(() => {
-                btn.innerHTML = origHTML;
-                btn.style.background = '';
-                lucide.createIcons();
-            }, 2000);
+                btn.style.background = '#16a34a'; lucide.createIcons(); showToast('📋 Slug copied to clipboard!');
+            } catch (err) { showToast('⚠️ Please press Ctrl+C to copy'); }
+            setTimeout(() => { btn.innerHTML = origHTML; btn.style.background = ''; lucide.createIcons(); }, 2000);
         }
 
         function downloadSlug() {
@@ -471,26 +627,65 @@
             const btn = document.getElementById('downloadBtn');
             const origHTML = btn.innerHTML;
             const blob = new Blob([text], {type: 'text/plain'});
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url; a.download = 'slug.txt'; document.body.appendChild(a);
-            a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
-            btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Downloaded!';
-            lucide.createIcons();
-            showToast('💾 Slug saved as file!');
-            setTimeout(() => {
-                btn.innerHTML = origHTML;
-                lucide.createIcons();
-            }, 2000);
+            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'slug.txt'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(a.href);
+            btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Downloaded!'; lucide.createIcons(); showToast('💾 Slug saved as file!');
+            setTimeout(() => { btn.innerHTML = origHTML; lucide.createIcons(); }, 2000);
+        }
+
+        function bulkCopySingle(index) {
+            const slug = bulkSlugsData[index].slug;
+            const btn = document.querySelectorAll('.bulk-copy-btn')[index];
+            const origHTML = btn.innerHTML;
+            const copy = async () => {
+                try {
+                    if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(slug);
+                    else { const inp = document.createElement('input'); inp.value = slug; document.body.appendChild(inp); inp.select(); document.execCommand('copy'); document.body.removeChild(inp); }
+                    btn.innerHTML = '<i data-lucide="check" width="12" height="12"></i> Copied!'; btn.style.background = '#16a34a'; lucide.createIcons(); showToast('📋 Slug copied!');
+                } catch (e) { showToast('⚠️ Failed to copy'); }
+                setTimeout(() => { btn.innerHTML = origHTML; btn.style.background = ''; lucide.createIcons(); }, 1800);
+            };
+            copy();
+        }
+
+        async function bulkCopyAll() {
+            const allSlugs = bulkSlugsData.map(d => d.slug).join('\n');
+            const btn = document.getElementById('bulkCopyAllBtn'); const origHTML = btn.innerHTML;
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(allSlugs);
+                else { const ta = document.createElement('textarea'); ta.value = allSlugs; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }
+                btn.innerHTML = '<i data-lucide="check" width="16" height="16"></i> All Copied!'; btn.style.background = '#16a34a'; lucide.createIcons(); showToast(`📋 ${bulkSlugsData.length} slugs copied!`);
+            } catch (err) { showToast('⚠️ Failed to copy all slugs'); }
+            setTimeout(() => { btn.innerHTML = origHTML; btn.style.background = ''; lucide.createIcons(); }, 2000);
+        }
+
+        function bulkDownloadAll() {
+            const allSlugs = bulkSlugsData.map(d => d.slug).join('\n');
+            const btn = document.getElementById('bulkDownloadAllBtn'); const origHTML = btn.innerHTML;
+            const blob = new Blob([allSlugs], {type: 'text/plain'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'slugs.txt'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(a.href);
+            btn.innerHTML = '<i data-lucide="check" width="16" height="16"></i> Downloaded!'; lucide.createIcons(); showToast(`💾 ${bulkSlugsData.length} slugs saved!`);
+            setTimeout(() => { btn.innerHTML = origHTML; lucide.createIcons(); }, 2000);
+        }
+
+        async function bulkCopyOriginals() {
+            const allOriginals = bulkSlugsData.map(d => d.original).join('\n');
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(allOriginals);
+                else { const ta = document.createElement('textarea'); ta.value = allOriginals; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); }
+                showToast('📋 Original texts copied!');
+            } catch (err) { showToast('⚠️ Failed to copy originals'); }
         }
 
         function resetTool() {
             document.getElementById('inputText').value = '';
             document.getElementById('outputText').value = '';
-            document.getElementById('outputArea').style.display = 'none';
+            document.getElementById('singleOutput').style.display = 'none';
+            document.getElementById('bulkOutput').style.display = 'none';
+            document.getElementById('bulkResultsContainer').innerHTML = '';
+            bulkSlugsData = [];
+            if (currentMode === 'bulk') updateLineCount();
+            showToast('🗑️ Cleared!');
         }
 
-        // Init
         buildSearchList();
         lucide.createIcons();
     </script>
