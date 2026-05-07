@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
-    <title>Text Encoder / Decoder – Textify.tools</title>
-    <meta name="description" content="Free online text encoder and decoder. Base64, URL encode/decode, HTML entities, and more. Fast, private, no login required.">
+    <title>Text Encoder / Decoder – Base64, URL, HTML, Hex, Binary | Textify.tools</title>
+    <meta name="description" content="Free online text encoder and decoder. Base64, URL encode/decode, HTML entities, hex, binary, and more. Fast, private, no login required.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="https://textify.tools/text-encoder-decoder.html">
+    <link rel="canonical" href="https://textify.tools/text-encoder-decoder">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://textify.tools/text-encoder-decoder.html">
+    <meta property="og:url" content="https://textify.tools/text-encoder-decoder">
     <meta property="og:title" content="Text Encoder / Decoder – Textify.tools">
-    <meta property="og:description" content="Encode or decode text with Base64, URL encoding, HTML entities, and more. 100% client-side, private and secure.">
-    
+    <meta property="og:description" content="Encode or decode text with Base64, URL encoding, HTML entities, hex, binary, and more. 100% client-side, private and secure.">
     <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
     <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
-    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -41,6 +39,7 @@
             --footer-text: #333333;
             --footer-heading: #000000;
             --footer-link-hover: #000000;
+            --footer-border: #e5e5e5;
             --faq-bg: #fafafa;
             --faq-active: #f3f4f6;
             --table-header: #f3f4f6;
@@ -53,8 +52,6 @@
             --accent: #f8fafc;
             --toast-bg: #1f2937;
             --toast-text: #ffffff;
-            --scroll-top-bg: #000000;
-            --scroll-top-text: #ffffff;
             --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
             --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
@@ -68,10 +65,11 @@
             --card: #1e293b;
             --input-bg: #1e293b;
             --input-border: #334155;
-            --footer-bg: #ffffff;
-            --footer-text: #333333;
-            --footer-heading: #000000;
-            --footer-link-hover: #000000;
+            --footer-bg: #1e293b;
+            --footer-text: #e2e8f0;
+            --footer-heading: #ffffff;
+            --footer-link-hover: #ffffff;
+            --footer-border: #334155;
             --faq-bg: #1e293b;
             --faq-active: #334155;
             --table-header: #1e293b;
@@ -84,8 +82,6 @@
             --accent: #1e293b;
             --toast-bg: #f1f5f9;
             --toast-text: #0f172a;
-            --scroll-top-bg: #ffffff;
-            --scroll-top-text: #0f172a;
             --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
             --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
@@ -105,12 +101,8 @@
             position: relative; z-index: 100;
         }
         .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
-        .logo {
-            display: flex; align-items: center; gap: 10px; text-decoration: none;
-            color: var(--text); font-size: 22px; font-weight: 800;
-        }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
-
         .header-right { display: flex; align-items: center; gap: 12px; }
         .desktop-nav { display: flex; gap: 15px; align-items: center; }
         .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
@@ -119,10 +111,10 @@
         .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; }
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
         .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
-        .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; min-width: 280px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
+        .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 200px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
         .tools-menu-container:hover .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
         .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
-        .tools-mega-menu a { display: block; padding: 9px 12px; border-radius: 8px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 2px; }
+        .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
@@ -171,7 +163,11 @@
 
         main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+        h2 { font-size: 26px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
+        h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
         .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
+        p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
+        ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
         textarea {
             width: 100%; height: 150px; padding: 16px; border: 2px solid var(--input-border);
             border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text);
@@ -208,10 +204,21 @@
             transition: transform 0.4s; pointer-events: none; white-space: nowrap;
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
+        .table-wrapper { overflow-x: auto; margin: 25px 0; border: 1px solid var(--line); border-radius: 10px; }
+        .info-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        .info-table th, .info-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); color: var(--text-light); }
+        .info-table th { background: var(--table-header); font-weight: 700; color: var(--text); } .info-table tr:hover { background: var(--table-hover); }
+        .tip-box { background: #f0fdfa; padding: 18px 20px; border-left: 4px solid #16a34a; border-radius: 8px; margin-bottom: 22px; }
+        body.dark-mode .tip-box { background: #052e16; }
+        .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
+        .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
+        .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
         
         footer {
             background: var(--footer-bg); color: var(--footer-text);
-            padding: 60px 20px 25px; margin-top: 60px; border-top: 1px solid #e5e5e5;
+            padding: 60px 20px 25px; margin-top: 60px;
+            border-top: 1px solid var(--footer-border);
         }
         .footer-grid {
             max-width: 1000px; margin: 0 auto; display: grid;
@@ -222,12 +229,7 @@
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
         .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom {
-            max-width: 1000px; margin: 45px auto 0; padding-top: 22px;
-            border-top: 1px solid #d4d4d4; display: flex; justify-content: space-between;
-            font-size: 13px; color: #555;
-        }
-        @media(max-width:768px) { .footer-bottom { flex-direction: column; gap: 8px; text-align: center; } }
+        .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
         
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
@@ -246,24 +248,10 @@
                 <div class="desktop-nav">
                     <div class="tools-menu-container">
                         <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-                        <div class="tools-mega-menu">
-                            <a href="/text-repeater.html">Text Repeater</a>
-                            <a href="/smart-paraphraser.html">Smart Paraphraser</a>
-                            <a href="/word-counter.html">Word Counter</a>
-                            <a href="/text-diff-checker.html">Text Diff Checker</a>
-                            <a href="/case-converter.html">Case Converter</a>
-                            <a href="/text-reverser.html">Text Reverser</a>
-                            <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
-                            <a href="/slug-generator.html">Slug Generator</a>
-                            <a href="/text-sorter.html">Text Sorter</a>
-                            <a href="/text-finder-replacer.html">Text Finder & Replacer</a>
-                            <a href="/character-remover.html">Character Remover</a>
-                            <a href="/password-generator.html">Password Generator</a>
-                            <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
-                        </div>
+                        <div class="tools-mega-menu" id="megaMenu"></div>
                     </div>
-                    <a href="privacy.html">Privacy</a>
-                    <a href="/blog.html">Blog</a>
+                    <a href="privacy">Privacy</a>
+                    <a href="/blog">Blog</a>
                 </div>
                 <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
                     <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
@@ -288,23 +276,9 @@
         </div>
         <div class="mobile-sidebar-nav">
             <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
-            <div class="mobile-tools-menu" id="mobileToolsMenu">
-                <a href="/text-repeater.html">Text Repeater</a>
-                <a href="/smart-paraphraser.html">Smart Paraphraser</a>
-                <a href="/word-counter.html">Word Counter</a>
-                <a href="/text-diff-checker.html">Text Diff Checker</a>
-                <a href="/case-converter.html">Case Converter</a>
-                <a href="/text-reverser.html">Text Reverser</a>
-                <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
-                <a href="/slug-generator.html">Slug Generator</a>
-                <a href="/text-sorter.html">Text Sorter</a>
-                <a href="/text-finder-replacer.html">Text Finder & Replacer</a>
-                <a href="/character-remover.html">Character Remover</a>
-                <a href="/password-generator.html">Password Generator</a>
-                <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
-            </div>
-            <a href="privacy.html">Privacy</a>
-            <a href="/blog.html">Blog</a>
+            <div class="mobile-tools-menu" id="mobileToolsMenu"></div>
+            <a href="privacy">Privacy</a>
+            <a href="/blog">Blog</a>
         </div>
         <div class="mobile-sidebar-actions">
             <button onclick="openFullSearch(); closeMobileSidebar();"><i data-lucide="search"></i> Search</button>
@@ -327,7 +301,7 @@
 
     <main>
         <h1>Text Encoder / Decoder</h1>
-        <p class="subtitle">Encode or decode text with Base64, URL encoding, HTML entities, and more. All processing happens in your browser – no data is ever uploaded.</p>
+        <p class="subtitle">Encode or decode text with Base64, URL encoding, HTML entities, hex, binary, and more. All processing happens in your browser – no data is ever uploaded.</p>
 
         <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
 
@@ -360,6 +334,56 @@
                 <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
             </div>
         </div>
+
+        <!-- How to Use & FAQ Section -->
+        <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
+            <h2>How to Use the Text Encoder / Decoder</h2>
+            <p>Our tool makes encoding and decoding text simple and fast. Follow these steps:</p>
+            <ol style="margin-bottom:25px;">
+                <li><strong>Enter your text</strong> – Paste or type the content you want to encode or decode into the main text area.</li>
+                <li><strong>Choose an operation</strong> – Select the desired encoding or decoding method from the dropdown menu (Base64, URL, HTML entities, Hex, or Binary).</li>
+                <li><strong>Click "Encode / Decode"</strong> – The result appears instantly in the output area below.</li>
+                <li><strong>Copy or download</strong> – Use the "Copy Text" button or "Download .txt" to save the result.</li>
+            </ol>
+
+            <h2>What Each Operation Does</h2>
+            <div class="table-wrapper">
+                <table class="info-table">
+                    <thead><tr><th>Operation</th><th>Description</th><th>Example</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Base64 Encode</strong></td><td>Converts text to Base64 (used for email attachments, APIs)</td><td><code>Hello</code> → <code>SGVsbG8=</code></td></tr>
+                        <tr><td><strong>Base64 Decode</strong></td><td>Converts Base64 back to plain text</td><td><code>SGVsbG8=</code> → <code>Hello</code></td></tr>
+                        <tr><td><strong>URL Encode</strong></td><td>Escapes special characters for use in URLs</td><td><code>Hello World!</code> → <code>Hello%20World%21</code></td></tr>
+                        <tr><td><strong>URL Decode</strong></td><td>Restores original text from URL‑encoded string</td><td><code>Hello%20World%21</code> → <code>Hello World!</code></td></tr>
+                        <tr><td><strong>HTML Entities Encode</strong></td><td>Converts characters like <code>&lt;</code> and <code>&gt;</code> to HTML entities</td><td><code><div></code> → <code>&amp;lt;div&amp;gt;</code></td></tr>
+                        <tr><td><strong>HTML Entities Decode</strong></td><td>Converts HTML entities back to characters</td><td><code>&amp;lt;div&amp;gt;</code> → <code><div></code></td></tr>
+                        <tr><td><strong>Hex Encode</strong></td><td>Converts text to hexadecimal representation</td><td><code>Hello</code> → <code>48 65 6c 6c 6f</code></td></tr>
+                        <tr><td><strong>Hex Decode</strong></td><td>Converts hex back to text</td><td><code>48 65 6c 6c 6f</code> → <code>Hello</code></td></tr>
+                        <tr><td><strong>Binary Encode</strong></td><td>Converts text to binary (8‑bit binary per character)</td><td><code>A</code> → <code>01000001</code></td></tr>
+                        <tr><td><strong>Binary Decode</strong></td><td>Converts binary back to text</td><td><code>01000001</code> → <code>A</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Common Use Cases</h2>
+            <ul>
+                <li><strong>Web Development:</strong> Encode strings for safe URL parameters (URL encode), store binary data in JSON (Base64), or escape HTML when displaying user input (HTML entities).</li>
+                <li><strong>Debugging:</strong> Decode encoded tokens, headers, or API responses to read plain text.</li>
+                <li><strong>Educational:</strong> Learn how characters map to hexadecimal and binary representations.</li>
+                <li><strong>Email & Data Transmission:</strong> Use Base64 to embed images or attachments in text formats.</li>
+            </ul>
+
+            <div class="tip-box">
+                <p style="margin:0; font-size:14px;"><strong>💡 Pro Tip:</strong> All operations are performed locally in your browser. Your text is never sent to any server – complete privacy guaranteed.</p>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free with no limits. No login or payment required.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use this for large files?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool works well with large amounts of text, but extremely large files might cause slowdown in your browser. For best results, process chunks of up to a few megabytes.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on iPhones, Android devices, and tablets.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">100% private. All encoding and decoding happens inside your browser – no data leaves your device.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if I get an error while decoding?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Make sure your input matches the selected operation. For example, Base64 decode expects a valid Base64 string. Invalid input will show an alert – just double-check and try again.</div></div>
+        </div>
     </main>
 
     <footer>
@@ -371,42 +395,179 @@
                 </a>
                 <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
             </div>
-            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a></div>
-            <div><h5>ALL TOOLS</h5><a href="/text-repeater.html">Text Repeater</a><a href="/word-counter.html">Word Counter</a><a href="/case-converter.html">Case Converter</a><a href="/text-reverser.html">Text Reverser</a><a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a><a href="/text-diff-checker.html">Text Diff Checker</a><a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a><a href="/text-encoder-decoder.html">Text Encoder/Decoder</a><a href="/smart-paraphraser.html">Smart Paraphraser</a><a href="/password-generator.html">Password Generator</a><a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a></div>
-            <div><h5>LEGAL & INFO</h5><a href="disclaimer.html">Disclaimer</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+            <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+            <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
         </div>
-        <div class="footer-bottom"><div>&copy; 2026 Textify.tools. All rights reserved. Made with ❤️ for fun.</div><div>Designed for Fun & Testing</div></div>
+        <div class="footer-bottom">
+            © www.textify.tools. All rights reserved.
+        </div>
     </footer>
 
     <script>
-        // Shared functions and data (from index)
+        // Complete list of all tools (80+ tools) matching index.html
         const tools = [
-            { name: 'Text Repeater', desc: 'Repeat text up to 100,000 times.', icon: 'repeat', link: '/text-repeater.html', keywords: 'repeat duplicate multiply copy paste', color: '#000' },
-            { name: 'Smart Paraphraser', desc: 'Rewrite sentences while keeping meaning.', icon: 'edit-3', link: '/smart-paraphraser.html', keywords: 'paraphrase rewrite rephrase', color: '#0ea5e9' },
-            { name: 'Word Counter', desc: 'Count words, characters, sentences.', icon: 'hash', link: '/word-counter.html', keywords: 'word count character counter', color: '#8b5cf6' },
-            { name: 'Text Diff Checker', desc: 'Compare two texts and spot differences.', icon: 'git-compare', link: '/text-diff-checker.html', keywords: 'diff compare difference', color: '#f59e0b' },
-            { name: 'Case Converter', desc: 'Uppercase, lowercase, title case.', icon: 'type', link: '/case-converter.html', keywords: 'uppercase lowercase title', color: '#10b981' },
-            { name: 'Text Reverser', desc: 'Reverse text or words.', icon: 'arrow-left-right', link: '/text-reverser.html', keywords: 'reverse backwards mirror', color: '#ef4444' },
-            { name: 'Text Encoder/Decoder', desc: 'Base64, URL, HTML entities.', icon: 'code-2', link: '/text-encoder-decoder.html', keywords: 'encode decode base64 url', color: '#6366f1' },
-            { name: 'Slug Generator', desc: 'Create SEO‑friendly URL slugs.', icon: 'link-2', link: '/slug-generator.html', keywords: 'slug url seo friendly', color: '#14b8a6' },
-            { name: 'Text Sorter', desc: 'Sort lines alphabetically or numerically.', icon: 'arrow-up-down', link: '/text-sorter.html', keywords: 'sort order alphabetically', color: '#f97316' },
-            { name: 'Text Finder & Replacer', desc: 'Find and replace words in bulk.', icon: 'search-check', link: '/text-finder-replacer.html', keywords: 'find replace search', color: '#ec4899' },
-            { name: 'Character Remover', desc: 'Remove characters, punctuation, spaces.', icon: 'trash-2', link: '/character-remover.html', keywords: 'remove delete characters', color: '#64748b' },
-            { name: 'Password Generator', desc: 'Generate strong random passwords.', icon: 'key', link: '/password-generator.html', keywords: 'password generator random strong', color: '#eab308' },
-            { name: 'Lorem Ipsum Generator', desc: 'Placeholder text for mockups.', icon: 'file-text', link: '/lorem-ipsum-generator.html', keywords: 'lorem ipsum placeholder dummy', color: '#a855f7' }
+            { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
+            { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
+            { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
+            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
+            { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
+            { name: 'Text Reverser', link: '/text-reverser', keywords: 'reverse backwards mirror flip upside down', category: 'manipulation' },
+            { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
+            { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+            { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'manipulation' },
+            { name: 'Text Finder & Replacer', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'manipulation' },
+            { name: 'Character Remover', link: '/character-remover', keywords: 'remove delete characters punctuation spaces', category: 'manipulation' },
+            { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
+            { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text generator', category: 'generators' },
+            { name: 'Text Scrambler', link: '/text-scrambler', keywords: 'scramble shuffle random letters jumble', category: 'manipulation' },
+            { name: 'Text Truncator', link: '/text-truncator', keywords: 'truncate cut shorten length limit', category: 'manipulation' },
+            { name: 'Text Splitter', link: '/text-splitter', keywords: 'split divide separate delimiter tokenize', category: 'manipulation' },
+            { name: 'Text Joiner', link: '/text-joiner', keywords: 'join merge combine concatenate lines', category: 'manipulation' },
+            { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
+            { name: 'Prefix/Suffix Adder', link: '/prefix-suffix-adder', keywords: 'prefix suffix prepend append each line', category: 'manipulation' },
+            { name: 'Line Number Adder', link: '/line-number-adder', keywords: 'line numbers add number rows', category: 'manipulation' },
+            { name: 'Character Frequency Counter', link: '/character-frequency-counter', keywords: 'character frequency count occurrence distribution', category: 'analysis' },
+            { name: 'Word Frequency Counter', link: '/word-frequency-counter', keywords: 'word frequency count occurrence common repeated', category: 'analysis' },
+            { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
+            { name: 'Text Statistics', link: '/text-statistics', keywords: 'statistics detailed stats text metrics', category: 'analysis' },
+            { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count period question exclamation', category: 'analysis' },
+            { name: 'Line Counter', link: '/line-counter', keywords: 'line count rows number lines', category: 'analysis' },
+            { name: 'Letter Case Counter', link: '/letter-case-counter', keywords: 'uppercase lowercase count case letters', category: 'analysis' },
+            { name: 'Vowel & Consonant Counter', link: '/vowel-consonant-counter', keywords: 'vowel consonant count letters alphabet', category: 'analysis' },
+            { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count blocks sections', category: 'analysis' },
+            { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
+            { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
+            { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
+            { name: 'Binary Text Converter', link: '/binary-text-converter', keywords: 'binary bits 0 1 convert text', category: 'encoding' },
+            { name: 'Hex Text Converter', link: '/hex-text-converter', keywords: 'hex hexadecimal base16 convert', category: 'encoding' },
+            { name: 'Caesar Cipher', link: '/caesar-cipher', keywords: 'caesar cipher shift encrypt decrypt rotate', category: 'encoding' },
+            { name: 'ROT13 Cipher', link: '/rot13-cipher', keywords: 'rot13 rotate 13 cipher encode decode', category: 'encoding' },
+            { name: 'Atbash Cipher', link: '/atbash-cipher', keywords: 'atbash reverse alphabet cipher mirror', category: 'encoding' },
+            { name: 'A1Z26 Cipher', link: '/a1z26-cipher', keywords: 'a1z26 letter number code cipher', category: 'encoding' },
+            { name: 'Unicode Converter', link: '/unicode-converter', keywords: 'unicode code point convert escape', category: 'encoding' },
+            { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
+            { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
+            { name: 'Cursive Text Generator', link: '/cursive-text-generator', keywords: 'cursive script handwriting unicode font', category: 'styling' },
+            { name: 'Bubble Text Generator', link: '/bubble-text-generator', keywords: 'bubble circle enclosed unicode text', category: 'styling' },
+            { name: 'Small Caps Generator', link: '/small-caps-generator', keywords: 'small caps petite capital unicode', category: 'styling' },
+            { name: 'Zalgo Text Generator', link: '/zalgo-text-generator', keywords: 'zalgo glitch creepy demon unicode', category: 'styling' },
+            { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
+            { name: 'Mirror Text Generator', link: '/mirror-text-generator', keywords: 'mirror flip horizontal reverse', category: 'styling' },
+            { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+            { name: 'UUID/GUID Generator', link: '/uuid-generator', keywords: 'uuid guid unique identifier random', category: 'generators' },
+            { name: 'Random Word Generator', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generators' },
+            { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
+            { name: 'Color Code Generator', link: '/color-code-generator', keywords: 'color hex rgb hsl random generator', category: 'generators' },
+            { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
+            { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
+            { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encoding' },
+            { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
+            { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
+            { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
+            { name: 'Google SERP Simulator', link: '/google-serp-simulator', keywords: 'serp simulator google search preview snippet', category: 'seo' },
+            { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
+            { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
+            { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' },
+            { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
+            { name: 'Remove Duplicate Lines', link: '/remove-duplicate-lines', keywords: 'remove duplicate lines unique dedupe', category: 'manipulation' },
+            { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
+            { name: 'Multiple Whitespace to Single', link: '/multiple-whitespace-to-single', keywords: 'whitespace single space replace multiple', category: 'manipulation' },
+            { name: 'Alphabetical Sorter', link: '/alphabetical-sorter', keywords: 'sort alphabetical order list a-z', category: 'manipulation' },
+            { name: 'Word to Line Converter', link: '/word-to-line-converter', keywords: 'word line newline split separate', category: 'manipulation' },
+            { name: 'Strikethrough Text Generator', link: '/strikethrough-text-generator', keywords: 'strikethrough cross out line through', category: 'styling' },
+            { name: 'Zalgo/Glitch Text Generator', link: '/zalgo-glitch-text-generator', keywords: 'zalgo glitch creepy demon corrupted', category: 'styling' },
+            { name: 'Binary to Text', link: '/binary-to-text', keywords: 'binary text decode convert bits', category: 'encoding' },
+            { name: 'Keyword Density Analyzer', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', category: 'analysis' }
         ];
+
+        function buildMegaMenu() {
+            const menu = document.getElementById('megaMenu');
+            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
+        }
+
+        function buildMobileToolsMenu() {
+            const menu = document.getElementById('mobileToolsMenu');
+            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
+        }
 
         function buildSearchList() {
             const list = document.getElementById('fullSearchResultsList');
-            list.innerHTML = tools.map(tool => `
-                <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
-                    ${tool.name} <span class="result-tag">Tool</span>
-                </a>
-            `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
+            if (list) {
+                list.innerHTML = tools.map(tool => `
+                    <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
+                        ${tool.name} <span class="result-tag">${tool.category}</span>
+                    </a>
+                `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
+            }
         }
-        buildSearchList();
 
-        // Tool specific functions
+        let toastTimer;
+        function showToast(msg, dur=3000) {
+            const t = document.getElementById('toast');
+            t.textContent = msg; t.classList.add('show');
+            clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
+        }
+
+        function toggleTheme() {
+            const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
+                  ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
+            if (b.classList.contains('dark-mode')) {
+                b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
+                if(ms) { ms.style.display='block'; mm.style.display='none'; }
+                localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
+            } else {
+                b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
+                if(ms) { ms.style.display='none'; mm.style.display='block'; }
+                localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
+            }
+            lucide.createIcons();
+        }
+        document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
+            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
+            if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
+        }
+
+        function openMobileSidebar() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
+        function closeMobileSidebar() { document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow = ''; }
+        function toggleMobileTools() { document.querySelector('.mobile-tools-toggle').classList.toggle('active'); document.getElementById('mobileToolsMenu').classList.toggle('active'); }
+        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
+
+        function openFullSearch() { document.getElementById('searchOverlayFull').classList.add('active'); document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('fullSearchInput').focus(), 200); }
+        function closeFullSearch() { document.getElementById('searchOverlayFull').classList.remove('active'); document.body.style.overflow = ''; document.getElementById('fullSearchInput').value = ''; filterFullSearch(); }
+        function filterFullSearch() {
+            const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
+            const items = document.querySelectorAll('#fullSearchResultsList .search-result-item');
+            const nr = document.getElementById('fullNoResult'), qs = document.getElementById('fullSearchQuery');
+            let c = 0;
+            items.forEach(i => {
+                const kw = i.getAttribute('data-keywords') || '', t = i.textContent.toLowerCase();
+                if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
+                else { i.classList.add('hidden-item'); }
+            });
+            if (c === 0 && q !== '') { if(nr) nr.classList.add('show'); if(qs) qs.textContent = q; }
+            else { if(nr) nr.classList.remove('show'); }
+        }
+        document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); }
+            if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
+        });
+
+        // FAQ toggle function - FIXED
+        function toggleFaq(el) {
+            const item = el.parentElement;
+            item.classList.toggle('active');
+            const icon = el.querySelector('svg');
+            if (icon) {
+                icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+        }
+
+        // Text Encoder/Decoder specific functions
         function processText() {
             const input = document.getElementById('inputText').value;
             const operation = document.getElementById('operation').value;
@@ -491,61 +652,9 @@
             showToast('💾 Downloaded successfully!');
         }
 
-        let toastTimer;
-        function showToast(msg, dur=3000) {
-            const t = document.getElementById('toast');
-            t.textContent = msg; t.classList.add('show');
-            clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
-        }
-
-        function toggleTheme() {
-            const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
-                  ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (b.classList.contains('dark-mode')) {
-                b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
-                if(ms) { ms.style.display='block'; mm.style.display='none'; }
-                localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
-            } else {
-                b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
-                if(ms) { ms.style.display='none'; mm.style.display='block'; }
-                localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
-            }
-            lucide.createIcons();
-        }
-        document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
-        }
-
-        function openMobileSidebar() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
-        function closeMobileSidebar() { document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow = ''; }
-        function toggleMobileTools() { document.querySelector('.mobile-tools-toggle').classList.toggle('active'); document.getElementById('mobileToolsMenu').classList.toggle('active'); }
-        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
-
-        function openFullSearch() { document.getElementById('searchOverlayFull').classList.add('active'); document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('fullSearchInput').focus(), 200); }
-        function closeFullSearch() { document.getElementById('searchOverlayFull').classList.remove('active'); document.body.style.overflow = ''; document.getElementById('fullSearchInput').value = ''; filterFullSearch(); }
-        function filterFullSearch() {
-            const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
-            const items = document.querySelectorAll('#fullSearchResultsList .search-result-item');
-            const nr = document.getElementById('fullNoResult'), qs = document.getElementById('fullSearchQuery');
-            let c = 0;
-            items.forEach(i => {
-                const kw = i.getAttribute('data-keywords') || '', t = i.textContent.toLowerCase();
-                if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
-                else { i.classList.add('hidden-item'); }
-            });
-            if (c === 0 && q !== '') { nr.classList.add('show'); qs.textContent = q; }
-            else { nr.classList.remove('show'); }
-        }
-        document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); }
-            if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
-        });
-
+        buildMegaMenu();
+        buildMobileToolsMenu();
+        buildSearchList();
         lucide.createIcons();
     </script>
 </body>
