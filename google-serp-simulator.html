@@ -198,8 +198,8 @@
                         <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
                         <div class="tools-mega-menu" id="megaMenu"></div>
                     </div>
-                    <a href="privacy.html">Privacy</a>
-                    <a href="/blog.html">Blog</a>
+                    <a href="privacy">Privacy</a>
+                    <a href="/blog">Blog</a>
                 </div>
                 <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
                     <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
@@ -284,9 +284,20 @@
                 </a>
                 <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
             </div>
-            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about.html">About Us</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="/blog.html">Blog</a></div>
-            <div><h5>POPULAR TOOLS</h5><a href="/text-repeater.html">Text Repeater</a><a href="/json-formatter.html">JSON Formatter</a><a href="/word-counter.html">Word Counter</a><a href="/case-converter.html">Case Converter</a><a href="/text-reverser.html">Text Reverser</a><a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a><a href="/text-diff-checker.html">Text Diff Checker</a><a href="/password-generator.html">Password Generator</a><a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a></div>
-            <div><h5>LEGAL & INFO</h5><a href="disclaimer.html">Disclaimer</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
+            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+            <div><h5>POPULAR TOOLS</h5>
+                <a href="/text-repeater">Text Repeater</a>
+                <a href="/json-formatter">JSON Formatter</a>
+                <a href="/word-counter">Word Counter</a>
+                <a href="/case-converter">Case Converter</a>
+                <a href="/text-reverser">Text Reverser</a>
+                <a href="/slug-generator">Slug Generator</a>
+                <a href="/text-sorter">Text Sorter</a>
+                <a href="/text-diff-checker">Text Diff Checker</a>
+                <a href="/password-generator">Password Generator</a>
+                <a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a>
+            </div>
+            <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
         </div>
         <div class="footer-bottom">
             © www.textify.tools. All rights reserved.
@@ -298,11 +309,14 @@
         const menuTools = [
             'Text Repeater', 'Smart Paraphraser', 'Word Counter', 'Text Diff Checker',
             'Case Converter', 'Text Reverser', 'JSON Formatter', 'JWT Decoder',
-            'Password Generator', 'Lorem Ipsum', 'Slug Generator', 'Text Sorter'
+            'Password Generator', 'Lorem Ipsum Generator', 'Slug Generator', 'Text Sorter'
         ];
         function buildMegaMenu() {
             const m = document.getElementById('megaMenu');
-            m.innerHTML = menuTools.map(t => `<a href="/${t.toLowerCase().replace(/\s+/g, '-')}.html">${t}</a>`).join('');
+            m.innerHTML = menuTools.map(t => {
+                let slug = t.toLowerCase().replace(/\s+/g, '-');
+                return `<a href="/${slug}">${t}</a>`;
+            }).join('');
         }
 
         // Live update for both previews
