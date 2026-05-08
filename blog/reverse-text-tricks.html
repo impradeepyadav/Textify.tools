@@ -7,9 +7,9 @@
   <title>5 Fun Ways to Use the Reverse Text Tool – Textify Blog</title>
   <meta name="description" content="Discover creative, practical, and fun ways to use Textify's reverse text tool. Mirror messages, puzzles, pranks, and more.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="https://textify.tools/blog/reverse-text-tricks.html">
+  <link rel="canonical" href="https://textify.tools/blog/reverse-text-tricks">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://textify.tools/blog/reverse-text-tricks.html">
+  <meta property="og:url" content="https://textify.tools/blog/reverse-text-tricks">
   <meta property="og:title" content="5 Fun Ways to Use the Reverse Text Tool – Textify Blog">
   <meta property="og:description" content="Learn how to flip text, create mirror messages, and make clever puzzles with our free reverse text tool.">
   
@@ -75,10 +75,10 @@
     .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; }
     .tools-trigger:hover { color: var(--primary); background: var(--hover); }
     .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
-    .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; min-width: 280px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
+    .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 200px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
     .tools-menu-container:hover .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
     .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
-    .tools-mega-menu a { display: block; padding: 9px 12px; border-radius: 8px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 2px; }
+    .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
     .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
     .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
     .theme-btn:hover { background: var(--hover); }
@@ -151,8 +151,7 @@
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 45px auto 0; padding-top: 22px; border-top: 1px solid var(--footer-border); display: flex; justify-content: space-between; font-size: 13px; color: var(--footer-text); }
-    @media(max-width:768px) { .footer-bottom { flex-direction: column; gap: 8px; text-align: center; } }
+    .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
@@ -173,24 +172,10 @@
         <div class="desktop-nav">
           <div class="tools-menu-container">
             <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-            <div class="tools-mega-menu">
-              <a href="/text-repeater.html">Text Repeater</a>
-              <a href="/smart-paraphraser.html">Smart Paraphraser</a>
-              <a href="/word-counter.html">Word Counter</a>
-              <a href="/text-diff-checker.html">Text Diff Checker</a>
-              <a href="/case-converter.html">Case Converter</a>
-              <a href="/text-reverser.html">Text Reverser</a>
-              <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
-              <a href="/slug-generator.html">Slug Generator</a>
-              <a href="/text-sorter.html">Text Sorter</a>
-              <a href="/text-finder-replacer.html">Text Finder & Replacer</a>
-              <a href="/character-remover.html">Character Remover</a>
-              <a href="/password-generator.html">Password Generator</a>
-              <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
-            </div>
+            <div class="tools-mega-menu" id="megaMenu"></div>
           </div>
-          <a href="/privacy.html">Privacy</a>
-          <a href="/blog.html">Blog</a>
+          <a href="privacy">Privacy</a>
+          <a href="/blog">Blog</a>
         </div>
         <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
           <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
@@ -216,18 +201,9 @@
     </div>
     <div class="mobile-sidebar-nav">
       <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
-      <div class="mobile-tools-menu" id="mobileToolsMenu">
-        <a href="/text-repeater.html">Text Repeater</a><a href="/smart-paraphraser.html">Smart Paraphraser</a>
-        <a href="/word-counter.html">Word Counter</a><a href="/text-diff-checker.html">Text Diff Checker</a>
-        <a href="/case-converter.html">Case Converter</a><a href="/text-reverser.html">Text Reverser</a>
-        <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
-        <a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
-        <a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a>
-        <a href="/password-generator.html">Password Generator</a>
-        <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
-      </div>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/blog.html">Blog</a>
+      <div class="mobile-tools-menu" id="mobileToolsMenu"></div>
+      <a href="privacy">Privacy</a>
+      <a href="/blog">Blog</a>
     </div>
     <div class="mobile-sidebar-actions">
       <button onclick="openFullSearch(); closeMobileSidebar();"><i data-lucide="search"></i> Search</button>
@@ -249,7 +225,7 @@
 
   <!-- ========== BLOG CONTENT ========== -->
   <main>
-    <a href="/blog.html" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
+    <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
 
     <h1>5 Fun Ways to Use the Reverse Text Tool</h1>
     <p class="post-date">📅 April 7, 2026</p>
@@ -261,7 +237,7 @@
     <p>Nothing catches the eye quite like a backwards post. On platforms like Instagram Stories, WhatsApp status, or even TikTok captions, a reversed message forces viewers to pause and read. It's a great way to tease an announcement, hide an Easter egg, or simply show off your creativity.</p>
     <p>How to do it:</p>
     <ol>
-      <li>Type your message into the <a href="/text-reverser.html">Text Reverser</a>.</li>
+      <li>Type your message into the <a href="/text-reverser">Text Reverser</a>.</li>
       <li>Copy the reversed output and paste it into your story or status.</li>
       <li>Optionally, add a hint like "🔁 Read backwards" to engage your audience.</li>
     </ol>
@@ -293,10 +269,10 @@
     <h2>5. Practice Typing or Cognitive Exercises</h2>
     <p>Believe it or not, reading and writing backwards can be a brain‑stimulating exercise. Teachers sometimes use reversed text to help students with dyslexia or to challenge cognitive flexibility. Typing a sentence in reverse order forces you to think differently about spelling and sentence structure. It's a fun mental warm‑up that takes only a minute with our tool.</p>
 
-    <a href="/text-reverser.html" class="cta-button">Try the Text Reverser Now →</a>
+    <a href="/text-reverser" class="cta-button">Try the Text Reverser Now →</a>
 
     <h2>Quick Tips for Using the Text Reverser</h2>
-    <p>Our <a href="/text-reverser.html">Text Reverser</a> includes two main modes:</p>
+    <p>Our <a href="/text-reverser">Text Reverser</a> includes two main modes:</p>
     <ul>
       <li><strong>Reverse Text:</strong> Flips every character, including spaces and punctuation, completely. "Hello world!" becomes "!dlrow olleH".</li>
       <li><strong>Reverse Words Only:</strong> Keeps the words intact but reverses their order. "Hello world" becomes "world Hello".</li>
@@ -318,44 +294,116 @@
         </a>
         <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
       </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about.html">About Us</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a><a href="/blog.html">Blog</a></div>
-      <div><h5>ALL TOOLS</h5>
-        <a href="/text-repeater.html">Text Repeater</a><a href="/word-counter.html">Word Counter</a><a href="/case-converter.html">Case Converter</a>
-        <a href="/text-reverser.html">Text Reverser</a><a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
-        <a href="/text-diff-checker.html">Text Diff Checker</a><a href="/text-finder-replacer.html">Text Finder & Replacer</a>
-        <a href="/character-remover.html">Character Remover</a><a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
-        <a href="/smart-paraphraser.html">Smart Paraphraser</a><a href="/password-generator.html">Password Generator</a>
-        <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
-      </div>
-      <div><h5>LEGAL & INFO</h5><a href="/disclaimer.html">Disclaimer</a><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a></div>
+      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+      <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+      <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
     </div>
-    <div class="footer-bottom"><div>&copy; 2026 Textify.tools. All rights reserved. Made with ❤️ for fun.</div><div>Designed for Fun & Testing</div></div>
+    <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
   </footer>
 
   <script>
+    // Complete tools list (80+ tools)
     const tools = [
-      { name: 'Text Repeater', link: '/text-repeater.html', keywords: 'repeat duplicate multiply copy paste' },
-      { name: 'Smart Paraphraser', link: '/smart-paraphraser.html', keywords: 'paraphrase rewrite rephrase article spinner' },
-      { name: 'Word Counter', link: '/word-counter.html', keywords: 'word count character counter letters' },
-      { name: 'Text Diff Checker', link: '/text-diff-checker.html', keywords: 'diff compare difference text comparison' },
-      { name: 'Case Converter', link: '/case-converter.html', keywords: 'uppercase lowercase title case sentence' },
-      { name: 'Text Reverser', link: '/text-reverser.html', keywords: 'reverse backwards mirror flip upside down' },
-      { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder.html', keywords: 'encode decode base64 url binary hex' },
-      { name: 'Slug Generator', link: '/slug-generator.html', keywords: 'slug url seo friendly permalink' },
-      { name: 'Text Sorter', link: '/text-sorter.html', keywords: 'sort order alphabetically lines list' },
-      { name: 'Text Finder & Replacer', link: '/text-finder-replacer.html', keywords: 'find replace search and replace bulk' },
-      { name: 'Character Remover', link: '/character-remover.html', keywords: 'remove delete characters punctuation spaces' },
-      { name: 'Password Generator', link: '/password-generator.html', keywords: 'password generator random strong secure' },
-      { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator.html', keywords: 'lorem ipsum placeholder dummy text generator' }
+      { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
+      { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
+      { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
+      { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
+      { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
+      { name: 'Text Reverser', link: '/text-reverser', keywords: 'reverse backwards mirror flip upside down', category: 'manipulation' },
+      { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
+      { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+      { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'manipulation' },
+      { name: 'Text Finder & Replacer', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'manipulation' },
+      { name: 'Character Remover', link: '/character-remover', keywords: 'remove delete characters punctuation spaces', category: 'manipulation' },
+      { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
+      { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text generator', category: 'generators' },
+      { name: 'Text Scrambler', link: '/text-scrambler', keywords: 'scramble shuffle random letters jumble', category: 'manipulation' },
+      { name: 'Text Truncator', link: '/text-truncator', keywords: 'truncate cut shorten length limit', category: 'manipulation' },
+      { name: 'Text Splitter', link: '/text-splitter', keywords: 'split divide separate delimiter tokenize', category: 'manipulation' },
+      { name: 'Text Joiner', link: '/text-joiner', keywords: 'join merge combine concatenate lines', category: 'manipulation' },
+      { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
+      { name: 'Prefix/Suffix Adder', link: '/prefix-suffix-adder', keywords: 'prefix suffix prepend append each line', category: 'manipulation' },
+      { name: 'Line Number Adder', link: '/line-number-adder', keywords: 'line numbers add number rows', category: 'manipulation' },
+      { name: 'Character Frequency Counter', link: '/character-frequency-counter', keywords: 'character frequency count occurrence distribution', category: 'analysis' },
+      { name: 'Word Frequency Counter', link: '/word-frequency-counter', keywords: 'word frequency count occurrence common repeated', category: 'analysis' },
+      { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
+      { name: 'Text Statistics', link: '/text-statistics', keywords: 'statistics detailed stats text metrics', category: 'analysis' },
+      { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count period question exclamation', category: 'analysis' },
+      { name: 'Line Counter', link: '/line-counter', keywords: 'line count rows number lines', category: 'analysis' },
+      { name: 'Letter Case Counter', link: '/letter-case-counter', keywords: 'uppercase lowercase count case letters', category: 'analysis' },
+      { name: 'Vowel & Consonant Counter', link: '/vowel-consonant-counter', keywords: 'vowel consonant count letters alphabet', category: 'analysis' },
+      { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count blocks sections', category: 'analysis' },
+      { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
+      { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
+      { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
+      { name: 'Binary Text Converter', link: '/binary-text-converter', keywords: 'binary bits 0 1 convert text', category: 'encoding' },
+      { name: 'Hex Text Converter', link: '/hex-text-converter', keywords: 'hex hexadecimal base16 convert', category: 'encoding' },
+      { name: 'Caesar Cipher', link: '/caesar-cipher', keywords: 'caesar cipher shift encrypt decrypt rotate', category: 'encoding' },
+      { name: 'ROT13 Cipher', link: '/rot13-cipher', keywords: 'rot13 rotate 13 cipher encode decode', category: 'encoding' },
+      { name: 'Atbash Cipher', link: '/atbash-cipher', keywords: 'atbash reverse alphabet cipher mirror', category: 'encoding' },
+      { name: 'A1Z26 Cipher', link: '/a1z26-cipher', keywords: 'a1z26 letter number code cipher', category: 'encoding' },
+      { name: 'Unicode Converter', link: '/unicode-converter', keywords: 'unicode code point convert escape', category: 'encoding' },
+      { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
+      { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
+      { name: 'Cursive Text Generator', link: '/cursive-text-generator', keywords: 'cursive script handwriting unicode font', category: 'styling' },
+      { name: 'Bubble Text Generator', link: '/bubble-text-generator', keywords: 'bubble circle enclosed unicode text', category: 'styling' },
+      { name: 'Small Caps Generator', link: '/small-caps-generator', keywords: 'small caps petite capital unicode', category: 'styling' },
+      { name: 'Zalgo Text Generator', link: '/zalgo-text-generator', keywords: 'zalgo glitch creepy demon unicode', category: 'styling' },
+      { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
+      { name: 'Mirror Text Generator', link: '/mirror-text-generator', keywords: 'mirror flip horizontal reverse', category: 'styling' },
+      { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+      { name: 'UUID/GUID Generator', link: '/uuid-generator', keywords: 'uuid guid unique identifier random', category: 'generators' },
+      { name: 'Random Word Generator', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generators' },
+      { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
+      { name: 'Color Code Generator', link: '/color-code-generator', keywords: 'color hex rgb hsl random generator', category: 'generators' },
+      { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
+      { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
+      { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encoding' },
+      { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
+      { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
+      { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
+      { name: 'Google SERP Simulator', link: '/google-serp-simulator', keywords: 'serp simulator google search preview snippet', category: 'seo' },
+      { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
+      { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
+      { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' },
+      { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
+      { name: 'Remove Duplicate Lines', link: '/remove-duplicate-lines', keywords: 'remove duplicate lines unique dedupe', category: 'manipulation' },
+      { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
+      { name: 'Multiple Whitespace to Single', link: '/multiple-whitespace-to-single', keywords: 'whitespace single space replace multiple', category: 'manipulation' },
+      { name: 'Alphabetical Sorter', link: '/alphabetical-sorter', keywords: 'sort alphabetical order list a-z', category: 'manipulation' },
+      { name: 'Word to Line Converter', link: '/word-to-line-converter', keywords: 'word line newline split separate', category: 'manipulation' },
+      { name: 'Strikethrough Text Generator', link: '/strikethrough-text-generator', keywords: 'strikethrough cross out line through', category: 'styling' },
+      { name: 'Zalgo/Glitch Text Generator', link: '/zalgo-glitch-text-generator', keywords: 'zalgo glitch creepy demon corrupted', category: 'styling' },
+      { name: 'Binary to Text', link: '/binary-to-text', keywords: 'binary text decode convert bits', category: 'encoding' },
+      { name: 'Keyword Density Analyzer', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', category: 'analysis' }
     ];
+
+    function buildMegaMenu() {
+      const menu = document.getElementById('megaMenu');
+      if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
+    }
+
+    function buildMobileToolsMenu() {
+      const menu = document.getElementById('mobileToolsMenu');
+      if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
+    }
 
     function buildSearchList() {
       const list = document.getElementById('fullSearchResultsList');
-      list.innerHTML = tools.map(tool => `
-        <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
-          ${tool.name} <span class="result-tag">Tool</span>
-        </a>
-      `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
+      if (list) {
+        list.innerHTML = tools.map(tool => `
+          <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
+            ${tool.name} <span class="result-tag">${tool.category}</span>
+          </a>
+        `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
+      }
+    }
+
+    let toastTimer;
+    function showToast(msg, dur=3000) {
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.classList.add('show');
+      clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
     }
 
     function toggleTheme() {
@@ -397,8 +445,8 @@
         if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
         else { i.classList.add('hidden-item'); }
       });
-      if (c === 0 && q !== '') { nr.classList.add('show'); qs.textContent = q; }
-      else { nr.classList.remove('show'); }
+      if (c === 0 && q !== '') { if(nr) nr.classList.add('show'); if(qs) qs.textContent = q; }
+      else { if(nr) nr.classList.remove('show'); }
     }
     document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
     document.addEventListener('keydown', e => {
@@ -406,6 +454,8 @@
       if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
     });
 
+    buildMegaMenu();
+    buildMobileToolsMenu();
     buildSearchList();
     lucide.createIcons();
   </script>
