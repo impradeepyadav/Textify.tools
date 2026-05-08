@@ -7,9 +7,9 @@
   <title>5 Productivity Hacks with Textify Tools – Textify Blog</title>
   <meta name="description" content="Supercharge your workflow with five clever ways to use Textify tools together. Save time on content writing, social media, and data formatting.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="https://textify.tools/blog/textifier-tools-productivity-hacks.html">
+  <link rel="canonical" href="https://textify.tools/blog/textifier-tools-productivity-hacks">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://textify.tools/blog/textifier-tools-productivity-hacks.html">
+  <meta property="og:url" content="https://textify.tools/blog/textifier-tools-productivity-hacks">
   <meta property="og:title" content="5 Productivity Hacks with Textify Tools – Textify Blog">
   <meta property="og:description" content="Combine multiple Textify tools to supercharge your content creation, editing, and formatting workflow. Free and private.">
   
@@ -27,7 +27,6 @@
 <body>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    /* Same base styles as all other pages */
     :root {
       --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
       --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
@@ -76,10 +75,10 @@
     .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; }
     .tools-trigger:hover { color: var(--primary); background: var(--hover); }
     .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
-    .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; min-width: 280px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
+    .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 200px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
     .tools-menu-container:hover .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
     .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
-    .tools-mega-menu a { display: block; padding: 9px 12px; border-radius: 8px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 2px; }
+    .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
     .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
     .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
     .theme-btn:hover { background: var(--hover); }
@@ -152,8 +151,8 @@
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 45px auto 0; padding-top: 22px; border-top: 1px solid var(--footer-border); display: flex; justify-content: space-between; font-size: 13px; color: var(--footer-text); }
-    @media(max-width:768px) { .footer-bottom { flex-direction: column; gap: 8px; text-align: center; } }
+    .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+    
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
@@ -163,7 +162,6 @@
     }
   </style>
 
-  <!-- ========== HEADER ========== -->
   <header>
     <div class="header-inner">
       <a href="/" class="logo">
@@ -174,24 +172,10 @@
         <div class="desktop-nav">
           <div class="tools-menu-container">
             <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-            <div class="tools-mega-menu">
-              <a href="/text-repeater.html">Text Repeater</a>
-              <a href="/smart-paraphraser.html">Smart Paraphraser</a>
-              <a href="/word-counter.html">Word Counter</a>
-              <a href="/text-diff-checker.html">Text Diff Checker</a>
-              <a href="/case-converter.html">Case Converter</a>
-              <a href="/text-reverser.html">Text Reverser</a>
-              <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
-              <a href="/slug-generator.html">Slug Generator</a>
-              <a href="/text-sorter.html">Text Sorter</a>
-              <a href="/text-finder-replacer.html">Text Finder & Replacer</a>
-              <a href="/character-remover.html">Character Remover</a>
-              <a href="/password-generator.html">Password Generator</a>
-              <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
-            </div>
+            <div class="tools-mega-menu" id="megaMenu"></div>
           </div>
-          <a href="/privacy.html">Privacy</a>
-          <a href="/blog.html">Blog</a>
+          <a href="privacy">Privacy</a>
+          <a href="/blog">Blog</a>
         </div>
         <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
           <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
@@ -205,7 +189,6 @@
     </div>
   </header>
 
-  <!-- ========== MOBILE SIDEBAR ========== -->
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
@@ -217,18 +200,9 @@
     </div>
     <div class="mobile-sidebar-nav">
       <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
-      <div class="mobile-tools-menu" id="mobileToolsMenu">
-        <a href="/text-repeater.html">Text Repeater</a><a href="/smart-paraphraser.html">Smart Paraphraser</a>
-        <a href="/word-counter.html">Word Counter</a><a href="/text-diff-checker.html">Text Diff Checker</a>
-        <a href="/case-converter.html">Case Converter</a><a href="/text-reverser.html">Text Reverser</a>
-        <a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
-        <a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
-        <a href="/text-finder-replacer.html">Text Finder & Replacer</a><a href="/character-remover.html">Character Remover</a>
-        <a href="/password-generator.html">Password Generator</a>
-        <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
-      </div>
-      <a href="/privacy.html">Privacy</a>
-      <a href="/blog.html">Blog</a>
+      <div class="mobile-tools-menu" id="mobileToolsMenu"></div>
+      <a href="privacy">Privacy</a>
+      <a href="/blog">Blog</a>
     </div>
     <div class="mobile-sidebar-actions">
       <button onclick="openFullSearch(); closeMobileSidebar();"><i data-lucide="search"></i> Search</button>
@@ -236,7 +210,6 @@
     </div>
   </div>
 
-  <!-- ========== SEARCH OVERLAY ========== -->
   <div class="search-overlay-full" id="searchOverlayFull">
     <div class="search-container">
       <div class="search-box">
@@ -248,9 +221,8 @@
     </div>
   </div>
 
-  <!-- ========== BLOG CONTENT ========== -->
   <main>
-    <a href="/blog.html" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
+    <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
 
     <h1>5 Productivity Hacks with Textify Tools</h1>
     <p class="post-date">📅 April 1, 2026</p>
@@ -258,31 +230,30 @@
     <p>Textify.tools isn't just a collection of random utilities – it's a toolkit that can dramatically speed up your daily workflow. By combining a few tools in the right order, you can accomplish tasks that normally require multiple apps or tedious manual work. In this post, we'll explore five practical productivity hacks that harness the power of Textify.</p>
 
     <h2>1. Quick Content Templates with Lorem Ipsum + Text Repeater</h2>
-    <p>Need a content outline or placeholder text for a blog post? Instead of copying generic Lorem Ipsum from another site, use the <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a> to create exactly the number of paragraphs or sentences you need. Then, if you want a title or heading repeating throughout, use the <a href="/text-repeater.html">Text Repeater</a> to duplicate a heading line (like "Section Title") every few paragraphs.</p>
+    <p>Need a content outline or placeholder text for a blog post? Instead of copying generic Lorem Ipsum from another site, use the <a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a> to create exactly the number of paragraphs or sentences you need. Then, if you want a title or heading repeating throughout, use the <a href="/text-repeater">Text Repeater</a> to duplicate a heading line (like "Section Title") every few paragraphs.</p>
     <p>For example: generate 5 paragraphs of Lorem Ipsum, then use the Text Repeater to create three lines of "— Section Break —" and insert them between the paragraphs. You've now built a complete document skeleton in under 30 seconds.</p>
 
     <div class="tip-box">
-      <p><strong>💡 Pro tip:</strong> Combine with the <a href="/case-converter.html">Case Converter</a> to instantly make all headings Title Case after repeating them.</p>
+      <p><strong>💡 Pro tip:</strong> Combine with the <a href="/case-converter">Case Converter</a> to instantly make all headings Title Case after repeating them.</p>
     </div>
 
     <h2>2. Sanitize & Format Imported Data with Character Remover + Case Converter</h2>
-    <p>When you copy text from a PDF, email, or database export, you often get hidden characters, extra spaces, or messy capitalization. Use the <a href="/character-remover.html">Character Remover</a> to strip out unwanted symbols (like stray asterisks, underscores, or line breaks). Then pipe the cleaned text through the <a href="/case-converter.html">Case Converter</a> to apply uniform sentence case or title case. The result is clean, publication-ready text in just two steps.</p>
+    <p>When you copy text from a PDF, email, or database export, you often get hidden characters, extra spaces, or messy capitalization. Use the <a href="/character-remover">Character Remover</a> to strip out unwanted symbols (like stray asterisks, underscores, or line breaks). Then pipe the cleaned text through the <a href="/case-converter">Case Converter</a> to apply uniform sentence case or title case. The result is clean, publication-ready text in just two steps.</p>
 
     <h2>3. Batch Format Social Media Captions with Case Converter + Text Sorter</h2>
-    <p>If you're managing multiple social media accounts, you'll often need to format a batch of captions or quotes. Type all the captions as a single list, then use the <a href="/text-sorter.html">Text Sorter</a> to alphabetize them (or reverse‑sort for a random order). Next, use the <a href="/case-converter.html">Case Converter</a> to apply alternating case or sentence case to make them stand out. Copy and paste each line into your scheduler, and you've turned a messy list into a polished content calendar.</p>
+    <p>If you're managing multiple social media accounts, you'll often need to format a batch of captions or quotes. Type all the captions as a single list, then use the <a href="/text-sorter">Text Sorter</a> to alphabetize them (or reverse‑sort for a random order). Next, use the <a href="/case-converter">Case Converter</a> to apply alternating case or sentence case to make them stand out. Copy and paste each line into your scheduler, and you've turned a messy list into a polished content calendar.</p>
 
     <h2>4. Create Unique Passwords with Password Generator + Text Finder</h2>
-    <p>Using a password manager? Sometimes you need to quickly replace a placeholder password in a configuration file or a document. Generate a strong password with the <a href="/password-generator.html">Password Generator</a>, then use the <a href="/text-finder-replacer.html">Text Finder & Replacer</a> to replace every instance of "PLACEHOLDER" in your file with the new password. This is far faster than manually copying and pasting across multiple lines.</p>
+    <p>Using a password manager? Sometimes you need to quickly replace a placeholder password in a configuration file or a document. Generate a strong password with the <a href="/password-generator">Password Generator</a>, then use the <a href="/text-finder-replacer">Text Finder & Replacer</a> to replace every instance of "PLACEHOLDER" in your file with the new password. This is far faster than manually copying and pasting across multiple lines.</p>
 
     <h2>5. Combine Text Repeater, Word Counter, and Download for Quick Drafts</h2>
-    <p>Suppose you want to test how a message looks with a specific word repeated 200 times (for a design mockup). Use the <a href="/text-repeater.html">Text Repeater</a> to generate the block, then immediately check the <a href="/word-counter.html">Word Counter</a> to verify the word count and character length. Finally, <strong>download the result as a .txt file</strong> and place it into your design software. The entire process – from idea to finished file – takes less than a minute.</p>
+    <p>Suppose you want to test how a message looks with a specific word repeated 200 times (for a design mockup). Use the <a href="/text-repeater">Text Repeater</a> to generate the block, then immediately check the <a href="/word-counter">Word Counter</a> to verify the word count and character length. Finally, <strong>download the result as a .txt file</strong> and place it into your design software. The entire process – from idea to finished file – takes less than a minute.</p>
 
     <p>These five hacks are just the beginning. Because all Textify tools work together without data leaving your browser, you can chain operations freely, with no waiting, no uploads, and complete privacy.</p>
 
     <a href="/" class="cta-button">Explore All Tools →</a>
   </main>
 
-  <!-- ========== FOOTER ========== -->
   <footer>
     <div class="footer-grid">
       <div>
@@ -292,44 +263,116 @@
         </a>
         <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
       </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about.html">About Us</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a><a href="/blog.html">Blog</a></div>
-      <div><h5>ALL TOOLS</h5>
-        <a href="/text-repeater.html">Text Repeater</a><a href="/word-counter.html">Word Counter</a><a href="/case-converter.html">Case Converter</a>
-        <a href="/text-reverser.html">Text Reverser</a><a href="/slug-generator.html">Slug Generator</a><a href="/text-sorter.html">Text Sorter</a>
-        <a href="/text-diff-checker.html">Text Diff Checker</a><a href="/text-finder-replacer.html">Text Finder & Replacer</a>
-        <a href="/character-remover.html">Character Remover</a><a href="/text-encoder-decoder.html">Text Encoder/Decoder</a>
-        <a href="/smart-paraphraser.html">Smart Paraphraser</a><a href="/password-generator.html">Password Generator</a>
-        <a href="/lorem-ipsum-generator.html">Lorem Ipsum Generator</a>
-      </div>
-      <div><h5>LEGAL & INFO</h5><a href="/disclaimer.html">Disclaimer</a><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a></div>
+      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+      <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+      <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
     </div>
-    <div class="footer-bottom"><div>&copy; 2026 Textify.tools. All rights reserved. Made with ❤️ for fun.</div><div>Designed for Fun & Testing</div></div>
+    <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
   </footer>
 
   <script>
+    // --- Complete tools list (80+ tools) matching index.html ---
     const tools = [
-      { name: 'Text Repeater', link: '/text-repeater.html', keywords: 'repeat duplicate multiply copy paste' },
-      { name: 'Smart Paraphraser', link: '/smart-paraphraser.html', keywords: 'paraphrase rewrite rephrase article spinner' },
-      { name: 'Word Counter', link: '/word-counter.html', keywords: 'word count character counter letters' },
-      { name: 'Text Diff Checker', link: '/text-diff-checker.html', keywords: 'diff compare difference text comparison' },
-      { name: 'Case Converter', link: '/case-converter.html', keywords: 'uppercase lowercase title case sentence' },
-      { name: 'Text Reverser', link: '/text-reverser.html', keywords: 'reverse backwards mirror flip upside down' },
-      { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder.html', keywords: 'encode decode base64 url binary hex' },
-      { name: 'Slug Generator', link: '/slug-generator.html', keywords: 'slug url seo friendly permalink' },
-      { name: 'Text Sorter', link: '/text-sorter.html', keywords: 'sort order alphabetically lines list' },
-      { name: 'Text Finder & Replacer', link: '/text-finder-replacer.html', keywords: 'find replace search and replace bulk' },
-      { name: 'Character Remover', link: '/character-remover.html', keywords: 'remove delete characters punctuation spaces' },
-      { name: 'Password Generator', link: '/password-generator.html', keywords: 'password generator random strong secure' },
-      { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator.html', keywords: 'lorem ipsum placeholder dummy text generator' }
+      { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
+      { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
+      { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
+      { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
+      { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
+      { name: 'Text Reverser', link: '/text-reverser', keywords: 'reverse backwards mirror flip upside down', category: 'manipulation' },
+      { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
+      { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+      { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'manipulation' },
+      { name: 'Text Finder & Replacer', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'manipulation' },
+      { name: 'Character Remover', link: '/character-remover', keywords: 'remove delete characters punctuation spaces', category: 'manipulation' },
+      { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
+      { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text generator', category: 'generators' },
+      { name: 'Text Scrambler', link: '/text-scrambler', keywords: 'scramble shuffle random letters jumble', category: 'manipulation' },
+      { name: 'Text Truncator', link: '/text-truncator', keywords: 'truncate cut shorten length limit', category: 'manipulation' },
+      { name: 'Text Splitter', link: '/text-splitter', keywords: 'split divide separate delimiter tokenize', category: 'manipulation' },
+      { name: 'Text Joiner', link: '/text-joiner', keywords: 'join merge combine concatenate lines', category: 'manipulation' },
+      { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
+      { name: 'Prefix/Suffix Adder', link: '/prefix-suffix-adder', keywords: 'prefix suffix prepend append each line', category: 'manipulation' },
+      { name: 'Line Number Adder', link: '/line-number-adder', keywords: 'line numbers add number rows', category: 'manipulation' },
+      { name: 'Character Frequency Counter', link: '/character-frequency-counter', keywords: 'character frequency count occurrence distribution', category: 'analysis' },
+      { name: 'Word Frequency Counter', link: '/word-frequency-counter', keywords: 'word frequency count occurrence common repeated', category: 'analysis' },
+      { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
+      { name: 'Text Statistics', link: '/text-statistics', keywords: 'statistics detailed stats text metrics', category: 'analysis' },
+      { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count period question exclamation', category: 'analysis' },
+      { name: 'Line Counter', link: '/line-counter', keywords: 'line count rows number lines', category: 'analysis' },
+      { name: 'Letter Case Counter', link: '/letter-case-counter', keywords: 'uppercase lowercase count case letters', category: 'analysis' },
+      { name: 'Vowel & Consonant Counter', link: '/vowel-consonant-counter', keywords: 'vowel consonant count letters alphabet', category: 'analysis' },
+      { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count blocks sections', category: 'analysis' },
+      { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
+      { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
+      { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
+      { name: 'Binary Text Converter', link: '/binary-text-converter', keywords: 'binary bits 0 1 convert text', category: 'encoding' },
+      { name: 'Hex Text Converter', link: '/hex-text-converter', keywords: 'hex hexadecimal base16 convert', category: 'encoding' },
+      { name: 'Caesar Cipher', link: '/caesar-cipher', keywords: 'caesar cipher shift encrypt decrypt rotate', category: 'encoding' },
+      { name: 'ROT13 Cipher', link: '/rot13-cipher', keywords: 'rot13 rotate 13 cipher encode decode', category: 'encoding' },
+      { name: 'Atbash Cipher', link: '/atbash-cipher', keywords: 'atbash reverse alphabet cipher mirror', category: 'encoding' },
+      { name: 'A1Z26 Cipher', link: '/a1z26-cipher', keywords: 'a1z26 letter number code cipher', category: 'encoding' },
+      { name: 'Unicode Converter', link: '/unicode-converter', keywords: 'unicode code point convert escape', category: 'encoding' },
+      { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
+      { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
+      { name: 'Cursive Text Generator', link: '/cursive-text-generator', keywords: 'cursive script handwriting unicode font', category: 'styling' },
+      { name: 'Bubble Text Generator', link: '/bubble-text-generator', keywords: 'bubble circle enclosed unicode text', category: 'styling' },
+      { name: 'Small Caps Generator', link: '/small-caps-generator', keywords: 'small caps petite capital unicode', category: 'styling' },
+      { name: 'Zalgo Text Generator', link: '/zalgo-text-generator', keywords: 'zalgo glitch creepy demon unicode', category: 'styling' },
+      { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
+      { name: 'Mirror Text Generator', link: '/mirror-text-generator', keywords: 'mirror flip horizontal reverse', category: 'styling' },
+      { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+      { name: 'UUID/GUID Generator', link: '/uuid-generator', keywords: 'uuid guid unique identifier random', category: 'generators' },
+      { name: 'Random Word Generator', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generators' },
+      { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
+      { name: 'Color Code Generator', link: '/color-code-generator', keywords: 'color hex rgb hsl random generator', category: 'generators' },
+      { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
+      { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
+      { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encoding' },
+      { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
+      { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
+      { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
+      { name: 'Google SERP Simulator', link: '/google-serp-simulator', keywords: 'serp simulator google search preview snippet', category: 'seo' },
+      { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
+      { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
+      { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' },
+      { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
+      { name: 'Remove Duplicate Lines', link: '/remove-duplicate-lines', keywords: 'remove duplicate lines unique dedupe', category: 'manipulation' },
+      { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
+      { name: 'Multiple Whitespace to Single', link: '/multiple-whitespace-to-single', keywords: 'whitespace single space replace multiple', category: 'manipulation' },
+      { name: 'Alphabetical Sorter', link: '/alphabetical-sorter', keywords: 'sort alphabetical order list a-z', category: 'manipulation' },
+      { name: 'Word to Line Converter', link: '/word-to-line-converter', keywords: 'word line newline split separate', category: 'manipulation' },
+      { name: 'Strikethrough Text Generator', link: '/strikethrough-text-generator', keywords: 'strikethrough cross out line through', category: 'styling' },
+      { name: 'Zalgo/Glitch Text Generator', link: '/zalgo-glitch-text-generator', keywords: 'zalgo glitch creepy demon corrupted', category: 'styling' },
+      { name: 'Binary to Text', link: '/binary-to-text', keywords: 'binary text decode convert bits', category: 'encoding' },
+      { name: 'Keyword Density Analyzer', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', category: 'analysis' }
     ];
+
+    function buildMegaMenu() {
+      const menu = document.getElementById('megaMenu');
+      if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
+    }
+
+    function buildMobileToolsMenu() {
+      const menu = document.getElementById('mobileToolsMenu');
+      if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
+    }
 
     function buildSearchList() {
       const list = document.getElementById('fullSearchResultsList');
-      list.innerHTML = tools.map(tool => `
-        <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
-          ${tool.name} <span class="result-tag">Tool</span>
-        </a>
-      `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
+      if (list) {
+        list.innerHTML = tools.map(tool => `
+          <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
+            ${tool.name} <span class="result-tag">${tool.category}</span>
+          </a>
+        `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
+      }
+    }
+
+    let toastTimer;
+    function showToast(msg, dur=3000) {
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.classList.add('show');
+      clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
     }
 
     function toggleTheme() {
@@ -371,8 +414,8 @@
         if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
         else { i.classList.add('hidden-item'); }
       });
-      if (c === 0 && q !== '') { nr.classList.add('show'); qs.textContent = q; }
-      else { nr.classList.remove('show'); }
+      if (c === 0 && q !== '') { if(nr) nr.classList.add('show'); if(qs) qs.textContent = q; }
+      else { if(nr) nr.classList.remove('show'); }
     }
     document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
     document.addEventListener('keydown', e => {
@@ -380,6 +423,8 @@
       if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
     });
 
+    buildMegaMenu();
+    buildMobileToolsMenu();
     buildSearchList();
     lucide.createIcons();
   </script>
