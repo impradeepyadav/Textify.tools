@@ -12,10 +12,27 @@
     <meta property="og:url" content="https://textify.tools/keyword-density-checker">
     <meta property="og:title" content="Keyword Density Checker – Textify.tools">
     <meta property="og:description" content="Analyze keyword frequency and density to optimize your content for search engines. Free, private, and client-side.">
-    
-    <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
-    <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
-    
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Keyword Density Checker – SEO Keyword Analysis Tool | Textify.tools">
+    <meta name="twitter:description" content="Free online keyword density checker. Analyze how often keywords appear in your content, filter stop words, sort by density, and improve your SEO.">
+
+    <!-- Favicons (full set) -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -23,9 +40,85 @@
         gtag('js', new Date());
         gtag('config', 'G-6VGXXT81MB');
     </script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://textify.tools/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Keyword Density Checker",
+              "item": "https://textify.tools/keyword-density-checker"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a good keyword density for SEO?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There's no universal perfect number, but 0.5%–2.5% is a safe range for primary keywords. Always prioritise natural language over rigid metrics."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why are stop words filtered out?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Stop words (like 'a', 'an', 'the', 'of') appear frequently but carry little meaning for SEO. Filtering them helps you focus on content keywords."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does case sensitivity matter?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If disabled (default), 'SEO' and 'seo' are counted as the same keyword. Enable case‑sensitive if your analysis requires distinguishing case (e.g., acronyms)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my content private?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — 100% private. No data leaves your device. You can analyze sensitive drafts, client content, or competitive analysis safely."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Keyword Density Checker",
+          "url": "https://textify.tools/keyword-density-checker",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Free online keyword density checker – analyze keyword frequency, filter stop words, and optimize your content for SEO."
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -190,6 +283,12 @@
         .density-bar { height: 6px; background: var(--primary); border-radius: 3px; margin-top: 6px; max-width: 100%; }
         .badge { padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; background: var(--hover); color: var(--text-light); margin-left: 8px; }
         
+        /* How to cards */
+        .how-to-card { background: var(--accent); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
+        .how-to-card .step-num { background: var(--primary); color: var(--bg); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+        .how-to-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+        .how-to-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin: 0; }
+
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
         .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
@@ -269,7 +368,7 @@
             <div class="search-box">
                 <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
                 <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
-                <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
+                <button class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
         </div>
@@ -322,14 +421,36 @@
             <p>Keyword density is the percentage of times a keyword appears in your text compared to the total number of words. It's a traditional SEO metric that helps you avoid keyword stuffing (too high density) or underusing important terms (too low).</p>
             <p><strong>Formula:</strong> (Keyword Count / Total Words) × 100 = Density %</p>
 
-            <h2>How to Use This Tool</h2>
-            <ol>
-                <li><strong>Enter your content</strong> — paste the article, blog post, or webpage text.</li>
-                <li><strong>Configure options</strong> — choose case‑sensitivity, filter stop words like "the" and "and", or set a minimum word length to ignore very short keywords.</li>
-                <li><strong>Click "Check Keyword Density"</strong> — the tool will analyze every word and display a table sorted by density.</li>
-                <li><strong>Sort results</strong> — click the sort buttons to view keywords by density (highest first) or alphabetically.</li>
-                <li><strong>Export data</strong> — download the keyword list as a CSV file for further analysis in spreadsheets.</li>
-            </ol>
+            <!-- Enhanced "How to Use" with step cards -->
+            <h2>How to Use the Keyword Density Checker</h2>
+            <div class="how-to-card">
+                <div class="step-num">1</div>
+                <div>
+                    <h4>Paste Your Content</h4>
+                    <p>Enter the full text of your article, blog post, or any content you want to analyze. The tool accepts anything from a few words to thousands.</p>
+                </div>
+            </div>
+            <div class="how-to-card">
+                <div class="step-num">2</div>
+                <div>
+                    <h4>Configure Your Options</h4>
+                    <p>Choose case‑sensitivity, whether to filter common stop words (e.g., "the", "and", "of"), or set a minimum word length to ignore very short keywords.</p>
+                </div>
+            </div>
+            <div class="how-to-card">
+                <div class="step-num">3</div>
+                <div>
+                    <h4>Click "Check Keyword Density"</h4>
+                    <p>The tool analyzes every word and instantly displays a table sorted by density (highest first). You'll see the count, density percentage, and a visual density bar.</p>
+                </div>
+            </div>
+            <div class="how-to-card">
+                <div class="step-num">4</div>
+                <div>
+                    <h4>Sort, Analyze, and Export</h4>
+                    <p>Use the sort buttons to view keywords by density or alphabetically. Download the complete list as a CSV file for spreadsheets or deeper analysis.</p>
+                </div>
+            </div>
 
             <h2>Best Practices for Keyword Density</h2>
             <ul>
@@ -527,7 +648,7 @@
             if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
 
-        // Keyword Density Logic
+        // Keyword Density Logic (unchanged)
         let currentData = [];
 
         function getStopWords() {
@@ -556,18 +677,15 @@
             const minWordLen = parseInt(document.getElementById('minLength').value) || 0;
             const stopWords = filterStopwords ? getStopWords() : null;
 
-            // Extract words: split by non-letter characters
             let words = input.match(/[a-zA-ZÀ-ÿ]+(?:'[a-zA-Z]+)?/g) || [];
             if (!caseSensitive) {
                 words = words.map(w => w.toLowerCase());
             }
 
-            // Apply minimum length filter
             if (minWordLen > 0) {
                 words = words.filter(w => w.length >= minWordLen);
             }
 
-            // Apply stop word filter
             if (stopWords) {
                 words = words.filter(w => !stopWords.has(w));
             }
@@ -589,7 +707,6 @@
                 density: ((count / totalWords) * 100).toFixed(2)
             }));
 
-            // Sort by density initially (highest first)
             currentData.sort((a, b) => parseFloat(b.density) - parseFloat(a.density));
 
             renderResults(totalWords);
@@ -603,7 +720,6 @@
             const maxCount = currentData[0]?.count || 1;
             tbody.innerHTML = currentData.map((item, idx) => {
                 const densityPercent = parseFloat(item.density);
-                let densityClass = '';
                 let densityBadge = '';
                 if (densityPercent < 0.5) densityBadge = '<span class="badge" style="background:#fef3c7; color:#92400e;">Low</span>';
                 else if (densityPercent <= 2.5) densityBadge = '<span class="badge" style="background:#d1fae5; color:#065f46;">Optimal</span>';
