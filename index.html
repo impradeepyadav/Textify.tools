@@ -42,19 +42,11 @@
     {
       "@type": "WebSite",
       "@id": "https://textify.tools/#website",
-      "name": "Textify Tools",
       "url": "https://textify.tools/",
+      "name": "Textify Tools",
       "description": "Free online text tools including word counter, paraphraser, text repeater, JSON formatter, password generator, and more.",
       "publisher": {
         "@id": "https://textify.tools/#organization"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://textify.tools/?s={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
       }
     },
 
@@ -66,188 +58,78 @@
       "logo": {
         "@type": "ImageObject",
         "url": "https://textify.tools/apple-touch-icon.png"
-      },
-      "sameAs": [
-        "https://twitter.com/",
-        "https://facebook.com/"
-      ]
+      }
+    },
+
+    {
+      "@type": "CollectionPage",
+      "@id": "https://textify.tools/#collection",
+      "url": "https://textify.tools/",
+      "name": "Free Online Text Tools",
+      "description": "Collection of free online text utilities and writing tools.",
+      "isPartOf": {
+        "@id": "https://textify.tools/#website"
+      }
     },
 
     {
       "@type": "ItemList",
       "@id": "https://textify.tools/#tools",
-      "name": "Popular Text Tools",
-      "description": "Collection of free online text utilities and writing tools.",
-      "numberOfItems": 10,
+      "name": "Top Textify Tools",
+      "numberOfItems": 3,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
       "itemListElement": [
 
         {
           "@type": "ListItem",
           "position": 1,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "Text Repeater",
-            "url": "https://textify.tools/text-repeater",
-            "applicationCategory": "UtilityApplication",
-            "operatingSystem": "Any",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
-          }
+          "url": "https://textify.tools/word-counter"
         },
 
         {
           "@type": "ListItem",
           "position": 2,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "Smart Paraphraser",
-            "url": "https://textify.tools/smart-paraphraser",
-            "applicationCategory": "UtilityApplication",
-            "operatingSystem": "Any",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
-          }
+          "url": "https://textify.tools/text-repeater"
         },
 
         {
           "@type": "ListItem",
           "position": 3,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "Word Counter",
-            "url": "https://textify.tools/word-counter",
-            "applicationCategory": "UtilityApplication",
-            "operatingSystem": "Any",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
+          "url": "https://textify.tools/smart-paraphraser"
+        }
+
+      ]
+    },
+
+    {
+      "@type": "FAQPage",
+      "@id": "https://textify.tools/#faq",
+      "mainEntity": [
+
+        {
+          "@type": "Question",
+          "name": "Is Textify Tools free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all Textify Tools are completely free to use without registration or hidden charges."
           }
         },
 
         {
-          "@type": "ListItem",
-          "position": 4,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "Text Diff Checker",
-            "url": "https://textify.tools/text-diff-checker",
-            "applicationCategory": "DeveloperApplication",
-            "operatingSystem": "Any",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
+          "@type": "Question",
+          "name": "Do I need to install any software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, all tools work directly in your web browser on desktop and mobile devices."
           }
         },
 
         {
-          "@type": "ListItem",
-          "position": 5,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "Case Converter",
-            "url": "https://textify.tools/case-converter",
-            "applicationCategory": "UtilityApplication",
-            "operatingSystem": "Any",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
-          }
-        },
-
-        {
-          "@type": "ListItem",
-          "position": 6,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "Text Reverser",
-            "url": "https://textify.tools/text-reverser",
-            "applicationCategory": "UtilityApplication",
-            "operatingSystem": "Any",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
-          }
-        },
-
-        {
-          "@type": "ListItem",
-          "position": 7,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "Text Encoder Decoder",
-            "url": "https://textify.tools/text-encoder-decoder",
-            "applicationCategory": "DeveloperApplication",
-            "operatingSystem": "Any",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
-          }
-        },
-
-        {
-          "@type": "ListItem",
-          "position": 8,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "Slug Generator",
-            "url": "https://textify.tools/slug-generator",
-            "applicationCategory": "UtilityApplication",
-            "operatingSystem": "Any",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
-          }
-        },
-
-        {
-          "@type": "ListItem",
-          "position": 9,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "Password Generator",
-            "url": "https://textify.tools/password-generator",
-            "applicationCategory": "SecurityApplication",
-            "operatingSystem": "Any",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
-          }
-        },
-
-        {
-          "@type": "ListItem",
-          "position": 10,
-          "item": {
-            "@type": "SoftwareApplication",
-            "name": "JSON Formatter",
-            "url": "https://textify.tools/json-formatter",
-            "applicationCategory": "DeveloperApplication",
-            "operatingSystem": "Any",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            }
+          "@type": "Question",
+          "name": "Are my texts and files secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, most tools process data directly in your browser and do not store your content on servers."
           }
         }
 
