@@ -12,6 +12,10 @@
     <meta property="og:url" content="https://textify.tools/text-repeater">
     <meta property="og:title" content="Text Repeater – Repeat Text up to 100,000x">
     <meta property="og:description" content="Repeat text up to 100,000 times with custom separators, font styles, and visual effects. Fast, free, and private.">
+    <!-- Twitter Cards (new) -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Text Repeater – Repeat Text up to 100,000x Online">
+    <meta name="twitter:description" content="Repeat text up to 100,000 times with custom separators, font styles, and visual effects. Fast, free, and private.">
     
     <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
     <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
@@ -23,9 +27,117 @@
         gtag('js', new Date());
         gtag('config', 'G-6VGXXT81MB');
     </script>
+
+    <!-- ===== Structured Data (new) ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://textify.tools/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Text Repeater",
+              "item": "https://textify.tools/text-repeater"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is Textify really free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! 100% free. No hidden fees, no premium plans, no account required."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will WhatsApp ban me for using this?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Generally, no. Since you are manually copying and pasting the text, it acts like a normal message. However, sending thousands of messages in seconds can flag spam filters. We recommend using the New Line separator to send one long message instead of many small ones."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does this work on iPhone and Android?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely! Textify is a responsive web app that works on iOS Safari, Android Chrome, and all modern browsers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my data private?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, completely. All processing is client-side JavaScript. Your text never leaves your device."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the maximum text repeat limit?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "100,000 repetitions. For counts above 50,000, we use chunked processing for smooth performance."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "HowTo",
+          "name": "How to Create a Long WhatsApp Message Using Text Repeater",
+          "description": "Steps to repeat text and send a long formatted message on WhatsApp.",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "position": 1,
+              "name": "Enter your text",
+              "text": "Type the message you want to repeat, such as 'Happy Birthday' or any custom text."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 2,
+              "name": "Set the repeat count",
+              "text": "Enter a high number like 1000 to create a long message output."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 3,
+              "name": "Select a separator",
+              "text": "Choose 'New Line' so each repetition appears on a separate line, making the message visually long and easy to scroll."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 4,
+              "name": "Generate and copy",
+              "text": "Click the 'Repeat Text' button and copy the generated content."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 5,
+              "name": "Paste into WhatsApp",
+              "text": "Open the chat and paste the text. It will be sent as one single formatted message."
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -279,7 +391,7 @@
             <div class="search-box">
                 <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
                 <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
-                <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
+                <button class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
         </div>
@@ -288,6 +400,7 @@
     <div class="toast" id="toast"></div>
 
     <main>
+        <!-- ... (rest of main content unchanged) ... -->
         <h1>Free Online Text Repeater: Repeat Text up to 100,000x Times</h1>
         <p class="subtitle"><strong>Textify.tools</strong> is the internet's most powerful <strong>online text repeater</strong>. Repeat text up to <strong>100,000x times</strong> instantly with zero lag. Includes 12 font styles, 8 decorations, glitch effects, invisible text, custom separators, and more — all processing locally in your browser for maximum privacy.</p>
 
@@ -339,6 +452,7 @@
             </div>
         </div>
 
+        <!-- (All the content sections like "What is Textify Text Repeater?", tables, etc. remain exactly as in your original file.) -->
         <div style="margin-top:60px;border-top:1px solid var(--line);padding-top:30px;">
             <h2>What is Textify Text Repeater?</h2>
             <p>Welcome to <strong>Textify.tools</strong> — the most reliable online tool for repeating text strings instantly. Generate repeated text for software testing, create dummy data for programming, or duplicate messages quickly and efficiently. Our engine handles up to <strong>100,000 repetitions</strong> without freezing your browser.</p>
@@ -610,7 +724,7 @@
             if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
 
-        // Text Repeater specific logic
+        // Text Repeater specific logic (unchanged)
         function validateRepeatCount(input) {
             const val = parseInt(input.value);
             if (val > 100000) { input.value = 100000; input.classList.add('input-error'); showToast('⚠️ Maximum limit is 100,000 repetitions'); setTimeout(() => input.classList.remove('input-error'), 600); }
