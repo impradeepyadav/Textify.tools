@@ -12,10 +12,27 @@
     <meta property="og:url" content="https://textify.tools/word-frequency-counter">
     <meta property="og:title" content="Word Frequency Counter – Textify.tools">
     <meta property="og:description" content="Analyze word frequency, find most common words, and filter stop words. Free, private, and client-side.">
-    
-    <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
-    <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
-    
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Word Frequency Counter – Count Word Occurrences & Density | Textify.tools">
+    <meta name="twitter:description" content="Free online word frequency counter. Count how many times each word appears in your text, filter stop words, sort by frequency or alphabetically, and download results.">
+
+    <!-- Favicons (full set) -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -23,9 +40,85 @@
         gtag('js', new Date());
         gtag('config', 'G-6VGXXT81MB');
     </script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://textify.tools/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Word Frequency Counter",
+              "item": "https://textify.tools/word-frequency-counter"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How accurate is the word frequency counter?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The tool splits text by spaces and punctuation, then counts each occurrence exactly. With case‑sensitivity off (default), 'Hello' and 'hello' are counted as the same word."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are stop words?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Stop words are common words (such as 'the', 'and', 'of', 'to') that are often filtered out in text analysis because they add little meaning. You can enable or disable this filter as needed."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does it work on mobile?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — the page is fully responsive and works on iPhones, Android devices, and tablets."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my text private?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. All processing happens directly in your browser — no data leaves your device."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Word Frequency Counter",
+          "url": "https://textify.tools/word-frequency-counter",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Free online word frequency counter – count word occurrences, filter stop words, sort by frequency, and export results."
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -270,7 +363,7 @@
             <div class="search-box">
                 <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
                 <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
-                <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
+                <button class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
         </div>
@@ -528,7 +621,7 @@
             if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
 
-        // Word Frequency Counter Logic
+        // Word Frequency Counter Logic (unchanged)
         let currentData = [];
 
         function getStopWords() {
@@ -557,18 +650,13 @@
             const minWordLen = parseInt(document.getElementById('minLength').value) || 0;
             const stopWords = filterStopwords ? getStopWords() : null;
 
-            // Extract words: split by non-letter characters
             let words = input.match(/[a-zA-ZÀ-ÿ]+(?:'[a-zA-Z]+)?/g) || [];
             if (!caseSensitive) {
                 words = words.map(w => w.toLowerCase());
             }
-
-            // Apply minimum length filter
             if (minWordLen > 0) {
                 words = words.filter(w => w.length >= minWordLen);
             }
-
-            // Apply stop word filter
             if (stopWords) {
                 words = words.filter(w => !stopWords.has(w));
             }
@@ -585,9 +673,7 @@
                 percentage: ((count / totalWords) * 100).toFixed(2)
             }));
 
-            // Sort by frequency initially
             currentData.sort((a, b) => b.count - a.count);
-
             renderResults();
             updateStats(totalWords, currentData.length, input.length);
             document.getElementById('resultsArea').style.display = 'block';
