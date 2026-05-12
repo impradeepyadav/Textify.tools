@@ -12,10 +12,27 @@
     <meta property="og:url" content="https://textify.tools/vowel-consonant-counter">
     <meta property="og:title" content="Vowel & Consonant Counter – Textify.tools">
     <meta property="og:description" content="Analyse vowels and consonants in your text. Get detailed stats, frequency tables, and percentages. Free and private.">
-    
-    <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
-    <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
-    
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Vowel & Consonant Counter – Analyse Letter Frequency | Textify.tools">
+    <meta name="twitter:description" content="Free online vowel and consonant counter. Instantly count vowels, consonants, and analyse letter frequency in any text.">
+
+    <!-- Favicons (full set) -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -23,9 +40,85 @@
         gtag('js', new Date());
         gtag('config', 'G-6VGXXT81MB');
     </script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://textify.tools/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Vowel & Consonant Counter",
+              "item": "https://textify.tools/vowel-consonant-counter"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How accurate is the vowel/consonant counter?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The tool is 100% accurate for standard English letters. It only counts A, E, I, O, U (both cases) as vowels; all other letters are counted as consonants. Numbers, spaces, punctuation, and special characters are ignored."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does it work on mobile?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — the page is fully responsive and works on iPhones, Android devices, and tablets."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my text private?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. All processing happens directly in your browser — no data leaves your device."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does it treat 'Y' as a vowel?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "'Y' is always counted as a consonant in this tool. While 'Y' can sometimes act as a vowel in specific contexts (like 'myth' or 'sky'), the standard classification in letter‑frequency analysis treats it as a consonant."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "WebApplication",
+          "name": "Vowel & Consonant Counter",
+          "url": "https://textify.tools/vowel-consonant-counter",
+          "applicationCategory": "UtilityApplication",
+          "operatingSystem": "Any",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Free online tool to count vowels, consonants, and analyse letter frequency in any text."
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -54,9 +147,6 @@
             --accent: #f8fafc;
             --toast-bg: #1f2937;
             --toast-text: #ffffff;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            --primary-color: #000000;
-            --home-bg: #ffffff;
         }
         body.dark-mode {
             --bg: #0f172a;
@@ -85,8 +175,6 @@
             --accent: #1e293b;
             --toast-bg: #f1f5f9;
             --toast-text: #0f172a;
-            --primary-color: #ffffff;
-            --home-bg: #0f172a;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -100,8 +188,7 @@
         header {
             border-bottom: 1px solid var(--line); background: var(--bg);
             display: flex; justify-content: center; align-items: center;
-            padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-            position: relative; z-index: 100;
+            padding: 0 20px; height: 64px; position: relative; z-index: 100;
         }
         .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
@@ -187,13 +274,17 @@
         .progress-bar { flex: 1; margin: 0 12px; height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
         .progress-fill { height: 100%; background: var(--primary); border-radius: 3px; transition: width 0.3s; }
 
-        .tool-status { background: var(--success-bg); padding: 14px 18px; border-radius: 12px; margin-bottom: 20px; text-align: center; color: var(--success-text); font-weight: 600; font-size: 14px; display: none; }
         .action-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
         .btn { padding: 14px 26px; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; }
         .btn-primary { background: var(--primary); color: var(--bg); }
         .btn-primary:hover { opacity: 0.88; transform: scale(0.98); }
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
         .btn-outline:hover { background: var(--hover); }
+
+        .how-to-card { background: var(--accent); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
+        .how-to-card .step-num { background: var(--primary); color: var(--bg); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+        .how-to-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+        .how-to-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin: 0; }
 
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
         .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
@@ -274,7 +365,7 @@
             <div class="search-box">
                 <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
                 <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
-                <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
+                <button class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
         </div>
@@ -309,13 +400,34 @@
 
         <div style="margin-top: 50px; border-top: 1px solid var(--line); padding-top: 30px;">
             <h2>How to Use the Vowel & Consonant Counter</h2>
-            <p>This tool helps you analyze the letter composition of any text. Here's how to use it:</p>
-            <ol style="margin-bottom: 25px;">
-                <li><strong>Enter your text</strong> – Paste or type any text into the main textarea above.</li>
-                <li><strong>Watch the stats update automatically</strong> – As you type or paste, all metrics update in real time. You don't need to click any button.</li>
-                <li><strong>Explore the results</strong> – See total letters, vowel count, consonant count, percentages, and detailed frequency tables for each vowel and consonant letter.</li>
-                <li><strong>Copy or clear</strong> – Use the buttons to copy the analysis results in text format or clear everything for a fresh start.</li>
-            </ol>
+            <div class="how-to-card">
+                <div class="step-num">1</div>
+                <div>
+                    <h4>Paste or Type Your Text</h4>
+                    <p>Start by entering any text into the input field above. It can be a single sentence, paragraph, or an entire document.</p>
+                </div>
+            </div>
+            <div class="how-to-card">
+                <div class="step-num">2</div>
+                <div>
+                    <h4>Watch the Stats Update Automatically</h4>
+                    <p>As you type or paste, all metrics update in real time — total letters, vowel count, consonant count, and percentages. No need to click any button.</p>
+                </div>
+            </div>
+            <div class="how-to-card">
+                <div class="step-num">3</div>
+                <div>
+                    <h4>Explore the Detailed Breakdown</h4>
+                    <p>Scroll down to see individual frequency tables for each vowel (A, E, I, O, U) and every consonant, with visual progress bars and percentage indicators.</p>
+                </div>
+            </div>
+            <div class="how-to-card">
+                <div class="step-num">4</div>
+                <div>
+                    <h4>Copy or Clear</h4>
+                    <p>Use the Copy button to save the analysis results as text, or click Clear to start fresh with new content.</p>
+                </div>
+            </div>
 
             <h2>What Do Vowels and Consonants Include?</h2>
             <p>This tool counts <strong>vowels</strong> as the letters: <strong>A, E, I, O, U</strong> (both uppercase and lowercase). All other letters (B, C, D, F, G, H, J, K, L, M, N, P, Q, R, S, T, V, W, X, Y, Z) are counted as <strong>consonants</strong>. The letter 'Y' is counted as a consonant — while 'Y' can sometimes act as a vowel (e.g., in "sky"), the standard classification treats it as a consonant in most text analysis contexts.</p>
@@ -328,7 +440,7 @@
                 <li><strong>Students & Linguists</strong> – Analyse language patterns, conduct linguistic research, or complete assignments on letter frequency.</li>
                 <li><strong>Educators</strong> – Use the tool in classrooms to help students learn about letter types and phonetics.</li>
                 <li><strong>Cryptography Enthusiasts</strong> – Letter frequency analysis is a fundamental technique in code‑breaking.</li>
-                <li><strong>Writers & Content Creators</strong> – Improve the readability and flow of your text by balancing vowel and consonant usage.</li>
+                <li><strong>Content Creators</strong> – Improve the readability and flow of your text by balancing vowel and consonant usage.</li>
             </ul>
 
             <h2>Privacy & Security</h2>
@@ -359,7 +471,7 @@
     </footer>
 
     <script>
-        // Complete tools list (80+ tools) matching index.html
+        // Complete tools list (80+ tools)
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -518,20 +630,13 @@
             if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
 
-        // Vowel & Consonant Counter Logic
-        function isVowel(letter) {
-            return /^[aeiou]$/i.test(letter);
-        }
-
-        function isLetter(character) {
-            return /^[a-zA-Z]$/.test(character);
-        }
+        // Vowel & Consonant Counter Logic (unchanged)
+        function isVowel(letter) { return /^[aeiou]$/i.test(letter); }
+        function isLetter(character) { return /^[a-zA-Z]$/.test(character); }
 
         function updateCounts() {
             const text = document.getElementById('inputText').value;
-            let totalLetters = 0;
-            let vowelCount = 0;
-            let consonantCount = 0;
+            let totalLetters = 0, vowelCount = 0, consonantCount = 0;
             let vowelMap = { a: 0, e: 0, i: 0, o: 0, u: 0 };
             let consonantMap = {};
 
@@ -549,12 +654,11 @@
                 }
             }
 
-            // Update stats display
             document.getElementById('totalLetters').textContent = totalLetters;
             document.getElementById('vowelCount').textContent = vowelCount;
             document.getElementById('consonantCount').textContent = consonantCount;
             document.getElementById('totalChars').textContent = text.length;
-            
+
             if (totalLetters > 0) {
                 document.getElementById('vowelPercent').textContent = ((vowelCount / totalLetters) * 100).toFixed(1) + '%';
                 document.getElementById('consonantPercent').textContent = ((consonantCount / totalLetters) * 100).toFixed(1) + '%';
@@ -563,37 +667,21 @@
                 document.getElementById('consonantPercent').textContent = '0%';
             }
 
-            // Update vowel list with progress bars
             const vowelContainer = document.getElementById('vowelList');
             const vowelNames = ['a', 'e', 'i', 'o', 'u'];
             const maxVowelCount = Math.max(...Object.values(vowelMap), 1);
             vowelContainer.innerHTML = vowelNames.map(v => {
                 const count = vowelMap[v];
                 const percent = totalLetters > 0 ? (count / totalLetters) * 100 : 0;
-                return `
-                    <div class="letter-item">
-                        <span class="letter-name" style="text-transform: uppercase; font-weight:700;">${v}</span>
-                        <div class="progress-bar"><div class="progress-fill" style="width: ${maxVowelCount > 0 ? (count / maxVowelCount) * 100 : 0}%; background: #dc2626;"></div></div>
-                        <span class="letter-count" style="color:#dc2626;">${count}</span>
-                        <span style="font-size:12px; margin-left:8px;">(${percent.toFixed(1)}%)</span>
-                    </div>
-                `;
+                return `<div class="letter-item"><span class="letter-name" style="text-transform: uppercase; font-weight:700;">${v}</span><div class="progress-bar"><div class="progress-fill" style="width: ${maxVowelCount > 0 ? (count / maxVowelCount) * 100 : 0}%; background: #dc2626;"></div></div><span class="letter-count" style="color:#dc2626;">${count}</span><span style="font-size:12px; margin-left:8px;">(${percent.toFixed(1)}%)</span></div>`;
             }).join('');
 
-            // Update consonant list
             const consonantContainer = document.getElementById('consonantList');
             const consonantEntries = Object.entries(consonantMap).sort((a, b) => b[1] - a[1]);
             const maxConsonantCount = Math.max(...consonantEntries.map(([_, c]) => c), 1);
             consonantContainer.innerHTML = consonantEntries.map(([letter, count]) => {
                 const percent = totalLetters > 0 ? (count / totalLetters) * 100 : 0;
-                return `
-                    <div class="letter-item">
-                        <span class="letter-name" style="text-transform: uppercase; font-weight:700;">${letter}</span>
-                        <div class="progress-bar"><div class="progress-fill" style="width: ${(count / maxConsonantCount) * 100}%; background: #2563eb;"></div></div>
-                        <span class="letter-count" style="color:#2563eb;">${count}</span>
-                        <span style="font-size:12px; margin-left:8px;">(${percent.toFixed(1)}%)</span>
-                    </div>
-                `;
+                return `<div class="letter-item"><span class="letter-name" style="text-transform: uppercase; font-weight:700;">${letter}</span><div class="progress-bar"><div class="progress-fill" style="width: ${(count / maxConsonantCount) * 100}%; background: #2563eb;"></div></div><span class="letter-count" style="color:#2563eb;">${count}</span><span style="font-size:12px; margin-left:8px;">(${percent.toFixed(1)}%)</span></div>`;
             }).join('');
             if (consonantEntries.length === 0) {
                 consonantContainer.innerHTML = '<div class="letter-item">No consonants found.</div>';
@@ -605,25 +693,22 @@
 
         const inputField = document.getElementById('inputText');
         inputField.addEventListener('input', updateCounts);
-        
+
         function clearText() {
             inputField.value = '';
             updateCounts();
             inputField.focus();
             showToast('🧹 Cleared');
         }
-        
+
         async function copyResult() {
             const text = inputField.value;
-            if (!text.trim()) {
-                showToast('No text to copy.', 2000);
-                return;
-            }
+            if (!text.trim()) { showToast('No text to copy.', 2000); return; }
             const totalLettersVal = document.getElementById('totalLetters').textContent;
             const vowelCountVal = document.getElementById('vowelCount').textContent;
             const consonantCountVal = document.getElementById('consonantCount').textContent;
             const resultText = `Text: ${text}\n\n--- Vowel & Consonant Analysis ---\nTotal Letters: ${totalLettersVal}\nVowels: ${vowelCountVal}\nConsonants: ${consonantCountVal}`;
-            
+
             const btn = document.getElementById('copyBtn');
             const origHTML = btn.innerHTML;
             try {
@@ -647,7 +732,7 @@
                 setTimeout(() => { btn.innerHTML = origHTML; btn.style.background = ''; lucide.createIcons(); }, 2000);
             }
         }
-        
+
         buildMegaMenu();
         buildMobileToolsMenu();
         buildSearchList();
