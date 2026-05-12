@@ -259,7 +259,7 @@
 </script>
 </head>
 <body>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -525,7 +525,7 @@
             <div class="search-box">
                 <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
                 <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
-                <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
+                <button class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
         </div>
@@ -615,6 +615,49 @@
             </div>
         </div>
 
+        <!-- NEW: Who Uses Textify.tools? -->
+        <div class="section">
+            <h2>Who Uses Textify.tools?</h2>
+            <p>Our free online text tools are designed for everyone. See how different professionals benefit every day.</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4><i data-lucide="code-2" width="20" height="20"></i> Developers & Engineers</h4>
+                    <p>Format JSON, decode JWTs, minify code, and generate slugs – all while keeping your data completely private.</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i data-lucide="edit-3" width="20" height="20"></i> Writers & Bloggers</h4>
+                    <p>Count words, check reading time, convert case, and paraphrase content to polish articles before publishing.</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i data-lucide="graduation-cap" width="20" height="20"></i> Students & Teachers</h4>
+                    <p>Turn typed notes into handwriting, generate lorem ipsum for mockups, and sort references in seconds.</p>
+                </div>
+                <div class="feature-card">
+                    <h4><i data-lucide="bar-chart-4" width="20" height="20"></i> Marketers & SEO Specialists</h4>
+                    <p>Simulate Google SERP snippets, build UTM links, analyze keyword density, and generate SEO‑friendly slugs.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW: Tool Spotlight -->
+        <div class="section">
+            <h2>Tool Spotlight – Try These Favorites</h2>
+            <div class="feature-grid">
+                <a href="/json-formatter" class="feature-card" style="text-decoration:none;color:var(--text);">
+                    <h4><i data-lucide="braces" width="20" height="20"></i> JSON Formatter</h4>
+                    <p>Beautify and validate JSON with one click. Indentation, syntax highlighting, and error detection built-in. Trusted by thousands of developers daily.</p>
+                </a>
+                <a href="/text-to-handwriting" class="feature-card" style="text-decoration:none;color:var(--text);">
+                    <h4><i data-lucide="pen-tool" width="20" height="20"></i> Text to Handwriting</h4>
+                    <p>Converts plain text into realistic handwritten notes. Choose from multiple handwriting styles and paper backgrounds. Perfect for assignments and creative projects.</p>
+                </a>
+                <a href="/password-generator" class="feature-card" style="text-decoration:none;color:var(--text);">
+                    <h4><i data-lucide="key" width="20" height="20"></i> Password Generator</h4>
+                    <p>Create ultra‑strong passwords using cryptographic randomness. Customize length, include symbols, numbers, and avoid ambiguous characters – all offline and secure.</p>
+                </a>
+            </div>
+        </div>
+
         <div class="section">
             <h2>Tips for Best Use</h2>
             <ul>
@@ -642,6 +685,8 @@
             <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Do I need to install anything?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">No. Textify works directly in your web browser on any modern device.</div></div>
             <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How secure is the Password Generator?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Passwords are generated entirely on your device using a cryptographically strong algorithm. They are never saved or transmitted.</div></div>
             <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use these tools for commercial work?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes! There are no restrictions. Use the output however you like.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I suggest a new tool?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">We love hearing from users! Reach out via our <a href="contact">Contact page</a> with your ideas. If it's useful and privacy‑friendly, we'll gladly build it.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does Textify require an internet connection?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Once a tool page is loaded, most features work offline because everything runs in your browser. You can even bookmark pages for offline use.</div></div>
         </div>
     </main>
 
@@ -749,7 +794,6 @@
             { name: 'Keyword Density Analyzer', desc: 'Check keyword usage percentage in your content.', icon: 'percent', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', color: '#0ea5e9', category: 'analysis' },
         ];
 
-        // ---- Render functions (unchanged logic, just using updated links) ----
         function renderCategoryFilters() {
             const bar = document.getElementById('categoryFilterBar');
             bar.innerHTML = categories.map(cat =>
@@ -873,7 +917,6 @@
             if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
 
-        // Initialize
         renderCategoryFilters();
         renderToolCards();
         buildMegaMenu();
