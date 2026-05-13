@@ -17,7 +17,7 @@
     <meta name="msapplication-TileImage" content="/mstile-150x150.png">
     <!-- ============================================= -->
 
-    <title>Slug Generator – Single & Bulk URL Slug Creator Online | Textify tools</title>
+    <title>Slug Generator – Single & Bulk URL Slug Creator Online | Textify.tools</title>
     <meta name="description" content="Free online slug generator – create SEO‑friendly URL slugs from one or multiple titles. Bulk mode, stop words removal, custom separators, case control. Works offline, private.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/slug-generator">
@@ -40,7 +40,7 @@
                 "operatingSystem": "All",
                 "description": "Single & bulk URL slug generator with stop words removal, custom separators, and case control. Works offline in your browser.",
                 "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-                "author": { "@type": "Organization", "name": "Textify tools" }
+                "author": { "@type": "Organization", "name": "Textify.tools" }
             },
             {
                 "@type": "BreadcrumbList",
@@ -214,8 +214,8 @@
     <header>
         <div class="header-inner">
             <a href="/" class="logo">
-                <img src="/favicon.ico" alt="Textify tools" class="logo-img">
-                Textify tools
+                <img src="/favicon.ico" alt="Textify.tools" class="logo-img">
+                Textify.tools
             </a>
             <div class="header-right">
                 <div class="desktop-nav">
@@ -242,8 +242,8 @@
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo">
-                <img src="/favicon.ico" alt="Textify tools" class="logo-img">
-                Textify tools
+                <img src="/favicon.ico" alt="Textify.tools" class="logo-img">
+                Textify.tools
             </a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
@@ -274,7 +274,7 @@
 
     <main>
         <h1>Slug Generator – Single & Bulk URL Slug Creator</h1>
-        <p class="subtitle"><strong>Textify tools</strong> offers the fastest <strong>online slug generator</strong> with <strong>bulk support</strong>. Convert any text into a clean, readable URL slug perfect for blogs, websites, and APIs. Paste one title or hundreds – all processing is private and local.</p>
+        <p class="subtitle"><strong>Textify.tools</strong> offers the fastest <strong>online slug generator</strong> with <strong>bulk support</strong>. Convert any text into a clean, readable URL slug perfect for blogs, websites, and APIs. Paste one title or hundreds – all processing is private and local.</p>
 
         <!-- Mode Switcher (no emojis) -->
         <div class="mode-tabs">
@@ -346,7 +346,7 @@
             <h2>What Is a URL Slug?</h2>
             <p>A URL slug is the part of a web address that comes after the domain name and identifies a specific page or post in a human‑readable way. For example, in the URL <code>https://example.com/blog/seo-tips-for-beginners</code>, the slug is <strong>seo-tips-for-beginners</strong>. Good slugs are short, descriptive, and use hyphens to separate words – which is exactly what this tool helps you create.</p>
 
-            <h2>Why Choose Textify Slug Generator?</h2>
+            <h2>Why Choose Textify.tools Slug Generator?</h2>
             <div style="background: var(--accent); padding: 20px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px;">
                 <ul style="margin-bottom:0;">
                     <li><strong>Single & Bulk Modes</strong> – Generate one slug or hundreds at once. Perfect for site migrations, bulk blog post planning, or API design.</li>
@@ -417,8 +417,8 @@
         <div class="footer-grid">
             <div>
                 <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                    <img src="/favicon.ico" alt="Textify tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify tools
+                    <img src="/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                    Textify.tools
                 </a>
                 <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
             </div>
@@ -432,7 +432,7 @@
     </footer>
 
     <script>
-        // ---- Complete tools list (unchanged, identical to earlier full version) ----
+        // ---- Complete tools list (all 60+ tools) ----
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -498,6 +498,7 @@
             { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' }
         ];
 
+        // ... (all remaining JavaScript functions identical to previous complete version) ...
         function buildMegaMenu() {
             const menu = document.getElementById('megaMenu');
             if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
@@ -579,7 +580,6 @@
             if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
 
-        // ---- Mode switching ----
         let currentMode = 'single';
         function switchMode(mode) {
             currentMode = mode;
@@ -590,7 +590,6 @@
             document.getElementById('outputArea').style.display = 'none';
         }
 
-        // ---- Slug generation logic ----
         const stopWords = new Set([
             'a','an','the','and','or','but','in','on','at','to','for','of','with','by','from','up',
             'about','into','through','during','before','after','above','below','between','out','off',
