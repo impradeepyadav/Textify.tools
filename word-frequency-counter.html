@@ -4,21 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
-    <title>Word Frequency Counter – Count Word Occurrences & Density | Textify.tools</title>
-    <meta name="description" content="Free online word frequency counter. Count how many times each word appears in your text, filter stop words, sort by frequency or alphabetically, and download results.">
+    
+    <!-- Enhanced SEO title & meta -->
+    <title>Word Frequency Counter – Count Word Occurrences & Density (Free)</title>
+    <meta name="description" content="Free online word frequency counter. Count how many times each word appears, filter stop words, sort by frequency or alphabetically, and export CSV. Fully private, no uploads.">
+    <meta name="keywords" content="word frequency counter, word occurrence, word density, most common words, stop words filter, text analysis, word count tool, frequency analyzer, keyword density">
+    <meta name="author" content="Textify.tools">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/word-frequency-counter">
+    
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/word-frequency-counter">
-    <meta property="og:title" content="Word Frequency Counter – Textify.tools">
-    <meta property="og:description" content="Analyze word frequency, find most common words, and filter stop words. Free, private, and client-side.">
-
+    <meta property="og:title" content="Word Frequency Counter – Count Word Occurrences & Density | Textify.tools">
+    <meta property="og:description" content="Analyze word frequency, find most common words, filter stop words, and download results. Free, private, and client-side.">
+    
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Word Frequency Counter – Count Word Occurrences & Density | Textify.tools">
-    <meta name="twitter:description" content="Free online word frequency counter. Count how many times each word appears in your text, filter stop words, sort by frequency or alphabetically, and download results.">
+    <meta name="twitter:description" content="Free online word frequency counter. Count how many times each word appears, filter stop words, sort by frequency or alphabetically, and download results.">
 
-    <!-- Favicons (full set) -->
+    <!-- Favicons -->
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -41,7 +47,7 @@
         gtag('config', 'G-6VGXXT81MB');
     </script>
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data (JSON-LD) – enhanced with HowTo -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -97,6 +103,33 @@
                 "@type": "Answer",
                 "text": "Absolutely. All processing happens directly in your browser — no data leaves your device."
               }
+            }
+          ]
+        },
+        {
+          "@type": "HowTo",
+          "name": "How to Use the Word Frequency Counter",
+          "description": "Analyze word frequency in any text with our free online tool.",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "name": "Enter your text",
+              "text": "Paste or type the content you want to analyze."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Choose options",
+              "text": "Enable case‑sensitive matching, filter stop words, or set a minimum word length."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Click Analyze Word Frequency",
+              "text": "The results table shows each unique word, its count, frequency, and percentage."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Sort or export results",
+              "text": "Sort by frequency or alphabetically, and download as a CSV file."
             }
           ]
         },
@@ -254,7 +287,14 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main { flex: 1; max-width: 1000px; margin: 30px auto; padding: 0 20px; width: 100%; }
+        /* ── FULL‑WIDTH MAIN ── */
+        main {
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 5%;
+            flex: 1;
+        }
+
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
         p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
         textarea { width: 100%; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s; }
@@ -292,6 +332,15 @@
         .toast.show { transform: translateX(-50%) translateY(0); }
         .spinner { border: 3px solid rgba(128,128,128,0.25); border-radius: 50%; border-top-color: var(--primary); width: 20px; height: 20px; animation: spin 0.7s linear infinite; display: inline-block; }
         @keyframes spin { to { transform: rotate(360deg); } }
+
+        .how-to-card { background: var(--accent); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
+        .how-to-card .step-num { background: var(--primary); color: var(--bg); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+        .how-to-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+        .how-to-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin: 0; }
+
+        .related-tools { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; margin-top: 20px; }
+        .related-tool-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 15px; text-decoration: none; color: var(--text); font-weight: 500; transition: 0.2s; }
+        .related-tool-card:hover { border-color: var(--primary); background: var(--hover); }
         
         footer {
             background: var(--footer-bg); color: var(--footer-text);
@@ -410,33 +459,90 @@
             </div>
         </div>
 
-        <div style="margin-top: 60px; border-top: 1px solid var(--line); padding-top: 30px;">
+        <!-- Enhanced "How to Use" section with step cards -->
+        <div style="margin-top: 60px;">
             <h2>How to Use the Word Frequency Counter</h2>
-            <p>This tool helps you analyze word usage in any text. Here's how to use it:</p>
-            <ol style="margin-bottom: 25px;">
-                <li><strong>Enter your text</strong> — Paste or type the content you want to analyze.</li>
-                <li><strong>Choose options</strong> — Enable case‑sensitive matching, filter common stop words (e.g., "the", "and", "of"), or set a minimum word length.</li>
-                <li><strong>Click "Analyze Word Frequency"</strong> — The results table will show each unique word, its count, frequency, and percentage.</li>
-                <li><strong>Sort results</strong> — Use the sort buttons to order by frequency descending or alphabetically.</li>
-                <li><strong>Export data</strong> — Download the results as a CSV file for further analysis.</li>
-            </ol>
+            <div class="how-to-card">
+                <div class="step-num">1</div>
+                <div><h4>Enter your text</h4><p>Paste or type the content you want to analyze. It can be a paragraph, an article, or any text.</p></div>
+            </div>
+            <div class="how-to-card">
+                <div class="step-num">2</div>
+                <div><h4>Choose options</h4><p>Enable case‑sensitive matching, filter common stop words, or set a minimum word length to ignore short words.</p></div>
+            </div>
+            <div class="how-to-card">
+                <div class="step-num">3</div>
+                <div><h4>Click Analyze Word Frequency</h4><p>The results table shows each unique word, its count, frequency, and percentage.</p></div>
+            </div>
+            <div class="how-to-card">
+                <div class="step-num">4</div>
+                <div><h4>Sort or export results</h4><p>Sort by frequency descending or alphabetically, and download the data as a CSV file for further analysis.</p></div>
+            </div>
+        </div>
 
+        <!-- Why Use (already present but kept) -->
+        <div style="margin-top: 60px;">
             <h2>Why Use a Word Frequency Counter?</h2>
             <p>Word frequency analysis is useful for many scenarios:</p>
-            <ul>
+            <ul style="padding-left: 22px; color: var(--text-light); line-height: 1.8; margin-top: 15px;">
                 <li><strong>SEO & Content Optimization</strong> — Identify overused keywords or find the most relevant terms in your content.</li>
                 <li><strong>Plagiarism Detection</strong> — Spot unusual word repetition patterns.</li>
                 <li><strong>Academic Writing</strong> — Avoid repetitive language and improve vocabulary variety.</li>
                 <li><strong>Social Media Analysis</strong> — Understand which words or hashtags appear most frequently in posts or comments.</li>
                 <li><strong>Language Learning</strong> — Analyze which words appear most often in a foreign language text to focus learning on frequent vocabulary.</li>
             </ul>
+        </div>
 
+        <!-- New "Why Choose Our Tool" section -->
+        <div style="margin-top: 60px;">
+            <h2>Why Choose Our Word Frequency Counter?</h2>
+            <div class="how-to-card">
+                <div class="step-num"><i data-lucide="shield-check" width="18" height="18"></i></div>
+                <div><h4>100% Private & Secure</h4><p>All analysis runs locally in your browser. Your text never leaves your device – perfect for confidential documents.</p></div>
+            </div>
+            <div class="how-to-card">
+                <div class="step-num"><i data-lucide="zap" width="18" height="18"></i></div>
+                <div><h4>Instant & Powerful</h4><p>Handles large texts instantly. See word counts, frequency bars, and percentages at a glance.</p></div>
+            </div>
+            <div class="how-to-card">
+                <div class="step-num"><i data-lucide="sliders" width="18" height="18"></i></div>
+                <div><h4>Customizable Filters</h4><p>Filter out over 150 English stop words, set minimum word length, toggle case sensitivity – tailor the analysis exactly to your needs.</p></div>
+            </div>
+            <div class="how-to-card">
+                <div class="step-num"><i data-lucide="download" width="18" height="18"></i></div>
+                <div><h4>Export Ready</h4><p>Download results as a CSV file for use in Excel, Google Sheets, or any data tool.</p></div>
+            </div>
+        </div>
+
+        <!-- Stop Words info (original) -->
+        <div style="margin-top: 60px;">
             <h2>About Stop Words</h2>
             <p>The word frequency counter includes a built‑in list of over 150 common English stop words (e.g., "a", "an", "the", "of", "to", "and", "for", "with"). Enabling the "Filter stop words" option will remove these words from the analysis, allowing you to focus on meaningful, content‑bearing words. You can also set a minimum word length to ignore very short words.</p>
+        </div>
 
+        <!-- Privacy (original) -->
+        <div style="margin-top: 60px;">
             <h2>Privacy & Security</h2>
-            <p>All analysis happens locally in your browser. Your text is never uploaded to any server — you can use the word frequency counter with complete peace of mind for any document, including sensitive or proprietary content.</p>
+            <p>All analysis happens locally in your browser. Your text is never uploaded to any server – you can use the word frequency counter with complete peace of mind for any document, including sensitive or proprietary content.</p>
+        </div>
 
+        <!-- Related Tools -->
+        <div style="margin-top: 60px;">
+            <h2>Related Text Analysis Tools</h2>
+            <div class="related-tools">
+                <a class="related-tool-card" href="/word-counter">Word Counter</a>
+                <a class="related-tool-card" href="/character-frequency-counter">Character Frequency Counter</a>
+                <a class="related-tool-card" href="/keyword-density-checker">Keyword Density Checker</a>
+                <a class="related-tool-card" href="/text-statistics">Text Statistics</a>
+                <a class="related-tool-card" href="/sentence-counter">Sentence Counter</a>
+                <a class="related-tool-card" href="/reading-time-estimator">Reading Time Estimator</a>
+                <a class="related-tool-card" href="/text-diff-checker">Text Diff Checker</a>
+                <a class="related-tool-card" href="/case-converter">Case Converter</a>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div style="margin-top: 60px;">
             <h2>Frequently Asked Questions</h2>
             <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How accurate is the word frequency counter?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool splits text by spaces and punctuation, then counts each occurrence exactly. With case‑sensitivity off (default), "Hello" and "hello" are counted as the same word.</div></div>
             <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What are stop words?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Stop words are common words (such as "the", "and", "of", "to") that are often filtered out in text analysis because they add little meaning. You can enable or disable this filter as needed.</div></div>
@@ -462,7 +568,7 @@
     </footer>
 
     <script>
-        // Complete tools list (80+ tools)
+        // Complete tools list (80+ tools) unchanged
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
