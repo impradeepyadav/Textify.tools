@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
     
-    <!-- SEO refined title -->
     <title>Zalgo Text Generator – Create Glitchy, Scary Corrupted Text (Free)</title>
     
-    <!-- More compelling meta description -->
     <meta name="description" content="Free online Zalgo text generator. Instantly turn normal text into glitchy, creepy, corrupted Unicode art. Adjustable intensity, fully private – works on Discord, Twitter, Instagram. No data leaves your browser.">
     
     <meta name="keywords" content="zalgo text generator, glitch text, creepy text, corrupted text, Unicode diacritics, horror text, scary font, cursed text, text distortion, zalgo font, glitchy bio">
@@ -17,20 +15,17 @@
     
     <link rel="canonical" href="https://textify.tools/zalgo-text-generator">
     
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/zalgo-text-generator">
     <meta property="og:title" content="Zalgo Text Generator – Create Glitchy, Scary Text Online">
     <meta property="og:description" content="Make your text look corrupted, creepy, and glitchy with our free Zalgo text generator. Fully customizable, private, and works everywhere.">
     <meta property="og:image" content="https://textify.tools/og-image-zalgo.jpg">
     
-    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Zalgo Text Generator – Create Glitchy, Corrupted Text | Textify.tools">
     <meta name="twitter:description" content="Free online Zalgo text generator. Instantly create glitchy, scary, or corrupted-looking text for bios, horror stories, and more. Adjustable intensity and fully client-side.">
     <meta name="twitter:image" content="https://textify.tools/og-image-zalgo.jpg">
 
-    <!-- Favicons (full set) -->
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -41,10 +36,8 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/mstile-150x150.png">
 
-    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
 
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -53,7 +46,6 @@
         gtag('config', 'G-6VGXXT81MB');
     </script>
 
-    <!-- Structured Data (JSON-LD) – enhanced with HowTo -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -223,14 +215,14 @@
             display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
         }
 
-        /* HEADER */
+        /* FULL WIDTH HEADER */
         header {
             border-bottom: 1px solid var(--line); background: var(--bg);
             display: flex; justify-content: center; align-items: center;
             padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
             position: relative; z-index: 100;
         }
-        .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner { width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -291,18 +283,17 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        /* ── FULL‑WIDTH MAIN ── */
+        /* FULL-WIDTH MAIN (no horizontal padding) */
         main { 
             width: 100%;
             margin: 0 auto;
-            padding: 40px 5%;
+            padding: 40px 0;
             flex: 1;
         }
 
-        /* Tool specific */
-        h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
-        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
-        .tool-panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px; margin-bottom: 30px; }
+        h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; padding: 0 20px; }
+        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; padding: 0 20px; }
+        .tool-panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px; margin: 0 20px 30px 20px; }
         .input-group { margin-bottom: 24px; }
         .input-group label { font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-light); display: block; margin-bottom: 8px; letter-spacing: 0.5px; }
         textarea, .input-group input[type="text"] { width: 100%; padding: 14px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--input-bg); color: var(--text); font-family: inherit; resize: vertical; transition: 0.2s; }
@@ -326,7 +317,7 @@
         .char-count-box { background: var(--success-bg); padding: 12px 18px; border-radius: 14px; margin-bottom: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--success-text); font-weight: 600; font-size: 14px; border: 1px solid rgba(22,163,74,0.2); }
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
-        .section { margin-bottom: 45px; }
+        .section { margin-bottom: 45px; padding: 0 20px; }
         .section h2 { font-size: 26px; font-weight: 700; margin-bottom: 18px; padding-bottom: 8px; border-bottom: 2px solid var(--hover); }
         .section p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; }
         .step-card { background: var(--accent); padding: 20px; border-radius: 14px; margin-bottom: 20px; border: 1px solid var(--line); }
@@ -340,6 +331,7 @@
         .related-tool-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 15px; text-decoration: none; color: var(--text); font-weight: 500; transition: 0.2s; }
         .related-tool-card:hover { border-color: var(--primary); background: var(--hover); }
 
+        /* FOOTER FULL WIDTH */
         footer {
             background: var(--footer-bg);
             color: var(--footer-text);
@@ -347,18 +339,21 @@
             margin-top: 60px;
             border-top: 1px solid var(--footer-border);
         }
-        .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+        .footer-grid { width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; padding: 0 20px; }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
         .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+        .footer-bottom { width: 100%; margin: 35px auto 0; padding: 18px 20px 0; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
             .previews-wrapper { flex-direction: column; }
+            main { padding: 30px 0; }
+            .tool-panel { margin: 0 12px 30px 12px; padding: 20px; }
+            .section { padding: 0 12px; }
         }
         @media (min-width: 769px) {
             .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; }
@@ -369,7 +364,7 @@
         <div class="header-inner">
             <a href="/" class="logo">
                 <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.Tools
+                Textify.tools
             </a>
             <div class="header-right">
                 <div class="desktop-nav">
@@ -397,7 +392,7 @@
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo">
                 <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.Tools
+                Textify.tools
             </a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
@@ -427,7 +422,6 @@
     <div class="toast" id="toast"></div>
 
     <main>
-        <!-- Original content: title and tool panel kept intact -->
         <h1>Zalgo Text Generator</h1>
         <p class="subtitle">Transform any text into creepy, distorted, or "cursed" looking text using Unicode combining marks. Perfect for horror stories, glitch art, and spooky social media bios.</p>
 
@@ -471,7 +465,6 @@
             </div>
         </div>
 
-        <!-- How to use section (original + enhanced with extra step details) -->
         <div class="section">
             <h2>How to Use the Zalgo Text Generator</h2>
             <div class="step-card">
@@ -493,7 +486,6 @@
             <p><strong>Pro tip:</strong> Try different intensities and combinations of marks. A medium intensity (around 40-60) works best for most use cases, while extreme settings create highly chaotic, almost unreadable text. Combine with our <a href="/fancy-text-generator">Fancy Text Generator</a> or <a href="/bold-text-generator">Bold Text Generator</a> for even crazier styles.</p>
         </div>
 
-        <!-- Expanded "What is Zalgo Text" section -->
         <div class="section">
             <h2>What is Zalgo Text?</h2>
             <p>Zalgo text (also known as "glitch" or "corrupted" text) is created by adding special Unicode combining characters to regular letters. These combining marks stack above, below, or through the base character, creating a distorted, creepy appearance that looks like text from a horror movie or a glitched computer.</p>
@@ -508,7 +500,6 @@
             </ul>
         </div>
 
-        <!-- New section: Benefits & tips for global ranking -->
         <div class="section">
             <h2>Why Choose Our Zalgo Generator?</h2>
             <p>There are many Zalgo text tools online, but Textify's generator stands out for several reasons:</p>
@@ -531,7 +522,6 @@
             <p>Once you've created your glitchy masterpiece, copy it with one click or download it as a .txt file. It's that easy.</p>
         </div>
 
-        <!-- New related tools section for internal linking & SEO -->
         <div class="section">
             <h2>Related Text Styling Tools</h2>
             <p>If you enjoy playing with text styles, try these other free generators from Textify.tools:</p>
@@ -547,7 +537,6 @@
             </div>
         </div>
 
-        <!-- FAQ section (original, untouched) -->
         <div class="section">
             <h2>Frequently Asked Questions</h2>
             <div class="faq-item">
@@ -574,9 +563,9 @@
             <div>
                 <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
                     <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify.Tools
+                    Textify.tools
                 </a>
-                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
             </div>
             <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
             <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
@@ -586,7 +575,6 @@
     </footer>
 
     <script>
-        // Complete tools list (80+ tools) — unchanged
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -746,7 +734,6 @@
             if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
 
-        // Zalgo generation logic (unchanged)
         const upMarks = [
             '\u0300','\u0301','\u0302','\u0303','\u0304','\u0306','\u0307','\u0308','\u0309','\u030A','\u030B','\u030C',
             '\u030D','\u030E','\u030F','\u0310','\u0311','\u0312','\u0313','\u0314','\u0315','\u0316','\u0317','\u0318',
