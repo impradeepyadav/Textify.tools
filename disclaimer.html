@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
@@ -58,16 +58,17 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg); color: var(--text); min-height: 100vh;
       display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
     }
 
-    /* HEADER */
+    /* FULL WIDTH HEADER */
     header {
       border-bottom: 1px solid var(--line); background: var(--bg);
       display: flex; justify-content: center; align-items: center;
       padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
       position: relative; z-index: 100;
     }
-    .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .header-inner { width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -132,25 +133,31 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
-    /* MAIN CONTENT */
-    main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
-    h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
-    h3 { font-size: 22px; font-weight: 700; margin: 30px 0 12px; }
-    p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
-    ul { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
+    /* FULL‑WIDTH MAIN */
+    main {
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 0;
+      flex: 1;
+      overflow-x: hidden;
+    }
+    h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; padding: 0 20px; }
+    h3 { font-size: 22px; font-weight: 700; margin: 30px 20px 12px; }
+    p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; padding: 0 20px; }
+    ul { padding-left: 42px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; padding-right: 20px; }
 
-    /* FOOTER */
+    /* FULL‑WIDTH FOOTER */
     footer {
       background: var(--footer-bg); color: var(--footer-text);
       padding: 60px 20px 25px; margin-top: 60px;
       border-top: 1px solid var(--footer-border);
     }
-    .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+    .footer-grid { width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; padding: 0 20px; }
     @media (max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}@media(max-width:500px){.footer-grid{grid-template-columns:1fr;}}
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+    .footer-bottom { width: 100%; margin: 35px auto 0; padding: 18px 20px 0; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
@@ -163,7 +170,7 @@
     <div class="header-inner">
       <a href="/" class="logo">
         <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-        Textify.Tools
+        Textify.tools
       </a>
       <div class="header-right">
         <div class="desktop-nav">
@@ -191,7 +198,7 @@
     <div class="mobile-sidebar-header">
       <a href="/" class="mobile-sidebar-logo">
         <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-        Textify.Tools
+        Textify.tools
       </a>
       <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
     </div>
@@ -284,9 +291,9 @@
       <div>
         <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
           <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-          Textify.Tools
+          Textify.tools
         </a>
-        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
       </div>
       <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact Support</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
       <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
