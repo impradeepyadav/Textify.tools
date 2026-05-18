@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
     <title>Text Statistics – Advanced Text Analyzer | Textify.tools</title>
-    <meta name="description" content="Free online text statistics tool. Analyze word count, character count, sentence count, paragraph count, reading time, lexical density, and more. Perfect for writers, editors, and content creators.">
+    <meta name="description" content="Free online text statistics tool. Analyze word count, character count, sentence count, paragraph count, reading time, lexical density, readability, and more. Perfect for writers, editors, and content creators.">
+    <meta name="keywords" content="text statistics, text analysis, writing statistics, readability checker, lexical density, word count, character count, sentence counter, reading time, advanced text analyzer, text metrics, content analysis">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/text-statistics">
     <meta property="og:type" content="website">
@@ -93,14 +94,14 @@
             display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
         }
 
-        /* HEADER */
+        /* FULL WIDTH HEADER */
         header {
             border-bottom: 1px solid var(--line); background: var(--bg);
             display: flex; justify-content: center; align-items: center;
             padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
             position: relative; z-index: 100;
         }
-        .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner { width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -161,18 +162,24 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main { flex: 1; max-width: 1000px; margin: 30px auto; padding: 0 20px; width: 100%; }
-        h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
-        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
-        textarea { width: 100%; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s; }
+        /* FULL‑WIDTH MAIN */
+        main {
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 0;
+            flex: 1;
+        }
+        h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; padding: 0 20px; }
+        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; padding: 0 20px; }
+        textarea { width: calc(100% - 40px); margin: 0 20px 22px 20px; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; transition: 0.2s; }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
         
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; margin-bottom: 25px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; margin: 0 20px 25px 20px; display: none; }
         .stat-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 12px; text-align: center; transition: 0.2s; }
         .stat-card .stat-value { font-size: 28px; font-weight: 800; color: var(--primary); line-height: 1.2; }
         .stat-card .stat-label { font-size: 11px; text-transform: uppercase; color: var(--text-light); margin-top: 6px; font-weight: 600; letter-spacing: 0.5px; }
         
-        .options-bar { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 25px; padding: 15px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+        .options-bar { display: flex; flex-wrap: wrap; gap: 20px; margin: 0 20px 25px 20px; padding: 15px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
         .options-bar label { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; color: var(--text); }
         .options-bar input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; }
         
@@ -181,11 +188,11 @@
         .btn-primary:hover { opacity: 0.88; transform: scale(0.98); }
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
         .btn-outline:hover { background: var(--hover); }
-        .action-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0 15px; }
+        .action-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 20px 15px 20px; }
         
-        .info-message { background: var(--success-bg); padding: 12px 18px; border-radius: 12px; margin-top: 20px; text-align: center; color: var(--success-text); font-size: 14px; border: 1px solid rgba(22,163,74,0.2); display: none; }
+        .info-message { background: var(--success-bg); padding: 12px 18px; border-radius: 12px; margin: 0 20px 20px 20px; text-align: center; color: var(--success-text); font-size: 14px; border: 1px solid rgba(22,163,74,0.2); display: none; }
         
-        .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .faq-item { margin: 0 20px 16px 20px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
         .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; }
@@ -194,18 +201,19 @@
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
         
+        /* FULL‑WIDTH FOOTER */
         footer {
             background: var(--footer-bg); color: var(--footer-text);
             padding: 60px 20px 25px; margin-top: 60px;
             border-top: 1px solid var(--footer-border);
         }
-        .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+        .footer-grid { width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; padding: 0 20px; }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
         .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+        .footer-bottom { width: 100%; margin: 35px auto 0; padding: 18px 20px 0; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
         
         @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
@@ -215,7 +223,7 @@
         <div class="header-inner">
             <a href="/" class="logo">
                 <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.Tools
+                Textify.tools
             </a>
             <div class="header-right">
                 <div class="desktop-nav">
@@ -243,7 +251,7 @@
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo">
                 <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.Tools
+                Textify.tools
             </a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
@@ -285,7 +293,7 @@
             <label><input type="checkbox" id="caseSensitive"> 🔍 Case‑sensitive word analysis</label>
         </div>
 
-        <div class="stats-grid" id="statsGrid" style="display: none;"></div>
+        <div class="stats-grid" id="statsGrid"></div>
 
         <div class="action-buttons">
             <button class="btn btn-primary" id="analyzeBtn" onclick="analyzeStatistics()"><i data-lucide="bar-chart-3" width="18"></i> Analyze Text</button>
@@ -295,7 +303,7 @@
 
         <div class="info-message" id="infoMessage"></div>
 
-        <div style="margin-top: 60px; border-top: 1px solid var(--line); padding-top: 30px;">
+        <div style="margin-top: 60px; border-top: 1px solid var(--line); padding: 30px 20px 0 20px;">
             <h2>How to Use the Text Statistics Tool</h2>
             <p>This tool provides a comprehensive analysis of your text. Here's what each metric means:</p>
             <ul style="margin-bottom: 25px;">
@@ -317,14 +325,24 @@
                 <li><strong>Understand your style:</strong> Gain insights into your unique writing patterns and lexical preferences.</li>
             </ul>
 
+            <h2>Related Text Analysis Tools</h2>
+            <div class="related-tools" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-top: 15px;">
+                <a class="related-tool-card" href="/word-counter" style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); font-weight:500;">Word Counter</a>
+                <a class="related-tool-card" href="/word-frequency-counter" style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); font-weight:500;">Word Frequency Counter</a>
+                <a class="related-tool-card" href="/keyword-density-checker" style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); font-weight:500;">Keyword Density Checker</a>
+                <a class="related-tool-card" href="/reading-time-estimator" style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); font-weight:500;">Reading Time Estimator</a>
+                <a class="related-tool-card" href="/sentence-counter" style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); font-weight:500;">Sentence Counter</a>
+                <a class="related-tool-card" href="/character-frequency-counter" style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); font-weight:500;">Character Frequency Counter</a>
+            </div>
+
             <h2>Privacy & Security</h2>
             <p>All analysis happens locally in your browser — your text is never uploaded to any server. You can analyze any document, including sensitive or proprietary content, with complete peace of mind.</p>
 
             <h2>Frequently Asked Questions</h2>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How accurate is the readability score?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The readability score is an estimate based on the Flesch Reading Ease formula, which considers average word length and average sentence length. It works best for English text and provides a general indication of difficulty.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What does "Lexical Density" mean?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Lexical density is the percentage of content words (nouns, verbs, adjectives, adverbs) in your text. A higher density often indicates more information‑dense, complex writing, while lower density suggests more grammatical filler words.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I analyze longer documents?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, the tool can handle very large documents efficiently. Performance may vary based on your device, but it generally works well for texts up to several hundred thousand characters.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on all devices including iPhones, Android phones, and tablets.</div></div>
+            <div class="faq-item" style="margin-left:0; margin-right:0;"><div class="faq-question" onclick="toggleFaq(this)">How accurate is the readability score?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The readability score is an estimate based on the Flesch Reading Ease formula, which considers average word length and average sentence length. It works best for English text and provides a general indication of difficulty.</div></div>
+            <div class="faq-item" style="margin-left:0; margin-right:0;"><div class="faq-question" onclick="toggleFaq(this)">What does "Lexical Density" mean?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Lexical density is the percentage of content words (nouns, verbs, adjectives, adverbs) in your text. A higher density often indicates more information‑dense, complex writing, while lower density suggests more grammatical filler words.</div></div>
+            <div class="faq-item" style="margin-left:0; margin-right:0;"><div class="faq-question" onclick="toggleFaq(this)">Can I analyze longer documents?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, the tool can handle very large documents efficiently. Performance may vary based on your device, but it generally works well for texts up to several hundred thousand characters.</div></div>
+            <div class="faq-item" style="margin-left:0; margin-right:0;"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on all devices including iPhones, Android phones, and tablets.</div></div>
         </div>
     </main>
 
@@ -333,9 +351,9 @@
             <div>
                 <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
                     <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify.Tools
+                    Textify.tools
                 </a>
-                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
             </div>
             <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
             <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
@@ -532,7 +550,6 @@
                 caseSensitive: document.getElementById('caseSensitive').checked
             };
 
-            // Original text stats
             const original = input;
             const wordsRaw = original.match(/[a-zA-ZÀ-ÿ]+(?:'[a-zA-Z]+)?/g) || [];
             const wordsCount = wordsRaw.length;
@@ -549,30 +566,23 @@
             }
             const charsCount = textToCount.length;
             
-            // Sentence count (simple)
             const sentences = (original.match(/[.!?]+(?!\w)/g) || []).length || (original.trim().length > 0 ? 1 : 0);
             
-            // Paragraph count
             const paragraphs = original.trim().split(/\n\s*\n/).filter(p => p.trim().length > 0).length || 1;
             
-            // Unique words
             const cleanedForUnique = cleanText(original, options);
             const cleanedWords = cleanedForUnique.match(/[a-zA-ZÀ-ÿ]+(?:'[a-zA-Z]+)?/g) || [];
             const uniqueWords = new Set(cleanedWords).size;
             const vocabularyRichness = wordsCount > 0 ? (uniqueWords / wordsCount * 100).toFixed(1) : 0;
             
-            // Average word length
             const totalLetters = cleanedWords.reduce((sum, word) => sum + word.length, 0);
             const avgWordLength = wordsCount > 0 ? (totalLetters / wordsCount).toFixed(1) : 0;
             
-            // Reading time (200 WPM average)
             const readingMinutes = wordsCount / 200;
             const readingTime = formatTime(readingMinutes);
-            // Speaking time (130 WPM)
             const speakingMinutes = wordsCount / 130;
             const speakingTime = formatTime(speakingMinutes);
             
-            // Readability (Flesch Reading Ease approximation)
             const syllables = cleanedWords.reduce((sum, word) => sum + countSyllables(word), 0);
             const avgSyllablesPerWord = wordsCount > 0 ? (syllables / wordsCount) : 0;
             const avgWordsPerSentence = sentences > 0 ? (wordsCount / sentences) : 0;
@@ -580,11 +590,9 @@
             readabilityScore = Math.min(100, Math.max(0, readabilityScore));
             const readability = readabilityScore.toFixed(1);
             
-            // Lexical density (content words estimation)
             const contentWords = cleanedWords.filter(word => word.length > 3 && !isStopWord(word)).length;
             const lexicalDensity = wordsCount > 0 ? (contentWords / wordsCount * 100).toFixed(1) : 0;
             
-            // Most common words
             const wordFreq = new Map();
             cleanedWords.forEach(word => {
                 const w = options.caseSensitive ? word : word.toLowerCase();
@@ -596,7 +604,6 @@
                 .map(([w, c]) => `${w} (${c})`)
                 .join(', ');
             
-            // Render stats
             const statsGrid = document.getElementById('statsGrid');
             statsGrid.innerHTML = `
                 <div class="stat-card"><span class="stat-value">${wordsCount.toLocaleString()}</span><div class="stat-label">Total Words</div></div>
@@ -620,7 +627,6 @@
             
             showToast('📊 Text analysis complete!');
             
-            // Store for export
             window.lastStats = {
                 words: wordsCount,
                 chars: charsCount,
