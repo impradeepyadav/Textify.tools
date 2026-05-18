@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
@@ -186,14 +186,14 @@
             display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
         }
 
-        /* HEADER */
+        /* FULL‑WIDTH HEADER */
         header {
             border-bottom: 1px solid var(--line); background: var(--bg);
             display: flex; justify-content: center; align-items: center;
             padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
             position: relative; z-index: 100;
         }
-        .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner { width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -254,28 +254,35 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main { flex: 1; max-width: 1000px; margin: 30px auto; padding: 0 20px; width: 100%; }
-        h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
-        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
-        textarea { width: 100%; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s; }
+        /* FULL‑WIDTH MAIN */
+        main {
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 0;
+            flex: 1;
+        }
+
+        h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; padding: 0 20px; }
+        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; padding: 0 20px; }
+        textarea { width: calc(100% - 40px); margin: 0 20px 22px 20px; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; transition: 0.2s; }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
         
-        .stats-panel { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
+        .stats-panel { display: flex; gap: 16px; flex-wrap: wrap; margin: 0 20px 22px 20px; }
         .stats-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 18px; flex: 1; min-width: 120px; text-align: center; }
         .stats-card .stat-value { font-size: 28px; font-weight: 800; color: var(--primary); }
         .stats-card .stat-label { font-size: 12px; text-transform: uppercase; color: var(--text-light); font-weight: 600; }
         
-        .options-grid { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 25px; align-items: center; }
+        .options-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 0 20px 25px 20px; align-items: center; }
         .checkbox-group { display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--text); padding: 8px 0; }
         .checkbox-group input { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; }
-        .sort-buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+        .sort-buttons { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 20px 20px 20px; }
         .btn { padding: 12px 24px; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; }
         .btn-primary { background: var(--primary); color: var(--bg); }
         .btn-primary:hover { opacity: 0.88; transform: scale(0.98); }
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
         .btn-outline:hover { background: var(--hover); }
-        .action-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0; }
-        .results-area { margin-top: 30px; display: none; overflow-x: auto; }
+        .action-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin: 0 20px 20px 20px; }
+        .results-area { margin: 30px 20px 0 20px; display: none; overflow-x: auto; }
         .results-table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
         .results-table th, .results-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--line); }
         .results-table th { background: var(--table-header); font-weight: 700; color: var(--text); }
@@ -284,12 +291,12 @@
         .badge { padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; background: var(--hover); color: var(--text-light); margin-left: 8px; }
         
         /* How to cards */
-        .how-to-card { background: var(--accent); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
+        .how-to-card { background: var(--accent); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; align-items: flex-start; gap: 16px; margin: 0 20px 16px 20px; }
         .how-to-card .step-num { background: var(--primary); color: var(--bg); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
         .how-to-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
         .how-to-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin: 0; }
 
-        .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .faq-item { margin: 0 20px 16px 20px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
         .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; }
@@ -298,18 +305,19 @@
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
         
+        /* FULL‑WIDTH FOOTER */
         footer {
             background: var(--footer-bg); color: var(--footer-text);
             padding: 60px 20px 25px; margin-top: 60px;
             border-top: 1px solid var(--footer-border);
         }
-        .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+        .footer-grid { width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; padding: 0 20px; }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
         .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+        .footer-bottom { width: 100%; margin: 35px auto 0; padding: 18px 20px 0; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
         
         @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
@@ -319,7 +327,7 @@
         <div class="header-inner">
             <a href="/" class="logo">
                 <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.Tools
+                Textify.tools
             </a>
             <div class="header-right">
                 <div class="desktop-nav">
@@ -347,7 +355,7 @@
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo">
                 <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.Tools
+                Textify.tools
             </a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
@@ -416,35 +424,36 @@
             </div>
         </div>
 
-        <div style="margin-top: 60px; border-top: 1px solid var(--line); padding-top: 30px;">
+        <!-- Content sections with proper 20px spacing -->
+        <div style="margin-top: 60px; padding: 0 20px;">
             <h2>What is Keyword Density?</h2>
             <p>Keyword density is the percentage of times a keyword appears in your text compared to the total number of words. It's a traditional SEO metric that helps you avoid keyword stuffing (too high density) or underusing important terms (too low).</p>
             <p><strong>Formula:</strong> (Keyword Count / Total Words) × 100 = Density %</p>
 
             <!-- Enhanced "How to Use" with step cards -->
             <h2>How to Use the Keyword Density Checker</h2>
-            <div class="how-to-card">
+            <div class="how-to-card" style="margin-left:0; margin-right:0;">
                 <div class="step-num">1</div>
                 <div>
                     <h4>Paste Your Content</h4>
                     <p>Enter the full text of your article, blog post, or any content you want to analyze. The tool accepts anything from a few words to thousands.</p>
                 </div>
             </div>
-            <div class="how-to-card">
+            <div class="how-to-card" style="margin-left:0; margin-right:0;">
                 <div class="step-num">2</div>
                 <div>
                     <h4>Configure Your Options</h4>
                     <p>Choose case‑sensitivity, whether to filter common stop words (e.g., "the", "and", "of"), or set a minimum word length to ignore very short keywords.</p>
                 </div>
             </div>
-            <div class="how-to-card">
+            <div class="how-to-card" style="margin-left:0; margin-right:0;">
                 <div class="step-num">3</div>
                 <div>
                     <h4>Click "Check Keyword Density"</h4>
                     <p>The tool analyzes every word and instantly displays a table sorted by density (highest first). You'll see the count, density percentage, and a visual density bar.</p>
                 </div>
             </div>
-            <div class="how-to-card">
+            <div class="how-to-card" style="margin-left:0; margin-right:0;">
                 <div class="step-num">4</div>
                 <div>
                     <h4>Sort, Analyze, and Export</h4>
@@ -465,10 +474,10 @@
             <p>All processing happens entirely in your browser. Your text is never uploaded to any server. You can analyze sensitive or confidential content without worry.</p>
 
             <h2>Frequently Asked Questions</h2>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is a good keyword density for SEO?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">There's no universal perfect number, but 0.5%–2.5% is a safe range for primary keywords. Always prioritise natural language over rigid metrics.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Why are stop words filtered out?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Stop words (like 'a', 'an', 'the', 'of') appear frequently but carry little meaning for SEO. Filtering them helps you focus on content keywords.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does case sensitivity matter?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">If disabled (default), 'SEO' and 'seo' are counted as the same keyword. Enable case‑sensitive if your analysis requires distinguishing case (e.g., acronyms).</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my content private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes — 100% private. No data leaves your device. You can analyze sensitive drafts, client content, or competitive analysis safely.</div></div>
+            <div class="faq-item" style="margin-left:0; margin-right:0;"><div class="faq-question" onclick="toggleFaq(this)">What is a good keyword density for SEO?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">There's no universal perfect number, but 0.5%–2.5% is a safe range for primary keywords. Always prioritise natural language over rigid metrics.</div></div>
+            <div class="faq-item" style="margin-left:0; margin-right:0;"><div class="faq-question" onclick="toggleFaq(this)">Why are stop words filtered out?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Stop words (like 'a', 'an', 'the', 'of') appear frequently but carry little meaning for SEO. Filtering them helps you focus on content keywords.</div></div>
+            <div class="faq-item" style="margin-left:0; margin-right:0;"><div class="faq-question" onclick="toggleFaq(this)">Does case sensitivity matter?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">If disabled (default), 'SEO' and 'seo' are counted as the same keyword. Enable case‑sensitive if your analysis requires distinguishing case (e.g., acronyms).</div></div>
+            <div class="faq-item" style="margin-left:0; margin-right:0;"><div class="faq-question" onclick="toggleFaq(this)">Is my content private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes — 100% private. No data leaves your device. You can analyze sensitive drafts, client content, or competitive analysis safely.</div></div>
         </div>
     </main>
 
@@ -477,9 +486,9 @@
             <div>
                 <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
                     <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify.Tools
+                    Textify.tools
                 </a>
-                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
             </div>
             <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
             <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
