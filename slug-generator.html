@@ -1,22 +1,9 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
-
-    <!-- ============ FAVICON FOR ALL DEVICES ============ -->
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/mstile-150x150.png">
-    <!-- ============================================= -->
-
     <title>Single & Bulk URL Slug Generator – Free SEO Friendly URLs</title>
     <meta name="description" content="Generate clean SEO friendly URL slugs instantly with our free Single & Bulk URL Slug Generator. Fast, simple, and easy to use online tool.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -25,33 +12,9 @@
     <meta property="og:url" content="https://textify.tools/slug-generator">
     <meta property="og:title" content="Slug Generator – Single & Bulk URL Slug Creator Online">
     <meta property="og:description" content="Convert one or hundreds of titles into clean URL slugs. Bulk mode, stop words removal, multiple separators, and fully private client‑side processing.">
-    <meta property="og:image" content="https://textify.tools/og-image.png">
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "SoftwareApplication",
-                "name": "Slug Generator",
-                "url": "https://textify.tools/slug-generator",
-                "applicationCategory": "UtilityApplication",
-                "operatingSystem": "All",
-                "description": "Single & bulk URL slug generator with stop words removal, custom separators, and case control. Works offline in your browser.",
-                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-                "author": { "@type": "Organization", "name": "Textify.tools" }
-            },
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
-                    { "@type": "ListItem", "position": 2, "name": "Slug Generator", "item": "https://textify.tools/slug-generator" }
-                ]
-            }
-        ]
-    }
-    </script>
+    
+    <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
@@ -72,26 +35,51 @@
             --faq-bg: #fafafa; --faq-active: #f3f4f6; --table-header: #f3f4f6; --table-hover: #fafafa;
             --shadow: rgba(0,0,0,0.1); --overlay-bg: rgba(0,0,0,0.5); --success-bg: #f0fdf4;
             --success-text: #166534; --sidebar-bg: #ffffff; --accent: #f8fafc;
-            --toast-bg: #1f2937; --toast-text: #ffffff; --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            --toast-bg: #1f2937; --toast-text: #ffffff;
         }
         body.dark-mode {
             --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
             --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
-            --input-border: #334155; --footer-bg: #1e293b; --footer-text: #e2e8f0;
+            --input-border: #334155; --footer-bg: #0f172a; --footer-text: #e2e8f0;
             --footer-heading: #ffffff; --footer-link-hover: #ffffff; --footer-border: #334155;
             --faq-bg: #1e293b; --faq-active: #334155; --table-header: #1e293b; --table-hover: #1e293b;
             --shadow: rgba(0,0,0,0.5); --overlay-bg: rgba(0,0,0,0.75); --success-bg: #052e16;
             --success-text: #86efac; --sidebar-bg: #0f172a; --accent: #1e293b;
-            --toast-bg: #f1f5f9; --toast-text: #0f172a; --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            --toast-bg: #f1f5f9; --toast-text: #0f172a;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; transition: background 0.3s, color 0.3s; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
 
-        header { border-bottom: 1px solid var(--line); background: var(--bg); display: flex; justify-content: center; align-items: center; padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s; position: relative; z-index: 100; }
-        .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        /* WRAPPER */
+        .page-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            height: 64px;
+            transition: border-color 0.3s;
+            background: transparent;
+        }
+        .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -152,7 +140,13 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
+        /* MAIN */
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            width: 100%;
+            background: transparent;
+        }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
         h2 { font-size: 26px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
         h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
@@ -173,7 +167,7 @@
         .btn-outline:hover { background: var(--hover); }
         .output-area { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); display: none; }
         .output-area textarea { height: 160px; background: var(--card); }
-        .output-area .slug-preview-box { background: var(--success-bg); padding: 14px 18px; border-radius: 12px; margin-bottom: 20px; text-align: center; color: var(--success-text); font-weight: 600; font-size: 15px; border: 1px solid rgba(22,163,74,0.2); word-break: break-all; }
+        .slug-preview-box { background: var(--success-bg); padding: 14px 18px; border-radius: 12px; margin-bottom: 20px; text-align: center; color: var(--success-text); font-weight: 600; font-size: 15px; border: 1px solid rgba(22,163,74,0.2); word-break: break-all; }
         .settings-card { background: var(--card); padding: 22px; border-radius: 14px; margin-bottom: 28px; border: 1px solid var(--line); }
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
         .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
@@ -193,56 +187,227 @@
         .style-label input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; }
         .badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; background: var(--hover); color: var(--text-light); margin-left: 6px; }
         .mode-tabs { display: flex; gap: 10px; margin-bottom: 20px; }
-        .mode-tab { padding: 10px 24px; border-radius: 24px; font-weight: 600; font-size: 14px; border: 1px solid var(--line); background: var(--chip-bg, var(--hover)); color: var(--text-light); cursor: pointer; transition: 0.2s; }
+        .mode-tab { padding: 10px 24px; border-radius: 24px; font-weight: 600; font-size: 14px; border: 1px solid var(--line); background: var(--hover); color: var(--text-light); cursor: pointer; transition: 0.2s; }
         .mode-tab.active { background: var(--primary); color: var(--bg); border-color: var(--primary); }
         .bulk-textarea { display: none; }
         .bulk-textarea.active { display: block; }
 
-        footer { background: var(--footer-bg); color: var(--footer-text); padding: 60px 20px 25px; margin-top: 60px; border-top: 1px solid var(--footer-border); }
-        .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--footer-border);
+            padding: 40px 20px 25px;
+            background: transparent;
+        }
+        .footer-container { width: 100%; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+            gap: 35px;
+        }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
         .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+        .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
-        @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; } }
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
+            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; }
+        }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     </style>
 
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="/favicon.ico" alt="Textify.tools" class="logo-img">
-                Textify.tools
-            </a>
-            <div class="header-right">
-                <div class="desktop-nav">
-                    <div class="tools-menu-container">
-                        <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-                        <div class="tools-mega-menu" id="megaMenu"></div>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    Textify.tools
+                </a>
+                <div class="header-right">
+                    <div class="desktop-nav">
+                        <div class="tools-menu-container">
+                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                            <div class="tools-mega-menu" id="megaMenu"></div>
+                        </div>
+                        <a href="privacy">Privacy</a>
+                        <a href="/blog">Blog</a>
                     </div>
-                    <a href="privacy">Privacy</a>
-                    <a href="/blog">Blog</a>
+                    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                    </button>
+                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                        <span class="menu-icon"><span></span><span></span></span>
+                    </button>
                 </div>
-                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                    <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-                </button>
-                <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-                    <span class="menu-icon"><span></span><span></span></span>
-                </button>
             </div>
-        </div>
-    </header>
+        </header>
+
+        <main>
+            <h1>Slug Generator – Single & Bulk URL Slug Creator</h1>
+            <p class="subtitle"><strong>Textify.tools</strong> offers the fastest <strong>online slug generator</strong> with <strong>bulk support</strong>. Convert any text into a clean, readable URL slug perfect for blogs, websites, and APIs. Paste one title or hundreds – all processing is private and local.</p>
+
+            <div class="mode-tabs">
+                <button class="mode-tab active" id="singleModeTab" onclick="switchMode('single')">Single Slug</button>
+                <button class="mode-tab" id="bulkModeTab" onclick="switchMode('bulk')">Bulk Mode</button>
+            </div>
+
+            <div id="singleInputArea">
+                <textarea id="singleInputText" placeholder="Type or paste your text here, e.g. '10 Best SEO Tips for 2025'" style="height:130px;"></textarea>
+            </div>
+
+            <div id="bulkInputArea" class="bulk-textarea">
+                <textarea id="bulkInputText" placeholder="Paste multiple titles, one per line...&#10;e.g.&#10;How to Start a Blog in 2025&#10;Best Running Shoes for Men&#10;Top 10 Vegan Recipes" style="height:200px;"></textarea>
+            </div>
+
+            <div class="settings-card">
+                <h3 style="margin:0 0 18px; color:var(--text);">⚙️ Slug Settings</h3>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label>Separator</label>
+                        <select id="separatorSelect">
+                            <option value="-" selected>Hyphen (-)</option>
+                            <option value="_">Underscore (_)</option>
+                            <option value="">None (join words)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Case Style</label>
+                        <select id="caseSelect">
+                            <option value="lower" selected>all lowercase</option>
+                            <option value="upper">ALL UPPERCASE</option>
+                            <option value="none">Keep original case</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid-2" style="margin-top:14px;">
+                    <div style="display:flex;flex-direction:column;gap:10px;">
+                        <label class="style-label"><input type="checkbox" id="removeStopWords"> Remove common stop words <span class="badge">SEO best</span></label>
+                        <label class="style-label"><input type="checkbox" id="removeSpecialChars" checked> Strip special characters</label>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:10px;">
+                        <label class="style-label"><input type="checkbox" id="trimDashes"> Trim leading/trailing separators</label>
+                        <label class="style-label"><input type="checkbox" id="collapseMultiple"> Collapse multiple separators</label>
+                    </div>
+                </div>
+                <div style="border-top:1px solid var(--line);padding-top:14px;margin-top:14px;display:flex;gap:20px;flex-wrap:wrap;">
+                    <label class="style-label"><input type="checkbox" id="limitLength"> Limit length to: <input type="number" id="maxLength" value="200" min="10" max="500" style="width:70px;margin-left:6px;padding:4px 6px;border:1px solid var(--line);border-radius:4px;" disabled></label>
+                </div>
+            </div>
+
+            <div style="display:flex;gap:10px;margin-bottom:30px;">
+                <button class="btn btn-primary" id="generateBtn" onclick="generateSlug()"><i data-lucide="link-2" width="18" height="18"></i> Generate Slug(s)</button>
+                <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+            </div>
+
+            <div class="output-area" id="outputArea">
+                <div class="slug-preview-box" id="slugPreviewBox">your-generated-slug-will-appear-here</div>
+                <textarea id="outputText" readonly></textarea>
+                <div class="grid-2">
+                    <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy</button>
+                    <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadSlug()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+                </div>
+                <p style="text-align:center; font-size:14px; margin-top:10px;" id="bulkCountInfo"></p>
+            </div>
+
+            <div style="margin-top:60px;border-top:1px solid var(--line);padding-top:30px;">
+                <h2>What Is a URL Slug?</h2>
+                <p>A URL slug is the part of a web address that comes after the domain name and identifies a specific page or post in a human‑readable way. For example, in the URL <code>https://example.com/blog/seo-tips-for-beginners</code>, the slug is <strong>seo-tips-for-beginners</strong>. Good slugs are short, descriptive, and use hyphens to separate words – which is exactly what this tool helps you create.</p>
+
+                <h2>Why Choose Textify.tools Slug Generator?</h2>
+                <div style="background: var(--accent); padding: 20px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px;">
+                    <ul style="margin-bottom:0;">
+                        <li><strong>Single & Bulk Modes</strong> – Generate one slug or hundreds at once. Perfect for site migrations, bulk blog post planning, or API design.</li>
+                        <li><strong>100% Client‑Side Processing</strong> – Your text never leaves your device. No uploads, no servers.</li>
+                        <li><strong>SEO‑Optimised Output</strong> – Automatically strips stop words, special characters, and collapses spaces to create clean slugs.</li>
+                        <li><strong>Customisable Separators</strong> – Choose between hyphens, underscores, or no separator at all.</li>
+                        <li><strong>Instant Results</strong> – See the slug(s) update instantly after generation.</li>
+                        <li><strong>Completely Free</strong> – No sign‑up, no ads, no limits.</li>
+                    </ul>
+                </div>
+
+                <h2>How to Use – Single & Bulk Mode</h2>
+                <h3>Single Mode</h3>
+                <ol>
+                    <li><strong>Paste your text</strong> – Any heading, title, or phrase.</li>
+                    <li><strong>Adjust settings</strong> – Separator, case, stop words, etc.</li>
+                    <li><strong>Click Generate Slug(s)</strong> – Instantly see your clean slug.</li>
+                    <li><strong>Copy or download</strong> the result.</li>
+                </ol>
+                <h3>Bulk Mode</h3>
+                <ol>
+                    <li><strong>Switch to "Bulk Mode"</strong> using the tabs above.</li>
+                    <li><strong>Paste multiple titles</strong>, one per line.</li>
+                    <li><strong>Adjust slug settings</strong> – they apply to every line.</li>
+                    <li><strong>Generate</strong> – all slugs appear line by line, ready to copy or download.</li>
+                </ol>
+
+                <h2>Slug Generation Rules Applied</h2>
+                <div class="table-wrapper">
+                    <table class="info-table">
+                        <thead><tr><th>Step</th><th>Action</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>Convert text to selected case (lowercase by default).</td></tr>
+                            <tr><td>2</td><td>Replace spaces and punctuation with the chosen separator.</td></tr>
+                            <tr><td>3 (optional)</td><td>Remove common stop words (a, an, the, in, on, etc.) to keep slugs concise.</td></tr>
+                            <tr><td>4</td><td>Strip all special characters, leaving only letters, numbers, and separators.</td></tr>
+                            <tr><td>5</td><td>Collapse multiple separators into a single one (e.g. "foo---bar" → "foo-bar").</td></tr>
+                            <tr><td>6</td><td>Trim leading and trailing separators for a clean result.</td></tr>
+                            <tr><td>7 (optional)</td><td>Limit the slug to a maximum character length (ideal for SEO titles).</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Real‑World Use Cases</h2>
+                <ul>
+                    <li><strong>Blog Post URLs:</strong> Turn "How to Start a Blog in 2025" into <code>how-to-start-a-blog-in-2025</code>.</li>
+                    <li><strong>E‑commerce Products:</strong> Generate clean product page slugs like <code>red-running-shoes-size-10</code>.</li>
+                    <li><strong>API Endpoints:</strong> Create REST‑friendly slugs for dynamic routes.</li>
+                    <li><strong>Documentation & Wikis:</strong> Standardise page slugs across your knowledge base.</li>
+                    <li><strong>Bulk Import:</strong> Prepare a list of slugs for a CMS migration or a new site structure.</li>
+                </ul>
+
+                <div class="tip-box">
+                    <p style="margin:0;font-size:14px;"><strong>💡 Pro Tip:</strong> For maximum SEO benefit, always use hyphens (not underscores) as word separators. Keep slugs under 60 characters and include your primary keyword near the beginning.</p>
+                </div>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is the generator free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free. No registration, no hidden costs.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I generate slugs for 100+ titles at once?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! Switch to Bulk Mode, paste your titles line by line, and click Generate. You'll get all slugs instantly.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does the tool work offline?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Once the page is loaded, all slug generation happens inside your browser. You can even disconnect from the internet and it will still work.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use underscores instead of hyphens?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. Choose "Underscore" from the separator dropdown. However, for public URLs, hyphens are recommended for better SEO.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What are stop words and why remove them?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Stop words are common words like "a", "the", "in", "on". Removing them makes slugs shorter and more keyword‑rich without changing the meaning.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my data private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, absolutely. All text processing is done client‑side – your text never leaves your device.</div></div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div>
+                        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            Textify.tools
+                        </a>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+                    </div>
+                    <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+                    <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                </div>
+                <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
 
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo">
-                <img src="/favicon.ico" alt="Textify.tools" class="logo-img">
+                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
                 Textify.tools
             </a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
@@ -272,167 +437,7 @@
 
     <div class="toast" id="toast"></div>
 
-    <main>
-        <h1>Slug Generator – Single & Bulk URL Slug Creator</h1>
-        <p class="subtitle"><strong>Textify.tools</strong> offers the fastest <strong>online slug generator</strong> with <strong>bulk support</strong>. Convert any text into a clean, readable URL slug perfect for blogs, websites, and APIs. Paste one title or hundreds – all processing is private and local.</p>
-
-        <!-- Mode Switcher (no emojis) -->
-        <div class="mode-tabs">
-            <button class="mode-tab active" id="singleModeTab" onclick="switchMode('single')">Single Slug</button>
-            <button class="mode-tab" id="bulkModeTab" onclick="switchMode('bulk')">Bulk Mode</button>
-        </div>
-
-        <!-- Single input area -->
-        <div id="singleInputArea">
-            <textarea id="singleInputText" placeholder="Type or paste your text here, e.g. '10 Best SEO Tips for 2025'" style="height:130px;"></textarea>
-        </div>
-
-        <!-- Bulk input area (hidden initially) -->
-        <div id="bulkInputArea" class="bulk-textarea">
-            <textarea id="bulkInputText" placeholder="Paste multiple titles, one per line...&#10;e.g.&#10;How to Start a Blog in 2025&#10;Best Running Shoes for Men&#10;Top 10 Vegan Recipes" style="height:200px;"></textarea>
-        </div>
-
-        <div class="settings-card">
-            <h3 style="margin:0 0 18px; color:var(--text);">⚙️ Slug Settings</h3>
-            <div class="grid-2">
-                <div class="input-group">
-                    <label>Separator</label>
-                    <select id="separatorSelect">
-                        <option value="-" selected>Hyphen (-)</option>
-                        <option value="_">Underscore (_)</option>
-                        <option value="">None (join words)</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>Case Style</label>
-                    <select id="caseSelect">
-                        <option value="lower" selected>all lowercase</option>
-                        <option value="upper">ALL UPPERCASE</option>
-                        <option value="none">Keep original case</option>
-                    </select>
-                </div>
-            </div>
-            <div class="grid-2" style="margin-top:14px;">
-                <div style="display:flex;flex-direction:column;gap:10px;">
-                    <label class="style-label"><input type="checkbox" id="removeStopWords"> Remove common stop words <span class="badge">SEO best</span></label>
-                    <label class="style-label"><input type="checkbox" id="removeSpecialChars" checked> Strip special characters</label>
-                </div>
-                <div style="display:flex;flex-direction:column;gap:10px;">
-                    <label class="style-label"><input type="checkbox" id="trimDashes"> Trim leading/trailing separators</label>
-                    <label class="style-label"><input type="checkbox" id="collapseMultiple"> Collapse multiple separators</label>
-                </div>
-            </div>
-            <div style="border-top:1px solid var(--line);padding-top:14px;margin-top:14px;display:flex;gap:20px;flex-wrap:wrap;">
-                <label class="style-label"><input type="checkbox" id="limitLength"> Limit length to: <input type="number" id="maxLength" value="200" min="10" max="500" style="width:70px;margin-left:6px;padding:4px 6px;border:1px solid var(--line);border-radius:4px;" disabled></label>
-            </div>
-        </div>
-
-        <div style="display:flex;gap:10px;margin-bottom:30px;">
-            <button class="btn btn-primary" id="generateBtn" onclick="generateSlug()"><i data-lucide="link-2" width="18" height="18"></i> Generate Slug(s)</button>
-            <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-        </div>
-
-        <div class="output-area" id="outputArea">
-            <div class="slug-preview-box" id="slugPreviewBox">your-generated-slug-will-appear-here</div>
-            <textarea id="outputText" readonly></textarea>
-            <div class="grid-2">
-                <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy</button>
-                <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadSlug()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
-            </div>
-            <p style="text-align:center; font-size:14px; margin-top:10px;" id="bulkCountInfo"></p>
-        </div>
-
-        <div style="margin-top:60px;border-top:1px solid var(--line);padding-top:30px;">
-            <h2>What Is a URL Slug?</h2>
-            <p>A URL slug is the part of a web address that comes after the domain name and identifies a specific page or post in a human‑readable way. For example, in the URL <code>https://example.com/blog/seo-tips-for-beginners</code>, the slug is <strong>seo-tips-for-beginners</strong>. Good slugs are short, descriptive, and use hyphens to separate words – which is exactly what this tool helps you create.</p>
-
-            <h2>Why Choose Textify.tools Slug Generator?</h2>
-            <div style="background: var(--accent); padding: 20px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px;">
-                <ul style="margin-bottom:0;">
-                    <li><strong>Single & Bulk Modes</strong> – Generate one slug or hundreds at once. Perfect for site migrations, bulk blog post planning, or API design.</li>
-                    <li><strong>100% Client‑Side Processing</strong> – Your text never leaves your device. No uploads, no servers.</li>
-                    <li><strong>SEO‑Optimised Output</strong> – Automatically strips stop words, special characters, and collapses spaces to create clean slugs.</li>
-                    <li><strong>Customisable Separators</strong> – Choose between hyphens, underscores, or no separator at all.</li>
-                    <li><strong>Instant Results</strong> – See the slug(s) update instantly after generation.</li>
-                    <li><strong>Completely Free</strong> – No sign‑up, no ads, no limits.</li>
-                </ul>
-            </div>
-
-            <h2>How to Use – Single & Bulk Mode</h2>
-            <h3>Single Mode</h3>
-            <ol>
-                <li><strong>Paste your text</strong> – Any heading, title, or phrase.</li>
-                <li><strong>Adjust settings</strong> – Separator, case, stop words, etc.</li>
-                <li><strong>Click Generate Slug(s)</strong> – Instantly see your clean slug.</li>
-                <li><strong>Copy or download</strong> the result.</li>
-            </ol>
-            <h3>Bulk Mode</h3>
-            <ol>
-                <li><strong>Switch to “Bulk Mode”</strong> using the tabs above.</li>
-                <li><strong>Paste multiple titles</strong>, one per line.</li>
-                <li><strong>Adjust slug settings</strong> – they apply to every line.</li>
-                <li><strong>Generate</strong> – all slugs appear line by line, ready to copy or download.</li>
-            </ol>
-
-            <h2>Slug Generation Rules Applied</h2>
-            <div class="table-wrapper">
-                <table class="info-table">
-                    <thead><tr><th>Step</th><th>Action</th></tr></thead>
-                    <tbody>
-                        <tr><td>1</td><td>Convert text to selected case (lowercase by default).</td></tr>
-                        <tr><td>2</td><td>Replace spaces and punctuation with the chosen separator.</td></tr>
-                        <tr><td>3 (optional)</td><td>Remove common stop words (a, an, the, in, on, etc.) to keep slugs concise.</td></tr>
-                        <tr><td>4</td><td>Strip all special characters, leaving only letters, numbers, and separators.</td></tr>
-                        <tr><td>5</td><td>Collapse multiple separators into a single one (e.g. “foo---bar” → “foo-bar”).</td></tr>
-                        <tr><td>6</td><td>Trim leading and trailing separators for a clean result.</td></tr>
-                        <tr><td>7 (optional)</td><td>Limit the slug to a maximum character length (ideal for SEO titles).</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2>Real‑World Use Cases</h2>
-            <ul>
-                <li><strong>Blog Post URLs:</strong> Turn “How to Start a Blog in 2025” into <code>how-to-start-a-blog-in-2025</code>.</li>
-                <li><strong>E‑commerce Products:</strong> Generate clean product page slugs like <code>red-running-shoes-size-10</code>.</li>
-                <li><strong>API Endpoints:</strong> Create REST‑friendly slugs for dynamic routes.</li>
-                <li><strong>Documentation & Wikis:</strong> Standardise page slugs across your knowledge base.</li>
-                <li><strong>Bulk Import:</strong> Prepare a list of slugs for a CMS migration or a new site structure.</li>
-            </ul>
-
-            <div class="tip-box">
-                <p style="margin:0;font-size:14px;"><strong>💡 Pro Tip:</strong> For maximum SEO benefit, always use hyphens (not underscores) as word separators. Keep slugs under 60 characters and include your primary keyword near the beginning.</p>
-            </div>
-
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is the generator free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free. No registration, no hidden costs.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I generate slugs for 100+ titles at once?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! Switch to Bulk Mode, paste your titles line by line, and click Generate. You'll get all slugs instantly.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does the tool work offline?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Once the page is loaded, all slug generation happens inside your browser. You can even disconnect from the internet and it will still work.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use underscores instead of hyphens?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. Choose “Underscore” from the separator dropdown. However, for public URLs, hyphens are recommended for better SEO.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What are stop words and why remove them?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Stop words are common words like “a”, “the”, “in”, “on”. Removing them makes slugs shorter and more keyword‑rich without changing the meaning.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my data private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, absolutely. All text processing is done client‑side – your text never leaves your device.</div></div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                    <img src="/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify.tools
-                </a>
-                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-            </div>
-            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-            <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-            <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-        </div>
-        <div class="footer-bottom">
-            © www.textify.tools. All rights reserved.
-        </div>
-    </footer>
-
     <script>
-        // ---- Complete tools list (all 60+ tools) ----
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -498,30 +503,16 @@
             { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' }
         ];
 
-        // ... (all remaining JavaScript functions identical to previous complete version) ...
-        function buildMegaMenu() {
-            const menu = document.getElementById('megaMenu');
-            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-        }
-        function buildMobileToolsMenu() {
-            const menu = document.getElementById('mobileToolsMenu');
-            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-        }
+        function buildMegaMenu() { const m = document.getElementById('megaMenu'); if (m) m.innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+        function buildMobileToolsMenu() { const m = document.getElementById('mobileToolsMenu'); if (m) m.innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
         function buildSearchList() {
             const list = document.getElementById('fullSearchResultsList');
-            if (list) {
-                list.innerHTML = tools.map(tool => `
-                    <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
-                        ${tool.name} <span class="result-tag">${tool.category}</span>
-                    </a>
-                `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
-            }
+            if (list) list.innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category}</span></a>`).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
         }
 
         let toastTimer;
         function showToast(msg, dur=3000) {
-            const t = document.getElementById('toast');
-            t.textContent = msg; t.classList.add('show');
+            const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
             clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
         }
 
@@ -573,12 +564,7 @@
             if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
         });
 
-        function toggleFaq(el) {
-            const item = el.parentElement;
-            item.classList.toggle('active');
-            const icon = el.querySelector('svg');
-            if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
-        }
+        function toggleFaq(el) { const i = el.parentElement; i.classList.toggle('active'); const icon = el.querySelector('svg'); if (icon) icon.style.transform = i.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)'; }
 
         let currentMode = 'single';
         function switchMode(mode) {
@@ -705,13 +691,8 @@
             const btn = document.getElementById('copyBtn');
             const origHTML = btn.innerHTML;
             try {
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    await navigator.clipboard.writeText(textarea.value);
-                } else {
-                    textarea.focus(); textarea.select(); textarea.setSelectionRange(0, 999999);
-                    const ok = document.execCommand('copy');
-                    if (!ok) throw new Error('execCommand failed');
-                }
+                if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(textarea.value);
+                else { textarea.focus(); textarea.select(); textarea.setSelectionRange(0, 999999); document.execCommand('copy'); }
                 btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!';
                 btn.style.background = '#16a34a';
                 lucide.createIcons();
@@ -766,11 +747,7 @@
             document.getElementById('maxLength').disabled = !this.checked;
         });
 
-        // Initialize
-        buildMegaMenu();
-        buildMobileToolsMenu();
-        buildSearchList();
-        lucide.createIcons();
+        buildMegaMenu(); buildMobileToolsMenu(); buildSearchList(); lucide.createIcons();
     </script>
 </body>
 </html>
