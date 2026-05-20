@@ -167,7 +167,7 @@
             --card: #1e293b;
             --input-bg: #1e293b;
             --input-border: #334155;
-            --footer-bg: #1e293b;
+            --footer-bg: #0f172a;
             --footer-text: #e2e8f0;
             --footer-heading: #ffffff;
             --footer-link-hover: #ffffff;
@@ -190,17 +190,35 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg); color: var(--text); min-height: 100vh;
-            display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
         }
 
-        /* FULL WIDTH HEADER */
-        header {
-            border-bottom: 1px solid var(--line); background: var(--bg);
-            display: flex; justify-content: center; align-items: center;
-            padding: 0 20px; height: 64px; position: relative; z-index: 100;
+        /* WRAPPER */
+        .page-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        .header-inner { width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+
+        /* HEADER */
+        header {
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            height: 64px;
+            transition: border-color 0.3s;
+            background: transparent;
+        }
+        .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -261,19 +279,18 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        /* FULL‑WIDTH MAIN */
+        /* MAIN */
         main {
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 0;
             flex: 1;
+            padding: 30px 20px;
+            width: 100%;
+            background: transparent;
         }
-
-        h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; padding: 0 20px; }
-        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; padding: 0 20px; }
-        textarea { width: calc(100% - 40px); margin: 0 20px 22px 20px; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: monospace; transition: 0.2s; }
+        h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
+        textarea { width: 100%; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: monospace; margin-bottom: 22px; transition: 0.2s; }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
-        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 0 20px 24px 20px; }
+        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
         .option-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 12px; }
         .option-card:hover { border-color: var(--primary); background: var(--hover); }
         .option-card input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; margin-right: 8px; }
@@ -284,11 +301,11 @@
         .btn-primary:hover { opacity: 0.88; }
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
         .btn-outline:hover { background: var(--hover); }
-        .output-area { margin: 28px 20px 0 20px; padding-top: 22px; border-top: 1px solid var(--line); display: none; }
+        .output-area { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); display: none; }
         .output-area textarea { height: 200px; background: var(--card); font-family: monospace; width: 100%; margin: 0 0 15px 0; }
         .char-count-box { background: var(--success-bg); padding: 14px 18px; border-radius: 12px; margin-bottom: 20px; text-align: center; color: var(--success-text); font-weight: 600; font-size: 15px; border: 1px solid rgba(22,163,74,0.2); }
-        .section { margin: 0 20px 50px 20px; }
-        .section h2 { font-size: 28px; font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
+        .section { margin-bottom: 50px; }
+        .section h2 { font-size: 26px; font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
         .section h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
         .section p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
         .section ul { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; }
@@ -307,53 +324,166 @@
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
 
-        /* FULL‑WIDTH FOOTER */
+        /* FOOTER */
         footer {
-            background: var(--footer-bg); color: var(--footer-text);
-            padding: 60px 20px 25px; margin-top: 60px;
             border-top: 1px solid var(--footer-border);
+            padding: 40px 20px 25px;
+            background: transparent;
         }
-        .footer-grid { width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; padding: 0 20px; }
+        .footer-container { width: 100%; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
         .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { width: 100%; margin: 35px auto 0; padding: 18px 20px 0; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+        .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
+            main { padding: 20px 12px; }
         }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     </style>
 
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.tools
-            </a>
-            <div class="header-right">
-                <div class="desktop-nav">
-                    <div class="tools-menu-container">
-                        <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-                        <div class="tools-mega-menu" id="megaMenu"></div>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    Textify.tools
+                </a>
+                <div class="header-right">
+                    <div class="desktop-nav">
+                        <div class="tools-menu-container">
+                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                            <div class="tools-mega-menu" id="megaMenu"></div>
+                        </div>
+                        <a href="privacy">Privacy</a>
+                        <a href="/blog">Blog</a>
                     </div>
-                    <a href="privacy">Privacy</a>
-                    <a href="/blog">Blog</a>
+                    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                    </button>
+                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                        <span class="menu-icon"><span></span><span></span></span>
+                    </button>
                 </div>
-                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                    <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-                </button>
-                <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-                    <span class="menu-icon"><span></span><span></span></span>
-                </button>
             </div>
-        </div>
-    </header>
+        </header>
+
+        <main>
+            <h1>Whitespace Cleaner</h1>
+            <p class="subtitle">Remove extra spaces, tabs, multiple line breaks, and blank lines. Clean up messy text in one click – all processing happens locally in your browser.</p>
+
+            <textarea id="inputText" placeholder="Paste or type your text here..."></textarea>
+
+            <div class="options-grid">
+                <label class="option-card"><input type="checkbox" id="trimLeading" checked> <span class="label-text">Trim leading spaces/tabs</span><span class="label-hint"> (remove from start of lines)</span></label>
+                <label class="option-card"><input type="checkbox" id="trimTrailing" checked> <span class="label-text">Trim trailing spaces/tabs</span><span class="label-hint"> (remove from end of lines)</span></label>
+                <label class="option-card"><input type="checkbox" id="collapseSpaces" checked> <span class="label-text">Collapse multiple spaces</span><span class="label-hint"> (replace with single space)</span></label>
+                <label class="option-card"><input type="checkbox" id="removeEmptyLines" checked> <span class="label-text">Remove empty lines</span><span class="label-hint"> (lines with only whitespace)</span></label>
+                <label class="option-card"><input type="checkbox" id="collapseLineBreaks" checked> <span class="label-text">Collapse line breaks</span><span class="label-hint"> (max 1 blank line)</span></label>
+                <label class="option-card"><input type="checkbox" id="trimDocument" checked> <span class="label-text">Trim document edges</span><span class="label-hint"> (remove leading/trailing blank lines)</span></label>
+            </div>
+
+            <div style="display:flex; gap:10px; margin-bottom: 30px;">
+                <button class="btn btn-primary" id="cleanBtn" onclick="cleanText()"><i data-lucide="sparkles" width="18" height="18"></i> Clean Text</button>
+                <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear All</button>
+            </div>
+
+            <div class="output-area" id="outputArea">
+                <div class="char-count-box" id="charCountInfo"></div>
+                <textarea id="outputText" readonly></textarea>
+                <div style="display:flex; gap:10px; margin-top:15px;">
+                    <button class="btn btn-primary" onclick="copyResult()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
+                    <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadResult()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>What is the Whitespace Cleaner?</h2>
+                <p>The Whitespace Cleaner is a simple but powerful online tool that removes unwanted whitespace characters from your text. Whether you are cleaning up messy copy‑pasted content, formatting code, or preparing data for a database, this tool automatically eliminates extra spaces, tabs, blank lines, and inconsistent line breaks. All processing happens directly in your browser – nothing is uploaded or stored anywhere.</p>
+
+                <h2>How to Use the Whitespace Cleaner</h2>
+                <div class="how-to-card">
+                    <div class="step-num">1</div>
+                    <div>
+                        <h4>Paste or Type Your Text</h4>
+                        <p>Start by entering any text into the input field. It can be copied from a website, a document, or even code.</p>
+                    </div>
+                </div>
+                <div class="how-to-card">
+                    <div class="step-num">2</div>
+                    <div>
+                        <h4>Select the Cleaning Options</h4>
+                        <p>Choose which types of whitespace to clean: trim leading/trailing spaces, collapse multiple spaces, remove empty lines, collapse line breaks, and trim document edges. All helpful options are enabled by default.</p>
+                    </div>
+                </div>
+                <div class="how-to-card">
+                    <div class="step-num">3</div>
+                    <div>
+                        <h4>Click "Clean Text"</h4>
+                        <p>The tool processes your text instantly and displays the cleaned version in the output box below, along with statistics showing the number of characters removed.</p>
+                    </div>
+                </div>
+                <div class="how-to-card">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h4>Copy or Download the Clean Text</h4>
+                        <p>Copy the result to your clipboard or download it as a .txt file for use in any application.</p>
+                    </div>
+                </div>
+
+                <h2>What Each Cleaning Option Does</h2>
+                <ul>
+                    <li><strong>Trim leading spaces/tabs:</strong> Removes any spaces or tabs at the beginning of each line.</li>
+                    <li><strong>Trim trailing spaces/tabs:</strong> Removes spaces or tabs at the end of each line.</li>
+                    <li><strong>Collapse multiple spaces:</strong> Replaces two or more adjacent spaces with a single space (keeps word separation intact).</li>
+                    <li><strong>Remove empty lines:</strong> Deletes lines that contain only whitespace characters (spaces, tabs).</li>
+                    <li><strong>Collapse line breaks:</strong> Ensures that there are never more than one blank line between content (replaces multiple blank lines with a single blank line).</li>
+                    <li><strong>Trim document edges:</strong> Removes leading and trailing blank lines from the entire text.</li>
+                </ul>
+
+                <h2>When Should You Use a Whitespace Cleaner?</h2>
+                <ul>
+                    <li><strong>Cleaning pasted content:</strong> When you copy text from a website or PDF, it often contains strange line breaks or double spaces – the Whitespace Cleaner fixes it instantly.</li>
+                    <li><strong>Preparing data for CSV / databases:</strong> Extra spaces can break data imports; a quick clean removes all unwanted whitespace.</li>
+                    <li><strong>Formatting code comments:</strong> Remove trailing whitespace from your code or scripts to follow style guides.</li>
+                    <li><strong>Cleaning log files:</strong> Log files often contain many empty lines and trailing spaces – this tool makes them readable again.</li>
+                    <li><strong>Pre‑processing before word counting:</strong> Run a whitespace cleanup before using a word counter to get accurate results.</li>
+                </ul>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private when I use this tool?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. The Whitespace Cleaner runs entirely in your browser using JavaScript. Your text never leaves your device – no server uploads, no logs, no tracking.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on large text (1 MB+)?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. The tool handles large text blocks efficiently, and because all processing is done client‑side, there is no artificial size limit.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use this offline?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. Once the page is loaded in a modern browser, you can disconnect from the internet and the tool will continue to work perfectly.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What types of whitespace are removed?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool handles regular spaces, tabs (\\t), line feeds (\\n), carriage returns (\\r), and any combination of them. It also collapses excessive spaces within lines.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Why does the output sometimes have blank lines?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">If 'Collapse line breaks' is enabled, a single blank line is kept as a paragraph separator. To remove all blank lines completely, also enable 'Remove empty lines' and 'Trim document edges'.</div></div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div>
+                        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            Textify.tools
+                        </a>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
+                    </div>
+                    <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+                    <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                </div>
+                <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
 
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
@@ -389,115 +519,7 @@
 
     <div class="toast" id="toast"></div>
 
-    <main>
-        <h1>Whitespace Cleaner</h1>
-        <p class="subtitle">Remove extra spaces, tabs, multiple line breaks, and blank lines. Clean up messy text in one click – all processing happens locally in your browser.</p>
-
-        <textarea id="inputText" placeholder="Paste or type your text here..."></textarea>
-
-        <div class="options-grid">
-            <label class="option-card"><input type="checkbox" id="trimLeading" checked> <span class="label-text">Trim leading spaces/tabs</span><span class="label-hint"> (remove from start of lines)</span></label>
-            <label class="option-card"><input type="checkbox" id="trimTrailing" checked> <span class="label-text">Trim trailing spaces/tabs</span><span class="label-hint"> (remove from end of lines)</span></label>
-            <label class="option-card"><input type="checkbox" id="collapseSpaces" checked> <span class="label-text">Collapse multiple spaces</span><span class="label-hint"> (replace with single space)</span></label>
-            <label class="option-card"><input type="checkbox" id="removeEmptyLines" checked> <span class="label-text">Remove empty lines</span><span class="label-hint"> (lines with only whitespace)</span></label>
-            <label class="option-card"><input type="checkbox" id="collapseLineBreaks" checked> <span class="label-text">Collapse line breaks</span><span class="label-hint"> (max 1 blank line)</span></label>
-            <label class="option-card"><input type="checkbox" id="trimDocument" checked> <span class="label-text">Trim document edges</span><span class="label-hint"> (remove leading/trailing blank lines)</span></label>
-        </div>
-
-        <div style="display:flex; gap:10px; margin: 0 20px 30px 20px;">
-            <button class="btn btn-primary" id="cleanBtn" onclick="cleanText()"><i data-lucide="sparkles" width="18" height="18"></i> Clean Text</button>
-            <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear All</button>
-        </div>
-
-        <div class="output-area" id="outputArea">
-            <div class="char-count-box" id="charCountInfo"></div>
-            <textarea id="outputText" readonly></textarea>
-            <div style="display:flex; gap:10px; margin-top:15px;">
-                <button class="btn btn-primary" onclick="copyResult()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
-                <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadResult()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>What is the Whitespace Cleaner?</h2>
-            <p>The Whitespace Cleaner is a simple but powerful online tool that removes unwanted whitespace characters from your text. Whether you are cleaning up messy copy‑pasted content, formatting code, or preparing data for a database, this tool automatically eliminates extra spaces, tabs, blank lines, and inconsistent line breaks. All processing happens directly in your browser – nothing is uploaded or stored anywhere.</p>
-
-            <h2>How to Use the Whitespace Cleaner</h2>
-            <div class="how-to-card">
-                <div class="step-num">1</div>
-                <div>
-                    <h4>Paste or Type Your Text</h4>
-                    <p>Start by entering any text into the input field. It can be copied from a website, a document, or even code.</p>
-                </div>
-            </div>
-            <div class="how-to-card">
-                <div class="step-num">2</div>
-                <div>
-                    <h4>Select the Cleaning Options</h4>
-                    <p>Choose which types of whitespace to clean: trim leading/trailing spaces, collapse multiple spaces, remove empty lines, collapse line breaks, and trim document edges. All helpful options are enabled by default.</p>
-                </div>
-            </div>
-            <div class="how-to-card">
-                <div class="step-num">3</div>
-                <div>
-                    <h4>Click "Clean Text"</h4>
-                    <p>The tool processes your text instantly and displays the cleaned version in the output box below, along with statistics showing the number of characters removed.</p>
-                </div>
-            </div>
-            <div class="how-to-card">
-                <div class="step-num">4</div>
-                <div>
-                    <h4>Copy or Download the Clean Text</h4>
-                    <p>Copy the result to your clipboard or download it as a .txt file for use in any application.</p>
-                </div>
-            </div>
-
-            <h2>What Each Cleaning Option Does</h2>
-            <ul>
-                <li><strong>Trim leading spaces/tabs:</strong> Removes any spaces or tabs at the beginning of each line.</li>
-                <li><strong>Trim trailing spaces/tabs:</strong> Removes spaces or tabs at the end of each line.</li>
-                <li><strong>Collapse multiple spaces:</strong> Replaces two or more adjacent spaces with a single space (keeps word separation intact).</li>
-                <li><strong>Remove empty lines:</strong> Deletes lines that contain only whitespace characters (spaces, tabs).</li>
-                <li><strong>Collapse line breaks:</strong> Ensures that there are never more than one blank line between content (replaces multiple blank lines with a single blank line).</li>
-                <li><strong>Trim document edges:</strong> Removes leading and trailing blank lines from the entire text.</li>
-            </ul>
-
-            <h2>When Should You Use a Whitespace Cleaner?</h2>
-            <ul>
-                <li><strong>Cleaning pasted content:</strong> When you copy text from a website or PDF, it often contains strange line breaks or double spaces – the Whitespace Cleaner fixes it instantly.</li>
-                <li><strong>Preparing data for CSV / databases:</strong> Extra spaces can break data imports; a quick clean removes all unwanted whitespace.</li>
-                <li><strong>Formatting code comments:</strong> Remove trailing whitespace from your code or scripts to follow style guides.</li>
-                <li><strong>Cleaning log files:</strong> Log files often contain many empty lines and trailing spaces – this tool makes them readable again.</li>
-                <li><strong>Pre‑processing before word counting:</strong> Run a whitespace cleanup before using a word counter to get accurate results.</li>
-            </ul>
-
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private when I use this tool?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. The Whitespace Cleaner runs entirely in your browser using JavaScript. Your text never leaves your device – no server uploads, no logs, no tracking.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on large text (1 MB+)?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. The tool handles large text blocks efficiently, and because all processing is done client‑side, there is no artificial size limit.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use this offline?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. Once the page is loaded in a modern browser, you can disconnect from the internet and the tool will continue to work perfectly.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What types of whitespace are removed?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool handles regular spaces, tabs (\\t), line feeds (\\n), carriage returns (\\r), and any combination of them. It also collapses excessive spaces within lines.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Why does the output sometimes have blank lines?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">If 'Collapse line breaks' is enabled, a single blank line is kept as a paragraph separator. To remove all blank lines completely, also enable 'Remove empty lines' and 'Trim document edges'.</div></div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify.tools
-                </a>
-                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
-            </div>
-            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-            <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-            <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-        </div>
-        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-    </footer>
-
     <script>
-        // Complete tools list (80+ tools) – required for full menu and search
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -573,97 +595,61 @@
             { name: 'Keyword Density Analyzer', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', category: 'analysis' }
         ];
 
-        function buildMegaMenu() {
-            const menu = document.getElementById('megaMenu');
-            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-        }
-
-        function buildMobileToolsMenu() {
-            const menu = document.getElementById('mobileToolsMenu');
-            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-        }
-
+        function buildMegaMenu() { document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+        function buildMobileToolsMenu() { document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
         function buildSearchList() {
-            const list = document.getElementById('fullSearchResultsList');
-            if (list) {
-                list.innerHTML = tools.map(tool => `
-                    <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
-                        ${tool.name} <span class="result-tag">${tool.category}</span>
-                    </a>
-                `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
-            }
+            document.getElementById('fullSearchResultsList').innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category}</span></a>`).join('')
+                + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
         }
 
         let toastTimer;
-        function showToast(msg, dur=3000) {
-            const t = document.getElementById('toast');
-            t.textContent = msg; t.classList.add('show');
-            clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
-        }
+        function showToast(msg, dur=3000) { const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'),dur); }
 
         function toggleTheme() {
-            const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
-                  ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (b.classList.contains('dark-mode')) {
-                b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
-                if(ms) { ms.style.display='block'; mm.style.display='none'; }
-                localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
-            } else {
-                b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
-                if(ms) { ms.style.display='none'; mm.style.display='block'; }
-                localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
-            }
+            const b=document.body, s=document.getElementById('sunIcon'), m=document.getElementById('moonIcon'),
+                  ms=document.getElementById('mobileSunIcon'), mm=document.getElementById('mobileMoonIcon');
+            if(b.classList.contains('dark-mode')) { b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none'; if(ms){ms.style.display='block'; mm.style.display='none';} localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff'); }
+            else { b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block'; if(ms){ms.style.display='none'; mm.style.display='block';} localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a'); }
             lucide.createIcons();
         }
         document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
-        if (localStorage.getItem('theme') === 'dark') {
+        if(localStorage.getItem('theme')==='dark') {
             document.body.classList.add('dark-mode');
             document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
+            const ms=document.getElementById('mobileSunIcon'), mm=document.getElementById('mobileMoonIcon');
+            if(ms && mm){ms.style.display='none'; mm.style.display='block';}
         }
 
-        function openMobileSidebar() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
-        function closeMobileSidebar() { document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow = ''; }
-        function toggleMobileTools() { document.querySelector('.mobile-tools-toggle').classList.toggle('active'); document.getElementById('mobileToolsMenu').classList.toggle('active'); }
-        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
+        function openMobileSidebar(){ document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow='hidden'; }
+        function closeMobileSidebar(){ document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow=''; }
+        function toggleMobileTools(){ document.querySelector('.mobile-tools-toggle').classList.toggle('active'); document.getElementById('mobileToolsMenu').classList.toggle('active'); }
+        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l=>l.addEventListener('click',closeMobileSidebar));
 
-        function openFullSearch() { document.getElementById('searchOverlayFull').classList.add('active'); document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('fullSearchInput').focus(), 200); }
-        function closeFullSearch() { document.getElementById('searchOverlayFull').classList.remove('active'); document.body.style.overflow = ''; document.getElementById('fullSearchInput').value = ''; filterFullSearch(); }
-        function filterFullSearch() {
-            const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
-            const items = document.querySelectorAll('#fullSearchResultsList .search-result-item');
-            const nr = document.getElementById('fullNoResult'), qs = document.getElementById('fullSearchQuery');
-            let c = 0;
-            items.forEach(i => {
-                const kw = i.getAttribute('data-keywords') || '', t = i.textContent.toLowerCase();
-                if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
-                else { i.classList.add('hidden-item'); }
+        function openFullSearch(){ document.getElementById('searchOverlayFull').classList.add('active'); document.body.style.overflow='hidden'; setTimeout(()=>document.getElementById('fullSearchInput').focus(),200); }
+        function closeFullSearch(){ document.getElementById('searchOverlayFull').classList.remove('active'); document.body.style.overflow=''; document.getElementById('fullSearchInput').value=''; filterFullSearch(); }
+        function filterFullSearch(){
+            const q=document.getElementById('fullSearchInput').value.toLowerCase().trim();
+            const items=document.querySelectorAll('#fullSearchResultsList .search-result-item');
+            const nr=document.getElementById('fullNoResult'), qs=document.getElementById('fullSearchQuery');
+            let c=0;
+            items.forEach(i=>{
+                const kw=i.getAttribute('data-keywords')||'', t=i.textContent.toLowerCase();
+                if(q===''||kw.includes(q)||t.includes(q)){i.classList.remove('hidden-item');c++;}
+                else{i.classList.add('hidden-item');}
             });
-            if (c === 0 && q !== '') { if(nr) nr.classList.add('show'); if(qs) qs.textContent = q; }
-            else { if(nr) nr.classList.remove('show'); }
+            if(c===0&&q!==''){nr.classList.add('show');qs.textContent=q;}else{nr.classList.remove('show');}
         }
-        document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); }
-            if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
+        document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l=>l.addEventListener('click',closeFullSearch));
+        document.addEventListener('keydown',e=>{
+            if(e.key==='Escape'){closeFullSearch();closeMobileSidebar();}
+            if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openFullSearch();}
         });
 
-        function toggleFaq(el) {
-            const item = el.parentElement;
-            item.classList.toggle('active');
-            const icon = el.querySelector('svg');
-            if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
-        }
+        function toggleFaq(el){ const item=el.parentElement; item.classList.toggle('active'); const icon=el.querySelector('svg'); if(icon)icon.style.transform=item.classList.contains('active')?'rotate(180deg)':'rotate(0deg)'; }
 
-        // Whitespace Cleaner Logic (unchanged)
         function cleanText() {
             const input = document.getElementById('inputText').value;
-            if (!input.trim()) {
-                showToast('Please enter some text to clean.', 2500);
-                return;
-            }
-
+            if (!input.trim()) { showToast('Please enter some text to clean.', 2500); return; }
             const trimLeading = document.getElementById('trimLeading').checked;
             const trimTrailing = document.getElementById('trimTrailing').checked;
             const collapseSpaces = document.getElementById('collapseSpaces').checked;
@@ -672,7 +658,6 @@
             const trimDocument = document.getElementById('trimDocument').checked;
 
             let lines = input.split(/\r?\n/);
-
             if (trimLeading) lines = lines.map(line => line.replace(/^\s+/, ''));
             if (trimTrailing) lines = lines.map(line => line.replace(/\s+$/, ''));
             if (collapseSpaces) lines = lines.map(line => line.replace(/[ \t]+/g, ' '));
@@ -685,13 +670,8 @@
                 let lastWasEmpty = false;
                 for (let i = 0; i < processedLines.length; i++) {
                     const isEmpty = (processedLines[i].trim().length === 0);
-                    if (!isEmpty) {
-                        result.push(processedLines[i]);
-                        lastWasEmpty = false;
-                    } else if (!lastWasEmpty) {
-                        result.push('');
-                        lastWasEmpty = true;
-                    }
+                    if (!isEmpty) { result.push(processedLines[i]); lastWasEmpty = false; }
+                    else if (!lastWasEmpty) { result.push(''); lastWasEmpty = true; }
                 }
                 processedLines = result;
             }
@@ -729,16 +709,10 @@
             const text = textarea.value;
             if (!text) { showToast('Nothing to copy.'); return; }
             try {
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    await navigator.clipboard.writeText(text);
-                } else {
-                    textarea.select();
-                    document.execCommand('copy');
-                }
+                if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(text);
+                else { textarea.select(); document.execCommand('copy'); }
                 showToast('📋 Text copied to clipboard!');
-            } catch (err) {
-                showToast('Copy failed – please try manually.');
-            }
+            } catch (err) { showToast('Copy failed – please try manually.'); }
         }
 
         function downloadResult() {
@@ -746,21 +720,13 @@
             if (!text) { showToast('Nothing to download.'); return; }
             const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
             const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'textify-clean.txt';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            const a = document.createElement('a'); a.href = url; a.download = 'textify-clean.txt';
+            document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
             showToast('💾 Downloaded successfully!');
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            buildMegaMenu();
-            buildMobileToolsMenu();
-            buildSearchList();
-            lucide.createIcons();
+            buildMegaMenu(); buildMobileToolsMenu(); buildSearchList(); lucide.createIcons();
         });
     </script>
 </body>
