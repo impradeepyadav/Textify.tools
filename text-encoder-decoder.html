@@ -45,8 +45,8 @@
             --faq-active: #f3f4f6;
             --table-header: #f3f4f6;
             --table-hover: #fafafa;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --overlay-bg: rgba(0, 0, 0, 0.5);
+            --shadow: rgba(0,0,0,0.1);
+            --overlay-bg: rgba(0,0,0,0.5);
             --success-bg: #f0fdf4;
             --success-text: #166534;
             --sidebar-bg: #ffffff;
@@ -66,7 +66,7 @@
             --card: #1e293b;
             --input-bg: #1e293b;
             --input-border: #334155;
-            --footer-bg: #1e293b;
+            --footer-bg: #0f172a;
             --footer-text: #e2e8f0;
             --footer-heading: #ffffff;
             --footer-link-hover: #ffffff;
@@ -75,8 +75,8 @@
             --faq-active: #334155;
             --table-header: #1e293b;
             --table-hover: #1e293b;
-            --shadow: rgba(0, 0, 0, 0.5);
-            --overlay-bg: rgba(0, 0, 0, 0.75);
+            --shadow: rgba(0,0,0,0.5);
+            --overlay-bg: rgba(0,0,0,0.75);
             --success-bg: #052e16;
             --success-text: #86efac;
             --sidebar-bg: #0f172a;
@@ -90,18 +90,33 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg); color: var(--text); min-height: 100vh;
-            display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+        .page-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* FULL WIDTH HEADER */
+        /* HEADER */
         header {
-            border-bottom: 1px solid var(--line); background: var(--bg);
-            display: flex; justify-content: center; align-items: center;
-            padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-            position: relative; z-index: 100;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            height: 64px;
+            transition: border-color 0.3s;
+            background: transparent;
         }
-        .header-inner { width: 100%; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -162,17 +177,22 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        /* FULL‑WIDTH MAIN */
-        main { width: 100%; margin: 0 auto; padding: 40px 0; flex: 1; }
-        h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; padding: 0 20px; }
-        h2 { font-size: 26px; font-weight: 700; margin: 45px 20px 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
-        h3 { font-size: 20px; font-weight: 700; margin: 30px 20px 12px; }
-        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; padding: 0 20px; }
-        p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; padding: 0 20px; }
-        ul, ol { padding-left: 42px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; padding-right: 20px; }
-        textarea { width: calc(100% - 40px); margin: 0 20px 22px 20px; height: 150px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; transition: 0.2s; }
+        /* MAIN */
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            width: 100%;
+            background: transparent;
+        }
+        h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
+        h2 { font-size: 26px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
+        h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
+        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
+        p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
+        ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
+        textarea { width: 100%; height: 150px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; transition: 0.2s; margin-bottom: 22px; }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
-        .input-group { margin: 0 20px 20px 20px; }
+        .input-group { margin-bottom: 20px; }
         .input-group label { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-light); display: block; margin-bottom: 6px; letter-spacing: 0.5px; }
         .input-group select { width: 100%; padding: 13px 14px; border: 1px solid var(--input-border); border-radius: 10px; font-size: 16px; background: var(--input-bg); color: var(--text); transition: 0.2s; }
         .input-group select:focus { outline: none; border-color: var(--primary); }
@@ -181,62 +201,180 @@
         .btn-primary:hover { opacity: 0.88; }
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
         .btn-outline:hover { background: var(--hover); }
-        .output-area { margin: 28px 20px 0 20px; padding-top: 22px; border-top: 1px solid var(--line); display: none; }
-        .output-area textarea { height: 160px; background: var(--card); width: 100%; margin: 0 0 15px 0; }
+        .output-area { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); display: none; }
+        .output-area textarea { height: 160px; background: var(--card); width: 100%; margin-bottom: 15px; }
         .char-count-box { background: var(--success-bg); padding: 14px 18px; border-radius: 12px; margin-bottom: 20px; text-align: center; color: var(--success-text); font-weight: 600; font-size: 15px; border: 1px solid rgba(22,163,74,0.2); }
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
-        .table-wrapper { overflow-x: auto; margin: 25px 20px; border: 1px solid var(--line); border-radius: 10px; }
+        .table-wrapper { overflow-x: auto; margin: 25px 0; border: 1px solid var(--line); border-radius: 10px; }
         .info-table { width: 100%; border-collapse: collapse; min-width: 600px; }
         .info-table th, .info-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); color: var(--text-light); }
         .info-table th { background: var(--table-header); font-weight: 700; color: var(--text); } .info-table tr:hover { background: var(--table-hover); }
-        .tip-box { background: #f0fdfa; padding: 18px 20px; border-left: 4px solid #16a34a; border-radius: 8px; margin: 0 20px 22px 20px; }
+        .tip-box { background: #f0fdfa; padding: 18px 20px; border-left: 4px solid #16a34a; border-radius: 8px; margin-bottom: 22px; }
         body.dark-mode .tip-box { background: #052e16; }
-        .faq-item { margin: 0 20px 16px 20px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
         .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
-        /* FULL‑WIDTH FOOTER */
-        footer { background: var(--footer-bg); color: var(--footer-text); padding: 60px 20px 25px; margin-top: 60px; border-top: 1px solid var(--footer-border); }
-        .footer-grid { width: 100%; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; padding: 0 20px; }
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--footer-border);
+            padding: 40px 20px 25px;
+            background: transparent;
+        }
+        .footer-container { width: 100%; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+            gap: 35px;
+        }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
         .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { width: 100%; margin: 35px auto 0; padding: 18px 20px 0; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+        .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
-        @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } }
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
+            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
+        }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     </style>
 
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.tools
-            </a>
-            <div class="header-right">
-                <div class="desktop-nav">
-                    <div class="tools-menu-container">
-                        <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-                        <div class="tools-mega-menu" id="megaMenu"></div>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    Textify.tools
+                </a>
+                <div class="header-right">
+                    <div class="desktop-nav">
+                        <div class="tools-menu-container">
+                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                            <div class="tools-mega-menu" id="megaMenu"></div>
+                        </div>
+                        <a href="privacy">Privacy</a>
+                        <a href="/blog">Blog</a>
                     </div>
-                    <a href="privacy">Privacy</a>
-                    <a href="/blog">Blog</a>
+                    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                    </button>
+                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                        <span class="menu-icon"><span></span><span></span></span>
+                    </button>
                 </div>
-                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                    <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-                </button>
-                <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-                    <span class="menu-icon"><span></span><span></span></span>
-                </button>
             </div>
-        </div>
-    </header>
+        </header>
+
+        <main>
+            <h1>Text Encoder / Decoder</h1>
+            <p class="subtitle">Encode or decode text with Base64, URL encoding, HTML entities, hex, binary, and more. All processing happens in your browser – no data is ever uploaded.</p>
+
+            <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
+
+            <div class="input-group">
+                <label for="operation">Operation</label>
+                <select id="operation">
+                    <option value="base64-encode">Base64 Encode</option>
+                    <option value="base64-decode">Base64 Decode</option>
+                    <option value="url-encode">URL Encode</option>
+                    <option value="url-decode">URL Decode</option>
+                    <option value="html-encode">HTML Entities Encode</option>
+                    <option value="html-decode">HTML Entities Decode</option>
+                    <option value="hex-encode">Hex Encode</option>
+                    <option value="hex-decode">Hex Decode</option>
+                    <option value="binary-encode">Binary Encode</option>
+                    <option value="binary-decode">Binary Decode</option>
+                </select>
+            </div>
+
+            <div style="display:flex; gap:10px; margin-bottom:30px;">
+                <button class="btn btn-primary" id="processBtn" onclick="processText()"><i data-lucide="code-2" width="18" height="18"></i> Encode / Decode</button>
+                <button class="btn btn-outline" onclick="clearTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+            </div>
+
+            <div class="output-area" id="outputArea">
+                <div class="char-count-box" id="charCountInfo"></div>
+                <textarea id="outputText" readonly></textarea>
+                <div style="display:flex; gap:10px; margin-top:15px;">
+                    <button class="btn btn-primary" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
+                    <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+                </div>
+            </div>
+
+            <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
+                <h2>How to Use the Text Encoder / Decoder</h2>
+                <p>Our tool makes encoding and decoding text simple and fast. Follow these steps:</p>
+                <ol style="margin-bottom:25px;">
+                    <li><strong>Enter your text</strong> – Paste or type the content you want to encode or decode into the main text area.</li>
+                    <li><strong>Choose an operation</strong> – Select the desired encoding or decoding method from the dropdown menu (Base64, URL, HTML entities, Hex, or Binary).</li>
+                    <li><strong>Click "Encode / Decode"</strong> – The result appears instantly in the output area below.</li>
+                    <li><strong>Copy or download</strong> – Use the "Copy Text" button or "Download .txt" to save the result.</li>
+                </ol>
+
+                <h2>What Each Operation Does</h2>
+                <div class="table-wrapper">
+                    <table class="info-table">
+                        <thead><tr><th>Operation</th><th>Description</th><th>Example</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Base64 Encode</strong></td><td>Converts text to Base64 (used for email attachments, APIs)</td><td><code>Hello</code> → <code>SGVsbG8=</code></td></tr>
+                            <tr><td><strong>Base64 Decode</strong></td><td>Converts Base64 back to plain text</td><td><code>SGVsbG8=</code> → <code>Hello</code></td></tr>
+                            <tr><td><strong>URL Encode</strong></td><td>Escapes special characters for use in URLs</td><td><code>Hello World!</code> → <code>Hello%20World%21</code></td></tr>
+                            <tr><td><strong>URL Decode</strong></td><td>Restores original text from URL‑encoded string</td><td><code>Hello%20World%21</code> → <code>Hello World!</code></td></tr>
+                            <tr><td><strong>HTML Entities Encode</strong></td><td>Converts characters like <code>&lt;</code> and <code>&gt;</code> to HTML entities</td><td><code><div></code> → <code>&amp;lt;div&amp;gt;</code></td></tr>
+                            <tr><td><strong>HTML Entities Decode</strong></td><td>Converts HTML entities back to characters</td><td><code>&amp;lt;div&amp;gt;</code> → <code><div></code></td></tr>
+                            <tr><td><strong>Hex Encode</strong></td><td>Converts text to hexadecimal representation</td><td><code>Hello</code> → <code>48 65 6c 6c 6f</code></td></tr>
+                            <tr><td><strong>Hex Decode</strong></td><td>Converts hex back to text</td><td><code>48 65 6c 6c 6f</code> → <code>Hello</code></td></tr>
+                            <tr><td><strong>Binary Encode</strong></td><td>Converts text to binary (8‑bit binary per character)</td><td><code>A</code> → <code>01000001</code></td></tr>
+                            <tr><td><strong>Binary Decode</strong></td><td>Converts binary back to text</td><td><code>01000001</code> → <code>A</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Common Use Cases</h2>
+                <ul>
+                    <li><strong>Web Development:</strong> Encode strings for safe URL parameters (URL encode), store binary data in JSON (Base64), or escape HTML when displaying user input (HTML entities).</li>
+                    <li><strong>Debugging:</strong> Decode encoded tokens, headers, or API responses to read plain text.</li>
+                    <li><strong>Educational:</strong> Learn how characters map to hexadecimal and binary representations.</li>
+                    <li><strong>Email & Data Transmission:</strong> Use Base64 to embed images or attachments in text formats.</li>
+                </ul>
+
+                <div class="tip-box">
+                    <p style="margin:0; font-size:14px;"><strong>💡 Pro Tip:</strong> All operations are performed locally in your browser. Your text is never sent to any server – complete privacy guaranteed.</p>
+                </div>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free with no limits. No login or payment required.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use this for large files?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool works well with large amounts of text, but extremely large files might cause slowdown in your browser. For best results, process chunks of up to a few megabytes.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on iPhones, Android devices, and tablets.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">100% private. All encoding and decoding happens inside your browser – no data leaves your device.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if I get an error while decoding?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Make sure your input matches the selected operation. For example, Base64 decode expects a valid Base64 string. Invalid input will show an alert – just double-check and try again.</div></div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div>
+                        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            Textify.tools
+                        </a>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
+                    </div>
+                    <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+                    <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                </div>
+                <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
 
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
@@ -272,110 +410,8 @@
 
     <div class="toast" id="toast"></div>
 
-    <main>
-        <h1>Text Encoder / Decoder</h1>
-        <p class="subtitle">Encode or decode text with Base64, URL encoding, HTML entities, hex, binary, and more. All processing happens in your browser – no data is ever uploaded.</p>
-
-        <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
-
-        <div class="input-group">
-            <label for="operation">Operation</label>
-            <select id="operation">
-                <option value="base64-encode">Base64 Encode</option>
-                <option value="base64-decode">Base64 Decode</option>
-                <option value="url-encode">URL Encode</option>
-                <option value="url-decode">URL Decode</option>
-                <option value="html-encode">HTML Entities Encode</option>
-                <option value="html-decode">HTML Entities Decode</option>
-                <option value="hex-encode">Hex Encode</option>
-                <option value="hex-decode">Hex Decode</option>
-                <option value="binary-encode">Binary Encode</option>
-                <option value="binary-decode">Binary Decode</option>
-            </select>
-        </div>
-
-        <div style="display:flex; gap:10px; margin:0 20px 30px 20px;">
-            <button class="btn btn-primary" id="processBtn" onclick="processText()"><i data-lucide="code-2" width="18" height="18"></i> Encode / Decode</button>
-            <button class="btn btn-outline" onclick="clearTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-        </div>
-
-        <div class="output-area" id="outputArea">
-            <div class="char-count-box" id="charCountInfo"></div>
-            <textarea id="outputText" readonly></textarea>
-            <div style="display:flex; gap:10px; margin-top:15px;">
-                <button class="btn btn-primary" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
-                <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
-            </div>
-        </div>
-
-        <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
-            <h2>How to Use the Text Encoder / Decoder</h2>
-            <p>Our tool makes encoding and decoding text simple and fast. Follow these steps:</p>
-            <ol style="margin-bottom:25px;">
-                <li><strong>Enter your text</strong> – Paste or type the content you want to encode or decode into the main text area.</li>
-                <li><strong>Choose an operation</strong> – Select the desired encoding or decoding method from the dropdown menu (Base64, URL, HTML entities, Hex, or Binary).</li>
-                <li><strong>Click "Encode / Decode"</strong> – The result appears instantly in the output area below.</li>
-                <li><strong>Copy or download</strong> – Use the "Copy Text" button or "Download .txt" to save the result.</li>
-            </ol>
-
-            <h2>What Each Operation Does</h2>
-            <div class="table-wrapper">
-                <table class="info-table">
-                    <thead><tr><th>Operation</th><th>Description</th><th>Example</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>Base64 Encode</strong></td><td>Converts text to Base64 (used for email attachments, APIs)</td><td><code>Hello</code> → <code>SGVsbG8=</code></td></tr>
-                        <tr><td><strong>Base64 Decode</strong></td><td>Converts Base64 back to plain text</td><td><code>SGVsbG8=</code> → <code>Hello</code></td></tr>
-                        <tr><td><strong>URL Encode</strong></td><td>Escapes special characters for use in URLs</td><td><code>Hello World!</code> → <code>Hello%20World%21</code></td></tr>
-                        <tr><td><strong>URL Decode</strong></td><td>Restores original text from URL‑encoded string</td><td><code>Hello%20World%21</code> → <code>Hello World!</code></td></tr>
-                        <tr><td><strong>HTML Entities Encode</strong></td><td>Converts characters like <code>&lt;</code> and <code>&gt;</code> to HTML entities</td><td><code><div></code> → <code>&amp;lt;div&amp;gt;</code></td></tr>
-                        <tr><td><strong>HTML Entities Decode</strong></td><td>Converts HTML entities back to characters</td><td><code>&amp;lt;div&amp;gt;</code> → <code><div></code></td></tr>
-                        <tr><td><strong>Hex Encode</strong></td><td>Converts text to hexadecimal representation</td><td><code>Hello</code> → <code>48 65 6c 6c 6f</code></td></tr>
-                        <tr><td><strong>Hex Decode</strong></td><td>Converts hex back to text</td><td><code>48 65 6c 6c 6f</code> → <code>Hello</code></td></tr>
-                        <tr><td><strong>Binary Encode</strong></td><td>Converts text to binary (8‑bit binary per character)</td><td><code>A</code> → <code>01000001</code></td></tr>
-                        <tr><td><strong>Binary Decode</strong></td><td>Converts binary back to text</td><td><code>01000001</code> → <code>A</code></td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2>Common Use Cases</h2>
-            <ul>
-                <li><strong>Web Development:</strong> Encode strings for safe URL parameters (URL encode), store binary data in JSON (Base64), or escape HTML when displaying user input (HTML entities).</li>
-                <li><strong>Debugging:</strong> Decode encoded tokens, headers, or API responses to read plain text.</li>
-                <li><strong>Educational:</strong> Learn how characters map to hexadecimal and binary representations.</li>
-                <li><strong>Email & Data Transmission:</strong> Use Base64 to embed images or attachments in text formats.</li>
-            </ul>
-
-            <div class="tip-box">
-                <p style="margin:0; font-size:14px; padding:0;"><strong>💡 Pro Tip:</strong> All operations are performed locally in your browser. Your text is never sent to any server – complete privacy guaranteed.</p>
-            </div>
-
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free with no limits. No login or payment required.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use this for large files?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool works well with large amounts of text, but extremely large files might cause slowdown in your browser. For best results, process chunks of up to a few megabytes.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on iPhones, Android devices, and tablets.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">100% private. All encoding and decoding happens inside your browser – no data leaves your device.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if I get an error while decoding?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Make sure your input matches the selected operation. For example, Base64 decode expects a valid Base64 string. Invalid input will show an alert – just double-check and try again.</div></div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify.tools
-                </a>
-                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
-            </div>
-            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-            <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-            <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-        </div>
-        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-    </footer>
-
     <script>
-        // Complete list of all tools (80+ tools) matching index.html
+        // Complete list of all tools (80+ tools)
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -527,17 +563,13 @@
             if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
         });
 
-        // FAQ toggle function - FIXED
         function toggleFaq(el) {
             const item = el.parentElement;
             item.classList.toggle('active');
             const icon = el.querySelector('svg');
-            if (icon) {
-                icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
-            }
+            if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
 
-        // Text Encoder/Decoder specific functions
         function processText() {
             const input = document.getElementById('inputText').value;
             const operation = document.getElementById('operation').value;
