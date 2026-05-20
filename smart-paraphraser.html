@@ -37,7 +37,7 @@
       --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
       --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
       --input-border: #334155;
-      --footer-bg: #1e293b; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
       --footer-border: #334155;
       --faq-bg: #1e293b; --faq-active: #334155;
       --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0,0,0,0.5);
@@ -49,16 +49,35 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg); color: var(--text); min-height: 100vh;
-      display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
     }
+
+    /* WRAPPER */
+    .page-wrapper {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
     header {
-      border-bottom: 1px solid var(--line); background: var(--bg);
-      display: flex; justify-content: center; align-items: center;
-      padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-      position: relative; z-index: 100;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      height: 64px;
+      transition: border-color 0.3s;
+      background: transparent;
     }
-    .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -118,7 +137,9 @@
     .search-results-list .result-tag { font-size: 10px; background: var(--hover); padding: 3px 8px; border-radius: 12px; color: var(--text-light); text-transform: uppercase; font-weight: 600; }
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
-    main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
+
+    /* MAIN */
+    main { flex: 1; width: 100%; padding: 30px 20px; background: transparent; }
     h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
     h2 { font-size: 26px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
     p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
@@ -139,47 +160,110 @@
     .faq-answer { display: none; padding: 16px 18px; color: var(--text-light); border-top: 1px solid var(--line); }
     .faq-item.active .faq-answer { display: block; }
     .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
+
+    /* FOOTER */
     footer {
-      background: var(--footer-bg); color: var(--footer-text);
-      padding: 60px 20px 25px; margin-top: 60px;
       border-top: 1px solid var(--footer-border);
+      padding: 40px 20px 25px;
+      background: transparent;
     }
-    .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
-    @media (max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}@media(max-width:500px){.footer-grid{grid-template-columns:1fr;}}
+    .footer-container { width: 100%; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+    @media (max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:500px){.footer-grid{grid-template-columns:1fr;}}
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
-    @media(max-width:768px){.footer-bottom{flex-direction:column;gap:8px;text-align:center;}}
+    .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+    
     @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } }
     @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
   </style>
 
-  <header>
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-        Textify.Tools
-      </a>
-      <div class="header-right">
-        <div class="desktop-nav">
-          <div class="tools-menu-container">
-            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-            <div class="tools-mega-menu" id="megaMenu"></div>
+  <div class="page-wrapper">
+    <header>
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+          Textify.Tools
+        </a>
+        <div class="header-right">
+          <div class="desktop-nav">
+            <div class="tools-menu-container">
+              <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+              <div class="tools-mega-menu" id="megaMenu"></div>
+            </div>
+            <a href="privacy">Privacy</a><a href="/blog">Blog</a>
           </div>
-          <a href="privacy">Privacy</a><a href="/blog">Blog</a>
+          <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+            <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+            <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+          </button>
+          <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+          <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+            <span class="menu-icon"><span></span><span></span></span>
+          </button>
         </div>
-        <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-          <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-          <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-        </button>
-        <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-        <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-          <span class="menu-icon"><span></span><span></span></span>
-        </button>
       </div>
-    </div>
-  </header>
+    </header>
+
+    <main>
+      <h1>Smart Paraphraser: Rewrite & Rephrase Text Instantly</h1>
+      <p>Paste your text below and click "Paraphrase" to rewrite it with alternative wording while preserving the original meaning. All processing happens locally in your browser — your text never leaves your device.</p>
+
+      <textarea id="inputText" placeholder="Paste or type the text you want to paraphrase..."></textarea>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="paraphraseBtn" onclick="paraphraseText()"><i data-lucide="refresh-cw" width="18" height="18"></i> Paraphrase</button>
+        <button class="btn btn-outline" onclick="clearAll()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+      </div>
+
+      <div class="output-area" id="outputArea">
+        <textarea id="outputText" readonly></textarea>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="copyOutput()"><i data-lucide="copy" width="18" height="18"></i> Copy</button>
+          <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadOutput()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+        </div>
+      </div>
+
+      <div style="margin-top:50px; border-top:1px solid var(--line); padding-top:30px;">
+        <h2>How the Smart Paraphraser Works</h2>
+        <p>Our paraphraser uses a local synonym database to replace words with their closest alternatives while keeping the sentence structure intact. It's designed to help you rewrite content for clarity, avoid plagiarism, or simply find new ways to express ideas.</p>
+        <p>The tool works entirely offline — no internet connection is needed after the page loads. Your text is never uploaded, stored, or shared.</p>
+
+        <h2>Use Cases</h2>
+        <ul style="padding-left:22px; color: var(--text-light); margin-bottom:22px;">
+          <li><strong>Content rewriting:</strong> Quickly rephrase articles, blog posts, or essays.</li>
+          <li><strong>Academic writing:</strong> Avoid plagiarism by rewording sources.</li>
+          <li><strong>Creative writing:</strong> Find alternative phrasings for more variety.</li>
+          <li><strong>Language learning:</strong> See how the same idea can be expressed differently.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, all paraphrasing is done locally in your browser. No data is sent to any server.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it support other languages?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Currently, the synonym database is optimized for English. Other languages may still work but with limited rewriting.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use it for long essays?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, the tool can handle thousands of words. Performance depends on your device, but it's designed to work efficiently.</div></div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div>
+            <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+              <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+              Textify.Tools
+            </a>
+            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+          </div>
+          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+          <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+          <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+        </div>
+        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
 
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
@@ -212,65 +296,8 @@
     </div>
   </div>
 
-  <main>
-    <h1>Smart Paraphraser: Rewrite & Rephrase Text Instantly</h1>
-    <p>Paste your text below and click "Paraphrase" to rewrite it with alternative wording while preserving the original meaning. All processing happens locally in your browser — your text never leaves your device.</p>
-
-    <textarea id="inputText" placeholder="Paste or type the text you want to paraphrase..."></textarea>
-
-    <div class="btn-row">
-      <button class="btn btn-primary" id="paraphraseBtn" onclick="paraphraseText()"><i data-lucide="refresh-cw" width="18" height="18"></i> Paraphrase</button>
-      <button class="btn btn-outline" onclick="clearAll()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-    </div>
-
-    <div class="output-area" id="outputArea">
-      <textarea id="outputText" readonly></textarea>
-      <div class="btn-row">
-        <button class="btn btn-primary" onclick="copyOutput()"><i data-lucide="copy" width="18" height="18"></i> Copy</button>
-        <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadOutput()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
-      </div>
-    </div>
-
-    <div style="margin-top:50px; border-top:1px solid var(--line); padding-top:30px;">
-      <h2>How the Smart Paraphraser Works</h2>
-      <p>Our paraphraser uses a local synonym database to replace words with their closest alternatives while keeping the sentence structure intact. It's designed to help you rewrite content for clarity, avoid plagiarism, or simply find new ways to express ideas.</p>
-      <p>The tool works entirely offline — no internet connection is needed after the page loads. Your text is never uploaded, stored, or shared.</p>
-
-      <h2>Use Cases</h2>
-      <ul style="padding-left:22px; color: var(--text-light); margin-bottom:22px;">
-        <li><strong>Content rewriting:</strong> Quickly rephrase articles, blog posts, or essays.</li>
-        <li><strong>Academic writing:</strong> Avoid plagiarism by rewording sources.</li>
-        <li><strong>Creative writing:</strong> Find alternative phrasings for more variety.</li>
-        <li><strong>Language learning:</strong> See how the same idea can be expressed differently.</li>
-      </ul>
-
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, all paraphrasing is done locally in your browser. No data is sent to any server.</div></div>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it support other languages?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Currently, the synonym database is optimized for English. Other languages may still work but with limited rewriting.</div></div>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use it for long essays?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, the tool can handle thousands of words. Performance depends on your device, but it's designed to work efficiently.</div></div>
-    </div>
-  </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-          Textify.Tools
-        </a>
-        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-      </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-      <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-      <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-    </div>
-    <div class="footer-bottom">
-      © www.textify.tools. All rights reserved.
-    </div>
-  </footer>
-
   <script>
-    // Complete list of all tools (80+ tools) matching index.html
+    // tools array (same as before)
     const tools = [
       { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
       { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -346,25 +373,11 @@
       { name: 'Keyword Density Analyzer', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', category: 'analysis' }
     ];
 
-    function buildMegaMenu() {
-      const menu = document.getElementById('megaMenu');
-      if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-    }
-
-    function buildMobileToolsMenu() {
-      const menu = document.getElementById('mobileToolsMenu');
-      if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-    }
-
+    function buildMegaMenu() { const m = document.getElementById('megaMenu'); if (m) m.innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+    function buildMobileToolsMenu() { const m = document.getElementById('mobileToolsMenu'); if (m) m.innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
     function buildSearchList() {
       const list = document.getElementById('fullSearchResultsList');
-      if (list) {
-        list.innerHTML = tools.map(tool => `
-          <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
-            ${tool.name} <span class="result-tag">${tool.category}</span>
-          </a>
-        `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
-      }
+      if (list) list.innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category}</span></a>`).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
     }
 
     function toggleTheme() {
@@ -488,13 +501,8 @@
       const text = document.getElementById('outputText').value;
       if (!text) return;
       try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          await navigator.clipboard.writeText(text);
-        } else {
-          const ta = document.getElementById('outputText');
-          ta.select();
-          document.execCommand('copy');
-        }
+        if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(text);
+        else { const ta = document.getElementById('outputText'); ta.select(); document.execCommand('copy'); }
         const btn = document.querySelector('#outputArea .btn-primary');
         const orig = btn.innerHTML;
         btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!';
@@ -513,10 +521,7 @@
       a.click();
     }
 
-    buildMegaMenu();
-    buildMobileToolsMenu();
-    buildSearchList();
-    lucide.createIcons();
+    buildMegaMenu(); buildMobileToolsMenu(); buildSearchList(); lucide.createIcons();
   </script>
 </body>
 </html>
