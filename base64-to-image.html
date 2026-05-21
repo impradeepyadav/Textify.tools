@@ -67,7 +67,7 @@
       --card: #1e293b;
       --input-bg: #1e293b;
       --input-border: #334155;
-      --footer-bg: #1e293b;
+      --footer-bg: #0f172a;
       --footer-text: #e2e8f0;
       --footer-heading: #ffffff;
       --footer-link-hover: #ffffff;
@@ -84,23 +84,47 @@
       --accent: #1e293b;
       --toast-bg: #f1f5f9;
       --toast-text: #0f172a;
+      --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg); color: var(--text); min-height: 100vh;
-      display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* WRAPPER – consistent max-width for header, main, footer */
+    .page-wrapper {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     /* HEADER */
     header {
-      border-bottom: 1px solid var(--line); background: var(--bg);
-      display: flex; justify-content: center; align-items: center;
-      padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-      position: relative; z-index: 100;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      height: 64px;
+      transition: border-color 0.3s;
+      background: transparent;
     }
-    .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .header-inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -116,8 +140,6 @@
     .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
     .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
     .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
-
-    /* Mobile Sidebar & Search Overlay */
     .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
     .theme-btn:hover { background: var(--hover); }
     .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
@@ -127,44 +149,14 @@
     .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
     .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
     .hamburger-btn .menu-icon span:first-child { width: 16px; }
-    .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
-    .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
-    .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
-    .mobile-sidebar.active { left: 0; }
-    .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
-    .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
-    .mobile-sidebar-logo .logo-img { width: 20px; height: 20px; }
-    .mobile-sidebar-close { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
-    .mobile-sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
-    .mobile-sidebar-nav a { display: block; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; }
-    .mobile-sidebar-nav a:hover { background: var(--hover); color: var(--primary); }
-    .mobile-tools-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 10px; background: none; border: none; cursor: pointer; color: var(--text); font-weight: 500; font-size: 15px; font-family: inherit; transition: 0.2s; }
-    .mobile-tools-toggle:hover { background: var(--hover); color: var(--primary); }
-    .mobile-tools-toggle i { width: 16px; height: 16px; transition: transform 0.3s; }
-    .mobile-tools-toggle.active i { transform: rotate(180deg); }
-    .mobile-tools-menu { display: none; flex-direction: column; padding-left: 16px; gap: 2px; margin-bottom: 6px; }
-    .mobile-tools-menu.active { display: flex; }
-    .mobile-tools-menu a { font-size: 14px; padding: 10px 14px; color: var(--text-light); }
-    .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
-    .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
-    .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
-    .search-overlay-full { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--overlay-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 300; display: flex; flex-direction: column; align-items: center; padding-top: 80px; opacity: 0; visibility: hidden; transition: 0.3s; }
-    .search-overlay-full.active { opacity: 1; visibility: visible; }
-    .search-container { width: 90%; max-width: 550px; display: flex; flex-direction: column; max-height: 80vh; }
-    .search-box { display: flex; align-items: center; gap: 10px; background: var(--bg); border-radius: 16px; padding: 8px 16px; border: 2px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 10px; }
-    .search-box input { flex: 1; border: none; background: transparent; font-size: 17px; color: var(--text); outline: none; font-family: inherit; padding: 10px 0; }
-    .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; max-height: 60vh; }
-    .search-results-list .search-result-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; border-bottom: 1px solid var(--line); }
-    .search-results-list .search-result-item:last-child { border-bottom: none; }
-    .search-results-list .search-result-item:hover { background: var(--hover); color: var(--primary); }
-    .search-results-list .search-result-item.hidden-item { display: none; }
-    .search-results-list .result-tag { font-size: 10px; background: var(--hover); padding: 3px 8px; border-radius: 12px; color: var(--text-light); text-transform: uppercase; font-weight: 600; }
-    .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
-    .search-no-result.show { display: block; }
 
-    /* Main Content */
-    main { flex: 1; max-width: 1000px; margin: 30px auto; padding: 0 20px; width: 100%; }
+    /* MAIN */
+    main {
+      flex: 1;
+      padding: 30px 20px;
+      width: 100%;
+      background: transparent;
+    }
     h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
     .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
     .tool-panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px; margin-bottom: 30px; }
@@ -203,55 +195,245 @@
     .faq-item.active .faq-answer { display: block; }
     .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
-    /* Footer */
+    /* FOOTER */
     footer {
-      background: var(--footer-bg); color: var(--footer-text);
-      padding: 60px 20px 25px; margin-top: 60px;
       border-top: 1px solid var(--footer-border);
+      padding: 40px 20px 25px;
+      background: transparent;
     }
-    .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+    .footer-container { width: 100%; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+      gap: 35px;
+    }
     @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+    .footer-bottom {
+      width: 100%;
+      margin-top: 35px;
+      padding-top: 18px;
+      border-top: 1px solid var(--footer-border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--footer-text);
+    }
+
+    /* Mobile sidebar & overlay (fixed, outside wrapper) */
+    .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
+    .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
+    .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
+    .mobile-sidebar.active { left: 0; }
+    .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+    .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
+    .mobile-sidebar-logo .logo-img { width: 20px; height: 20px; }
+    .mobile-sidebar-close { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
+    .mobile-sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+    .mobile-sidebar-nav a { display: block; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; }
+    .mobile-sidebar-nav a:hover { background: var(--hover); color: var(--primary); }
+    .mobile-tools-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 10px; background: none; border: none; cursor: pointer; color: var(--text); font-weight: 500; font-size: 15px; font-family: inherit; transition: 0.2s; }
+    .mobile-tools-toggle:hover { background: var(--hover); color: var(--primary); }
+    .mobile-tools-toggle i { width: 16px; height: 16px; transition: transform 0.3s; }
+    .mobile-tools-toggle.active i { transform: rotate(180deg); }
+    .mobile-tools-menu { display: none; flex-direction: column; padding-left: 16px; gap: 2px; margin-bottom: 6px; }
+    .mobile-tools-menu.active { display: flex; }
+    .mobile-tools-menu a { font-size: 14px; padding: 10px 14px; color: var(--text-light); }
+    .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
+    .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
+    .search-overlay-full { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--overlay-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 300; display: flex; flex-direction: column; align-items: center; padding-top: 80px; opacity: 0; visibility: hidden; transition: 0.3s; }
+    .search-overlay-full.active { opacity: 1; visibility: visible; }
+    .search-container { width: 90%; max-width: 550px; display: flex; flex-direction: column; max-height: 80vh; }
+    .search-box { display: flex; align-items: center; gap: 10px; background: var(--bg); border-radius: 16px; padding: 8px 16px; border: 2px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 10px; }
+    .search-box input { flex: 1; border: none; background: transparent; font-size: 17px; color: var(--text); outline: none; font-family: inherit; padding: 10px 0; }
+    .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; max-height: 60vh; }
+    .search-results-list .search-result-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; border-bottom: 1px solid var(--line); }
+    .search-results-list .search-result-item:last-child { border-bottom: none; }
+    .search-results-list .search-result-item:hover { background: var(--hover); color: var(--primary); }
+    .search-results-list .search-result-item.hidden-item { display: none; }
+    .search-results-list .result-tag { font-size: 10px; background: var(--hover); padding: 3px 8px; border-radius: 12px; color: var(--text-light); text-transform: uppercase; font-weight: 600; }
+    .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
+    .search-no-result.show { display: block; }
 
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
-      .tool-panel { padding: 18px; }
     }
     @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
   </style>
 
-  <header>
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-        Textify.Tools
-      </a>
-      <div class="header-right">
-        <div class="desktop-nav">
-          <div class="tools-menu-container">
-            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-            <div class="tools-mega-menu" id="megaMenu"></div>
+  <div class="page-wrapper">
+    <header>
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+          Textify.Tools
+        </a>
+        <div class="header-right">
+          <div class="desktop-nav">
+            <div class="tools-menu-container">
+              <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+              <div class="tools-mega-menu" id="megaMenu"></div>
+            </div>
+            <a href="privacy">Privacy</a>
+            <a href="/blog">Blog</a>
           </div>
-          <a href="privacy">Privacy</a>
-          <a href="/blog">Blog</a>
+          <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+            <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+            <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+          </button>
+          <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+          <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+            <span class="menu-icon"><span></span><span></span></span>
+          </button>
         </div>
-        <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-          <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-          <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-        </button>
-        <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-        <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-          <span class="menu-icon"><span></span><span></span></span>
-        </button>
       </div>
-    </div>
-  </header>
+    </header>
 
+    <main>
+      <h1>Base64 to Image Converter</h1>
+      <p class="subtitle">Convert images to Base64 strings or decode Base64 back into images. All processing happens locally in your browser – nothing is uploaded.</p>
+
+      <div class="tool-panel">
+        <div class="mode-tabs">
+          <button class="mode-tab active" data-mode="encode" onclick="switchMode('encode')">Image ➜ Base64</button>
+          <button class="mode-tab" data-mode="decode" onclick="switchMode('decode')">Base64 ➜ Image</button>
+        </div>
+
+        <!-- Encode Mode -->
+        <div id="encodeMode">
+          <div class="grid-2">
+            <div>
+              <div class="input-group">
+                <label>📸 Upload Image</label>
+                <input type="file" id="fileInput" accept="image/*" class="file-input" onchange="handleFileSelect()">
+              </div>
+              <div class="preview-area" id="imagePreviewArea">
+                <span style="color: var(--text-light);">No image selected</span>
+              </div>
+              <div class="action-bar">
+                <button class="btn btn-primary" onclick="encodeToBase64()">🔄 Encode to Base64</button>
+                <button class="btn btn-outline" onclick="clearEncode()">🗑️ Clear</button>
+              </div>
+            </div>
+            <div>
+              <div class="input-group">
+                <label>📝 Base64 String</label>
+                <textarea id="base64Output" rows="8" placeholder="Base64 string will appear here..." readonly></textarea>
+              </div>
+              <div class="action-bar">
+                <button class="btn btn-outline" onclick="copyBase64()"><i data-lucide="copy"></i> Copy Base64</button>
+                <button class="btn btn-outline" onclick="downloadBase64Txt()"><i data-lucide="download"></i> Download .txt</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decode Mode -->
+        <div id="decodeMode" style="display: none;">
+          <div class="grid-2">
+            <div>
+              <div class="input-group">
+                <label>🔣 Base64 String</label>
+                <textarea id="base64Input" rows="6" placeholder="Paste Base64 string here..."></textarea>
+              </div>
+              <div class="action-bar">
+                <button class="btn btn-primary" onclick="decodeToImage()">🖼️ Decode to Image</button>
+                <button class="btn btn-outline" onclick="clearDecode()">🗑️ Clear</button>
+                <button class="btn btn-outline" onclick="pasteFromClipboard()"><i data-lucide="clipboard-paste"></i> Paste</button>
+              </div>
+            </div>
+            <div>
+              <div class="input-group">
+                <label>🖼️ Decoded Image</label>
+                <div class="preview-area" id="imageDecodeArea">
+                  <span style="color: var(--text-light);">Image will appear here</span>
+                </div>
+              </div>
+              <div class="action-bar">
+                <button class="btn btn-outline" onclick="downloadDecodedImage()"><i data-lucide="download"></i> Download Image</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Extended Guide / How to Use Section -->
+      <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
+        <div class="section">
+          <h2>How to Use the Base64 ↔ Image Converter</h2>
+          <p>Our tool works in two modes. Switch between them using the tabs above:</p>
+          <div class="grid-2" style="margin: 20px 0;">
+            <div style="background: var(--accent); padding: 20px; border-radius: 14px;">
+              <h3 style="margin-top:0;">🖼️ Image to Base64 (Encode)</h3>
+              <ol style="margin-bottom:0;">
+                <li>Click <strong>“Upload Image”</strong> and select any image file from your device.</li>
+                <li>The image preview will appear instantly.</li>
+                <li>Click <strong>“Encode to Base64”</strong> to generate the Base64 string.</li>
+                <li>Copy the string or download it as a .txt file for later use.</li>
+              </ol>
+            </div>
+            <div style="background: var(--accent); padding: 20px; border-radius: 14px;">
+              <h3 style="margin-top:0;">🔣 Base64 to Image (Decode)</h3>
+              <ol style="margin-bottom:0;">
+                <li>Switch to <strong>“Base64 ➜ Image”</strong> mode.</li>
+                <li>Paste a valid Base64 string (with or without data:image prefix).</li>
+                <li>Click <strong>“Decode to Image”</strong> to see the image preview.</li>
+                <li>Download the decoded image if needed.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="tip-box">
+            <p><strong>💡 Why use Base64 encoding?</strong> – Embed images directly into HTML, CSS, or JSON. Perfect for single‑page applications, email signatures, icons, or when you need to transmit images in text‑based formats.</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Common Use Cases</h2>
+          <ul>
+            <li><strong>Web Development:</strong> Inline small images (logos, icons) into CSS or HTML to reduce HTTP requests.</li>
+            <li><strong>Email Design:</strong> Embed images in HTML emails without external hosting.</li>
+            <li><strong>API Data Exchange:</strong> Send images as strings in JSON payloads.</li>
+            <li><strong>Data URIs:</strong> Generate data:image/... URIs for use in img src attributes.</li>
+            <li><strong>Offline Apps:</strong> Store image data in localStorage or IndexedDB.</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free. No signup, no payments, no hidden limits.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does my image get uploaded to a server?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">No. Everything happens entirely in your browser using JavaScript. Your image never leaves your device.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What file types are supported?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">All standard image formats: PNG, JPEG, GIF, WebP, SVG, BMP, etc. The tool automatically detects the MIME type.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is there a file size limit?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool works with files up to a few megabytes. For extremely large images, your browser might slow down – but most use cases are fine.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I convert Base64 back to the original file?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, exactly what the “Decode” mode does. Paste your Base64 and you’ll see the image and can download it.</div></div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div>
+            <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+              <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+              Textify.Tools
+            </a>
+            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+          </div>
+          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+          <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+          <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+        </div>
+        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Overlays outside wrapper for fixed positioning -->
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
@@ -285,142 +467,6 @@
   </div>
 
   <div class="toast" id="toast"></div>
-
-  <main>
-    <h1>Base64 to Image Converter</h1>
-    <p class="subtitle">Convert images to Base64 strings or decode Base64 back into images. All processing happens locally in your browser – nothing is uploaded.</p>
-
-    <div class="tool-panel">
-      <div class="mode-tabs">
-        <button class="mode-tab active" data-mode="encode" onclick="switchMode('encode')">Image ➜ Base64</button>
-        <button class="mode-tab" data-mode="decode" onclick="switchMode('decode')">Base64 ➜ Image</button>
-      </div>
-
-      <!-- Encode Mode: Image to Base64 -->
-      <div id="encodeMode">
-        <div class="grid-2">
-          <div>
-            <div class="input-group">
-              <label>📸 Upload Image</label>
-              <input type="file" id="fileInput" accept="image/*" class="file-input" onchange="handleFileSelect()">
-            </div>
-            <div class="preview-area" id="imagePreviewArea">
-              <span style="color: var(--text-light);">No image selected</span>
-            </div>
-            <div class="action-bar">
-              <button class="btn btn-primary" onclick="encodeToBase64()">🔄 Encode to Base64</button>
-              <button class="btn btn-outline" onclick="clearEncode()">🗑️ Clear</button>
-            </div>
-          </div>
-          <div>
-            <div class="input-group">
-              <label>📝 Base64 String</label>
-              <textarea id="base64Output" rows="8" placeholder="Base64 string will appear here..." readonly></textarea>
-            </div>
-            <div class="action-bar">
-              <button class="btn btn-outline" onclick="copyBase64()"><i data-lucide="copy"></i> Copy Base64</button>
-              <button class="btn btn-outline" onclick="downloadBase64Txt()"><i data-lucide="download"></i> Download .txt</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Decode Mode: Base64 to Image -->
-      <div id="decodeMode" style="display: none;">
-        <div class="grid-2">
-          <div>
-            <div class="input-group">
-              <label>🔣 Base64 String</label>
-              <textarea id="base64Input" rows="6" placeholder="Paste Base64 string here..."></textarea>
-            </div>
-            <div class="action-bar">
-              <button class="btn btn-primary" onclick="decodeToImage()">🖼️ Decode to Image</button>
-              <button class="btn btn-outline" onclick="clearDecode()">🗑️ Clear</button>
-              <button class="btn btn-outline" onclick="pasteFromClipboard()"><i data-lucide="clipboard-paste"></i> Paste</button>
-            </div>
-          </div>
-          <div>
-            <div class="input-group">
-              <label>🖼️ Decoded Image</label>
-              <div class="preview-area" id="imageDecodeArea">
-                <span style="color: var(--text-light);">Image will appear here</span>
-              </div>
-            </div>
-            <div class="action-bar">
-              <button class="btn btn-outline" onclick="downloadDecodedImage()"><i data-lucide="download"></i> Download Image</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Extended Guide / How to Use Section -->
-    <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
-      <div class="section">
-        <h2>How to Use the Base64 ↔ Image Converter</h2>
-        <p>Our tool works in two modes. Switch between them using the tabs above:</p>
-        <div class="grid-2" style="margin: 20px 0;">
-          <div style="background: var(--accent); padding: 20px; border-radius: 14px;">
-            <h3 style="margin-top:0;">🖼️ Image to Base64 (Encode)</h3>
-            <ol style="margin-bottom:0;">
-              <li>Click <strong>“Upload Image”</strong> and select any image file from your device.</li>
-              <li>The image preview will appear instantly.</li>
-              <li>Click <strong>“Encode to Base64”</strong> to generate the Base64 string.</li>
-              <li>Copy the string or download it as a .txt file for later use.</li>
-            </ol>
-          </div>
-          <div style="background: var(--accent); padding: 20px; border-radius: 14px;">
-            <h3 style="margin-top:0;">🔣 Base64 to Image (Decode)</h3>
-            <ol style="margin-bottom:0;">
-              <li>Switch to <strong>“Base64 ➜ Image”</strong> mode.</li>
-              <li>Paste a valid Base64 string (with or without data:image prefix).</li>
-              <li>Click <strong>“Decode to Image”</strong> to see the image preview.</li>
-              <li>Download the decoded image if needed.</li>
-            </ol>
-          </div>
-        </div>
-        <div class="tip-box">
-          <p><strong>💡 Why use Base64 encoding?</strong> – Embed images directly into HTML, CSS, or JSON. Perfect for single‑page applications, email signatures, icons, or when you need to transmit images in text‑based formats.</p>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Common Use Cases</h2>
-        <ul>
-          <li><strong>Web Development:</strong> Inline small images (logos, icons) into CSS or HTML to reduce HTTP requests.</li>
-          <li><strong>Email Design:</strong> Embed images in HTML emails without external hosting.</li>
-          <li><strong>API Data Exchange:</strong> Send images as strings in JSON payloads.</li>
-          <li><strong>Data URIs:</strong> Generate data:image/... URIs for use in img src attributes.</li>
-          <li><strong>Offline Apps:</strong> Store image data in localStorage or IndexedDB.</li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free. No signup, no payments, no hidden limits.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does my image get uploaded to a server?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">No. Everything happens entirely in your browser using JavaScript. Your image never leaves your device.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What file types are supported?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">All standard image formats: PNG, JPEG, GIF, WebP, SVG, BMP, etc. The tool automatically detects the MIME type.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is there a file size limit?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool works with files up to a few megabytes. For extremely large images, your browser might slow down – but most use cases are fine.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I convert Base64 back to the original file?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, exactly what the “Decode” mode does. Paste your Base64 and you’ll see the image and can download it.</div></div>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-          Textify.Tools
-        </a>
-        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-      </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-      <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-      <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-    </div>
-    <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-  </footer>
 
   <script>
     // --- Complete tools list (80+ tools) matching index.html ---
