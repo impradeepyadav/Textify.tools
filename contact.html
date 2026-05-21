@@ -32,13 +32,12 @@
       --overlay-bg: rgba(0,0,0,0.5); --success-bg: #f0fdf4; --success-text: #166534;
       --sidebar-bg: #ffffff; --accent: #f8fafc;
       --toast-bg: #1f2937; --toast-text: #ffffff;
-      --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
     body.dark-mode {
       --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
       --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
       --input-border: #334155;
-      --footer-bg: #1e293b; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
       --footer-border: #334155;
       --faq-bg: #1e293b; --faq-active: #334155;
       --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0,0,0,0.5);
@@ -51,17 +50,37 @@
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg); color: var(--text); min-height: 100vh;
-      display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+      transition: background 0.3s, color 0.3s;
     }
 
-    /* HEADER */
-    header {
-      border-bottom: 1px solid var(--line); background: var(--bg);
-      display: flex; justify-content: center; align-items: center;
-      padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-      position: relative; z-index: 100;
+    /* WRAPPER – same as other updated pages */
+    .page-wrapper {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
-    .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+
+    /* HEADER inside wrapper */
+    header {
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      height: 64px;
+      transition: border-color 0.3s;
+      background: transparent;
+    }
+    .header-inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -126,27 +145,46 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
-    /* MAIN CONTENT */
-    main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
+    /* MAIN – inside wrapper */
+    main {
+      flex: 1;
+      padding: 30px 20px;
+      width: 100%;
+      background: transparent;
+    }
     h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
     h3 { font-size: 22px; font-weight: 700; margin: 30px 0 12px; }
     p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
-    ul { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
+    ul { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } 
+    li { margin-bottom: 10px; line-height: 1.7; }
     a { color: var(--primary); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    /* FOOTER */
+    /* FOOTER – inside wrapper */
     footer {
-      background: var(--footer-bg); color: var(--footer-text);
-      padding: 60px 20px 25px; margin-top: 60px;
       border-top: 1px solid var(--footer-border);
+      padding: 40px 20px 25px;
+      background: transparent;
     }
-    .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+    .footer-container { width: 100%; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+      gap: 35px;
+    }
     @media (max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}@media(max-width:500px){.footer-grid{grid-template-columns:1fr;}}
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+    .footer-bottom {
+      width: 100%;
+      margin-top: 35px;
+      padding-top: 18px;
+      border-top: 1px solid var(--footer-border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--footer-text);
+    }
 
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
@@ -155,32 +193,77 @@
     @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
   </style>
 
-  <header>
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-        Textify.Tools
-      </a>
-      <div class="header-right">
-        <div class="desktop-nav">
-          <div class="tools-menu-container">
-            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-            <div class="tools-mega-menu" id="megaMenu"></div>
+  <div class="page-wrapper">
+    <header>
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+          Textify.Tools
+        </a>
+        <div class="header-right">
+          <div class="desktop-nav">
+            <div class="tools-menu-container">
+              <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+              <div class="tools-mega-menu" id="megaMenu"></div>
+            </div>
+            <a href="privacy">Privacy</a>
+            <a href="/blog">Blog</a>
           </div>
-          <a href="privacy">Privacy</a>
-          <a href="/blog">Blog</a>
+          <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+            <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+            <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+          </button>
+          <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+          <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+            <span class="menu-icon"><span></span><span></span></span>
+          </button>
         </div>
-        <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-          <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-          <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-        </button>
-        <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-        <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-          <span class="menu-icon"><span></span><span></span></span>
-        </button>
       </div>
-    </div>
-  </header>
+    </header>
+
+    <main>
+      <h1>Contact Support</h1>
+      <p>If you have any questions about our tools, suggestions for new features, or want to report a bug, we're here to help. Please reach out using the information below, and we'll get back to you as soon as possible.</p>
+      
+      <h3>📧 Email Us</h3>
+      <p><strong>Email Support:</strong> <a href="mailto:support@textify.tools" style="color:var(--primary); text-decoration:underline;">support@textify.tools</a></p>
+      
+      <h3>⏱️ Response Time</h3>
+      <p>We aim to respond to all emails within <strong>24 hours</strong> during weekdays. Weekend queries may take slightly longer, but we never leave a message unanswered.</p>
+      
+      <h3>💡 Feedback & Feature Requests</h3>
+      <p>We love hearing from our users! If you have an idea for a new tool, a suggestion for improvement, or even just a typo to report, don't hesitate to write. Many of our tools were built based on user feedback.</p>
+      
+      <h3>❓ Frequently Asked Questions</h3>
+      <p>Before contacting us, you might find an answer in the FAQ below:</p>
+      <ul>
+        <li><strong>Is Textify really free?</strong> Yes, all our tools are 100% free. No premium plans, no hidden fees.</li>
+        <li><strong>Do you store my text?</strong> No. Everything runs client-side in your browser. We never see your data.</li>
+        <li><strong>Can I suggest a new tool?</strong> Absolutely! Email us your idea and we'll consider it for a future update.</li>
+        <li><strong>I found a bug. How do I report it?</strong> Send an email to support@textify.tools with a brief description and, if possible, a screenshot. We'll fix it quickly.</li>
+      </ul>
+
+      <p>We're a small team dedicated to making the best free text tools. Thank you for using Textify.tools!</p>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div>
+            <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+              <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+              Textify.Tools
+            </a>
+            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+          </div>
+          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact Support</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+          <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+          <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+        </div>
+        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
 
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
@@ -214,49 +297,7 @@
     </div>
   </div>
 
-  <main>
-    <h1>Contact Support</h1>
-    <p>If you have any questions about our tools, suggestions for new features, or want to report a bug, we're here to help. Please reach out using the information below, and we'll get back to you as soon as possible.</p>
-    
-    <h3>📧 Email Us</h3>
-    <p><strong>Email Support:</strong> <a href="mailto:support@textify.tools" style="color:var(--primary); text-decoration:underline;">support@textify.tools</a></p>
-    
-    <h3>⏱️ Response Time</h3>
-    <p>We aim to respond to all emails within <strong>24 hours</strong> during weekdays. Weekend queries may take slightly longer, but we never leave a message unanswered.</p>
-    
-    <h3>💡 Feedback & Feature Requests</h3>
-    <p>We love hearing from our users! If you have an idea for a new tool, a suggestion for improvement, or even just a typo to report, don't hesitate to write. Many of our tools were built based on user feedback.</p>
-    
-    <h3>❓ Frequently Asked Questions</h3>
-    <p>Before contacting us, you might find an answer in the FAQ below:</p>
-    <ul>
-      <li><strong>Is Textify really free?</strong> Yes, all our tools are 100% free. No premium plans, no hidden fees.</li>
-      <li><strong>Do you store my text?</strong> No. Everything runs client-side in your browser. We never see your data.</li>
-      <li><strong>Can I suggest a new tool?</strong> Absolutely! Email us your idea and we'll consider it for a future update.</li>
-      <li><strong>I found a bug. How do I report it?</strong> Send an email to support@textify.tools with a brief description and, if possible, a screenshot. We'll fix it quickly.</li>
-    </ul>
-
-    <p>We're a small team dedicated to making the best free text tools. Thank you for using Textify.tools!</p>
-  </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-          Textify.Tools
-        </a>
-        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-      </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact Support</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-      <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-      <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-    </div>
-    <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-  </footer>
-
   <script>
-    // Complete list of tools (80+ tools) matching index.html
     const tools = [
       { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
       { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
