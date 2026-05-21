@@ -45,7 +45,7 @@
       --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
       --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
       --input-border: #334155;
-      --footer-bg: #1e293b; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
       --footer-border: #334155;
       --faq-bg: #1e293b; --faq-active: #334155;
       --shadow: rgba(0, 0, 0, 0.5);
@@ -61,16 +61,40 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg); color: var(--text); min-height: 100vh;
-      display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background 0.3s, color 0.3s;
     }
+
+    /* WRAPPER – consistent max-width for header, main, footer */
+    .page-wrapper {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
     header {
-      border-bottom: 1px solid var(--line); background: var(--bg);
-      display: flex; justify-content: center; align-items: center;
-      padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-      position: relative; z-index: 100;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      height: 64px;
+      transition: border-color 0.3s;
+      background: transparent;
     }
-    .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .header-inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -131,7 +155,13 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
-    main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
+    /* MAIN */
+    main {
+      flex: 1;
+      padding: 30px 20px;
+      width: 100%;
+      background: transparent;
+    }
     h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
     h2 { font-size: 26px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
     h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
@@ -169,55 +199,185 @@
     .faq-item.active .faq-answer { display: block; }
     .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
-    .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
-    .toast.show { transform: translateX(-50%) translateY(0); }
-
+    /* FOOTER */
     footer {
-      background: var(--footer-bg); color: var(--footer-text);
-      padding: 60px 20px 25px; margin-top: 60px;
       border-top: 1px solid var(--footer-border);
+      padding: 40px 20px 25px;
+      background: transparent;
     }
-    .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+    .footer-container { width: 100%; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+      gap: 35px;
+    }
     @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+    .footer-bottom {
+      width: 100%;
+      margin-top: 35px;
+      padding-top: 18px;
+      border-top: 1px solid var(--footer-border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--footer-text);
+    }
 
-    @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } }
-    @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
+    .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
     .spinner { border: 3px solid rgba(128,128,128,0.25); border-radius: 50%; border-top-color: var(--primary); width: 20px; height: 20px; animation: spin 0.7s linear infinite; display: inline-block; }
     @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 768px) {
+      .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
+      header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
+    }
+    @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
   </style>
 
-  <header>
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-        Textify.Tools
-      </a>
-      <div class="header-right">
-        <div class="desktop-nav">
-          <div class="tools-menu-container">
-            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-            <div class="tools-mega-menu" id="megaMenu"></div>
+  <div class="page-wrapper">
+    <header>
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+          Textify.Tools
+        </a>
+        <div class="header-right">
+          <div class="desktop-nav">
+            <div class="tools-menu-container">
+              <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+              <div class="tools-mega-menu" id="megaMenu"></div>
+            </div>
+            <a href="privacy">Privacy</a>
+            <a href="/blog">Blog</a>
           </div>
-          <a href="privacy">Privacy</a>
-          <a href="/blog">Blog</a>
+          <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+            <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+            <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+          </button>
+          <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+          <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+            <span class="menu-icon"><span></span><span></span></span>
+          </button>
         </div>
-        <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-          <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-          <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-        </button>
-        <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-        <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-          <span class="menu-icon"><span></span><span></span></span>
-        </button>
       </div>
-    </div>
-  </header>
+    </header>
 
+    <main>
+      <h1>Binary Text Converter</h1>
+      <p class="subtitle">Convert text to binary (0s and 1s) or binary back to plain text instantly. All processing happens locally in your browser – fast, private, and completely free.</p>
+
+      <div class="tool-panel">
+        <div class="grid-2">
+          <div class="input-group">
+            <label for="conversionMode">Conversion Mode</label>
+            <select id="conversionMode">
+              <option value="textToBinary">Text → Binary</option>
+              <option value="binaryToText">Binary → Text</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="separator">Binary Output Separator</label>
+            <select id="separator">
+              <option value="space">Space (e.g., 01000001 01000010)</option>
+              <option value="newline">New Line (each character on a new line)</option>
+              <option value="none">None (continuous string)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="textarea-group">
+          <textarea id="inputText" placeholder="Enter text or binary code here..."></textarea>
+        </div>
+
+        <div class="checkbox-group">
+          <label><input type="checkbox" id="bitPadding" checked> Use 8‑bit padding (e.g., 01000001 instead of 1000001)</label>
+          <label><input type="checkbox" id="sevenBitMode"> 7‑bit ASCII mode (for old systems / educational use)</label>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" id="convertBtn" onclick="convert()"><i data-lucide="refresh-cw" width="18" height="18"></i> Convert Now</button>
+          <button class="btn btn-outline" onclick="swapMode()"><i data-lucide="arrow-left-right" width="18" height="18"></i> Swap Mode</button>
+          <button class="btn btn-outline" onclick="clearAll()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+        </div>
+
+        <div class="output-area" id="outputArea">
+          <div class="char-count-box" id="statsInfo"></div>
+          <textarea id="outputText" readonly placeholder="Result will appear here..."></textarea>
+          <div class="action-buttons" style="margin-top:15px;">
+            <button class="btn btn-primary" onclick="copyResult()"><i data-lucide="copy" width="18" height="18"></i> Copy Result</button>
+            <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadResult()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- How to Use Section -->
+      <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
+        <h2>How to Use the Binary Text Converter</h2>
+        <p>Our tool makes binary conversion effortless. Follow these simple steps:</p>
+        <ol style="padding-left:22px; color:var(--text-light); margin-bottom:25px;">
+          <li><strong>Choose the conversion direction</strong> – Select either "Text → Binary" or "Binary → Text" from the dropdown.</li>
+          <li><strong>Enter your input</strong> – Type or paste the text you want to convert into the main text area.</li>
+          <li><strong>Adjust optional settings</strong> – Choose a separator (space, new line, or none) and decide whether to use 8‑bit padding or 7‑bit ASCII mode.</li>
+          <li><strong>Click "Convert Now"</strong> – The result appears instantly in the output area.</li>
+          <li><strong>Copy or download</strong> – Use the "Copy Result" button or "Download .txt" to save the output.</li>
+        </ol>
+
+        <div class="tip-box">
+          <p><strong>💡 Pro tip:</strong> Use <strong>8‑bit padding</strong> for standard binary representation (e.g., 01000001 for "A"). Uncheck it for compact, variable‑length binary. The <strong>7‑bit ASCII mode</strong> is perfect for legacy systems or educational exercises.</p>
+        </div>
+
+        <h2>What Is Binary Text Conversion?</h2>
+        <p>Binary code is the fundamental language of computers – everything stored or processed by a computer ultimately becomes a sequence of 0s and 1s. Each character (letter, number, punctuation) is represented by a unique binary number. For example, the letter "A" is represented as <strong>01000001</strong> in binary (using ASCII or UTF‑8 encoding). A binary text converter lets you toggle between human‑readable text and the binary representation that computers understand.</p>
+
+        <h2>When to Use This Tool</h2>
+        <ul style="padding-left:22px; color:var(--text-light);">
+          <li><strong>Educational purposes:</strong> Learn how text is represented in binary. Perfect for computer science students and programming beginners.</li>
+          <li><strong>Debugging & data analysis:</strong> Inspect how special characters or embedded data appear at the binary level.</li>
+          <li><strong>Encoding exercises:</strong> Create binary puzzles or encode messages for fun.</li>
+          <li><strong>Legacy system compatibility:</strong> Prepare binary‑formatted data for older protocols that require strict binary input.</li>
+        </ul>
+
+        <h2>Understanding the Options</h2>
+        <ul style="padding-left:22px; color:var(--text-light); margin-bottom:25px;">
+          <li><strong>8‑bit padding:</strong> Ensures each character is represented by exactly 8 bits (e.g., 01000001). Without padding, leading zeros are omitted (e.g., 1000001).</li>
+          <li><strong>7‑bit ASCII mode:</strong> Limits conversion to the standard 7‑bit ASCII range (0–127), ignoring extended characters. Use this for compatibility with older systems.</li>
+          <li><strong>Separator:</strong> Controls how binary representations of individual characters are displayed – with spaces, new lines, or as one continuous string.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free with no limits. No login, no registration, no premium features.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I convert long texts or large files?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. The tool processes everything in your browser, so you can convert long documents without any size limits. However, extremely large texts (millions of characters) might cause a slight slowdown in older browsers.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What encoding does the tool use?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The converter uses Unicode (UTF‑8) by default. For binary to text conversion, it expects valid UTF‑8 binary sequences. If you check the "7‑bit ASCII mode", conversion is restricted to the ASCII range (0‑127).</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">100% private. Every conversion is performed locally in your browser. Your input never leaves your device – no server uploads, no tracking, no logs.</div></div>
+        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the difference between binary and text?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Text is the human‑readable representation of characters. Binary is the raw numerical representation (0s and 1s) that computers use internally. This tool bridges the two worlds, allowing you to convert back and forth instantly.</div></div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div>
+            <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+              <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+              Textify.Tools
+            </a>
+            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+          </div>
+          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+          <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+          <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+        </div>
+        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Overlays (outside wrapper) -->
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
@@ -251,113 +411,6 @@
   </div>
 
   <div class="toast" id="toast"></div>
-
-  <main>
-    <h1>Binary Text Converter</h1>
-    <p class="subtitle">Convert text to binary (0s and 1s) or binary back to plain text instantly. All processing happens locally in your browser – fast, private, and completely free.</p>
-
-    <div class="tool-panel">
-      <div class="grid-2">
-        <div class="input-group">
-          <label for="conversionMode">Conversion Mode</label>
-          <select id="conversionMode">
-            <option value="textToBinary">Text → Binary</option>
-            <option value="binaryToText">Binary → Text</option>
-          </select>
-        </div>
-        <div class="input-group">
-          <label for="separator">Binary Output Separator</label>
-          <select id="separator">
-            <option value="space">Space (e.g., 01000001 01000010)</option>
-            <option value="newline">New Line (each character on a new line)</option>
-            <option value="none">None (continuous string)</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="textarea-group">
-        <textarea id="inputText" placeholder="Enter text or binary code here..."></textarea>
-      </div>
-
-      <div class="checkbox-group">
-        <label><input type="checkbox" id="bitPadding" checked> Use 8‑bit padding (e.g., 01000001 instead of 1000001)</label>
-        <label><input type="checkbox" id="sevenBitMode"> 7‑bit ASCII mode (for old systems / educational use)</label>
-      </div>
-
-      <div class="action-buttons">
-        <button class="btn btn-primary" id="convertBtn" onclick="convert()"><i data-lucide="refresh-cw" width="18" height="18"></i> Convert Now</button>
-        <button class="btn btn-outline" onclick="swapMode()"><i data-lucide="arrow-left-right" width="18" height="18"></i> Swap Mode</button>
-        <button class="btn btn-outline" onclick="clearAll()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-      </div>
-
-      <div class="output-area" id="outputArea">
-        <div class="char-count-box" id="statsInfo"></div>
-        <textarea id="outputText" readonly placeholder="Result will appear here..."></textarea>
-        <div class="action-buttons" style="margin-top:15px;">
-          <button class="btn btn-primary" onclick="copyResult()"><i data-lucide="copy" width="18" height="18"></i> Copy Result</button>
-          <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadResult()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- How to Use Section -->
-    <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
-      <h2>How to Use the Binary Text Converter</h2>
-      <p>Our tool makes binary conversion effortless. Follow these simple steps:</p>
-      <ol style="padding-left:22px; color:var(--text-light); margin-bottom:25px;">
-        <li><strong>Choose the conversion direction</strong> – Select either "Text → Binary" or "Binary → Text" from the dropdown.</li>
-        <li><strong>Enter your input</strong> – Type or paste the text you want to convert into the main text area.</li>
-        <li><strong>Adjust optional settings</strong> – Choose a separator (space, new line, or none) and decide whether to use 8‑bit padding or 7‑bit ASCII mode.</li>
-        <li><strong>Click "Convert Now"</strong> – The result appears instantly in the output area.</li>
-        <li><strong>Copy or download</strong> – Use the "Copy Result" button or "Download .txt" to save the output.</li>
-      </ol>
-
-      <div class="tip-box">
-        <p><strong>💡 Pro tip:</strong> Use <strong>8‑bit padding</strong> for standard binary representation (e.g., 01000001 for "A"). Uncheck it for compact, variable‑length binary. The <strong>7‑bit ASCII mode</strong> is perfect for legacy systems or educational exercises.</p>
-      </div>
-
-      <h2>What Is Binary Text Conversion?</h2>
-      <p>Binary code is the fundamental language of computers – everything stored or processed by a computer ultimately becomes a sequence of 0s and 1s. Each character (letter, number, punctuation) is represented by a unique binary number. For example, the letter "A" is represented as <strong>01000001</strong> in binary (using ASCII or UTF‑8 encoding). A binary text converter lets you toggle between human‑readable text and the binary representation that computers understand.</p>
-
-      <h2>When to Use This Tool</h2>
-      <ul style="padding-left:22px; color:var(--text-light);">
-        <li><strong>Educational purposes:</strong> Learn how text is represented in binary. Perfect for computer science students and programming beginners.</li>
-        <li><strong>Debugging & data analysis:</strong> Inspect how special characters or embedded data appear at the binary level.</li>
-        <li><strong>Encoding exercises:</strong> Create binary puzzles or encode messages for fun.</li>
-        <li><strong>Legacy system compatibility:</strong> Prepare binary‑formatted data for older protocols that require strict binary input.</li>
-      </ul>
-
-      <h2>Understanding the Options</h2>
-      <ul style="padding-left:22px; color:var(--text-light); margin-bottom:25px;">
-        <li><strong>8‑bit padding:</strong> Ensures each character is represented by exactly 8 bits (e.g., 01000001). Without padding, leading zeros are omitted (e.g., 1000001).</li>
-        <li><strong>7‑bit ASCII mode:</strong> Limits conversion to the standard 7‑bit ASCII range (0–127), ignoring extended characters. Use this for compatibility with older systems.</li>
-        <li><strong>Separator:</strong> Controls how binary representations of individual characters are displayed – with spaces, new lines, or as one continuous string.</li>
-      </ul>
-
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free with no limits. No login, no registration, no premium features.</div></div>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I convert long texts or large files?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. The tool processes everything in your browser, so you can convert long documents without any size limits. However, extremely large texts (millions of characters) might cause a slight slowdown in older browsers.</div></div>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What encoding does the tool use?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The converter uses Unicode (UTF‑8) by default. For binary to text conversion, it expects valid UTF‑8 binary sequences. If you check the "7‑bit ASCII mode", conversion is restricted to the ASCII range (0‑127).</div></div>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">100% private. Every conversion is performed locally in your browser. Your input never leaves your device – no server uploads, no tracking, no logs.</div></div>
-      <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the difference between binary and text?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Text is the human‑readable representation of characters. Binary is the raw numerical representation (0s and 1s) that computers use internally. This tool bridges the two worlds, allowing you to convert back and forth instantly.</div></div>
-    </div>
-  </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-          Textify.Tools
-        </a>
-        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-      </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-      <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-      <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-    </div>
-    <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-  </footer>
 
   <script>
     // Complete tools list (80+ tools)
