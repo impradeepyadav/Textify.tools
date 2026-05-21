@@ -67,7 +67,7 @@
             --card: #1e293b;
             --input-bg: #1e293b;
             --input-border: #334155;
-            --footer-bg: #1e293b;
+            --footer-bg: #0f172a;
             --footer-text: #e2e8f0;
             --footer-heading: #ffffff;
             --footer-link-hover: #ffffff;
@@ -91,18 +91,38 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg); color: var(--text); min-height: 100vh;
-            display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+        .page-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* HEADER */
         header {
-            border-bottom: 1px solid var(--line); background: var(--bg);
-            display: flex; justify-content: center; align-items: center;
-            padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-            position: relative; z-index: 100;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            height: 64px;
+            transition: border-color 0.3s;
+            background: transparent;
         }
-        .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -168,7 +188,12 @@
         .search-no-result.show { display: block; }
 
         /* MAIN */
-        main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            width: 100%;
+            background: transparent;
+        }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
         p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
 
@@ -209,18 +234,44 @@
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
+        /* FOOTER */
         footer {
-            background: var(--footer-bg); color: var(--footer-text);
-            padding: 60px 20px 25px; margin-top: 60px;
             border-top: 1px solid var(--footer-border);
+            padding: 40px 20px 25px;
+            background: transparent;
         }
-        .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+        .footer-container { width: 100%; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+            gap: 35px;
+        }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
-        .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-        .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
+        .footer-grid h5 {
+            color: var(--footer-heading);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+        .footer-grid a {
+            color: var(--footer-text);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 9px;
+            font-size: 13px;
+            transition: color 0.2s, padding-left 0.2s;
+        }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+        .footer-bottom {
+            width: 100%;
+            margin-top: 35px;
+            padding-top: 18px;
+            border-top: 1px solid var(--footer-border);
+            text-align: center;
+            font-size: 13px;
+            color: var(--footer-text);
+        }
 
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
@@ -229,32 +280,159 @@
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     </style>
 
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.Tools
-            </a>
-            <div class="header-right">
-                <div class="desktop-nav">
-                    <div class="tools-menu-container">
-                        <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-                        <div class="tools-mega-menu" id="megaMenu"></div>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    Textify.Tools
+                </a>
+                <div class="header-right">
+                    <div class="desktop-nav">
+                        <div class="tools-menu-container">
+                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                            <div class="tools-mega-menu" id="megaMenu"></div>
+                        </div>
+                        <a href="privacy">Privacy</a>
+                        <a href="/blog">Blog</a>
                     </div>
-                    <a href="privacy">Privacy</a>
-                    <a href="/blog">Blog</a>
+                    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                    </button>
+                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                        <span class="menu-icon"><span></span><span></span></span>
+                    </button>
                 </div>
-                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                    <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-                </button>
-                <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-                    <span class="menu-icon"><span></span><span></span></span>
-                </button>
             </div>
-        </div>
-    </header>
+        </header>
+
+        <main>
+            <h1>Bubble Text Generator</h1>
+            <p class="subtitle">Transform ordinary text into Ⓒ⃝ⓘⓡⓒⓛⓔⓓ & ⓑⓤⓑⓑⓛⓔ letters instantly. Perfect for Instagram bios, gaming usernames, and social media posts. All processing happens locally – your text never leaves your browser.</p>
+
+            <div class="tool-panel">
+                <textarea id="inputText" rows="3" placeholder="Type or paste your text here... (e.g., Hello World)"></textarea>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label for="bubbleStyle">Bubble Style</label>
+                        <select id="bubbleStyle">
+                            <option value="circle">Enclosed Circle (Ⓣⓔⓧⓣ)</option>
+                            <option value="circleDark">Enclosed Circle Dark (🅣🅔🅧🅣)</option>
+                            <option value="square">Enclosed Square (🅃🄴🅇🅃)</option>
+                            <option value="squareDark">Enclosed Square Dark (🆃🅴🆇🆃)</option>
+                            <option value="doubleCircle">Double Circle (⧉T̶e̶x̶t̶?) – Partial</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="caseOption">Text Case</label>
+                        <select id="caseOption">
+                            <option value="original">Original</option>
+                            <option value="uppercase">UPPERCASE</option>
+                            <option value="lowercase">lowercase</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" id="spaceCheck"> Convert Spaces (⇝ bullet space)</label>
+                    <label><input type="checkbox" id="preserveLineBreak"> Preserve line breaks</label>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="convertBtn" onclick="convertToBubble()"><i data-lucide="sparkles" width="18" height="18"></i> Convert to Bubble Text</button>
+                    <button class="btn btn-outline" onclick="clearText()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+                </div>
+
+                <div class="output-area" id="outputArea">
+                    <div class="char-count-box" id="statsInfo"></div>
+                    <textarea id="outputText" readonly placeholder="Your bubble text will appear here..."></textarea>
+                    <div class="output-actions">
+                        <button class="btn btn-primary" onclick="copyText()"><i data-lucide="copy" width="18" height="18"></i> Copy to Clipboard</button>
+                        <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to Use Section -->
+            <div class="section">
+                <h2>How to Use the Bubble Text Generator</h2>
+                <div class="step-card" style="margin-bottom:12px; background:var(--accent); padding:20px; border-radius:12px; border-left:4px solid var(--primary);">
+                    <div class="step-number" style="background:var(--primary); color:var(--bg); width:32px; height:32px; border-radius:32px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-right:12px;">1</div>
+                    <div class="step-content" style="margin-top:8px;"><strong>✏️ Type or paste your text</strong> – Enter any text you want to transform into bubble letters.</div>
+                </div>
+                <div class="step-card" style="margin-bottom:12px; background:var(--accent); padding:20px; border-radius:12px; border-left:4px solid var(--primary);">
+                    <div class="step-number" style="background:var(--primary); color:var(--bg); width:32px; height:32px; border-radius:32px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-right:12px;">2</div>
+                    <div class="step-content" style="margin-top:8px;"><strong>🎨 Choose a bubble style</strong> – Pick from Enclosed Circle (Ⓣⓔⓧⓣ), Enclosed Circle Dark (🅣🅔🅧🅣), Enclosed Square (🅃🄴🅇🅃), Enclosed Square Dark (🆃🅴🆇🆃), or Double Circle.</div>
+                </div>
+                <div class="step-card" style="margin-bottom:12px; background:var(--accent); padding:20px; border-radius:12px; border-left:4px solid var(--primary);">
+                    <div class="step-number" style="background:var(--primary); color:var(--bg); width:32px; height:32px; border-radius:32px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-right:12px;">3</div>
+                    <div class="step-content" style="margin-top:8px;"><strong>🔠 Adjust text case (optional)</strong> – Convert your text to UPPERCASE or lowercase before applying the bubble style.</div>
+                </div>
+                <div class="step-card" style="margin-bottom:12px; background:var(--accent); padding:20px; border-radius:12px; border-left:4px solid var(--primary);">
+                    <div class="step-number" style="background:var(--primary); color:var(--bg); width:32px; height:32px; border-radius:32px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-right:12px;">4</div>
+                    <div class="step-content" style="margin-top:8px;"><strong>⚙️ Additional options</strong> – Convert spaces to bullet spaces or preserve line breaks for multi‑line bubbles.</div>
+                </div>
+                <div class="step-card" style="margin-bottom:12px; background:var(--accent); padding:20px; border-radius:12px; border-left:4px solid var(--primary);">
+                    <div class="step-number" style="background:var(--primary); color:var(--bg); width:32px; height:32px; border-radius:32px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-right:12px;">5</div>
+                    <div class="step-content" style="margin-top:8px;"><strong>📋 Generate & Copy</strong> – Click “Convert to Bubble Text” and your circled letters appear instantly. Copy the result or download it as a text file.</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>What is Bubble Text?</h2>
+                <p>Bubble text is a typographic style where each letter is enclosed within a circle, square, or other geometric shape. It's created using special characters from the <strong>Unicode "Enclosed Alphanumerics"</strong> and <strong>"Enclosed Alphanumeric Supplement"</strong> blocks. These characters were originally designed for numbered and lettered bullets in ordered lists, but they've become popular for decorative text on social media, gaming, and messaging platforms.</p>
+                <p>Bubble text works almost everywhere because it uses standard Unicode – no special fonts or software required. You can paste it directly into Instagram bios, WhatsApp statuses, Twitter posts, and even online games that support Unicode characters.</p>
+
+                <div class="tip-box">
+                    <p><strong>✨ Where can you use bubble text?</strong><br>Instagram & TikTok bios • Gaming usernames (Minecraft, Roblox, Fortnite) • WhatsApp & Telegram messages • Discord nicknames • Twitter/X posts • YouTube comments • and much more!</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Bubble Style Reference</h2>
+                <div class="table-wrapper" style="overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px;">
+                    <table class="info-table" style="width:100%; border-collapse:collapse;">
+                        <thead><tr style="border-bottom:1px solid var(--line);"><th style="padding:12px; text-align:left;">Style</th><th style="padding:12px; text-align:left;">Example</th><th style="padding:12px; text-align:left;">When to use</th></tr></thead>
+                        <tbody>
+                            <tr><td style="padding:12px;"><strong>Enclosed Circle (light)</strong></td><td style="padding:12px;">Ⓣⓔⓧⓣ</td><td style="padding:12px;">Standard bubble style, works everywhere</td></tr>
+                            <tr><td style="padding:12px;"><strong>Enclosed Circle Dark</strong></td><td style="padding:12px;">🅣🅔🅧🅣</td><td style="padding:12px;">Bold, high‑contrast look</td></tr>
+                            <tr><td style="padding:12px;"><strong>Enclosed Square</strong></td><td style="padding:12px;">🅃🄴🅇🅃</td><td style="padding:12px;">Blocky, industrial aesthetic</td></tr>
+                            <tr><td style="padding:12px;"><strong>Enclosed Square Dark</strong></td><td style="padding:12px;">🆃🅴🆇🆃</td><td style="padding:12px;">Bold square style</td></tr>
+                            <tr><td style="padding:12px;"><strong>Double Circle</strong></td><td style="padding:12px;">T̶e̶x̶t̶ (partial)</td><td style="padding:12px;">Experimental effect (limited character support)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this bubble text generator free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, 100% free. No signups, no premium features, no limits.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Will bubble text work on Instagram / TikTok / Discord?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! Bubble text uses standard Unicode characters that are supported across all major platforms – Instagram bios, TikTok captions, Discord nicknames, and more.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. The generator runs entirely in your browser. Your text never leaves your device – no server uploads, no tracking.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Why does uppercase/lowercase matter?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Unicode bubble characters exist primarily for uppercase (A‑Z) and numbers (0‑9). Lowercase characters often fall back to regular uppercase bubble shapes. Using the “UPPERCASE” option ensures the most consistent conversion.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use bubble text in my Minecraft username?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Minecraft supports many Unicode characters, including circled letters. However, some special characters may display as boxes on older versions – test first before committing to a permanent name change.</div></div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div>
+                        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            Textify.Tools
+                        </a>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+                    </div>
+                    <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+                    <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                </div>
+                <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
 
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
@@ -289,129 +467,6 @@
     </div>
 
     <div class="toast" id="toast"></div>
-
-    <main>
-        <h1>Bubble Text Generator</h1>
-        <p class="subtitle">Transform ordinary text into Ⓒ⃝ⓘⓡⓒⓛⓔⓓ & ⓑⓤⓑⓑⓛⓔ letters instantly. Perfect for Instagram bios, gaming usernames, and social media posts. All processing happens locally – your text never leaves your browser.</p>
-
-        <div class="tool-panel">
-            <textarea id="inputText" rows="3" placeholder="Type or paste your text here... (e.g., Hello World)"></textarea>
-            <div class="grid-2">
-                <div class="input-group">
-                    <label for="bubbleStyle">Bubble Style</label>
-                    <select id="bubbleStyle">
-                        <option value="circle">Enclosed Circle (Ⓣⓔⓧⓣ)</option>
-                        <option value="circleDark">Enclosed Circle Dark (🅣🅔🅧🅣)</option>
-                        <option value="square">Enclosed Square (🅃🄴🅇🅃)</option>
-                        <option value="squareDark">Enclosed Square Dark (🆃🅴🆇🆃)</option>
-                        <option value="doubleCircle">Double Circle (⧉T̶e̶x̶t̶?) – Partial</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="caseOption">Text Case</label>
-                    <select id="caseOption">
-                        <option value="original">Original</option>
-                        <option value="uppercase">UPPERCASE</option>
-                        <option value="lowercase">lowercase</option>
-                    </select>
-                </div>
-            </div>
-            <div class="checkbox-group">
-                <label><input type="checkbox" id="spaceCheck"> Convert Spaces (⇝ bullet space)</label>
-                <label><input type="checkbox" id="preserveLineBreak"> Preserve line breaks</label>
-            </div>
-
-            <div class="action-buttons">
-                <button class="btn btn-primary" id="convertBtn" onclick="convertToBubble()"><i data-lucide="sparkles" width="18" height="18"></i> Convert to Bubble Text</button>
-                <button class="btn btn-outline" onclick="clearText()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-            </div>
-
-            <div class="output-area" id="outputArea">
-                <div class="char-count-box" id="statsInfo"></div>
-                <textarea id="outputText" readonly placeholder="Your bubble text will appear here..."></textarea>
-                <div class="output-actions">
-                    <button class="btn btn-primary" onclick="copyText()"><i data-lucide="copy" width="18" height="18"></i> Copy to Clipboard</button>
-                    <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- How to Use Section -->
-        <div class="section">
-            <h2>How to Use the Bubble Text Generator</h2>
-            <div class="step-card" style="margin-bottom:12px; background:var(--accent); padding:20px; border-radius:12px; border-left:4px solid var(--primary);">
-                <div class="step-number" style="background:var(--primary); color:var(--bg); width:32px; height:32px; border-radius:32px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-right:12px;">1</div>
-                <div class="step-content" style="margin-top:8px;"><strong>✏️ Type or paste your text</strong> – Enter any text you want to transform into bubble letters.</div>
-            </div>
-            <div class="step-card" style="margin-bottom:12px; background:var(--accent); padding:20px; border-radius:12px; border-left:4px solid var(--primary);">
-                <div class="step-number" style="background:var(--primary); color:var(--bg); width:32px; height:32px; border-radius:32px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-right:12px;">2</div>
-                <div class="step-content" style="margin-top:8px;"><strong>🎨 Choose a bubble style</strong> – Pick from Enclosed Circle (Ⓣⓔⓧⓣ), Enclosed Circle Dark (🅣🅔🅧🅣), Enclosed Square (🅃🄴🅇🅃), Enclosed Square Dark (🆃🅴🆇🆃), or Double Circle.</div>
-            </div>
-            <div class="step-card" style="margin-bottom:12px; background:var(--accent); padding:20px; border-radius:12px; border-left:4px solid var(--primary);">
-                <div class="step-number" style="background:var(--primary); color:var(--bg); width:32px; height:32px; border-radius:32px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-right:12px;">3</div>
-                <div class="step-content" style="margin-top:8px;"><strong>🔠 Adjust text case (optional)</strong> – Convert your text to UPPERCASE or lowercase before applying the bubble style.</div>
-            </div>
-            <div class="step-card" style="margin-bottom:12px; background:var(--accent); padding:20px; border-radius:12px; border-left:4px solid var(--primary);">
-                <div class="step-number" style="background:var(--primary); color:var(--bg); width:32px; height:32px; border-radius:32px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-right:12px;">4</div>
-                <div class="step-content" style="margin-top:8px;"><strong>⚙️ Additional options</strong> – Convert spaces to bullet spaces or preserve line breaks for multi‑line bubbles.</div>
-            </div>
-            <div class="step-card" style="margin-bottom:12px; background:var(--accent); padding:20px; border-radius:12px; border-left:4px solid var(--primary);">
-                <div class="step-number" style="background:var(--primary); color:var(--bg); width:32px; height:32px; border-radius:32px; display:inline-flex; align-items:center; justify-content:center; font-weight:800; margin-right:12px;">5</div>
-                <div class="step-content" style="margin-top:8px;"><strong>📋 Generate & Copy</strong> – Click “Convert to Bubble Text” and your circled letters appear instantly. Copy the result or download it as a text file.</div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>What is Bubble Text?</h2>
-            <p>Bubble text is a typographic style where each letter is enclosed within a circle, square, or other geometric shape. It's created using special characters from the <strong>Unicode "Enclosed Alphanumerics"</strong> and <strong>"Enclosed Alphanumeric Supplement"</strong> blocks.[reference:0] These characters were originally designed for numbered and lettered bullets in ordered lists, but they've become popular for decorative text on social media, gaming, and messaging platforms.[reference:1]</p>
-            <p>Bubble text works almost everywhere because it uses standard Unicode – no special fonts or software required. You can paste it directly into Instagram bios, WhatsApp statuses, Twitter posts, and even online games that support Unicode characters.</p>
-
-            <div class="tip-box">
-                <p><strong>✨ Where can you use bubble text?</strong><br>Instagram & TikTok bios • Gaming usernames (Minecraft, Roblox, Fortnite) • WhatsApp & Telegram messages • Discord nicknames • Twitter/X posts • YouTube comments • and much more!</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Bubble Style Reference</h2>
-            <div class="table-wrapper" style="overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px;">
-                <table class="info-table" style="width:100%; border-collapse:collapse;">
-                    <thead><tr style="border-bottom:1px solid var(--line);"><th style="padding:12px; text-align:left;">Style</th><th style="padding:12px; text-align:left;">Example</th><th style="padding:12px; text-align:left;">When to use</th></tr></thead>
-                    <tbody>
-                        <tr><td style="padding:12px;"><strong>Enclosed Circle (light)</strong></td><td style="padding:12px;">Ⓣⓔⓧⓣ</td><td style="padding:12px;">Standard bubble style, works everywhere</td></tr>
-                        <tr><td style="padding:12px;"><strong>Enclosed Circle Dark</strong></td><td style="padding:12px;">🅣🅔🅧🅣</td><td style="padding:12px;">Bold, high‑contrast look</td></tr>
-                        <tr><td style="padding:12px;"><strong>Enclosed Square</strong></td><td style="padding:12px;">🅃🄴🅇🅃</td><td style="padding:12px;">Blocky, industrial aesthetic</td></tr>
-                        <tr><td style="padding:12px;"><strong>Enclosed Square Dark</strong></td><td style="padding:12px;">🆃🅴🆇🆃</td><td style="padding:12px;">Bold square style</td></tr>
-                        <tr><td style="padding:12px;"><strong>Double Circle</strong></td><td style="padding:12px;">T̶e̶x̶t̶ (partial)</td><td style="padding:12px;">Experimental effect (limited character support)</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this bubble text generator free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, 100% free. No signups, no premium features, no limits.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Will bubble text work on Instagram / TikTok / Discord?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! Bubble text uses standard Unicode characters that are supported across all major platforms – Instagram bios, TikTok captions, Discord nicknames, and more.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. The generator runs entirely in your browser. Your text never leaves your device – no server uploads, no tracking.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Why does uppercase/lowercase matter?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Unicode bubble characters exist primarily for uppercase (A‑Z) and numbers (0‑9). Lowercase characters often fall back to regular uppercase bubble shapes. Using the “UPPERCASE” option ensures the most consistent conversion.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use bubble text in my Minecraft username?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Minecraft supports many Unicode characters, including circled letters. However, some special characters may display as boxes on older versions – test first before committing to a permanent name change.</div></div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify.Tools
-                </a>
-                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-            </div>
-            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-            <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-            <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-        </div>
-        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-    </footer>
 
     <script>
         // --- Complete tools list (80+ tools) matching index.html ---
@@ -572,7 +627,6 @@
         }
 
         // ---------- Bubble Text Converter Logic ----------
-        // Unicode mapping for different bubble styles
         const bubbleMaps = {
             circle: {
                 'A':'Ⓐ','B':'Ⓑ','C':'Ⓒ','D':'Ⓓ','E':'Ⓔ','F':'Ⓕ','G':'Ⓖ','H':'Ⓗ','I':'Ⓘ','J':'Ⓙ','K':'Ⓚ','L':'Ⓛ','M':'Ⓜ','N':'Ⓝ','O':'Ⓞ','P':'Ⓟ','Q':'Ⓠ','R':'Ⓡ','S':'Ⓢ','T':'Ⓣ','U':'Ⓤ','V':'Ⓥ','W':'Ⓦ','X':'Ⓧ','Y':'Ⓨ','Z':'Ⓩ',
@@ -664,7 +718,7 @@
 
         async function copyText() {
             const textarea = document.getElementById('outputText');
-            const btn = document.getElementById('copyBtn') || document.querySelector('.output-actions .btn-primary:first-child');
+            const btn = document.querySelector('.output-actions .btn-primary:first-child');
             const origHTML = btn.innerHTML;
             try {
                 if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -695,7 +749,7 @@
 
         function downloadText() {
             const text = document.getElementById('outputText').value;
-            const btn = document.getElementById('downloadBtn') || document.querySelector('.output-actions .btn-primary:last-child');
+            const btn = document.querySelector('.output-actions .btn-primary:last-child');
             const origHTML = btn.innerHTML;
             try {
                 const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
