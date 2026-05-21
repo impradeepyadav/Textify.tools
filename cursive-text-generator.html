@@ -53,8 +53,6 @@
             --accent: #f8fafc;
             --toast-bg: #1f2937;
             --toast-text: #ffffff;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
             --safe: #d1fae5;
         }
         body.dark-mode {
@@ -67,7 +65,7 @@
             --card: #1e293b;
             --input-bg: #1e293b;
             --input-border: #334155;
-            --footer-bg: #1e293b;
+            --footer-bg: #0f172a;
             --footer-text: #e2e8f0;
             --footer-heading: #ffffff;
             --footer-link-hover: #ffffff;
@@ -90,16 +88,36 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg); color: var(--text); min-height: 100vh;
-            display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+        .page-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header {
-            border-bottom: 1px solid var(--line); background: var(--bg);
-            display: flex; justify-content: center; align-items: center;
-            padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-            position: relative; z-index: 100;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            height: 64px;
+            transition: border-color 0.3s;
+            background: transparent;
         }
-        .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -160,7 +178,12 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            width: 100%;
+            background: transparent;
+        }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
         .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
         .tool-panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px; margin-bottom: 30px; }
@@ -190,18 +213,45 @@
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; }
         .tip-box { background: var(--accent); padding: 18px 20px; border-left: 4px solid #16a34a; border-radius: 8px; margin-bottom: 22px; }
+
         footer {
-            background: var(--footer-bg); color: var(--footer-text);
-            padding: 60px 20px 25px; margin-top: 60px;
             border-top: 1px solid var(--footer-border);
+            padding: 40px 20px 25px;
+            background: transparent;
         }
-        .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+        .footer-container { width: 100%; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+            gap: 35px;
+        }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
-        .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-        .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
+        .footer-grid h5 {
+            color: var(--footer-heading);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+        .footer-grid a {
+            color: var(--footer-text);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 9px;
+            font-size: 13px;
+            transition: color 0.2s, padding-left 0.2s;
+        }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+        .footer-bottom {
+            width: 100%;
+            margin-top: 35px;
+            padding-top: 18px;
+            border-top: 1px solid var(--footer-border);
+            text-align: center;
+            font-size: 13px;
+            color: var(--footer-text);
+        }
+
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
@@ -209,32 +259,127 @@
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     </style>
 
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.Tools
-            </a>
-            <div class="header-right">
-                <div class="desktop-nav">
-                    <div class="tools-menu-container">
-                        <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-                        <div class="tools-mega-menu" id="megaMenu"></div>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    Textify.Tools
+                </a>
+                <div class="header-right">
+                    <div class="desktop-nav">
+                        <div class="tools-menu-container">
+                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                            <div class="tools-mega-menu" id="megaMenu"></div>
+                        </div>
+                        <a href="privacy">Privacy</a>
+                        <a href="/blog">Blog</a>
                     </div>
-                    <a href="privacy">Privacy</a>
-                    <a href="/blog">Blog</a>
+                    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                    </button>
+                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                        <span class="menu-icon"><span></span><span></span></span>
+                    </button>
                 </div>
-                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                    <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-                </button>
-                <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-                    <span class="menu-icon"><span></span><span></span></span>
-                </button>
             </div>
-        </div>
-    </header>
+        </header>
+
+        <main>
+            <h1>Cursive Text Generator – Elegant Script Fonts</h1>
+            <p class="subtitle">Convert plain text into beautiful cursive and handwriting-style Unicode fonts. Perfect for Instagram bios, social posts, and creative projects. All processing happens in your browser – fast, free, and completely private.</p>
+
+            <div class="tool-panel">
+                <textarea id="inputText" placeholder="Type or paste your text here... e.g., 'Hello World'"></textarea>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="generateBtn" onclick="convertToCursive()"><i data-lucide="pen-tool" width="18" height="18"></i> Convert to Cursive</button>
+                    <button class="btn btn-outline" onclick="clearTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+                </div>
+
+                <div class="output-area" id="outputArea">
+                    <div class="char-count-box" id="charCountInfo"></div>
+                    <textarea id="outputText" readonly placeholder="Your cursive text will appear here..."></textarea>
+                    <div style="display:flex; gap:10px; margin-top:15px;">
+                        <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
+                        <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>How to Use the Cursive Text Generator</h2>
+                <p>Creating elegant cursive text for your social bios, stories, or designs is incredibly simple. Just type or paste your text, click convert, and you're done. Here's a step-by-step guide:</p>
+                <ol>
+                    <li><strong>Enter your text</strong> – Type or paste any word, sentence, or paragraph into the input box above.</li>
+                    <li><strong>Click "Convert to Cursive"</strong> – Our tool instantly transforms each character into elegant script-style Unicode symbols.</li>
+                    <li><strong>Copy & paste</strong> – Use the "Copy Text" button to copy the result, then paste it anywhere: Instagram, WhatsApp, Twitter, Facebook, or even your email signature.</li>
+                    <li><strong>Download for later</strong> – If you need to save the text, click the "Download .txt" button.</li>
+                </ol>
+                <div class="tip-box">
+                    <p><strong>💡 Pro tip:</strong> Cursive text works almost everywhere that supports Unicode – including Instagram bios, TikTok captions, Discord, and Telegram. Use it to make your username or profile stand out!</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>What Is Cursive Text?</h2>
+                <p>Cursive text is not a real font per se, but a set of special Unicode characters that resemble handwritten script. Our generator maps each regular letter (a–z, A–Z) to its corresponding "Mathematical Script" Unicode character. These characters are part of the official Unicode standard and display as cursive/script glyphs on any modern device.</p>
+                <p>For example, the word "Hello" becomes "ℋℯ𝓁𝓁ℴ". Your message keeps the original meaning but adds an elegant, handwritten feel – without any image files or custom fonts.</p>
+            </div>
+
+            <div class="section">
+                <h2>Why Choose Textify's Cursive Generator?</h2>
+                <ul>
+                    <li><strong>100% Private:</strong> All conversion happens locally inside your browser. Your text never leaves your device – no server uploads, no logs, no tracking.</li>
+                    <li><strong>Instant & Free:</strong> No sign-ups, no payments. Just type and copy.</li>
+                    <li><strong>Works Offline:</strong> Once the page loads, you can disconnect from the internet and still generate cursive text.</li>
+                    <li><strong>Clean & No Ads:</strong> A distraction-free interface designed to help you work faster.</li>
+                    <li><strong>No Character Limit:</strong> Convert entire paragraphs, poems, or even entire documents.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Creative Uses for Cursive Text</h2>
+                <ul>
+                    <li><strong>Instagram Bios & Stories:</strong> Give your profile a stylish, personal touch.</li>
+                    <li><strong>WhatsApp & Telegram Statuses:</strong> Stand out in your contacts' feeds.</li>
+                    <li><strong>Facebook Posts & Comments:</strong> Make your comments more eye-catching.</li>
+                    <li><strong>TikTok Captions:</strong> Add an elegant vibe to your video descriptions.</li>
+                    <li><strong>Graphic Design & Mockups:</strong> Use cursive placeholder text in layouts before the final font is installed.</li>
+                    <li><strong>Cards & Invitations:</strong> Write digital birthday or wedding wishes with a handwritten feel.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is cursive text safe to use on social media?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes! Cursive text uses standard Unicode characters and will not trigger any bans or restrictions. It's just text, not a custom image or external font.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Will the cursive text display on all devices?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Most modern devices and browsers support the Mathematical Script Unicode block. However, very old devices might show fallback characters (squares). The vast majority of users will see the cursive style correctly.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I combine cursive text with bold or italic?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. You can create your cursive text first, then copy it and apply additional styling (like bold or italic) using your platform's formatting tools. On some platforms, you can also chain multiple Unicode font styles.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text stored anywhere?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">No. Your input and output are processed entirely in your browser. We do not store, log, or share anything you type.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does this work for special characters and numbers?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The generator focuses on A–Z and a–z because those have standard cursive/script equivalents in Unicode. Numbers and punctuation are preserved as they are. Emojis will also remain unchanged.</div></div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div>
+                        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            Textify.Tools
+                        </a>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+                    </div>
+                    <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+                    <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                </div>
+                <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
 
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
@@ -270,99 +415,7 @@
 
     <div class="toast" id="toast"></div>
 
-    <main>
-        <h1>Cursive Text Generator – Elegant Script Fonts</h1>
-        <p class="subtitle">Convert plain text into beautiful cursive and handwriting-style Unicode fonts. Perfect for Instagram bios, social posts, and creative projects. All processing happens in your browser – fast, free, and completely private.</p>
-
-        <div class="tool-panel">
-            <textarea id="inputText" placeholder="Type or paste your text here... e.g., 'Hello World'"></textarea>
-
-            <div class="action-buttons">
-                <button class="btn btn-primary" id="generateBtn" onclick="convertToCursive()"><i data-lucide="pen-tool" width="18" height="18"></i> Convert to Cursive</button>
-                <button class="btn btn-outline" onclick="clearTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-            </div>
-
-            <div class="output-area" id="outputArea">
-                <div class="char-count-box" id="charCountInfo"></div>
-                <textarea id="outputText" readonly placeholder="Your cursive text will appear here..."></textarea>
-                <div style="display:flex; gap:10px; margin-top:15px;">
-                    <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
-                    <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>How to Use the Cursive Text Generator</h2>
-            <p>Creating elegant cursive text for your social bios, stories, or designs is incredibly simple. Just type or paste your text, click convert, and you're done. Here's a step-by-step guide:</p>
-            <ol>
-                <li><strong>Enter your text</strong> – Type or paste any word, sentence, or paragraph into the input box above.</li>
-                <li><strong>Click "Convert to Cursive"</strong> – Our tool instantly transforms each character into elegant script-style Unicode symbols.</li>
-                <li><strong>Copy & paste</strong> – Use the "Copy Text" button to copy the result, then paste it anywhere: Instagram, WhatsApp, Twitter, Facebook, or even your email signature.</li>
-                <li><strong>Download for later</strong> – If you need to save the text, click the "Download .txt" button.</li>
-            </ol>
-            <div class="tip-box">
-                <p><strong>💡 Pro tip:</strong> Cursive text works almost everywhere that supports Unicode – including Instagram bios, TikTok captions, Discord, and Telegram. Use it to make your username or profile stand out!</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>What Is Cursive Text?</h2>
-            <p>Cursive text is not a real font per se, but a set of special Unicode characters that resemble handwritten script. Our generator maps each regular letter (a–z, A–Z) to its corresponding "Mathematical Script" Unicode character. These characters are part of the official Unicode standard and display as cursive/script glyphs on any modern device.</p>
-            <p>For example, the word "Hello" becomes "ℋℯ𝓁𝓁ℴ". Your message keeps the original meaning but adds an elegant, handwritten feel – without any image files or custom fonts.</p>
-        </div>
-
-        <div class="section">
-            <h2>Why Choose Textify's Cursive Generator?</h2>
-            <ul>
-                <li><strong>100% Private:</strong> All conversion happens locally inside your browser. Your text never leaves your device – no server uploads, no logs, no tracking.</li>
-                <li><strong>Instant & Free:</strong> No sign-ups, no payments. Just type and copy.</li>
-                <li><strong>Works Offline:</strong> Once the page loads, you can disconnect from the internet and still generate cursive text.</li>
-                <li><strong>Clean & No Ads:</strong> A distraction-free interface designed to help you work faster.</li>
-                <li><strong>No Character Limit:</strong> Convert entire paragraphs, poems, or even entire documents.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Creative Uses for Cursive Text</h2>
-            <ul>
-                <li><strong>Instagram Bios & Stories:</strong> Give your profile a stylish, personal touch.</li>
-                <li><strong>WhatsApp & Telegram Statuses:</strong> Stand out in your contacts' feeds.</li>
-                <li><strong>Facebook Posts & Comments:</strong> Make your comments more eye-catching.</li>
-                <li><strong>TikTok Captions:</strong> Add an elegant vibe to your video descriptions.</li>
-                <li><strong>Graphic Design & Mockups:</strong> Use cursive placeholder text in layouts before the final font is installed.</li>
-                <li><strong>Cards & Invitations:</strong> Write digital birthday or wedding wishes with a handwritten feel.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is cursive text safe to use on social media?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes! Cursive text uses standard Unicode characters and will not trigger any bans or restrictions. It's just text, not a custom image or external font.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Will the cursive text display on all devices?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Most modern devices and browsers support the Mathematical Script Unicode block. However, very old devices might show fallback characters (squares). The vast majority of users will see the cursive style correctly.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I combine cursive text with bold or italic?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. You can create your cursive text first, then copy it and apply additional styling (like bold or italic) using your platform's formatting tools. On some platforms, you can also chain multiple Unicode font styles.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text stored anywhere?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">No. Your input and output are processed entirely in your browser. We do not store, log, or share anything you type.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does this work for special characters and numbers?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The generator focuses on A–Z and a–z because those have standard cursive/script equivalents in Unicode. Numbers and punctuation are preserved as they are. Emojis will also remain unchanged.</div></div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify.Tools
-                </a>
-                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-            </div>
-            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-            <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-            <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-        </div>
-        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-    </footer>
-
     <script>
-        // --- tools list (full index page list) ---
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -438,7 +491,6 @@
             { name: 'Keyword Density Analyzer', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', category: 'analysis' }
         ];
 
-        // --- cursive mapping (Mathematical Script / bold script) ---
         const scriptMap = {
             'A': '𝒜', 'B': 'ℬ', 'C': '𝒞', 'D': '𝒟', 'E': 'ℰ', 'F': 'ℱ', 'G': '𝒢', 'H': 'ℋ', 'I': 'ℐ', 'J': '𝒥', 'K': '𝒦', 'L': 'ℒ', 'M': 'ℳ', 'N': '𝒩', 'O': '𝒪', 'P': '𝒫', 'Q': '𝒬', 'R': 'ℛ', 'S': '𝒮', 'T': '𝒯', 'U': '𝒰', 'V': '𝒱', 'W': '𝒲', 'X': '𝒳', 'Y': '𝒴', 'Z': '𝒵',
             'a': '𝒶', 'b': '𝒷', 'c': '𝒸', 'd': '𝒹', 'e': 'ℯ', 'f': '𝒻', 'g': 'ℊ', 'h': '𝒽', 'i': '𝒾', 'j': '𝒿', 'k': '𝓀', 'l': '𝓁', 'm': '𝓂', 'n': '𝓃', 'o': 'ℴ', 'p': '𝓅', 'q': '𝓆', 'r': '𝓇', 's': '𝓈', 't': '𝓉', 'u': '𝓊', 'v': '𝓋', 'w': '𝓌', 'x': '𝓍', 'y': '𝓎', 'z': '𝓏'
@@ -446,15 +498,9 @@
 
         function convertToCursive() {
             const inputText = document.getElementById('inputText').value;
-            if (!inputText.trim()) {
-                showToast('Please enter some text first.');
-                return;
-            }
+            if (!inputText.trim()) { showToast('Please enter some text first.'); return; }
             let result = '';
-            for (let ch of inputText) {
-                if (scriptMap[ch]) result += scriptMap[ch];
-                else result += ch;
-            }
+            for (let ch of inputText) { result += scriptMap[ch] || ch; }
             document.getElementById('outputText').value = result;
             document.getElementById('charCountInfo').innerHTML = `<strong>✅ Converted!</strong> &nbsp; Characters: <strong>${result.length.toLocaleString()}</strong>`;
             document.getElementById('outputArea').style.display = 'block';
@@ -473,26 +519,11 @@
             const btn = document.getElementById('copyBtn');
             const origHTML = btn.innerHTML;
             try {
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    await navigator.clipboard.writeText(textarea.value);
-                } else {
-                    textarea.focus();
-                    textarea.select();
-                    document.execCommand('copy');
-                }
-                btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!';
-                btn.style.background = '#16a34a';
-                lucide.createIcons();
-                showToast('📋 Text copied to clipboard!');
-            } catch (err) {
-                alert('Please copy manually.');
-            } finally {
-                setTimeout(() => {
-                    btn.innerHTML = origHTML;
-                    btn.style.background = '';
-                    lucide.createIcons();
-                }, 2000);
-            }
+                if (navigator.clipboard && navigator.clipboard.writeText) { await navigator.clipboard.writeText(textarea.value); }
+                else { textarea.focus(); textarea.select(); document.execCommand('copy'); }
+                btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!'; btn.style.background = '#16a34a'; lucide.createIcons(); showToast('📋 Text copied to clipboard!');
+            } catch (err) { alert('Please copy manually.'); }
+            finally { setTimeout(() => { btn.innerHTML = origHTML; btn.style.background = ''; lucide.createIcons(); }, 2000); }
         }
 
         function downloadText() {
@@ -502,74 +533,42 @@
             try {
                 const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
                 const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'cursive-text.txt';
-                a.click();
-                URL.revokeObjectURL(url);
-                btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Downloaded!';
-                lucide.createIcons();
-                showToast('💾 File downloaded successfully!');
-                setTimeout(() => {
-                    btn.innerHTML = origHTML;
-                    lucide.createIcons();
-                }, 2000);
-            } catch (err) {
-                alert("Download blocked. Please allow popups or copy manually.");
-                btn.innerHTML = origHTML;
-                lucide.createIcons();
-            }
+                const a = document.createElement('a'); a.href = url; a.download = 'cursive-text.txt'; a.click(); URL.revokeObjectURL(url);
+                btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Downloaded!'; lucide.createIcons(); showToast('💾 File downloaded successfully!');
+                setTimeout(() => { btn.innerHTML = origHTML; lucide.createIcons(); }, 2000);
+            } catch (err) { alert("Download blocked. Please allow popups or copy manually."); btn.innerHTML = origHTML; lucide.createIcons(); }
         }
 
-        // --- Common utility functions ---
-        function buildMegaMenu() {
-            const menu = document.getElementById('megaMenu');
-            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-        }
-
-        function buildMobileToolsMenu() {
-            const menu = document.getElementById('mobileToolsMenu');
-            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-        }
-
+        function buildMegaMenu() { const menu = document.getElementById('megaMenu'); if (menu) menu.innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+        function buildMobileToolsMenu() { const menu = document.getElementById('mobileToolsMenu'); if (menu) menu.innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
         function buildSearchList() {
             const list = document.getElementById('fullSearchResultsList');
-            if (list) {
-                list.innerHTML = tools.map(tool => `
-                    <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
-                        ${tool.name} <span class="result-tag">${tool.category}</span>
-                    </a>
-                `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
-            }
+            if (list) list.innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category}</span></a>`).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
         }
 
         let toastTimer;
-        function showToast(msg, dur = 3000) {
-            const t = document.getElementById('toast');
-            t.textContent = msg; t.classList.add('show');
-            clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
-        }
+        function showToast(msg, dur=3000) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur); }
 
         function toggleTheme() {
             const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
                   ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
             if (b.classList.contains('dark-mode')) {
-                b.classList.remove('dark-mode'); s.style.display = 'block'; m.style.display = 'none';
-                if (ms) { ms.style.display = 'block'; mm.style.display = 'none'; }
-                localStorage.setItem('theme', 'light'); document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff');
+                b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
+                if(ms) { ms.style.display='block'; mm.style.display='none'; }
+                localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
             } else {
-                b.classList.add('dark-mode'); s.style.display = 'none'; m.style.display = 'block';
-                if (ms) { ms.style.display = 'none'; mm.style.display = 'block'; }
-                localStorage.setItem('theme', 'dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0f172a');
+                b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
+                if(ms) { ms.style.display='none'; mm.style.display='block'; }
+                localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
             }
             lucide.createIcons();
         }
-        document.getElementById('sunIcon').style.display = 'block'; document.getElementById('moonIcon').style.display = 'none';
+        document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
         if (localStorage.getItem('theme') === 'dark') {
             document.body.classList.add('dark-mode');
-            document.getElementById('sunIcon').style.display = 'none'; document.getElementById('moonIcon').style.display = 'block';
+            document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
             const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
+            if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
         }
 
         function openMobileSidebar() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
@@ -589,13 +588,13 @@
                 if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
                 else { i.classList.add('hidden-item'); }
             });
-            if (c === 0 && q !== '') { if (nr) nr.classList.add('show'); if (qs) qs.textContent = q; }
-            else { if (nr) nr.classList.remove('show'); }
+            if (c === 0 && q !== '') { if(nr) nr.classList.add('show'); if(qs) qs.textContent = q; }
+            else { if(nr) nr.classList.remove('show'); }
         }
         document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); }
-            if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
+            if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
         });
 
         function toggleFaq(el) {
