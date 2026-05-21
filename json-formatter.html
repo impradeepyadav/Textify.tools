@@ -68,7 +68,7 @@
             --card: #1e293b;
             --input-bg: #1e293b;
             --input-border: #334155;
-            --footer-bg: #1e293b;
+            --footer-bg: #0f172a;
             --footer-text: #e2e8f0;
             --footer-heading: #ffffff;
             --footer-link-hover: #ffffff;
@@ -94,18 +94,39 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg); color: var(--text); min-height: 100vh;
-            display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
         }
 
-        /* HEADER */
-        header {
-            border-bottom: 1px solid var(--line); background: var(--bg);
-            display: flex; justify-content: center; align-items: center;
-            padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-            position: relative; z-index: 100;
+        /* WRAPPER – same max-width for header, main, footer */
+        .page-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+
+        header {
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            height: 64px;
+            transition: border-color 0.3s;
+            background: transparent;
+        }
+        .header-inner {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -166,7 +187,12 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main { flex: 1; max-width: 1100px; margin: 30px auto; padding: 0 20px; width: 100%; }
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            width: 100%;
+            background: transparent;
+        }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
         .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
 
@@ -207,17 +233,18 @@
         @keyframes spin { to { transform: rotate(360deg); } }
         
         footer {
-            background: var(--footer-bg); color: var(--footer-text);
-            padding: 60px 20px 25px; margin-top: 60px;
             border-top: 1px solid var(--footer-border);
+            padding: 40px 20px 25px;
+            background: transparent;
         }
-        .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+        .footer-container { width: 100%; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
         .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+        .footer-bottom { margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
@@ -226,32 +253,141 @@
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     </style>
 
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.Tools
-            </a>
-            <div class="header-right">
-                <div class="desktop-nav">
-                    <div class="tools-menu-container">
-                        <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-                        <div class="tools-mega-menu" id="megaMenu"></div>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    Textify.Tools
+                </a>
+                <div class="header-right">
+                    <div class="desktop-nav">
+                        <div class="tools-menu-container">
+                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                            <div class="tools-mega-menu" id="megaMenu"></div>
+                        </div>
+                        <a href="privacy">Privacy</a>
+                        <a href="/blog">Blog</a>
                     </div>
-                    <a href="privacy">Privacy</a>
-                    <a href="/blog">Blog</a>
+                    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                    </button>
+                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                        <span class="menu-icon"><span></span><span></span></span>
+                    </button>
                 </div>
-                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                    <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-                </button>
-                <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-                    <span class="menu-icon"><span></span><span></span></span>
-                </button>
             </div>
-        </div>
-    </header>
+        </header>
+
+        <main>
+            <h1>JSON Formatter / Beautifier</h1>
+            <p class="subtitle">Instantly format, minify, and validate your JSON data. All processing happens in your browser – 100% private, no data leaves your device.</p>
+
+            <div class="tool-panel">
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label for="indentSize">Indent Size</label>
+                        <select id="indentSize">
+                            <option value="2">2 spaces</option>
+                            <option value="4" selected>4 spaces</option>
+                            <option value="8">8 spaces</option>
+                            <option value="tab">Tab character</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="sortKeys">Options</label>
+                        <div class="checkbox-group" style="margin:0; gap:15px;">
+                            <label><input type="checkbox" id="sortKeys"> Sort keys alphabetically</label>
+                        </div>
+                    </div>
+                </div>
+
+                <textarea id="inputJson" rows="12" placeholder='Paste your JSON here... e.g., {"name":"Textify","tools":["formatter","validator"]}'></textarea>
+
+                <div class="btn-row">
+                    <button class="btn btn-primary" id="formatBtn" onclick="formatJson()"><i data-lucide="wand-2" width="18" height="18"></i> Format / Beautify</button>
+                    <button class="btn btn-primary" style="background:#16a34a;" id="minifyBtn" onclick="minifyJson()"><i data-lucide="compress" width="18" height="18"></i> Minify / Compact</button>
+                    <button class="btn btn-outline" onclick="clearAll()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+                </div>
+
+                <div id="errorMessage" class="error-message"></div>
+
+                <div class="output-area" id="outputArea">
+                    <div class="success-info" id="statsInfo"></div>
+                    <textarea id="outputJson" rows="12" readonly placeholder="Formatted JSON will appear here..."></textarea>
+                    <div class="btn-row" style="margin-top:15px;">
+                        <button class="btn btn-primary" id="copyBtn" onclick="copyOutput()"><i data-lucide="copy" width="18" height="18"></i> Copy to Clipboard</button>
+                        <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadOutput()"><i data-lucide="download" width="18" height="18"></i> Download .json</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>How to Use the JSON Formatter</h2>
+                <p>Our JSON formatter makes it easy to clean up, validate, and compress JSON data. Follow these simple steps:</p>
+                <ol style="padding-left:22px; color: var(--text-light); margin-bottom:22px;">
+                    <li><strong>Paste your JSON</strong> – Copy any JSON string and paste it into the input area.</li>
+                    <li><strong>Choose your settings</strong> – Select indent size (2/4/8 spaces or tab) and optionally sort object keys alphabetically.</li>
+                    <li><strong>Format or minify</strong> – Click <strong>"Format / Beautify"</strong> to pretty‑print your JSON, or <strong>"Minify / Compact"</strong> to compress it into a single line.</li>
+                    <li><strong>Copy or download</strong> – Use the copy button to grab the formatted text, or download it as a .json file.</li>
+                </ol>
+                <p>The formatter will automatically highlight syntax errors and show you exactly where the problem is – no more guessing why your JSON isn't valid!</p>
+            </div>
+
+            <div class="section">
+                <h2>Why Use a Client‑Side JSON Formatter?</h2>
+                <p>Most online JSON tools send your data to a server for processing – a serious privacy risk if you're working with sensitive API keys, customer data, or confidential configurations. Textify's JSON formatter runs entirely in your browser using native JavaScript. Your JSON never leaves your device. You can even disconnect from the internet after the page loads – everything works offline.</p>
+                <p>Key benefits:</p>
+                <ul>
+                    <li><strong>Complete privacy</strong> – No server uploads, no logs, no tracking.</li>
+                    <li><strong>Lightning fast</strong> – Instant formatting with zero latency.</li>
+                    <li><strong>Works offline</strong> – Once loaded, the tool works without an internet connection.</li>
+                    <li><strong>No size limits</strong> – Handle very large JSON files (browser memory permitting).</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>JSON Best Practices</h2>
+                <p>JSON (JavaScript Object Notation) is the most common data‑interchange format used by APIs, config files, and databases. Following best practices ensures your JSON is easy to read, parse, and debug.</p>
+                <ul>
+                    <li><strong>Use consistent indentation</strong> – 2 or 4 spaces is the industry standard. Avoid tabs to prevent rendering differences.</li>
+                    <li><strong>Always validate before using</strong> – A single missing comma or quote can break your entire application. Our tool catches these errors instantly.</li>
+                    <li><strong>Keep keys readable</strong> – Use meaningful, lowercase snake_case or camelCase keys (e.g., <code>user_id</code> instead of <code>uId</code>).</li>
+                    <li><strong>Avoid trailing commas</strong> – While allowed in some JSON variants, standard JSON does not support trailing commas.</li>
+                    <li><strong>Minify for production</strong> – Removing whitespace reduces file size and speeds up network transfers.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this JSON formatter really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free with no limits. No registration, no premium tiers, and no hidden costs.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work with very large JSON files?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool handles large JSON files efficiently, but extremely massive files (over 10–20 MB) might slow down your browser. For best performance, we recommend splitting very large files.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my JSON data private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">100% private. All processing happens right in your browser using JavaScript. Your JSON never leaves your device – no uploads, no servers, no tracking.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if my JSON is invalid?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool will display a clear error message showing exactly where the syntax problem is located, so you can fix it and try again.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on iPhones, Android devices, and tablets.</div></div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div>
+                        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            Textify.Tools
+                        </a>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+                    </div>
+                    <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+                    <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                </div>
+                <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
 
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
@@ -286,111 +422,6 @@
     </div>
 
     <div class="toast" id="toast"></div>
-
-    <main>
-        <h1>JSON Formatter / Beautifier</h1>
-        <p class="subtitle">Instantly format, minify, and validate your JSON data. All processing happens in your browser – 100% private, no data leaves your device.</p>
-
-        <div class="tool-panel">
-            <div class="grid-2">
-                <div class="input-group">
-                    <label for="indentSize">Indent Size</label>
-                    <select id="indentSize">
-                        <option value="2">2 spaces</option>
-                        <option value="4" selected>4 spaces</option>
-                        <option value="8">8 spaces</option>
-                        <option value="tab">Tab character</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label for="sortKeys">Options</label>
-                    <div class="checkbox-group" style="margin:0; gap:15px;">
-                        <label><input type="checkbox" id="sortKeys"> Sort keys alphabetically</label>
-                    </div>
-                </div>
-            </div>
-
-            <textarea id="inputJson" rows="12" placeholder='Paste your JSON here... e.g., {"name":"Textify","tools":["formatter","validator"]}'></textarea>
-
-            <div class="btn-row">
-                <button class="btn btn-primary" id="formatBtn" onclick="formatJson()"><i data-lucide="wand-2" width="18" height="18"></i> Format / Beautify</button>
-                <button class="btn btn-primary" style="background:#16a34a;" id="minifyBtn" onclick="minifyJson()"><i data-lucide="compress" width="18" height="18"></i> Minify / Compact</button>
-                <button class="btn btn-outline" onclick="clearAll()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-            </div>
-
-            <div id="errorMessage" class="error-message"></div>
-
-            <div class="output-area" id="outputArea">
-                <div class="success-info" id="statsInfo"></div>
-                <textarea id="outputJson" rows="12" readonly placeholder="Formatted JSON will appear here..."></textarea>
-                <div class="btn-row" style="margin-top:15px;">
-                    <button class="btn btn-primary" id="copyBtn" onclick="copyOutput()"><i data-lucide="copy" width="18" height="18"></i> Copy to Clipboard</button>
-                    <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadOutput()"><i data-lucide="download" width="18" height="18"></i> Download .json</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>How to Use the JSON Formatter</h2>
-            <p>Our JSON formatter makes it easy to clean up, validate, and compress JSON data. Follow these simple steps:</p>
-            <ol style="padding-left:22px; color: var(--text-light); margin-bottom:22px;">
-                <li><strong>Paste your JSON</strong> – Copy any JSON string and paste it into the input area.</li>
-                <li><strong>Choose your settings</strong> – Select indent size (2/4/8 spaces or tab) and optionally sort object keys alphabetically.</li>
-                <li><strong>Format or minify</strong> – Click <strong>"Format / Beautify"</strong> to pretty‑print your JSON, or <strong>"Minify / Compact"</strong> to compress it into a single line.</li>
-                <li><strong>Copy or download</strong> – Use the copy button to grab the formatted text, or download it as a .json file.</li>
-            </ol>
-            <p>The formatter will automatically highlight syntax errors and show you exactly where the problem is – no more guessing why your JSON isn't valid!</p>
-        </div>
-
-        <div class="section">
-            <h2>Why Use a Client‑Side JSON Formatter?</h2>
-            <p>Most online JSON tools send your data to a server for processing – a serious privacy risk if you're working with sensitive API keys, customer data, or confidential configurations. Textify's JSON formatter runs entirely in your browser using native JavaScript. Your JSON never leaves your device. You can even disconnect from the internet after the page loads – everything works offline.</p>
-            <p>Key benefits:</p>
-            <ul>
-                <li><strong>Complete privacy</strong> – No server uploads, no logs, no tracking.</li>
-                <li><strong>Lightning fast</strong> – Instant formatting with zero latency.</li>
-                <li><strong>Works offline</strong> – Once loaded, the tool works without an internet connection.</li>
-                <li><strong>No size limits</strong> – Handle very large JSON files (browser memory permitting).</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>JSON Best Practices</h2>
-            <p>JSON (JavaScript Object Notation) is the most common data‑interchange format used by APIs, config files, and databases. Following best practices ensures your JSON is easy to read, parse, and debug.</p>
-            <ul>
-                <li><strong>Use consistent indentation</strong> – 2 or 4 spaces is the industry standard. Avoid tabs to prevent rendering differences.</li>
-                <li><strong>Always validate before using</strong> – A single missing comma or quote can break your entire application. Our tool catches these errors instantly.</li>
-                <li><strong>Keep keys readable</strong> – Use meaningful, lowercase snake_case or camelCase keys (e.g., <code>user_id</code> instead of <code>uId</code>).</li>
-                <li><strong>Avoid trailing commas</strong> – While allowed in some JSON variants, standard JSON does not support trailing commas.</li>
-                <li><strong>Minify for production</strong> – Removing whitespace reduces file size and speeds up network transfers.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this JSON formatter really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free with no limits. No registration, no premium tiers, and no hidden costs.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work with very large JSON files?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool handles large JSON files efficiently, but extremely massive files (over 10–20 MB) might slow down your browser. For best performance, we recommend splitting very large files.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my JSON data private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">100% private. All processing happens right in your browser using JavaScript. Your JSON never leaves your device – no uploads, no servers, no tracking.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if my JSON is invalid?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool will display a clear error message showing exactly where the syntax problem is located, so you can fix it and try again.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on iPhones, Android devices, and tablets.</div></div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify.Tools
-                </a>
-                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-            </div>
-            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-            <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-            <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-        </div>
-        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-    </footer>
 
     <script>
         // Complete tools list for search and menus
