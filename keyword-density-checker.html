@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -79,7 +79,7 @@
         body.dark-mode {
             --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
             --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
-            --input-border: #334155; --footer-bg: #1e293b; --footer-text: #e2e8f0;
+            --input-border: #334155; --footer-bg: #0f172a; --footer-text: #e2e8f0;
             --footer-heading: #ffffff; --footer-link-hover: #ffffff; --footer-border: #334155;
             --faq-bg: #1e293b; --faq-active: #334155; --table-header: #1e293b; --table-hover: #1e293b;
             --shadow: rgba(0,0,0,0.5); --overlay-bg: rgba(0,0,0,0.75); --success-bg: #052e16;
@@ -90,11 +90,49 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; transition: background 0.3s, color 0.3s; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-        header { border-bottom: 1px solid var(--line); background: var(--bg); display: flex; justify-content: center; align-items: center; padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s; position: relative; z-index: 100; }
-        .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
+        /* Page wrapper – uniform width for header, main, footer */
+        .page-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            height: 64px;
+            transition: border-color 0.3s;
+            background: transparent;
+        }
+        .header-inner {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 10px; text-decoration: none;
+            color: var(--text); font-size: 22px; font-weight: 800;
+        }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
         .desktop-nav { display: flex; gap: 15px; align-items: center; }
@@ -154,7 +192,13 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
+        /* MAIN */
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            width: 100%;
+            background: transparent;
+        }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
         h2 { font-size: 26px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
         h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
@@ -225,46 +269,242 @@
         .mode-tab { padding: 10px 24px; border-radius: 24px; font-weight: 600; font-size: 14px; border: 1px solid var(--line); background: var(--chip-bg, var(--hover)); color: var(--text-light); cursor: pointer; transition: 0.2s; }
         .mode-tab.active { background: var(--primary); color: var(--bg); border-color: var(--primary); }
 
-        footer { background: var(--footer-bg); color: var(--footer-text); padding: 60px 20px 25px; margin-top: 60px; border-top: 1px solid var(--footer-border); }
-        .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--footer-border);
+            padding: 40px 20px 25px;
+            background: transparent;
+        }
+        .footer-container { width: 100%; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+            gap: 35px;
+        }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
         .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+        .footer-bottom {
+            margin-top: 35px;
+            padding-top: 18px;
+            border-top: 1px solid var(--footer-border);
+            text-align: center;
+            font-size: 13px;
+            color: var(--footer-text);
+        }
 
-        @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; } }
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
+            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; }
+        }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     </style>
 
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="/favicon.ico" alt="Textify.tools" class="logo-img">
-                Textify.tools
-            </a>
-            <div class="header-right">
-                <div class="desktop-nav">
-                    <div class="tools-menu-container">
-                        <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-                        <div class="tools-mega-menu" id="megaMenu"></div>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <img src="/favicon.ico" alt="Textify.tools" class="logo-img">
+                    Textify.tools
+                </a>
+                <div class="header-right">
+                    <div class="desktop-nav">
+                        <div class="tools-menu-container">
+                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                            <div class="tools-mega-menu" id="megaMenu"></div>
+                        </div>
+                        <a href="privacy">Privacy</a>
+                        <a href="/blog">Blog</a>
                     </div>
-                    <a href="privacy">Privacy</a>
-                    <a href="/blog">Blog</a>
+                    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                    </button>
+                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                        <span class="menu-icon"><span></span><span></span></span>
+                    </button>
                 </div>
-                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                    <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-                </button>
-                <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-                    <span class="menu-icon"><span></span><span></span></span>
-                </button>
             </div>
-        </div>
-    </header>
+        </header>
 
+        <main>
+            <h1>Keyword Density Checker – Free SEO Content Analysis</h1>
+            <p class="subtitle"><strong>Textify.tools</strong> provides the most practical <strong>online keyword density checker</strong>. Paste your content, enter up to 5 keywords, and instantly see density percentages, n‑gram phrase analysis, and content stats. Everything runs locally in your browser — 100% private, zero uploads.</p>
+
+            <!-- Mode Switcher -->
+            <div class="mode-tabs">
+                <button class="mode-tab active" id="singleModeTab" onclick="switchMode('single')">Target Keywords</button>
+                <button class="mode-tab" id="ngramModeTab" onclick="switchMode('ngram')">Full N‑Gram Analysis</button>
+            </div>
+
+            <!-- Content textarea (shared) -->
+            <textarea id="inputText" placeholder="Paste your article, blog post, or any text content here..." style="height:160px;"></textarea>
+
+            <!-- Single Keyword mode inputs -->
+            <div id="singleKeywordArea">
+                <div class="settings-card">
+                    <h3 style="margin:0 0 14px; color:var(--text);">🔍 Target Keywords (up to 5)</h3>
+                    <div id="keywordInputs">
+                        <div class="keyword-input-row">
+                            <div class="input-group"><label>Keyword 1</label><input type="text" class="kw-input" placeholder="e.g. keyword density"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" style="margin-top:8px;padding:8px 16px;font-size:13px;" onclick="addKeywordField()"><i data-lucide="plus" width="14" height="14"></i> Add Keyword</button>
+                </div>
+            </div>
+
+            <!-- N‑Gram mode (hidden initially) -->
+            <div id="ngramArea" style="display:none;">
+                <div class="settings-card">
+                    <h3 style="margin:0 0 14px; color:var(--text);">📊 N‑Gram Settings</h3>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <label class="style-label"><input type="radio" name="ngramLength" value="1" checked> 1‑Word</label>
+                        <label class="style-label"><input type="radio" name="ngramLength" value="2"> 2‑Word Phrases</label>
+                        <label class="style-label"><input type="radio" name="ngramLength" value="3"> 3‑Word Phrases</label>
+                        <label class="style-label"><input type="radio" name="ngramLength" value="all"> All (1+2+3)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <h3 style="margin:0 0 14px; color:var(--text);">⚙️ Analysis Options</h3>
+                <div style="display:flex;gap:24px;flex-wrap:wrap;">
+                    <label class="style-label"><input type="checkbox" id="filterStopWords" checked> Filter stop words</label>
+                    <label class="style-label"><input type="checkbox" id="caseSensitive"> Case‑sensitive matching</label>
+                    <label class="style-label"><input type="checkbox" id="showTopWords"> Show top 20 frequent words</label>
+                </div>
+            </div>
+
+            <div style="display:flex;gap:10px;margin-bottom:30px;">
+                <button class="btn btn-primary" id="analyzeBtn" onclick="analyzeContent()"><i data-lucide="search-check" width="18" height="18"></i> Analyze Content</button>
+                <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+            </div>
+
+            <div class="output-area" id="outputArea">
+                <!-- Content overview stats -->
+                <div class="stats-overview" id="statsOverview"></div>
+
+                <!-- Density results table -->
+                <h3 style="margin:20px 0 12px;" id="resultsHeading">Keyword Density Results</h3>
+                <div class="table-wrapper">
+                    <table class="density-table" id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTable(0)" style="width:40%;">Keyword / Phrase <i data-lucide="arrow-up-down" width="12" height="12" style="display:inline;vertical-align:middle;"></i></th>
+                                <th onclick="sortTable(1)" style="width:15%;">Count <i data-lucide="arrow-up-down" width="12" height="12" style="display:inline;vertical-align:middle;"></i></th>
+                                <th onclick="sortTable(2)" style="width:20%;">Density <i data-lucide="arrow-up-down" width="12" height="12" style="display:inline;vertical-align:middle;"></i></th>
+                                <th style="width:25%;">Density Bar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody">
+                            <tr><td colspan="4" style="text-align:center;padding:30px;color:var(--text-light);">Enter content and click "Analyze Content" to see results.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Copy & Download -->
+                <div class="grid-2" style="margin-top:18px;">
+                    <button class="btn btn-primary" id="copyBtn" onclick="copyResults()"><i data-lucide="copy" width="18" height="18"></i> Copy Results</button>
+                    <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadResults()"><i data-lucide="download" width="18" height="18"></i> Download CSV</button>
+                </div>
+            </div>
+
+            <div style="margin-top:60px;border-top:1px solid var(--line);padding-top:30px;">
+                <h2>What Is Keyword Density?</h2>
+                <p>Keyword density is the percentage of times a keyword or phrase appears in your text compared to the total word count. It is calculated as: <strong>(Keyword Occurrences ÷ Total Words) × 100</strong>. For example, if your 500‑word article uses the phrase "SEO tips" 10 times, the density is 2% — right in the sweet spot.</p>
+                <p>Search engines use keyword density (along with many other signals) to understand what a page is about. A healthy density — generally <strong>1% to 3%</strong> — shows relevance without over‑optimisation. Below 0.5% may indicate thin coverage, while above 4% risks triggering keyword‑stuffing signals that can hurt rankings.</p>
+
+                <h2>Why Choose Textify.tools Keyword Density Checker?</h2>
+                <div style="background: var(--accent); padding: 20px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px;">
+                    <ul style="margin-bottom:0;">
+                        <li><strong>100% Client‑Side Processing</strong> — Your content never leaves your device. No uploads, no server round‑trips, no privacy concerns.</li>
+                        <li><strong>Single‑Word & Phrase Analysis</strong> — Check 1‑word, 2‑word, and 3‑word phrases. Multi‑word phrases often reveal more meaningful patterns than isolated word counts.</li>
+                        <li><strong>Targeted Keyword Checking</strong> — Enter up to 5 specific keywords and get individual density scores, counts, and visual bars for each one.</li>
+                        <li><strong>Smart Stop‑Word Filtering</strong> — Automatically skips common words (a, the, in, on, etc.) so your analysis focuses on meaningful terms.</li>
+                        <li><strong>Visual Density Bars</strong> — Colour‑coded bars instantly show whether each keyword is in the low (&lt;0.5%), ideal (1‑3%), watch (3‑4%), or over‑optimised (&gt;4%) range.</li>
+                        <li><strong>Instant, Free, Unlimited</strong> — No sign‑up, no limits, no hidden fees.</li>
+                    </ul>
+                </div>
+
+                <h2>How to Use the Keyword Density Checker</h2>
+                <h3>Target Keywords Mode</h3>
+                <ol>
+                    <li><strong>Paste your content</strong> into the main text area — any blog draft, product page, or article.</li>
+                    <li><strong>Enter up to 5 keywords</strong> or phrases you want to check.</li>
+                    <li><strong>Toggle options</strong> — stop‑word filtering, case sensitivity, and top‑20 frequent words.</li>
+                    <li><strong>Click "Analyze Content"</strong> — results appear instantly with density scores and colour‑coded bars.</li>
+                    <li><strong>Copy or download</strong> the report as plain text or CSV.</li>
+                </ol>
+                <h3>Full N‑Gram Analysis Mode</h3>
+                <ol>
+                    <li><strong>Switch to "Full N‑Gram Analysis"</strong> using the tabs above.</li>
+                    <li><strong>Select phrase length</strong> — 1‑word, 2‑word, 3‑word, or all combined.</li>
+                    <li><strong>Click "Analyze Content"</strong> — the tool scans every n‑gram and ranks them by frequency.</li>
+                    <li><strong>Review the table</strong> — sort by word, count, or density to spot overused phrases at a glance.</li>
+                </ol>
+
+                <h2>Keyword Density Ranges & What They Mean</h2>
+                <div class="table-wrapper">
+                    <table class="info-table">
+                        <thead><tr><th>Density Range</th><th>Status</th><th>What It Means</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Below 0.5%</strong></td><td><span class="density-badge low">Low</span></td><td>The keyword may be under‑represented. Consider adding more topical coverage.</td></tr>
+                            <tr><td><strong>0.5% – 1%</strong></td><td><span class="density-badge watch">Watch</span></td><td>Acceptable for long‑form content, but a slight increase could improve relevance.</td></tr>
+                            <tr><td><strong>1% – 3%</strong></td><td><span class="density-badge ideal">Ideal ✓</span></td><td>The sweet spot. Strong relevance signal without appearing over‑optimised.</td></tr>
+                            <tr><td><strong>3% – 4%</strong></td><td><span class="density-badge watch">Watch</span></td><td>Borderline. The keyword appears quite often — ensure it reads naturally.</td></tr>
+                            <tr><td><strong>Above 4%</strong></td><td><span class="density-badge over">Over‑Optimised</span></td><td>Risk of keyword stuffing. Consider reducing frequency or using synonyms.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Real‑World Use Cases</h2>
+                <ul>
+                    <li><strong>Bloggers & Content Writers:</strong> Check drafts before publishing to ensure keywords appear naturally — not too sparse, not stuffed.</li>
+                    <li><strong>SEO Professionals:</strong> Audit client content for over‑optimisation and identify opportunities to strengthen topical relevance.</li>
+                    <li><strong>E‑commerce Managers:</strong> Analyse product descriptions to maintain healthy keyword balance across category and product pages.</li>
+                    <li><strong>Freelance Writers:</strong> Verify that client keyword requirements are met without crossing into spam territory.</li>
+                    <li><strong>Students & Researchers:</strong> Check term frequency in academic writing to ensure key concepts are adequately covered.</li>
+                </ul>
+
+                <div class="tip-box">
+                    <p style="margin:0;font-size:14px;"><strong>💡 Pro Tip:</strong> Density is a guide, not a rigid rule. Focus on writing naturally first. Use the 2‑word and 3‑word phrase analysis to spot repetitive phrasing — often more useful than single‑word density alone. Google's algorithms now use TF‑IDF and semantic analysis, so covering a topic comprehensively matters more than hitting an exact percentage.</p>
+                </div>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free. No registration, no hidden costs, no usage limits.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does my content stay private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All analysis runs entirely in your browser using JavaScript. Your text is never uploaded, stored, or transmitted anywhere.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the ideal keyword density for SEO?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Most SEO professionals recommend 1% to 3%. For a 1,000‑word article, that means your primary keyword appears roughly 10‑30 times. However, focus on natural writing — modern search engines value comprehensive topic coverage over mechanical density targets.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I check phrases, not just single words?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes! Use the Target Keywords mode to check any phrase (e.g. "keyword density checker"). Switch to N‑Gram Analysis mode to automatically find the most frequent 2‑word and 3‑word phrases in your entire content.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What are stop words and why filter them?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Stop words are common words like "a", "the", "in", "on", "is". Filtering them out ensures your analysis highlights meaningful keywords instead of cluttering the results with high‑frequency filler words.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does the tool work offline?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Once the page loads, yes. All processing is client‑side JavaScript, so you can disconnect from the internet and still run analyses.</div></div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div>
+                        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+                            <img src="/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            Textify.tools
+                        </a>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+                    </div>
+                    <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/keyword-density-checker">Keyword Density Checker</a></div>
+                    <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                </div>
+                <div class="footer-bottom">
+                    © www.textify.tools. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Mobile sidebar, search overlay, toast (outside wrapper for fixed positioning) -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
@@ -299,179 +539,8 @@
 
     <div class="toast" id="toast"></div>
 
-    <main>
-        <h1>Keyword Density Checker – Free SEO Content Analysis</h1>
-        <p class="subtitle"><strong>Textify.tools</strong> provides the most practical <strong>online keyword density checker</strong>. Paste your content, enter up to 5 keywords, and instantly see density percentages, n‑gram phrase analysis, and content stats. Everything runs locally in your browser — 100% private, zero uploads.</p>
-
-        <!-- Mode Switcher -->
-        <div class="mode-tabs">
-            <button class="mode-tab active" id="singleModeTab" onclick="switchMode('single')">Target Keywords</button>
-            <button class="mode-tab" id="ngramModeTab" onclick="switchMode('ngram')">Full N‑Gram Analysis</button>
-        </div>
-
-        <!-- Content textarea (shared) -->
-        <textarea id="inputText" placeholder="Paste your article, blog post, or any text content here..." style="height:160px;"></textarea>
-
-        <!-- Single Keyword mode inputs -->
-        <div id="singleKeywordArea">
-            <div class="settings-card">
-                <h3 style="margin:0 0 14px; color:var(--text);">🔍 Target Keywords (up to 5)</h3>
-                <div id="keywordInputs">
-                    <div class="keyword-input-row">
-                        <div class="input-group"><label>Keyword 1</label><input type="text" class="kw-input" placeholder="e.g. keyword density"></div>
-                    </div>
-                </div>
-                <button class="btn btn-outline" style="margin-top:8px;padding:8px 16px;font-size:13px;" onclick="addKeywordField()"><i data-lucide="plus" width="14" height="14"></i> Add Keyword</button>
-            </div>
-        </div>
-
-        <!-- N‑Gram mode (hidden initially) -->
-        <div id="ngramArea" style="display:none;">
-            <div class="settings-card">
-                <h3 style="margin:0 0 14px; color:var(--text);">📊 N‑Gram Settings</h3>
-                <div style="display:flex;gap:12px;flex-wrap:wrap;">
-                    <label class="style-label"><input type="radio" name="ngramLength" value="1" checked> 1‑Word</label>
-                    <label class="style-label"><input type="radio" name="ngramLength" value="2"> 2‑Word Phrases</label>
-                    <label class="style-label"><input type="radio" name="ngramLength" value="3"> 3‑Word Phrases</label>
-                    <label class="style-label"><input type="radio" name="ngramLength" value="all"> All (1+2+3)</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="settings-card">
-            <h3 style="margin:0 0 14px; color:var(--text);">⚙️ Analysis Options</h3>
-            <div style="display:flex;gap:24px;flex-wrap:wrap;">
-                <label class="style-label"><input type="checkbox" id="filterStopWords" checked> Filter stop words</label>
-                <label class="style-label"><input type="checkbox" id="caseSensitive"> Case‑sensitive matching</label>
-                <label class="style-label"><input type="checkbox" id="showTopWords"> Show top 20 frequent words</label>
-            </div>
-        </div>
-
-        <div style="display:flex;gap:10px;margin-bottom:30px;">
-            <button class="btn btn-primary" id="analyzeBtn" onclick="analyzeContent()"><i data-lucide="search-check" width="18" height="18"></i> Analyze Content</button>
-            <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-        </div>
-
-        <div class="output-area" id="outputArea">
-            <!-- Content overview stats -->
-            <div class="stats-overview" id="statsOverview"></div>
-
-            <!-- Density results table -->
-            <h3 style="margin:20px 0 12px;" id="resultsHeading">Keyword Density Results</h3>
-            <div class="table-wrapper">
-                <table class="density-table" id="resultsTable">
-                    <thead>
-                        <tr>
-                            <th onclick="sortTable(0)" style="width:40%;">Keyword / Phrase <i data-lucide="arrow-up-down" width="12" height="12" style="display:inline;vertical-align:middle;"></i></th>
-                            <th onclick="sortTable(1)" style="width:15%;">Count <i data-lucide="arrow-up-down" width="12" height="12" style="display:inline;vertical-align:middle;"></i></th>
-                            <th onclick="sortTable(2)" style="width:20%;">Density <i data-lucide="arrow-up-down" width="12" height="12" style="display:inline;vertical-align:middle;"></i></th>
-                            <th style="width:25%;">Density Bar</th>
-                        </tr>
-                    </thead>
-                    <tbody id="resultsBody">
-                        <tr><td colspan="4" style="text-align:center;padding:30px;color:var(--text-light);">Enter content and click "Analyze Content" to see results.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Copy & Download -->
-            <div class="grid-2" style="margin-top:18px;">
-                <button class="btn btn-primary" id="copyBtn" onclick="copyResults()"><i data-lucide="copy" width="18" height="18"></i> Copy Results</button>
-                <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadResults()"><i data-lucide="download" width="18" height="18"></i> Download CSV</button>
-            </div>
-        </div>
-
-        <div style="margin-top:60px;border-top:1px solid var(--line);padding-top:30px;">
-            <h2>What Is Keyword Density?</h2>
-            <p>Keyword density is the percentage of times a keyword or phrase appears in your text compared to the total word count. It is calculated as: <strong>(Keyword Occurrences ÷ Total Words) × 100</strong>. For example, if your 500‑word article uses the phrase "SEO tips" 10 times, the density is 2% — right in the sweet spot.</p>
-            <p>Search engines use keyword density (along with many other signals) to understand what a page is about. A healthy density — generally <strong>1% to 3%</strong> — shows relevance without over‑optimisation. Below 0.5% may indicate thin coverage, while above 4% risks triggering keyword‑stuffing signals that can hurt rankings.</p>
-
-            <h2>Why Choose Textify.tools Keyword Density Checker?</h2>
-            <div style="background: var(--accent); padding: 20px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px;">
-                <ul style="margin-bottom:0;">
-                    <li><strong>100% Client‑Side Processing</strong> — Your content never leaves your device. No uploads, no server round‑trips, no privacy concerns.</li>
-                    <li><strong>Single‑Word & Phrase Analysis</strong> — Check 1‑word, 2‑word, and 3‑word phrases. Multi‑word phrases often reveal more meaningful patterns than isolated word counts.</li>
-                    <li><strong>Targeted Keyword Checking</strong> — Enter up to 5 specific keywords and get individual density scores, counts, and visual bars for each one.</li>
-                    <li><strong>Smart Stop‑Word Filtering</strong> — Automatically skips common words (a, the, in, on, etc.) so your analysis focuses on meaningful terms.</li>
-                    <li><strong>Visual Density Bars</strong> — Colour‑coded bars instantly show whether each keyword is in the low (&lt;0.5%), ideal (1‑3%), watch (3‑4%), or over‑optimised (&gt;4%) range.</li>
-                    <li><strong>Instant, Free, Unlimited</strong> — No sign‑up, no limits, no hidden fees.</li>
-                </ul>
-            </div>
-
-            <h2>How to Use the Keyword Density Checker</h2>
-            <h3>Target Keywords Mode</h3>
-            <ol>
-                <li><strong>Paste your content</strong> into the main text area — any blog draft, product page, or article.</li>
-                <li><strong>Enter up to 5 keywords</strong> or phrases you want to check.</li>
-                <li><strong>Toggle options</strong> — stop‑word filtering, case sensitivity, and top‑20 frequent words.</li>
-                <li><strong>Click "Analyze Content"</strong> — results appear instantly with density scores and colour‑coded bars.</li>
-                <li><strong>Copy or download</strong> the report as plain text or CSV.</li>
-            </ol>
-            <h3>Full N‑Gram Analysis Mode</h3>
-            <ol>
-                <li><strong>Switch to "Full N‑Gram Analysis"</strong> using the tabs above.</li>
-                <li><strong>Select phrase length</strong> — 1‑word, 2‑word, 3‑word, or all combined.</li>
-                <li><strong>Click "Analyze Content"</strong> — the tool scans every n‑gram and ranks them by frequency.</li>
-                <li><strong>Review the table</strong> — sort by word, count, or density to spot overused phrases at a glance.</li>
-            </ol>
-
-            <h2>Keyword Density Ranges & What They Mean</h2>
-            <div class="table-wrapper">
-                <table class="info-table">
-                    <thead><tr><th>Density Range</th><th>Status</th><th>What It Means</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>Below 0.5%</strong></td><td><span class="density-badge low">Low</span></td><td>The keyword may be under‑represented. Consider adding more topical coverage.</td></tr>
-                        <tr><td><strong>0.5% – 1%</strong></td><td><span class="density-badge watch">Watch</span></td><td>Acceptable for long‑form content, but a slight increase could improve relevance.</td></tr>
-                        <tr><td><strong>1% – 3%</strong></td><td><span class="density-badge ideal">Ideal ✓</span></td><td>The sweet spot. Strong relevance signal without appearing over‑optimised.</td></tr>
-                        <tr><td><strong>3% – 4%</strong></td><td><span class="density-badge watch">Watch</span></td><td>Borderline. The keyword appears quite often — ensure it reads naturally.</td></tr>
-                        <tr><td><strong>Above 4%</strong></td><td><span class="density-badge over">Over‑Optimised</span></td><td>Risk of keyword stuffing. Consider reducing frequency or using synonyms.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2>Real‑World Use Cases</h2>
-            <ul>
-                <li><strong>Bloggers & Content Writers:</strong> Check drafts before publishing to ensure keywords appear naturally — not too sparse, not stuffed.</li>
-                <li><strong>SEO Professionals:</strong> Audit client content for over‑optimisation and identify opportunities to strengthen topical relevance.</li>
-                <li><strong>E‑commerce Managers:</strong> Analyse product descriptions to maintain healthy keyword balance across category and product pages.</li>
-                <li><strong>Freelance Writers:</strong> Verify that client keyword requirements are met without crossing into spam territory.</li>
-                <li><strong>Students & Researchers:</strong> Check term frequency in academic writing to ensure key concepts are adequately covered.</li>
-            </ul>
-
-            <div class="tip-box">
-                <p style="margin:0;font-size:14px;"><strong>💡 Pro Tip:</strong> Density is a guide, not a rigid rule. Focus on writing naturally first. Use the 2‑word and 3‑word phrase analysis to spot repetitive phrasing — often more useful than single‑word density alone. Google's algorithms now use TF‑IDF and semantic analysis, so covering a topic comprehensively matters more than hitting an exact percentage.</p>
-            </div>
-
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free. No registration, no hidden costs, no usage limits.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does my content stay private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All analysis runs entirely in your browser using JavaScript. Your text is never uploaded, stored, or transmitted anywhere.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the ideal keyword density for SEO?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Most SEO professionals recommend 1% to 3%. For a 1,000‑word article, that means your primary keyword appears roughly 10‑30 times. However, focus on natural writing — modern search engines value comprehensive topic coverage over mechanical density targets.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I check phrases, not just single words?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes! Use the Target Keywords mode to check any phrase (e.g. "keyword density checker"). Switch to N‑Gram Analysis mode to automatically find the most frequent 2‑word and 3‑word phrases in your entire content.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What are stop words and why filter them?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Stop words are common words like "a", "the", "in", "on", "is". Filtering them out ensures your analysis highlights meaningful keywords instead of cluttering the results with high‑frequency filler words.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does the tool work offline?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Once the page loads, yes. All processing is client‑side JavaScript, so you can disconnect from the internet and still run analyses.</div></div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                    <img src="/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify.tools
-                </a>
-                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-            </div>
-            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-            <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/keyword-density-checker">Keyword Density Checker</a></div>
-            <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-        </div>
-        <div class="footer-bottom">
-            © www.textify.tools. All rights reserved.
-        </div>
-    </footer>
-
     <script>
-        // ---- Complete tools list ----
+        // ---- Complete tools list (same as before) ----
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -645,7 +714,6 @@
             if (keywordFieldCount <= 1) { showToast('Keep at least one keyword field'); return; }
             btn.parentElement.remove();
             keywordFieldCount--;
-            // Renumber
             const labels = document.querySelectorAll('#keywordInputs .input-group label');
             labels.forEach((l, i) => l.textContent = `Keyword ${i + 1}`);
         }
@@ -730,7 +798,6 @@
                                 results.push({ word: kw, count, density });
                             });
                         } else {
-                            // N‑gram mode
                             const ngSel = document.querySelector('input[name="ngramLength"]:checked');
                             const ngVal = ngSel ? ngSel.value : '1';
                             const ngrams = [];
@@ -748,11 +815,9 @@
                                     ngrams.push({ word: gram, count, density: (count / totalWords) * 100 });
                                 });
                             }
-                            // Sort by count desc, take top 50
                             results = ngrams.sort((a, b) => b.count - a.count).slice(0, 50);
                         }
 
-                        // If top words requested and in single mode, add top 20
                         if (showTop && currentMode === 'single') {
                             const freqMap = {};
                             words.forEach(w => { freqMap[w] = (freqMap[w] || 0) + 1; });
@@ -760,7 +825,6 @@
                                 .sort((a, b) => b[1] - a[1])
                                 .slice(0, 20)
                                 .map(([word, count]) => ({ word, count, density: (count / totalWords) * 100 }));
-                            // Merge with existing results (deduplicate)
                             const existingWords = new Set(results.map(r => r.word.toLowerCase()));
                             topWords.forEach(tw => {
                                 if (!existingWords.has(tw.word.toLowerCase())) {
@@ -776,7 +840,6 @@
                         const paragraphs = text.split(/\n\s*\n/).filter(p => p.trim()).length;
                         const readTime = Math.max(1, Math.ceil(totalWords / 200));
 
-                        // Render stats
                         document.getElementById('statsOverview').innerHTML = `
                             <div class="stat-card"><div class="stat-value">${totalWords.toLocaleString()}</div><div class="stat-label">Total Words</div></div>
                             <div class="stat-card"><div class="stat-value">${charsWithSpaces.toLocaleString()}</div><div class="stat-label">Characters (with spaces)</div></div>
@@ -786,7 +849,6 @@
                             <div class="stat-card"><div class="stat-value">~${readTime} min</div><div class="stat-label">Reading Time</div></div>
                         `;
 
-                        // Render table
                         if (results.length === 0) {
                             document.getElementById('resultsBody').innerHTML = '<tr><td colspan="4" style="text-align:center;padding:30px;color:var(--text-light);">No keywords found. Try adjusting your filters.</td></tr>';
                         } else {
@@ -819,7 +881,6 @@
             });
         }
 
-        // ---- Sort ----
         let sortCol = -1, sortDir = 1;
         function sortTable(col) {
             if (sortCol === col) sortDir *= -1;
@@ -885,7 +946,6 @@
             document.getElementById('outputArea').style.display = 'none';
             document.getElementById('resultsBody').innerHTML = '<tr><td colspan="4" style="text-align:center;padding:30px;color:var(--text-light);">Enter content and click "Analyze Content" to see results.</td></tr>';
             document.getElementById('statsOverview').innerHTML = '';
-            // Reset keyword inputs
             document.getElementById('keywordInputs').innerHTML = '<div class="keyword-input-row"><div class="input-group"><label>Keyword 1</label><input type="text" class="kw-input" placeholder="e.g. keyword density"></div></div>';
             keywordFieldCount = 1;
             document.getElementById('filterStopWords').checked = true;
@@ -896,7 +956,6 @@
             lucide.createIcons();
         }
 
-        // Initialize
         buildMegaMenu();
         buildMobileToolsMenu();
         buildSearchList();
