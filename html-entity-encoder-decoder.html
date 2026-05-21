@@ -67,7 +67,7 @@
             --card: #1e293b;
             --input-bg: #1e293b;
             --input-border: #334155;
-            --footer-bg: #1e293b;
+            --footer-bg: #0f172a;
             --footer-text: #e2e8f0;
             --footer-heading: #ffffff;
             --footer-link-hover: #ffffff;
@@ -91,18 +91,38 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg); color: var(--text); min-height: 100vh;
-            display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+        .page-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* HEADER */
         header {
-            border-bottom: 1px solid var(--line); background: var(--bg);
-            display: flex; justify-content: center; align-items: center;
-            padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-            position: relative; z-index: 100;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            height: 64px;
+            transition: border-color 0.3s;
+            background: transparent;
         }
-        .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -163,7 +183,13 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
+        /* MAIN */
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            width: 100%;
+            background: transparent;
+        }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
         p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
 
@@ -194,52 +220,196 @@
         .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
-        
-        footer {
-            background: var(--footer-bg); color: var(--footer-text);
-            padding: 60px 20px 25px; margin-top: 60px;
-            border-top: 1px solid var(--footer-border);
-        }
-        .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
-        @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
-        .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-        .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
-        .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
-        @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } }
-        @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
         .code-block { background: var(--hover); padding: 4px 8px; border-radius: 6px; font-family: monospace; font-size: 13px; }
         .tip-box { background: var(--accent); padding: 18px 20px; border-left: 4px solid #16a34a; border-radius: 8px; margin-bottom: 22px; }
         body.dark-mode .tip-box { background: #052e16; }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--footer-border);
+            padding: 40px 20px 25px;
+            background: transparent;
+        }
+        .footer-container { width: 100%; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+            gap: 35px;
+        }
+        @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-grid h5 {
+            color: var(--footer-heading);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+        .footer-grid a {
+            color: var(--footer-text);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 9px;
+            font-size: 13px;
+            transition: color 0.2s, padding-left 0.2s;
+        }
+        .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
+        .footer-bottom {
+            width: 100%;
+            margin-top: 35px;
+            padding-top: 18px;
+            border-top: 1px solid var(--footer-border);
+            text-align: center;
+            font-size: 13px;
+            color: var(--footer-text);
+        }
+
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
+            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
+        }
+        @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     </style>
 
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.Tools
-            </a>
-            <div class="header-right">
-                <div class="desktop-nav">
-                    <div class="tools-menu-container">
-                        <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-                        <div class="tools-mega-menu" id="megaMenu"></div>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    Textify.Tools
+                </a>
+                <div class="header-right">
+                    <div class="desktop-nav">
+                        <div class="tools-menu-container">
+                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                            <div class="tools-mega-menu" id="megaMenu"></div>
+                        </div>
+                        <a href="privacy">Privacy</a>
+                        <a href="/blog">Blog</a>
                     </div>
-                    <a href="privacy">Privacy</a>
-                    <a href="/blog">Blog</a>
+                    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                    </button>
+                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                        <span class="menu-icon"><span></span><span></span></span>
+                    </button>
                 </div>
-                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                    <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-                </button>
-                <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-                    <span class="menu-icon"><span></span><span></span></span>
-                </button>
             </div>
-        </div>
-    </header>
+        </header>
+
+        <main>
+            <h1>HTML Entity Encoder / Decoder</h1>
+            <p class="subtitle">Convert special characters to HTML entities and back. Supports named entities, decimal codes, and hexadecimal codes. All processing happens locally – your data never leaves your browser.</p>
+
+            <div class="grid-2">
+                <div class="input-group">
+                    <label for="operation">Operation</label>
+                    <select id="operation">
+                        <option value="encode">Encode (Text → HTML Entities)</option>
+                        <option value="decode">Decode (HTML Entities → Text)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="entityType">Entity Format (when encoding)</label>
+                    <select id="entityType">
+                        <option value="named">Named entities (e.g., &amp;lt;)</option>
+                        <option value="decimal">Decimal codes (e.g., &amp;#60;)</option>
+                        <option value="hex">Hexadecimal codes (e.g., &amp;#x3C;)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <label><input type="checkbox" id="encodeAll"> Encode ALL characters (convert everything to entities)</label>
+                <label><input type="checkbox" id="preserveLineBreaks"> Preserve line breaks (wrap in &lt;pre&gt;)</label>
+            </div>
+
+            <textarea id="inputText" placeholder="Paste your text or HTML entities here...\n\nExample for encoding:\n<div>Hello World & Welcome!</div>\n\nExample for decoding:\n&amp;lt;div&amp;gt;Hello World &amp;amp; Welcome!&amp;lt;/div&amp;gt;"></textarea>
+
+            <div style="display:flex; gap:10px; margin-bottom:30px;">
+                <button class="btn btn-primary" id="processBtn" onclick="processText()"><i data-lucide="code-2" width="18" height="18"></i> Encode / Decode</button>
+                <button class="btn btn-outline" onclick="clearTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+                <button class="btn btn-outline" id="swapBtn" onclick="swapInputOutput()"><i data-lucide="arrow-left-right" width="18" height="18"></i> Swap</button>
+            </div>
+
+            <div class="output-area" id="outputArea">
+                <div class="char-count-box" id="charCountInfo"></div>
+                <textarea id="outputText" readonly></textarea>
+                <div style="display:flex; gap:10px; margin-top:15px;">
+                    <button class="btn btn-primary" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Result</button>
+                    <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+                </div>
+            </div>
+
+            <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
+                <div class="section">
+                    <h2>How to Use the HTML Entity Encoder/Decoder</h2>
+                    <ol style="margin-bottom:20px;">
+                        <li>Select <strong>Encode</strong> to convert special characters (<code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code>, etc.) into HTML entities, or <strong>Decode</strong> to convert entities back to characters.</li>
+                        <li>When encoding, choose your desired entity format: <strong>Named</strong> (e.g., <code>&amp;lt;</code>), <strong>Decimal</strong> (e.g., <code>&amp;#60;</code>), or <strong>Hexadecimal</strong> (e.g., <code>&amp;#x3C;</code>).</li>
+                        <li>Optionally enable <strong>"Encode ALL characters"</strong> to convert every character (including letters) into entities, or <strong>"Preserve line breaks"</strong> to wrap the output in <code>&lt;pre&gt;</code> tags for better readability.</li>
+                        <li>Paste your text into the input area and click <strong>"Encode / Decode"</strong> – the result appears instantly.</li>
+                        <li>Copy the result to your clipboard or download it as a .txt file.</li>
+                    </ol>
+                </div>
+
+                <div class="section">
+                    <h2>What Are HTML Entities?</h2>
+                    <p>HTML entities are special codes that represent characters that have a specific meaning in HTML. For example, the less‑than sign (<code>&lt;</code>) is interpreted as the start of an HTML tag. To display it as text, you use the entity <code>&amp;lt;</code>.</p>
+                    <p>Common HTML entities include:</p>
+                    <ul>
+                        <li><code>&amp;lt;</code> → <code>&lt;</code> (less than)</li>
+                        <li><code>&amp;gt;</code> → <code>&gt;</code> (greater than)</li>
+                        <li><code>&amp;amp;</code> → <code>&amp;</code> (ampersand)</li>
+                        <li><code>&amp;quot;</code> → <code>"</code> (double quotation mark)</li>
+                        <li><code>&amp;apos;</code> → <code>'</code> (apostrophe)</li>
+                        <li><code>&amp;nbsp;</code> → (non‑breaking space)</li>
+                    </ul>
+                    <p>Entities can also be represented using decimal codes (<code>&amp;#60;</code>) or hexadecimal codes (<code>&amp;#x3C;</code>).</p>
+                </div>
+
+                <div class="section">
+                    <h2>Why Use an HTML Entity Converter?</h2>
+                    <ul>
+                        <li><strong>Prevent XSS attacks:</strong> Encoding special characters is a crucial security practice when displaying user‑generated content.</li>
+                        <li><strong>Display code snippets:</strong> Convert HTML tags into entities so they appear as plain text on your website without being rendered.</li>
+                        <li><strong>Email development:</strong> Some email clients strip HTML tags; encoding ensures your content displays correctly.</li>
+                        <li><strong>Debugging:</strong> Easily inspect encoded HTML from APIs or databases.</li>
+                    </ul>
+                    <div class="tip-box">
+                        <p><strong>💡 Pro tip:</strong> This tool is completely client‑side. Your text never leaves your browser – 100% private and secure.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What HTML entities are supported?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool supports all named HTML5 entities (over 2,000), plus decimal and hexadecimal entity codes. It's based on the browser's built‑in textarea decoding, so it handles everything a modern browser does.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my data safe?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All processing happens locally in your browser. Your text is never uploaded to any server.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What's the difference between named, decimal, and hex entities?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Named entities are human‑readable (e.g., <code>&amp;lt;</code>). Decimal entities use Unicode code points (e.g., <code>&amp;#60;</code>). Hex entities use hexadecimal notation (e.g., <code>&amp;#x3C;</code>). All three are valid HTML and are interpreted the same way by browsers.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it support Chinese or other Unicode characters?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes! When encoding, non‑ASCII characters are converted to numeric entities. When decoding, all valid entities are converted back to their original characters, regardless of language.</div></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div>
+                        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            Textify.Tools
+                        </a>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+                    </div>
+                    <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+                    <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                </div>
+                <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
 
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
@@ -275,118 +445,8 @@
 
     <div class="toast" id="toast"></div>
 
-    <main>
-        <h1>HTML Entity Encoder / Decoder</h1>
-        <p class="subtitle">Convert special characters to HTML entities and back. Supports named entities, decimal codes, and hexadecimal codes. All processing happens locally – your data never leaves your browser.</p>
-
-        <div class="grid-2">
-            <div class="input-group">
-                <label for="operation">Operation</label>
-                <select id="operation">
-                    <option value="encode">Encode (Text → HTML Entities)</option>
-                    <option value="decode">Decode (HTML Entities → Text)</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="entityType">Entity Format (when encoding)</label>
-                <select id="entityType">
-                    <option value="named">Named entities (e.g., &amp;lt;)</option>
-                    <option value="decimal">Decimal codes (e.g., &amp;#60;)</option>
-                    <option value="hex">Hexadecimal codes (e.g., &amp;#x3C;)</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="checkbox-group">
-            <label><input type="checkbox" id="encodeAll"> Encode ALL characters (convert everything to entities)</label>
-            <label><input type="checkbox" id="preserveLineBreaks"> Preserve line breaks (wrap in &lt;pre&gt;)</label>
-        </div>
-
-        <textarea id="inputText" placeholder="Paste your text or HTML entities here...\n\nExample for encoding:\n<div>Hello World & Welcome!</div>\n\nExample for decoding:\n&amp;lt;div&amp;gt;Hello World &amp;amp; Welcome!&amp;lt;/div&amp;gt;"></textarea>
-
-        <div style="display:flex; gap:10px; margin-bottom:30px;">
-            <button class="btn btn-primary" id="processBtn" onclick="processText()"><i data-lucide="code-2" width="18" height="18"></i> Encode / Decode</button>
-            <button class="btn btn-outline" onclick="clearTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-            <button class="btn btn-outline" id="swapBtn" onclick="swapInputOutput()"><i data-lucide="arrow-left-right" width="18" height="18"></i> Swap</button>
-        </div>
-
-        <div class="output-area" id="outputArea">
-            <div class="char-count-box" id="charCountInfo"></div>
-            <textarea id="outputText" readonly></textarea>
-            <div style="display:flex; gap:10px; margin-top:15px;">
-                <button class="btn btn-primary" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Result</button>
-                <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
-            </div>
-        </div>
-
-        <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
-            <div class="section">
-                <h2>How to Use the HTML Entity Encoder/Decoder</h2>
-                <ol style="margin-bottom:20px;">
-                    <li>Select <strong>Encode</strong> to convert special characters (<code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code>, etc.) into HTML entities, or <strong>Decode</strong> to convert entities back to characters.</li>
-                    <li>When encoding, choose your desired entity format: <strong>Named</strong> (e.g., <code>&amp;lt;</code>), <strong>Decimal</strong> (e.g., <code>&amp;#60;</code>), or <strong>Hexadecimal</strong> (e.g., <code>&amp;#x3C;</code>).</li>
-                    <li>Optionally enable <strong>"Encode ALL characters"</strong> to convert every character (including letters) into entities, or <strong>"Preserve line breaks"</strong> to wrap the output in <code>&lt;pre&gt;</code> tags for better readability.</li>
-                    <li>Paste your text into the input area and click <strong>"Encode / Decode"</strong> – the result appears instantly.</li>
-                    <li>Copy the result to your clipboard or download it as a .txt file.</li>
-                </ol>
-            </div>
-
-            <div class="section">
-                <h2>What Are HTML Entities?</h2>
-                <p>HTML entities are special codes that represent characters that have a specific meaning in HTML. For example, the less‑than sign (<code>&lt;</code>) is interpreted as the start of an HTML tag. To display it as text, you use the entity <code>&amp;lt;</code>.</p>
-                <p>Common HTML entities include:</p>
-                <ul>
-                    <li><code>&amp;lt;</code> → <code>&lt;</code> (less than)</li>
-                    <li><code>&amp;gt;</code> → <code>&gt;</code> (greater than)</li>
-                    <li><code>&amp;amp;</code> → <code>&amp;</code> (ampersand)</li>
-                    <li><code>&amp;quot;</code> → <code>"</code> (double quotation mark)</li>
-                    <li><code>&amp;apos;</code> → <code>'</code> (apostrophe)</li>
-                    <li><code>&amp;nbsp;</code> → (non‑breaking space)</li>
-                </ul>
-                <p>Entities can also be represented using decimal codes (<code>&amp;#60;</code>) or hexadecimal codes (<code>&amp;#x3C;</code>).</p>
-            </div>
-
-            <div class="section">
-                <h2>Why Use an HTML Entity Converter?</h2>
-                <ul>
-                    <li><strong>Prevent XSS attacks:</strong> Encoding special characters is a crucial security practice when displaying user‑generated content.</li>
-                    <li><strong>Display code snippets:</strong> Convert HTML tags into entities so they appear as plain text on your website without being rendered.</li>
-                    <li><strong>Email development:</strong> Some email clients strip HTML tags; encoding ensures your content displays correctly.</li>
-                    <li><strong>Debugging:</strong> Easily inspect encoded HTML from APIs or databases.</li>
-                </ul>
-                <div class="tip-box">
-                    <p><strong>💡 Pro tip:</strong> This tool is completely client‑side. Your text never leaves your browser – 100% private and secure.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What HTML entities are supported?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool supports all named HTML5 entities (over 2,000), plus decimal and hexadecimal entity codes. It's based on the browser's built‑in textarea decoding, so it handles everything a modern browser does.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my data safe?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All processing happens locally in your browser. Your text is never uploaded to any server.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What's the difference between named, decimal, and hex entities?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Named entities are human‑readable (e.g., <code>&amp;lt;</code>). Decimal entities use Unicode code points (e.g., <code>&amp;#60;</code>). Hex entities use hexadecimal notation (e.g., <code>&amp;#x3C;</code>). All three are valid HTML and are interpreted the same way by browsers.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it support Chinese or other Unicode characters?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes! When encoding, non‑ASCII characters are converted to numeric entities. When decoding, all valid entities are converted back to their original characters, regardless of language.</div></div>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify.Tools
-                </a>
-                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-            </div>
-            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-            <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-            <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-        </div>
-        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-    </footer>
-
     <script>
-        // Complete tools list (80+ tools) matching index.html
+        // Complete tools list (80+ tools)
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -546,7 +606,7 @@
             if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
 
-        // HTML Entity Encoder/Decoder Logic
+        // HTML Entity Encoder/Decoder Logic (unchanged)
         function encodeToEntity(char, format) {
             const code = char.charCodeAt(0);
             if (format === 'named') {
@@ -613,7 +673,6 @@
                     }
                     info = `<strong>✅ Encoded successfully!</strong> &nbsp; Original: ${input.length.toLocaleString()} chars &nbsp; | &nbsp; Encoded: ${result.length.toLocaleString()} chars<br>Entity format: ${entityFormat === 'named' ? 'Named entities' : entityFormat === 'decimal' ? 'Decimal codes' : 'Hexadecimal codes'}`;
                 } else {
-                    // Decode using textarea approach (handles all HTML entities)
                     const textarea = document.createElement('textarea');
                     textarea.innerHTML = input;
                     result = textarea.value;
