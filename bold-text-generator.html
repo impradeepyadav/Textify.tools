@@ -67,7 +67,7 @@
             --card: #1e293b;
             --input-bg: #1e293b;
             --input-border: #334155;
-            --footer-bg: #1e293b;
+            --footer-bg: #0f172a;
             --footer-text: #e2e8f0;
             --footer-heading: #ffffff;
             --footer-link-hover: #ffffff;
@@ -91,18 +91,39 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg); color: var(--text); min-height: 100vh;
-            display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .page-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* HEADER */
         header {
-            border-bottom: 1px solid var(--line); background: var(--bg);
-            display: flex; justify-content: center; align-items: center;
-            padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-            position: relative; z-index: 100;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            height: 64px;
+            transition: border-color 0.3s;
+            background: transparent;
         }
-        .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -118,7 +139,6 @@
         .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
-
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
         .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
@@ -128,7 +148,6 @@
         .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
         .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
-
         .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
         .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
         .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
@@ -150,7 +169,6 @@
         .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
         .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
         .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
-
         .search-overlay-full { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--overlay-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 300; display: flex; flex-direction: column; align-items: center; padding-top: 80px; opacity: 0; visibility: hidden; transition: 0.3s; }
         .search-overlay-full.active { opacity: 1; visibility: visible; }
         .search-container { width: 90%; max-width: 550px; display: flex; flex-direction: column; max-height: 80vh; }
@@ -166,7 +184,13 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
+        /* MAIN */
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            width: 100%;
+            background: transparent;
+        }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
         .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
 
@@ -197,54 +221,200 @@
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
+        /* FOOTER */
         footer {
-            background: var(--footer-bg); color: var(--footer-text);
-            padding: 60px 20px 25px; margin-top: 60px;
             border-top: 1px solid var(--footer-border);
+            padding: 40px 20px 25px;
+            background: transparent;
         }
-        .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+        .footer-container { width: 100%; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+            gap: 35px;
+        }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
         .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+        .footer-bottom {
+            width: 100%;
+            margin-top: 35px;
+            padding-top: 18px;
+            border-top: 1px solid var(--footer-border);
+            text-align: center;
+            font-size: 13px;
+            color: var(--footer-text);
+        }
+
+        .spinner { border: 3px solid rgba(128,128,128,0.25); border-radius: 50%; border-top-color: var(--primary); width: 22px; height: 22px; animation: spin 0.7s linear infinite; display: inline-block; }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
         }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
-        .spinner { border: 3px solid rgba(128,128,128,0.25); border-radius: 50%; border-top-color: var(--primary); width: 22px; height: 22px; animation: spin 0.7s linear infinite; display: inline-block; }
-        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.Tools
-            </a>
-            <div class="header-right">
-                <div class="desktop-nav">
-                    <div class="tools-menu-container">
-                        <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-                        <div class="tools-mega-menu" id="megaMenu"></div>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    Textify.Tools
+                </a>
+                <div class="header-right">
+                    <div class="desktop-nav">
+                        <div class="tools-menu-container">
+                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                            <div class="tools-mega-menu" id="megaMenu"></div>
+                        </div>
+                        <a href="privacy">Privacy</a>
+                        <a href="/blog">Blog</a>
                     </div>
-                    <a href="privacy">Privacy</a>
-                    <a href="/blog">Blog</a>
+                    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                    </button>
+                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                        <span class="menu-icon"><span></span><span></span></span>
+                    </button>
                 </div>
-                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                    <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-                </button>
-                <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-                    <span class="menu-icon"><span></span><span></span></span>
-                </button>
             </div>
-        </div>
-    </header>
+        </header>
+
+        <main>
+            <h1>Bold Text Generator</h1>
+            <p class="subtitle">Create bold, heavy, and black Unicode text instantly. Choose from 14 different styles – perfect for social media bios, headlines, and creative projects. All processing happens locally in your browser.</p>
+
+            <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
+
+            <div class="grid-2">
+                <div class="input-group">
+                    <label for="boldStyle">Bold Style</label>
+                    <select id="boldStyle">
+                        <option value="bold">𝐁𝐨𝐥𝐝 (Mathematical Bold)</option>
+                        <option value="heavy">𝗛𝗲𝗮𝘃𝘆 (Sans-serif Bold)</option>
+                        <option value="black">𝙱𝚕𝚊𝚌𝚔 (Monospace Bold)</option>
+                        <option value="double-struck">ℂ𝕕𝕠𝕦𝕓𝕝𝕖 𝕊𝕥𝕣𝕦𝕔𝕜</option>
+                        <option value="bold-italic">𝑩𝒐𝒍𝒅 𝑰𝒕𝒂𝒍𝒊𝒄</option>
+                        <option value="bold-script">𝓑𝓸𝓵𝓭 𝓢𝓬𝓻𝓲𝓹𝓽</option>
+                        <option value="bold-fraktur">𝕭𝖔𝖑𝖉 𝕱𝖗𝖆𝖐𝖙𝖚𝖗</option>
+                        <option value="sans-serif-bold">𝗦𝗮𝗻𝘀-𝗦𝗲𝗿𝗶𝗳 𝗕𝗼𝗹𝗱</option>
+                        <option value="sans-serif-bold-italic">𝙎𝙖𝙣𝙨-𝙎𝙚𝙧𝙞𝙛 𝘽𝙤𝙡𝙙 𝙄𝙩𝙖𝙡𝙞𝙘</option>
+                        <option value="monospace-bold">𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎 𝙱𝚘𝚕𝚍</option>
+                        <option value="bold-italic-script">𝓑𝓸𝓵𝓭 𝓘𝓽𝓪𝓵𝓲𝓬 𝓢𝓬𝓻𝓲𝓹𝓽</option>
+                        <option value="heavy-italic">𝙷𝚎𝚊𝚟𝚢 𝙸𝚝𝚊𝚕𝚒𝚌</option>
+                        <option value="black-italic">𝘽𝙡𝙖𝙘𝙠 𝙄𝙩𝙖𝙡𝙞𝙘</option>
+                        <option value="bold-wide">𝗕𝗼𝗹𝗱 𝗪𝗶𝗱𝗲</option>
+                    </select>
+                </div>
+                <div style="display:flex;align-items:flex-end;">
+                    <button class="btn btn-primary" id="convertBtn" onclick="convertText()"><i data-lucide="bold" width="18" height="18"></i> Convert to Bold</button>
+                </div>
+            </div>
+
+            <div class="output-area" id="outputArea">
+                <div class="char-count-box" id="charCountInfo"></div>
+                <textarea id="outputText" readonly></textarea>
+                <div class="grid-2" style="margin-top:15px;">
+                    <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
+                    <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+                </div>
+            </div>
+
+            <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
+                <div class="section">
+                    <h2>How to Use the Bold Text Generator</h2>
+                    <p>Creating bold text for social media, documents, or creative projects is straightforward with our tool. Just follow these steps:</p>
+                    <ol>
+                        <li><strong>Enter your text</strong> – Paste or type any text you want to convert into the input area above.</li>
+                        <li><strong>Choose a bold style</strong> – Select from 14 different Unicode bold styles, including mathematical bold, sans-serif bold, monospace bold, double-struck, bold italic, and more.</li>
+                        <li><strong>Convert the text</strong> – Click the "Convert to Bold" button to instantly transform your text into the selected bold style.</li>
+                        <li><strong>Copy or download</strong> – Use the "Copy Text" button to copy the bold text to your clipboard for instant use, or download it as a .txt file.</li>
+                    </ol>
+                    <p>All processing happens directly in your browser – your text never leaves your device, ensuring complete privacy.</p>
+                </div>
+
+                <div class="section">
+                    <h2>What Are Unicode Bold Fonts?</h2>
+                    <p>Unicode bold fonts are special character sets that use Unicode symbols to create bold, heavy, or black variations of regular text. Unlike standard CSS bold formatting (which only works in rich-text environments), Unicode bold characters work everywhere – text messages, social media bios, email subject lines, and even plain text documents. Each bold style uses a different Unicode block, giving you a wide variety of visual options.</p>
+                </div>
+
+                <div class="section">
+                    <h2>Complete Style Reference</h2>
+                    <div class="table-wrapper" style="overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px;">
+                        <table class="info-table" style="width:100%; border-collapse:collapse;">
+                            <thead><tr style="border-bottom:1px solid var(--line);"><th style="padding:12px; text-align:left;">Style</th><th style="padding:12px; text-align:left;">Example</th><th style="padding:12px; text-align:left;">Best For</th></tr></thead>
+                            <tbody>
+                                <tr><td style="padding:12px;"><strong>𝐁𝐨𝐥𝐝 (Mathematical Bold)</strong></td><td style="padding:12px;">𝐓𝐡𝐢𝐬 𝐢𝐬 𝐛𝐨𝐥𝐝</td><td style="padding:12px;">General use, social media, WhatsApp</td></tr>
+                                <tr><td style="padding:12px;"><strong>𝗛𝗲𝗮𝘃𝘆 (Sans-serif Bold)</strong></td><td style="padding:12px;">𝗧𝗵𝗶𝘀 𝗶𝘀 𝗵𝗲𝗮𝘃𝘆</td><td style="padding:12px;">Bold sans-serif look</td></tr>
+                                <tr><td style="padding:12px;"><strong>𝙱𝚕𝚊𝚌𝚔 (Monospace Bold)</strong></td><td style="padding:12px;">𝙱𝚕𝚊𝚌𝚔 𝚝𝚎𝚡𝚝</td><td style="padding:12px;">Code & terminal style</td></tr>
+                                <tr><td style="padding:12px;"><strong>ℂ𝕕𝕠𝕦𝕓𝕝𝕖 𝕊𝕥𝕣𝕦𝕔𝕜</strong></td><td style="padding:12px;">𝔻𝕠𝕦𝕓𝕝𝕖 𝕤𝕥𝕣𝕦𝕔𝕜</td><td style="padding:12px;">Mathematical & academic style</td></tr>
+                                <tr><td style="padding:12px;"><strong>𝑩𝒐𝒍𝒅 𝑰𝒕𝒂𝒍𝒊𝒄</strong></td><td style="padding:12px;">𝑩𝒐𝒍𝒅 𝒂𝒏𝒅 𝒔𝒍𝒂𝒏𝒕𝒆𝒅</td><td style="padding:12px;">Emphasis with elegance</td></tr>
+                                <tr><td style="padding:12px;"><strong>𝓑𝓸𝓵𝓭 𝓢𝓬𝓻𝓲𝓹𝓽</strong></td><td style="padding:12px;">𝓑𝓮𝓪𝓾𝓽𝓲𝓯𝓾𝓵 𝓫𝓸𝓵𝓭 𝓬𝓾𝓻𝓼𝓲𝓿𝓮</td><td style="padding:12px;">Fancy, artistic headlines</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Popular Use Cases for Bold Text</h2>
+                    <ul>
+                        <li><strong>Instagram Bio & Posts:</strong> Make your profile stand out with bold, eye-catching text that grabs attention.</li>
+                        <li><strong>WhatsApp Messages:</strong> Add emphasis to important parts of your messages without using asterisks.</li>
+                        <li><strong>Twitter/X Headlines:</strong> Create bold thread titles that stop the scroll.</li>
+                        <li><strong>Email Subject Lines:</strong> Increase open rates with bold, impactful subject lines.</li>
+                        <li><strong>YouTube Comments:</strong> Make your comments more visible and engaging.</li>
+                        <li><strong>Discord & Slack:</strong> Style your messages with bold Unicode text where markdown isn't supported.</li>
+                        <li><strong>Creative Projects:</strong> Use bold script or fraktur styles for posters, logos, and digital art.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Why Choose Textify's Bold Text Generator?</h2>
+                    <ul>
+                        <li><strong>14+ Unique Bold Styles:</strong> More options than any other free tool – from mathematical bold to bold fraktur.</li>
+                        <li><strong>100% Client-Side:</strong> Your text never leaves your browser – complete privacy guaranteed.</li>
+                        <li><strong>Instant Conversion:</strong> No waiting, no uploading – your bold text appears instantly.</li>
+                        <li><strong>Free & No Login:</strong> Use the tool as much as you want, completely free.</li>
+                        <li><strong>Copy & Download:</strong> Easily copy your bold text to the clipboard or download a .txt file.</li>
+                        <li><strong>Works Offline:</strong> Once the page loads, you can disconnect from the internet and keep generating bold text.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Will this bold text work on all platforms?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, bold Unicode text works on virtually all modern platforms including Instagram, Facebook, Twitter, WhatsApp, Telegram, Discord, Slack, email clients, and most websites. Older systems may not support all styles equally, but the most common styles (like Mathematical Bold and Sans-serif Bold) have near-universal support.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! 100% free, no hidden fees, no premium plans, and no account required.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, the tool is fully responsive and works on all mobile devices, including iPhone and Android.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, 100% private. All processing happens locally in your browser – your text never leaves your device.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What's the difference between these bold styles?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Each style uses a different Unicode character block. Mathematical Bold is the classic bold you see everywhere. Sans-serif Bold is heavier and cleaner. Monospace Bold gives a typewriter feel. Double-struck is like mathematical notation. Bold Script adds a cursive flair. Each style has its own unique visual character.</div></div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div>
+                        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            Textify.Tools
+                        </a>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+                    </div>
+                    <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+                    <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                </div>
+                <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
 
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
@@ -279,133 +449,6 @@
     </div>
 
     <div class="toast" id="toast"></div>
-
-    <main>
-        <h1>Bold Text Generator</h1>
-        <p class="subtitle">Create bold, heavy, and black Unicode text instantly. Choose from 14 different styles – perfect for social media bios, headlines, and creative projects. All processing happens locally in your browser.</p>
-
-        <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
-
-        <div class="grid-2">
-            <div class="input-group">
-                <label for="boldStyle">Bold Style</label>
-                <select id="boldStyle">
-                    <option value="bold">𝐁𝐨𝐥𝐝 (Mathematical Bold)</option>
-                    <option value="heavy">𝗛𝗲𝗮𝘃𝘆 (Sans-serif Bold)</option>
-                    <option value="black">𝙱𝚕𝚊𝚌𝚔 (Monospace Bold)</option>
-                    <option value="double-struck">ℂ𝕕𝕠𝕦𝕓𝕝𝕖 𝕊𝕥𝕣𝕦𝕔𝕜</option>
-                    <option value="bold-italic">𝑩𝒐𝒍𝒅 𝑰𝒕𝒂𝒍𝒊𝒄</option>
-                    <option value="bold-script">𝓑𝓸𝓵𝓭 𝓢𝓬𝓻𝓲𝓹𝓽</option>
-                    <option value="bold-fraktur">𝕭𝖔𝖑𝖉 𝕱𝖗𝖆𝖐𝖙𝖚𝖗</option>
-                    <option value="sans-serif-bold">𝗦𝗮𝗻𝘀-𝗦𝗲𝗿𝗶𝗳 𝗕𝗼𝗹𝗱</option>
-                    <option value="sans-serif-bold-italic">𝙎𝙖𝙣𝙨-𝙎𝙚𝙧𝙞𝙛 𝘽𝙤𝙡𝙙 𝙄𝙩𝙖𝙡𝙞𝙘</option>
-                    <option value="monospace-bold">𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎 𝙱𝚘𝚕𝚍</option>
-                    <option value="bold-italic-script">𝓑𝓸𝓵𝓭 𝓘𝓽𝓪𝓵𝓲𝓬 𝓢𝓬𝓻𝓲𝓹𝓽</option>
-                    <option value="heavy-italic">𝙷𝚎𝚊𝚟𝚢 𝙸𝚝𝚊𝚕𝚒𝚌</option>
-                    <option value="black-italic">𝘽𝙡𝙖𝙘𝙠 𝙄𝙩𝙖𝙡𝙞𝙘</option>
-                    <option value="bold-wide">𝗕𝗼𝗹𝗱 𝗪𝗶𝗱𝗲</option>
-                </select>
-            </div>
-            <div style="display:flex;align-items:flex-end;">
-                <button class="btn btn-primary" id="convertBtn" onclick="convertText()"><i data-lucide="bold" width="18" height="18"></i> Convert to Bold</button>
-            </div>
-        </div>
-
-        <div class="output-area" id="outputArea">
-            <div class="char-count-box" id="charCountInfo"></div>
-            <textarea id="outputText" readonly></textarea>
-            <div class="grid-2" style="margin-top:15px;">
-                <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
-                <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
-            </div>
-        </div>
-
-        <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
-            <div class="section">
-                <h2>How to Use the Bold Text Generator</h2>
-                <p>Creating bold text for social media, documents, or creative projects is straightforward with our tool. Just follow these steps:</p>
-                <ol>
-                    <li><strong>Enter your text</strong> – Paste or type any text you want to convert into the input area above.</li>
-                    <li><strong>Choose a bold style</strong> – Select from 14 different Unicode bold styles, including mathematical bold, sans-serif bold, monospace bold, double-struck, bold italic, and more.</li>
-                    <li><strong>Convert the text</strong> – Click the "Convert to Bold" button to instantly transform your text into the selected bold style.</li>
-                    <li><strong>Copy or download</strong> – Use the "Copy Text" button to copy the bold text to your clipboard for instant use, or download it as a .txt file.</li>
-                </ol>
-                <p>All processing happens directly in your browser – your text never leaves your device, ensuring complete privacy.</p>
-            </div>
-
-            <div class="section">
-                <h2>What Are Unicode Bold Fonts?</h2>
-                <p>Unicode bold fonts are special character sets that use Unicode symbols to create bold, heavy, or black variations of regular text. Unlike standard CSS bold formatting (which only works in rich-text environments), Unicode bold characters work everywhere – text messages, social media bios, email subject lines, and even plain text documents. Each bold style uses a different Unicode block, giving you a wide variety of visual options.</p>
-            </div>
-
-            <div class="section">
-                <h2>Complete Style Reference</h2>
-                <div class="table-wrapper" style="overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px;">
-                    <table class="info-table" style="width:100%; border-collapse:collapse;">
-                        <thead><tr style="border-bottom:1px solid var(--line);"><th style="padding:12px; text-align:left;">Style</th><th style="padding:12px; text-align:left;">Example</th><th style="padding:12px; text-align:left;">Best For</th></tr></thead>
-                        <tbody>
-                            <tr><td style="padding:12px;"><strong>𝐁𝐨𝐥𝐝 (Mathematical Bold)</strong></td><td style="padding:12px;">𝐓𝐡𝐢𝐬 𝐢𝐬 𝐛𝐨𝐥𝐝</td><td style="padding:12px;">General use, social media, WhatsApp</td></tr>
-                            <tr><td style="padding:12px;"><strong>𝗛𝗲𝗮𝘃𝘆 (Sans-serif Bold)</strong></td><td style="padding:12px;">𝗧𝗵𝗶𝘀 𝗶𝘀 𝗵𝗲𝗮𝘃𝘆</td><td style="padding:12px;">Bold sans-serif look</td></tr>
-                            <tr><td style="padding:12px;"><strong>𝙱𝚕𝚊𝚌𝚔 (Monospace Bold)</strong></td><td style="padding:12px;">𝙱𝚕𝚊𝚌𝚔 𝚝𝚎𝚡𝚝</td><td style="padding:12px;">Code & terminal style</td></tr>
-                            <tr><td style="padding:12px;"><strong>ℂ𝕕𝕠𝕦𝕓𝕝𝕖 𝕊𝕥𝕣𝕦𝕔𝕜</strong></td><td style="padding:12px;">𝔻𝕠𝕦𝕓𝕝𝕖 𝕤𝕥𝕣𝕦𝕔𝕜</td><td style="padding:12px;">Mathematical & academic style</td></tr>
-                            <tr><td style="padding:12px;"><strong>𝑩𝒐𝒍𝒅 𝑰𝒕𝒂𝒍𝒊𝒄</strong></td><td style="padding:12px;">𝑩𝒐𝒍𝒅 𝒂𝒏𝒅 𝒔𝒍𝒂𝒏𝒕𝒆𝒅</td><td style="padding:12px;">Emphasis with elegance</td></tr>
-                            <tr><td style="padding:12px;"><strong>𝓑𝓸𝓵𝓭 𝓢𝓬𝓻𝓲𝓹𝓽</strong></td><td style="padding:12px;">𝓑𝓮𝓪𝓾𝓽𝓲𝓯𝓾𝓵 𝓫𝓸𝓵𝓭 𝓬𝓾𝓻𝓼𝓲𝓿𝓮</td><td style="padding:12px;">Fancy, artistic headlines</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Popular Use Cases for Bold Text</h2>
-                <ul>
-                    <li><strong>Instagram Bio & Posts:</strong> Make your profile stand out with bold, eye-catching text that grabs attention.</li>
-                    <li><strong>WhatsApp Messages:</strong> Add emphasis to important parts of your messages without using asterisks.</li>
-                    <li><strong>Twitter/X Headlines:</strong> Create bold thread titles that stop the scroll.</li>
-                    <li><strong>Email Subject Lines:</strong> Increase open rates with bold, impactful subject lines.</li>
-                    <li><strong>YouTube Comments:</strong> Make your comments more visible and engaging.</li>
-                    <li><strong>Discord & Slack:</strong> Style your messages with bold Unicode text where markdown isn't supported.</li>
-                    <li><strong>Creative Projects:</strong> Use bold script or fraktur styles for posters, logos, and digital art.</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>Why Choose Textify's Bold Text Generator?</h2>
-                <ul>
-                    <li><strong>14+ Unique Bold Styles:</strong> More options than any other free tool – from mathematical bold to bold fraktur.</li>
-                    <li><strong>100% Client-Side:</strong> Your text never leaves your browser – complete privacy guaranteed.</li>
-                    <li><strong>Instant Conversion:</strong> No waiting, no uploading – your bold text appears instantly.</li>
-                    <li><strong>Free & No Login:</strong> Use the tool as much as you want, completely free.</li>
-                    <li><strong>Copy & Download:</strong> Easily copy your bold text to the clipboard or download a .txt file.</li>
-                    <li><strong>Works Offline:</strong> Once the page loads, you can disconnect from the internet and keep generating bold text.</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Will this bold text work on all platforms?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, bold Unicode text works on virtually all modern platforms including Instagram, Facebook, Twitter, WhatsApp, Telegram, Discord, Slack, email clients, and most websites. Older systems may not support all styles equally, but the most common styles (like Mathematical Bold and Sans-serif Bold) have near-universal support.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! 100% free, no hidden fees, no premium plans, and no account required.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, the tool is fully responsive and works on all mobile devices, including iPhone and Android.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, 100% private. All processing happens locally in your browser – your text never leaves your device.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What's the difference between these bold styles?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Each style uses a different Unicode character block. Mathematical Bold is the classic bold you see everywhere. Sans-serif Bold is heavier and cleaner. Monospace Bold gives a typewriter feel. Double-struck is like mathematical notation. Bold Script adds a cursive flair. Each style has its own unique visual character.</div></div>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify.Tools
-                </a>
-                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-            </div>
-            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-            <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-            <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-        </div>
-        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-    </footer>
 
     <script>
         // Complete tools list (80+ tools) matching index.html
@@ -569,16 +612,16 @@
 
         // Bold Text Generator Logic
         const boldMaps = {
-            bold: { // Mathematical Bold (U+1D400-U+1D454, etc.)
+            bold: {
                 'a': '𝐚', 'b': '𝐛', 'c': '𝐜', 'd': '𝐝', 'e': '𝐞', 'f': '𝐟', 'g': '𝐠', 'h': '𝐡', 'i': '𝐢', 'j': '𝐣', 'k': '𝐤', 'l': '𝐥', 'm': '𝐦', 'n': '𝐧', 'o': '𝐨', 'p': '𝐩', 'q': '𝐪', 'r': '𝐫', 's': '𝐬', 't': '𝐭', 'u': '𝐮', 'v': '𝐯', 'w': '𝐰', 'x': '𝐱', 'y': '𝐲', 'z': '𝐳',
                 'A': '𝐀', 'B': '𝐁', 'C': '𝐂', 'D': '𝐃', 'E': '𝐄', 'F': '𝐅', 'G': '𝐆', 'H': '𝐇', 'I': '𝐈', 'J': '𝐉', 'K': '𝐊', 'L': '𝐋', 'M': '𝐌', 'N': '𝐍', 'O': '𝐎', 'P': '𝐏', 'Q': '𝐐', 'R': '𝐑', 'S': '𝐒', 'T': '𝐓', 'U': '𝐔', 'V': '𝐕', 'W': '𝐖', 'X': '𝐗', 'Y': '𝐘', 'Z': '𝐙',
                 '0': '𝟎', '1': '𝟏', '2': '𝟐', '3': '𝟑', '4': '𝟒', '5': '𝟓', '6': '𝟔', '7': '𝟕', '8': '𝟖', '9': '𝟗'
             },
-            heavy: { // Sans-serif Bold (U+1D5D4-U+1D608)
+            heavy: {
                 'a': '𝗮', 'b': '𝗯', 'c': '𝗰', 'd': '𝗱', 'e': '𝗲', 'f': '𝗳', 'g': '𝗴', 'h': '𝗵', 'i': '𝗶', 'j': '𝗷', 'k': '𝗸', 'l': '𝗹', 'm': '𝗺', 'n': '𝗻', 'o': '𝗼', 'p': '𝗽', 'q': '𝗾', 'r': '𝗿', 's': '𝘀', 't': '𝘁', 'u': '𝘂', 'v': '𝘃', 'w': '𝘄', 'x': '𝘅', 'y': '𝘆', 'z': '𝘇',
                 'A': '𝗔', 'B': '𝗕', 'C': '𝗖', 'D': '𝗗', 'E': '𝗘', 'F': '𝗙', 'G': '𝗚', 'H': '𝗛', 'I': '𝗜', 'J': '𝗝', 'K': '𝗞', 'L': '𝗟', 'M': '𝗠', 'N': '𝗡', 'O': '𝗢', 'P': '𝗣', 'Q': '𝗤', 'R': '𝗥', 'S': '𝗦', 'T': '𝗧', 'U': '𝗨', 'V': '𝗩', 'W': '𝗪', 'X': '𝗫', 'Y': '𝗬', 'Z': '𝗭'
             },
-            black: { // Monospace Bold (U+1D670-U+1D6A4)
+            black: {
                 'a': '𝚊', 'b': '𝚋', 'c': '𝚌', 'd': '𝚍', 'e': '𝚎', 'f': '𝚏', 'g': '𝚐', 'h': '𝚑', 'i': '𝚒', 'j': '𝚓', 'k': '𝚔', 'l': '𝚕', 'm': '𝚖', 'n': '𝚗', 'o': '𝚘', 'p': '𝚙', 'q': '𝚚', 'r': '𝚛', 's': '𝚜', 't': '𝚝', 'u': '𝚞', 'v': '𝚟', 'w': '𝚠', 'x': '𝚡', 'y': '𝚢', 'z': '𝚣',
                 'A': '𝙰', 'B': '𝙱', 'C': '𝙲', 'D': '𝙳', 'E': '𝙴', 'F': '𝙵', 'G': '𝙶', 'H': '𝙷', 'I': '𝙸', 'J': '𝙹', 'K': '𝙺', 'L': '𝙻', 'M': '𝙼', 'N': '𝙽', 'O': '𝙾', 'P': '𝙿', 'Q': '𝚀', 'R': '𝚁', 'S': '𝚂', 'T': '𝚃', 'U': '𝚄', 'V': '𝚅', 'W': '𝚆', 'X': '𝚇', 'Y': '𝚈', 'Z': '𝚉',
                 '0': '𝟶', '1': '𝟷', '2': '𝟸', '3': '𝟹', '4': '𝟺', '5': '𝟻', '6': '𝟼', '7': '𝟽', '8': '𝟾', '9': '𝟿'
@@ -636,19 +679,16 @@
                 showToast('Please enter some text first.', 2500);
                 return;
             }
-
             const style = document.getElementById('boldStyle').value;
             const charMap = boldMaps[style];
             if (!charMap) {
                 showToast('Invalid style selected.', 2500);
                 return;
             }
-
             const btn = document.getElementById('convertBtn');
             const origHTML = btn.innerHTML;
             btn.innerHTML = '<span class="spinner"></span> Converting...';
             btn.disabled = true;
-
             setTimeout(() => {
                 try {
                     let result = '';
