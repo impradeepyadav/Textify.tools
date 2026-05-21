@@ -54,7 +54,6 @@
             --accent: #f8fafc;
             --toast-bg: #1f2937;
             --toast-text: #ffffff;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
         }
         body.dark-mode {
             --bg: #0f172a;
@@ -66,7 +65,7 @@
             --card: #1e293b;
             --input-bg: #1e293b;
             --input-border: #334155;
-            --footer-bg: #1e293b;
+            --footer-bg: #0f172a;
             --footer-text: #e2e8f0;
             --footer-heading: #ffffff;
             --footer-link-hover: #ffffff;
@@ -83,25 +82,49 @@
             --accent: #1e293b;
             --toast-bg: #f1f5f9;
             --toast-text: #0f172a;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg); color: var(--text); min-height: 100vh;
-            display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* WRAPPER */
+        .page-wrapper {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* HEADER */
         header {
-            border-bottom: 1px solid var(--line); background: var(--bg);
-            display: flex; justify-content: center; align-items: center;
-            padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-            position: relative; z-index: 100;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            height: 64px;
+            transition: border-color 0.3s;
+            background: transparent;
         }
-        .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
+        .header-inner {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 10px; text-decoration: none;
+            color: var(--text); font-size: 22px; font-weight: 800;
+        }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
         .desktop-nav { display: flex; gap: 15px; align-items: center; }
@@ -123,7 +146,7 @@
         .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; }
         .hamburger-btn:hover { background: var(--hover); }
         .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
-        .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; }
+        .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
         .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
         .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
@@ -161,10 +184,20 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main { flex: 1; max-width: 900px; margin: 30px auto; padding: 0 20px; width: 100%; }
+        /* MAIN */
+        main {
+            flex: 1;
+            padding: 30px 20px;
+            width: 100%;
+            background: transparent;
+        }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
         p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
-        textarea { width: 100%; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s; }
+        textarea {
+            width: 100%; height: 200px; padding: 16px; border: 2px solid var(--input-border);
+            border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text);
+            resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s;
+        }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
         
         .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 25px; }
@@ -200,49 +233,168 @@
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
         
+        /* FOOTER */
         footer {
-            background: var(--footer-bg); color: var(--footer-text);
-            padding: 60px 20px 25px; margin-top: 60px;
             border-top: 1px solid var(--footer-border);
+            padding: 40px 20px 25px;
+            background: transparent;
         }
-        .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+        .footer-container { width: 100%; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+            gap: 35px;
+        }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
         .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+        .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
         
-        @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } }
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
+            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
+        }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     </style>
 
-    <header>
-        <div class="header-inner">
-            <a href="/" class="logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.Tools
-            </a>
-            <div class="header-right">
-                <div class="desktop-nav">
-                    <div class="tools-menu-container">
-                        <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-                        <div class="tools-mega-menu" id="megaMenu"></div>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    Textify.Tools
+                </a>
+                <div class="header-right">
+                    <div class="desktop-nav">
+                        <div class="tools-menu-container">
+                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                            <div class="tools-mega-menu" id="megaMenu"></div>
+                        </div>
+                        <a href="privacy">Privacy</a>
+                        <a href="/blog">Blog</a>
                     </div>
-                    <a href="privacy">Privacy</a>
-                    <a href="/blog">Blog</a>
+                    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                    </button>
+                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                        <span class="menu-icon"><span></span><span></span></span>
+                    </button>
                 </div>
-                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                    <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-                </button>
-                <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-                    <span class="menu-icon"><span></span><span></span></span>
-                </button>
             </div>
-        </div>
-    </header>
+        </header>
+
+        <main>
+            <h1>Reading Time Estimator</h1>
+            <p class="subtitle">Estimate how long it takes to read any text, article, or document. Adjust reading speed, get real-time results, and calculate speaking time — all in your browser, completely private.</p>
+
+            <textarea id="inputText" placeholder="Paste your text here... e.g., a blog post, article, book excerpt, or any content you want to analyze."></textarea>
+
+            <div class="options-grid">
+                <div class="input-group">
+                    <label>👁️ Reading Speed:</label>
+                    <select id="readingSpeed">
+                        <option value="150">Slow (150 WPM)</option>
+                        <option value="200" selected>Average (200 WPM)</option>
+                        <option value="250">Fast (250 WPM)</option>
+                        <option value="300">Very Fast (300 WPM)</option>
+                        <option value="custom">Custom...</option>
+                    </select>
+                </div>
+                <div class="input-group" id="customSpeedGroup" style="display: none;">
+                    <label>Custom WPM:</label>
+                    <input type="number" id="customSpeed" min="50" max="800" value="200" step="5">
+                </div>
+                <div class="speed-presets">
+                    <button class="speed-btn" data-wpm="150" onclick="setSpeedPreset(150)">🐢 150 WPM</button>
+                    <button class="speed-btn active" data-wpm="200" onclick="setSpeedPreset(200)">⚡ 200 WPM</button>
+                    <button class="speed-btn" data-wpm="250" onclick="setSpeedPreset(250)">🚀 250 WPM</button>
+                    <button class="speed-btn" data-wpm="300" onclick="setSpeedPreset(300)">🔥 300 WPM</button>
+                </div>
+            </div>
+
+            <div class="info-bar" id="infoBar" style="display: none;">
+                <span><strong>📝 Words:</strong> <span id="wordCount">0</span></span>
+                <span><strong>🔤 Characters:</strong> <span id="charCount">0</span></span>
+                <span><strong>📄 Sentences:</strong> <span id="sentenceCount">0</span></span>
+                <span><strong>📑 Paragraphs:</strong> <span id="paragraphCount">0</span></span>
+            </div>
+
+            <div class="stats-grid" id="statsGrid" style="display: none;">
+                <div class="stat-card"><span class="stat-value" id="readingTime">0</span><div class="stat-label">Reading Time</div></div>
+                <div class="stat-card"><span class="stat-value" id="readingMinutes">0</span><div class="stat-label">Minutes (approx)</div></div>
+                <div class="stat-card"><span class="stat-value" id="speakingTime">0</span><div class="stat-label">Speaking Time</div></div>
+                <div class="stat-card"><span class="stat-value" id="speakingWords">0</span><div class="stat-label">Speaking (130 WPM)</div></div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary" id="analyzeBtn" onclick="analyzeText()"><i data-lucide="clock" width="18"></i> Estimate Time</button>
+                <button class="btn btn-outline" onclick="clearText()"><i data-lucide="trash-2" width="18"></i> Clear</button>
+                <button class="btn btn-outline" id="exportBtn" onclick="exportStats()"><i data-lucide="download" width="18"></i> Export Stats</button>
+            </div>
+
+            <div style="margin-top: 60px; border-top: 1px solid var(--line); padding-top: 30px;">
+                <h2>How to Use the Reading Time Estimator</h2>
+                <p>This tool helps you estimate how long it takes to read any text. Here's how to use it:</p>
+                <ol style="margin-bottom: 25px;">
+                    <li><strong>Enter your text</strong> — Paste or type the content you want to analyze.</li>
+                    <li><strong>Adjust reading speed</strong> — Select from presets (Slow to Very Fast) or enter a custom WPM value.</li>
+                    <li><strong>Click "Estimate Time"</strong> — The reading and speaking times will appear instantly.</li>
+                    <li><strong>Export data</strong> — Download the statistics as a JSON file for further analysis.</li>
+                </ol>
+
+                <h2>What Does This Estimator Measure?</h2>
+                <p>Our reading time estimator calculates:</p>
+                <ul>
+                    <li><strong>Word Count:</strong> Total number of words in your text.</li>
+                    <li><strong>Reading Time:</strong> Estimated time based on your selected reading speed (words per minute). The standard average reading speed is 200 WPM.</li>
+                    <li><strong>Speaking Time:</strong> Estimated time to speak the text aloud, based on 130 WPM (average speaking rate).</li>
+                    <li><strong>Character & Sentence Counts:</strong> Additional metrics to understand text complexity.</li>
+                </ul>
+                <p>Reading speed can vary depending on text complexity, font size, and individual reading ability. Use the presets to match different reader profiles, or set a custom WPM for precise estimation.</p>
+
+                <h2>Why Use a Reading Time Estimator?</h2>
+                <ul>
+                    <li><strong>Bloggers & Content Creators:</strong> Add "reading time" badges to your articles to manage reader expectations.</li>
+                    <li><strong>Educators & Students:</strong> Estimate how long it takes to read assigned materials.</li>
+                    <li><strong>Podcasters & YouTubers:</strong> Calculate speaking time for scripts and voice‑over work.</li>
+                    <li><strong>Writers & Editors:</strong> Gauge the length and flow of your writing.</li>
+                    <li><strong>Accessibility:</strong> Help readers plan their time before engaging with long‑form content.</li>
+                </ul>
+
+                <h2>Privacy & Security</h2>
+                <p>All text analysis happens locally in your browser. Your text is never uploaded to any server — you can use the Reading Time Estimator with complete peace of mind for any document, including sensitive or proprietary content.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How accurate is the reading time estimate?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The estimate is based on the average reading speed of 200‑250 words per minute. Actual reading time may vary depending on text complexity, reader fatigue, and individual reading habits.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the default reading speed?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The default is 200 words per minute (WPM), which is the widely accepted average for adult readers of English text.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I change the reading speed?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, you can select from preset speeds (150, 200, 250, 300 WPM) or enter a custom WPM value in the input field.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on iPhones, Android devices, and tablets.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, 100% private. All processing happens inside your browser — no data leaves your device.</div></div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div>
+                        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            Textify.Tools
+                        </a>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+                    </div>
+                    <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+                    <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                </div>
+                <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
 
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
@@ -277,112 +429,6 @@
     </div>
 
     <div class="toast" id="toast"></div>
-
-    <main>
-        <h1>Reading Time Estimator</h1>
-        <p class="subtitle">Estimate how long it takes to read any text, article, or document. Adjust reading speed, get real-time results, and calculate speaking time — all in your browser, completely private.</p>
-
-        <textarea id="inputText" placeholder="Paste your text here... e.g., a blog post, article, book excerpt, or any content you want to analyze."></textarea>
-
-        <div class="options-grid">
-            <div class="input-group">
-                <label>👁️ Reading Speed:</label>
-                <select id="readingSpeed">
-                    <option value="150">Slow (150 WPM)</option>
-                    <option value="200" selected>Average (200 WPM)</option>
-                    <option value="250">Fast (250 WPM)</option>
-                    <option value="300">Very Fast (300 WPM)</option>
-                    <option value="custom">Custom...</option>
-                </select>
-            </div>
-            <div class="input-group" id="customSpeedGroup" style="display: none;">
-                <label>Custom WPM:</label>
-                <input type="number" id="customSpeed" min="50" max="800" value="200" step="5">
-            </div>
-            <div class="speed-presets">
-                <button class="speed-btn" data-wpm="150" onclick="setSpeedPreset(150)">🐢 150 WPM</button>
-                <button class="speed-btn active" data-wpm="200" onclick="setSpeedPreset(200)">⚡ 200 WPM</button>
-                <button class="speed-btn" data-wpm="250" onclick="setSpeedPreset(250)">🚀 250 WPM</button>
-                <button class="speed-btn" data-wpm="300" onclick="setSpeedPreset(300)">🔥 300 WPM</button>
-            </div>
-        </div>
-
-        <div class="info-bar" id="infoBar" style="display: none;">
-            <span><strong>📝 Words:</strong> <span id="wordCount">0</span></span>
-            <span><strong>🔤 Characters:</strong> <span id="charCount">0</span></span>
-            <span><strong>📄 Sentences:</strong> <span id="sentenceCount">0</span></span>
-            <span><strong>📑 Paragraphs:</strong> <span id="paragraphCount">0</span></span>
-        </div>
-
-        <div class="stats-grid" id="statsGrid" style="display: none;">
-            <div class="stat-card"><span class="stat-value" id="readingTime">0</span><div class="stat-label">Reading Time</div></div>
-            <div class="stat-card"><span class="stat-value" id="readingMinutes">0</span><div class="stat-label">Minutes (approx)</div></div>
-            <div class="stat-card"><span class="stat-value" id="speakingTime">0</span><div class="stat-label">Speaking Time</div></div>
-            <div class="stat-card"><span class="stat-value" id="speakingWords">0</span><div class="stat-label">Speaking (130 WPM)</div></div>
-        </div>
-
-        <div class="action-buttons">
-            <button class="btn btn-primary" id="analyzeBtn" onclick="analyzeText()"><i data-lucide="clock" width="18"></i> Estimate Time</button>
-            <button class="btn btn-outline" onclick="clearText()"><i data-lucide="trash-2" width="18"></i> Clear</button>
-            <button class="btn btn-outline" id="exportBtn" onclick="exportStats()"><i data-lucide="download" width="18"></i> Export Stats</button>
-        </div>
-
-        <div style="margin-top: 60px; border-top: 1px solid var(--line); padding-top: 30px;">
-            <h2>How to Use the Reading Time Estimator</h2>
-            <p>This tool helps you estimate how long it takes to read any text. Here's how to use it:</p>
-            <ol style="margin-bottom: 25px;">
-                <li><strong>Enter your text</strong> — Paste or type the content you want to analyze.</li>
-                <li><strong>Adjust reading speed</strong> — Select from presets (Slow to Very Fast) or enter a custom WPM value.</li>
-                <li><strong>Click "Estimate Time"</strong> — The reading and speaking times will appear instantly.</li>
-                <li><strong>Export data</strong> — Download the statistics as a JSON file for further analysis.</li>
-            </ol>
-
-            <h2>What Does This Estimator Measure?</h2>
-            <p>Our reading time estimator calculates:</p>
-            <ul>
-                <li><strong>Word Count:</strong> Total number of words in your text.</li>
-                <li><strong>Reading Time:</strong> Estimated time based on your selected reading speed (words per minute). The standard average reading speed is 200 WPM.</li>
-                <li><strong>Speaking Time:</strong> Estimated time to speak the text aloud, based on 130 WPM (average speaking rate).</li>
-                <li><strong>Character & Sentence Counts:</strong> Additional metrics to understand text complexity.</li>
-            </ul>
-            <p>Reading speed can vary depending on text complexity, font size, and individual reading ability. Use the presets to match different reader profiles, or set a custom WPM for precise estimation.</p>
-
-            <h2>Why Use a Reading Time Estimator?</h2>
-            <ul>
-                <li><strong>Bloggers & Content Creators:</strong> Add "reading time" badges to your articles to manage reader expectations.</li>
-                <li><strong>Educators & Students:</strong> Estimate how long it takes to read assigned materials.</li>
-                <li><strong>Podcasters & YouTubers:</strong> Calculate speaking time for scripts and voice‑over work.</li>
-                <li><strong>Writers & Editors:</strong> Gauge the length and flow of your writing.</li>
-                <li><strong>Accessibility:</strong> Help readers plan their time before engaging with long‑form content.</li>
-            </ul>
-
-            <h2>Privacy & Security</h2>
-            <p>All text analysis happens locally in your browser. Your text is never uploaded to any server — you can use the Reading Time Estimator with complete peace of mind for any document, including sensitive or proprietary content.</p>
-
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How accurate is the reading time estimate?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The estimate is based on the average reading speed of 200‑250 words per minute. Actual reading time may vary depending on text complexity, reader fatigue, and individual reading habits.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What is the default reading speed?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The default is 200 words per minute (WPM), which is the widely accepted average for adult readers of English text.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I change the reading speed?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, you can select from preset speeds (150, 200, 250, 300 WPM) or enter a custom WPM value in the input field.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on iPhones, Android devices, and tablets.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, 100% private. All processing happens inside your browser — no data leaves your device.</div></div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                    Textify.Tools
-                </a>
-                <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-            </div>
-            <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-            <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-            <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-        </div>
-        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-    </footer>
 
     <script>
         // Complete tools list (80+ tools)
@@ -559,7 +605,6 @@
             document.querySelectorAll('.speed-btn').forEach(btn => btn.classList.remove('active'));
             document.querySelector(`.speed-btn[data-wpm="${wpm}"]`).classList.add('active');
             document.getElementById('readingSpeed').value = wpm;
-            // Re-analyze if text exists
             const text = document.getElementById('inputText').value;
             if (text.trim()) analyzeText();
         }
@@ -571,7 +616,6 @@
                 customGroup.style.display = 'flex';
             } else {
                 customGroup.style.display = 'none';
-                // Highlight the corresponding preset button
                 const wpm = parseInt(select.value);
                 document.querySelectorAll('.speed-btn').forEach(btn => {
                     const btnWpm = parseInt(btn.dataset.wpm);
@@ -591,29 +635,21 @@
             }
 
             const readingSpeed = getReadingSpeed();
-            const speakingSpeed = 130; // Average speaking rate in WPM
+            const speakingSpeed = 130;
             
-            // Word count (simple split)
             const words = text.trim().split(/\s+/).filter(w => w.length > 0).length;
             const chars = text.length;
-            
-            // Sentence count (split by .!? followed by space or end)
             const sentences = (text.match(/[.!?]+(?!\w)/g) || []).length || (text.trim().length > 0 ? 1 : 0);
-            
-            // Paragraph count (split by double newline)
             const paragraphs = text.trim().split(/\n\s*\n/).filter(p => p.trim().length > 0).length || 1;
             
-            // Calculate reading time in minutes
             let readingMinutes = words / readingSpeed;
             let speakingMinutes = words / speakingSpeed;
             
-            // Format times
             let readingTimeStr = formatTime(readingMinutes);
             let speakingTimeStr = formatTime(speakingMinutes);
             
             currentStats = { words, chars, sentences, paragraphs, readingTime: readingMinutes, speakingTime: speakingMinutes };
             
-            // Update UI
             document.getElementById('wordCount').textContent = words.toLocaleString();
             document.getElementById('charCount').textContent = chars.toLocaleString();
             document.getElementById('sentenceCount').textContent = sentences.toLocaleString();
