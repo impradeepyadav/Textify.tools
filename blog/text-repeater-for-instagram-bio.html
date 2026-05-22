@@ -43,7 +43,7 @@
       --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
       --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
       --input-border: #334155;
-      --footer-bg: #1e293b; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
       --footer-border: #334155;
       --faq-bg: #1e293b; --faq-active: #334155;
       --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0,0,0,0.5);
@@ -55,16 +55,34 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg); color: var(--text); min-height: 100vh;
-      display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background 0.3s, color 0.3s;
+    }
+    .page-wrapper {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     header {
-      border-bottom: 1px solid var(--line); background: var(--bg);
-      display: flex; justify-content: center; align-items: center;
-      padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-      position: relative; z-index: 100;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      height: 64px;
+      transition: border-color 0.3s;
+      background: transparent;
     }
-    .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .header-inner { max-width: 1000px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -125,7 +143,12 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
     
-    main { flex: 1; max-width: 800px; margin: 30px auto; padding: 0 20px; width: 100%; }
+    main {
+      flex: 1;
+      padding: 30px 20px;
+      width: 100%;
+      background: transparent;
+    }
     h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
     .post-date { font-size: 14px; color: var(--text-light); margin-bottom: 25px; }
     h2 { font-size: 24px; font-weight: 700; margin: 35px 0 15px; }
@@ -141,17 +164,29 @@
     .cta-button:hover { opacity: 0.88; }
     
     footer {
-      background: var(--footer-bg); color: var(--footer-text);
-      padding: 60px 20px 25px; margin-top: 60px;
       border-top: 1px solid var(--footer-border);
+      padding: 40px 20px 25px;
+      background: transparent;
     }
-    .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+    .footer-container { width: 100%; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+      gap: 35px;
+    }
     @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+    .footer-bottom {
+      margin-top: 35px;
+      padding-top: 18px;
+      border-top: 1px solid var(--footer-border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--footer-text);
+    }
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
@@ -161,35 +196,147 @@
     }
   </style>
 
-  <!-- ========== HEADER ========== -->
-  <header>
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-        Textify.Tools
-      </a>
-      <div class="header-right">
-        <div class="desktop-nav">
-          <div class="tools-menu-container">
-            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-            <div class="tools-mega-menu" id="megaMenu"></div>
+  <div class="page-wrapper">
+    <header>
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+          Textify.Tools
+        </a>
+        <div class="header-right">
+          <div class="desktop-nav">
+            <div class="tools-menu-container">
+              <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+              <div class="tools-mega-menu" id="megaMenu"></div>
+            </div>
+            <a href="/privacy">Privacy</a>
+            <a href="/blog">Blog</a>
           </div>
-          <a href="/privacy">Privacy</a>
-          <a href="/blog">Blog</a>
+          <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+            <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+            <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+          </button>
+          <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+          <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+            <span class="menu-icon"><span></span><span></span></span>
+          </button>
         </div>
-        <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-          <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-          <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-        </button>
-        <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-        <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-          <span class="menu-icon"><span></span><span></span></span>
-        </button>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- ========== MOBILE SIDEBAR ========== -->
+    <main>
+      <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
+
+      <h1>Make Your Instagram Bio Stand Out with Text Repeater</h1>
+      <p class="post-date">📅 April 28, 2026</p>
+
+      <p>Your Instagram bio is the first thing people see when they visit your profile. A plain, unformatted bio can easily get lost in the crowd. But with a few clever tricks and the <strong>Textify Text Repeater</strong>, you can create a bio that grabs attention instantly – using decorative borders, styled fonts, and emoji patterns.</p>
+
+      <p>In this guide, we'll walk through how to use the Text Repeater to craft a stunning Instagram bio that reflects your personality or brand. Best of all, it's completely free and private – your text never leaves your browser.</p>
+
+      <h2>Why Style Your Instagram Bio?</h2>
+      <p>Instagram doesn't allow rich text formatting in bios. You can't bold, italicize, or change font sizes directly. However, you <strong>can</strong> use Unicode characters and creative text layouts to achieve similar effects. A well‑styled bio can:</p>
+      <ul>
+        <li><strong>Make your profile memorable</strong> – stand out among millions of users.</li>
+        <li><strong>Convey your personality</strong> – whether it's fun, professional, or artistic.</li>
+        <li><strong>Highlight important links</strong> – draw the eye to your website or latest project.</li>
+        <li><strong>Create a branded look</strong> – consistent with your overall aesthetic.</li>
+      </ul>
+
+      <h2>Using the Text Repeater for Instagram Bios</h2>
+      <p>The <a href="/text-repeater">Text Repeater</a> tool is perfect for generating styled text blocks that you can paste directly into your Instagram bio. Here's a step‑by‑step process to create a stunning bio.</p>
+
+      <h3>Step 1: Choose Your Base Text</h3>
+      <p>Start with a word or phrase that you want to emphasize or repeat. For example:</p>
+      <ul>
+        <li>Your name or brand (e.g., "✨ Luna ✨")</li>
+        <li>A descriptive word (e.g., "designer | creator | dreamer")</li>
+        <li>A decorative symbol (e.g., "★" or "•")</li>
+      </ul>
+
+      <h3>Step 2: Apply Font Styles</h3>
+      <p>Textify offers <strong>12 font styles</strong> that work great in Instagram bios. Some of the most effective ones are:</p>
+      <ul>
+        <li><strong>Small Caps:</strong> A clean, minimal look. Example: "ʟᴜɴᴀ"</li>
+        <li><strong>Script / Cursive:</strong> Elegant and soft. Example: "𝒸𝓇ℯ𝒶𝓉ℴ𝓇"</li>
+        <li><strong>Wide Text:</strong> Spaced‑out letters for a modern vibe. Example: "ｗｉｄｅ"</li>
+        <li><strong>Bold:</strong> Strong and eye‑catching. Example: "𝐁𝐨𝐥𝐝"</li>
+      </ul>
+      <p>Select your preferred font style from the dropdown, and the tool will automatically convert your text.</p>
+
+      <h3>Step 3: Add Decorations</h3>
+      <p>Decorations wrap your text with symbols. This is extremely useful for creating borders or badges. Try these:</p>
+      <ul>
+        <li><strong>Star:</strong> ★ Your Text ★</li>
+        <li><strong>Sparkle:</strong> ✨ Your Text ✨</li>
+        <li><strong>Heart:</strong> ❤️ Your Text ❤️</li>
+        <li><strong>Quote:</strong> ❝ Your Text ❞</li>
+      </ul>
+
+      <div class="tip-box">
+        <p><strong>💡 Pro tip:</strong> Combine a decoration with a bold or cursive font, then repeat it 2–3 times to create a bio section header. For instance: ✨✨ 𝐋𝐮𝐧𝐚 ✨✨ repeated twice creates a gorgeous centered header.</p>
+      </div>
+
+      <h3>Step 4: Set the Separator to "New Line"</h3>
+      <p>To build a vertical stack of styled text, choose the <strong>"New Line (Stack)"</strong> separator. This ensures each repetition appears on a separate line, giving your bio a structured, clean look.</p>
+
+      <h3>Step 5: Generate, Copy & Paste</h3>
+      <p>Set the repetition count (usually 1–3 for a bio – you don't need many repetitions). Click <strong>"Repeat / Convert"</strong>, then copy the result and paste it directly into your Instagram bio. That's it!</p>
+
+      <a href="/text-repeater" class="cta-button">Try the Text Repeater →</a>
+
+      <h2>Creative Bio Ideas with the Repeater</h2>
+      <p>Here are some ready‑made ideas you can try immediately. Just copy the settings and replace the placeholder text with your own.</p>
+
+      <ul>
+        <li><strong>Minimalist professional:</strong> Use <em>Small Caps</em> font, no decoration, separator "New Line", repeated once or twice with your title.
+          <br>Example: "ᴅᴇsɪɢɴᴇʀ | ᴍᴀʀᴋᴇᴛᴇʀ | ᴅʀᴇᴀᴍᴇʀ"</li>
+        <li><strong>Cute influencer-style:</strong> Use <em>Cursive</em> font with <em>Sparkle</em> decoration, repeated twice.
+          <br>Example: "✨ 𝒿𝑒𝓈𝓈𝒾𝒸𝒶 ✨<br>✨ 𝒿𝑒𝓈𝓈𝒾𝒸𝒶 ✨"</li>
+        <li><strong>Bold artist look:</strong> Use <em>Wide Text</em> with <em>Star</em> decoration, repeated 3 times.
+          <br>Example: "★ ａｒｔｉｓｔ ★"</li>
+        <li><strong>Geeky or tech vibe:</strong> Use <em>Monospace</em> font, no decoration, with custom separator like " • ".
+          <br>Example: "𝚌𝚘𝚍𝚎𝚛 • 𝚐𝚊𝚖𝚎𝚛 • 𝚗𝚎𝚛𝚍"</li>
+      </ul>
+
+      <h2>Instagram Bio Character Limit & Tips</h2>
+      <p>Instagram bios are limited to <strong>150 characters</strong>. Keep that in mind when using styled text – Unicode characters often count as one character each, but multi‑byte characters (like bold or script) can take up more space. If your bio is too long, Instagram will truncate it. So, preview your bio by pasting it first and checking that everything fits.</p>
+      <p>Quick tips for a successful bio:</p>
+      <ul>
+        <li>✅ Always include a call‑to‑action (visit your website, check your latest post).</li>
+        <li>✅ Leave one or two blank lines between sections for readability.</li>
+        <li>✅ Use a consistent style throughout – don't mix too many fonts.</li>
+        <li>❌ Avoid overusing emojis or glitter text – it can look cluttered.</li>
+      </ul>
+
+      <h2>Is It Safe? Absolutely.</h2>
+      <p>There is no risk to your Instagram account. You are manually copying and pasting text – there's no automation involved. Plus, Textify runs entirely in your browser. Your text is never uploaded, stored, or shared with anyone.</p>
+
+      <h2>Beyond the Bio – Stories & Captions</h2>
+      <p>While this guide focuses on the bio, you can obviously use the same styled text in <strong>Instagram stories and captions</strong>. In fact, using consistent styled text across your bio and stories strengthens your personal brand. Try creating a short decorative line (like "✨✨✨✨✨") to separate sections in a story.</p>
+
+      <p>Ready to transform your Instagram profile? <a href="/text-repeater">Open the Text Repeater now</a> and let your creativity flow.</p>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div>
+            <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+              <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+              Textify.Tools
+            </a>
+            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+          </div>
+          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
+          <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+          <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
+        </div>
+        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
+
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
@@ -211,7 +358,6 @@
     </div>
   </div>
 
-  <!-- ========== SEARCH OVERLAY ========== -->
   <div class="search-overlay-full" id="searchOverlayFull">
     <div class="search-container">
       <div class="search-box">
@@ -223,120 +369,7 @@
     </div>
   </div>
 
-  <!-- ========== BLOG CONTENT ========== -->
-  <main>
-    <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
-
-    <h1>Make Your Instagram Bio Stand Out with Text Repeater</h1>
-    <p class="post-date">📅 April 28, 2026</p>
-
-    <p>Your Instagram bio is the first thing people see when they visit your profile. A plain, unformatted bio can easily get lost in the crowd. But with a few clever tricks and the <strong>Textify Text Repeater</strong>, you can create a bio that grabs attention instantly – using decorative borders, styled fonts, and emoji patterns.</p>
-
-    <p>In this guide, we'll walk through how to use the Text Repeater to craft a stunning Instagram bio that reflects your personality or brand. Best of all, it's completely free and private – your text never leaves your browser.</p>
-
-    <h2>Why Style Your Instagram Bio?</h2>
-    <p>Instagram doesn't allow rich text formatting in bios. You can't bold, italicize, or change font sizes directly. However, you <strong>can</strong> use Unicode characters and creative text layouts to achieve similar effects. A well‑styled bio can:</p>
-    <ul>
-      <li><strong>Make your profile memorable</strong> – stand out among millions of users.</li>
-      <li><strong>Convey your personality</strong> – whether it's fun, professional, or artistic.</li>
-      <li><strong>Highlight important links</strong> – draw the eye to your website or latest project.</li>
-      <li><strong>Create a branded look</strong> – consistent with your overall aesthetic.</li>
-    </ul>
-
-    <h2>Using the Text Repeater for Instagram Bios</h2>
-    <p>The <a href="/text-repeater">Text Repeater</a> tool is perfect for generating styled text blocks that you can paste directly into your Instagram bio. Here's a step‑by‑step process to create a stunning bio.</p>
-
-    <h3>Step 1: Choose Your Base Text</h3>
-    <p>Start with a word or phrase that you want to emphasize or repeat. For example:</p>
-    <ul>
-      <li>Your name or brand (e.g., "✨ Luna ✨")</li>
-      <li>A descriptive word (e.g., "designer | creator | dreamer")</li>
-      <li>A decorative symbol (e.g., "★" or "•")</li>
-    </ul>
-
-    <h3>Step 2: Apply Font Styles</h3>
-    <p>Textify offers <strong>12 font styles</strong> that work great in Instagram bios. Some of the most effective ones are:</p>
-    <ul>
-      <li><strong>Small Caps:</strong> A clean, minimal look. Example: "ʟᴜɴᴀ"</li>
-      <li><strong>Script / Cursive:</strong> Elegant and soft. Example: "𝒸𝓇ℯ𝒶𝓉ℴ𝓇"</li>
-      <li><strong>Wide Text:</strong> Spaced‑out letters for a modern vibe. Example: "ｗｉｄｅ"</li>
-      <li><strong>Bold:</strong> Strong and eye‑catching. Example: "𝐁𝐨𝐥𝐝"</li>
-    </ul>
-    <p>Select your preferred font style from the dropdown, and the tool will automatically convert your text.</p>
-
-    <h3>Step 3: Add Decorations</h3>
-    <p>Decorations wrap your text with symbols. This is extremely useful for creating borders or badges. Try these:</p>
-    <ul>
-      <li><strong>Star:</strong> ★ Your Text ★</li>
-      <li><strong>Sparkle:</strong> ✨ Your Text ✨</li>
-      <li><strong>Heart:</strong> ❤️ Your Text ❤️</li>
-      <li><strong>Quote:</strong> ❝ Your Text ❞</li>
-    </ul>
-
-    <div class="tip-box">
-      <p><strong>💡 Pro tip:</strong> Combine a decoration with a bold or cursive font, then repeat it 2–3 times to create a bio section header. For instance: ✨✨ 𝐋𝐮𝐧𝐚 ✨✨ repeated twice creates a gorgeous centered header.</p>
-    </div>
-
-    <h3>Step 4: Set the Separator to "New Line"</h3>
-    <p>To build a vertical stack of styled text, choose the <strong>"New Line (Stack)"</strong> separator. This ensures each repetition appears on a separate line, giving your bio a structured, clean look.</p>
-
-    <h3>Step 5: Generate, Copy & Paste</h3>
-    <p>Set the repetition count (usually 1–3 for a bio – you don't need many repetitions). Click <strong>"Repeat / Convert"</strong>, then copy the result and paste it directly into your Instagram bio. That's it!</p>
-
-    <a href="/text-repeater" class="cta-button">Try the Text Repeater →</a>
-
-    <h2>Creative Bio Ideas with the Repeater</h2>
-    <p>Here are some ready‑made ideas you can try immediately. Just copy the settings and replace the placeholder text with your own.</p>
-
-    <ul>
-      <li><strong>Minimalist professional:</strong> Use <em>Small Caps</em> font, no decoration, separator "New Line", repeated once or twice with your title.
-        <br>Example: "ᴅᴇsɪɢɴᴇʀ | ᴍᴀʀᴋᴇᴛᴇʀ | ᴅʀᴇᴀᴍᴇʀ"</li>
-      <li><strong>Cute influencer-style:</strong> Use <em>Cursive</em> font with <em>Sparkle</em> decoration, repeated twice.
-        <br>Example: "✨ 𝒿𝑒𝓈𝓈𝒾𝒸𝒶 ✨<br>✨ 𝒿𝑒𝓈𝓈𝒾𝒸𝒶 ✨"</li>
-      <li><strong>Bold artist look:</strong> Use <em>Wide Text</em> with <em>Star</em> decoration, repeated 3 times.
-        <br>Example: "★ ａｒｔｉｓｔ ★"</li>
-      <li><strong>Geeky or tech vibe:</strong> Use <em>Monospace</em> font, no decoration, with custom separator like " • ".
-        <br>Example: "𝚌𝚘𝚍𝚎𝚛 • 𝚐𝚊𝚖𝚎𝚛 • 𝚗𝚎𝚛𝚍"</li>
-    </ul>
-
-    <h2>Instagram Bio Character Limit & Tips</h2>
-    <p>Instagram bios are limited to <strong>150 characters</strong>. Keep that in mind when using styled text – Unicode characters often count as one character each, but multi‑byte characters (like bold or script) can take up more space. If your bio is too long, Instagram will truncate it. So, preview your bio by pasting it first and checking that everything fits.</p>
-    <p>Quick tips for a successful bio:</p>
-    <ul>
-      <li>✅ Always include a call‑to‑action (visit your website, check your latest post).</li>
-      <li>✅ Leave one or two blank lines between sections for readability.</li>
-      <li>✅ Use a consistent style throughout – don't mix too many fonts.</li>
-      <li>❌ Avoid overusing emojis or glitter text – it can look cluttered.</li>
-    </ul>
-
-    <h2>Is It Safe? Absolutely.</h2>
-    <p>There is no risk to your Instagram account. You are manually copying and pasting text – there's no automation involved. Plus, Textify runs entirely in your browser. Your text is never uploaded, stored, or shared with anyone.</p>
-
-    <h2>Beyond the Bio – Stories & Captions</h2>
-    <p>While this guide focuses on the bio, you can obviously use the same styled text in <strong>Instagram stories and captions</strong>. In fact, using consistent styled text across your bio and stories strengthens your personal brand. Try creating a short decorative line (like "✨✨✨✨✨") to separate sections in a story.</p>
-
-    <p>Ready to transform your Instagram profile? <a href="/text-repeater">Open the Text Repeater now</a> and let your creativity flow.</p>
-  </main>
-
-  <!-- ========== FOOTER ========== -->
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-          Textify.Tools
-        </a>
-        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-      </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
-      <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-      <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
-    </div>
-    <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-  </footer>
-
   <script>
-    // Complete tools list (80+ tools)
     const tools = [
       { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
       { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
