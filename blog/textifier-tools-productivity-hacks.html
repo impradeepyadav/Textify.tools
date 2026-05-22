@@ -27,7 +27,6 @@
 <body>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    /* (Your existing CSS — unchanged, perfectly fine) */
     :root {
       --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
       --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
@@ -44,7 +43,7 @@
       --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
       --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
       --input-border: #334155;
-      --footer-bg: #1e293b; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
       --footer-border: #334155;
       --faq-bg: #1e293b; --faq-active: #334155;
       --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0,0,0,0.5);
@@ -56,16 +55,34 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg); color: var(--text); min-height: 100vh;
-      display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background 0.3s, color 0.3s;
+    }
+    .page-wrapper {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     header {
-      border-bottom: 1px solid var(--line); background: var(--bg);
-      display: flex; justify-content: center; align-items: center;
-      padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-      position: relative; z-index: 100;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      height: 64px;
+      transition: border-color 0.3s;
+      background: transparent;
     }
-    .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .header-inner { max-width: 1000px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -126,7 +143,12 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
     
-    main { flex: 1; max-width: 800px; margin: 30px auto; padding: 0 20px; width: 100%; }
+    main {
+      flex: 1;
+      padding: 30px 20px;
+      width: 100%;
+      background: transparent;
+    }
     h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
     .post-date { font-size: 14px; color: var(--text-light); margin-bottom: 25px; }
     h2 { font-size: 24px; font-weight: 700; margin: 35px 0 15px; }
@@ -142,18 +164,29 @@
     .cta-button:hover { opacity: 0.88; }
     
     footer {
-      background: var(--footer-bg); color: var(--footer-text);
-      padding: 60px 20px 25px; margin-top: 60px;
       border-top: 1px solid var(--footer-border);
+      padding: 40px 20px 25px;
+      background: transparent;
     }
-    .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+    .footer-container { width: 100%; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+      gap: 35px;
+    }
     @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
-    
+    .footer-bottom {
+      margin-top: 35px;
+      padding-top: 18px;
+      border-top: 1px solid var(--footer-border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--footer-text);
+    }
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
@@ -163,32 +196,85 @@
     }
   </style>
 
-  <header>
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-        Textify.Tools
-      </a>
-      <div class="header-right">
-        <div class="desktop-nav">
-          <div class="tools-menu-container">
-            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-            <div class="tools-mega-menu" id="megaMenu"></div>
+  <div class="page-wrapper">
+    <header>
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+          Textify.Tools
+        </a>
+        <div class="header-right">
+          <div class="desktop-nav">
+            <div class="tools-menu-container">
+              <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+              <div class="tools-mega-menu" id="megaMenu"></div>
+            </div>
+            <a href="/privacy">Privacy</a>
+            <a href="/blog">Blog</a>
           </div>
-          <a href="/privacy">Privacy</a>
-          <a href="/blog">Blog</a>
+          <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+            <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+            <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+          </button>
+          <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+          <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+            <span class="menu-icon"><span></span><span></span></span>
+          </button>
         </div>
-        <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-          <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-          <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-        </button>
-        <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-        <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-          <span class="menu-icon"><span></span><span></span></span>
-        </button>
       </div>
-    </div>
-  </header>
+    </header>
+
+    <main>
+      <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
+
+      <h1>5 Productivity Hacks with Textify Tools</h1>
+      <p class="post-date">📅 April 1, 2026</p>
+
+      <p>Textify.tools isn't just a collection of random utilities – it's a toolkit that can dramatically speed up your daily workflow. By combining a few tools in the right order, you can accomplish tasks that normally require multiple apps or tedious manual work. In this post, we'll explore five practical productivity hacks that harness the power of Textify.</p>
+
+      <h2>1. Quick Content Templates with Lorem Ipsum + Text Repeater</h2>
+      <p>Need a content outline or placeholder text for a blog post? Instead of copying generic Lorem Ipsum from another site, use the <a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a> to create exactly the number of paragraphs or sentences you need. Then, if you want a title or heading repeating throughout, use the <a href="/text-repeater">Text Repeater</a> to duplicate a heading line (like "Section Title") every few paragraphs.</p>
+      <p>For example: generate 5 paragraphs of Lorem Ipsum, then use the Text Repeater to create three lines of "— Section Break —" and insert them between the paragraphs. You've now built a complete document skeleton in under 30 seconds.</p>
+
+      <div class="tip-box">
+        <p><strong>💡 Pro tip:</strong> Combine with the <a href="/case-converter">Case Converter</a> to instantly make all headings Title Case after repeating them.</p>
+      </div>
+
+      <h2>2. Sanitize & Format Imported Data with Character Remover + Case Converter</h2>
+      <p>When you copy text from a PDF, email, or database export, you often get hidden characters, extra spaces, or messy capitalization. Use the <a href="/character-remover">Character Remover</a> to strip out unwanted symbols (like stray asterisks, underscores, or line breaks). Then pipe the cleaned text through the <a href="/case-converter">Case Converter</a> to apply uniform sentence case or title case. The result is clean, publication-ready text in just two steps.</p>
+
+      <h2>3. Batch Format Social Media Captions with Case Converter + Text Sorter</h2>
+      <p>If you're managing multiple social media accounts, you'll often need to format a batch of captions or quotes. Type all the captions as a single list, then use the <a href="/text-sorter">Text Sorter</a> to alphabetize them (or reverse‑sort for a random order). Next, use the <a href="/case-converter">Case Converter</a> to apply alternating case or sentence case to make them stand out. Copy and paste each line into your scheduler, and you've turned a messy list into a polished content calendar.</p>
+
+      <h2>4. Create Unique Passwords with Password Generator + Text Finder</h2>
+      <p>Using a password manager? Sometimes you need to quickly replace a placeholder password in a configuration file or a document. Generate a strong password with the <a href="/password-generator">Password Generator</a>, then use the <a href="/text-finder-replacer">Text Finder & Replacer</a> to replace every instance of "PLACEHOLDER" in your file with the new password. This is far faster than manually copying and pasting across multiple lines.</p>
+
+      <h2>5. Combine Text Repeater, Word Counter, and Download for Quick Drafts</h2>
+      <p>Suppose you want to test how a message looks with a specific word repeated 200 times (for a design mockup). Use the <a href="/text-repeater">Text Repeater</a> to generate the block, then immediately check the <a href="/word-counter">Word Counter</a> to verify the word count and character length. Finally, <strong>download the result as a .txt file</strong> and place it into your design software. The entire process – from idea to finished file – takes less than a minute.</p>
+
+      <p>These five hacks are just the beginning. Because all Textify tools work together without data leaving your browser, you can chain operations freely, with no waiting, no uploads, and complete privacy.</p>
+
+      <a href="/" class="cta-button">Explore All Tools →</a>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div>
+            <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+              <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+              Textify.Tools
+            </a>
+            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+          </div>
+          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
+          <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+          <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
+        </div>
+        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
 
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
@@ -222,57 +308,7 @@
     </div>
   </div>
 
-  <main>
-    <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
-
-    <h1>5 Productivity Hacks with Textify Tools</h1>
-    <p class="post-date">📅 April 1, 2026</p>
-
-    <p>Textify.tools isn't just a collection of random utilities – it's a toolkit that can dramatically speed up your daily workflow. By combining a few tools in the right order, you can accomplish tasks that normally require multiple apps or tedious manual work. In this post, we'll explore five practical productivity hacks that harness the power of Textify.</p>
-
-    <h2>1. Quick Content Templates with Lorem Ipsum + Text Repeater</h2>
-    <p>Need a content outline or placeholder text for a blog post? Instead of copying generic Lorem Ipsum from another site, use the <a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a> to create exactly the number of paragraphs or sentences you need. Then, if you want a title or heading repeating throughout, use the <a href="/text-repeater">Text Repeater</a> to duplicate a heading line (like "Section Title") every few paragraphs.</p>
-    <p>For example: generate 5 paragraphs of Lorem Ipsum, then use the Text Repeater to create three lines of "— Section Break —" and insert them between the paragraphs. You've now built a complete document skeleton in under 30 seconds.</p>
-
-    <div class="tip-box">
-      <p><strong>💡 Pro tip:</strong> Combine with the <a href="/case-converter">Case Converter</a> to instantly make all headings Title Case after repeating them.</p>
-    </div>
-
-    <h2>2. Sanitize & Format Imported Data with Character Remover + Case Converter</h2>
-    <p>When you copy text from a PDF, email, or database export, you often get hidden characters, extra spaces, or messy capitalization. Use the <a href="/character-remover">Character Remover</a> to strip out unwanted symbols (like stray asterisks, underscores, or line breaks). Then pipe the cleaned text through the <a href="/case-converter">Case Converter</a> to apply uniform sentence case or title case. The result is clean, publication-ready text in just two steps.</p>
-
-    <h2>3. Batch Format Social Media Captions with Case Converter + Text Sorter</h2>
-    <p>If you're managing multiple social media accounts, you'll often need to format a batch of captions or quotes. Type all the captions as a single list, then use the <a href="/text-sorter">Text Sorter</a> to alphabetize them (or reverse‑sort for a random order). Next, use the <a href="/case-converter">Case Converter</a> to apply alternating case or sentence case to make them stand out. Copy and paste each line into your scheduler, and you've turned a messy list into a polished content calendar.</p>
-
-    <h2>4. Create Unique Passwords with Password Generator + Text Finder</h2>
-    <p>Using a password manager? Sometimes you need to quickly replace a placeholder password in a configuration file or a document. Generate a strong password with the <a href="/password-generator">Password Generator</a>, then use the <a href="/text-finder-replacer">Text Finder & Replacer</a> to replace every instance of "PLACEHOLDER" in your file with the new password. This is far faster than manually copying and pasting across multiple lines.</p>
-
-    <h2>5. Combine Text Repeater, Word Counter, and Download for Quick Drafts</h2>
-    <p>Suppose you want to test how a message looks with a specific word repeated 200 times (for a design mockup). Use the <a href="/text-repeater">Text Repeater</a> to generate the block, then immediately check the <a href="/word-counter">Word Counter</a> to verify the word count and character length. Finally, <strong>download the result as a .txt file</strong> and place it into your design software. The entire process – from idea to finished file – takes less than a minute.</p>
-
-    <p>These five hacks are just the beginning. Because all Textify tools work together without data leaving your browser, you can chain operations freely, with no waiting, no uploads, and complete privacy.</p>
-
-    <a href="/" class="cta-button">Explore All Tools →</a>
-  </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-          Textify.Tools
-        </a>
-        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-      </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
-      <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-      <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
-    </div>
-    <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-  </footer>
-
   <script>
-    // --- Complete tools list (80+ tools) matching index.html ---
     const tools = [
       { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
       { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
