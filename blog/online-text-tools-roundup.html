@@ -43,7 +43,7 @@
       --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
       --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
       --input-border: #334155;
-      --footer-bg: #1e293b; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
       --footer-border: #334155;
       --faq-bg: #1e293b; --faq-active: #334155;
       --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0,0,0,0.5);
@@ -55,16 +55,34 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg); color: var(--text); min-height: 100vh;
-      display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background 0.3s, color 0.3s;
+    }
+    .page-wrapper {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     header {
-      border-bottom: 1px solid var(--line); background: var(--bg);
-      display: flex; justify-content: center; align-items: center;
-      padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-      position: relative; z-index: 100;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      height: 64px;
+      transition: border-color 0.3s;
+      background: transparent;
     }
-    .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -125,7 +143,12 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
     
-    main { flex: 1; max-width: 800px; margin: 30px auto; padding: 0 20px; width: 100%; }
+    main {
+      flex: 1;
+      padding: 30px 20px;
+      width: 100%;
+      background: transparent;
+    }
     h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
     .post-date { font-size: 14px; color: var(--text-light); margin-bottom: 25px; }
     h2 { font-size: 24px; font-weight: 700; margin: 35px 0 15px; }
@@ -141,17 +164,29 @@
     .cta-button:hover { opacity: 0.88; }
     
     footer {
-      background: var(--footer-bg); color: var(--footer-text);
-      padding: 60px 20px 25px; margin-top: 60px;
       border-top: 1px solid var(--footer-border);
+      padding: 40px 20px 25px;
+      background: transparent;
     }
-    .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+    .footer-container { width: 100%; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+      gap: 35px;
+    }
     @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+    .footer-bottom {
+      margin-top: 35px;
+      padding-top: 18px;
+      border-top: 1px solid var(--footer-border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--footer-text);
+    }
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
@@ -161,32 +196,132 @@
     }
   </style>
 
-  <header>
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-        Textify.Tools
-      </a>
-      <div class="header-right">
-        <div class="desktop-nav">
-          <div class="tools-menu-container">
-            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-            <div class="tools-mega-menu" id="megaMenu"></div>
+  <div class="page-wrapper">
+    <header>
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+          Textify.Tools
+        </a>
+        <div class="header-right">
+          <div class="desktop-nav">
+            <div class="tools-menu-container">
+              <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+              <div class="tools-mega-menu" id="megaMenu"></div>
+            </div>
+            <a href="/privacy">Privacy</a>
+            <a href="/blog">Blog</a>
           </div>
-          <a href="/privacy">Privacy</a>
-          <a href="/blog">Blog</a>
+          <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+            <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+            <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+          </button>
+          <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+          <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+            <span class="menu-icon"><span></span><span></span></span>
+          </button>
         </div>
-        <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-          <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-          <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-        </button>
-        <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-        <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-          <span class="menu-icon"><span></span><span></span></span>
-        </button>
       </div>
-    </div>
-  </header>
+    </header>
+
+    <main>
+      <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
+
+      <h1>The Ultimate Online Text Tools Roundup</h1>
+      <p class="post-date">📅 March 18, 2026</p>
+
+      <p>In the digital age, text is everywhere – emails, social media posts, code, and content creation. Manually formatting, counting, or converting text can be tedious. That's why we've built <strong>Textify.tools</strong> – a complete suite of free, browser‑based utilities that handle all your text manipulation needs while keeping your data completely private.</p>
+
+      <p>In this roundup, we'll walk you through every tool currently available, how they work, and when to use them. Whether you're a developer, writer, student, or just someone who loves productivity, there's something here for you.</p>
+
+      <h2>1. Text Repeater – Multiply Anything Instantly</h2>
+      <p>Our flagship tool lets you repeat any text up to <strong>100,000 times</strong> in a single click. Choose custom separators, apply 12 different font styles (bold, italic, cursive, bubble, wide, etc.), add decorations, and even use glitch effects. Perfect for WhatsApp pranks, stress testing, creative Instagram bios, and creating dummy data.</p>
+      <p><a href="/text-repeater" class="cta-button">Try Text Repeater →</a></p>
+
+      <h2>2. Word Counter – See Your Text's Anatomy</h2>
+      <p>Paste or type any text and get instant counts for words, characters (with and without spaces), sentences, paragraphs, average word length, reading time, and speaking time. Completely private – your text never leaves your browser.</p>
+      <p><a href="/word-counter" class="cta-button">Try Word Counter →</a></p>
+
+      <h2>3. Case Converter – Fix Capitalization Fast</h2>
+      <p>Convert any text to uppercase, lowercase, title case, sentence case, alternating case, or even random case. A lifesaver when you accidentally hit CAPS LOCK or need to format headlines.</p>
+      <p><a href="/case-converter" class="cta-button">Try Case Converter →</a></p>
+
+      <h2>4. Text Reverser – Flip & Mirror Magic</h2>
+      <p>Reverse your entire text, reverse word order, or flip characters upside down (uʍop ǝpısdn). Great for puzzles, creative messages, or just having fun with friends.</p>
+      <p><a href="/text-reverser" class="cta-button">Try Text Reverser →</a></p>
+
+      <h2>5. Slug Generator – SEO‑Friendly URLs in Seconds</h2>
+      <p>Create clean, readable URL slugs from any headline or phrase. Automatically removes special characters, converts to lowercase, and joins words with hyphens. Essential for bloggers and content writers.</p>
+      <p><a href="/slug-generator" class="cta-button">Try Slug Generator →</a></p>
+
+      <h2>6. Text Sorter – Order Lines Alphabetically or Randomly</h2>
+      <p>Sort lists alphabetically (A‑Z or Z‑A), numerically, or shuffle them randomly. Handy for organizing data, creating randomized lists, or preparing structured documents.</p>
+      <p><a href="/text-sorter" class="cta-button">Try Text Sorter →</a></p>
+
+      <h2>7. Text Diff Checker – Compare Two Texts Instantly</h2>
+      <p>Paste two blocks of text side‑by‑side and instantly see every difference highlighted. Perfect for comparing code, document revisions, or spotting plagiarism.</p>
+      <p><a href="/text-diff-checker" class="cta-button">Try Text Diff Checker →</a></p>
+
+      <h2>8. Text Finder & Replacer – Bulk Find & Replace</h2>
+      <p>Find specific words or phrases and replace them with another string throughout your entire text. Works with case‑sensitive matching and bulk operations. Great for editing large documents.</p>
+      <p><a href="/text-finder-replacer" class="cta-button">Try Text Finder & Replacer →</a></p>
+
+      <h2>9. Character Remover – Strip Unwanted Characters</h2>
+      <p>Remove specific characters, punctuation, spaces, numbers, or even emojis from your text. Clean up messy data or prepare input for other applications.</p>
+      <p><a href="/character-remover" class="cta-button">Try Character Remover →</a></p>
+
+      <h2>10. Text Encoder / Decoder – Base64, URL Encoding & More</h2>
+      <p>Encode or decode text using Base64, URL encoding, or binary/hex representations. Essential for developers working with web data, APIs, or debugging.</p>
+      <p><a href="/text-encoder-decoder" class="cta-button">Try Text Encoder/Decoder →</a></p>
+
+      <h2>11. Smart Paraphraser – Rewrite & Rephrase</h2>
+      <p>Rephrase sentences while preserving their original meaning. Uses a local synonym database that works offline – your text never leaves your browser. Ideal for avoiding plagiarism or finding new ways to express ideas.</p>
+      <p><a href="/smart-paraphraser" class="cta-button">Try Smart Paraphraser →</a></p>
+
+      <h2>12. Password Generator – Strong, Random Passwords</h2>
+      <p>Generate cryptographically strong passwords with customizable length, including uppercase, lowercase, numbers, and symbols. All generation happens on your device – passwords are never saved or transmitted.</p>
+      <p><a href="/password-generator" class="cta-button">Try Password Generator →</a></p>
+
+      <h2>13. Lorem Ipsum Generator – Placeholder Text for Designs</h2>
+      <p>Generate classic Lorem Ipsum placeholder text for mockups, layouts, or design prototypes. Choose the number of paragraphs, words, or characters. Works instantly in your browser.</p>
+      <p><a href="/lorem-ipsum-generator" class="cta-button">Try Lorem Ipsum Generator →</a></p>
+
+      <div class="tip-box">
+        <p><strong>🌟 Did you know?</strong> All Textify tools work completely offline after the page loads. Just load the tool once, then disconnect your internet – everything still works because processing happens locally.</p>
+      </div>
+
+      <h2>Why Choose Textify.tools?</h2>
+      <ul>
+        <li><strong>100% Free:</strong> No hidden fees, no premium plans, no registration.</li>
+        <li><strong>Privacy First:</strong> Every tool runs client‑side. Your text never leaves your device.</li>
+        <li><strong>Fast & Lightweight:</strong> Optimized JavaScript ensures instant results even on mobile.</li>
+        <li><strong>No Ads Clutter:</strong> Clean, minimal interface designed for productivity.</li>
+        <li><strong>Regular Updates:</strong> New tools and features are added based on user feedback.</li>
+      </ul>
+
+      <p>Whether you need to repeat a message 10,000 times, count the words in an essay, or generate a strong password, Textify has you covered. Bookmark the <a href="/">homepage</a> and access all tools from one place.</p>
+
+      <p>Have an idea for a new tool? <a href="/contact">Contact us</a> – we'd love to hear from you!</p>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div>
+            <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+              <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+              Textify.Tools
+            </a>
+            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+          </div>
+          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
+          <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+          <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
+        </div>
+        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
 
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
@@ -220,104 +355,7 @@
     </div>
   </div>
 
-  <main>
-    <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
-
-    <h1>The Ultimate Online Text Tools Roundup</h1>
-    <p class="post-date">📅 March 18, 2026</p>
-
-    <p>In the digital age, text is everywhere – emails, social media posts, code, and content creation. Manually formatting, counting, or converting text can be tedious. That's why we've built <strong>Textify.tools</strong> – a complete suite of free, browser‑based utilities that handle all your text manipulation needs while keeping your data completely private.</p>
-
-    <p>In this roundup, we'll walk you through every tool currently available, how they work, and when to use them. Whether you're a developer, writer, student, or just someone who loves productivity, there's something here for you.</p>
-
-    <h2>1. Text Repeater – Multiply Anything Instantly</h2>
-    <p>Our flagship tool lets you repeat any text up to <strong>100,000 times</strong> in a single click. Choose custom separators, apply 12 different font styles (bold, italic, cursive, bubble, wide, etc.), add decorations, and even use glitch effects. Perfect for WhatsApp pranks, stress testing, creative Instagram bios, and creating dummy data.</p>
-    <p><a href="/text-repeater" class="cta-button">Try Text Repeater →</a></p>
-
-    <h2>2. Word Counter – See Your Text's Anatomy</h2>
-    <p>Paste or type any text and get instant counts for words, characters (with and without spaces), sentences, paragraphs, average word length, reading time, and speaking time. Completely private – your text never leaves your browser.</p>
-    <p><a href="/word-counter" class="cta-button">Try Word Counter →</a></p>
-
-    <h2>3. Case Converter – Fix Capitalization Fast</h2>
-    <p>Convert any text to uppercase, lowercase, title case, sentence case, alternating case, or even random case. A lifesaver when you accidentally hit CAPS LOCK or need to format headlines.</p>
-    <p><a href="/case-converter" class="cta-button">Try Case Converter →</a></p>
-
-    <h2>4. Text Reverser – Flip & Mirror Magic</h2>
-    <p>Reverse your entire text, reverse word order, or flip characters upside down (uʍop ǝpısdn). Great for puzzles, creative messages, or just having fun with friends.</p>
-    <p><a href="/text-reverser" class="cta-button">Try Text Reverser →</a></p>
-
-    <h2>5. Slug Generator – SEO‑Friendly URLs in Seconds</h2>
-    <p>Create clean, readable URL slugs from any headline or phrase. Automatically removes special characters, converts to lowercase, and joins words with hyphens. Essential for bloggers and content writers.</p>
-    <p><a href="/slug-generator" class="cta-button">Try Slug Generator →</a></p>
-
-    <h2>6. Text Sorter – Order Lines Alphabetically or Randomly</h2>
-    <p>Sort lists alphabetically (A‑Z or Z‑A), numerically, or shuffle them randomly. Handy for organizing data, creating randomized lists, or preparing structured documents.</p>
-    <p><a href="/text-sorter" class="cta-button">Try Text Sorter →</a></p>
-
-    <h2>7. Text Diff Checker – Compare Two Texts Instantly</h2>
-    <p>Paste two blocks of text side‑by‑side and instantly see every difference highlighted. Perfect for comparing code, document revisions, or spotting plagiarism.</p>
-    <p><a href="/text-diff-checker" class="cta-button">Try Text Diff Checker →</a></p>
-
-    <h2>8. Text Finder & Replacer – Bulk Find & Replace</h2>
-    <p>Find specific words or phrases and replace them with another string throughout your entire text. Works with case‑sensitive matching and bulk operations. Great for editing large documents.</p>
-    <p><a href="/text-finder-replacer" class="cta-button">Try Text Finder & Replacer →</a></p>
-
-    <h2>9. Character Remover – Strip Unwanted Characters</h2>
-    <p>Remove specific characters, punctuation, spaces, numbers, or even emojis from your text. Clean up messy data or prepare input for other applications.</p>
-    <p><a href="/character-remover" class="cta-button">Try Character Remover →</a></p>
-
-    <h2>10. Text Encoder / Decoder – Base64, URL Encoding & More</h2>
-    <p>Encode or decode text using Base64, URL encoding, or binary/hex representations. Essential for developers working with web data, APIs, or debugging.</p>
-    <p><a href="/text-encoder-decoder" class="cta-button">Try Text Encoder/Decoder →</a></p>
-
-    <h2>11. Smart Paraphraser – Rewrite & Rephrase</h2>
-    <p>Rephrase sentences while preserving their original meaning. Uses a local synonym database that works offline – your text never leaves your browser. Ideal for avoiding plagiarism or finding new ways to express ideas.</p>
-    <p><a href="/smart-paraphraser" class="cta-button">Try Smart Paraphraser →</a></p>
-
-    <h2>12. Password Generator – Strong, Random Passwords</h2>
-    <p>Generate cryptographically strong passwords with customizable length, including uppercase, lowercase, numbers, and symbols. All generation happens on your device – passwords are never saved or transmitted.</p>
-    <p><a href="/password-generator" class="cta-button">Try Password Generator →</a></p>
-
-    <h2>13. Lorem Ipsum Generator – Placeholder Text for Designs</h2>
-    <p>Generate classic Lorem Ipsum placeholder text for mockups, layouts, or design prototypes. Choose the number of paragraphs, words, or characters. Works instantly in your browser.</p>
-    <p><a href="/lorem-ipsum-generator" class="cta-button">Try Lorem Ipsum Generator →</a></p>
-
-    <div class="tip-box">
-      <p><strong>🌟 Did you know?</strong> All Textify tools work completely offline after the page loads. Just load the tool once, then disconnect your internet – everything still works because processing happens locally.</p>
-    </div>
-
-    <h2>Why Choose Textify.tools?</h2>
-    <ul>
-      <li><strong>100% Free:</strong> No hidden fees, no premium plans, no registration.</li>
-      <li><strong>Privacy First:</strong> Every tool runs client‑side. Your text never leaves your device.</li>
-      <li><strong>Fast & Lightweight:</strong> Optimized JavaScript ensures instant results even on mobile.</li>
-      <li><strong>No Ads Clutter:</strong> Clean, minimal interface designed for productivity.</li>
-      <li><strong>Regular Updates:</strong> New tools and features are added based on user feedback.</li>
-    </ul>
-
-    <p>Whether you need to repeat a message 10,000 times, count the words in an essay, or generate a strong password, Textify has you covered. Bookmark the <a href="/">homepage</a> and access all tools from one place.</p>
-
-    <p>Have an idea for a new tool? <a href="/contact">Contact us</a> – we'd love to hear from you!</p>
-  </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-          Textify.Tools
-        </a>
-        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-      </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
-      <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-      <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
-    </div>
-    <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-  </footer>
-
   <script>
-    // Complete tools list (80+ tools)
     const tools = [
       { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
       { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
