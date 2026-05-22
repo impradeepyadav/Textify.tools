@@ -43,7 +43,7 @@
       --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
       --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
       --input-border: #334155;
-      --footer-bg: #1e293b; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
       --footer-border: #334155;
       --faq-bg: #1e293b; --faq-active: #334155;
       --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0,0,0,0.5);
@@ -55,16 +55,34 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg); color: var(--text); min-height: 100vh;
-      display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background 0.3s, color 0.3s;
+    }
+    .page-wrapper {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     header {
-      border-bottom: 1px solid var(--line); background: var(--bg);
-      display: flex; justify-content: center; align-items: center;
-      padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-      position: relative; z-index: 100;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      height: 64px;
+      transition: border-color 0.3s;
+      background: transparent;
     }
-    .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -125,7 +143,12 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
     
-    main { flex: 1; max-width: 800px; margin: 30px auto; padding: 0 20px; width: 100%; }
+    main {
+      flex: 1;
+      padding: 30px 20px;
+      width: 100%;
+      background: transparent;
+    }
     h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
     .post-date { font-size: 14px; color: var(--text-light); margin-bottom: 25px; }
     h2 { font-size: 24px; font-weight: 700; margin: 35px 0 15px; }
@@ -141,17 +164,29 @@
     .cta-button:hover { opacity: 0.88; }
     
     footer {
-      background: var(--footer-bg); color: var(--footer-text);
-      padding: 60px 20px 25px; margin-top: 60px;
       border-top: 1px solid var(--footer-border);
+      padding: 40px 20px 25px;
+      background: transparent;
     }
-    .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+    .footer-container { width: 100%; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+      gap: 35px;
+    }
     @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+    .footer-bottom {
+      margin-top: 35px;
+      padding-top: 18px;
+      border-top: 1px solid var(--footer-border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--footer-text);
+    }
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
@@ -161,32 +196,160 @@
     }
   </style>
 
-  <header>
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-        Textify.Tools
-      </a>
-      <div class="header-right">
-        <div class="desktop-nav">
-          <div class="tools-menu-container">
-            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-            <div class="tools-mega-menu" id="megaMenu"></div>
+  <div class="page-wrapper">
+    <header>
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+          Textify.Tools
+        </a>
+        <div class="header-right">
+          <div class="desktop-nav">
+            <div class="tools-menu-container">
+              <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+              <div class="tools-mega-menu" id="megaMenu"></div>
+            </div>
+            <a href="/privacy">Privacy</a>
+            <a href="/blog">Blog</a>
           </div>
-          <a href="/privacy">Privacy</a>
-          <a href="/blog">Blog</a>
+          <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+            <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+            <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+          </button>
+          <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+          <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+            <span class="menu-icon"><span></span><span></span></span>
+          </button>
         </div>
-        <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-          <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-          <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-        </button>
-        <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-        <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-          <span class="menu-icon"><span></span><span></span></span>
-        </button>
       </div>
-    </div>
-  </header>
+    </header>
+
+    <main>
+      <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
+
+      <h1>Create Emoji Art with Text Repeater</h1>
+      <p class="post-date">📅 March 20, 2026</p>
+
+      <p>Emojis are the universal language of the internet. But what if you could turn individual emojis into stunning patterns, borders, and even small pieces of art? With the <strong>Textify Text Repeater</strong>, you can repeat any emoji (or a combination of emojis) to create eye‑catching designs for your social media posts, WhatsApp messages, Instagram stories, and more.</p>
+
+      <p>In this guide, we'll show you exactly how to use the Text Repeater's separator, count, and line‑break features to create beautiful emoji art – all for free and without any app installs.</p>
+
+      <h2>Why Emoji Art?</h2>
+      <p>Emojis add emotion, color, and personality to plain text. When arranged creatively, they can form:</p>
+      <ul>
+        <li><strong>Divider lines</strong> – perfect for breaking up sections in a bio or caption.</li>
+        <li><strong>Frames and borders</strong> – give your profile a polished, branded look.</li>
+        <li><strong>Simple images</strong> – like hearts, stars, or even a rainbow.</li>
+        <li><strong>Reactions or mood scales</strong> – repeated emojis to express intensity (e.g., 😂😂😂).</li>
+      </ul>
+      <p>The only limit is your imagination – and the Text Repeater handles the rest.</p>
+
+      <h2>Step‑by‑Step: Craft Your First Emoji Pattern</h2>
+      <p>Open the <a href="/text-repeater">Text Repeater</a> and follow along:</p>
+
+      <h3>1. Choose Your Emoji</h3>
+      <p>Pick one or more emojis that you want to repeat. You can use your device's emoji keyboard or copy from a site like <a href="https://emojipedia.org" target="_blank" rel="noopener">Emojipedia</a>. Some ideas:</p>
+      <ul>
+        <li>🌟 – star for sparkle borders</li>
+        <li>❤️ – heart for love themes</li>
+        <li>🔥 – fire for hot streaks</li>
+        <li>🌈 – rainbow for colorful patterns</li>
+        <li>😂 – laugh for funny reactions</li>
+      </ul>
+
+      <h3>2. Set the Repetition Count</h3>
+      <p>Enter a number that makes sense for your design. For a short divider, 5–10 repetitions work perfectly. For a long border, 20–30 works well. Want to fill a whole message? Go up to 100 or more.</p>
+
+      <h3>3. Pick the Right Separator</h3>
+      <p>This is where the magic happens. The separator determines how your emojis are placed. Here are the most useful separators for emoji art:</p>
+      <ul>
+        <li><strong>New Line (Stack)</strong> – Places each repetition on a new line. Perfect for building vertical lists or creating a "tower" of emojis.</li>
+        <li><strong>Space (Single Line)</strong> – Joins emojis with a single space. Creates a horizontal string like 🌟 🌟 🌟.</li>
+        <li><strong>Custom Separator</strong> – Use a dash, slash, or even another emoji. Example: 🌟⭐🌟⭐🌟</li>
+      </ul>
+
+      <div class="tip-box">
+        <p><strong>🌟 Pro Tip:</strong> Use the custom separator with a contrasting emoji. For example, text = 🔥, separator = ❄️. You'll get 🔥❄️🔥❄️🔥 – a fire‑and‑ice pattern!</p>
+      </div>
+
+      <h3>4. Optional: Add Line Numbers or Borders</h3>
+      <p>The Text Repeater also lets you add line numbers (<em>Add Line Numbers</em> checkbox) or a period at the end of each line. These aren't usually needed for emoji art, but they can be useful if you're creating a list.</p>
+
+      <h3>5. Generate, Copy & Share</h3>
+      <p>Click the <strong>"Repeat / Convert"</strong> button, and your emoji pattern will appear instantly. Copy the output and paste it anywhere – WhatsApp, Instagram, Twitter, or even a plain text document.</p>
+
+      <a href="/text-repeater" class="cta-button">Try the Text Repeater →</a>
+
+      <h2>Creative Emoji Art Ideas (Ready to Copy)</h2>
+      <p>Here are some exact configurations you can try right now. Just replace the placeholder text and separators as described.</p>
+
+      <div style="background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px;">
+        <h3 style="margin-top:0;">🎀 Sparkle Divider</h3>
+        <p><strong>Text:</strong> ✨<br>
+        <strong>Separator:</strong> New Line<br>
+        <strong>Count:</strong> 8<br>
+        <strong>Result:</strong> A vertical column of sparkles perfect for a bio separator.</p>
+      </div>
+
+      <div style="background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px;">
+        <h3 style="margin-top:0;">❤️ Heart Wave</h3>
+        <p><strong>Text:</strong> ❤️<br>
+        <strong>Separator:</strong> Space<br>
+        <strong>Count:</strong> 20<br>
+        <strong>Result:</strong> A long horizontal line of hearts – great for a romantic message.</p>
+      </div>
+
+      <div style="background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px;">
+        <h3 style="margin-top:0;">🌈 Rainbow Chain</h3>
+        <p><strong>Text:</strong> 🌈<br>
+        <strong>Custom Separator:</strong> ⭐<br>
+        <strong>Count:</strong> 10<br>
+        <strong>Result:</strong> 🌈⭐🌈⭐🌈⭐… – a colorful alternating chain.</p>
+      </div>
+
+      <div style="background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px;">
+        <h3 style="margin-top:0;">🔥 Streak Meter</h3>
+        <p><strong>Text:</strong> 🔥<br>
+        <strong>Separator:</strong> (none)<br>
+        <strong>Count:</strong> 7<br>
+        <strong>Result:</strong> 🔥🔥🔥🔥🔥🔥🔥 – a hot streak counter for your story.</p>
+      </div>
+
+      <h2>Combine with Font Styles & Decorations</h2>
+      <p>Did you know you can also apply font styles to emojis? While emojis don't change shape, the surrounding decorations and separators can be styled. For example, choose the <strong>Bold</strong> font and then use a fire emoji as a decoration: the text "🔥" becomes wrapped with bold stars or whatever decoration you select. Experiment with the <strong>Decoration</strong> dropdown to add frames like ★, ❝, or ❤ around your entire emoji line.</p>
+
+      <h2>Where to Use Emoji Art</h2>
+      <ul>
+        <li><strong>Instagram Bio:</strong> Use sparkle dividers or a heart line to separate your name from your links.</li>
+        <li><strong>WhatsApp Status / Story:</strong> Post a long rainbow chain or a "mood scale" using repeated laughing emojis.</li>
+        <li><strong>Messaging Groups:</strong> Create a custom group description with repeating party poppers 🎉.</li>
+        <li><strong>Twitter/X Header:</strong> Copy a decorative border and paste it into your bio.</li>
+      </ul>
+
+      <h2>Is It Safe? Yes, 100% Private</h2>
+      <p>Just like all Textify tools, the Text Repeater works entirely in your browser. Your emojis, your patterns – nothing is sent to any server. You can generate emoji art offline after the page loads. No data collection, no tracking.</p>
+
+      <p>Ready to create your own emoji masterpiece? <a href="/text-repeater">Open the Text Repeater now</a> and start building.</p>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div>
+            <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+              <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+              Textify.Tools
+            </a>
+            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+          </div>
+          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
+          <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+          <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
+        </div>
+        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
 
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
@@ -220,132 +383,7 @@
     </div>
   </div>
 
-  <main>
-    <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
-
-    <h1>Create Emoji Art with Text Repeater</h1>
-    <p class="post-date">📅 March 20, 2026</p>
-
-    <p>Emojis are the universal language of the internet. But what if you could turn individual emojis into stunning patterns, borders, and even small pieces of art? With the <strong>Textify Text Repeater</strong>, you can repeat any emoji (or a combination of emojis) to create eye‑catching designs for your social media posts, WhatsApp messages, Instagram stories, and more.</p>
-
-    <p>In this guide, we'll show you exactly how to use the Text Repeater's separator, count, and line‑break features to create beautiful emoji art – all for free and without any app installs.</p>
-
-    <h2>Why Emoji Art?</h2>
-    <p>Emojis add emotion, color, and personality to plain text. When arranged creatively, they can form:</p>
-    <ul>
-      <li><strong>Divider lines</strong> – perfect for breaking up sections in a bio or caption.</li>
-      <li><strong>Frames and borders</strong> – give your profile a polished, branded look.</li>
-      <li><strong>Simple images</strong> – like hearts, stars, or even a rainbow.</li>
-      <li><strong>Reactions or mood scales</strong> – repeated emojis to express intensity (e.g., 😂😂😂).</li>
-    </ul>
-    <p>The only limit is your imagination – and the Text Repeater handles the rest.</p>
-
-    <h2>Step‑by‑Step: Craft Your First Emoji Pattern</h2>
-    <p>Open the <a href="/text-repeater">Text Repeater</a> and follow along:</p>
-
-    <h3>1. Choose Your Emoji</h3>
-    <p>Pick one or more emojis that you want to repeat. You can use your device's emoji keyboard or copy from a site like <a href="https://emojipedia.org" target="_blank" rel="noopener">Emojipedia</a>. Some ideas:</p>
-    <ul>
-      <li>🌟 – star for sparkle borders</li>
-      <li>❤️ – heart for love themes</li>
-      <li>🔥 – fire for hot streaks</li>
-      <li>🌈 – rainbow for colorful patterns</li>
-      <li>😂 – laugh for funny reactions</li>
-    </ul>
-
-    <h3>2. Set the Repetition Count</h3>
-    <p>Enter a number that makes sense for your design. For a short divider, 5–10 repetitions work perfectly. For a long border, 20–30 works well. Want to fill a whole message? Go up to 100 or more.</p>
-
-    <h3>3. Pick the Right Separator</h3>
-    <p>This is where the magic happens. The separator determines how your emojis are placed. Here are the most useful separators for emoji art:</p>
-    <ul>
-      <li><strong>New Line (Stack)</strong> – Places each repetition on a new line. Perfect for building vertical lists or creating a "tower" of emojis.</li>
-      <li><strong>Space (Single Line)</strong> – Joins emojis with a single space. Creates a horizontal string like 🌟 🌟 🌟.</li>
-      <li><strong>Custom Separator</strong> – Use a dash, slash, or even another emoji. Example: 🌟⭐🌟⭐🌟</li>
-    </ul>
-
-    <div class="tip-box">
-      <p><strong>🌟 Pro Tip:</strong> Use the custom separator with a contrasting emoji. For example, text = 🔥, separator = ❄️. You'll get 🔥❄️🔥❄️🔥 – a fire‑and‑ice pattern!</p>
-    </div>
-
-    <h3>4. Optional: Add Line Numbers or Borders</h3>
-    <p>The Text Repeater also lets you add line numbers (<em>Add Line Numbers</em> checkbox) or a period at the end of each line. These aren't usually needed for emoji art, but they can be useful if you're creating a list.</p>
-
-    <h3>5. Generate, Copy & Share</h3>
-    <p>Click the <strong>"Repeat / Convert"</strong> button, and your emoji pattern will appear instantly. Copy the output and paste it anywhere – WhatsApp, Instagram, Twitter, or even a plain text document.</p>
-
-    <a href="/text-repeater" class="cta-button">Try the Text Repeater →</a>
-
-    <h2>Creative Emoji Art Ideas (Ready to Copy)</h2>
-    <p>Here are some exact configurations you can try right now. Just replace the placeholder text and separators as described.</p>
-
-    <div style="background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px;">
-      <h3 style="margin-top:0;">🎀 Sparkle Divider</h3>
-      <p><strong>Text:</strong> ✨<br>
-      <strong>Separator:</strong> New Line<br>
-      <strong>Count:</strong> 8<br>
-      <strong>Result:</strong> A vertical column of sparkles perfect for a bio separator.</p>
-    </div>
-
-    <div style="background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px;">
-      <h3 style="margin-top:0;">❤️ Heart Wave</h3>
-      <p><strong>Text:</strong> ❤️<br>
-      <strong>Separator:</strong> Space<br>
-      <strong>Count:</strong> 20<br>
-      <strong>Result:</strong> A long horizontal line of hearts – great for a romantic message.</p>
-    </div>
-
-    <div style="background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px;">
-      <h3 style="margin-top:0;">🌈 Rainbow Chain</h3>
-      <p><strong>Text:</strong> 🌈<br>
-      <strong>Custom Separator:</strong> ⭐<br>
-      <strong>Count:</strong> 10<br>
-      <strong>Result:</strong> 🌈⭐🌈⭐🌈⭐… – a colorful alternating chain.</p>
-    </div>
-
-    <div style="background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid var(--line); margin-bottom: 22px;">
-      <h3 style="margin-top:0;">🔥 Streak Meter</h3>
-      <p><strong>Text:</strong> 🔥<br>
-      <strong>Separator:</strong> (none)<br>
-      <strong>Count:</strong> 7<br>
-      <strong>Result:</strong> 🔥🔥🔥🔥🔥🔥🔥 – a hot streak counter for your story.</p>
-    </div>
-
-    <h2>Combine with Font Styles & Decorations</h2>
-    <p>Did you know you can also apply font styles to emojis? While emojis don't change shape, the surrounding decorations and separators can be styled. For example, choose the <strong>Bold</strong> font and then use a fire emoji as a decoration: the text "🔥" becomes wrapped with bold stars or whatever decoration you select. Experiment with the <strong>Decoration</strong> dropdown to add frames like ★, ❝, or ❤ around your entire emoji line.</p>
-
-    <h2>Where to Use Emoji Art</h2>
-    <ul>
-      <li><strong>Instagram Bio:</strong> Use sparkle dividers or a heart line to separate your name from your links.</li>
-      <li><strong>WhatsApp Status / Story:</strong> Post a long rainbow chain or a "mood scale" using repeated laughing emojis.</li>
-      <li><strong>Messaging Groups:</strong> Create a custom group description with repeating party poppers 🎉.</li>
-      <li><strong>Twitter/X Header:</strong> Copy a decorative border and paste it into your bio.</li>
-    </ul>
-
-    <h2>Is It Safe? Yes, 100% Private</h2>
-    <p>Just like all Textify tools, the Text Repeater works entirely in your browser. Your emojis, your patterns – nothing is sent to any server. You can generate emoji art offline after the page loads. No data collection, no tracking.</p>
-
-    <p>Ready to create your own emoji masterpiece? <a href="/text-repeater">Open the Text Repeater now</a> and start building.</p>
-  </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-          Textify.Tools
-        </a>
-        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-      </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
-      <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-      <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
-    </div>
-    <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-  </footer>
-
   <script>
-    // Complete tools list (80+ tools)
     const tools = [
       { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
       { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
