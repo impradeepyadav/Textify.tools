@@ -65,7 +65,7 @@
       --card: #1e293b;
       --input-bg: #1e293b;
       --input-border: #334155;
-      --footer-bg: #1e293b;
+      --footer-bg: #0f172a;
       --footer-text: #e2e8f0;
       --footer-heading: #ffffff;
       --footer-link-hover: #ffffff;
@@ -87,16 +87,39 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg); color: var(--text); min-height: 100vh;
-      display: flex; flex-direction: column; transition: background 0.3s, color 0.3s;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s, color 0.3s;
+      align-items: center;
+    }
+    .page-wrapper {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
     header {
-      border-bottom: 1px solid var(--line); background: var(--bg);
-      display: flex; justify-content: center; align-items: center;
-      padding: 0 20px; height: 64px; transition: background 0.3s, border-color 0.3s;
-      position: relative; z-index: 100;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      height: 64px;
+      transition: border-color 0.3s;
+      background: transparent;
     }
-    .header-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .header-inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -157,7 +180,12 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
     
-    main { flex: 1; max-width: 800px; margin: 30px auto; padding: 0 20px; width: 100%; }
+    main {
+      flex: 1;
+      padding: 30px 20px;
+      width: 100%;
+      background: transparent;
+    }
     h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
     .post-date { font-size: 14px; color: var(--text-light); margin-bottom: 25px; }
     h2 { font-size: 24px; font-weight: 700; margin: 35px 0 15px; }
@@ -173,17 +201,29 @@
     .cta-button:hover { opacity: 0.88; }
     
     footer {
-      background: var(--footer-bg); color: var(--footer-text);
-      padding: 60px 20px 25px; margin-top: 60px;
       border-top: 1px solid var(--footer-border);
+      padding: 40px 20px 25px;
+      background: transparent;
     }
-    .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+    .footer-container { width: 100%; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+      gap: 35px;
+    }
     @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
     .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom { max-width: 1000px; margin: 35px auto 0; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+    .footer-bottom {
+      margin-top: 35px;
+      padding-top: 18px;
+      border-top: 1px solid var(--footer-border);
+      text-align: center;
+      font-size: 13px;
+      color: var(--footer-text);
+    }
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
@@ -193,32 +233,115 @@
     }
   </style>
 
-  <header>
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-        Textify.Tools
-      </a>
-      <div class="header-right">
-        <div class="desktop-nav">
-          <div class="tools-menu-container">
-            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
-            <div class="tools-mega-menu" id="megaMenu"></div>
+  <div class="page-wrapper">
+    <header>
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+          Textify.Tools
+        </a>
+        <div class="header-right">
+          <div class="desktop-nav">
+            <div class="tools-menu-container">
+              <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+              <div class="tools-mega-menu" id="megaMenu"></div>
+            </div>
+            <a href="/privacy">Privacy</a>
+            <a href="/blog">Blog</a>
           </div>
-          <a href="/privacy">Privacy</a>
-          <a href="/blog">Blog</a>
+          <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+            <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+            <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+          </button>
+          <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+          <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+            <span class="menu-icon"><span></span><span></span></span>
+          </button>
         </div>
-        <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-          <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-          <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
-        </button>
-        <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-        <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
-          <span class="menu-icon"><span></span><span></span></span>
-        </button>
       </div>
-    </div>
-  </header>
+    </header>
+
+    <main>
+      <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
+
+      <h1>Case Converter: A Writer's Best Friend</h1>
+      <p class="post-date">📅 April 4, 2026</p>
+
+      <p>Every writer knows the frustration: you look up from the keyboard and realize you've typed three paragraphs IN ALL CAPS because the Caps Lock key was on. Or you need to format a headline, but your tool refuses to capitalize the right words. A reliable case converter can turn those moments from disaster into a simple click. The <a href="/case-converter">Textify Case Converter</a> is the free, privacy‑friendly tool that every writer should have bookmarked.</p>
+
+      <p>In this article, we'll walk through the different case options available, when to use each one, and how to quickly fix common text‑formatting mistakes using the converter.</p>
+
+      <h2>Why Writers Need a Case Converter</h2>
+      <p>Whether you're a blogger, journalist, content creator, or student, clean and consistent text formatting is essential. A case converter can help you:</p>
+      <ul>
+        <li><strong>Fix accidental all‑caps mistakes</strong> in seconds.</li>
+        <li><strong>Transform headings</strong> into proper title case for blogs and articles.</li>
+        <li><strong>Normalize case</strong> when copying text from different sources (emails, PDFs, notes).</li>
+        <li><strong>Create stylistic effects</strong> like alternating case for social media captions.</li>
+      </ul>
+
+      <h2>The Textify Case Converter: All Options at a Glance</h2>
+      <p>The Textify tool provides six different case transformations, each with a specific purpose. Here's a quick guide to what they do and when to use them.</p>
+
+      <h3>1. UPPER CASE</h3>
+      <p>Converts every letter to uppercase. Useful for acronyms, abbreviations, or sections that need a shouty effect (though use with caution in professional writing).</p>
+
+      <h3>2. lower case</h3>
+      <p>Converts everything to lowercase. Ideal when you need a clean slate – for instance, after copying all‑caps text from a design mockup.</p>
+
+      <h3>3. Title Case</h3>
+      <p>Capitalizes the first letter of each word. <strong>Note:</strong> The converter capitalizes every word, regardless of part of speech. For strict AP‑style title case (where articles and short prepositions stay lowercase), you may need a dedicated title‑case tool, but for quick blog headings and email subjects, the built‑in title case works great.</p>
+
+      <h3>4. Sentence case</h3>
+      <p>Capitalizes only the first letter of each sentence. Perfect for turning ALL‑CAPS notes back into readable paragraphs. The tool respects punctuation like periods, exclamation marks, and question marks.</p>
+
+      <h3>5. aLtErNaTiNg cAsE</h3>
+      <p>Produces a fun, spongebob‑style text. Often used in memes or to convey sarcasm. For writers, this is great for social media copy and creative projects.</p>
+
+      <h3>6. iNVERSE cASE</h3>
+      <p>Flips the current case – uppercase becomes lowercase, and vice‑versa. A handy feature when you need to quickly invert a style without retyping.</p>
+
+      <div class="tip-box">
+        <p><strong>💡 Pro tip:</strong> Combine sentence case with the copy button to quickly clean up messy imported text. Paste all your text, click "Sentence case", then copy – you'll have a perfectly formatted paragraph ready to drop into your document.</p>
+      </div>
+
+      <h2>Real‑World Writing Scenarios</h2>
+      <p>Here are some common situations where the case converter saves time:</p>
+
+      <ul>
+        <li><strong>Blog headline formatting:</strong> You've written a headline in lower case, but your theme requires Title Case. A quick convert fixes it.</li>
+        <li><strong>Social media bios:</strong> Your bio copy is a mix of UPPER and lower case – paste it, hit "Sentence case", and you're done.</li>
+        <li><strong>Email subject lines:</strong> Need a subject in Title Case? Convert it in one click.</li>
+        <li><strong>Code comments:</strong> Developers sometimes write comments in all caps for visibility, then need to revert to normal case for documentation. The converter handles that gracefully.</li>
+      </ul>
+
+      <h2>The Privacy Side – Why It Matters</h2>
+      <p>Like all Textify tools, the case converter runs entirely in your browser. Your text never leaves your device – it's processed locally, instantly, and without any server interaction. For writers handling confidential drafts, client work, or personal notes, this privacy guarantee is invaluable. You don't have to worry about accidental leaks or prying eyes.</p>
+
+      <h2>Try It Now</h2>
+      <p>The next time you find yourself manually retyping a sentence because of a case error, stop. Open the <a href="/case-converter">Textify Case Converter</a>, paste your text, and let the tool handle the transformation. It's fast, free, and built with your privacy in mind.</p>
+
+      <a href="/case-converter" class="cta-button">Open the Case Converter →</a>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div>
+            <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
+              <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+              Textify.Tools
+            </a>
+            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+          </div>
+          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
+          <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+          <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
+        </div>
+        <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
+      </div>
+    </footer>
+  </div>
 
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
@@ -252,87 +375,7 @@
     </div>
   </div>
 
-  <main>
-    <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
-
-    <h1>Case Converter: A Writer's Best Friend</h1>
-    <p class="post-date">📅 April 4, 2026</p>
-
-    <p>Every writer knows the frustration: you look up from the keyboard and realize you've typed three paragraphs IN ALL CAPS because the Caps Lock key was on. Or you need to format a headline, but your tool refuses to capitalize the right words. A reliable case converter can turn those moments from disaster into a simple click. The <a href="/case-converter">Textify Case Converter</a> is the free, privacy‑friendly tool that every writer should have bookmarked.</p>
-
-    <p>In this article, we'll walk through the different case options available, when to use each one, and how to quickly fix common text‑formatting mistakes using the converter.</p>
-
-    <h2>Why Writers Need a Case Converter</h2>
-    <p>Whether you're a blogger, journalist, content creator, or student, clean and consistent text formatting is essential. A case converter can help you:</p>
-    <ul>
-      <li><strong>Fix accidental all‑caps mistakes</strong> in seconds.</li>
-      <li><strong>Transform headings</strong> into proper title case for blogs and articles.</li>
-      <li><strong>Normalize case</strong> when copying text from different sources (emails, PDFs, notes).</li>
-      <li><strong>Create stylistic effects</strong> like alternating case for social media captions.</li>
-    </ul>
-
-    <h2>The Textify Case Converter: All Options at a Glance</h2>
-    <p>The Textify tool provides six different case transformations, each with a specific purpose. Here's a quick guide to what they do and when to use them.</p>
-
-    <h3>1. UPPER CASE</h3>
-    <p>Converts every letter to uppercase. Useful for acronyms, abbreviations, or sections that need a shouty effect (though use with caution in professional writing).</p>
-
-    <h3>2. lower case</h3>
-    <p>Converts everything to lowercase. Ideal when you need a clean slate – for instance, after copying all‑caps text from a design mockup.</p>
-
-    <h3>3. Title Case</h3>
-    <p>Capitalizes the first letter of each word. <strong>Note:</strong> The converter capitalizes every word, regardless of part of speech. For strict AP‑style title case (where articles and short prepositions stay lowercase), you may need a dedicated title‑case tool, but for quick blog headings and email subjects, the built‑in title case works great.</p>
-
-    <h3>4. Sentence case</h3>
-    <p>Capitalizes only the first letter of each sentence. Perfect for turning ALL‑CAPS notes back into readable paragraphs. The tool respects punctuation like periods, exclamation marks, and question marks.</p>
-
-    <h3>5. aLtErNaTiNg cAsE</h3>
-    <p>Produces a fun, spongebob‑style text. Often used in memes or to convey sarcasm. For writers, this is great for social media copy and creative projects.</p>
-
-    <h3>6. iNVERSE cASE</h3>
-    <p>Flips the current case – uppercase becomes lowercase, and vice‑versa. A handy feature when you need to quickly invert a style without retyping.</p>
-
-    <div class="tip-box">
-      <p><strong>💡 Pro tip:</strong> Combine sentence case with the copy button to quickly clean up messy imported text. Paste all your text, click "Sentence case", then copy – you'll have a perfectly formatted paragraph ready to drop into your document.</p>
-    </div>
-
-    <h2>Real‑World Writing Scenarios</h2>
-    <p>Here are some common situations where the case converter saves time:</p>
-
-    <ul>
-      <li><strong>Blog headline formatting:</strong> You've written a headline in lower case, but your theme requires Title Case. A quick convert fixes it.</li>
-      <li><strong>Social media bios:</strong> Your bio copy is a mix of UPPER and lower case – paste it, hit "Sentence case", and you're done.</li>
-      <li><strong>Email subject lines:</strong> Need a subject in Title Case? Convert it in one click.</li>
-      <li><strong>Code comments:</strong> Developers sometimes write comments in all caps for visibility, then need to revert to normal case for documentation. The converter handles that gracefully.</li>
-    </ul>
-
-    <h2>The Privacy Side – Why It Matters</h2>
-    <p>Like all Textify tools, the case converter runs entirely in your browser. Your text never leaves your device – it's processed locally, instantly, and without any server interaction. For writers handling confidential drafts, client work, or personal notes, this privacy guarantee is invaluable. You don't have to worry about accidental leaks or prying eyes.</p>
-
-    <h2>Try It Now</h2>
-    <p>The next time you find yourself manually retyping a sentence because of a case error, stop. Open the <a href="/case-converter">Textify Case Converter</a>, paste your text, and let the tool handle the transformation. It's fast, free, and built with your privacy in mind.</p>
-
-    <a href="/case-converter" class="cta-button">Open the Case Converter →</a>
-  </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-          Textify.Tools
-        </a>
-        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
-      </div>
-      <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
-      <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-      <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
-    </div>
-    <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
-  </footer>
-
   <script>
-    // Complete tools list (80+ tools)
     const tools = [
       { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
       { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
