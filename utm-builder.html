@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
-    <title>Free UTM Builder – Track Campaign URLs in Google Analytics</title>
-    <meta name="description" content="Free UTM Builder: generate trackable URLs for Google Analytics, social media, SEO & ads. No sign-up, copy links instantly. Perfect for marketing campaigns.">
+    <title>Free UTM Builder – Create Trackable Campaign Links (No Sign‑Up) | Textify.tools</title>
+    <meta name="description" content="Build clean, trackable UTM links for Google Analytics in seconds. Just fill in your campaign details, generate your URL, and copy it — all from your browser, 100% private.">
     <meta name="keywords" content="utm builder, utm generator, campaign url builder, utm parameters, utm tracking, utm link, google analytics utm, utm source, utm medium, utm campaign, utm term, utm content, url builder, campaign tracking, marketing url">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/utm-builder">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/utm-builder">
-    <meta property="og:title" content="UTM Builder – Campaign URL Generator | Textify.tools">
+    <meta property="og:title" content="Free UTM Builder – Track Campaign URLs in Google Analytics | Textify.tools">
     <meta property="og:description" content="Build trackable campaign URLs with UTM parameters. Free, client‑side, and private.">
     <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
     <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -29,95 +32,48 @@
     <script src="https://unpkg.com/lucide@0.344.0"></script>
     <style>
         :root {
-            --bg: #ffffff;
-            --text: #0a0a0a;
-            --text-light: #525252;
-            --line: #e5e5e5;
-            --primary: #000000;
-            --hover: #f3f4f6;
-            --card: #fafafa;
-            --input-bg: #ffffff;
+            --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
+            --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
             --input-border: #d4d4d4;
-            --footer-bg: #ffffff;
-            --footer-text: #333333;
-            --footer-heading: #000000;
+            --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000;
+            --footer-link-color: #3b82f6;
             --footer-link-hover: #000000;
             --footer-border: #e5e5e5;
-            --faq-bg: #fafafa;
-            --faq-active: #f3f4f6;
-            --table-header: #f3f4f6;
-            --table-hover: #fafafa;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --overlay-bg: rgba(0, 0, 0, 0.5);
-            --success-bg: #f0fdf4;
-            --success-text: #166534;
-            --sidebar-bg: #ffffff;
-            --accent: #f8fafc;
-            --toast-bg: #1f2937;
-            --toast-text: #ffffff;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            --faq-bg: #fafafa; --faq-active: #f3f4f6;
+            --table-header: #f3f4f6; --table-hover: #fafafa; --shadow: rgba(0, 0, 0, 0.1);
+            --overlay-bg: rgba(0, 0, 0, 0.5); --success-bg: #f0fdf4; --success-text: #166534;
+            --sidebar-bg: #ffffff; --accent: #f8fafc;
+            --toast-bg: #1f2937; --toast-text: #ffffff;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.04); --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
         body.dark-mode {
-            --bg: #0f172a;
-            --text: #f1f5f9;
-            --text-light: #94a3b8;
-            --line: #1e293b;
-            --primary: #ffffff;
-            --hover: #1e293b;
-            --card: #1e293b;
-            --input-bg: #1e293b;
+            --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
+            --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
             --input-border: #334155;
-            --footer-bg: #0f172a;
-            --footer-text: #e2e8f0;
-            --footer-heading: #ffffff;
+            --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff;
+            --footer-link-color: #60a5fa;
             --footer-link-hover: #ffffff;
             --footer-border: #334155;
-            --faq-bg: #1e293b;
-            --faq-active: #334155;
-            --table-header: #1e293b;
-            --table-hover: #1e293b;
-            --shadow: rgba(0, 0, 0, 0.5);
-            --overlay-bg: rgba(0, 0, 0, 0.75);
-            --success-bg: #052e16;
-            --success-text: #86efac;
-            --sidebar-bg: #0f172a;
-            --accent: #1e293b;
-            --toast-bg: #f1f5f9;
-            --toast-text: #0f172a;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            --faq-bg: #1e293b; --faq-active: #334155;
+            --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0, 0, 0, 0.5);
+            --overlay-bg: rgba(0, 0, 0, 0.75); --success-bg: #052e16; --success-text: #86efac;
+            --sidebar-bg: #0f172a; --accent: #1e293b;
+            --toast-bg: #f1f5f9; --toast-text: #0f172a;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.3); --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
+            background: var(--bg); color: var(--text); min-height: 100vh;
             transition: background 0.3s, color 0.3s;
         }
 
-        /* WRAPPER – same as other updated pages */
-        .page-wrapper {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            background: transparent;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+        .page-wrapper { max-width: 1000px; width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* HEADER */
         header {
-            border-bottom: 1px solid var(--line);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px;
-            height: 64px;
-            transition: border-color 0.3s;
+            border-bottom: 1px solid var(--line); display: flex; justify-content: center;
+            align-items: center; padding: 0 20px; height: 64px; transition: border-color 0.3s;
             background: transparent;
         }
         .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
@@ -181,13 +137,7 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        /* MAIN */
-        main {
-            flex: 1;
-            padding: 30px 20px;
-            width: 100%;
-            background: transparent;
-        }
+        main { flex: 1; padding: 30px 20px; width: 100%; background: transparent; }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
         .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
         .tool-panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px; margin-bottom: 30px; }
@@ -215,13 +165,17 @@
         li { margin-bottom: 10px; line-height: 1.7; }
         .param-card { background: var(--accent); padding: 16px; border-radius: 12px; border-left: 3px solid var(--primary); margin-bottom: 15px; }
         .param-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+        .how-to-card { background: var(--accent); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
+        .how-to-card .step-num { background: var(--primary); color: var(--bg); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+        .how-to-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+        .how-to-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin: 0; }
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
         .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
-        /* FOOTER */
+        /* FOOTER – 5 equal columns, blue links */
         footer {
             border-top: 1px solid var(--footer-border);
             padding: 40px 20px 25px;
@@ -230,13 +184,13 @@
         .footer-container { width: 100%; }
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+            grid-template-columns: repeat(5, 1fr);
             gap: 35px;
         }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-        .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
+        .footer-grid a { color: var(--footer-link-color); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
         .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
@@ -256,7 +210,7 @@
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
                     Textify.tools
                 </a>
                 <div class="header-right">
@@ -281,8 +235,8 @@
         </header>
 
         <main>
-            <h1>UTM Builder – Campaign URL Generator</h1>
-            <p class="subtitle">Create trackable campaign URLs with UTM parameters (utm_source, utm_medium, utm_campaign, utm_term, utm_content) for Google Analytics and other analytics platforms. All processing happens locally – your data never leaves your browser.</p>
+            <h1>Free UTM Builder – Create Campaign Links That Actually Get Tracked</h1>
+            <p class="subtitle">UTM parameters are the secret sauce behind every successful marketing campaign. This tool makes it dead simple to build clean, trackable URLs — no spreadsheets, no typos, and absolutely nothing leaves your browser.</p>
 
             <div class="tool-panel">
                 <div class="input-group">
@@ -341,23 +295,61 @@
             </div>
 
             <div class="section">
-                <h2>What Are UTM Parameters?</h2>
-                <p>UTM (Urchin Tracking Module) parameters are simple tags you add to the end of a URL to help analytics platforms understand exactly where your traffic is coming from. When someone clicks a link with UTM parameters, those parameters are sent back to Google Analytics (or other analytics tools) and are used to populate your campaign reports.</p>
-                <div class="param-card"><h4>utm_source (required)</h4><p>Identifies which site or source sent the traffic. Examples: <code>google</code>, <code>facebook</code>, <code>newsletter</code>.</p></div>
-                <div class="param-card"><h4>utm_medium (required)</h4><p>The marketing medium. Examples: <code>cpc</code> (cost per click), <code>email</code>, <code>social</code>.</p></div>
-                <div class="param-card"><h4>utm_campaign (required)</h4><p>The specific campaign name. Examples: <code>spring_sale</code>, <code>product_launch</code>.</p></div>
-                <div class="param-card"><h4>utm_term (optional)</h4><p>Used for paid search to identify the keyword. Example: <code>running+shoes</code>.</p></div>
-                <div class="param-card"><h4>utm_content (optional)</h4><p>Differentiates similar content or links within the same campaign. Example: <code>textlink</code>, <code>topbanner</code>.</p></div>
+                <h2>How to Build a UTM Link in Under 30 Seconds</h2>
+                <div class="how-to-card">
+                    <div class="step-num">1</div>
+                    <div>
+                        <h4>Drop in Your Destination URL</h4>
+                        <p>Paste the exact page you want people to land on. It could be a product page, a blog post, a sign‑up form — anything you're driving traffic to.</p>
+                    </div>
+                </div>
+                <div class="how-to-card">
+                    <div class="step-num">2</div>
+                    <div>
+                        <h4>Tell Google Where the Traffic Comes From</h4>
+                        <p>Fill in <strong>utm_source</strong> (like "facebook"), <strong>utm_medium</strong> (like "social"), and <strong>utm_campaign</strong> (like "spring_promo"). These three are the must‑haves that make your data useful.</p>
+                    </div>
+                </div>
+                <div class="how-to-card">
+                    <div class="step-num">3</div>
+                    <div>
+                        <h4>Add Extra Detail If You Want</h4>
+                        <p>Use <strong>utm_term</strong> for paid search keywords and <strong>utm_content</strong> to tell apart different ads or links. These optional tags give you deeper insight into what's actually working.</p>
+                    </div>
+                </div>
+                <div class="how-to-card">
+                    <div class="step-num">4</div>
+                    <div>
+                        <h4>Generate, Copy, and Go</h4>
+                        <p>Hit "Generate URL", grab the link with one click, and drop it into your email, social post, or ad. There's even a QR code generator for print materials.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="section">
-                <h2>UTM Best Practices</h2>
+                <h2>What Exactly Are UTM Parameters?</h2>
+                <p>Think of UTM parameters like tiny reporters that ride along with your links. When someone clicks, those reporters tell Google Analytics (or any other analytics tool) exactly which campaign, source, and medium sent that visitor. Without UTMs, traffic often gets dumped into the "direct" bucket, and you lose all insight into what's working.</p>
+                <div class="param-card"><h4>utm_source (required)</h4><p>The platform or site that sent the traffic. <code>google</code>, <code>facebook</code>, <code>newsletter</code> — you name it.</p></div>
+                <div class="param-card"><h4>utm_medium (required)</h4><p>The marketing channel. <code>cpc</code> for paid ads, <code>email</code> for newsletters, <code>social</code> for organic posts.</p></div>
+                <div class="param-card"><h4>utm_campaign (required)</h4><p>The specific campaign name, like <code>black_friday</code> or <code>product_launch</code>. This groups all your links together in reports.</p></div>
+                <div class="param-card"><h4>utm_term (optional)</h4><p>Mostly for paid search — tracks which keyword triggered the ad.</p></div>
+                <div class="param-card"><h4>utm_content (optional)</h4><p>Helps you A/B test different link placements or creative variations.</p></div>
+            </div>
+
+            <div class="section">
+                <h2>Why This Tool Is Different (And Why It Matters)</h2>
+                <p>There are plenty of UTM builders out there, but most send your data somewhere — or they're wrapped in ads and sign‑up walls. Ours lives entirely in your browser. No tracking, no accounts, no server logs. The URL you generate is seen only by you. For marketers handling client campaigns or sensitive launch plans, that privacy isn't a luxury — it's a requirement.</p>
+                <p>Plus, the built‑in QR code generator means you can take the same tracking link straight to a flyer, poster, or event badge without juggling extra tools.</p>
+            </div>
+
+            <div class="section">
+                <h2>UTM Best Practices (A Quick Cheat Sheet)</h2>
                 <ul>
-                    <li><strong>Use lowercase consistently</strong> – Google Analytics is case‑sensitive. "Facebook" and "facebook" are treated as two different sources.</li>
-                    <li><strong>Replace spaces with underscores (_) or hyphens (-)</strong> – spaces break URLs and often get converted to %20.</li>
-                    <li><strong>Keep values short but descriptive</strong> – long, complex values clutter reports. Example: <code>utm_campaign=black_friday</code> is better than <code>utm_campaign=2025_black_friday_sale_weekend</code>.</li>
-                    <li><strong>Create a naming convention</strong> – decide on standard terms for sources, mediums, and campaigns across your team to avoid data fragmentation.</li>
-                    <li><strong>Use URL shorteners when sharing</strong> – long UTM links can look messy. Combine with a shortener like Bitly or TinyURL for cleaner posts.</li>
+                    <li><strong>Stick to lowercase.</strong> Google Analytics treats "Facebook" and "facebook" as two different sources. Save yourself the headache.</li>
+                    <li><strong>Use underscores or hyphens, not spaces.</strong> Spaces break URLs. <code>utm_campaign=spring_sale</code> works; <code>utm_campaign=spring sale</code> creates a mess.</li>
+                    <li><strong>Keep names short and consistent.</strong> Agree on a naming convention with your team — it prevents "fb", "facebook", and "Facebook" from splitting your data.</li>
+                    <li><strong>Don't UTM internal links.</strong> Only tag URLs that leave your own site. Tagging internal links can reset session data and distort your analytics.</li>
+                    <li><strong>Test before you blast.</strong> Generate the link, open it in a private window, and check that it lands where you expect. Takes five seconds, saves hours of confusion.</li>
                 </ul>
             </div>
 
@@ -367,7 +359,8 @@
                 <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Are UTM parameters case‑sensitive?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. In Google Analytics, "Facebook" and "facebook" are treated as different sources. Always use lowercase to avoid data fragmentation.</div></div>
                 <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use UTM parameters on any URL?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, you can append UTM parameters to any valid HTTP/HTTPS URL. Avoid using them on internal redirect chains as they can break.</div></div>
                 <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All encoding and URL generation happen inside your browser. Your base URL and UTM values are never sent to any server.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if I don't add required fields?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool shows a warning and highlights missing required fields. You must provide at least the base URL, source, medium, and campaign name.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if I leave the optional fields empty?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">That's totally fine. Only utm_source, utm_medium, and utm_campaign are required. The optional fields are there when you need deeper tracking.</div></div>
+                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Why would I need a QR code for a UTM link?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">QR codes bridge the gap between offline and online. Put them on flyers, posters, product packaging, or event booths — when scanned, the UTM parameters still report accurately in your analytics, so you can track offline efforts too.</div></div>
             </div>
         </main>
 
@@ -376,14 +369,20 @@
                 <div class="footer-grid">
                     <div>
                         <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
                             Textify.tools
                         </a>
-                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
                     </div>
                     <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
                     <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
                     <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                    <div>
+                        <h5>FOLLOW US</h5>
+                        <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
+                        <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+                    </div>
                 </div>
                 <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
             </div>
@@ -394,7 +393,7 @@
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
                 Textify.tools
             </a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
@@ -415,7 +414,7 @@
         <div class="search-container">
             <div class="search-box">
                 <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
-                <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
+                <input type="text" id="fullSearchInput" placeholder="Search all 72 text tools..." oninput="filterFullSearch()" autofocus>
                 <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
@@ -425,8 +424,8 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // Complete tools list (80+ tools)
-        const allTools = [
+        // Complete tools list (matching the site)
+        const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
@@ -501,10 +500,10 @@
             { name: 'Keyword Density Analyzer', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', category: 'analysis' }
         ];
 
-        function buildMegaMenu() { document.getElementById('megaMenu').innerHTML = allTools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
-        function buildMobileToolsMenu() { document.getElementById('mobileToolsMenu').innerHTML = allTools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+        function buildMegaMenu() { document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+        function buildMobileToolsMenu() { document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
         function buildSearchList() {
-            document.getElementById('fullSearchResultsList').innerHTML = allTools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category}</span></a>`).join('')
+            document.getElementById('fullSearchResultsList').innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category}</span></a>`).join('')
                 + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
         }
 
@@ -553,7 +552,7 @@
 
         function toggleFaq(el){ const item=el.parentElement; item.classList.toggle('active'); const icon=el.querySelector('svg'); if(icon)icon.style.transform=item.classList.contains('active')?'rotate(180deg)':'rotate(0deg)'; }
 
-        // UTM Builder Logic
+        // ---- UTM Builder Core Functions ----
         function generateUTM() {
             const baseUrl = document.getElementById('baseUrl').value.trim();
             const source = document.getElementById('utmSource').value.trim();
@@ -562,11 +561,13 @@
             const term = document.getElementById('utmTerm').value.trim();
             const content = document.getElementById('utmContent').value.trim();
 
+            // Validate required fields
             if (!baseUrl) { showToast('⚠️ Please enter a website URL.'); document.getElementById('baseUrl').focus(); return; }
             if (!source) { showToast('⚠️ utm_source is required.'); document.getElementById('utmSource').focus(); return; }
             if (!medium) { showToast('⚠️ utm_medium is required.'); document.getElementById('utmMedium').focus(); return; }
             if (!campaign) { showToast('⚠️ utm_campaign is required.'); document.getElementById('utmCampaign').focus(); return; }
 
+            // Build URL with UTM parameters
             const params = new URLSearchParams();
             params.append('utm_source', source);
             params.append('utm_medium', medium);
@@ -578,12 +579,15 @@
             let separator = finalUrl.includes('?') ? '&' : '?';
             finalUrl += separator + params.toString();
 
+            // Display the result
             document.getElementById('resultUrl').innerHTML = `<strong>Generated URL:</strong><br>${escapeHtml(finalUrl)}`;
             document.getElementById('resultUrl').setAttribute('data-url', finalUrl);
             showToast('✅ URL generated successfully!');
         }
 
-        function escapeHtml(str) { return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+        function escapeHtml(str) { 
+            return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); 
+        }
 
         function selectResultText() {
             const el = document.getElementById('resultUrl');
@@ -602,8 +606,9 @@
             const origHTML = btn.innerHTML;
             if (!url) { showToast('⚠️ No URL generated yet. Click "Generate URL" first.'); return; }
             try {
-                if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(url);
-                else {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(url);
+                } else {
                     const textarea = document.createElement('textarea');
                     textarea.value = url;
                     document.body.appendChild(textarea);
@@ -615,8 +620,12 @@
                 btn.style.background = '#16a34a';
                 lucide.createIcons();
                 showToast('📋 URL copied to clipboard!');
-            } catch (err) { showToast('❌ Copy failed. Please try manually.'); }
-            finally { setTimeout(() => { btn.innerHTML = origHTML; btn.style.background = ''; lucide.createIcons(); }, 2000); }
+            } catch (err) { 
+                showToast('❌ Copy failed. Please try manually.'); 
+            }
+            finally { 
+                setTimeout(() => { btn.innerHTML = origHTML; btn.style.background = ''; lucide.createIcons(); }, 2000); 
+            }
         }
 
         function resetForm() {
@@ -642,7 +651,14 @@
             qrContainer.innerHTML = '';
             qrContainer.classList.remove('qr-placeholder');
             try {
-                new QRCode(qrContainer, { text: url, width: 128, height: 128, colorDark: '#000000', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.M });
+                new QRCode(qrContainer, { 
+                    text: url, 
+                    width: 128, 
+                    height: 128, 
+                    colorDark: '#000000', 
+                    colorLight: '#ffffff', 
+                    correctLevel: QRCode.CorrectLevel.M 
+                });
                 showToast('📱 QR code generated!');
             } catch(e) {
                 qrContainer.innerHTML = 'QR generation failed';
@@ -651,7 +667,11 @@
             }
         }
 
-        buildMegaMenu(); buildMobileToolsMenu(); buildSearchList(); lucide.createIcons();
+        // Initialize everything
+        buildMegaMenu(); 
+        buildMobileToolsMenu(); 
+        buildSearchList(); 
+        lucide.createIcons();
     </script>
 </body>
 </html>
