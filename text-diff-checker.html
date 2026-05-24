@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
-    <title>Text Diff Checker – Compare Two Texts Online | Textify.tools</title>
-    <meta name="description" content="Free online text diff checker. Compare two texts side by side and instantly see differences highlighted. Works in your browser – fast, private, and no uploads.">
+    <title>Free Online Text Diff Checker – Compare Two Texts Instantly | Textify.tools</title>
+    <meta name="description" content="Compare two texts side by side and instantly see every difference highlighted. Works entirely in your browser – fast, private, and no uploads.">
     <meta name="keywords" content="text diff checker, compare text online, text comparison tool, diff tool, line diff, find differences, compare documents, text compare, diff checker, online diff">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/text-diff-checker">
@@ -15,6 +15,7 @@
     <meta property="og:description" content="Compare two texts side by side and see every difference instantly. Free, private, and no uploads.">
     <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
     <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -22,67 +23,42 @@
         gtag('js', new Date());
         gtag('config', 'G-6VGXXT81MB');
     </script>
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186"
+    crossorigin="anonymous"></script>
 </head>
 <body>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
-            --bg: #ffffff;
-            --text: #0a0a0a;
-            --text-light: #525252;
-            --line: #e5e5e5;
-            --primary: #000000;
-            --hover: #f3f4f6;
-            --card: #fafafa;
-            --input-bg: #ffffff;
+            --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
+            --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
             --input-border: #d4d4d4;
-            --footer-bg: #ffffff;
-            --footer-text: #333333;
-            --footer-heading: #000000;
+            --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000;
+            --footer-link-color: #3b82f6;   /* blue like index */
             --footer-link-hover: #000000;
             --footer-border: #e5e5e5;
-            --faq-bg: #fafafa;
-            --faq-active: #f3f4f6;
-            --table-header: #f3f4f6;
-            --table-hover: #fafafa;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --overlay-bg: rgba(0, 0, 0, 0.5);
-            --success-bg: #f0fdf4;
-            --success-text: #166534;
-            --sidebar-bg: #ffffff;
-            --accent: #f8fafc;
-            --toast-bg: #1f2937;
-            --toast-text: #ffffff;
+            --faq-bg: #fafafa; --faq-active: #f3f4f6;
+            --table-header: #f3f4f6; --table-hover: #fafafa; --shadow: rgba(0,0,0,0.1);
+            --overlay-bg: rgba(0,0,0,0.5); --success-bg: #f0fdf4; --success-text: #166534;
+            --sidebar-bg: #ffffff; --accent: #f8fafc;
+            --toast-bg: #1f2937; --toast-text: #ffffff;
             --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
             --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
         body.dark-mode {
-            --bg: #0f172a;
-            --text: #f1f5f9;
-            --text-light: #94a3b8;
-            --line: #1e293b;
-            --primary: #ffffff;
-            --hover: #1e293b;
-            --card: #1e293b;
-            --input-bg: #1e293b;
+            --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
+            --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
             --input-border: #334155;
-            --footer-bg: #0f172a;
-            --footer-text: #e2e8f0;
-            --footer-heading: #ffffff;
+            --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff;
+            --footer-link-color: #60a5fa;
             --footer-link-hover: #ffffff;
             --footer-border: #334155;
-            --faq-bg: #1e293b;
-            --faq-active: #334155;
-            --table-header: #1e293b;
-            --table-hover: #1e293b;
-            --shadow: rgba(0, 0, 0, 0.5);
-            --overlay-bg: rgba(0, 0, 0, 0.75);
-            --success-bg: #052e16;
-            --success-text: #86efac;
-            --sidebar-bg: #0f172a;
-            --accent: #1e293b;
-            --toast-bg: #f1f5f9;
-            --toast-text: #0f172a;
+            --faq-bg: #1e293b; --faq-active: #334155;
+            --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0,0,0,0.5);
+            --overlay-bg: rgba(0,0,0,0.75); --success-bg: #052e16; --success-text: #86efac;
+            --sidebar-bg: #0f172a; --accent: #1e293b;
+            --toast-bg: #f1f5f9; --toast-text: #0f172a;
             --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
             --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
@@ -94,26 +70,14 @@
             transition: background 0.3s, color 0.3s;
         }
 
-        /* WRAPPER */
         .page-wrapper {
-            max-width: 1000px;
-            width: 100%;
-            margin: 0 auto;
-            background: transparent;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            max-width: 1000px; width: 100%; margin: 0 auto;
+            background: transparent; display: flex; flex-direction: column; min-height: 100vh;
         }
 
-        /* HEADER */
         header {
-            border-bottom: 1px solid var(--line);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px;
-            height: 64px;
-            transition: border-color 0.3s;
+            border-bottom: 1px solid var(--line); display: flex; justify-content: center;
+            align-items: center; padding: 0 20px; height: 64px; transition: border-color 0.3s;
             background: transparent;
         }
         .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
@@ -142,7 +106,6 @@
         .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
 
-        /* MOBILE MENU */
         .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
         .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
         .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
@@ -165,7 +128,6 @@
         .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
         .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
 
-        /* SEARCH OVERLAY */
         .search-overlay-full { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--overlay-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 300; display: flex; flex-direction: column; align-items: center; padding-top: 80px; opacity: 0; visibility: hidden; transition: 0.3s; }
         .search-overlay-full.active { opacity: 1; visibility: visible; }
         .search-container { width: 90%; max-width: 550px; display: flex; flex-direction: column; max-height: 80vh; }
@@ -181,21 +143,14 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        /* MAIN */
-        main {
-            flex: 1;
-            padding: 30px 20px;
-            width: 100%;
-            background: transparent;
-        }
+        main { flex: 1; padding: 30px 20px; width: 100%; background: transparent; }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
         h2 { font-size: 26px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
-        h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
+        h3 { font-size: 20px; font-weight: 700; margin: 25px 0 12px; }
         p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 30px; }
         p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
         ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
 
-        /* Tool specific */
         .diff-container { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
         .diff-input { flex: 1; min-width: 280px; }
         .diff-input label { font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-light); display: block; margin-bottom: 8px; letter-spacing: 0.5px; }
@@ -230,7 +185,7 @@
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
-        /* FOOTER */
+        /* FOOTER - 5 equal columns, blue links */
         footer {
             border-top: 1px solid var(--footer-border);
             padding: 40px 20px 25px;
@@ -239,14 +194,25 @@
         .footer-container { width: 100%; }
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+            grid-template-columns: repeat(5, 1fr);
             gap: 35px;
         }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-        .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
-        .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
+        .footer-grid a {
+            color: var(--footer-link-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 9px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s, padding-left 0.2s;
+        }
+        .footer-grid a:hover {
+            color: var(--footer-link-hover);
+            padding-left: 6px;
+        }
         .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
         @media (max-width: 768px) {
@@ -260,7 +226,7 @@
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
                     Textify.tools
                 </a>
                 <div class="header-right">
@@ -285,8 +251,8 @@
         </header>
 
         <main>
-            <h1>Text Diff Checker</h1>
-            <p class="subtitle">Compare two texts instantly and see every difference highlighted. Paste your original and modified text below.</p>
+            <h1>Free Online Text Diff Checker – Compare Two Texts Instantly</h1>
+            <p class="subtitle">Paste two versions of a document and see exactly what changed – line by line, instantly highlighted. All processing happens right in your browser, so your text stays private and never leaves your device.</p>
 
             <div class="diff-container">
                 <div class="diff-input">
@@ -315,17 +281,25 @@
 
             <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
                 <h2>How to Use the Text Diff Checker</h2>
-                <p>Our diff checker makes it easy to spot changes between two versions of a document. Follow these simple steps:</p>
-                <ol style="margin-bottom:25px;">
-                    <li><strong>Enter your texts</strong> – Paste the original version into the left box and the modified version into the right box.</li>
-                    <li><strong>Click "Compare Now"</strong> – The tool instantly highlights all differences line by line.</li>
-                    <li><strong>Review the differences</strong> – <span class="diff-added" style="display:inline-block; padding:0 4px;">Green lines</span> show text that was <strong>added</strong> (present only in the modified version). <span class="diff-removed" style="display:inline-block; padding:0 4px;">Red lines</span> show text that was <strong>removed</strong> (present only in the original). Unchanged lines appear in normal text.</li>
-                    <li><strong>Swap or clear</strong> – Use the "Swap Texts" button to exchange the two texts, or "Clear" to reset everything.</li>
-                    <li><strong>Copy or download</strong> – Save the diff report as plain text for your records.</li>
-                </ol>
+                <div class="how-to-card" style="background:var(--accent); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; align-items:flex-start; gap:16px; margin-bottom:16px;">
+                    <div class="step-num" style="background:var(--primary); color:var(--bg); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">1</div>
+                    <div><h4>Enter Your Texts</h4><p>Paste the original version into the left box and the modified version into the right box. They can be articles, code snippets, contracts, or any text.</p></div>
+                </div>
+                <div class="how-to-card" style="background:var(--accent); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; align-items:flex-start; gap:16px; margin-bottom:16px;">
+                    <div class="step-num" style="background:var(--primary); color:var(--bg); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">2</div>
+                    <div><h4>Click "Compare Now"</h4><p>The tool instantly scans both texts line by line and highlights every difference using a standard diff algorithm.</p></div>
+                </div>
+                <div class="how-to-card" style="background:var(--accent); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; align-items:flex-start; gap:16px; margin-bottom:16px;">
+                    <div class="step-num" style="background:var(--primary); color:var(--bg); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">3</div>
+                    <div><h4>Review the Differences</h4><p><span class="diff-added" style="display:inline-block; padding:0 4px;">Green lines</span> were <strong>added</strong> (present only in the modified version). <span class="diff-removed" style="display:inline-block; padding:0 4px;">Red lines</span> were <strong>removed</strong> (present only in the original). Unchanged lines appear in normal text. You can swap the texts or clear them anytime.</p></div>
+                </div>
+                <div class="how-to-card" style="background:var(--accent); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; align-items:flex-start; gap:16px; margin-bottom:16px;">
+                    <div class="step-num" style="background:var(--primary); color:var(--bg); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">4</div>
+                    <div><h4>Copy or Download</h4><p>Save the diff report as a plain text file for your records, or copy it to your clipboard to share with your team.</p></div>
+                </div>
 
                 <h2>Understanding the Diff Output</h2>
-                <p>The diff algorithm works line by line. Here's what the colors mean:</p>
+                <p>The diff algorithm works line by line, highlighting what's new, what's gone, and what stayed the same. Here's a quick legend:</p>
                 <div class="table-wrapper">
                     <table class="info-table">
                         <thead><tr><th>Color / Indicator</th><th>Meaning</th></tr></thead>
@@ -338,6 +312,7 @@
                 </div>
 
                 <h2>Common Use Cases</h2>
+                <p>Our diff checker isn't just for programmers — it's useful in many everyday situations:</p>
                 <div class="table-wrapper">
                     <table class="info-table">
                         <thead><tr><th>Use Case</th><th>Description</th></tr></thead>
@@ -347,13 +322,44 @@
                             <tr><td><strong>Plagiarism & similarity check</strong></td><td>Quickly spot copied or modified passages between two texts.</td></tr>
                             <tr><td><strong>Configuration comparison</strong></td><td>Find discrepancies between two configuration files or logs.</td></tr>
                             <tr><td><strong>Content updates</strong></td><td>See what was added or removed when updating website copy or articles.</td></tr>
+                            <tr><td><strong>Legal document review</strong></td><td>Track every change between versions of a contract or agreement.</td></tr>
+                            <tr><td><strong>Academic writing</strong></td><td>Compare drafts of a paper to ensure revisions were applied correctly.</td></tr>
                         </tbody>
                     </table>
                 </div>
 
                 <div class="tip-box">
-                    <p style="margin:0; font-size:14px;"><strong>💡 Pro Tip:</strong> The diff checker is fully client‑side. Your texts never leave your browser – perfect for sensitive documents or proprietary code.</p>
+                    <p style="margin:0; font-size:14px;"><strong>💡 Pro Tip:</strong> The diff checker is fully client‑side. Your texts never leave your browser – perfect for sensitive documents or proprietary code. Even works offline once loaded.</p>
                 </div>
+
+                <h2>Diff Checker for Writers and Editors</h2>
+                <p>If you're polishing an article, blog post, or manuscript, our diff tool helps you see every change between drafts. For example:</p>
+                <ul>
+                    <li><strong>Track client revisions:</strong> Paste the original draft and the client's edited version to understand exactly what they changed.</li>
+                    <li><strong>Review your own edits:</strong> Compare an earlier draft with your latest to see how the piece evolved.</li>
+                    <li><strong>Collaborate without confusion:</strong> Share the diff output with co‑authors to discuss changes without combing through the whole document.</li>
+                </ul>
+                <p>Because the diff is line‑based, it works best when the two texts are structurally similar. For heavily restructured documents, you'll still see which paragraphs were added or removed.</p>
+
+                <h2>A Quick Look Under the Hood</h2>
+                <p>Our tool uses the classic <strong>Longest Common Subsequence (LCS)</strong> algorithm. In simple terms, it finds the longest sequence of lines that appear in the same order in both texts. Everything else is flagged as added or removed. This is the same approach used by the Unix `diff` command and many version control systems.</p>
+                <p>The algorithm runs entirely in JavaScript inside your browser. That means no server round‑trips, no waiting, and complete privacy. For texts up to a few thousand lines, it's nearly instant. For very large files, your device's memory and CPU will be the only limiting factors.</p>
+
+                <h2>Tips for Getting the Most Out of the Diff Checker</h2>
+                <ul>
+                    <li><strong>Keep line breaks consistent:</strong> The diff works line by line. If one version has different wrapping (e.g., hard returns vs. soft wrapping), the diff may show more changes than expected. Use a text editor to normalize line endings if needed.</li>
+                    <li><strong>Compare similar formats:</strong> For best results, paste plain text. If you compare heavily formatted text (like HTML), the diff will show markup changes along with content changes.</li>
+                    <li><strong>Use the Swap button:</strong> If you accidentally reversed the original and modified texts, just click "Swap Texts" to flip them without re‑pasting.</li>
+                    <li><strong>Save diff reports:</strong> Download the diff as a .txt file to keep a record of changes for future reference or to share with others.</li>
+                </ul>
+
+                <h2>Why Use Our Diff Checker?</h2>
+                <ul>
+                    <li><strong>100% free</strong> – no sign‑up, no watermarks, no limits.</li>
+                    <li><strong>Instant results</strong> – no waiting for a server; the comparison runs directly in your browser.</li>
+                    <li><strong>Privacy you can trust</strong> – your texts are never uploaded, stored, or shared.</li>
+                    <li><strong>Line‑based accuracy</strong> – uses the classic LCS (Longest Common Subsequence) algorithm to catch every insertion and deletion.</li>
+                </ul>
 
                 <h2>Frequently Asked Questions</h2>
                 <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is the Text Diff Checker really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free! No login, no watermarks, no limits. Use it as much as you need.</div></div>
@@ -369,14 +375,20 @@
                 <div class="footer-grid">
                     <div>
                         <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
                             Textify.tools
                         </a>
-                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
                     </div>
                     <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
                     <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
                     <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                    <div>
+                        <h5>FOLLOW US</h5>
+                        <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
+                        <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+                    </div>
                 </div>
                 <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
             </div>
@@ -387,7 +399,7 @@
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
                 Textify.tools
             </a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
@@ -408,7 +420,7 @@
         <div class="search-container">
             <div class="search-box">
                 <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
-                <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
+                <input type="text" id="fullSearchInput" placeholder="Search all 72 text tools..." oninput="filterFullSearch()" autofocus>
                 <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
