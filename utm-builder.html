@@ -36,7 +36,7 @@
             --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
             --input-border: #d4d4d4;
             --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000;
-            --footer-link-color: #3b82f6;
+            --footer-link-color: #000000;
             --footer-link-hover: #000000;
             --footer-border: #e5e5e5;
             --faq-bg: #fafafa; --faq-active: #f3f4f6;
@@ -175,7 +175,7 @@
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
-        /* FOOTER – 5 equal columns, blue links */
+        /* FOOTER – 5 equal columns, black links (light mode) */
         footer {
             border-top: 1px solid var(--footer-border);
             padding: 40px 20px 25px;
@@ -484,7 +484,7 @@
             { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
             { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
             { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
-            { name: 'Google SERP Simulator', link: '/google-serp-simulator', keywords: 'serp simulator google search preview snippet', category: 'seo' },
+            { name: 'Google SERP Checker', link: '/google-serp-checker', keywords: 'serp checker google search preview snippet', category: 'seo' },
             { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm builder campaign url generator tracking', category: 'seo' },
             { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
             { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' },
@@ -561,13 +561,11 @@
             const term = document.getElementById('utmTerm').value.trim();
             const content = document.getElementById('utmContent').value.trim();
 
-            // Validate required fields
             if (!baseUrl) { showToast('⚠️ Please enter a website URL.'); document.getElementById('baseUrl').focus(); return; }
             if (!source) { showToast('⚠️ utm_source is required.'); document.getElementById('utmSource').focus(); return; }
             if (!medium) { showToast('⚠️ utm_medium is required.'); document.getElementById('utmMedium').focus(); return; }
             if (!campaign) { showToast('⚠️ utm_campaign is required.'); document.getElementById('utmCampaign').focus(); return; }
 
-            // Build URL with UTM parameters
             const params = new URLSearchParams();
             params.append('utm_source', source);
             params.append('utm_medium', medium);
@@ -579,7 +577,6 @@
             let separator = finalUrl.includes('?') ? '&' : '?';
             finalUrl += separator + params.toString();
 
-            // Display the result
             document.getElementById('resultUrl').innerHTML = `<strong>Generated URL:</strong><br>${escapeHtml(finalUrl)}`;
             document.getElementById('resultUrl').setAttribute('data-url', finalUrl);
             showToast('✅ URL generated successfully!');
@@ -667,7 +664,6 @@
             }
         }
 
-        // Initialize everything
         buildMegaMenu(); 
         buildMobileToolsMenu(); 
         buildSearchList(); 
