@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <meta name="theme-color" content="#ffffff">
   <title>Blog – Textify.tools</title>
-  <meta name="description" content="Tips, tutorials, and news about text tools, productivity, and online utilities from Textify.tools.">
+  <meta name="description" content="Helpful guides, tips, and updates about text tools, productivity, writing, and online privacy from Textify.tools.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://textify.tools/blog">
   <meta property="og:type" content="website">
@@ -16,6 +16,7 @@
   <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
   <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
   
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -23,6 +24,10 @@
     gtag('js', new Date());
     gtag('config', 'G-6VGXXT81MB');
   </script>
+  
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186"
+  crossorigin="anonymous"></script>
 </head>
 <body>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -31,27 +36,29 @@
       --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
       --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
       --input-border: #d4d4d4;
-      --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000; --footer-link-hover: #000000;
+      --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000;
+      --footer-link-color: #3b82f6;   /* blue like index */
+      --footer-link-hover: #000000;
       --footer-border: #e5e5e5;
       --faq-bg: #fafafa; --faq-active: #f3f4f6;
       --table-header: #f3f4f6; --table-hover: #fafafa; --shadow: rgba(0,0,0,0.1);
       --overlay-bg: rgba(0,0,0,0.5); --success-bg: #f0fdf4; --success-text: #166534;
       --sidebar-bg: #ffffff; --accent: #f8fafc;
       --toast-bg: #1f2937; --toast-text: #ffffff;
-      --scroll-top-bg: #000000; --scroll-top-text: #ffffff;
     }
     body.dark-mode {
       --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
       --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
       --input-border: #334155;
-      --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff;
+      --footer-link-color: #60a5fa;
+      --footer-link-hover: #ffffff;
       --footer-border: #334155;
       --faq-bg: #1e293b; --faq-active: #334155;
       --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0,0,0,0.5);
       --overlay-bg: rgba(0,0,0,0.75); --success-bg: #052e16; --success-text: #86efac;
       --sidebar-bg: #0f172a; --accent: #1e293b;
       --toast-bg: #f1f5f9; --toast-text: #0f172a;
-      --scroll-top-bg: #ffffff; --scroll-top-text: #0f172a;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -63,34 +70,17 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    /* WRAPPER */
     .page-wrapper {
-      max-width: 1000px;
-      width: 100%;
-      margin: 0 auto;
-      background: transparent;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      max-width: 1000px; width: 100%; margin: 0 auto;
+      background: transparent; display: flex; flex-direction: column; min-height: 100vh;
     }
 
-    /* HEADER */
     header {
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0 20px;
-      height: 64px;
-      transition: border-color 0.3s;
+      border-bottom: 1px solid var(--line); display: flex; justify-content: center;
+      align-items: center; padding: 0 20px; height: 64px; transition: border-color 0.3s;
       background: transparent;
     }
-    .header-inner {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -151,15 +141,10 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
-    /* MAIN */
-    main {
-      flex: 1;
-      padding: 30px 20px;
-      width: 100%;
-      background: transparent;
-    }
+    main { flex: 1; padding: 30px 20px; width: 100%; background: transparent; }
     h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
-    .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 40px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 15px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .intro-text { font-size: 16px; line-height: 1.7; color: var(--text-light); max-width: 800px; margin: 0 auto 40px; text-align: center; }
     .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
     .post-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
     .post-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
@@ -177,7 +162,7 @@
     .btn-load:hover { opacity: 0.88; }
     .btn-load:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    /* FOOTER */
+    /* FOOTER - 5 equal columns, blue links */
     footer {
       border-top: 1px solid var(--footer-border);
       padding: 40px 20px 25px;
@@ -186,23 +171,26 @@
     .footer-container { width: 100%; }
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+      grid-template-columns: repeat(5, 1fr);
       gap: 35px;
     }
     @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-    .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
-    .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom {
-      width: 100%;
-      margin-top: 35px;
-      padding-top: 18px;
-      border-top: 1px solid var(--footer-border);
-      text-align: center;
+    .footer-grid a {
+      color: var(--footer-link-color);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 9px;
       font-size: 13px;
-      color: var(--footer-text);
+      font-weight: 500;
+      transition: color 0.2s, padding-left 0.2s;
     }
+    .footer-grid a:hover {
+      color: var(--footer-link-hover);
+      padding-left: 6px;
+    }
+    .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
     .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
     .toast.show { transform: translateX(-50%) translateY(0); }
@@ -218,7 +206,7 @@
     <header>
       <div class="header-inner">
         <a href="/" class="logo">
-          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
           Textify.tools
         </a>
         <div class="header-right">
@@ -244,7 +232,9 @@
 
     <main>
       <h1>Textify Blog</h1>
-      <p class="subtitle">Tips, tutorials, and updates about text tools, productivity, and more.</p>
+      <p class="subtitle">Tips, tutorials, and updates about text tools, productivity, and online privacy.</p>
+      <p class="intro-text">We write about the tools we build and the problems they solve — from repeating text on WhatsApp and counting words for essays, to comparing code with a diff checker and generating strong passwords. Everything here is free, private, and runs right in your browser.</p>
+      
       <div class="blog-grid" id="blogGrid"></div>
       <div class="load-more-container" id="loadMoreContainer">
         <button class="btn-load" id="loadMoreBtn" onclick="loadMorePosts()">Load More Posts</button>
@@ -256,26 +246,31 @@
         <div class="footer-grid">
           <div>
             <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-              <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+              <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
               Textify.tools
             </a>
-            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
+            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
           </div>
           <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
           <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
           <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+          <div>
+            <h5>FOLLOW US</h5>
+            <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+          </div>
         </div>
         <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
       </div>
     </footer>
   </div>
 
-  <!-- Sidebars and Overlays (outside wrapper for fixed positioning) -->
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
       <a href="/" class="mobile-sidebar-logo">
-        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+        <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
         Textify.tools
       </a>
       <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
@@ -296,7 +291,7 @@
     <div class="search-container">
       <div class="search-box">
         <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
-        <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
+        <input type="text" id="fullSearchInput" placeholder="Search all 72 text tools..." oninput="filterFullSearch()" autofocus>
         <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
       </div>
       <div class="search-results-list" id="fullSearchResultsList"></div>
@@ -306,7 +301,7 @@
   <div class="toast" id="toast"></div>
 
   <script>
-    // --- Complete tools list (80+ tools) matching index.html ---
+    // --- Complete tools list (72 tools) matching index.html ---
     const tools = [
       { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
       { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -382,16 +377,8 @@
       { name: 'Keyword Density Analyzer', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', category: 'analysis' }
     ];
 
-    function buildMegaMenu() {
-      const menu = document.getElementById('megaMenu');
-      if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-    }
-
-    function buildMobileToolsMenu() {
-      const menu = document.getElementById('mobileToolsMenu');
-      if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-    }
-
+    function buildMegaMenu() { const menu = document.getElementById('megaMenu'); if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join(''); }
+    function buildMobileToolsMenu() { const menu = document.getElementById('mobileToolsMenu'); if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join(''); }
     function buildSearchList() {
       const list = document.getElementById('fullSearchResultsList');
       if (list) {
@@ -474,10 +461,13 @@
       { slug: "text-diff-checker-tutorial", title: "Spot Differences in Code Instantly with Text Diff Checker", date: "March 25, 2026", excerpt: "A quick guide to using the diff tool for comparing code snippets.", icon: "git-compare" },
       { slug: "privacy-first-tools-matter", title: "Why Privacy-First Online Tools Matter in 2026", date: "March 22, 2026", excerpt: "With data breaches on the rise, client-side tools are becoming a necessity.", icon: "lock" },
       { slug: "emoji-text-art", title: "Create Emoji Art with Text Repeater", date: "March 20, 2026", excerpt: "Use custom separators and emojis to craft amazing text patterns.", icon: "palette" },
-      { slug: "online-text-tools-roundup", title: "The Ultimate Online Text Tools Roundup", date: "March 18, 2026", excerpt: "A complete overview of free text manipulation tools available on Textify.", icon: "book-open" }
+      { slug: "online-text-tools-roundup", title: "The Ultimate Online Text Tools Roundup", date: "March 18, 2026", excerpt: "A complete overview of free text manipulation tools available on Textify.", icon: "book-open" },
+      { slug: "smart-paraphraser-guide", title: "How to Paraphrase Text Like a Pro", date: "March 15, 2026", excerpt: "Tips for using our Smart Paraphraser to rewrite content while keeping the original meaning.", icon: "edit-3" },
+      { slug: "writing-tools-for-students", title: "Essential Free Writing Tools for Students", date: "March 12, 2026", excerpt: "Word counter, paraphraser, case converter – the tools every student should know about.", icon: "graduation-cap" },
+      { slug: "text-tools-for-seo", title: "Text Tools That Improve Your SEO Workflow", date: "March 8, 2026", excerpt: "From SERP simulators to slug generators – optimize your content faster.", icon: "search" }
     ];
 
-    let visiblePosts = 9;
+    let visiblePosts = 10; // Show exactly 10 posts initially
     const blogGrid = document.getElementById('blogGrid');
     const loadMoreContainer = document.getElementById('loadMoreContainer');
 
