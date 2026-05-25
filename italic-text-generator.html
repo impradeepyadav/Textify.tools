@@ -40,6 +40,7 @@
       --footer-bg: #ffffff;
       --footer-text: #333333;
       --footer-heading: #000000;
+      --footer-link-color: #000000;
       --footer-link-hover: #000000;
       --footer-border: #e5e5e5;
       --faq-bg: #fafafa;
@@ -70,6 +71,7 @@
       --footer-bg: #0f172a;
       --footer-text: #e2e8f0;
       --footer-heading: #ffffff;
+      --footer-link-color: #60a5fa;
       --footer-link-hover: #ffffff;
       --footer-border: #334155;
       --faq-bg: #1e293b;
@@ -91,13 +93,11 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
+      background: var(--bg); color: var(--text); min-height: 100vh;
       transition: background 0.3s, color 0.3s;
     }
+    /* FULL WIDTH WRAPPER */
     .page-wrapper {
-      max-width: 1000px;
       width: 100%;
       margin: 0 auto;
       background: transparent;
@@ -106,23 +106,14 @@
       min-height: 100vh;
     }
 
-    /* HEADER */
+    /* HEADER – full width */
     header {
       border-bottom: 1px solid var(--line);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0 20px;
-      height: 64px;
-      transition: border-color 0.3s;
-      background: transparent;
+      display: flex; justify-content: center; align-items: center;
+      padding: 0 40px; height: 64px; transition: border-color 0.3s;
+      background: transparent; width: 100%;
     }
-    .header-inner {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -183,13 +174,11 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
-    /* MAIN */
+    /* MAIN – full width */
     main {
-      flex: 1;
-      padding: 30px 20px;
-      width: 100%;
-      background: transparent;
+      flex: 1; padding: 40px 40px; width: 100%; background: transparent;
     }
+    .content-container { width: 100%; margin: 0 auto; }
     h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
     .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
     .tool-panel { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 28px; margin-bottom: 30px; }
@@ -215,44 +204,21 @@
     .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
     .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
-    /* FOOTER */
+    /* FOOTER – full width, 5 columns, black links (light mode) */
     footer {
       border-top: 1px solid var(--footer-border);
-      padding: 40px 20px 25px;
+      padding: 40px 40px 25px;
       background: transparent;
+      width: 100%;
     }
-    .footer-container { width: 100%; }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
-      gap: 35px;
-    }
+    .footer-container { width: 100%; max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 35px; }
     @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
-    .footer-grid h5 {
-      color: var(--footer-heading);
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-    .footer-grid a {
-      color: var(--footer-text);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 9px;
-      font-size: 13px;
-      transition: color 0.2s, padding-left 0.2s;
-    }
+    .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
+    .footer-grid a { color: var(--footer-link-color); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; transition: color 0.2s, padding-left 0.2s; }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-    .footer-bottom {
-      width: 100%;
-      margin-top: 35px;
-      padding-top: 18px;
-      border-top: 1px solid var(--footer-border);
-      text-align: center;
-      font-size: 13px;
-      color: var(--footer-text);
-    }
+    .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
     .spinner { border: 3px solid rgba(128,128,128,0.25); border-radius: 50%; border-top-color: var(--primary); width: 22px; height: 22px; animation: spin 0.7s linear infinite; display: inline-block; }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -260,6 +226,8 @@
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
+      main { padding: 20px 16px; }
+      footer { padding: 30px 16px 20px; }
     }
     @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
   </style>
@@ -293,123 +261,125 @@
     </header>
 
     <main>
-      <h1>Italic Text Generator</h1>
-      <p class="subtitle">Create italic, slanted, and cursive Unicode text instantly. Choose from 10+ different italic styles – perfect for social media bios, headlines, and creative projects.</p>
-      
-      <div class="tool-panel">
-        <div class="grid-2">
-          <div class="input-group">
-            <label for="italicStyle">Italic Style</label>
-            <select id="italicStyle">
-              <option value="mathematical-italic">Mathematical Italic</option>
-              <option value="mathematical-bold-italic">Mathematical Bold Italic</option>
-              <option value="sans-serif-italic">Sans‑serif Italic</option>
-              <option value="sans-serif-bold-italic">Sans‑serif Bold Italic</option>
-              <option value="script-italic">Script Italic (Cursive)</option>
-              <option value="bold-script-italic">Bold Script Italic</option>
-              <option value="fraktur-italic">Fraktur Italic</option>
-              <option value="double-struck-italic">Double‑struck Italic</option>
-              <option value="monospace-italic">Monospace Italic</option>
-            </select>
+      <div class="content-container">
+        <h1>Italic Text Generator</h1>
+        <p class="subtitle">Create italic, slanted, and cursive Unicode text instantly. Choose from 10+ different italic styles – perfect for social media bios, headlines, and creative projects.</p>
+        
+        <div class="tool-panel">
+          <div class="grid-2">
+            <div class="input-group">
+              <label for="italicStyle">Italic Style</label>
+              <select id="italicStyle">
+                <option value="mathematical-italic">Mathematical Italic</option>
+                <option value="mathematical-bold-italic">Mathematical Bold Italic</option>
+                <option value="sans-serif-italic">Sans‑serif Italic</option>
+                <option value="sans-serif-bold-italic">Sans‑serif Bold Italic</option>
+                <option value="script-italic">Script Italic (Cursive)</option>
+                <option value="bold-script-italic">Bold Script Italic</option>
+                <option value="fraktur-italic">Fraktur Italic</option>
+                <option value="double-struck-italic">Double‑struck Italic</option>
+                <option value="monospace-italic">Monospace Italic</option>
+              </select>
+            </div>
+            <div style="display:flex;align-items:flex-end;padding-bottom:2px;">
+              <span style="font-size:13px;color:var(--text-light);">Choose from 10+ italic variations</span>
+            </div>
           </div>
-          <div style="display:flex;align-items:flex-end;padding-bottom:2px;">
-            <span style="font-size:13px;color:var(--text-light);">Choose from 10+ italic variations</span>
+          
+          <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
+          
+          <div style="display:flex; gap:10px; margin-bottom:20px;">
+            <button class="btn btn-primary" id="convertBtn" onclick="convertToItalic()"><i data-lucide="italic" width="18" height="18"></i> Convert to Italic</button>
+            <button class="btn btn-outline" onclick="clearTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+          </div>
+          
+          <div class="output-area" id="outputArea">
+            <div class="char-count-box" id="charCountInfo"></div>
+            <textarea id="outputText" readonly placeholder="Your italic text will appear here..."></textarea>
+            <div class="grid-2" style="margin-top:20px;">
+              <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
+              <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+            </div>
           </div>
         </div>
         
-        <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
-        
-        <div style="display:flex; gap:10px; margin-bottom:20px;">
-          <button class="btn btn-primary" id="convertBtn" onclick="convertToItalic()"><i data-lucide="italic" width="18" height="18"></i> Convert to Italic</button>
-          <button class="btn btn-outline" onclick="clearTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-        </div>
-        
-        <div class="output-area" id="outputArea">
-          <div class="char-count-box" id="charCountInfo"></div>
-          <textarea id="outputText" readonly placeholder="Your italic text will appear here..."></textarea>
-          <div class="grid-2" style="margin-top:20px;">
-            <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
-            <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+        <div class="how-to-section" style="margin-top:50px;">
+          <h2>How to Use the Italic Text Generator</h2>
+          <div style="display: flex; flex-direction: column; gap: 20px; margin: 25px 0;">
+            <div style="display: flex; gap: 18px; padding: 20px; background: var(--accent); border-radius: 14px; border: 1px solid var(--line); align-items: flex-start;">
+              <div style="background: var(--primary); color: var(--bg); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; flex-shrink: 0;">1</div>
+              <div><strong style="font-size: 17px;">Enter your text</strong><br>Type or paste any text you want to convert into the input area above.</div>
+            </div>
+            <div style="display: flex; gap: 18px; padding: 20px; background: var(--accent); border-radius: 14px; border: 1px solid var(--line); align-items: flex-start;">
+              <div style="background: var(--primary); color: var(--bg); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; flex-shrink: 0;">2</div>
+              <div><strong style="font-size: 17px;">Choose an italic style</strong><br>Select from 10+ different italic Unicode styles – Mathematical Italic, Sans‑serif Italic, Cursive, Fraktur, and more.</div>
+            </div>
+            <div style="display: flex; gap: 18px; padding: 20px; background: var(--accent); border-radius: 14px; border: 1px solid var(--line); align-items: flex-start;">
+              <div style="background: var(--primary); color: var(--bg); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; flex-shrink: 0;">3</div>
+              <div><strong style="font-size: 17px;">Convert the text</strong><br>Click the "Convert to Italic" button to instantly transform your text into the selected italic style.</div>
+            </div>
+            <div style="display: flex; gap: 18px; padding: 20px; background: var(--accent); border-radius: 14px; border: 1px solid var(--line); align-items: flex-start;">
+              <div style="background: var(--primary); color: var(--bg); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; flex-shrink: 0;">4</div>
+              <div><strong style="font-size: 17px;">Copy or download</strong><br>Use the "Copy Text" button to copy the italic text to your clipboard, or download it as a .txt file.</div>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="how-to-section" style="margin-top:50px;">
-        <h2>How to Use the Italic Text Generator</h2>
-        <div style="display: flex; flex-direction: column; gap: 20px; margin: 25px 0;">
-          <div style="display: flex; gap: 18px; padding: 20px; background: var(--accent); border-radius: 14px; border: 1px solid var(--line); align-items: flex-start;">
-            <div style="background: var(--primary); color: var(--bg); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; flex-shrink: 0;">1</div>
-            <div><strong style="font-size: 17px;">Enter your text</strong><br>Type or paste any text you want to convert into the input area above.</div>
-          </div>
-          <div style="display: flex; gap: 18px; padding: 20px; background: var(--accent); border-radius: 14px; border: 1px solid var(--line); align-items: flex-start;">
-            <div style="background: var(--primary); color: var(--bg); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; flex-shrink: 0;">2</div>
-            <div><strong style="font-size: 17px;">Choose an italic style</strong><br>Select from 10+ different italic Unicode styles – Mathematical Italic, Sans‑serif Italic, Cursive, Fraktur, and more.</div>
-          </div>
-          <div style="display: flex; gap: 18px; padding: 20px; background: var(--accent); border-radius: 14px; border: 1px solid var(--line); align-items: flex-start;">
-            <div style="background: var(--primary); color: var(--bg); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; flex-shrink: 0;">3</div>
-            <div><strong style="font-size: 17px;">Convert the text</strong><br>Click the "Convert to Italic" button to instantly transform your text into the selected italic style.</div>
-          </div>
-          <div style="display: flex; gap: 18px; padding: 20px; background: var(--accent); border-radius: 14px; border: 1px solid var(--line); align-items: flex-start;">
-            <div style="background: var(--primary); color: var(--bg); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; flex-shrink: 0;">4</div>
-            <div><strong style="font-size: 17px;">Copy or download</strong><br>Use the "Copy Text" button to copy the italic text to your clipboard, or download it as a .txt file.</div>
-          </div>
-        </div>
-      </div>
 
-      <div style="margin-top: 40px;">
-        <h2>What Are Unicode Italic Fonts?</h2>
-        <p>Unicode italic fonts are special character sets that use Unicode symbols to create slanted, italic, or cursive variations of regular text. Unlike standard CSS italic formatting (which only works in rich-text environments), Unicode italic characters work everywhere – text messages, social media bios, email subject lines, and even plain text documents. Each italic style uses a different Unicode block, giving you a wide variety of visual options.</p>
-        
-        <h2 style="margin-top: 30px;">Complete Style Reference</h2>
-        <div style="overflow-x: auto; margin: 20px 0; border: 1px solid var(--line); border-radius: 12px;">
-          <table style="width: 100%; border-collapse: collapse;">
-            <thead>
-              <tr style="border-bottom: 1px solid var(--line);">
-                <th style="padding: 12px; text-align: left;">Style</th>
-                <th style="padding: 12px; text-align: left;">Example</th>
-                <th style="padding: 12px; text-align: left;">Best For</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Mathematical Italic</strong></td><td style="padding: 12px;">𝘈𝘣𝘤</td><td style="padding: 12px;">General use, social media, WhatsApp</td></tr>
-              <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Mathematical Bold Italic</strong></td><td style="padding: 12px;">𝑨𝒃𝒄</td><td style="padding: 12px;">Strong emphasis, striking headlines</td></tr>
-              <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Sans‑serif Italic</strong></td><td style="padding: 12px;">𝘈𝘣𝘤</td><td style="padding: 12px;">Clean, modern slanted text</td></tr>
-              <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Sans‑serif Bold Italic</strong></td><td style="padding: 12px;">𝙰𝚋𝚌</td><td style="padding: 12px;">Heavy emphasis with a modern twist</td></tr>
-              <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Script Italic (Cursive)</strong></td><td style="padding: 12px;">𝒜𝒷𝒸</td><td style="padding: 12px;">Elegant, handwritten feel for bios and signatures</td></tr>
-              <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Bold Script Italic</strong></td><td style="padding: 12px;">𝓐𝓫𝓬</td><td style="padding: 12px;">Bold calligraphy style</td></tr>
-              <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Fraktur Italic</strong></td><td style="padding: 12px;">𝔄𝔟𝔠</td><td style="padding: 12px;">Gothic-style, creative projects</td></tr>
-              <tr><td style="padding: 12px;"><strong>Monospace Italic</strong></td><td style="padding: 12px;">𝙰𝚋𝚌</td><td style="padding: 12px;">Code & terminal style with slanted look</td></tr>
-            </tbody>
-          </table>
+        <div style="margin-top: 40px;">
+          <h2>What Are Unicode Italic Fonts?</h2>
+          <p>Unicode italic fonts are special character sets that use Unicode symbols to create slanted, italic, or cursive variations of regular text. Unlike standard CSS italic formatting (which only works in rich-text environments), Unicode italic characters work everywhere – text messages, social media bios, email subject lines, and even plain text documents. Each italic style uses a different Unicode block, giving you a wide variety of visual options.</p>
+          
+          <h2 style="margin-top: 30px;">Complete Style Reference</h2>
+          <div style="overflow-x: auto; margin: 20px 0; border: 1px solid var(--line); border-radius: 12px;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--line);">
+                  <th style="padding: 12px; text-align: left;">Style</th>
+                  <th style="padding: 12px; text-align: left;">Example</th>
+                  <th style="padding: 12px; text-align: left;">Best For</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Mathematical Italic</strong></td><td style="padding: 12px;">𝘈𝘣𝘤</td><td style="padding: 12px;">General use, social media, WhatsApp</td></tr>
+                <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Mathematical Bold Italic</strong></td><td style="padding: 12px;">𝑨𝒃𝒄</td><td style="padding: 12px;">Strong emphasis, striking headlines</td></tr>
+                <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Sans‑serif Italic</strong></td><td style="padding: 12px;">𝘈𝘣𝘤</td><td style="padding: 12px;">Clean, modern slanted text</td></tr>
+                <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Sans‑serif Bold Italic</strong></td><td style="padding: 12px;">𝙰𝚋𝚌</td><td style="padding: 12px;">Heavy emphasis with a modern twist</td></tr>
+                <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Script Italic (Cursive)</strong></td><td style="padding: 12px;">𝒜𝒷𝒸</td><td style="padding: 12px;">Elegant, handwritten feel for bios and signatures</td></tr>
+                <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Bold Script Italic</strong></td><td style="padding: 12px;">𝓐𝓫𝓬</td><td style="padding: 12px;">Bold calligraphy style</td></tr>
+                <tr style="border-bottom: 1px solid var(--line);"><td style="padding: 12px;"><strong>Fraktur Italic</strong></td><td style="padding: 12px;">𝔄𝔟𝔠</td><td style="padding: 12px;">Gothic-style, creative projects</td></tr>
+                <tr><td style="padding: 12px;"><strong>Monospace Italic</strong></td><td style="padding: 12px;">𝙰𝚋𝚌</td><td style="padding: 12px;">Code & terminal style with slanted look</td></tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <h2 style="margin-top: 30px;">Popular Use Cases for Italic Text</h2>
+          <ul style="padding-left: 22px; color: var(--text-light); margin-bottom: 22px;">
+            <li><strong>Instagram Bio & Posts:</strong> Add elegance and style to your profile with slanted, cursive text.</li>
+            <li><strong>WhatsApp Messages:</strong> Emphasize important parts of your messages without using asterisks.</li>
+            <li><strong>Twitter/X Headlines:</strong> Create stunning thread titles that stand out.</li>
+            <li><strong>Email Subject Lines:</strong> Increase open rates with beautiful, attention-grabbing italic text.</li>
+            <li><strong>YouTube Comments:</strong> Make your comments more visible and engaging.</li>
+            <li><strong>Discord & Slack:</strong> Style your messages with italic Unicode text where markdown isn't supported.</li>
+            <li><strong>Creative Projects:</strong> Use italic script or fraktur styles for posters, logos, and digital art.</li>
+          </ul>
+          
+          <h2 style="margin-top: 30px;">Why Choose Textify's Italic Text Generator?</h2>
+          <ul style="padding-left: 22px; color: var(--text-light); margin-bottom: 22px;">
+            <li><strong>10+ Unique Italic Styles:</strong> More options than any other free tool – from Mathematical Italic to Script Italic.</li>
+            <li><strong>100% Client-Side:</strong> Your text never leaves your browser – complete privacy guaranteed.</li>
+            <li><strong>Instant Conversion:</strong> No waiting, no uploading – your italic text appears instantly.</li>
+            <li><strong>Free & No Login:</strong> Use the tool as much as you want, completely free.</li>
+            <li><strong>Copy & Download:</strong> Easily copy your italic text to the clipboard or download a .txt file.</li>
+            <li><strong>Works Offline:</strong> Once the page loads, you can disconnect from the internet and keep generating italic text.</li>
+          </ul>
+          
+          <h2 style="margin-top: 30px;">Frequently Asked Questions</h2>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Will this italic text work on all platforms?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, italic Unicode text works on virtually all modern platforms including Instagram, Facebook, Twitter, WhatsApp, Telegram, Discord, Slack, email clients, and most websites. Older systems may not support all styles equally, but the most common styles (like Mathematical Italic and Sans‑serif Italic) have near-universal support.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! 100% free, no hidden fees, no premium plans, and no account required.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, the tool is fully responsive and works on all mobile devices, including iPhone and Android.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, 100% private. All processing happens locally in your browser – your text never leaves your device.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What's the difference between these italic styles?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Each style uses a different Unicode character block. Mathematical Italic is the classic slanted style. Sans‑serif Italic gives a cleaner, modern look. Script Italic adds a cursive, handwritten feel. Fraktur Italic has a gothic aesthetic. Each style has its own unique visual character.</div></div>
         </div>
-        
-        <h2 style="margin-top: 30px;">Popular Use Cases for Italic Text</h2>
-        <ul style="padding-left: 22px; color: var(--text-light); margin-bottom: 22px;">
-          <li><strong>Instagram Bio & Posts:</strong> Add elegance and style to your profile with slanted, cursive text.</li>
-          <li><strong>WhatsApp Messages:</strong> Emphasize important parts of your messages without using asterisks.</li>
-          <li><strong>Twitter/X Headlines:</strong> Create stunning thread titles that stand out.</li>
-          <li><strong>Email Subject Lines:</strong> Increase open rates with beautiful, attention-grabbing italic text.</li>
-          <li><strong>YouTube Comments:</strong> Make your comments more visible and engaging.</li>
-          <li><strong>Discord & Slack:</strong> Style your messages with italic Unicode text where markdown isn't supported.</li>
-          <li><strong>Creative Projects:</strong> Use italic script or fraktur styles for posters, logos, and digital art.</li>
-        </ul>
-        
-        <h2 style="margin-top: 30px;">Why Choose Textify's Italic Text Generator?</h2>
-        <ul style="padding-left: 22px; color: var(--text-light); margin-bottom: 22px;">
-          <li><strong>10+ Unique Italic Styles:</strong> More options than any other free tool – from Mathematical Italic to Script Italic.</li>
-          <li><strong>100% Client-Side:</strong> Your text never leaves your browser – complete privacy guaranteed.</li>
-          <li><strong>Instant Conversion:</strong> No waiting, no uploading – your italic text appears instantly.</li>
-          <li><strong>Free & No Login:</strong> Use the tool as much as you want, completely free.</li>
-          <li><strong>Copy & Download:</strong> Easily copy your italic text to the clipboard or download a .txt file.</li>
-          <li><strong>Works Offline:</strong> Once the page loads, you can disconnect from the internet and keep generating italic text.</li>
-        </ul>
-        
-        <h2 style="margin-top: 30px;">Frequently Asked Questions</h2>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Will this italic text work on all platforms?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, italic Unicode text works on virtually all modern platforms including Instagram, Facebook, Twitter, WhatsApp, Telegram, Discord, Slack, email clients, and most websites. Older systems may not support all styles equally, but the most common styles (like Mathematical Italic and Sans‑serif Italic) have near-universal support.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! 100% free, no hidden fees, no premium plans, and no account required.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, the tool is fully responsive and works on all mobile devices, including iPhone and Android.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, 100% private. All processing happens locally in your browser – your text never leaves your device.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What's the difference between these italic styles?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Each style uses a different Unicode character block. Mathematical Italic is the classic slanted style. Sans‑serif Italic gives a cleaner, modern look. Script Italic adds a cursive, handwritten feel. Fraktur Italic has a gothic aesthetic. Each style has its own unique visual character.</div></div>
       </div>
     </main>
 
@@ -421,11 +391,17 @@
               <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
               Textify.Tools
             </a>
-            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
           </div>
           <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
           <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
           <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+          <div>
+            <h5>FOLLOW US</h5>
+            <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+          </div>
         </div>
         <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
       </div>
@@ -467,7 +443,7 @@
   <div class="toast" id="toast"></div>
 
   <script>
-    // Tools list (same as before)
+    // Complete tools list – Google SERP Simulator replaced with Google SERP Checker
     const tools = [
       { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
       { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -527,7 +503,7 @@
       { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
       { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
       { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
-      { name: 'Google SERP Simulator', link: '/google-serp-simulator', keywords: 'serp simulator google search preview snippet', category: 'seo' },
+      { name: 'Google SERP Checker', link: '/google-serp-checker', keywords: 'serp checker google search preview snippet', category: 'seo' },
       { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
       { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
       { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' },
@@ -543,7 +519,44 @@
       { name: 'Keyword Density Analyzer', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', category: 'analysis' }
     ];
 
-    const italicMaps = { /* same as original */ };
+    const italicMaps = {
+      'mathematical-italic': {
+        'a':'𝑎','b':'𝑏','c':'𝑐','d':'𝑑','e':'𝑒','f':'𝑓','g':'𝑔','h':'ℎ','i':'𝑖','j':'𝑗','k':'𝑘','l':'𝑙','m':'𝑚','n':'𝑛','o':'𝑜','p':'𝑝','q':'𝑞','r':'𝑟','s':'𝑠','t':'𝑡','u':'𝑢','v':'𝑣','w':'𝑤','x':'𝑥','y':'𝑦','z':'𝑧',
+        'A':'𝐴','B':'𝐵','C':'𝐶','D':'𝐷','E':'𝐸','F':'𝐹','G':'𝐺','H':'𝐻','I':'𝐼','J':'𝐽','K':'𝐾','L':'𝐿','M':'𝑀','N':'𝑁','O':'𝑂','P':'𝑃','Q':'𝑄','R':'𝑅','S':'𝑆','T':'𝑇','U':'𝑈','V':'𝑉','W':'𝑊','X':'𝑋','Y':'𝑌','Z':'𝑍'
+      },
+      'mathematical-bold-italic': {
+        'a':'𝒂','b':'𝒃','c':'𝒄','d':'𝒅','e':'𝒆','f':'𝒇','g':'𝒈','h':'𝒉','i':'𝒊','j':'𝒋','k':'𝒌','l':'𝒍','m':'𝒎','n':'𝒏','o':'𝒐','p':'𝒑','q':'𝒒','r':'𝒓','s':'𝒔','t':'𝒕','u':'𝒖','v':'𝒗','w':'𝒘','x':'𝒙','y':'𝒚','z':'𝒛',
+        'A':'𝑨','B':'𝑩','C':'𝑪','D':'𝑫','E':'𝑬','F':'𝑭','G':'𝑮','H':'𝑯','I':'𝑰','J':'𝑱','K':'𝑲','L':'𝑳','M':'𝑴','N':'𝑵','O':'𝑶','P':'𝑷','Q':'𝑸','R':'𝑹','S':'𝑺','T':'𝑻','U':'𝑼','V':'𝑽','W':'𝑾','X':'𝑿','Y':'𝒀','Z':'𝒁'
+      },
+      'sans-serif-italic': {
+        'a':'𝘢','b':'𝘣','c':'𝘤','d':'𝘥','e':'𝘦','f':'𝘧','g':'𝘨','h':'𝘩','i':'𝘪','j':'𝘫','k':'𝘬','l':'𝘭','m':'𝘮','n':'𝘯','o':'𝘰','p':'𝘱','q':'𝘲','r':'𝘳','s':'𝘴','t':'𝘵','u':'𝘶','v':'𝘷','w':'𝘸','x':'𝘹','y':'𝘺','z':'𝘻',
+        'A':'𝘈','B':'𝘉','C':'𝘊','D':'𝘋','E':'𝘌','F':'𝘍','G':'𝘎','H':'𝘏','I':'𝘐','J':'𝘑','K':'𝘒','L':'𝘓','M':'𝘔','N':'𝘕','O':'𝘖','P':'𝘗','Q':'𝘘','R':'𝘙','S':'𝘚','T':'𝘛','U':'𝘜','V':'𝘝','W':'𝘞','X':'𝘟','Y':'𝘠','Z':'𝘡'
+      },
+      'sans-serif-bold-italic': {
+        'a':'𝙖','b':'𝙗','c':'𝙘','d':'𝙙','e':'𝙚','f':'𝙛','g':'𝙜','h':'𝙝','i':'𝙞','j':'𝙟','k':'𝙠','l':'𝙡','m':'𝙢','n':'𝙣','o':'𝙤','p':'𝙥','q':'𝙦','r':'𝙧','s':'𝙨','t':'𝙩','u':'𝙪','v':'𝙫','w':'𝙬','x':'𝙭','y':'𝙮','z':'𝙯',
+        'A':'𝘼','B':'𝘽','C':'𝘾','D':'𝘿','E':'𝙀','F':'𝙁','G':'𝙂','H':'𝙃','I':'𝙄','J':'𝙅','K':'𝙆','L':'𝙇','M':'𝙈','N':'𝙉','O':'𝙊','P':'𝙋','Q':'𝙌','R':'𝙍','S':'𝙎','T':'𝙏','U':'𝙐','V':'𝙑','W':'𝙒','X':'𝙓','Y':'𝙔','Z':'𝙕'
+      },
+      'script-italic': {
+        'a':'𝒶','b':'𝒷','c':'𝒸','d':'𝒹','e':'𝑒','f':'𝒻','g':'𝓰','h':'𝒽','i':'𝒾','j':'𝒿','k':'𝓀','l':'𝓁','m':'𝓂','n':'𝓃','o':'𝓸','p':'𝓅','q':'𝓆','r':'𝓇','s':'𝓈','t':'𝓉','u':'𝓊','v':'𝓋','w':'𝓌','x':'𝓍','y':'𝓎','z':'𝓏',
+        'A':'𝒜','B':'ℬ','C':'𝒞','D':'𝒟','E':'ℰ','F':'ℱ','G':'𝒢','H':'ℋ','I':'ℐ','J':'𝒥','K':'𝒦','L':'ℒ','M':'ℳ','N':'𝒩','O':'𝒪','P':'𝒫','Q':'𝒬','R':'ℛ','S':'𝒮','T':'𝒯','U':'𝒰','V':'𝒱','W':'𝒲','X':'𝒳','Y':'𝒴','Z':'𝒵'
+      },
+      'bold-script-italic': {
+        'a':'𝓪','b':'𝓫','c':'𝓬','d':'𝓭','e':'𝓮','f':'𝓯','g':'𝓰','h':'𝓱','i':'𝓲','j':'𝓳','k':'𝓴','l':'𝓵','m':'𝓶','n':'𝓷','o':'𝓸','p':'𝓹','q':'𝓺','r':'𝓻','s':'𝓼','t':'𝓽','u':'𝓾','v':'𝓿','w':'𝔀','x':'𝔁','y':'𝔂','z':'𝔃',
+        'A':'𝓐','B':'𝓑','C':'𝓒','D':'𝓓','E':'𝓔','F':'𝓕','G':'𝓖','H':'𝓗','I':'𝓘','J':'𝓙','K':'𝓚','L':'𝓛','M':'𝓜','N':'𝓝','O':'𝓞','P':'𝓟','Q':'𝓠','R':'𝓡','S':'𝓢','T':'𝓣','U':'𝓤','V':'𝓥','W':'𝓦','X':'𝓧','Y':'𝓨','Z':'𝓩'
+      },
+      'fraktur-italic': {
+        'a':'𝔞','b':'𝔟','c':'𝔠','d':'𝔡','e':'𝔢','f':'𝔣','g':'𝔤','h':'𝔥','i':'𝔦','j':'𝔧','k':'𝔨','l':'𝔩','m':'𝔪','n':'𝔫','o':'𝔬','p':'𝔭','q':'𝔮','r':'𝔯','s':'𝔰','t':'𝔱','u':'𝔲','v':'𝔳','w':'𝔴','x':'𝔵','y':'𝔶','z':'𝔷',
+        'A':'𝔄','B':'𝔅','C':'ℭ','D':'𝔇','E':'𝔈','F':'𝔉','G':'𝔊','H':'ℌ','I':'ℑ','J':'𝔍','K':'𝔎','L':'𝔏','M':'𝔐','N':'𝔑','O':'𝔒','P':'𝔓','Q':'𝔔','R':'ℜ','S':'𝔖','T':'𝔗','U':'𝔘','V':'𝔙','W':'𝔚','X':'𝔛','Y':'𝔜','Z':'ℨ'
+      },
+      'double-struck-italic': {
+        'a':'𝕒','b':'𝕓','c':'𝕔','d':'𝕕','e':'𝕖','f':'𝕗','g':'𝕘','h':'𝕙','i':'𝕚','j':'𝕛','k':'𝕜','l':'𝕝','m':'𝕞','n':'𝕟','o':'𝕠','p':'𝕡','q':'𝕢','r':'𝕣','s':'𝕤','t':'𝕥','u':'𝕦','v':'𝕧','w':'𝕨','x':'𝕩','y':'𝕪','z':'𝕫',
+        'A':'𝔸','B':'𝔹','C':'ℂ','D':'𝔻','E':'𝔼','F':'𝔽','G':'𝔾','H':'ℍ','I':'𝕀','J':'𝕁','K':'𝕂','L':'𝕃','M':'𝕄','N':'ℕ','O':'𝕆','P':'ℙ','Q':'ℚ','R':'ℝ','S':'𝕊','T':'𝕋','U':'𝕌','V':'𝕍','W':'𝕎','X':'𝕏','Y':'𝕐','Z':'ℤ'
+      },
+      'monospace-italic': {
+        'a':'𝚊','b':'𝚋','c':'𝚌','d':'𝚍','e':'𝚎','f':'𝚏','g':'𝚐','h':'𝚑','i':'𝚒','j':'𝚓','k':'𝚔','l':'𝚕','m':'𝚖','n':'𝚗','o':'𝚘','p':'𝚙','q':'𝚚','r':'𝚛','s':'𝚜','t':'𝚝','u':'𝚞','v':'𝚟','w':'𝚠','x':'𝚡','y':'𝚢','z':'𝚣',
+        'A':'𝙰','B':'𝙱','C':'𝙲','D':'𝙳','E':'𝙴','F':'𝙵','G':'𝙶','H':'𝙷','I':'𝙸','J':'𝙹','K':'𝙺','L':'𝙻','M':'𝙼','N':'𝙽','O':'𝙾','P':'𝙿','Q':'𝚀','R':'𝚁','S':'𝚂','T':'𝚃','U':'𝚄','V':'𝚅','W':'𝚆','X':'𝚇','Y':'𝚈','Z':'𝚉'
+      }
+    };
 
     function buildMegaMenu() {
       const menu = document.getElementById('megaMenu');
@@ -620,7 +633,6 @@
       const icon = el.querySelector('svg');
       if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
     }
-    // Italic conversion (same as original)
     function convertToItalic() {
       const input = document.getElementById('inputText').value;
       const style = document.getElementById('italicStyle').value;
@@ -668,7 +680,6 @@
         setTimeout(() => { btn.innerHTML = origHTML; lucide.createIcons(); }, 2000);
       } catch (err) { alert('Download blocked. Please allow popups or copy manually.'); btn.innerHTML = origHTML; lucide.createIcons(); }
     }
-    // Initialize
     buildMegaMenu();
     buildMobileToolsMenu();
     buildSearchList();
