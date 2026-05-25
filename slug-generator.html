@@ -31,7 +31,8 @@
             --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
             --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
             --input-border: #d4d4d4; --footer-bg: #ffffff; --footer-text: #333333;
-            --footer-heading: #000000; --footer-link-hover: #000000; --footer-border: #e5e5e5;
+            --footer-heading: #000000; --footer-link-color: #000000; --footer-link-hover: #000000;
+            --footer-border: #e5e5e5;
             --faq-bg: #fafafa; --faq-active: #f3f4f6; --table-header: #f3f4f6; --table-hover: #fafafa;
             --shadow: rgba(0,0,0,0.1); --overlay-bg: rgba(0,0,0,0.5); --success-bg: #f0fdf4;
             --success-text: #166534; --sidebar-bg: #ffffff; --accent: #f8fafc;
@@ -41,7 +42,8 @@
             --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
             --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
             --input-border: #334155; --footer-bg: #0f172a; --footer-text: #e2e8f0;
-            --footer-heading: #ffffff; --footer-link-hover: #ffffff; --footer-border: #334155;
+            --footer-heading: #ffffff; --footer-link-color: #60a5fa; --footer-link-hover: #ffffff;
+            --footer-border: #334155;
             --faq-bg: #1e293b; --faq-active: #334155; --table-header: #1e293b; --table-hover: #1e293b;
             --shadow: rgba(0,0,0,0.5); --overlay-bg: rgba(0,0,0,0.75); --success-bg: #052e16;
             --success-text: #86efac; --sidebar-bg: #0f172a; --accent: #1e293b;
@@ -55,12 +57,13 @@
             color: var(--text);
             min-height: 100vh;
             transition: background 0.3s, color 0.3s;
+            overflow-x: hidden;
         }
 
-        /* WRAPPER */
+        /* FULL-WIDTH WRAPPER */
         .page-wrapper {
-            max-width: 1000px;
             width: 100%;
+            max-width: 100%;
             margin: 0 auto;
             background: transparent;
             display: flex;
@@ -74,12 +77,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 40px;
             height: 64px;
             transition: border-color 0.3s;
             background: transparent;
+            width: 100%;
         }
-        .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -143,14 +147,15 @@
         /* MAIN */
         main {
             flex: 1;
-            padding: 30px 20px;
+            padding: 40px 40px;
             width: 100%;
+            max-width: 100%;
             background: transparent;
         }
-        h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
-        h2 { font-size: 26px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
+        h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
+        h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
         h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
-        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
+        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 40px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
         p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
         ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
         textarea { width: 100%; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s; }
@@ -192,30 +197,53 @@
         .bulk-textarea { display: none; }
         .bulk-textarea.active { display: block; }
 
-        /* FOOTER */
+        /* FOOTER – 5 equal columns, black links light mode */
         footer {
             border-top: 1px solid var(--footer-border);
-            padding: 40px 20px 25px;
+            padding: 40px 40px 25px;
             background: transparent;
+            width: 100%;
         }
-        .footer-container { width: 100%; }
+        .footer-container { width: 100%; max-width: 100%; }
         .footer-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+            grid-template-columns: repeat(5, 1fr);
             gap: 35px;
+            width: 100%;
         }
-        @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 1200px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media(max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-        .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
-        .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
+        .footer-grid a {
+            color: var(--footer-link-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 9px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s, padding-left 0.2s;
+        }
+        .footer-grid a:hover {
+            color: var(--footer-link-hover);
+            padding-left: 6px;
+        }
         .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; }
+            main { padding: 20px 12px; }
+            footer { padding: 30px 16px 20px; }
         }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
+        @media (min-width: 1800px) {
+            main { padding: 50px 60px; }
+            header { padding: 0 60px; }
+            footer { padding: 50px 60px 30px; }
+            h1 { font-size: 44px; }
+        }
     </style>
 
     <div class="page-wrapper">
@@ -392,11 +420,17 @@
                             <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
                             Textify.tools
                         </a>
-                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
                     </div>
                     <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
                     <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
                     <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                    <div>
+                        <h5>FOLLOW US</h5>
+                        <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
+                        <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+                    </div>
                 </div>
                 <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
             </div>
@@ -438,6 +472,7 @@
     <div class="toast" id="toast"></div>
 
     <script>
+        // Complete tools list (Google SERP Simulator replaced with Google SERP Checker)
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -497,7 +532,7 @@
             { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
             { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
             { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
-            { name: 'Google SERP Simulator', link: '/google-serp-simulator', keywords: 'serp simulator google search preview snippet', category: 'seo' },
+            { name: 'Google SERP Checker', link: '/google-serp-checker', keywords: 'serp checker google search preview snippet', category: 'seo' },
             { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
             { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
             { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' }
