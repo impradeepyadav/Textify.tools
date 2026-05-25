@@ -7,9 +7,9 @@
     <title>SERP Checker – Free Google Search Preview Tool</title>
     <meta name="description" content="Preview exactly how your title tag and meta description will appear in Google search results. Desktop & mobile view side‑by‑side. Free, private, no login.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <link rel="canonical" href="https://textify.tools/google-serp-Checker">
+    <link rel="canonical" href="https://textify.tools/google-serp-checker">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://textify.tools/google-serp-Checker">
+    <meta property="og:url" content="https://textify.tools/google-serp-checker">
     <meta property="og:title" content="Google SERP Checker – Textify.tools">
     <meta property="og:description" content="See exactly how your page will look on Google – desktop & mobile preview in real time.">
     <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
@@ -31,7 +31,7 @@
             --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
             --input-border: #d4d4d4;
             --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000;
-            --footer-link-color: #3b82f6;
+            --footer-link-color: #000000;
             --footer-link-hover: #000000;
             --footer-border: #e5e5e5;
             --faq-bg: #fafafa; --faq-active: #f3f4f6;
@@ -57,16 +57,12 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
+            background: var(--bg); color: var(--text); min-height: 100vh;
             transition: background 0.3s, color 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: flex; flex-direction: column; align-items: center;
         }
+        /* FULL WIDTH WRAPPER */
         .page-wrapper {
-            max-width: 1000px;
             width: 100%;
             margin: 0 auto;
             background: transparent;
@@ -77,13 +73,9 @@
 
         header {
             border-bottom: 1px solid var(--line);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px;
-            height: 64px;
-            transition: border-color 0.3s;
-            background: transparent;
+            display: flex; justify-content: center; align-items: center;
+            padding: 0 40px; height: 64px; transition: border-color 0.3s;
+            background: transparent; width: 100%;
         }
         .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
@@ -146,7 +138,8 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main { flex: 1; padding: 30px 20px; width: 100%; background: transparent; }
+        main { flex: 1; padding: 40px 40px; width: 100%; background: transparent; }
+        .content-container { width: 100%; margin: 0 auto; }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; text-align: center; }
         h2 { font-size: 26px; font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
         h3 { font-size: 20px; font-weight: 700; margin: 25px 0 12px; }
@@ -260,12 +253,14 @@
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
+        /* FOOTER – full width, 5 columns, black links (light mode) */
         footer {
             border-top: 1px solid var(--footer-border);
-            padding: 40px 20px 25px;
+            padding: 40px 40px 25px;
             background: transparent;
+            width: 100%;
         }
-        .footer-container { width: 100%; }
+        .footer-container { width: 100%; max-width: 1200px; margin: 0 auto; }
         .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 35px; }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
@@ -277,6 +272,8 @@
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
+            main { padding: 20px 16px; }
+            footer { padding: 30px 16px 20px; }
         }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     </style>
@@ -310,119 +307,121 @@
         </header>
 
         <main>
-            <h1>Google SERP Checker</h1>
-            <p class="tool-description">Type on the left — see your Google preview update live on the right. Desktop and mobile views side‑by‑side.</p>
+            <div class="content-container">
+                <h1>Google SERP Checker</h1>
+                <p class="tool-description">Type on the left — see your Google preview update live on the right. Desktop and mobile views side‑by‑side.</p>
 
-            <div class="simulator-layout">
-                <div class="inputs-section">
-                    <div class="input-group">
-                        <label for="serpTitle">Page Title</label>
-                        <input type="text" id="serpTitle" placeholder="e.g. Free SEO Tools – Textify.tools" maxlength="60" oninput="liveUpdate()">
-                        <div class="char-count" id="titleCount">0 / 60</div>
+                <div class="simulator-layout">
+                    <div class="inputs-section">
+                        <div class="input-group">
+                            <label for="serpTitle">Page Title</label>
+                            <input type="text" id="serpTitle" placeholder="e.g. Free SEO Tools – Textify.tools" maxlength="60" oninput="liveUpdate()">
+                            <div class="char-count" id="titleCount">0 / 60</div>
+                        </div>
+                        <div class="input-group">
+                            <label for="serpSiteName">Site Name</label>
+                            <input type="text" id="serpSiteName" placeholder="e.g. Textify.tools" oninput="liveUpdate()">
+                            <div class="input-hint">Your brand or site name as shown in the search result.</div>
+                        </div>
+                        <div class="input-group">
+                            <label for="serpUrl">URL</label>
+                            <input type="text" id="serpUrl" placeholder="e.g. https://textify.tools/seo-tools" oninput="liveUpdate()">
+                            <div class="input-hint">Paste your full URL to show your real site logo (favicon) in the preview.</div>
+                        </div>
+                        <div class="input-group">
+                            <label for="serpDesc">Meta Description</label>
+                            <textarea id="serpDesc" placeholder="Write a compelling description (max 160 characters) ..." maxlength="160" oninput="liveUpdate()"></textarea>
+                            <div class="char-count" id="descCount">0 / 160</div>
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label for="serpSiteName">Site Name</label>
-                        <input type="text" id="serpSiteName" placeholder="e.g. Textify.tools" oninput="liveUpdate()">
-                        <div class="input-hint">Your brand or site name as shown in the search result.</div>
-                    </div>
-                    <div class="input-group">
-                        <label for="serpUrl">URL</label>
-                        <input type="text" id="serpUrl" placeholder="e.g. https://textify.tools/seo-tools" oninput="liveUpdate()">
-                        <div class="input-hint">Paste your full URL to show your real site logo (favicon) in the preview.</div>
-                    </div>
-                    <div class="input-group">
-                        <label for="serpDesc">Meta Description</label>
-                        <textarea id="serpDesc" placeholder="Write a compelling description (max 160 characters) ..." maxlength="160" oninput="liveUpdate()"></textarea>
-                        <div class="char-count" id="descCount">0 / 160</div>
+
+                    <div class="previews-section">
+                        <div>
+                            <div style="font-size:16px; font-weight:700; margin-bottom:12px; color:var(--text); display:flex; align-items:center; gap:8px;">
+                                <i data-lucide="monitor" width="18" height="18"></i> Desktop Preview
+                            </div>
+                            <div class="desktop-search-bar">
+                                <div class="desktop-google-logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
+                                <div class="desktop-search-wrapper">
+                                    <input type="text" class="desktop-search-input" placeholder="Search or type URL" readonly>
+                                </div>
+                            </div>
+                            <div class="serp-preview" id="desktopSerp">
+                                <div class="serp-url-row" id="desktopUrlRow">
+                                    <div class="serp-favicon"><img src="https://www.google.com/s2/favicons?domain=textify.tools&sz=32" id="desktopFaviconImg" onerror="this.style.display='none'"></div>
+                                    <span class="serp-site-name" id="desktopSiteName">Textify.tools</span>
+                                    <span class="serp-breadcrumb" id="desktopBreadcrumb"> › seo-tools</span>
+                                    <span class="serp-menu-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></span>
+                                </div>
+                                <a class="serp-title" id="desktopTitle" href="#" target="_blank">Your Page Title</a>
+                                <div class="serp-description" id="desktopDesc">Your meta description will appear here.</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-size:16px; font-weight:700; margin-bottom:12px; color:var(--text); display:flex; align-items:center; gap:8px;">
+                                <i data-lucide="smartphone" width="18" height="18"></i> Mobile Preview
+                            </div>
+                            <div class="mobile-search-bar">
+                                <span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5z"/></svg></span>
+                                <input type="text" class="mobile-search-input" placeholder="Search or type URL" readonly>
+                            </div>
+                            <div class="serp-preview" id="mobileSerp">
+                                <div class="serp-url-row" id="mobileUrlRow">
+                                    <div class="serp-favicon"><img src="https://www.google.com/s2/favicons?domain=textify.tools&sz=32" id="mobileFaviconImg" onerror="this.style.display='none'"></div>
+                                    <span class="serp-site-name" id="mobileSiteName">Textify.tools</span>
+                                    <span class="serp-breadcrumb" id="mobileBreadcrumb"> › seo-tools</span>
+                                    <span class="serp-menu-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></span>
+                                </div>
+                                <a class="serp-title" id="mobileTitle" href="#" target="_blank">Your Page Title</a>
+                                <div class="serp-description" id="mobileDesc">Your meta description will appear here.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="previews-section">
-                    <div>
-                        <div style="font-size:16px; font-weight:700; margin-bottom:12px; color:var(--text); display:flex; align-items:center; gap:8px;">
-                            <i data-lucide="monitor" width="18" height="18"></i> Desktop Preview
-                        </div>
-                        <div class="desktop-search-bar">
-                            <div class="desktop-google-logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
-                            <div class="desktop-search-wrapper">
-                                <input type="text" class="desktop-search-input" placeholder="Search or type URL" readonly>
-                            </div>
-                        </div>
-                        <div class="serp-preview" id="desktopSerp">
-                            <div class="serp-url-row" id="desktopUrlRow">
-                                <div class="serp-favicon"><img src="https://www.google.com/s2/favicons?domain=textify.tools&sz=32" id="desktopFaviconImg" onerror="this.style.display='none'"></div>
-                                <span class="serp-site-name" id="desktopSiteName">Textify.tools</span>
-                                <span class="serp-breadcrumb" id="desktopBreadcrumb"> › seo-tools</span>
-                                <span class="serp-menu-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></span>
-                            </div>
-                            <a class="serp-title" id="desktopTitle" href="#" target="_blank">Your Page Title</a>
-                            <div class="serp-description" id="desktopDesc">Your meta description will appear here.</div>
-                        </div>
-                    </div>
-                    <div>
-                        <div style="font-size:16px; font-weight:700; margin-bottom:12px; color:var(--text); display:flex; align-items:center; gap:8px;">
-                            <i data-lucide="smartphone" width="18" height="18"></i> Mobile Preview
-                        </div>
-                        <div class="mobile-search-bar">
-                            <span><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5z"/></svg></span>
-                            <input type="text" class="mobile-search-input" placeholder="Search or type URL" readonly>
-                        </div>
-                        <div class="serp-preview" id="mobileSerp">
-                            <div class="serp-url-row" id="mobileUrlRow">
-                                <div class="serp-favicon"><img src="https://www.google.com/s2/favicons?domain=textify.tools&sz=32" id="mobileFaviconImg" onerror="this.style.display='none'"></div>
-                                <span class="serp-site-name" id="mobileSiteName">Textify.tools</span>
-                                <span class="serp-breadcrumb" id="mobileBreadcrumb"> › seo-tools</span>
-                                <span class="serp-menu-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></span>
-                            </div>
-                            <a class="serp-title" id="mobileTitle" href="#" target="_blank">Your Page Title</a>
-                            <div class="serp-description" id="mobileDesc">Your meta description will appear here.</div>
-                        </div>
-                    </div>
+                <div class="section">
+                    <h2>How to Use the SERP Simulator – Step by Step</h2>
+                    <div class="how-to-card"><div class="step-num">1</div><div><h4>Enter Your Page Title</h4><p>Type the title tag you plan to use on your webpage. Keep it under 60 characters — Google truncates anything longer with an ellipsis (…). Include your primary keyword near the beginning for better SEO.</p></div></div>
+                    <div class="how-to-card"><div class="step-num">2</div><div><h4>Add Your Site Name</h4><p>This is the brand name that appears next to the favicon in the search result. It helps users instantly recognize your site. If you leave it blank, the tool will use the domain from your URL.</p></div></div>
+                    <div class="how-to-card"><div class="step-num">3</div><div><h4>Paste Your Full URL</h4><p>Drop in the complete URL of the page you're optimizing. The tool automatically extracts your domain, generates the breadcrumb path, and even fetches your real favicon so the preview looks exactly like a live Google result.</p></div></div>
+                    <div class="how-to-card"><div class="step-num">4</div><div><h4>Write a Compelling Meta Description</h4><p>Aim for 150–160 characters. This is your ad copy in the search results — make it engaging, include a call to action, and naturally weave in your target keywords. The character counter will warn you if you go over.</p></div></div>
+                    <div class="how-to-card"><div class="step-num">5</div><div><h4>Check Both Views</h4><p>Google displays different results on desktop and mobile. Always check both previews — a title that fits perfectly on desktop might truncate on a phone screen. Adjust until both look clean.</p></div></div>
                 </div>
-            </div>
 
-            <div class="section">
-                <h2>How to Use the SERP Simulator – Step by Step</h2>
-                <div class="how-to-card"><div class="step-num">1</div><div><h4>Enter Your Page Title</h4><p>Type the title tag you plan to use on your webpage. Keep it under 60 characters — Google truncates anything longer with an ellipsis (…). Include your primary keyword near the beginning for better SEO.</p></div></div>
-                <div class="how-to-card"><div class="step-num">2</div><div><h4>Add Your Site Name</h4><p>This is the brand name that appears next to the favicon in the search result. It helps users instantly recognize your site. If you leave it blank, the tool will use the domain from your URL.</p></div></div>
-                <div class="how-to-card"><div class="step-num">3</div><div><h4>Paste Your Full URL</h4><p>Drop in the complete URL of the page you're optimizing. The tool automatically extracts your domain, generates the breadcrumb path, and even fetches your real favicon so the preview looks exactly like a live Google result.</p></div></div>
-                <div class="how-to-card"><div class="step-num">4</div><div><h4>Write a Compelling Meta Description</h4><p>Aim for 150–160 characters. This is your ad copy in the search results — make it engaging, include a call to action, and naturally weave in your target keywords. The character counter will warn you if you go over.</p></div></div>
-                <div class="how-to-card"><div class="step-num">5</div><div><h4>Check Both Views</h4><p>Google displays different results on desktop and mobile. Always check both previews — a title that fits perfectly on desktop might truncate on a phone screen. Adjust until both look clean.</p></div></div>
-            </div>
+                <div class="section">
+                    <h2>Why Use a Google SERP Simulator?</h2>
+                    <p>When you search on Google, you're essentially window‑shopping for answers. Your title and meta description are the first impression a potential visitor gets of your page — often before they even see your website. A well‑crafted snippet can be the difference between a click and a scroll‑past.</p>
+                    <p>With our simulator, you can tweak and perfect your metadata in real time, seeing exactly how it'll look before you publish. No more guessing, no more truncated titles, and no more descriptions that cut off mid‑sentence.</p>
+                    <h3>What Makes a Great Title Tag?</h3>
+                    <ul>
+                        <li><strong>Keep it under 60 characters.</strong> Google displays roughly the first 600 pixels, which usually equals 50–60 characters. Anything longer gets cut off.</li>
+                        <li><strong>Put your primary keyword near the front.</strong> It helps both users and search engines quickly understand the page topic.</li>
+                        <li><strong>Make every title unique.</strong> Duplicate titles confuse Google and dilute your rankings.</li>
+                        <li><strong>Include your brand name</strong> at the end, separated by a pipe (|) or dash (–).</li>
+                    </ul>
+                    <h3>What Makes a Great Meta Description?</h3>
+                    <ul>
+                        <li><strong>Stay within 150–160 characters.</strong> Google truncates longer descriptions, often mid‑word.</li>
+                        <li><strong>Write like ad copy.</strong> Tell the searcher what they'll get and why they should click.</li>
+                        <li><strong>Include a call to action.</strong> Phrases like "Learn more," "Get started," or "Shop now" can boost click‑through rates.</li>
+                        <li><strong>Use your focus keyword naturally.</strong> Google bolds matching keywords in the snippet, making your result stand out.</li>
+                    </ul>
+                </div>
 
-            <div class="section">
-                <h2>Why Use a Google SERP Simulator?</h2>
-                <p>When you search on Google, you're essentially window‑shopping for answers. Your title and meta description are the first impression a potential visitor gets of your page — often before they even see your website. A well‑crafted snippet can be the difference between a click and a scroll‑past.</p>
-                <p>With our simulator, you can tweak and perfect your metadata in real time, seeing exactly how it'll look before you publish. No more guessing, no more truncated titles, and no more descriptions that cut off mid‑sentence.</p>
-                <h3>What Makes a Great Title Tag?</h3>
-                <ul>
-                    <li><strong>Keep it under 60 characters.</strong> Google displays roughly the first 600 pixels, which usually equals 50–60 characters. Anything longer gets cut off.</li>
-                    <li><strong>Put your primary keyword near the front.</strong> It helps both users and search engines quickly understand the page topic.</li>
-                    <li><strong>Make every title unique.</strong> Duplicate titles confuse Google and dilute your rankings.</li>
-                    <li><strong>Include your brand name</strong> at the end, separated by a pipe (|) or dash (–).</li>
-                </ul>
-                <h3>What Makes a Great Meta Description?</h3>
-                <ul>
-                    <li><strong>Stay within 150–160 characters.</strong> Google truncates longer descriptions, often mid‑word.</li>
-                    <li><strong>Write like ad copy.</strong> Tell the searcher what they'll get and why they should click.</li>
-                    <li><strong>Include a call to action.</strong> Phrases like "Learn more," "Get started," or "Shop now" can boost click‑through rates.</li>
-                    <li><strong>Use your focus keyword naturally.</strong> Google bolds matching keywords in the snippet, making your result stand out.</li>
-                </ul>
-            </div>
+                <div class="section">
+                    <h2>Why This Tool Is Different (And Private)</h2>
+                    <p>Most online SERP simulators send your data to a server. This one doesn't. Everything runs right in your browser — your titles, URLs, and descriptions never leave your device. That means you can safely preview pages for client campaigns, internal projects, or sensitive content without worrying about who might see it.</p>
+                    <p>The real‑time updates, automatic favicon fetching, and side‑by‑side desktop/mobile views make this the fastest way to perfect your search snippets.</p>
+                </div>
 
-            <div class="section">
-                <h2>Why This Tool Is Different (And Private)</h2>
-                <p>Most online SERP simulators send your data to a server. This one doesn't. Everything runs right in your browser — your titles, URLs, and descriptions never leave your device. That means you can safely preview pages for client campaigns, internal projects, or sensitive content without worrying about who might see it.</p>
-                <p>The real‑time updates, automatic favicon fetching, and side‑by‑side desktop/mobile views make this the fastest way to perfect your search snippets.</p>
-            </div>
-
-            <div class="section">
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Will Google always show my exact title and description?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Not always. Google sometimes rewrites titles and descriptions based on the search query and page content. However, a well‑written title and meta description significantly increase the chances that Google will use them as‑is. This tool helps you create snippets Google is more likely to keep.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How accurate is the preview?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The preview closely matches Google's current desktop and mobile layouts, including font sizes, colors, favicon display, and breadcrumb formatting. Character limits are based on Google's pixel width, which is why our counter warns you at 50 characters (title) and 145 characters (description).</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I see how it looks on a real phone?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes — the mobile preview includes a realistic Google search bar and uses smaller fonts to match what users see on their phones. It's not a screenshot from a device, but it's very close to the real thing.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does the tool save my data?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">No. Everything runs locally in your browser. We never see, store, or log anything you type.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Why does my favicon not show?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">We fetch favicons using Google's own favicon service. If your site doesn't have a favicon, or the URL is incomplete, the tool will display a placeholder instead. Make sure you're pasting a full URL starting with https://.</div></div>
+                <div class="section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Will Google always show my exact title and description?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Not always. Google sometimes rewrites titles and descriptions based on the search query and page content. However, a well‑written title and meta description significantly increase the chances that Google will use them as‑is. This tool helps you create snippets Google is more likely to keep.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How accurate is the preview?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The preview closely matches Google's current desktop and mobile layouts, including font sizes, colors, favicon display, and breadcrumb formatting. Character limits are based on Google's pixel width, which is why our counter warns you at 50 characters (title) and 145 characters (description).</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I see how it looks on a real phone?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes — the mobile preview includes a realistic Google search bar and uses smaller fonts to match what users see on their phones. It's not a screenshot from a device, but it's very close to the real thing.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does the tool save my data?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">No. Everything runs locally in your browser. We never see, store, or log anything you type.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Why does my favicon not show?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">We fetch favicons using Google's own favicon service. If your site doesn't have a favicon, or the URL is incomplete, the tool will display a placeholder instead. Make sure you're pasting a full URL starting with https://.</div></div>
+                </div>
             </div>
         </main>
 
@@ -439,7 +438,12 @@
                     <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
                     <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
                     <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-                    <div><h5>FOLLOW US</h5><a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a></div>
+                    <div>
+                        <h5>FOLLOW US</h5>
+                        <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
+                        <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+                    </div>
                 </div>
                 <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
             </div>
@@ -536,7 +540,7 @@
             { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
             { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
             { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
-            { name: 'Google SERP Simulator', link: '/google-serp-simulator', keywords: 'serp simulator google search preview snippet', category: 'seo' },
+            { name: 'Google SERP Checker', link: '/google-serp-checker', keywords: 'serp checker google search preview snippet', category: 'seo' },
             { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
             { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
             { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' },
