@@ -31,7 +31,8 @@
       --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
       --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
       --input-border: #d4d4d4;
-      --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000; --footer-link-hover: #000000;
+      --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000;
+      --footer-link-color: #000000; --footer-link-hover: #000000;
       --footer-border: #e5e5e5;
       --faq-bg: #fafafa; --faq-active: #f3f4f6;
       --table-header: #f3f4f6; --table-hover: #fafafa; --shadow: rgba(0,0,0,0.1);
@@ -43,7 +44,8 @@
       --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
       --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
       --input-border: #334155;
-      --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff; --footer-link-hover: #ffffff;
+      --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff;
+      --footer-link-color: #60a5fa; --footer-link-hover: #ffffff;
       --footer-border: #334155;
       --faq-bg: #1e293b; --faq-active: #334155;
       --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0,0,0,0.5);
@@ -59,9 +61,8 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    /* WRAPPER – same as other pages */
+    /* FULL WIDTH WRAPPER */
     .page-wrapper {
-      max-width: 1000px;
       width: 100%;
       margin: 0 auto;
       background: transparent;
@@ -70,16 +71,17 @@
       min-height: 100vh;
     }
 
-    /* HEADER – inside wrapper */
+    /* HEADER – full width */
     header {
       border-bottom: 1px solid var(--line);
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0 20px;
+      padding: 0 40px;
       height: 64px;
       transition: border-color 0.3s;
       background: transparent;
+      width: 100%;
     }
     .header-inner {
       width: 100%;
@@ -151,12 +153,16 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
-    /* MAIN – inside wrapper */
+    /* MAIN – full width */
     main {
       flex: 1;
-      padding: 30px 20px;
+      padding: 40px 40px;
       width: 100%;
       background: transparent;
+    }
+    .content-container {
+      width: 100%;
+      margin: 0 auto;
     }
     h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
     h3 { font-size: 22px; font-weight: 700; margin: 30px 0 12px; }
@@ -164,21 +170,30 @@
     ul { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } 
     li { margin-bottom: 10px; line-height: 1.7; }
 
-    /* FOOTER – inside wrapper */
+    /* FOOTER – full width, 5 columns, black links (light mode) */
     footer {
       border-top: 1px solid var(--footer-border);
-      padding: 40px 20px 25px;
+      padding: 40px 40px 25px;
       background: transparent;
+      width: 100%;
     }
-    .footer-container { width: 100%; }
+    .footer-container { width: 100%; max-width: 1200px; margin: 0 auto; }
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+      grid-template-columns: repeat(5, 1fr);
       gap: 35px;
     }
     @media (max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}@media(max-width:500px){.footer-grid{grid-template-columns:1fr;}}
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-    .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
+    .footer-grid a {
+      color: var(--footer-link-color);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 9px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: color 0.2s, padding-left 0.2s;
+    }
     .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
     .footer-bottom {
       width: 100%;
@@ -193,6 +208,8 @@
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
+      main { padding: 20px 16px; }
+      footer { padding: 30px 16px 20px; }
     }
     @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
   </style>
@@ -226,64 +243,66 @@
     </header>
 
     <main>
-      <h1>Disclaimer</h1>
-      <p><strong>Last Updated: February 09, 2026</strong></p>
+      <div class="content-container">
+        <h1>Disclaimer</h1>
+        <p><strong>Last Updated: February 09, 2026</strong></p>
 
-      <h3>1. General Information</h3>
-      <p>The information provided by <strong>Textify.tools</strong> ("we," "us," or "our") on this website is intended for general informational and educational purposes only. All content is published in good faith; however, we make no representations, warranties, or guarantees of any kind, express or implied, regarding the accuracy, completeness, reliability, suitability, or availability of the information, tools, or results generated on this site.</p>
+        <h3>1. General Information</h3>
+        <p>The information provided by <strong>Textify.tools</strong> ("we," "us," or "our") on this website is intended for general informational and educational purposes only. All content is published in good faith; however, we make no representations, warranties, or guarantees of any kind, express or implied, regarding the accuracy, completeness, reliability, suitability, or availability of the information, tools, or results generated on this site.</p>
 
-      <h3>2. Nature of the Tools</h3>
-      <p>Textify.tools provides browser-based utility tools such as text repetition, formatting, encoding, decoding, and styling features. These tools are designed for learning, testing, formatting, and general productivity use.</p>
-      <p>Outputs generated by the tools may vary depending on browser, device, input data, or user configuration. We do not guarantee that generated results will meet specific third-party requirements.</p>
+        <h3>2. Nature of the Tools</h3>
+        <p>Textify.tools provides browser-based utility tools such as text repetition, formatting, encoding, decoding, and styling features. These tools are designed for learning, testing, formatting, and general productivity use.</p>
+        <p>Outputs generated by the tools may vary depending on browser, device, input data, or user configuration. We do not guarantee that generated results will meet specific third-party requirements.</p>
 
-      <h3>3. Responsible and Lawful Use</h3>
-      <p><strong>Textify.tools does not support or encourage misuse of its tools.</strong> Users must not use the website or generated content for activities that are unlawful, harmful, abusive, deceptive, or disruptive on any platform or service.</p>
-      <p>By using this website, you acknowledge and agree that:</p>
-      <ul>
-        <li>You will use the tools only for lawful and appropriate purposes.</li>
-        <li>You are solely responsible for how generated content is used, shared, or published.</li>
-        <li>You will comply with the rules, policies, and terms of any third-party platform where content is used.</li>
-        <li>Textify.tools is not responsible for misuse, user behavior, or resulting consequences.</li>
-      </ul>
+        <h3>3. Responsible and Lawful Use</h3>
+        <p><strong>Textify.tools does not support or encourage misuse of its tools.</strong> Users must not use the website or generated content for activities that are unlawful, harmful, abusive, deceptive, or disruptive on any platform or service.</p>
+        <p>By using this website, you acknowledge and agree that:</p>
+        <ul>
+          <li>You will use the tools only for lawful and appropriate purposes.</li>
+          <li>You are solely responsible for how generated content is used, shared, or published.</li>
+          <li>You will comply with the rules, policies, and terms of any third-party platform where content is used.</li>
+          <li>Textify.tools is not responsible for misuse, user behavior, or resulting consequences.</li>
+        </ul>
 
-      <h3>4. Third-Party Platforms and Services</h3>
-      <p>Textify.tools is not affiliated with, endorsed by, or responsible for any third-party platforms, including messaging apps, social networks, or websites where generated content may be used.</p>
-      <p>Any actions taken by third-party services (such as content removal, restrictions, suspensions, or account limitations) are solely governed by their respective policies.</p>
+        <h3>4. Third-Party Platforms and Services</h3>
+        <p>Textify.tools is not affiliated with, endorsed by, or responsible for any third-party platforms, including messaging apps, social networks, or websites where generated content may be used.</p>
+        <p>Any actions taken by third-party services (such as content removal, restrictions, suspensions, or account limitations) are solely governed by their respective policies.</p>
 
-      <h3>5. External Links Disclaimer</h3>
-      <p>This website may contain links to external websites or third-party content for convenience or informational purposes. Textify.tools does not control, monitor, or guarantee the accuracy, relevance, reliability, or availability of information found on external sites.</p>
-      <p>Accessing third-party links is done at the user's own risk.</p>
+        <h3>5. External Links Disclaimer</h3>
+        <p>This website may contain links to external websites or third-party content for convenience or informational purposes. Textify.tools does not control, monitor, or guarantee the accuracy, relevance, reliability, or availability of information found on external sites.</p>
+        <p>Accessing third-party links is done at the user's own risk.</p>
 
-      <h3>6. No Professional Advice</h3>
-      <p>The content and tools provided on Textify.tools do not constitute legal, technical, financial, medical, or professional advice. All information is provided for general educational and informational purposes only.</p>
-      <p>Users should seek appropriate professional guidance for specific needs or decisions.</p>
+        <h3>6. No Professional Advice</h3>
+        <p>The content and tools provided on Textify.tools do not constitute legal, technical, financial, medical, or professional advice. All information is provided for general educational and informational purposes only.</p>
+        <p>Users should seek appropriate professional guidance for specific needs or decisions.</p>
 
-      <h3>7. Limitation of Liability</h3>
-      <p>To the fullest extent permitted by applicable law, Textify.tools and its operators shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with:</p>
-      <ul>
-        <li>The use or inability to use the website or its tools</li>
-        <li>Reliance on generated content or outputs</li>
-        <li>Data loss, formatting issues, or unexpected results</li>
-        <li>Third-party platform actions or decisions</li>
-      </ul>
+        <h3>7. Limitation of Liability</h3>
+        <p>To the fullest extent permitted by applicable law, Textify.tools and its operators shall not be liable for any direct, indirect, incidental, consequential, or special damages arising out of or in connection with:</p>
+        <ul>
+          <li>The use or inability to use the website or its tools</li>
+          <li>Reliance on generated content or outputs</li>
+          <li>Data loss, formatting issues, or unexpected results</li>
+          <li>Third-party platform actions or decisions</li>
+        </ul>
 
-      <h3>8. Availability and Changes</h3>
-      <p>We reserve the right to modify, suspend, or discontinue any part of the website or tools at any time without prior notice.</p>
+        <h3>8. Availability and Changes</h3>
+        <p>We reserve the right to modify, suspend, or discontinue any part of the website or tools at any time without prior notice.</p>
 
-      <h3>9. Updates to This Disclaimer</h3>
-      <p>This Disclaimer may be updated periodically to reflect changes in legal requirements, policies, or website functionality.</p>
+        <h3>9. Updates to This Disclaimer</h3>
+        <p>This Disclaimer may be updated periodically to reflect changes in legal requirements, policies, or website functionality.</p>
 
-      <h3>10. Acceptance</h3>
-      <p>By accessing or using Textify.tools, you acknowledge that you have read, understood, and agreed to this Disclaimer.</p>
+        <h3>10. Acceptance</h3>
+        <p>By accessing or using Textify.tools, you acknowledge that you have read, understood, and agreed to this Disclaimer.</p>
 
-      <h3>11. Trademark & Affiliation Notice</h3>
-      <p>The name "Textify" is utilized on this platform (Textify.tools) in a purely descriptive capacity to represent our text-utility services. Textify.tools is an independent entity and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with any other company, website, or brand operating under the "Textify" name.</p>
+        <h3>11. Trademark & Affiliation Notice</h3>
+        <p>The name "Textify" is utilized on this platform (Textify.tools) in a purely descriptive capacity to represent our text-utility services. Textify.tools is an independent entity and is not affiliated, associated, authorized, endorsed by, or in any way officially connected with any other company, website, or brand operating under the "Textify" name.</p>
 
-      <h3>12. Ownership of Content</h3>
-      <p>The tools on Textify.tools are provided for users to process and format their own text. We do not claim ownership of the content entered, repeated, or generated by users.</p>
+        <h3>12. Ownership of Content</h3>
+        <p>The tools on Textify.tools are provided for users to process and format their own text. We do not claim ownership of the content entered, repeated, or generated by users.</p>
 
-      <h3>13. Descriptive & Fair Use Statement</h3>
-      <p>Our use of the term "Textify" is intended as "Descriptive Fair Use." It refers to the core function of the website—to modify or "ify" text.</p>
+        <h3>13. Descriptive & Fair Use Statement</h3>
+        <p>Our use of the term "Textify" is intended as "Descriptive Fair Use." It refers to the core function of the website—to modify or "ify" text.</p>
+      </div>
     </main>
 
     <footer>
@@ -294,11 +313,17 @@
               <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
               Textify.tools
             </a>
-            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
+            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
           </div>
           <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact Support</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
           <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
           <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+          <div>
+            <h5>FOLLOW US</h5>
+            <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+          </div>
         </div>
         <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
       </div>
@@ -338,7 +363,7 @@
   </div>
 
   <script>
-    // tools list same as before
+    // Updated tools list: Google SERP Simulator -> Google SERP Checker
     const tools = [
       { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
       { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -398,7 +423,7 @@
       { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
       { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
       { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
-      { name: 'Google SERP Simulator', link: '/google-serp-simulator', keywords: 'serp simulator google search preview snippet', category: 'seo' },
+      { name: 'Google SERP Checker', link: '/google-serp-checker', keywords: 'serp checker google search preview snippet', category: 'seo' },
       { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
       { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
       { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' },
