@@ -39,6 +39,7 @@
             --footer-bg: #ffffff;
             --footer-text: #333333;
             --footer-heading: #000000;
+            --footer-link-color: #000000;
             --footer-link-hover: #000000;
             --footer-border: #e5e5e5;
             --faq-bg: #fafafa;
@@ -71,6 +72,7 @@
             --footer-bg: #0f172a;
             --footer-text: #e2e8f0;
             --footer-heading: #ffffff;
+            --footer-link-color: #60a5fa;
             --footer-link-hover: #ffffff;
             --footer-border: #334155;
             --faq-bg: #1e293b;
@@ -94,15 +96,12 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
+            background: var(--bg); color: var(--text); min-height: 100vh;
             transition: background 0.3s, color 0.3s;
         }
 
-        /* WRAPPER – same max-width for header, main, footer */
+        /* FULL WIDTH WRAPPER */
         .page-wrapper {
-            max-width: 1000px;
             width: 100%;
             margin: 0 auto;
             background: transparent;
@@ -111,22 +110,14 @@
             min-height: 100vh;
         }
 
+        /* HEADER – full width */
         header {
             border-bottom: 1px solid var(--line);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px;
-            height: 64px;
-            transition: border-color 0.3s;
-            background: transparent;
+            display: flex; justify-content: center; align-items: center;
+            padding: 0 40px; height: 64px; transition: border-color 0.3s;
+            background: transparent; width: 100%;
         }
-        .header-inner {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -187,12 +178,11 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
+        /* MAIN – full width */
         main {
-            flex: 1;
-            padding: 30px 20px;
-            width: 100%;
-            background: transparent;
+            flex: 1; padding: 40px 40px; width: 100%; background: transparent;
         }
+        .content-container { width: 100%; margin: 0 auto; }
         h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
         .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
 
@@ -231,24 +221,28 @@
         .toast.show { transform: translateX(-50%) translateY(0); }
         .spinner { border: 3px solid rgba(128,128,128,0.25); border-radius: 50%; border-top-color: var(--primary); width: 20px; height: 20px; animation: spin 0.7s linear infinite; display: inline-block; }
         @keyframes spin { to { transform: rotate(360deg); } }
-        
+
+        /* FOOTER – full width, 5 columns, black links (light mode) */
         footer {
             border-top: 1px solid var(--footer-border);
-            padding: 40px 20px 25px;
+            padding: 40px 40px 25px;
             background: transparent;
+            width: 100%;
         }
-        .footer-container { width: 100%; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 35px; }
+        .footer-container { width: 100%; max-width: 1200px; margin: 0 auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 35px; }
         @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-        .footer-grid a { color: var(--footer-text); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; transition: color 0.2s, padding-left 0.2s; }
+        .footer-grid a { color: var(--footer-link-color); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
         .footer-bottom { margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
+            main { padding: 20px 16px; }
+            footer { padding: 30px 16px 20px; }
         }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     </style>
@@ -282,91 +276,93 @@
         </header>
 
         <main>
-            <h1>JSON Formatter / Beautifier</h1>
-            <p class="subtitle">Instantly format, minify, and validate your JSON data. All processing happens in your browser – 100% private, no data leaves your device.</p>
+            <div class="content-container">
+                <h1>JSON Formatter / Beautifier</h1>
+                <p class="subtitle">Instantly format, minify, and validate your JSON data. All processing happens in your browser – 100% private, no data leaves your device.</p>
 
-            <div class="tool-panel">
-                <div class="grid-2">
-                    <div class="input-group">
-                        <label for="indentSize">Indent Size</label>
-                        <select id="indentSize">
-                            <option value="2">2 spaces</option>
-                            <option value="4" selected>4 spaces</option>
-                            <option value="8">8 spaces</option>
-                            <option value="tab">Tab character</option>
-                        </select>
+                <div class="tool-panel">
+                    <div class="grid-2">
+                        <div class="input-group">
+                            <label for="indentSize">Indent Size</label>
+                            <select id="indentSize">
+                                <option value="2">2 spaces</option>
+                                <option value="4" selected>4 spaces</option>
+                                <option value="8">8 spaces</option>
+                                <option value="tab">Tab character</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="sortKeys">Options</label>
+                            <div class="checkbox-group" style="margin:0; gap:15px;">
+                                <label><input type="checkbox" id="sortKeys"> Sort keys alphabetically</label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <label for="sortKeys">Options</label>
-                        <div class="checkbox-group" style="margin:0; gap:15px;">
-                            <label><input type="checkbox" id="sortKeys"> Sort keys alphabetically</label>
+
+                    <textarea id="inputJson" rows="12" placeholder='Paste your JSON here... e.g., {"name":"Textify","tools":["formatter","validator"]}'></textarea>
+
+                    <div class="btn-row">
+                        <button class="btn btn-primary" id="formatBtn" onclick="formatJson()"><i data-lucide="wand-2" width="18" height="18"></i> Format / Beautify</button>
+                        <button class="btn btn-primary" style="background:#16a34a;" id="minifyBtn" onclick="minifyJson()"><i data-lucide="compress" width="18" height="18"></i> Minify / Compact</button>
+                        <button class="btn btn-outline" onclick="clearAll()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+                    </div>
+
+                    <div id="errorMessage" class="error-message"></div>
+
+                    <div class="output-area" id="outputArea">
+                        <div class="success-info" id="statsInfo"></div>
+                        <textarea id="outputJson" rows="12" readonly placeholder="Formatted JSON will appear here..."></textarea>
+                        <div class="btn-row" style="margin-top:15px;">
+                            <button class="btn btn-primary" id="copyBtn" onclick="copyOutput()"><i data-lucide="copy" width="18" height="18"></i> Copy to Clipboard</button>
+                            <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadOutput()"><i data-lucide="download" width="18" height="18"></i> Download .json</button>
                         </div>
                     </div>
                 </div>
 
-                <textarea id="inputJson" rows="12" placeholder='Paste your JSON here... e.g., {"name":"Textify","tools":["formatter","validator"]}'></textarea>
-
-                <div class="btn-row">
-                    <button class="btn btn-primary" id="formatBtn" onclick="formatJson()"><i data-lucide="wand-2" width="18" height="18"></i> Format / Beautify</button>
-                    <button class="btn btn-primary" style="background:#16a34a;" id="minifyBtn" onclick="minifyJson()"><i data-lucide="compress" width="18" height="18"></i> Minify / Compact</button>
-                    <button class="btn btn-outline" onclick="clearAll()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+                <div class="section">
+                    <h2>How to Use the JSON Formatter</h2>
+                    <p>Our JSON formatter makes it easy to clean up, validate, and compress JSON data. Follow these simple steps:</p>
+                    <ol style="padding-left:22px; color: var(--text-light); margin-bottom:22px;">
+                        <li><strong>Paste your JSON</strong> – Copy any JSON string and paste it into the input area.</li>
+                        <li><strong>Choose your settings</strong> – Select indent size (2/4/8 spaces or tab) and optionally sort object keys alphabetically.</li>
+                        <li><strong>Format or minify</strong> – Click <strong>"Format / Beautify"</strong> to pretty‑print your JSON, or <strong>"Minify / Compact"</strong> to compress it into a single line.</li>
+                        <li><strong>Copy or download</strong> – Use the copy button to grab the formatted text, or download it as a .json file.</li>
+                    </ol>
+                    <p>The formatter will automatically highlight syntax errors and show you exactly where the problem is – no more guessing why your JSON isn't valid!</p>
                 </div>
 
-                <div id="errorMessage" class="error-message"></div>
-
-                <div class="output-area" id="outputArea">
-                    <div class="success-info" id="statsInfo"></div>
-                    <textarea id="outputJson" rows="12" readonly placeholder="Formatted JSON will appear here..."></textarea>
-                    <div class="btn-row" style="margin-top:15px;">
-                        <button class="btn btn-primary" id="copyBtn" onclick="copyOutput()"><i data-lucide="copy" width="18" height="18"></i> Copy to Clipboard</button>
-                        <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadOutput()"><i data-lucide="download" width="18" height="18"></i> Download .json</button>
-                    </div>
+                <div class="section">
+                    <h2>Why Use a Client‑Side JSON Formatter?</h2>
+                    <p>Most online JSON tools send your data to a server for processing – a serious privacy risk if you're working with sensitive API keys, customer data, or confidential configurations. Textify's JSON formatter runs entirely in your browser using native JavaScript. Your JSON never leaves your device. You can even disconnect from the internet after the page loads – everything works offline.</p>
+                    <p>Key benefits:</p>
+                    <ul>
+                        <li><strong>Complete privacy</strong> – No server uploads, no logs, no tracking.</li>
+                        <li><strong>Lightning fast</strong> – Instant formatting with zero latency.</li>
+                        <li><strong>Works offline</strong> – Once loaded, the tool works without an internet connection.</li>
+                        <li><strong>No size limits</strong> – Handle very large JSON files (browser memory permitting).</li>
+                    </ul>
                 </div>
-            </div>
 
-            <div class="section">
-                <h2>How to Use the JSON Formatter</h2>
-                <p>Our JSON formatter makes it easy to clean up, validate, and compress JSON data. Follow these simple steps:</p>
-                <ol style="padding-left:22px; color: var(--text-light); margin-bottom:22px;">
-                    <li><strong>Paste your JSON</strong> – Copy any JSON string and paste it into the input area.</li>
-                    <li><strong>Choose your settings</strong> – Select indent size (2/4/8 spaces or tab) and optionally sort object keys alphabetically.</li>
-                    <li><strong>Format or minify</strong> – Click <strong>"Format / Beautify"</strong> to pretty‑print your JSON, or <strong>"Minify / Compact"</strong> to compress it into a single line.</li>
-                    <li><strong>Copy or download</strong> – Use the copy button to grab the formatted text, or download it as a .json file.</li>
-                </ol>
-                <p>The formatter will automatically highlight syntax errors and show you exactly where the problem is – no more guessing why your JSON isn't valid!</p>
-            </div>
+                <div class="section">
+                    <h2>JSON Best Practices</h2>
+                    <p>JSON (JavaScript Object Notation) is the most common data‑interchange format used by APIs, config files, and databases. Following best practices ensures your JSON is easy to read, parse, and debug.</p>
+                    <ul>
+                        <li><strong>Use consistent indentation</strong> – 2 or 4 spaces is the industry standard. Avoid tabs to prevent rendering differences.</li>
+                        <li><strong>Always validate before using</strong> – A single missing comma or quote can break your entire application. Our tool catches these errors instantly.</li>
+                        <li><strong>Keep keys readable</strong> – Use meaningful, lowercase snake_case or camelCase keys (e.g., <code>user_id</code> instead of <code>uId</code>).</li>
+                        <li><strong>Avoid trailing commas</strong> – While allowed in some JSON variants, standard JSON does not support trailing commas.</li>
+                        <li><strong>Minify for production</strong> – Removing whitespace reduces file size and speeds up network transfers.</li>
+                    </ul>
+                </div>
 
-            <div class="section">
-                <h2>Why Use a Client‑Side JSON Formatter?</h2>
-                <p>Most online JSON tools send your data to a server for processing – a serious privacy risk if you're working with sensitive API keys, customer data, or confidential configurations. Textify's JSON formatter runs entirely in your browser using native JavaScript. Your JSON never leaves your device. You can even disconnect from the internet after the page loads – everything works offline.</p>
-                <p>Key benefits:</p>
-                <ul>
-                    <li><strong>Complete privacy</strong> – No server uploads, no logs, no tracking.</li>
-                    <li><strong>Lightning fast</strong> – Instant formatting with zero latency.</li>
-                    <li><strong>Works offline</strong> – Once loaded, the tool works without an internet connection.</li>
-                    <li><strong>No size limits</strong> – Handle very large JSON files (browser memory permitting).</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>JSON Best Practices</h2>
-                <p>JSON (JavaScript Object Notation) is the most common data‑interchange format used by APIs, config files, and databases. Following best practices ensures your JSON is easy to read, parse, and debug.</p>
-                <ul>
-                    <li><strong>Use consistent indentation</strong> – 2 or 4 spaces is the industry standard. Avoid tabs to prevent rendering differences.</li>
-                    <li><strong>Always validate before using</strong> – A single missing comma or quote can break your entire application. Our tool catches these errors instantly.</li>
-                    <li><strong>Keep keys readable</strong> – Use meaningful, lowercase snake_case or camelCase keys (e.g., <code>user_id</code> instead of <code>uId</code>).</li>
-                    <li><strong>Avoid trailing commas</strong> – While allowed in some JSON variants, standard JSON does not support trailing commas.</li>
-                    <li><strong>Minify for production</strong> – Removing whitespace reduces file size and speeds up network transfers.</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this JSON formatter really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free with no limits. No registration, no premium tiers, and no hidden costs.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work with very large JSON files?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool handles large JSON files efficiently, but extremely massive files (over 10–20 MB) might slow down your browser. For best performance, we recommend splitting very large files.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my JSON data private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">100% private. All processing happens right in your browser using JavaScript. Your JSON never leaves your device – no uploads, no servers, no tracking.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if my JSON is invalid?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool will display a clear error message showing exactly where the syntax problem is located, so you can fix it and try again.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on iPhones, Android devices, and tablets.</div></div>
+                <div class="section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this JSON formatter really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free with no limits. No registration, no premium tiers, and no hidden costs.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work with very large JSON files?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool handles large JSON files efficiently, but extremely massive files (over 10–20 MB) might slow down your browser. For best performance, we recommend splitting very large files.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my JSON data private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">100% private. All processing happens right in your browser using JavaScript. Your JSON never leaves your device – no uploads, no servers, no tracking.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if my JSON is invalid?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool will display a clear error message showing exactly where the syntax problem is located, so you can fix it and try again.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on iPhones, Android devices, and tablets.</div></div>
+                </div>
             </div>
         </main>
 
@@ -378,11 +374,17 @@
                             <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
                             Textify.Tools
                         </a>
-                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:320px;line-height:1.6;">Free online text tools. Fast, secure, and privacy‑friendly.</p>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
                     </div>
                     <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
                     <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
                     <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+                    <div>
+                        <h5>FOLLOW US</h5>
+                        <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
+                        <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
+                        <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+                    </div>
                 </div>
                 <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
             </div>
@@ -424,7 +426,7 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // Complete tools list for search and menus
+        // Complete tools list – Google SERP Simulator replaced with Google SERP Checker
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -439,65 +441,86 @@
             { name: 'Character Remover', link: '/character-remover', keywords: 'remove delete characters punctuation spaces', category: 'manipulation' },
             { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
             { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text generator', category: 'generators' },
+            { name: 'Text Scrambler', link: '/text-scrambler', keywords: 'scramble shuffle random letters jumble', category: 'manipulation' },
+            { name: 'Text Truncator', link: '/text-truncator', keywords: 'truncate cut shorten length limit', category: 'manipulation' },
+            { name: 'Text Splitter', link: '/text-splitter', keywords: 'split divide separate delimiter tokenize', category: 'manipulation' },
+            { name: 'Text Joiner', link: '/text-joiner', keywords: 'join merge combine concatenate lines', category: 'manipulation' },
+            { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
+            { name: 'Prefix/Suffix Adder', link: '/prefix-suffix-adder', keywords: 'prefix suffix prepend append each line', category: 'manipulation' },
+            { name: 'Line Number Adder', link: '/line-number-adder', keywords: 'line numbers add number rows', category: 'manipulation' },
+            { name: 'Character Frequency Counter', link: '/character-frequency-counter', keywords: 'character frequency count occurrence distribution', category: 'analysis' },
+            { name: 'Word Frequency Counter', link: '/word-frequency-counter', keywords: 'word frequency count occurrence common repeated', category: 'analysis' },
+            { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
+            { name: 'Text Statistics', link: '/text-statistics', keywords: 'statistics detailed stats text metrics', category: 'analysis' },
+            { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count period question exclamation', category: 'analysis' },
+            { name: 'Line Counter', link: '/line-counter', keywords: 'line count rows number lines', category: 'analysis' },
+            { name: 'Letter Case Counter', link: '/letter-case-counter', keywords: 'uppercase lowercase count case letters', category: 'analysis' },
+            { name: 'Vowel & Consonant Counter', link: '/vowel-consonant-counter', keywords: 'vowel consonant count letters alphabet', category: 'analysis' },
+            { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count blocks sections', category: 'analysis' },
+            { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
+            { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
+            { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
+            { name: 'Binary Text Converter', link: '/binary-text-converter', keywords: 'binary bits 0 1 convert text', category: 'encoding' },
+            { name: 'Hex Text Converter', link: '/hex-text-converter', keywords: 'hex hexadecimal base16 convert', category: 'encoding' },
+            { name: 'Caesar Cipher', link: '/caesar-cipher', keywords: 'caesar cipher shift encrypt decrypt rotate', category: 'encoding' },
+            { name: 'ROT13 Cipher', link: '/rot13-cipher', keywords: 'rot13 rotate 13 cipher encode decode', category: 'encoding' },
+            { name: 'Atbash Cipher', link: '/atbash-cipher', keywords: 'atbash reverse alphabet cipher mirror', category: 'encoding' },
+            { name: 'A1Z26 Cipher', link: '/a1z26-cipher', keywords: 'a1z26 letter number code cipher', category: 'encoding' },
+            { name: 'Unicode Converter', link: '/unicode-converter', keywords: 'unicode code point convert escape', category: 'encoding' },
+            { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
+            { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
+            { name: 'Cursive Text Generator', link: '/cursive-text-generator', keywords: 'cursive script handwriting unicode font', category: 'styling' },
+            { name: 'Bubble Text Generator', link: '/bubble-text-generator', keywords: 'bubble circle enclosed unicode text', category: 'styling' },
+            { name: 'Small Caps Generator', link: '/small-caps-generator', keywords: 'small caps petite capital unicode', category: 'styling' },
+            { name: 'Zalgo Text Generator', link: '/zalgo-text-generator', keywords: 'zalgo glitch creepy demon unicode', category: 'styling' },
+            { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
+            { name: 'Mirror Text Generator', link: '/mirror-text-generator', keywords: 'mirror flip horizontal reverse', category: 'styling' },
+            { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+            { name: 'UUID/GUID Generator', link: '/uuid-generator', keywords: 'uuid guid unique identifier random', category: 'generators' },
+            { name: 'Random Word Generator', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generators' },
+            { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
+            { name: 'Color Code Generator', link: '/color-code-generator', keywords: 'color hex rgb hsl random generator', category: 'generators' },
+            { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
             { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
             { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encoding' },
             { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
             { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
             { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
-            { name: 'Google SERP Simulator', link: '/google-serp-simulator', keywords: 'serp simulator google search preview snippet', category: 'seo' },
+            { name: 'Google SERP Checker', link: '/google-serp-checker', keywords: 'serp checker google search preview snippet', category: 'seo' },
             { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
-            { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' }
+            { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
+            { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' },
+            { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
+            { name: 'Remove Duplicate Lines', link: '/remove-duplicate-lines', keywords: 'remove duplicate lines unique dedupe', category: 'manipulation' },
+            { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
+            { name: 'Multiple Whitespace to Single', link: '/multiple-whitespace-to-single', keywords: 'whitespace single space replace multiple', category: 'manipulation' },
+            { name: 'Alphabetical Sorter', link: '/alphabetical-sorter', keywords: 'sort alphabetical order list a-z', category: 'manipulation' },
+            { name: 'Word to Line Converter', link: '/word-to-line-converter', keywords: 'word line newline split separate', category: 'manipulation' },
+            { name: 'Strikethrough Text Generator', link: '/strikethrough-text-generator', keywords: 'strikethrough cross out line through', category: 'styling' },
+            { name: 'Zalgo/Glitch Text Generator', link: '/zalgo-glitch-text-generator', keywords: 'zalgo glitch creepy demon corrupted', category: 'styling' },
+            { name: 'Binary to Text', link: '/binary-to-text', keywords: 'binary text decode convert bits', category: 'encoding' },
+            { name: 'Keyword Density Analyzer', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', category: 'analysis' }
         ];
 
-        function buildMegaMenu() {
-            const menu = document.getElementById('megaMenu');
-            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-        }
-
-        function buildMobileToolsMenu() {
-            const menu = document.getElementById('mobileToolsMenu');
-            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-        }
-
+        function buildMegaMenu() { const m = document.getElementById('megaMenu'); if (m) m.innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+        function buildMobileToolsMenu() { const m = document.getElementById('mobileToolsMenu'); if (m) m.innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
         function buildSearchList() {
             const list = document.getElementById('fullSearchResultsList');
-            if (list) {
-                list.innerHTML = tools.map(tool => `
-                    <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
-                        ${tool.name} <span class="result-tag">${tool.category}</span>
-                    </a>
-                `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
-            }
+            if (list) list.innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category}</span></a>`).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
         }
 
         let toastTimer;
-        function showToast(msg, dur=3000) {
-            const t = document.getElementById('toast');
-            t.textContent = msg; t.classList.add('show');
-            clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
-        }
+        function showToast(msg, dur=3000) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur); }
 
         function toggleTheme() {
             const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
                   ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (b.classList.contains('dark-mode')) {
-                b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
-                if(ms) { ms.style.display='block'; mm.style.display='none'; }
-                localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
-            } else {
-                b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
-                if(ms) { ms.style.display='none'; mm.style.display='block'; }
-                localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
-            }
+            if (b.classList.contains('dark-mode')) { b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none'; if(ms){ms.style.display='block'; mm.style.display='none';} localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff'); }
+            else { b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block'; if(ms){ms.style.display='none'; mm.style.display='block';} localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a'); }
             lucide.createIcons();
         }
         document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
-        }
+        if (localStorage.getItem('theme') === 'dark') { document.body.classList.add('dark-mode'); document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block'; }
 
         function openMobileSidebar() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
         function closeMobileSidebar() { document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow = ''; }
@@ -511,28 +534,14 @@
             const items = document.querySelectorAll('#fullSearchResultsList .search-result-item');
             const nr = document.getElementById('fullNoResult'), qs = document.getElementById('fullSearchQuery');
             let c = 0;
-            items.forEach(i => {
-                const kw = i.getAttribute('data-keywords') || '', t = i.textContent.toLowerCase();
-                if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
-                else { i.classList.add('hidden-item'); }
-            });
-            if (c === 0 && q !== '') { if(nr) nr.classList.add('show'); if(qs) qs.textContent = q; }
-            else { if(nr) nr.classList.remove('show'); }
+            items.forEach(i => { const kw = i.getAttribute('data-keywords') || '', t = i.textContent.toLowerCase(); if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; } else { i.classList.add('hidden-item'); } });
+            if (c === 0 && q !== '') { if(nr) nr.classList.add('show'); if(qs) qs.textContent = q; } else { if(nr) nr.classList.remove('show'); }
         }
         document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); }
-            if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
-        });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); } if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); } });
 
-        function toggleFaq(el) {
-            const item = el.parentElement;
-            item.classList.toggle('active');
-            const icon = el.querySelector('svg');
-            if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
-        }
+        function toggleFaq(el) { const item = el.parentElement; item.classList.toggle('active'); const icon = el.querySelector('svg'); if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)'; }
 
-        // JSON Formatter logic
         function getIndentString() {
             const indent = document.getElementById('indentSize').value;
             if (indent === 'tab') return '\t';
@@ -541,20 +550,14 @@
 
         function formatJson() {
             const input = document.getElementById('inputJson').value.trim();
-            if (!input) {
-                showToast('⚠️ Please paste some JSON first.', 2000);
-                return;
-            }
+            if (!input) { showToast('⚠️ Please paste some JSON first.', 2000); return; }
             const sortKeys = document.getElementById('sortKeys').checked;
             const indent = getIndentString();
             const errorDiv = document.getElementById('errorMessage');
             errorDiv.style.display = 'none';
-            
             try {
                 let parsed = JSON.parse(input);
-                if (sortKeys) {
-                    parsed = sortObjectKeys(parsed);
-                }
+                if (sortKeys) parsed = sortObjectKeys(parsed);
                 const formatted = JSON.stringify(parsed, null, indent);
                 document.getElementById('outputJson').value = formatted;
                 const charCount = formatted.length;
@@ -573,13 +576,9 @@
 
         function minifyJson() {
             const input = document.getElementById('inputJson').value.trim();
-            if (!input) {
-                showToast('⚠️ Please paste some JSON first.', 2000);
-                return;
-            }
+            if (!input) { showToast('⚠️ Please paste some JSON first.', 2000); return; }
             const errorDiv = document.getElementById('errorMessage');
             errorDiv.style.display = 'none';
-            
             try {
                 const parsed = JSON.parse(input);
                 const minified = JSON.stringify(parsed);
@@ -600,10 +599,7 @@
         function sortObjectKeys(obj) {
             if (obj === null || typeof obj !== 'object') return obj;
             if (Array.isArray(obj)) return obj.map(item => sortObjectKeys(item));
-            return Object.keys(obj).sort().reduce((sorted, key) => {
-                sorted[key] = sortObjectKeys(obj[key]);
-                return sorted;
-            }, {});
+            return Object.keys(obj).sort().reduce((sorted, key) => { sorted[key] = sortObjectKeys(obj[key]); return sorted; }, {});
         }
 
         function clearAll() {
@@ -621,26 +617,14 @@
             const btn = document.getElementById('copyBtn');
             const origHTML = btn.innerHTML;
             try {
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    await navigator.clipboard.writeText(textarea.value);
-                } else {
-                    textarea.select();
-                    document.execCommand('copy');
-                }
+                if (navigator.clipboard && navigator.clipboard.writeText) { await navigator.clipboard.writeText(textarea.value); }
+                else { textarea.select(); document.execCommand('copy'); }
                 btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!';
                 btn.style.background = '#16a34a';
                 lucide.createIcons();
                 showToast('📋 Copied to clipboard!');
-            } catch (err) {
-                textarea.select();
-                alert("Please press Ctrl+C (Cmd+C on Mac) to copy.");
-            } finally {
-                setTimeout(() => {
-                    btn.innerHTML = origHTML;
-                    btn.style.background = '';
-                    lucide.createIcons();
-                }, 2000);
-            }
+            } catch (err) { textarea.select(); alert("Please press Ctrl+C (Cmd+C on Mac) to copy."); }
+            finally { setTimeout(() => { btn.innerHTML = origHTML; btn.style.background = ''; lucide.createIcons(); }, 2000); }
         }
 
         function downloadOutput() {
@@ -650,31 +634,15 @@
             try {
                 const blob = new Blob([text], { type: 'application/json;charset=utf-8' });
                 const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'formatted.json';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
+                const a = document.createElement('a'); a.href = url; a.download = 'formatted.json'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
                 btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Downloaded!';
                 lucide.createIcons();
                 showToast('💾 Downloaded as formatted.json');
-                setTimeout(() => {
-                    btn.innerHTML = origHTML;
-                    lucide.createIcons();
-                }, 2000);
-            } catch (err) {
-                alert("Download blocked. Please copy manually.");
-                btn.innerHTML = origHTML;
-                lucide.createIcons();
-            }
+                setTimeout(() => { btn.innerHTML = origHTML; lucide.createIcons(); }, 2000);
+            } catch (err) { alert("Download blocked. Please copy manually."); btn.innerHTML = origHTML; lucide.createIcons(); }
         }
 
-        buildMegaMenu();
-        buildMobileToolsMenu();
-        buildSearchList();
-        lucide.createIcons();
+        buildMegaMenu(); buildMobileToolsMenu(); buildSearchList(); lucide.createIcons();
     </script>
 </body>
 </html>
