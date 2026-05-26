@@ -117,16 +117,18 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg); color: var(--text); min-height: 100vh;
       transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
     }
 
-    .page-wrapper { max-width: 1000px; width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
+    /* FULL-WIDTH WRAPPER */
+    .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
 
     header {
       border-bottom: 1px solid var(--line); display: flex; justify-content: center;
-      align-items: center; padding: 0 20px; height: 64px; transition: border-color 0.3s;
-      background: transparent;
+      align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
+      background: transparent; width: 100%;
     }
-    .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -187,9 +189,9 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
-    main { flex: 1; padding: 30px 20px; width: 100%; background: transparent; }
-    h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
-    h2 { font-size: 26px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
+    main { flex: 1; padding: 40px 40px; width: 100%; max-width: 100%; background: transparent; }
+    h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
+    h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
     h3 { font-size: 20px; font-weight: 700; margin: 25px 0 12px; }
     p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
     ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; }
@@ -221,15 +223,18 @@
     /* FOOTER - 5 equal columns, black links (light mode) */
     footer {
       border-top: 1px solid var(--footer-border);
-      padding: 40px 20px 25px;
+      padding: 40px 40px 25px;
       background: transparent;
+      width: 100%;
     }
-    .footer-container { width: 100%; }
+    .footer-container { width: 100%; max-width: 100%; }
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 35px;
+      width: 100%;
     }
+    @media (max-width: 1200px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width:768px){.footer-grid{grid-template-columns:1fr 1fr;}}
     @media(max-width:500px){.footer-grid{grid-template-columns:1fr;}}
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
@@ -248,8 +253,14 @@
     }
     .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
     
-    @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 12px; } }
+    @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 12px; } footer { padding: 30px 16px 20px; } }
     @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
+    @media (min-width: 1800px) {
+      main { padding: 50px 60px; }
+      header { padding: 0 60px; }
+      footer { padding: 50px 60px 30px; }
+      h1 { font-size: 44px; }
+    }
   </style>
 
   <div class="page-wrapper">
@@ -281,7 +292,7 @@
 
     <main>
       <h1>Free Online Word Counter – Real‑Time Text Analysis</h1>
-      <p>Paste your text below and get instant stats you won't find in a basic counter: <strong>unique words, top keywords, longest and shortest words, average sentence length</strong>, and more. Everything runs locally — your text never leaves your device.</p>
+      <p style="text-align:center; max-width:800px; margin:0 auto 20px;">Paste your text below and get instant stats you won't find in a basic counter: <strong>unique words, top keywords, longest and shortest words, average sentence length</strong>, and more. Everything runs locally — your text never leaves your device.</p>
 
       <textarea id="inputText" placeholder="Paste or type your text here..."></textarea>
 
