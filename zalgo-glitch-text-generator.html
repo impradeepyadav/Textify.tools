@@ -293,16 +293,41 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        /* MAIN – generous side padding */
+        /* MAIN – full width, left aligned */
         main {
             flex: 1;
-            padding: 40px 40px;
+            padding: 40px 0; /* no side padding */
             width: 100%;
             max-width: 100%;
             background: transparent;
         }
-        h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
-        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 40px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .content-container {
+            width: 100%;
+            padding: 0 40px; /* breathing room */
+        }
+        @media (max-width: 768px) {
+            .content-container {
+                padding: 0 16px;
+            }
+            main {
+                padding: 20px 0;
+            }
+        }
+        h1 {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            text-align: left;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            text-align: left;
+            word-wrap: break-word;
+        }
         .tool-panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px; margin-bottom: 30px; }
         .input-group { margin-bottom: 20px; }
         .input-group label { display: block; font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--text-light); margin-bottom: 6px; letter-spacing: 0.5px; }
@@ -376,7 +401,7 @@
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
-            main { padding: 20px 12px; }
+            main { padding: 20px 0; }
             footer { padding: 30px 16px 20px; }
             .tool-panel { padding: 20px; }
         }
@@ -384,7 +409,7 @@
             .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; }
         }
         @media (min-width: 1800px) {
-            main { padding: 50px 60px; }
+            main { padding: 50px 0; }
             header { padding: 0 60px; }
             footer { padding: 50px 60px 30px; }
             h1 { font-size: 44px; }
@@ -420,159 +445,161 @@
         </header>
 
         <main>
-            <h1>Zalgo / Glitch Text Generator</h1>
-            <p class="subtitle">Transform normal text into corrupted, creepy Zalgo / glitch text by adding Unicode combining characters. Adjust intensity from mild distortion to heavy chaos — all inside your browser, completely private.</p>
+            <div class="content-container">
+                <h1>Zalgo / Glitch Text Generator</h1>
+                <p class="subtitle">Transform normal text into corrupted, creepy Zalgo / glitch text by adding Unicode combining characters. Adjust intensity from mild distortion to heavy chaos — all inside your browser, completely private.</p>
 
-            <div class="tool-panel">
-                <div class="input-group">
-                    <label for="inputText">Your Text</label>
-                    <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
-                </div>
-
-                <div class="input-group">
-                    <label for="intensity">Intensity Level</label>
-                    <div class="slider-container">
-                        <span>🌿 Light</span>
-                        <input type="range" id="intensity" min="1" max="10" value="4" step="1">
-                        <span>💀 Heavy</span>
-                        <span class="intensity-value" id="intensityValue">Medium</span>
+                <div class="tool-panel">
+                    <div class="input-group">
+                        <label for="inputText">Your Text</label>
+                        <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
                     </div>
-                    <p style="font-size: 12px; color: var(--text-light); margin-top: 6px;">Higher intensity = more glitch/corruption per character</p>
-                </div>
 
-                <div class="action-buttons">
-                    <button class="btn btn-primary" id="generateBtn" onclick="generateZalgo()"><i data-lucide="wand-2" width="18" height="18"></i> Generate Zalgo Text</button>
-                    <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-                </div>
-
-                <div class="output-area" id="outputArea">
-                    <div class="char-box" id="charStats"></div>
-                    <textarea id="outputText" readonly placeholder="Your corrupted text will appear here..."></textarea>
-                    <div class="action-buttons" style="margin-top: 15px;">
-                        <button class="btn btn-primary" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
-                        <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+                    <div class="input-group">
+                        <label for="intensity">Intensity Level</label>
+                        <div class="slider-container">
+                            <span>🌿 Light</span>
+                            <input type="range" id="intensity" min="1" max="10" value="4" step="1">
+                            <span>💀 Heavy</span>
+                            <span class="intensity-value" id="intensityValue">Medium</span>
+                        </div>
+                        <p style="font-size: 12px; color: var(--text-light); margin-top: 6px;">Higher intensity = more glitch/corruption per character</p>
                     </div>
-                </div>
-            </div>
 
-            <div class="section">
-                <h2>How to Use the Zalgo / Glitch Generator</h2>
-                <div class="how-to-card">
-                    <div class="step-num">1</div>
-                    <div>
-                        <h4>Type or Paste Your Text</h4>
-                        <p>Enter any text you want to distort. It can be a single word, a sentence, or even a full paragraph. The generator works with any language that uses Unicode characters.</p>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" id="generateBtn" onclick="generateZalgo()"><i data-lucide="wand-2" width="18" height="18"></i> Generate Zalgo Text</button>
+                        <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+                    </div>
+
+                    <div class="output-area" id="outputArea">
+                        <div class="char-box" id="charStats"></div>
+                        <textarea id="outputText" readonly placeholder="Your corrupted text will appear here..."></textarea>
+                        <div class="action-buttons" style="margin-top: 15px;">
+                            <button class="btn btn-primary" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
+                            <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+                        </div>
                     </div>
                 </div>
-                <div class="how-to-card">
-                    <div class="step-num">2</div>
-                    <div>
-                        <h4>Choose the Intensity</h4>
-                        <p>Move the intensity slider. Lower values (1‑3) give a subtle glitch effect, medium (4‑6) creates visible distortion, and high (7‑10) produces extreme, chaotic corruption.</p>
-                    </div>
-                </div>
-                <div class="how-to-card">
-                    <div class="step-num">3</div>
-                    <div>
-                        <h4>Click "Generate Zalgo Text"</h4>
-                        <p>The tool instantly adds random combining marks to each character. You'll see the output in the text area below, along with character and word count stats.</p>
-                    </div>
-                </div>
-                <div class="how-to-card">
-                    <div class="step-num">4</div>
-                    <div>
-                        <h4>Copy or Download Your Result</h4>
-                        <p>Use the Copy button to paste the corrupted text anywhere (WhatsApp, Instagram, Discord, etc.), or download it as a .txt file for later use.</p>
-                    </div>
-                </div>
-                <div class="tip-box">
-                    <p><strong>💡 Pro Tip:</strong> For the best glitch effect, try combining Zalgo text with other Textify styling tools like <a href="/bold-text-generator" style="color: var(--primary); text-decoration: underline;">Bold Text Generator</a> or <a href="/zalgo-text-generator" style="color: var(--primary); text-decoration: underline;">Zalgo Text Generator (Classic)</a>.</p>
-                </div>
-            </div>
 
-            <div class="section">
-                <h2>What is Zalgo / Glitch Text?</h2>
-                <p><strong>Zalgo text</strong> (also called "glitch text", "corrupted text", or "creepy text") is a stylistic effect created by adding Unicode <strong>combining diacritical marks</strong> to standard letters. These marks attach above or below the base character, making the text appear chaotic, distorted, or even "cursed". The name originates from an internet meme about a demonic entity, and the effect is wildly popular in gaming, horror stories, and social media pranks.</p>
-                <p>Our generator uses over <strong>150 unique combining characters</strong> from Unicode ranges U+0300–U+036F and U+20D0–U+20FF. You control the intensity – from a light, eerie flicker to an unreadable storm of marks. All transformations run entirely in your browser; your text never leaves your device.</p>
-
-                <h3>Where Can I Use Zalgo Text?</h3>
-                <ul style="padding-left: 22px; color: var(--text-light); margin-bottom: 20px; line-height: 1.8;">
-                    <li><strong>Social media bios</strong> – Stand out on Instagram, Twitter, Discord, or TikTok profiles with a unique, distorted name or description.</li>
-                    <li><strong>Gaming usernames</strong> – Create intimidating, glitchy names for horror games, battle royales, or RPGs.</li>
-                    <li><strong>Creative writing & art</strong> – Add a spooky, paranormal feel to short stories, blog posts, or digital artwork.</li>
-                    <li><strong>Memes & pranks</strong> – Send cursed-looking messages to friends or use them in chat to surprise others.</li>
-                    <li><strong>Graphic design</strong> – Enhance posters, album covers, or thumbnails with raw, corrupted typography.</li>
-                </ul>
-
-                <div class="tip-box">
-                    <p><strong>⚠️ Compatibility Note:</strong> Most modern apps (WhatsApp, Messenger, Discord, Instagram, Chrome, Safari) display Zalgo text perfectly. Some older apps or plain-text editors may not render combining marks correctly.</p>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Why Choose Our Zalgo Generator?</h2>
-                <div class="how-to-card">
-                    <div class="step-num"><i data-lucide="shield-check" width="18" height="18"></i></div>
-                    <div>
-                        <h4>100% Private & Secure</h4>
-                        <p>All transformations happen locally in your browser. We never see, store, or transmit your text. Perfect for sensitive or personal content.</p>
+                <div class="section">
+                    <h2>How to Use the Zalgo / Glitch Generator</h2>
+                    <div class="how-to-card">
+                        <div class="step-num">1</div>
+                        <div>
+                            <h4>Type or Paste Your Text</h4>
+                            <p>Enter any text you want to distort. It can be a single word, a sentence, or even a full paragraph. The generator works with any language that uses Unicode characters.</p>
+                        </div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">2</div>
+                        <div>
+                            <h4>Choose the Intensity</h4>
+                            <p>Move the intensity slider. Lower values (1‑3) give a subtle glitch effect, medium (4‑6) creates visible distortion, and high (7‑10) produces extreme, chaotic corruption.</p>
+                        </div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">3</div>
+                        <div>
+                            <h4>Click "Generate Zalgo Text"</h4>
+                            <p>The tool instantly adds random combining marks to each character. You'll see the output in the text area below, along with character and word count stats.</p>
+                        </div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">4</div>
+                        <div>
+                            <h4>Copy or Download Your Result</h4>
+                            <p>Use the Copy button to paste the corrupted text anywhere (WhatsApp, Instagram, Discord, etc.), or download it as a .txt file for later use.</p>
+                        </div>
+                    </div>
+                    <div class="tip-box">
+                        <p><strong>💡 Pro Tip:</strong> For the best glitch effect, try combining Zalgo text with other Textify styling tools like <a href="/bold-text-generator" style="color: var(--primary); text-decoration: underline;">Bold Text Generator</a> or <a href="/zalgo-text-generator" style="color: var(--primary); text-decoration: underline;">Zalgo Text Generator (Classic)</a>.</p>
                     </div>
                 </div>
-                <div class="how-to-card">
-                    <div class="step-num"><i data-lucide="sliders" width="18" height="18"></i></div>
-                    <div>
-                        <h4>Adjustable Intensity</h4>
-                        <p>The 1‑10 slider gives you granular control over how many combining marks are applied – from barely noticeable to extreme chaos.</p>
-                    </div>
-                </div>
-                <div class="how-to-card">
-                    <div class="step-num"><i data-lucide="smartphone" width="18" height="18"></i></div>
-                    <div>
-                        <h4>Works on All Devices</h4>
-                        <p>Our responsive design ensures the generator works flawlessly on phones, tablets, and desktops. Create glitch text on the go.</p>
-                    </div>
-                </div>
-                <div class="how-to-card">
-                    <div class="step-num"><i data-lucide="zap" width="18" height="18"></i></div>
-                    <div>
-                        <h4>Instant Generation & Copy</h4>
-                        <p>Results appear immediately, and one‑click copy makes it effortless to paste into any app. No watermark, no sign‑up.</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="section">
-                <h2>Related Text Styling Tools</h2>
-                <p>If you enjoy playing with text styles, try these other free generators from Textify.tools:</p>
-                <div class="related-tools">
-                    <a class="related-tool-card" href="/bold-text-generator">Bold Text Generator</a>
-                    <a class="related-tool-card" href="/italic-text-generator">Italic Text Generator</a>
-                    <a class="related-tool-card" href="/cursive-text-generator">Cursive Text Generator</a>
-                    <a class="related-tool-card" href="/bubble-text-generator">Bubble Text Generator</a>
-                    <a class="related-tool-card" href="/fancy-text-generator">Fancy Text Generator</a>
-                    <a class="related-tool-card" href="/strikethrough-generator">Strikethrough Generator</a>
-                    <a class="related-tool-card" href="/mirror-text-generator">Mirror Text Generator</a>
-                    <a class="related-tool-card" href="/small-caps-generator">Small Caps Generator</a>
-                </div>
-            </div>
+                <div class="section">
+                    <h2>What is Zalgo / Glitch Text?</h2>
+                    <p><strong>Zalgo text</strong> (also called "glitch text", "corrupted text", or "creepy text") is a stylistic effect created by adding Unicode <strong>combining diacritical marks</strong> to standard letters. These marks attach above or below the base character, making the text appear chaotic, distorted, or even "cursed". The name originates from an internet meme about a demonic entity, and the effect is wildly popular in gaming, horror stories, and social media pranks.</p>
+                    <p>Our generator uses over <strong>150 unique combining characters</strong> from Unicode ranges U+0300–U+036F and U+20D0–U+20FF. You control the intensity – from a light, eerie flicker to an unreadable storm of marks. All transformations run entirely in your browser; your text never leaves your device.</p>
 
-            <div class="section">
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Is Zalgo text safe to use?<i data-lucide="chevron-down" width="16"></i></div>
-                    <div class="faq-answer">Yes, it's standard Unicode and will not harm any device. Some platforms might not display combining marks correctly, but the text itself is completely safe.</div>
+                    <h3>Where Can I Use Zalgo Text?</h3>
+                    <ul style="padding-left: 22px; color: var(--text-light); margin-bottom: 20px; line-height: 1.8;">
+                        <li><strong>Social media bios</strong> – Stand out on Instagram, Twitter, Discord, or TikTok profiles with a unique, distorted name or description.</li>
+                        <li><strong>Gaming usernames</strong> – Create intimidating, glitchy names for horror games, battle royales, or RPGs.</li>
+                        <li><strong>Creative writing & art</strong> – Add a spooky, paranormal feel to short stories, blog posts, or digital artwork.</li>
+                        <li><strong>Memes & pranks</strong> – Send cursed-looking messages to friends or use them in chat to surprise others.</li>
+                        <li><strong>Graphic design</strong> – Enhance posters, album covers, or thumbnails with raw, corrupted typography.</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <p><strong>⚠️ Compatibility Note:</strong> Most modern apps (WhatsApp, Messenger, Discord, Instagram, Chrome, Safari) display Zalgo text perfectly. Some older apps or plain-text editors may not render combining marks correctly.</p>
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Does this work on Instagram / WhatsApp?<i data-lucide="chevron-down" width="16"></i></div>
-                    <div class="faq-answer">Yes, both apps fully support combining characters. The glitch effect will appear as intended.</div>
+
+                <div class="section">
+                    <h2>Why Choose Our Zalgo Generator?</h2>
+                    <div class="how-to-card">
+                        <div class="step-num"><i data-lucide="shield-check" width="18" height="18"></i></div>
+                        <div>
+                            <h4>100% Private & Secure</h4>
+                            <p>All transformations happen locally in your browser. We never see, store, or transmit your text. Perfect for sensitive or personal content.</p>
+                        </div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num"><i data-lucide="sliders" width="18" height="18"></i></div>
+                        <div>
+                            <h4>Adjustable Intensity</h4>
+                            <p>The 1‑10 slider gives you granular control over how many combining marks are applied – from barely noticeable to extreme chaos.</p>
+                        </div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num"><i data-lucide="smartphone" width="18" height="18"></i></div>
+                        <div>
+                            <h4>Works on All Devices</h4>
+                            <p>Our responsive design ensures the generator works flawlessly on phones, tablets, and desktops. Create glitch text on the go.</p>
+                        </div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num"><i data-lucide="zap" width="18" height="18"></i></div>
+                        <div>
+                            <h4>Instant Generation & Copy</h4>
+                            <p>Results appear immediately, and one‑click copy makes it effortless to paste into any app. No watermark, no sign‑up.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div>
-                    <div class="faq-answer">Absolutely. All processing happens directly in your browser. No data is sent to any server.</div>
+
+                <div class="section">
+                    <h2>Related Text Styling Tools</h2>
+                    <p>If you enjoy playing with text styles, try these other free generators from Textify.tools:</p>
+                    <div class="related-tools">
+                        <a class="related-tool-card" href="/bold-text-generator">Bold Text Generator</a>
+                        <a class="related-tool-card" href="/italic-text-generator">Italic Text Generator</a>
+                        <a class="related-tool-card" href="/cursive-text-generator">Cursive Text Generator</a>
+                        <a class="related-tool-card" href="/bubble-text-generator">Bubble Text Generator</a>
+                        <a class="related-tool-card" href="/fancy-text-generator">Fancy Text Generator</a>
+                        <a class="related-tool-card" href="/strikethrough-generator">Strikethrough Generator</a>
+                        <a class="related-tool-card" href="/mirror-text-generator">Mirror Text Generator</a>
+                        <a class="related-tool-card" href="/small-caps-generator">Small Caps Generator</a>
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Can I adjust the intensity?<i data-lucide="chevron-down" width="16"></i></div>
-                    <div class="faq-answer">Yes, a slider lets you control from light glitch (1-2) to extreme chaos (8-10). The number of combining marks per character changes accordingly.</div>
+
+                <div class="section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">Is Zalgo text safe to use?<i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">Yes, it's standard Unicode and will not harm any device. Some platforms might not display combining marks correctly, but the text itself is completely safe.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">Does this work on Instagram / WhatsApp?<i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">Yes, both apps fully support combining characters. The glitch effect will appear as intended.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">Absolutely. All processing happens directly in your browser. No data is sent to any server.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">Can I adjust the intensity?<i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">Yes, a slider lets you control from light glitch (1-2) to extreme chaos (8-10). The number of combining marks per character changes accordingly.</div>
+                    </div>
                 </div>
             </div>
         </main>
