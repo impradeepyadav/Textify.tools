@@ -139,9 +139,41 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main { flex: 1; padding: 40px 40px; width: 100%; max-width: 100%; background: transparent; }
-        h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
-        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 40px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
+        /* Main – full width, no side padding, left aligned */
+        main {
+            flex: 1;
+            padding: 40px 0; /* no side padding */
+            width: 100%;
+            max-width: 100%;
+            background: transparent;
+        }
+        .content-container {
+            width: 100%;
+            padding: 0 40px; /* breathing room */
+        }
+        @media (max-width: 768px) {
+            .content-container {
+                padding: 0 16px;
+            }
+            main {
+                padding: 20px 0;
+            }
+        }
+        h1 {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            text-align: left;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            text-align: left;
+            word-wrap: break-word;
+        }
         .tool-panel { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 28px; margin-bottom: 30px; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
         @media (max-width:600px){ .grid-2{grid-template-columns:1fr;} }
@@ -205,13 +237,13 @@
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
-            main { padding: 20px 12px; }
+            main { padding: 20px 0; }
             footer { padding: 30px 16px 20px; }
             .tool-panel { padding: 20px; }
         }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
         @media (min-width: 1800px) {
-            main { padding: 50px 60px; }
+            main { padding: 50px 0; }
             header { padding: 0 60px; }
             footer { padding: 50px 60px 30px; }
             h1 { font-size: 44px; }
@@ -247,132 +279,134 @@
         </header>
 
         <main>
-            <h1>Free UTM Builder – Create Campaign Links That Actually Get Tracked</h1>
-            <p class="subtitle">UTM parameters are the secret sauce behind every successful marketing campaign. This tool makes it dead simple to build clean, trackable URLs — no spreadsheets, no typos, and absolutely nothing leaves your browser.</p>
+            <div class="content-container">
+                <h1>Free UTM Builder – Create Campaign Links That Actually Get Tracked</h1>
+                <p class="subtitle">UTM parameters are the secret sauce behind every successful marketing campaign. This tool makes it dead simple to build clean, trackable URLs — no spreadsheets, no typos, and absolutely nothing leaves your browser.</p>
 
-            <div class="tool-panel">
-                <div class="input-group">
-                    <label for="baseUrl">Website URL *</label>
-                    <input type="url" id="baseUrl" placeholder="https://example.com/landing-page" value="https://textify.tools">
-                    <div class="input-hint">The destination URL (e.g., your landing page). Must start with http:// or https://.</div>
-                </div>
-
-                <div class="grid-2">
+                <div class="tool-panel">
                     <div class="input-group">
-                        <label for="utmSource">utm_source *</label>
-                        <input type="text" id="utmSource" placeholder="e.g., google, newsletter, facebook" value="google">
-                        <div class="input-hint">Referrer source (search engine, social network, newsletter).</div>
+                        <label for="baseUrl">Website URL *</label>
+                        <input type="url" id="baseUrl" placeholder="https://example.com/landing-page" value="https://textify.tools">
+                        <div class="input-hint">The destination URL (e.g., your landing page). Must start with http:// or https://.</div>
                     </div>
+
+                    <div class="grid-2">
+                        <div class="input-group">
+                            <label for="utmSource">utm_source *</label>
+                            <input type="text" id="utmSource" placeholder="e.g., google, newsletter, facebook" value="google">
+                            <div class="input-hint">Referrer source (search engine, social network, newsletter).</div>
+                        </div>
+                        <div class="input-group">
+                            <label for="utmMedium">utm_medium *</label>
+                            <input type="text" id="utmMedium" placeholder="e.g., cpc, email, social" value="cpc">
+                            <div class="input-hint">Marketing medium (CPC, email, organic, referral).</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="input-group">
+                            <label for="utmCampaign">utm_campaign *</label>
+                            <input type="text" id="utmCampaign" placeholder="e.g., summer_sale, brand_awareness" value="summer_sale">
+                            <div class="input-hint">Campaign name or identifier.</div>
+                        </div>
+                        <div class="input-group">
+                            <label for="utmTerm">utm_term (optional)</label>
+                            <input type="text" id="utmTerm" placeholder="e.g., running+shoes, analytics+tool">
+                            <div class="input-hint">Paid keyword / search term.</div>
+                        </div>
+                    </div>
+
                     <div class="input-group">
-                        <label for="utmMedium">utm_medium *</label>
-                        <input type="text" id="utmMedium" placeholder="e.g., cpc, email, social" value="cpc">
-                        <div class="input-hint">Marketing medium (CPC, email, organic, referral).</div>
+                        <label for="utmContent">utm_content (optional)</label>
+                        <input type="text" id="utmContent" placeholder="e.g., textlink, topbanner, logolink">
+                        <div class="input-hint">Distinguish similar ads or links within the same campaign.</div>
                     </div>
-                </div>
 
-                <div class="grid-2">
+                    <div class="action-row">
+                        <button class="btn btn-primary" id="generateBtn" onclick="generateUTM()"><i data-lucide="link-2" width="18" height="18"></i> Generate URL</button>
+                        <button class="btn btn-outline" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Link</button>
+                        <button class="btn btn-outline" onclick="resetForm()"><i data-lucide="trash-2" width="18" height="18"></i> Clear Fields</button>
+                    </div>
+
                     <div class="input-group">
-                        <label for="utmCampaign">utm_campaign *</label>
-                        <input type="text" id="utmCampaign" placeholder="e.g., summer_sale, brand_awareness" value="summer_sale">
-                        <div class="input-hint">Campaign name or identifier.</div>
+                        <label>Generated Tracking URL</label>
+                        <div class="textarea-result" id="resultUrl" onclick="selectResultText()">Click "Generate URL" to create your campaign link.</div>
                     </div>
-                    <div class="input-group">
-                        <label for="utmTerm">utm_term (optional)</label>
-                        <input type="text" id="utmTerm" placeholder="e.g., running+shoes, analytics+tool">
-                        <div class="input-hint">Paid keyword / search term.</div>
-                    </div>
-                </div>
 
-                <div class="input-group">
-                    <label for="utmContent">utm_content (optional)</label>
-                    <input type="text" id="utmContent" placeholder="e.g., textlink, topbanner, logolink">
-                    <div class="input-hint">Distinguish similar ads or links within the same campaign.</div>
-                </div>
-
-                <div class="action-row">
-                    <button class="btn btn-primary" id="generateBtn" onclick="generateUTM()"><i data-lucide="link-2" width="18" height="18"></i> Generate URL</button>
-                    <button class="btn btn-outline" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Link</button>
-                    <button class="btn btn-outline" onclick="resetForm()"><i data-lucide="trash-2" width="18" height="18"></i> Clear Fields</button>
-                </div>
-
-                <div class="input-group">
-                    <label>Generated Tracking URL</label>
-                    <div class="textarea-result" id="resultUrl" onclick="selectResultText()">Click "Generate URL" to create your campaign link.</div>
-                </div>
-
-                <div class="qr-container">
-                    <div id="qrCodePlaceholder" class="qr-placeholder">QR Code</div>
-                    <button id="generateQrBtn" class="btn btn-outline" onclick="generateQR()" style="width: auto; padding: 8px 20px;"><i data-lucide="qr-code" width="16" height="16"></i> Generate QR Code</button>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>How to Build a UTM Link in Under 30 Seconds</h2>
-                <div class="how-to-card">
-                    <div class="step-num">1</div>
-                    <div>
-                        <h4>Drop in Your Destination URL</h4>
-                        <p>Paste the exact page you want people to land on. It could be a product page, a blog post, a sign‑up form — anything you're driving traffic to.</p>
+                    <div class="qr-container">
+                        <div id="qrCodePlaceholder" class="qr-placeholder">QR Code</div>
+                        <button id="generateQrBtn" class="btn btn-outline" onclick="generateQR()" style="width: auto; padding: 8px 20px;"><i data-lucide="qr-code" width="16" height="16"></i> Generate QR Code</button>
                     </div>
                 </div>
-                <div class="how-to-card">
-                    <div class="step-num">2</div>
-                    <div>
-                        <h4>Tell Google Where the Traffic Comes From</h4>
-                        <p>Fill in <strong>utm_source</strong> (like "facebook"), <strong>utm_medium</strong> (like "social"), and <strong>utm_campaign</strong> (like "spring_promo"). These three are the must‑haves that make your data useful.</p>
+
+                <div class="section">
+                    <h2>How to Build a UTM Link in Under 30 Seconds</h2>
+                    <div class="how-to-card">
+                        <div class="step-num">1</div>
+                        <div>
+                            <h4>Drop in Your Destination URL</h4>
+                            <p>Paste the exact page you want people to land on. It could be a product page, a blog post, a sign‑up form — anything you're driving traffic to.</p>
+                        </div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">2</div>
+                        <div>
+                            <h4>Tell Google Where the Traffic Comes From</h4>
+                            <p>Fill in <strong>utm_source</strong> (like "facebook"), <strong>utm_medium</strong> (like "social"), and <strong>utm_campaign</strong> (like "spring_promo"). These three are the must‑haves that make your data useful.</p>
+                        </div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">3</div>
+                        <div>
+                            <h4>Add Extra Detail If You Want</h4>
+                            <p>Use <strong>utm_term</strong> for paid search keywords and <strong>utm_content</strong> to tell apart different ads or links. These optional tags give you deeper insight into what's actually working.</p>
+                        </div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">4</div>
+                        <div>
+                            <h4>Generate, Copy, and Go</h4>
+                            <p>Hit "Generate URL", grab the link with one click, and drop it into your email, social post, or ad. There's even a QR code generator for print materials.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="how-to-card">
-                    <div class="step-num">3</div>
-                    <div>
-                        <h4>Add Extra Detail If You Want</h4>
-                        <p>Use <strong>utm_term</strong> for paid search keywords and <strong>utm_content</strong> to tell apart different ads or links. These optional tags give you deeper insight into what's actually working.</p>
-                    </div>
+
+                <div class="section">
+                    <h2>What Exactly Are UTM Parameters?</h2>
+                    <p>Think of UTM parameters like tiny reporters that ride along with your links. When someone clicks, those reporters tell Google Analytics (or any other analytics tool) exactly which campaign, source, and medium sent that visitor. Without UTMs, traffic often gets dumped into the "direct" bucket, and you lose all insight into what's working.</p>
+                    <div class="param-card"><h4>utm_source (required)</h4><p>The platform or site that sent the traffic. <code>google</code>, <code>facebook</code>, <code>newsletter</code> — you name it.</p></div>
+                    <div class="param-card"><h4>utm_medium (required)</h4><p>The marketing channel. <code>cpc</code> for paid ads, <code>email</code> for newsletters, <code>social</code> for organic posts.</p></div>
+                    <div class="param-card"><h4>utm_campaign (required)</h4><p>The specific campaign name, like <code>black_friday</code> or <code>product_launch</code>. This groups all your links together in reports.</p></div>
+                    <div class="param-card"><h4>utm_term (optional)</h4><p>Mostly for paid search — tracks which keyword triggered the ad.</p></div>
+                    <div class="param-card"><h4>utm_content (optional)</h4><p>Helps you A/B test different link placements or creative variations.</p></div>
                 </div>
-                <div class="how-to-card">
-                    <div class="step-num">4</div>
-                    <div>
-                        <h4>Generate, Copy, and Go</h4>
-                        <p>Hit "Generate URL", grab the link with one click, and drop it into your email, social post, or ad. There's even a QR code generator for print materials.</p>
-                    </div>
+
+                <div class="section">
+                    <h2>Why This Tool Is Different (And Why It Matters)</h2>
+                    <p>There are plenty of UTM builders out there, but most send your data somewhere — or they're wrapped in ads and sign‑up walls. Ours lives entirely in your browser. No tracking, no accounts, no server logs. The URL you generate is seen only by you. For marketers handling client campaigns or sensitive launch plans, that privacy isn't a luxury — it's a requirement.</p>
+                    <p>Plus, the built‑in QR code generator means you can take the same tracking link straight to a flyer, poster, or event badge without juggling extra tools.</p>
                 </div>
-            </div>
 
-            <div class="section">
-                <h2>What Exactly Are UTM Parameters?</h2>
-                <p>Think of UTM parameters like tiny reporters that ride along with your links. When someone clicks, those reporters tell Google Analytics (or any other analytics tool) exactly which campaign, source, and medium sent that visitor. Without UTMs, traffic often gets dumped into the "direct" bucket, and you lose all insight into what's working.</p>
-                <div class="param-card"><h4>utm_source (required)</h4><p>The platform or site that sent the traffic. <code>google</code>, <code>facebook</code>, <code>newsletter</code> — you name it.</p></div>
-                <div class="param-card"><h4>utm_medium (required)</h4><p>The marketing channel. <code>cpc</code> for paid ads, <code>email</code> for newsletters, <code>social</code> for organic posts.</p></div>
-                <div class="param-card"><h4>utm_campaign (required)</h4><p>The specific campaign name, like <code>black_friday</code> or <code>product_launch</code>. This groups all your links together in reports.</p></div>
-                <div class="param-card"><h4>utm_term (optional)</h4><p>Mostly for paid search — tracks which keyword triggered the ad.</p></div>
-                <div class="param-card"><h4>utm_content (optional)</h4><p>Helps you A/B test different link placements or creative variations.</p></div>
-            </div>
+                <div class="section">
+                    <h2>UTM Best Practices (A Quick Cheat Sheet)</h2>
+                    <ul>
+                        <li><strong>Stick to lowercase.</strong> Google Analytics treats "Facebook" and "facebook" as two different sources. Save yourself the headache.</li>
+                        <li><strong>Use underscores or hyphens, not spaces.</strong> Spaces break URLs. <code>utm_campaign=spring_sale</code> works; <code>utm_campaign=spring sale</code> creates a mess.</li>
+                        <li><strong>Keep names short and consistent.</strong> Agree on a naming convention with your team — it prevents "fb", "facebook", and "Facebook" from splitting your data.</li>
+                        <li><strong>Don't UTM internal links.</strong> Only tag URLs that leave your own site. Tagging internal links can reset session data and distort your analytics.</li>
+                        <li><strong>Test before you blast.</strong> Generate the link, open it in a private window, and check that it lands where you expect. Takes five seconds, saves hours of confusion.</li>
+                    </ul>
+                </div>
 
-            <div class="section">
-                <h2>Why This Tool Is Different (And Why It Matters)</h2>
-                <p>There are plenty of UTM builders out there, but most send your data somewhere — or they're wrapped in ads and sign‑up walls. Ours lives entirely in your browser. No tracking, no accounts, no server logs. The URL you generate is seen only by you. For marketers handling client campaigns or sensitive launch plans, that privacy isn't a luxury — it's a requirement.</p>
-                <p>Plus, the built‑in QR code generator means you can take the same tracking link straight to a flyer, poster, or event badge without juggling extra tools.</p>
-            </div>
-
-            <div class="section">
-                <h2>UTM Best Practices (A Quick Cheat Sheet)</h2>
-                <ul>
-                    <li><strong>Stick to lowercase.</strong> Google Analytics treats "Facebook" and "facebook" as two different sources. Save yourself the headache.</li>
-                    <li><strong>Use underscores or hyphens, not spaces.</strong> Spaces break URLs. <code>utm_campaign=spring_sale</code> works; <code>utm_campaign=spring sale</code> creates a mess.</li>
-                    <li><strong>Keep names short and consistent.</strong> Agree on a naming convention with your team — it prevents "fb", "facebook", and "Facebook" from splitting your data.</li>
-                    <li><strong>Don't UTM internal links.</strong> Only tag URLs that leave your own site. Tagging internal links can reset session data and distort your analytics.</li>
-                    <li><strong>Test before you blast.</strong> Generate the link, open it in a private window, and check that it lands where you expect. Takes five seconds, saves hours of confusion.</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What does UTM stand for?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">UTM stands for "Urchin Tracking Module". Urchin was the company that originally developed the software that later became Google Analytics.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Are UTM parameters case‑sensitive?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. In Google Analytics, "Facebook" and "facebook" are treated as different sources. Always use lowercase to avoid data fragmentation.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use UTM parameters on any URL?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, you can append UTM parameters to any valid HTTP/HTTPS URL. Avoid using them on internal redirect chains as they can break.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All encoding and URL generation happen inside your browser. Your base URL and UTM values are never sent to any server.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if I leave the optional fields empty?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">That's totally fine. Only utm_source, utm_medium, and utm_campaign are required. The optional fields are there when you need deeper tracking.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Why would I need a QR code for a UTM link?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">QR codes bridge the gap between offline and online. Put them on flyers, posters, product packaging, or event booths — when scanned, the UTM parameters still report accurately in your analytics, so you can track offline efforts too.</div></div>
+                <div class="section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What does UTM stand for?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">UTM stands for "Urchin Tracking Module". Urchin was the company that originally developed the software that later became Google Analytics.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Are UTM parameters case‑sensitive?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. In Google Analytics, "Facebook" and "facebook" are treated as different sources. Always use lowercase to avoid data fragmentation.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use UTM parameters on any URL?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, you can append UTM parameters to any valid HTTP/HTTPS URL. Avoid using them on internal redirect chains as they can break.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this tool private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All encoding and URL generation happen inside your browser. Your base URL and UTM values are never sent to any server.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if I leave the optional fields empty?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">That's totally fine. Only utm_source, utm_medium, and utm_campaign are required. The optional fields are there when you need deeper tracking.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Why would I need a QR code for a UTM link?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">QR codes bridge the gap between offline and online. Put them on flyers, posters, product packaging, or event booths — when scanned, the UTM parameters still report accurately in your analytics, so you can track offline efforts too.</div></div>
+                </div>
             </div>
         </main>
 
