@@ -81,7 +81,7 @@
     header {
       border-bottom: 1px solid var(--line); display: flex; justify-content: center;
       align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
-      background: transparent;
+      background: transparent; width: 100%;
     }
     .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
@@ -144,10 +144,36 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
-    main { flex: 1; padding: 40px 40px; width: 100%; background: transparent; }
-    h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
-    .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 15px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; }
-    .intro-text { font-size: 16px; line-height: 1.7; color: var(--text-light); max-width: 800px; margin: 0 auto 40px; text-align: center; }
+    /* Main - full width with internal padding container */
+    main { flex: 1; padding: 40px 0; width: 100%; background: transparent; }
+    .content-container { width: 100%; padding: 0 40px; }
+    @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
+
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      text-align: left; /* left aligned for full width */
+    }
+    .subtitle {
+      font-size: 18px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 15px;
+      text-align: left;
+      /* Removed max-width to span full width */
+      width: 100%;
+    }
+    .intro-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-light);
+      margin: 0 0 40px 0;
+      text-align: left;
+      /* Removed max-width to span full width */
+      width: 100%;
+    }
     .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
     .post-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
     .post-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
@@ -170,6 +196,7 @@
       border-top: 1px solid var(--footer-border);
       padding: 40px 40px 25px;
       background: transparent;
+      width: 100%;
     }
     .footer-container { width: 100%; }
     .footer-grid {
@@ -200,7 +227,7 @@
 
     @media (max-width: 768px) {
       header { padding: 0 16px; }
-      main { padding: 30px 16px; }
+      main { padding: 20px 0; }
       footer { padding: 30px 16px 20px; }
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       .logo { font-size: 20px; } h1 { font-size: 28px; }
@@ -237,13 +264,15 @@
     </header>
 
     <main>
-      <h1>Textify Blog</h1>
-      <p class="subtitle">Tips, tutorials, and updates about text tools, productivity, and online privacy.</p>
-      <p class="intro-text">We write about the tools we build and the problems they solve — from repeating text on WhatsApp and counting words for essays, to comparing code with a diff checker and generating strong passwords. Everything here is free, private, and runs right in your browser.</p>
-      
-      <div class="blog-grid" id="blogGrid"></div>
-      <div class="load-more-container" id="loadMoreContainer">
-        <button class="btn-load" id="loadMoreBtn" onclick="loadMorePosts()">Load More Posts</button>
+      <div class="content-container">
+        <h1>Textify Blog</h1>
+        <p class="subtitle">Tips, tutorials, and updates about text tools, productivity, and online privacy.</p>
+        <p class="intro-text">We write about the tools we build and the problems they solve — from repeating text on WhatsApp and counting words for essays, to comparing code with a diff checker and generating strong passwords. Everything here is free, private, and runs right in your browser.</p>
+        
+        <div class="blog-grid" id="blogGrid"></div>
+        <div class="load-more-container" id="loadMoreContainer">
+          <button class="btn-load" id="loadMoreBtn" onclick="loadMorePosts()">Load More Posts</button>
+        </div>
       </div>
     </main>
 
@@ -473,7 +502,7 @@
       { slug: "text-tools-for-seo", title: "Text Tools That Improve Your SEO Workflow", date: "March 8, 2026", excerpt: "From SERP simulators to slug generators – optimize your content faster.", icon: "search" }
     ];
 
-    let visiblePosts = 9; // initially show exactly 9 posts
+    let visiblePosts = 9;
     const blogGrid = document.getElementById('blogGrid');
     const loadMoreContainer = document.getElementById('loadMoreContainer');
 
