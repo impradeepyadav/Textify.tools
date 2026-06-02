@@ -60,10 +60,8 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
     }
     .page-wrapper {
       width: 100%;
@@ -148,12 +146,30 @@
     
     main {
       flex: 1;
-      padding: 40px 40px;
+      padding: 40px 0;
       width: 100%;
       background: transparent;
     }
-    h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
-    .post-date { font-size: 14px; color: var(--text-light); margin-bottom: 25px; text-align: center; }
+    .content-container {
+      width: 100%;
+      padding: 0 40px;
+    }
+    @media (max-width: 768px) {
+      .content-container {
+        padding: 0 16px;
+      }
+      main {
+        padding: 20px 0;
+      }
+    }
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      text-align: left;
+    }
+    .post-date { font-size: 14px; color: var(--text-light); margin-bottom: 25px; text-align: left; }
     h2 { font-size: 24px; font-weight: 700; margin: 35px 0 15px; }
     h3 { font-size: 20px; font-weight: 700; margin: 25px 0 10px; }
     p { line-height: 1.8; color: var(--text-light); margin-bottom: 18px; font-size: 16px; }
@@ -208,14 +224,14 @@
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
-      main { padding: 20px 12px; }
+      main { padding: 20px 0; }
       footer { padding: 30px 16px 20px; }
     }
     @media (min-width: 769px) {
       .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; }
     }
     @media (min-width: 1800px) {
-      main { padding: 50px 60px; }
+      main { padding: 50px 0; }
       header { padding: 0 60px; }
       footer { padding: 50px 60px 30px; }
       h1 { font-size: 44px; }
@@ -251,63 +267,65 @@
     </header>
 
     <main>
-      <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
+      <div class="content-container">
+        <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
 
-      <h1>5 Fun Ways to Use the Reverse Text Tool</h1>
-      <p class="post-date">📅 April 7, 2026</p>
+        <h1>5 Fun Ways to Use the Reverse Text Tool</h1>
+        <p class="post-date">📅 April 7, 2026</p>
 
-      <p>The <strong>Text Reverser</strong> on Textify.tools is more than just a novelty – it's a surprisingly versatile tool that can add an element of surprise, creativity, and even puzzle‑making to your digital life. Whether you're looking to prank a friend, create a unique social media post, or design a simple cipher, reversing text is quick, easy, and entirely private.</p>
-      <p>Let's explore five fun and practical ways to make the most of the reverse text tool.</p>
+        <p>The <strong>Text Reverser</strong> on Textify.tools is more than just a novelty – it's a surprisingly versatile tool that can add an element of surprise, creativity, and even puzzle‑making to your digital life. Whether you're looking to prank a friend, create a unique social media post, or design a simple cipher, reversing text is quick, easy, and entirely private.</p>
+        <p>Let's explore five fun and practical ways to make the most of the reverse text tool.</p>
 
-      <h2>1. Create Mirror Messages for Social Media</h2>
-      <p>Nothing catches the eye quite like a backwards post. On platforms like Instagram Stories, WhatsApp status, or even TikTok captions, a reversed message forces viewers to pause and read. It's a great way to tease an announcement, hide an Easter egg, or simply show off your creativity.</p>
-      <p>How to do it:</p>
-      <ol>
-        <li>Type your message into the <a href="/text-reverser">Text Reverser</a>.</li>
-        <li>Copy the reversed output and paste it into your story or status.</li>
-        <li>Optionally, add a hint like "🔁 Read backwards" to engage your audience.</li>
-      </ol>
-      <div class="tip-box">
-        <p><strong>💡 Idea:</strong> Post "EVOL" (LOVE backwards) on Valentine's Day for a cute, cryptic touch.</p>
+        <h2>1. Create Mirror Messages for Social Media</h2>
+        <p>Nothing catches the eye quite like a backwards post. On platforms like Instagram Stories, WhatsApp status, or even TikTok captions, a reversed message forces viewers to pause and read. It's a great way to tease an announcement, hide an Easter egg, or simply show off your creativity.</p>
+        <p>How to do it:</p>
+        <ol>
+          <li>Type your message into the <a href="/text-reverser">Text Reverser</a>.</li>
+          <li>Copy the reversed output and paste it into your story or status.</li>
+          <li>Optionally, add a hint like "🔁 Read backwards" to engage your audience.</li>
+        </ol>
+        <div class="tip-box">
+          <p><strong>💡 Idea:</strong> Post "EVOL" (LOVE backwards) on Valentine's Day for a cute, cryptic touch.</p>
+        </div>
+
+        <h2>2. Send Clever Pranks to Friends</h2>
+        <p>Reverse text messages are a harmless way to confuse your friends (in a good way). Imagine sending a text that looks like gibberish at first glance, but when they read it backwards – it reveals a joke or a birthday surprise. It's like a mini digital puzzle built right into your chat.</p>
+        <p>For an even funnier effect, reverse the text twice so it reads normally, but with punctuation and spaces in strange places – like a message from a parallel universe.</p>
+
+        <h2>3. Design Simple Word Puzzles and Ciphers</h2>
+        <p>Teachers, parents, and puzzle enthusiasts will love this one. You can create basic word puzzles or secret codes by reversing the words of a sentence (but not the letters) or reversing the entire string. For example:</p>
+        <ul>
+          <li><strong>Reverse words only:</strong> "The cat sat" becomes "sat cat The".</li>
+          <li><strong>Full text reversal:</strong> "HELLO" becomes "OLLEH".</li>
+        </ul>
+        <p>Combine the two modes to create multi‑layered riddles. Give someone a reversed version of a famous quote and see if they can decode it.</p>
+
+        <h2>4. Flip Text for Art and Design Projects</h2>
+        <p>Reversed text can be a great design element. When placed on images, posters, or even merchandise, backwards words create a modern, edgy look. You can also use the flip (upside‑down) feature in the Text Reverser to create unique visual designs.</p>
+        <p>Try this:</p>
+        <ul>
+          <li>Create a graphic with your name reversed as a watermark.</li>
+          <li>Make a T‑shirt design that says something only readable in a mirror.</li>
+          <li>Use upside‑down text to add flair to a music poster or album cover.</li>
+        </ul>
+
+        <h2>5. Practice Typing or Cognitive Exercises</h2>
+        <p>Believe it or not, reading and writing backwards can be a brain‑stimulating exercise. Teachers sometimes use reversed text to help students with dyslexia or to challenge cognitive flexibility. Typing a sentence in reverse order forces you to think differently about spelling and sentence structure. It's a fun mental warm‑up that takes only a minute with our tool.</p>
+
+        <a href="/text-reverser" class="cta-button">Try the Text Reverser Now →</a>
+
+        <h2>Quick Tips for Using the Text Reverser</h2>
+        <p>Our <a href="/text-reverser">Text Reverser</a> includes two main modes:</p>
+        <ul>
+          <li><strong>Reverse Text:</strong> Flips every character, including spaces and punctuation, completely. "Hello world!" becomes "!dlrow olleH".</li>
+          <li><strong>Reverse Words Only:</strong> Keeps the words intact but reverses their order. "Hello world" becomes "world Hello".</li>
+        </ul>
+        <p>You can also use the <strong>"Flip Text (Upside Down)"</strong> feature to generate characters that appear rotated 180 degrees – perfect for playful messages and creative designs.</p>
+        <p>All processing is client‑side, meaning your text never leaves your browser. No data is stored or shared.</p>
+
+        <h2>Conclusion</h2>
+        <p>The reverse text tool is one of those small digital tools that can spark a lot of creativity. Whether you're pranking friends, teaching a class, or designing something beautiful, it's always just a click away. And since it's completely free and private, you can use it as much as you like. What will you reverse today?</p>
       </div>
-
-      <h2>2. Send Clever Pranks to Friends</h2>
-      <p>Reverse text messages are a harmless way to confuse your friends (in a good way). Imagine sending a text that looks like gibberish at first glance, but when they read it backwards – it reveals a joke or a birthday surprise. It's like a mini digital puzzle built right into your chat.</p>
-      <p>For an even funnier effect, reverse the text twice so it reads normally, but with punctuation and spaces in strange places – like a message from a parallel universe.</p>
-
-      <h2>3. Design Simple Word Puzzles and Ciphers</h2>
-      <p>Teachers, parents, and puzzle enthusiasts will love this one. You can create basic word puzzles or secret codes by reversing the words of a sentence (but not the letters) or reversing the entire string. For example:</p>
-      <ul>
-        <li><strong>Reverse words only:</strong> "The cat sat" becomes "sat cat The".</li>
-        <li><strong>Full text reversal:</strong> "HELLO" becomes "OLLEH".</li>
-      </ul>
-      <p>Combine the two modes to create multi‑layered riddles. Give someone a reversed version of a famous quote and see if they can decode it.</p>
-
-      <h2>4. Flip Text for Art and Design Projects</h2>
-      <p>Reversed text can be a great design element. When placed on images, posters, or even merchandise, backwards words create a modern, edgy look. You can also use the flip (upside‑down) feature in the Text Reverser to create unique visual designs.</p>
-      <p>Try this:</p>
-      <ul>
-        <li>Create a graphic with your name reversed as a watermark.</li>
-        <li>Make a T‑shirt design that says something only readable in a mirror.</li>
-        <li>Use upside‑down text to add flair to a music poster or album cover.</li>
-      </ul>
-
-      <h2>5. Practice Typing or Cognitive Exercises</h2>
-      <p>Believe it or not, reading and writing backwards can be a brain‑stimulating exercise. Teachers sometimes use reversed text to help students with dyslexia or to challenge cognitive flexibility. Typing a sentence in reverse order forces you to think differently about spelling and sentence structure. It's a fun mental warm‑up that takes only a minute with our tool.</p>
-
-      <a href="/text-reverser" class="cta-button">Try the Text Reverser Now →</a>
-
-      <h2>Quick Tips for Using the Text Reverser</h2>
-      <p>Our <a href="/text-reverser">Text Reverser</a> includes two main modes:</p>
-      <ul>
-        <li><strong>Reverse Text:</strong> Flips every character, including spaces and punctuation, completely. "Hello world!" becomes "!dlrow olleH".</li>
-        <li><strong>Reverse Words Only:</strong> Keeps the words intact but reverses their order. "Hello world" becomes "world Hello".</li>
-      </ul>
-      <p>You can also use the <strong>"Flip Text (Upside Down)"</strong> feature to generate characters that appear rotated 180 degrees – perfect for playful messages and creative designs.</p>
-      <p>All processing is client‑side, meaning your text never leaves your browser. No data is stored or shared.</p>
-
-      <h2>Conclusion</h2>
-      <p>The reverse text tool is one of those small digital tools that can spark a lot of creativity. Whether you're pranking friends, teaching a class, or designing something beautiful, it's always just a click away. And since it's completely free and private, you can use it as much as you like. What will you reverse today?</p>
     </main>
 
     <footer>
