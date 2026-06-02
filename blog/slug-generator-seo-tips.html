@@ -60,10 +60,8 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
     }
     .page-wrapper {
       width: 100%;
@@ -148,12 +146,30 @@
     
     main {
       flex: 1;
-      padding: 40px 40px;
+      padding: 40px 0;
       width: 100%;
       background: transparent;
     }
-    h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
-    .post-date { font-size: 14px; color: var(--text-light); margin-bottom: 25px; text-align: center; }
+    .content-container {
+      width: 100%;
+      padding: 0 40px;
+    }
+    @media (max-width: 768px) {
+      .content-container {
+        padding: 0 16px;
+      }
+      main {
+        padding: 20px 0;
+      }
+    }
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      text-align: left;
+    }
+    .post-date { font-size: 14px; color: var(--text-light); margin-bottom: 25px; text-align: left; }
     h2 { font-size: 24px; font-weight: 700; margin: 35px 0 15px; }
     h3 { font-size: 20px; font-weight: 700; margin: 25px 0 10px; }
     p { line-height: 1.8; color: var(--text-light); margin-bottom: 18px; font-size: 16px; }
@@ -208,14 +224,14 @@
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
-      main { padding: 20px 12px; }
+      main { padding: 20px 0; }
       footer { padding: 30px 16px 20px; }
     }
     @media (min-width: 769px) {
       .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; }
     }
     @media (min-width: 1800px) {
-      main { padding: 50px 60px; }
+      main { padding: 50px 0; }
       header { padding: 0 60px; }
       footer { padding: 50px 60px 30px; }
       h1 { font-size: 44px; }
@@ -251,73 +267,75 @@
     </header>
 
     <main>
-      <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
+      <div class="content-container">
+        <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
 
-      <h1>SEO-Friendly URL Slugs: Best Practices</h1>
-      <p class="post-date">📅 April 10, 2026</p>
+        <h1>SEO-Friendly URL Slugs: Best Practices</h1>
+        <p class="post-date">📅 April 10, 2026</p>
 
-      <p>A well‑crafted URL slug does more than just point to a page — it tells search engines and users exactly what the content is about. In this guide, we'll explore the essentials of creating clean, SEO‑friendly URL slugs and show you how to use Textify's <strong>Slug Generator</strong> to instantly optimize any title or string for the web.</p>
+        <p>A well‑crafted URL slug does more than just point to a page — it tells search engines and users exactly what the content is about. In this guide, we'll explore the essentials of creating clean, SEO‑friendly URL slugs and show you how to use Textify's <strong>Slug Generator</strong> to instantly optimize any title or string for the web.</p>
 
-      <h2>What Is a URL Slug?</h2>
-      <p>The <strong>slug</strong> is the last part of a URL that identifies a specific page in a readable, human‑friendly format. For example, in the URL:</p>
-      <p style="background:var(--hover); padding:10px 15px; border-radius:8px; font-family:monospace; word-break:break-all;">https://textify.tools/blog/slug-generator-seo-tips</p>
-      <p>The slug is <strong>slug-generator-seo-tips</strong>. The slug is one of the most critical elements for on‑page SEO because it appears directly in the search results and helps Google understand the page's topic.</p>
+        <h2>What Is a URL Slug?</h2>
+        <p>The <strong>slug</strong> is the last part of a URL that identifies a specific page in a readable, human‑friendly format. For example, in the URL:</p>
+        <p style="background:var(--hover); padding:10px 15px; border-radius:8px; font-family:monospace; word-break:break-all;">https://textify.tools/blog/slug-generator-seo-tips</p>
+        <p>The slug is <strong>slug-generator-seo-tips</strong>. The slug is one of the most critical elements for on‑page SEO because it appears directly in the search results and helps Google understand the page's topic.</p>
 
-      <h2>Why Clean Slugs Matter for SEO</h2>
-      <p>Search engines use the words in the slug as a ranking signal. A clear, keyword‑rich slug can improve your click‑through rate from search results and give users a preview of the page content before they even visit. A messy, auto‑generated slug (like <code>?p=123</code> or <code>/2024/04/03/uncategorized/my-first-post</code>) wastes this opportunity.</p>
-      <p>Benefits of a well‑optimized slug:</p>
-      <ul>
-        <li><strong>Higher CTR:</strong> Users are more likely to click on a readable, descriptive URL.</li>
-        <li><strong>Better crawling:</strong> Search engines can parse the words in the slug for contextual relevance.</li>
-        <li><strong>Link sharing:</strong> A clean slug looks professional when shared on social media or in emails.</li>
-        <li><strong>Avoids duplicate content issues:</strong> Unique, meaningful slugs help prevent URL‑based duplication.</li>
-      </ul>
+        <h2>Why Clean Slugs Matter for SEO</h2>
+        <p>Search engines use the words in the slug as a ranking signal. A clear, keyword‑rich slug can improve your click‑through rate from search results and give users a preview of the page content before they even visit. A messy, auto‑generated slug (like <code>?p=123</code> or <code>/2024/04/03/uncategorized/my-first-post</code>) wastes this opportunity.</p>
+        <p>Benefits of a well‑optimized slug:</p>
+        <ul>
+          <li><strong>Higher CTR:</strong> Users are more likely to click on a readable, descriptive URL.</li>
+          <li><strong>Better crawling:</strong> Search engines can parse the words in the slug for contextual relevance.</li>
+          <li><strong>Link sharing:</strong> A clean slug looks professional when shared on social media or in emails.</li>
+          <li><strong>Avoids duplicate content issues:</strong> Unique, meaningful slugs help prevent URL‑based duplication.</li>
+        </ul>
 
-      <h2>Key Rules for the Perfect Slug</h2>
-      <p>Follow these best practices every time you create a new URL:</p>
-      <ol>
-        <li><strong>Keep it short (3–5 words):</strong> Longer slugs are harder to read and may be truncated in search results. Aim for under 60 characters.</li>
-        <li><strong>Use lowercase letters only:</strong> Servers treat uppercase and lowercase URLs differently, which can lead to duplicate content. Always stick to lowercase.</li>
-        <li><strong>Separate words with hyphens:</strong> Hyphens (‑) are the standard word separator for URLs. Avoid underscores (_), spaces (%20), or any other special characters.</li>
-        <li><strong>Include your primary keyword:</strong> The main topic of the page should appear naturally in the slug. For a post about "password generator privacy," a slug like <code>password-generator-privacy</code> is ideal.</li>
-        <li><strong>Remove stop words:</strong> Words like "a," "an," "the," "in," and "on" add length without value. For example, <code>how-to-use-a-text-repeater</code> can be shortened to <code>use-text-repeater</code> or simply <code>text-repeater-guide</code> depending on context.</li>
-        <li><strong>Use only ASCII characters:</strong> Avoid accented letters, emojis, or non‑Latin scripts — they can cause encoding issues in some browsers and servers.</li>
-      </ol>
+        <h2>Key Rules for the Perfect Slug</h2>
+        <p>Follow these best practices every time you create a new URL:</p>
+        <ol>
+          <li><strong>Keep it short (3–5 words):</strong> Longer slugs are harder to read and may be truncated in search results. Aim for under 60 characters.</li>
+          <li><strong>Use lowercase letters only:</strong> Servers treat uppercase and lowercase URLs differently, which can lead to duplicate content. Always stick to lowercase.</li>
+          <li><strong>Separate words with hyphens:</strong> Hyphens (‑) are the standard word separator for URLs. Avoid underscores (_), spaces (%20), or any other special characters.</li>
+          <li><strong>Include your primary keyword:</strong> The main topic of the page should appear naturally in the slug. For a post about "password generator privacy," a slug like <code>password-generator-privacy</code> is ideal.</li>
+          <li><strong>Remove stop words:</strong> Words like "a," "an," "the," "in," and "on" add length without value. For example, <code>how-to-use-a-text-repeater</code> can be shortened to <code>use-text-repeater</code> or simply <code>text-repeater-guide</code> depending on context.</li>
+          <li><strong>Use only ASCII characters:</strong> Avoid accented letters, emojis, or non‑Latin scripts — they can cause encoding issues in some browsers and servers.</li>
+        </ol>
 
-      <div class="tip-box">
-        <p><strong>💡 Example:</strong> A good slug: <code>/blog/slug-generator-seo-tips</code>. A bad slug for the same page: <code>/blog/index.php?page=12&lang=en</code>.</p>
+        <div class="tip-box">
+          <p><strong>💡 Example:</strong> A good slug: <code>/blog/slug-generator-seo-tips</code>. A bad slug for the same page: <code>/blog/index.php?page=12&lang=en</code>.</p>
+        </div>
+
+        <h2>How to Generate Slugs Instantly with Textify</h2>
+        <p>Manually cleaning up a title can be tedious — you have to remove punctuation, lower the case, replace spaces with hyphens, and strip extra characters. Textify's <a href="/slug-generator">Slug Generator</a> does all of this automatically:</p>
+        <ol>
+          <li>Go to the <a href="/slug-generator">Slug Generator tool</a>.</li>
+          <li>Paste your blog title (e.g., "10 Tips for Better SEO in 2026!").</li>
+          <li>The tool instantly outputs a clean slug: <code>10-tips-for-better-seo-in-2026</code>.</li>
+          <li>Copy the slug and use it in your CMS, blog platform, or static site generator.</li>
+        </ol>
+
+        <a href="/slug-generator" class="cta-button">Try the Slug Generator →</a>
+
+        <h2>Slug Optimization for Different Platforms</h2>
+        <p>Different platforms handle slugs slightly differently. Here are a few platform‑specific tips:</p>
+        <ul>
+          <li><strong>WordPress:</strong> The slug is editable in the permalink settings of each post. Use Textify to generate a clean slug before publishing.</li>
+          <li><strong>Shopify / e‑commerce:</strong> Product slugs should include the product name and, optionally, the brand or SKU (e.g., <code>nike-air-max-270-black</code>).</li>
+          <li><strong>Static sites (Hugo, Jekyll):</strong> Slugs are often derived from the file name. Use the generated slug as your file name for consistency.</li>
+          <li><strong>Social media link previews:</strong> Many social platforms pull the URL into the preview card; a clean slug looks more trustworthy.</li>
+        </ul>
+
+        <h2>Common Slug Mistakes to Avoid</h2>
+        <ul>
+          <li>❌ <strong>Auto‑generated numbers:</strong> URLs like <code>/post?id=492</code> tell search engines nothing about the content.</li>
+          <li>❌ <strong>Repeating keywords:</strong> <code>/blog/seo-tips/seo-tips-for-beginners</code> is stuffed and spammy.</li>
+          <li>❌ <strong>Dates in slug:</strong> Unless your content is news‑based and dates are critical, avoid adding the year or month — it dates the URL and makes updates harder.</li>
+          <li>❌ <strong>Case mix:</strong> <code>/Blog/SEO-Tips</code> can cause 404 errors on some servers.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>A slug is a small detail, but its impact on SEO and user experience is enormous. By following the best practices outlined above — and using Textify's free <a href="/slug-generator">Slug Generator</a> to automate the process — you can ensure every URL you publish is clean, readable, and optimized for search engines.</p>
       </div>
-
-      <h2>How to Generate Slugs Instantly with Textify</h2>
-      <p>Manually cleaning up a title can be tedious — you have to remove punctuation, lower the case, replace spaces with hyphens, and strip extra characters. Textify's <a href="/slug-generator">Slug Generator</a> does all of this automatically:</p>
-      <ol>
-        <li>Go to the <a href="/slug-generator">Slug Generator tool</a>.</li>
-        <li>Paste your blog title (e.g., "10 Tips for Better SEO in 2026!").</li>
-        <li>The tool instantly outputs a clean slug: <code>10-tips-for-better-seo-in-2026</code>.</li>
-        <li>Copy the slug and use it in your CMS, blog platform, or static site generator.</li>
-      </ol>
-
-      <a href="/slug-generator" class="cta-button">Try the Slug Generator →</a>
-
-      <h2>Slug Optimization for Different Platforms</h2>
-      <p>Different platforms handle slugs slightly differently. Here are a few platform‑specific tips:</p>
-      <ul>
-        <li><strong>WordPress:</strong> The slug is editable in the permalink settings of each post. Use Textify to generate a clean slug before publishing.</li>
-        <li><strong>Shopify / e‑commerce:</strong> Product slugs should include the product name and, optionally, the brand or SKU (e.g., <code>nike-air-max-270-black</code>).</li>
-        <li><strong>Static sites (Hugo, Jekyll):</strong> Slugs are often derived from the file name. Use the generated slug as your file name for consistency.</li>
-        <li><strong>Social media link previews:</strong> Many social platforms pull the URL into the preview card; a clean slug looks more trustworthy.</li>
-      </ul>
-
-      <h2>Common Slug Mistakes to Avoid</h2>
-      <ul>
-        <li>❌ <strong>Auto‑generated numbers:</strong> URLs like <code>/post?id=492</code> tell search engines nothing about the content.</li>
-        <li>❌ <strong>Repeating keywords:</strong> <code>/blog/seo-tips/seo-tips-for-beginners</code> is stuffed and spammy.</li>
-        <li>❌ <strong>Dates in slug:</strong> Unless your content is news‑based and dates are critical, avoid adding the year or month — it dates the URL and makes updates harder.</li>
-        <li>❌ <strong>Case mix:</strong> <code>/Blog/SEO-Tips</code> can cause 404 errors on some servers.</li>
-      </ul>
-
-      <h2>Conclusion</h2>
-      <p>A slug is a small detail, but its impact on SEO and user experience is enormous. By following the best practices outlined above — and using Textify's free <a href="/slug-generator">Slug Generator</a> to automate the process — you can ensure every URL you publish is clean, readable, and optimized for search engines.</p>
     </main>
 
     <footer>
