@@ -92,11 +92,10 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
       transition: background 0.3s, color 0.3s;
-      align-items: center;
+      overflow-x: hidden;
     }
+
     .page-wrapper {
       width: 100%;
       max-width: 100%;
@@ -186,12 +185,30 @@
     
     main {
       flex: 1;
-      padding: 40px 40px;
+      padding: 40px 0;
       width: 100%;
       background: transparent;
     }
-    h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
-    .post-date { font-size: 14px; color: var(--text-light); margin-bottom: 25px; text-align: center; }
+    .content-container {
+      width: 100%;
+      padding: 0 40px;
+    }
+    @media (max-width: 768px) {
+      .content-container {
+        padding: 0 16px;
+      }
+      main {
+        padding: 20px 0;
+      }
+    }
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      text-align: left;
+    }
+    .post-date { font-size: 14px; color: var(--text-light); margin-bottom: 25px; text-align: left; }
     h2 { font-size: 24px; font-weight: 700; margin: 35px 0 15px; }
     h3 { font-size: 20px; font-weight: 700; margin: 25px 0 10px; }
     p { line-height: 1.8; color: var(--text-light); margin-bottom: 18px; font-size: 16px; }
@@ -246,14 +263,14 @@
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
-      main { padding: 20px 12px; }
+      main { padding: 20px 0; }
       footer { padding: 30px 16px 20px; }
     }
     @media (min-width: 769px) {
       .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; }
     }
     @media (min-width: 1800px) {
-      main { padding: 50px 60px; }
+      main { padding: 50px 0; }
       header { padding: 0 60px; }
       footer { padding: 50px 60px 30px; }
       h1 { font-size: 44px; }
@@ -289,66 +306,68 @@
     </header>
 
     <main>
-      <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
+      <div class="content-container">
+        <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
 
-      <h1>Case Converter: A Writer's Best Friend</h1>
-      <p class="post-date">📅 April 4, 2026</p>
+        <h1>Case Converter: A Writer's Best Friend</h1>
+        <p class="post-date">📅 April 4, 2026</p>
 
-      <p>Every writer knows the frustration: you look up from the keyboard and realize you've typed three paragraphs IN ALL CAPS because the Caps Lock key was on. Or you need to format a headline, but your tool refuses to capitalize the right words. A reliable case converter can turn those moments from disaster into a simple click. The <a href="/case-converter">Textify Case Converter</a> is the free, privacy‑friendly tool that every writer should have bookmarked.</p>
+        <p>Every writer knows the frustration: you look up from the keyboard and realize you've typed three paragraphs IN ALL CAPS because the Caps Lock key was on. Or you need to format a headline, but your tool refuses to capitalize the right words. A reliable case converter can turn those moments from disaster into a simple click. The <a href="/case-converter">Textify Case Converter</a> is the free, privacy‑friendly tool that every writer should have bookmarked.</p>
 
-      <p>In this article, we'll walk through the different case options available, when to use each one, and how to quickly fix common text‑formatting mistakes using the converter.</p>
+        <p>In this article, we'll walk through the different case options available, when to use each one, and how to quickly fix common text‑formatting mistakes using the converter.</p>
 
-      <h2>Why Writers Need a Case Converter</h2>
-      <p>Whether you're a blogger, journalist, content creator, or student, clean and consistent text formatting is essential. A case converter can help you:</p>
-      <ul>
-        <li><strong>Fix accidental all‑caps mistakes</strong> in seconds.</li>
-        <li><strong>Transform headings</strong> into proper title case for blogs and articles.</li>
-        <li><strong>Normalize case</strong> when copying text from different sources (emails, PDFs, notes).</li>
-        <li><strong>Create stylistic effects</strong> like alternating case for social media captions.</li>
-      </ul>
+        <h2>Why Writers Need a Case Converter</h2>
+        <p>Whether you're a blogger, journalist, content creator, or student, clean and consistent text formatting is essential. A case converter can help you:</p>
+        <ul>
+          <li><strong>Fix accidental all‑caps mistakes</strong> in seconds.</li>
+          <li><strong>Transform headings</strong> into proper title case for blogs and articles.</li>
+          <li><strong>Normalize case</strong> when copying text from different sources (emails, PDFs, notes).</li>
+          <li><strong>Create stylistic effects</strong> like alternating case for social media captions.</li>
+        </ul>
 
-      <h2>The Textify Case Converter: All Options at a Glance</h2>
-      <p>The Textify tool provides six different case transformations, each with a specific purpose. Here's a quick guide to what they do and when to use them.</p>
+        <h2>The Textify Case Converter: All Options at a Glance</h2>
+        <p>The Textify tool provides six different case transformations, each with a specific purpose. Here's a quick guide to what they do and when to use them.</p>
 
-      <h3>1. UPPER CASE</h3>
-      <p>Converts every letter to uppercase. Useful for acronyms, abbreviations, or sections that need a shouty effect (though use with caution in professional writing).</p>
+        <h3>1. UPPER CASE</h3>
+        <p>Converts every letter to uppercase. Useful for acronyms, abbreviations, or sections that need a shouty effect (though use with caution in professional writing).</p>
 
-      <h3>2. lower case</h3>
-      <p>Converts everything to lowercase. Ideal when you need a clean slate – for instance, after copying all‑caps text from a design mockup.</p>
+        <h3>2. lower case</h3>
+        <p>Converts everything to lowercase. Ideal when you need a clean slate – for instance, after copying all‑caps text from a design mockup.</p>
 
-      <h3>3. Title Case</h3>
-      <p>Capitalizes the first letter of each word. <strong>Note:</strong> The converter capitalizes every word, regardless of part of speech. For strict AP‑style title case (where articles and short prepositions stay lowercase), you may need a dedicated title‑case tool, but for quick blog headings and email subjects, the built‑in title case works great.</p>
+        <h3>3. Title Case</h3>
+        <p>Capitalizes the first letter of each word. <strong>Note:</strong> The converter capitalizes every word, regardless of part of speech. For strict AP‑style title case (where articles and short prepositions stay lowercase), you may need a dedicated title‑case tool, but for quick blog headings and email subjects, the built‑in title case works great.</p>
 
-      <h3>4. Sentence case</h3>
-      <p>Capitalizes only the first letter of each sentence. Perfect for turning ALL‑CAPS notes back into readable paragraphs. The tool respects punctuation like periods, exclamation marks, and question marks.</p>
+        <h3>4. Sentence case</h3>
+        <p>Capitalizes only the first letter of each sentence. Perfect for turning ALL‑CAPS notes back into readable paragraphs. The tool respects punctuation like periods, exclamation marks, and question marks.</p>
 
-      <h3>5. aLtErNaTiNg cAsE</h3>
-      <p>Produces a fun, spongebob‑style text. Often used in memes or to convey sarcasm. For writers, this is great for social media copy and creative projects.</p>
+        <h3>5. aLtErNaTiNg cAsE</h3>
+        <p>Produces a fun, spongebob‑style text. Often used in memes or to convey sarcasm. For writers, this is great for social media copy and creative projects.</p>
 
-      <h3>6. iNVERSE cASE</h3>
-      <p>Flips the current case – uppercase becomes lowercase, and vice‑versa. A handy feature when you need to quickly invert a style without retyping.</p>
+        <h3>6. iNVERSE cASE</h3>
+        <p>Flips the current case – uppercase becomes lowercase, and vice‑versa. A handy feature when you need to quickly invert a style without retyping.</p>
 
-      <div class="tip-box">
-        <p><strong>💡 Pro tip:</strong> Combine sentence case with the copy button to quickly clean up messy imported text. Paste all your text, click "Sentence case", then copy – you'll have a perfectly formatted paragraph ready to drop into your document.</p>
+        <div class="tip-box">
+          <p><strong>💡 Pro tip:</strong> Combine sentence case with the copy button to quickly clean up messy imported text. Paste all your text, click "Sentence case", then copy – you'll have a perfectly formatted paragraph ready to drop into your document.</p>
+        </div>
+
+        <h2>Real‑World Writing Scenarios</h2>
+        <p>Here are some common situations where the case converter saves time:</p>
+
+        <ul>
+          <li><strong>Blog headline formatting:</strong> You've written a headline in lower case, but your theme requires Title Case. A quick convert fixes it.</li>
+          <li><strong>Social media bios:</strong> Your bio copy is a mix of UPPER and lower case – paste it, hit "Sentence case", and you're done.</li>
+          <li><strong>Email subject lines:</strong> Need a subject in Title Case? Convert it in one click.</li>
+          <li><strong>Code comments:</strong> Developers sometimes write comments in all caps for visibility, then need to revert to normal case for documentation. The converter handles that gracefully.</li>
+        </ul>
+
+        <h2>The Privacy Side – Why It Matters</h2>
+        <p>Like all Textify tools, the case converter runs entirely in your browser. Your text never leaves your device – it's processed locally, instantly, and without any server interaction. For writers handling confidential drafts, client work, or personal notes, this privacy guarantee is invaluable. You don't have to worry about accidental leaks or prying eyes.</p>
+
+        <h2>Try It Now</h2>
+        <p>The next time you find yourself manually retyping a sentence because of a case error, stop. Open the <a href="/case-converter">Textify Case Converter</a>, paste your text, and let the tool handle the transformation. It's fast, free, and built with your privacy in mind.</p>
+
+        <a href="/case-converter" class="cta-button">Open the Case Converter →</a>
       </div>
-
-      <h2>Real‑World Writing Scenarios</h2>
-      <p>Here are some common situations where the case converter saves time:</p>
-
-      <ul>
-        <li><strong>Blog headline formatting:</strong> You've written a headline in lower case, but your theme requires Title Case. A quick convert fixes it.</li>
-        <li><strong>Social media bios:</strong> Your bio copy is a mix of UPPER and lower case – paste it, hit "Sentence case", and you're done.</li>
-        <li><strong>Email subject lines:</strong> Need a subject in Title Case? Convert it in one click.</li>
-        <li><strong>Code comments:</strong> Developers sometimes write comments in all caps for visibility, then need to revert to normal case for documentation. The converter handles that gracefully.</li>
-      </ul>
-
-      <h2>The Privacy Side – Why It Matters</h2>
-      <p>Like all Textify tools, the case converter runs entirely in your browser. Your text never leaves your device – it's processed locally, instantly, and without any server interaction. For writers handling confidential drafts, client work, or personal notes, this privacy guarantee is invaluable. You don't have to worry about accidental leaks or prying eyes.</p>
-
-      <h2>Try It Now</h2>
-      <p>The next time you find yourself manually retyping a sentence because of a case error, stop. Open the <a href="/case-converter">Textify Case Converter</a>, paste your text, and let the tool handle the transformation. It's fast, free, and built with your privacy in mind.</p>
-
-      <a href="/case-converter" class="cta-button">Open the Case Converter →</a>
     </main>
 
     <footer>
