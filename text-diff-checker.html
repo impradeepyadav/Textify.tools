@@ -147,11 +147,36 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main { flex: 1; padding: 40px 40px; width: 100%; max-width: 100%; background: transparent; }
-        h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
+        /* MAIN – full width with content container for padding */
+        main {
+            flex: 1;
+            padding: 40px 0; /* no left/right padding */
+            width: 100%;
+            max-width: 100%;
+            background: transparent;
+        }
+        .content-container {
+            width: 100%;
+            padding: 0 40px;
+        }
+        @media (max-width: 768px) {
+            .content-container {
+                padding: 0 16px;
+            }
+            main {
+                padding: 20px 0;
+            }
+        }
+        h1 {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            text-align: left; /* left aligned */
+        }
         h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
         h3 { font-size: 20px; font-weight: 700; margin: 25px 0 12px; }
-        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 40px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
+        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 40px; text-align: left; max-width: 900px; }
         p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
         ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
 
@@ -225,12 +250,12 @@
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
-            main { padding: 20px 12px; }
+            main { padding: 20px 0; }
             footer { padding: 30px 16px 20px; }
         }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
         @media (min-width: 1800px) {
-            main { padding: 50px 60px; }
+            main { padding: 50px 0; }
             header { padding: 0 60px; }
             footer { padding: 50px 60px 30px; }
             h1 { font-size: 44px; }
@@ -266,122 +291,124 @@
         </header>
 
         <main>
-            <h1>Free Online Text Diff Checker – Compare Two Texts Instantly</h1>
-            <p class="subtitle">Paste two versions of a document and see exactly what changed – line by line, instantly highlighted. All processing happens right in your browser, so your text stays private and never leaves your device.</p>
+            <div class="content-container">
+                <h1>Free Online Text Diff Checker – Compare Two Texts Instantly</h1>
+                <p class="subtitle">Paste two versions of a document and see exactly what changed – line by line, instantly highlighted. All processing happens right in your browser, so your text stays private and never leaves your device.</p>
 
-            <div class="diff-container">
-                <div class="diff-input">
-                    <label>📄 Original Text</label>
-                    <textarea id="originalText" placeholder="Paste the original version..."></textarea>
-                </div>
-                <div class="diff-input">
-                    <label>📝 Modified Text</label>
-                    <textarea id="modifiedText" placeholder="Paste the new version..."></textarea>
-                </div>
-            </div>
-
-            <div class="btn-row">
-                <button class="btn btn-primary" id="compareBtn" onclick="compareTexts()"><i data-lucide="git-compare" width="18" height="18"></i> Compare Now</button>
-                <button class="btn btn-outline" onclick="swapTexts()"><i data-lucide="arrow-left-right" width="18" height="18"></i> Swap Texts</button>
-                <button class="btn btn-outline" onclick="clearAll()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-            </div>
-
-            <div class="output-area" id="outputArea">
-                <div class="diff-output" id="diffOutput"></div>
-                <div class="btn-row" style="margin: 15px 0 0 0;">
-                    <button class="btn btn-primary" onclick="copyDiff()"><i data-lucide="copy" width="18" height="18"></i> Copy Result</button>
-                    <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadDiff()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
-                </div>
-            </div>
-
-            <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
-                <h2>How to Use the Text Diff Checker</h2>
-                <div class="how-to-card" style="background:var(--accent); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; align-items:flex-start; gap:16px; margin-bottom:16px;">
-                    <div class="step-num" style="background:var(--primary); color:var(--bg); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">1</div>
-                    <div><h4>Enter Your Texts</h4><p>Paste the original version into the left box and the modified version into the right box. They can be articles, code snippets, contracts, or any text.</p></div>
-                </div>
-                <div class="how-to-card" style="background:var(--accent); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; align-items:flex-start; gap:16px; margin-bottom:16px;">
-                    <div class="step-num" style="background:var(--primary); color:var(--bg); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">2</div>
-                    <div><h4>Click "Compare Now"</h4><p>The tool instantly scans both texts line by line and highlights every difference using a standard diff algorithm.</p></div>
-                </div>
-                <div class="how-to-card" style="background:var(--accent); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; align-items:flex-start; gap:16px; margin-bottom:16px;">
-                    <div class="step-num" style="background:var(--primary); color:var(--bg); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">3</div>
-                    <div><h4>Review the Differences</h4><p><span class="diff-added" style="display:inline-block; padding:0 4px;">Green lines</span> were <strong>added</strong> (present only in the modified version). <span class="diff-removed" style="display:inline-block; padding:0 4px;">Red lines</span> were <strong>removed</strong> (present only in the original). Unchanged lines appear in normal text. You can swap the texts or clear them anytime.</p></div>
-                </div>
-                <div class="how-to-card" style="background:var(--accent); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; align-items:flex-start; gap:16px; margin-bottom:16px;">
-                    <div class="step-num" style="background:var(--primary); color:var(--bg); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">4</div>
-                    <div><h4>Copy or Download</h4><p>Save the diff report as a plain text file for your records, or copy it to your clipboard to share with your team.</p></div>
+                <div class="diff-container">
+                    <div class="diff-input">
+                        <label>📄 Original Text</label>
+                        <textarea id="originalText" placeholder="Paste the original version..."></textarea>
+                    </div>
+                    <div class="diff-input">
+                        <label>📝 Modified Text</label>
+                        <textarea id="modifiedText" placeholder="Paste the new version..."></textarea>
+                    </div>
                 </div>
 
-                <h2>Understanding the Diff Output</h2>
-                <p>The diff algorithm works line by line, highlighting what's new, what's gone, and what stayed the same. Here's a quick legend:</p>
-                <div class="table-wrapper">
-                    <table class="info-table">
-                        <thead><tr><th>Color / Indicator</th><th>Meaning</th></tr></thead>
-                        <tbody>
-                            <tr><td><span class="diff-added" style="display:inline-block; padding:2px 8px;">Green background</span></td><td>Line was <strong>added</strong> in the modified version (not present in original).</td></tr>
-                            <tr><td><span class="diff-removed" style="display:inline-block; padding:2px 8px;">Red background</span></td><td>Line was <strong>removed</strong> from the original version (not present in modified).</td></tr>
-                            <tr><td>Normal / dimmed text</td><td>Line is <strong>unchanged</strong> between both versions.</td></tr>
-                        </tbody>
-                    </table>
+                <div class="btn-row">
+                    <button class="btn btn-primary" id="compareBtn" onclick="compareTexts()"><i data-lucide="git-compare" width="18" height="18"></i> Compare Now</button>
+                    <button class="btn btn-outline" onclick="swapTexts()"><i data-lucide="arrow-left-right" width="18" height="18"></i> Swap Texts</button>
+                    <button class="btn btn-outline" onclick="clearAll()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
                 </div>
 
-                <h2>Common Use Cases</h2>
-                <p>Our diff checker isn't just for programmers — it's useful in many everyday situations:</p>
-                <div class="table-wrapper">
-                    <table class="info-table">
-                        <thead><tr><th>Use Case</th><th>Description</th></tr></thead>
-                        <tbody>
-                            <tr><td><strong>Code version control</strong></td><td>Compare old and new code snippets to see exactly what changed before committing.</td></tr>
-                            <tr><td><strong>Document editing</strong></td><td>Review edits made to contracts, essays, or reports.</td></tr>
-                            <tr><td><strong>Plagiarism & similarity check</strong></td><td>Quickly spot copied or modified passages between two texts.</td></tr>
-                            <tr><td><strong>Configuration comparison</strong></td><td>Find discrepancies between two configuration files or logs.</td></tr>
-                            <tr><td><strong>Content updates</strong></td><td>See what was added or removed when updating website copy or articles.</td></tr>
-                            <tr><td><strong>Legal document review</strong></td><td>Track every change between versions of a contract or agreement.</td></tr>
-                            <tr><td><strong>Academic writing</strong></td><td>Compare drafts of a paper to ensure revisions were applied correctly.</td></tr>
-                        </tbody>
-                    </table>
+                <div class="output-area" id="outputArea">
+                    <div class="diff-output" id="diffOutput"></div>
+                    <div class="btn-row" style="margin: 15px 0 0 0;">
+                        <button class="btn btn-primary" onclick="copyDiff()"><i data-lucide="copy" width="18" height="18"></i> Copy Result</button>
+                        <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadDiff()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+                    </div>
                 </div>
 
-                <div class="tip-box">
-                    <p style="margin:0; font-size:14px;"><strong>💡 Pro Tip:</strong> The diff checker is fully client‑side. Your texts never leave your browser – perfect for sensitive documents or proprietary code. Even works offline once loaded.</p>
+                <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
+                    <h2>How to Use the Text Diff Checker</h2>
+                    <div class="how-to-card" style="background:var(--accent); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; align-items:flex-start; gap:16px; margin-bottom:16px;">
+                        <div class="step-num" style="background:var(--primary); color:var(--bg); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">1</div>
+                        <div><h4>Enter Your Texts</h4><p>Paste the original version into the left box and the modified version into the right box. They can be articles, code snippets, contracts, or any text.</p></div>
+                    </div>
+                    <div class="how-to-card" style="background:var(--accent); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; align-items:flex-start; gap:16px; margin-bottom:16px;">
+                        <div class="step-num" style="background:var(--primary); color:var(--bg); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">2</div>
+                        <div><h4>Click "Compare Now"</h4><p>The tool instantly scans both texts line by line and highlights every difference using a standard diff algorithm.</p></div>
+                    </div>
+                    <div class="how-to-card" style="background:var(--accent); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; align-items:flex-start; gap:16px; margin-bottom:16px;">
+                        <div class="step-num" style="background:var(--primary); color:var(--bg); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">3</div>
+                        <div><h4>Review the Differences</h4><p><span class="diff-added" style="display:inline-block; padding:0 4px;">Green lines</span> were <strong>added</strong> (present only in the modified version). <span class="diff-removed" style="display:inline-block; padding:0 4px;">Red lines</span> were <strong>removed</strong> (present only in the original). Unchanged lines appear in normal text. You can swap the texts or clear them anytime.</p></div>
+                    </div>
+                    <div class="how-to-card" style="background:var(--accent); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; align-items:flex-start; gap:16px; margin-bottom:16px;">
+                        <div class="step-num" style="background:var(--primary); color:var(--bg); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0;">4</div>
+                        <div><h4>Copy or Download</h4><p>Save the diff report as a plain text file for your records, or copy it to your clipboard to share with your team.</p></div>
+                    </div>
+
+                    <h2>Understanding the Diff Output</h2>
+                    <p>The diff algorithm works line by line, highlighting what's new, what's gone, and what stayed the same. Here's a quick legend:</p>
+                    <div class="table-wrapper">
+                        <table class="info-table">
+                            <thead><tr><th>Color / Indicator</th><th>Meaning</th></tr></thead>
+                            <tbody>
+                                <tr><td><span class="diff-added" style="display:inline-block; padding:2px 8px;">Green background</span></td><td>Line was <strong>added</strong> in the modified version (not present in original).</td></tr>
+                                <tr><td><span class="diff-removed" style="display:inline-block; padding:2px 8px;">Red background</span></td><td>Line was <strong>removed</strong> from the original version (not present in modified).</td></tr>
+                                <tr><td>Normal / dimmed text</td><td>Line is <strong>unchanged</strong> between both versions.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2>Common Use Cases</h2>
+                    <p>Our diff checker isn't just for programmers — it's useful in many everyday situations:</p>
+                    <div class="table-wrapper">
+                        <table class="info-table">
+                            <thead><tr><th>Use Case</th><th>Description</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Code version control</strong></td><td>Compare old and new code snippets to see exactly what changed before committing.</td></tr>
+                                <tr><td><strong>Document editing</strong></td><td>Review edits made to contracts, essays, or reports.</td></tr>
+                                <tr><td><strong>Plagiarism & similarity check</strong></td><td>Quickly spot copied or modified passages between two texts.</td></tr>
+                                <tr><td><strong>Configuration comparison</strong></td><td>Find discrepancies between two configuration files or logs.</td></tr>
+                                <tr><td><strong>Content updates</strong></td><td>See what was added or removed when updating website copy or articles.</td></tr>
+                                <tr><td><strong>Legal document review</strong></td><td>Track every change between versions of a contract or agreement.</td></tr>
+                                <tr><td><strong>Academic writing</strong></td><td>Compare drafts of a paper to ensure revisions were applied correctly.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tip-box">
+                        <p style="margin:0; font-size:14px;"><strong>💡 Pro Tip:</strong> The diff checker is fully client‑side. Your texts never leave your browser – perfect for sensitive documents or proprietary code. Even works offline once loaded.</p>
+                    </div>
+
+                    <h2>Diff Checker for Writers and Editors</h2>
+                    <p>If you're polishing an article, blog post, or manuscript, our diff tool helps you see every change between drafts. For example:</p>
+                    <ul>
+                        <li><strong>Track client revisions:</strong> Paste the original draft and the client's edited version to understand exactly what they changed.</li>
+                        <li><strong>Review your own edits:</strong> Compare an earlier draft with your latest to see how the piece evolved.</li>
+                        <li><strong>Collaborate without confusion:</strong> Share the diff output with co‑authors to discuss changes without combing through the whole document.</li>
+                    </ul>
+                    <p>Because the diff is line‑based, it works best when the two texts are structurally similar. For heavily restructured documents, you'll still see which paragraphs were added or removed.</p>
+
+                    <h2>A Quick Look Under the Hood</h2>
+                    <p>Our tool uses the classic <strong>Longest Common Subsequence (LCS)</strong> algorithm. In simple terms, it finds the longest sequence of lines that appear in the same order in both texts. Everything else is flagged as added or removed. This is the same approach used by the Unix `diff` command and many version control systems.</p>
+                    <p>The algorithm runs entirely in JavaScript inside your browser. That means no server round‑trips, no waiting, and complete privacy. For texts up to a few thousand lines, it's nearly instant. For very large files, your device's memory and CPU will be the only limiting factors.</p>
+
+                    <h2>Tips for Getting the Most Out of the Diff Checker</h2>
+                    <ul>
+                        <li><strong>Keep line breaks consistent:</strong> The diff works line by line. If one version has different wrapping (e.g., hard returns vs. soft wrapping), the diff may show more changes than expected. Use a text editor to normalize line endings if needed.</li>
+                        <li><strong>Compare similar formats:</strong> For best results, paste plain text. If you compare heavily formatted text (like HTML), the diff will show markup changes along with content changes.</li>
+                        <li><strong>Use the Swap button:</strong> If you accidentally reversed the original and modified texts, just click "Swap Texts" to flip them without re‑pasting.</li>
+                        <li><strong>Save diff reports:</strong> Download the diff as a .txt file to keep a record of changes for future reference or to share with others.</li>
+                    </ul>
+
+                    <h2>Why Use Our Diff Checker?</h2>
+                    <ul>
+                        <li><strong>100% free</strong> – no sign‑up, no watermarks, no limits.</li>
+                        <li><strong>Instant results</strong> – no waiting for a server; the comparison runs directly in your browser.</li>
+                        <li><strong>Privacy you can trust</strong> – your texts are never uploaded, stored, or shared.</li>
+                        <li><strong>Line‑based accuracy</strong> – uses the classic LCS (Longest Common Subsequence) algorithm to catch every insertion and deletion.</li>
+                    </ul>
+
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is the Text Diff Checker really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free! No login, no watermarks, no limits. Use it as much as you need.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How accurate is the diff algorithm?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Our tool uses a line‑based Longest Common Subsequence (LCS) algorithm, which is the standard for diff utilities. It accurately shows inserted and deleted lines, even with complex changes.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I compare large files?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, but performance depends on your device. For very large texts (tens of thousands of lines), the browser might slow down. For most documents (up to a few thousand lines), it works instantly.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does this support character‑level differences?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Currently, the diff is line‑based, which is best for most document comparisons. For character‑level diff, you would need a specialized tool, but our line diff still highlights changes clearly.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my data private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All processing happens inside your browser. We never store, log, or transmit your texts. Your data stays completely private.</div></div>
                 </div>
-
-                <h2>Diff Checker for Writers and Editors</h2>
-                <p>If you're polishing an article, blog post, or manuscript, our diff tool helps you see every change between drafts. For example:</p>
-                <ul>
-                    <li><strong>Track client revisions:</strong> Paste the original draft and the client's edited version to understand exactly what they changed.</li>
-                    <li><strong>Review your own edits:</strong> Compare an earlier draft with your latest to see how the piece evolved.</li>
-                    <li><strong>Collaborate without confusion:</strong> Share the diff output with co‑authors to discuss changes without combing through the whole document.</li>
-                </ul>
-                <p>Because the diff is line‑based, it works best when the two texts are structurally similar. For heavily restructured documents, you'll still see which paragraphs were added or removed.</p>
-
-                <h2>A Quick Look Under the Hood</h2>
-                <p>Our tool uses the classic <strong>Longest Common Subsequence (LCS)</strong> algorithm. In simple terms, it finds the longest sequence of lines that appear in the same order in both texts. Everything else is flagged as added or removed. This is the same approach used by the Unix `diff` command and many version control systems.</p>
-                <p>The algorithm runs entirely in JavaScript inside your browser. That means no server round‑trips, no waiting, and complete privacy. For texts up to a few thousand lines, it's nearly instant. For very large files, your device's memory and CPU will be the only limiting factors.</p>
-
-                <h2>Tips for Getting the Most Out of the Diff Checker</h2>
-                <ul>
-                    <li><strong>Keep line breaks consistent:</strong> The diff works line by line. If one version has different wrapping (e.g., hard returns vs. soft wrapping), the diff may show more changes than expected. Use a text editor to normalize line endings if needed.</li>
-                    <li><strong>Compare similar formats:</strong> For best results, paste plain text. If you compare heavily formatted text (like HTML), the diff will show markup changes along with content changes.</li>
-                    <li><strong>Use the Swap button:</strong> If you accidentally reversed the original and modified texts, just click "Swap Texts" to flip them without re‑pasting.</li>
-                    <li><strong>Save diff reports:</strong> Download the diff as a .txt file to keep a record of changes for future reference or to share with others.</li>
-                </ul>
-
-                <h2>Why Use Our Diff Checker?</h2>
-                <ul>
-                    <li><strong>100% free</strong> – no sign‑up, no watermarks, no limits.</li>
-                    <li><strong>Instant results</strong> – no waiting for a server; the comparison runs directly in your browser.</li>
-                    <li><strong>Privacy you can trust</strong> – your texts are never uploaded, stored, or shared.</li>
-                    <li><strong>Line‑based accuracy</strong> – uses the classic LCS (Longest Common Subsequence) algorithm to catch every insertion and deletion.</li>
-                </ul>
-
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is the Text Diff Checker really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free! No login, no watermarks, no limits. Use it as much as you need.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How accurate is the diff algorithm?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Our tool uses a line‑based Longest Common Subsequence (LCS) algorithm, which is the standard for diff utilities. It accurately shows inserted and deleted lines, even with complex changes.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I compare large files?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, but performance depends on your device. For very large texts (tens of thousands of lines), the browser might slow down. For most documents (up to a few thousand lines), it works instantly.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does this support character‑level differences?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Currently, the diff is line‑based, which is best for most document comparisons. For character‑level diff, you would need a specialized tool, but our line diff still highlights changes clearly.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my data private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All processing happens inside your browser. We never store, log, or transmit your texts. Your data stays completely private.</div></div>
             </div>
         </main>
 
