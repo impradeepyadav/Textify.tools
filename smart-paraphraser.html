@@ -137,8 +137,33 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
-    main { flex: 1; width: 100%; padding: 40px 40px; background: transparent; }
-    h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
+    /* MAIN – full width with content container for padding */
+    main {
+      flex: 1;
+      padding: 40px 0; /* no left-right padding */
+      width: 100%;
+      max-width: 100%;
+      background: transparent;
+    }
+    .content-container {
+      width: 100%;
+      padding: 0 40px;
+    }
+    @media (max-width: 768px) {
+      .content-container {
+        padding: 0 16px;
+      }
+      main {
+        padding: 20px 0;
+      }
+    }
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      text-align: left; /* left aligned */
+    }
     h2 { font-size: 26px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
     h3 { font-size: 20px; font-weight: 700; margin: 25px 0 12px; }
     p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
@@ -204,9 +229,9 @@
     }
     .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
     
-    @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 12px; } footer { padding: 30px 16px 20px; } }
+    @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 0; } footer { padding: 30px 16px 20px; } }
     @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
-    @media (min-width: 1800px) { main { padding: 50px 60px; } header { padding: 0 60px; } footer { padding: 50px 60px 30px; } h1 { font-size: 44px; } }
+    @media (min-width: 1800px) { main { padding: 50px 0; } header { padding: 0 60px; } footer { padding: 50px 60px 30px; } h1 { font-size: 44px; } }
   </style>
 
   <div class="page-wrapper">
@@ -237,124 +262,126 @@
     </header>
 
     <main>
-      <h1>Free Online Smart Paraphraser – Rewrite & Rephrase Text Naturally</h1>
-      <p>Paste your text, choose how much you want it changed, and hit Paraphrase. The tool runs entirely in your browser — private, fast, and free.</p>
+      <div class="content-container">
+        <h1>Free Online Smart Paraphraser – Rewrite & Rephrase Text Naturally</h1>
+        <p>Paste your text, choose how much you want it changed, and hit Paraphrase. The tool runs entirely in your browser — private, fast, and free.</p>
 
-      <textarea id="inputText" placeholder="Paste or type the text you want to paraphrase..."></textarea>
-      <div class="text-meta"><span>Words: <span id="inputWordCount">0</span></span> <span>Characters: <span id="inputCharCount">0</span></span></div>
+        <textarea id="inputText" placeholder="Paste or type the text you want to paraphrase..."></textarea>
+        <div class="text-meta"><span>Words: <span id="inputWordCount">0</span></span> <span>Characters: <span id="inputCharCount">0</span></span></div>
 
-      <div class="strength-row">
-        <label for="strengthSlider">Paraphrasing strength:</label>
-        <input type="range" id="strengthSlider" min="1" max="5" value="3" class="strength-slider" oninput="updateStrengthLabel()">
-        <span class="strength-value" id="strengthLabel">Medium</span>
-      </div>
+        <div class="strength-row">
+          <label for="strengthSlider">Paraphrasing strength:</label>
+          <input type="range" id="strengthSlider" min="1" max="5" value="3" class="strength-slider" oninput="updateStrengthLabel()">
+          <span class="strength-value" id="strengthLabel">Medium</span>
+        </div>
 
-      <div class="btn-row">
-        <button class="btn btn-primary" id="paraphraseBtn" onclick="paraphraseText()"><i data-lucide="refresh-cw" width="18" height="18"></i> Paraphrase</button>
-        <button class="btn btn-outline" onclick="clearAll()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-        <button class="btn btn-outline" onclick="undoLast()" id="undoBtn" style="display:none;"><i data-lucide="undo-2" width="18" height="18"></i> Undo</button>
-      </div>
-
-      <div class="output-area" id="outputArea">
-        <textarea id="outputText" readonly></textarea>
-        <div class="text-meta"><span>Words: <span id="outputWordCount">0</span></span> <span>Characters: <span id="outputCharCount">0</span></span></div>
         <div class="btn-row">
-          <button class="btn btn-primary" onclick="copyOutput()"><i data-lucide="copy" width="18" height="18"></i> Copy</button>
-          <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadOutput()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
-          <button class="btn btn-outline" onclick="swapText()"><i data-lucide="arrow-left-right" width="18" height="18"></i> Swap to input</button>
+          <button class="btn btn-primary" id="paraphraseBtn" onclick="paraphraseText()"><i data-lucide="refresh-cw" width="18" height="18"></i> Paraphrase</button>
+          <button class="btn btn-outline" onclick="clearAll()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+          <button class="btn btn-outline" onclick="undoLast()" id="undoBtn" style="display:none;"><i data-lucide="undo-2" width="18" height="18"></i> Undo</button>
         </div>
-      </div>
 
-      <div style="margin-top:50px; border-top:1px solid var(--line); padding-top:30px;">
-        <h2>How to use the Smart Paraphraser – it's really that simple</h2>
-        <ol>
-          <li><strong>Paste or type your text.</strong> A single sentence, a paragraph, or an entire article – the tool handles it all.</li>
-          <li><strong>Choose your strength.</strong> Slide left for a light touch, right for a heavier rewrite.</li>
-          <li><strong>Click "Paraphrase".</strong> It scans each word and swaps in natural‑sounding synonyms while keeping your sentence structure.</li>
-          <li><strong>Check the result.</strong> The rewritten version appears instantly. You can copy, download, or even send it back to the input for another pass.</li>
-        </ol>
-        <p>That's it. No sign‑ups, no charges, and your text never touches a server.</p>
-
-        <h2>Who finds the Smart Paraphraser useful?</h2>
-        <p>Honestly, anyone who works with words. Here are some of the people who use it every day:</p>
-        <div class="feature-grid">
-          <div class="feature-card">
-            <h4><i data-lucide="edit-3" width="18" height="18" style="display:inline; vertical-align:middle; margin-right:6px;"></i> Writers & Bloggers</h4>
-            <p>Refresh old posts, create unique versions of articles, and break through writer's block by seeing your ideas from a new angle.</p>
-          </div>
-          <div class="feature-card">
-            <h4><i data-lucide="graduation-cap" width="18" height="18" style="display:inline; vertical-align:middle; margin-right:6px;"></i> Students & Academics</h4>
-            <p>Paraphrase research, rewrite notes in your own words, and avoid accidental plagiarism in essays and papers.</p>
-          </div>
-          <div class="feature-card">
-            <h4><i data-lucide="code-2" width="18" height="18" style="display:inline; vertical-align:middle; margin-right:6px;"></i> Content Creators & Marketers</h4>
-            <p>Spin ad copy, create multiple variations of a post, and keep your messaging fresh without starting from scratch.</p>
-          </div>
-          <div class="feature-card">
-            <h4><i data-lucide="globe" width="18" height="18" style="display:inline; vertical-align:middle; margin-right:6px;"></i> Language Learners</h4>
-            <p>See how the same idea can be expressed in different ways, build vocabulary, and practice writing more naturally.</p>
+        <div class="output-area" id="outputArea">
+          <textarea id="outputText" readonly></textarea>
+          <div class="text-meta"><span>Words: <span id="outputWordCount">0</span></span> <span>Characters: <span id="outputCharCount">0</span></span></div>
+          <div class="btn-row">
+            <button class="btn btn-primary" onclick="copyOutput()"><i data-lucide="copy" width="18" height="18"></i> Copy</button>
+            <button class="btn btn-primary" style="background:#16a34a;" onclick="downloadOutput()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+            <button class="btn btn-outline" onclick="swapText()"><i data-lucide="arrow-left-right" width="18" height="18"></i> Swap to input</button>
           </div>
         </div>
 
-        <h2>Real‑world ways people use the paraphraser</h2>
-        <ul>
-          <li><strong>SEO content rewriting:</strong> Take an existing article, run it through the tool, and get a fresh version to avoid duplicate‑content issues.</li>
-          <li><strong>Academic work:</strong> When you need to cite a source, paraphrase it instead of quoting directly. The tool gives you a solid first draft.</li>
-          <li><strong>Better readability:</strong> Swap out complicated or jargon‑heavy words for simpler synonyms so a wider audience can understand your message.</li>
-          <li><strong>Social media & email campaigns:</strong> Quickly generate alternative versions of a promo message for A/B testing or different platforms.</li>
-          <li><strong>Creative inspiration:</strong> Stuck on a phrase? Let the tool suggest a new wording – it might spark a completely different idea.</li>
-        </ul>
+        <div style="margin-top:50px; border-top:1px solid var(--line); padding-top:30px;">
+          <h2>How to use the Smart Paraphraser – it's really that simple</h2>
+          <ol>
+            <li><strong>Paste or type your text.</strong> A single sentence, a paragraph, or an entire article – the tool handles it all.</li>
+            <li><strong>Choose your strength.</strong> Slide left for a light touch, right for a heavier rewrite.</li>
+            <li><strong>Click "Paraphrase".</strong> It scans each word and swaps in natural‑sounding synonyms while keeping your sentence structure.</li>
+            <li><strong>Check the result.</strong> The rewritten version appears instantly. You can copy, download, or even send it back to the input for another pass.</li>
+          </ol>
+          <p>That's it. No sign‑ups, no charges, and your text never touches a server.</p>
 
-        <h2>How Smart Paraphraser Helps You Avoid Plagiarism</h2>
-        <p>Plagiarism isn't just about copying and pasting – it also happens when you use someone else's words too closely without proper attribution. Our paraphraser gives you a head start by rewording sentences while preserving the original meaning. You still need to cite your sources, but the tool makes it much easier to integrate ideas in your own voice. Many students run a passage through the paraphraser, then manually polish it to ensure it sounds natural and original.</p>
-        <p>Remember: <strong>the tool is an assistant, not a replacement for your own thinking.</strong> Always review the output and add your own perspective.</p>
+          <h2>Who finds the Smart Paraphraser useful?</h2>
+          <p>Honestly, anyone who works with words. Here are some of the people who use it every day:</p>
+          <div class="feature-grid">
+            <div class="feature-card">
+              <h4><i data-lucide="edit-3" width="18" height="18" style="display:inline; vertical-align:middle; margin-right:6px;"></i> Writers & Bloggers</h4>
+              <p>Refresh old posts, create unique versions of articles, and break through writer's block by seeing your ideas from a new angle.</p>
+            </div>
+            <div class="feature-card">
+              <h4><i data-lucide="graduation-cap" width="18" height="18" style="display:inline; vertical-align:middle; margin-right:6px;"></i> Students & Academics</h4>
+              <p>Paraphrase research, rewrite notes in your own words, and avoid accidental plagiarism in essays and papers.</p>
+            </div>
+            <div class="feature-card">
+              <h4><i data-lucide="code-2" width="18" height="18" style="display:inline; vertical-align:middle; margin-right:6px;"></i> Content Creators & Marketers</h4>
+              <p>Spin ad copy, create multiple variations of a post, and keep your messaging fresh without starting from scratch.</p>
+            </div>
+            <div class="feature-card">
+              <h4><i data-lucide="globe" width="18" height="18" style="display:inline; vertical-align:middle; margin-right:6px;"></i> Language Learners</h4>
+              <p>See how the same idea can be expressed in different ways, build vocabulary, and practice writing more naturally.</p>
+            </div>
+          </div>
 
-        <h2>Paraphrasing vs. Summarizing: What's the Difference?</h2>
-        <p>People often mix up these two skills. <strong>Paraphrasing</strong> means rewriting a specific passage in your own words while keeping roughly the same length and all the key points. <strong>Summarizing</strong> means condensing a larger piece of writing into a much shorter version, only keeping the main idea. Our tool focuses on paraphrasing – it's designed to give you a full, sentence‑by‑sentence reworded text. If you need a summary, you'd have to manually shorten the text yourself (but you could certainly paraphrase that summary afterwards).</p>
+          <h2>Real‑world ways people use the paraphraser</h2>
+          <ul>
+            <li><strong>SEO content rewriting:</strong> Take an existing article, run it through the tool, and get a fresh version to avoid duplicate‑content issues.</li>
+            <li><strong>Academic work:</strong> When you need to cite a source, paraphrase it instead of quoting directly. The tool gives you a solid first draft.</li>
+            <li><strong>Better readability:</strong> Swap out complicated or jargon‑heavy words for simpler synonyms so a wider audience can understand your message.</li>
+            <li><strong>Social media & email campaigns:</strong> Quickly generate alternative versions of a promo message for A/B testing or different platforms.</li>
+            <li><strong>Creative inspiration:</strong> Stuck on a phrase? Let the tool suggest a new wording – it might spark a completely different idea.</li>
+          </ul>
 
-        <h2>Common Paraphrasing Mistakes (and How the Tool Helps)</h2>
-        <p>Even professional writers can trip up when paraphrasing. Here are a few pitfalls the tool helps you avoid:</p>
-        <ul>
-          <li><strong>Synonym stuffing:</strong> Replacing every single word with a thesaurus equivalent often creates awkward, unnatural sentences. Our algorithm balances synonym replacement with readability, keeping the text flowing.</li>
-          <li><strong>Losing the original meaning:</strong> Changing the words is easy; changing the meaning by accident is easier than you think. Because the tool swaps words within the existing sentence structure, the core message stays intact.</li>
-          <li><strong>Forgetting to cite:</strong> Even paraphrased material needs a citation. We can't cite for you, but we'll always remind you to give credit where it's due.</li>
-        </ul>
+          <h2>How Smart Paraphraser Helps You Avoid Plagiarism</h2>
+          <p>Plagiarism isn't just about copying and pasting – it also happens when you use someone else's words too closely without proper attribution. Our paraphraser gives you a head start by rewording sentences while preserving the original meaning. You still need to cite your sources, but the tool makes it much easier to integrate ideas in your own voice. Many students run a passage through the paraphraser, then manually polish it to ensure it sounds natural and original.</p>
+          <p>Remember: <strong>the tool is an assistant, not a replacement for your own thinking.</strong> Always review the output and add your own perspective.</p>
 
-        <h2>Sample Texts: Before and After</h2>
-        <p>Wondering what the tool actually does? Here are a few examples of how a simple sentence gets a fresh coat of paint:</p>
-        <ul>
-          <li><strong>Original:</strong> "The weather today is really pleasant."<br><strong>Paraphrased:</strong> "The climate at present is quite enjoyable."</li>
-          <li><strong>Original:</strong> "She completed the assignment very quickly."<br><strong>Paraphrased:</strong> "She finished the task exceptionally fast."</li>
-          <li><strong>Original:</strong> "A good night's sleep is important for overall health."<br><strong>Paraphrased:</strong> "Getting excellent rest at night is vital for general well‑being."</li>
-        </ul>
-        <p>As you can see, the sentences keep their original meaning but use different words and a slightly altered rhythm.</p>
+          <h2>Paraphrasing vs. Summarizing: What's the Difference?</h2>
+          <p>People often mix up these two skills. <strong>Paraphrasing</strong> means rewriting a specific passage in your own words while keeping roughly the same length and all the key points. <strong>Summarizing</strong> means condensing a larger piece of writing into a much shorter version, only keeping the main idea. Our tool focuses on paraphrasing – it's designed to give you a full, sentence‑by‑sentence reworded text. If you need a summary, you'd have to manually shorten the text yourself (but you could certainly paraphrase that summary afterwards).</p>
 
-        <h2>A few tips for the best paraphrasing results</h2>
-        <p>The tool does a great job on its own, but these tricks will help you get even better output:</p>
-        <ul>
-          <li><strong>Feed it full sentences.</strong> The paraphraser works best with context. Single words or very short fragments don't give it much to work with.</li>
-          <li><strong>Run multiple passes.</strong> Click "Paraphrase" again on the already‑rewritten text to add even more variety. The Swap button makes this effortless.</li>
-          <li><strong>Edit by hand.</strong> Think of the output as a strong first draft. A few manual tweaks will make it sound 100% natural and uniquely yours.</li>
-          <li><strong>Pair it with other Textify.tools.</strong> After paraphrasing, use the <a href="/case-converter">Case Converter</a> to fix capitalization, or the <a href="/word-counter">Word Counter</a> to check the length.</li>
-        </ul>
+          <h2>Common Paraphrasing Mistakes (and How the Tool Helps)</h2>
+          <p>Even professional writers can trip up when paraphrasing. Here are a few pitfalls the tool helps you avoid:</p>
+          <ul>
+            <li><strong>Synonym stuffing:</strong> Replacing every single word with a thesaurus equivalent often creates awkward, unnatural sentences. Our algorithm balances synonym replacement with readability, keeping the text flowing.</li>
+            <li><strong>Losing the original meaning:</strong> Changing the words is easy; changing the meaning by accident is easier than you think. Because the tool swaps words within the existing sentence structure, the core message stays intact.</li>
+            <li><strong>Forgetting to cite:</strong> Even paraphrased material needs a citation. We can't cite for you, but we'll always remind you to give credit where it's due.</li>
+          </ul>
 
-        <h2>What makes this paraphraser different? Privacy first.</h2>
-        <p>Most online rewriters send your text to a server. Ours doesn't. Everything happens right in your browser:</p>
-        <ul>
-          <li><strong>Your text never leaves your device.</strong> We never see, store, or log anything you type.</li>
-          <li><strong>No account needed.</strong> Just open the page and start rewriting.</li>
-          <li><strong>Works offline.</strong> Once the page loads, you can paraphrase without an internet connection.</li>
-        </ul>
+          <h2>Sample Texts: Before and After</h2>
+          <p>Wondering what the tool actually does? Here are a few examples of how a simple sentence gets a fresh coat of paint:</p>
+          <ul>
+            <li><strong>Original:</strong> "The weather today is really pleasant."<br><strong>Paraphrased:</strong> "The climate at present is quite enjoyable."</li>
+            <li><strong>Original:</strong> "She completed the assignment very quickly."<br><strong>Paraphrased:</strong> "She finished the task exceptionally fast."</li>
+            <li><strong>Original:</strong> "A good night's sleep is important for overall health."<br><strong>Paraphrased:</strong> "Getting excellent rest at night is vital for general well‑being."</li>
+          </ul>
+          <p>As you can see, the sentences keep their original meaning but use different words and a slightly altered rhythm.</p>
 
-        <h2>A quick peek under the hood</h2>
-        <p>The tool uses a built‑in synonym dictionary that covers a wide range of everyday English words. When you hit "Paraphrase", it splits your text into sentences, examines each word, and — where a suitable synonym exists — swaps it in. The strength slider adjusts how many words get replaced. The result reads differently but keeps the original meaning. All of this happens in milliseconds, right on your device.</p>
+          <h2>A few tips for the best paraphrasing results</h2>
+          <p>The tool does a great job on its own, but these tricks will help you get even better output:</p>
+          <ul>
+            <li><strong>Feed it full sentences.</strong> The paraphraser works best with context. Single words or very short fragments don't give it much to work with.</li>
+            <li><strong>Run multiple passes.</strong> Click "Paraphrase" again on the already‑rewritten text to add even more variety. The Swap button makes this effortless.</li>
+            <li><strong>Edit by hand.</strong> Think of the output as a strong first draft. A few manual tweaks will make it sound 100% natural and uniquely yours.</li>
+            <li><strong>Pair it with other Textify.tools.</strong> After paraphrasing, use the <a href="/case-converter">Case Converter</a> to fix capitalization, or the <a href="/word-counter">Word Counter</a> to check the length.</li>
+          </ul>
 
-        <h2>Frequently asked questions</h2>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text really private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All paraphrasing happens locally in your browser. Your content is never uploaded, stored, or shared.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it support other languages?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The synonym dictionary is optimized for English. Other languages may still work, but the tool will have fewer words to work with.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I paraphrase a long essay?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Definitely. The tool handles thousands of words without breaking a sweat. Performance depends on your device, but it's designed to be fast even with large documents.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Will the output be 100% unique?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">It will be a unique rewording, but no automated tool can guarantee passing every plagiarism checker. Use the tool as a starting point, then add your own voice to make it truly original.</div></div>
-        <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is the Smart Paraphraser really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes! It's completely free, with no usage limits or premium plans — just like all our tools here at Textify.tools.</div></div>
+          <h2>What makes this paraphraser different? Privacy first.</h2>
+          <p>Most online rewriters send your text to a server. Ours doesn't. Everything happens right in your browser:</p>
+          <ul>
+            <li><strong>Your text never leaves your device.</strong> We never see, store, or log anything you type.</li>
+            <li><strong>No account needed.</strong> Just open the page and start rewriting.</li>
+            <li><strong>Works offline.</strong> Once the page loads, you can paraphrase without an internet connection.</li>
+          </ul>
+
+          <h2>A quick peek under the hood</h2>
+          <p>The tool uses a built‑in synonym dictionary that covers a wide range of everyday English words. When you hit "Paraphrase", it splits your text into sentences, examines each word, and — where a suitable synonym exists — swaps it in. The strength slider adjusts how many words get replaced. The result reads differently but keeps the original meaning. All of this happens in milliseconds, right on your device.</p>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text really private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All paraphrasing happens locally in your browser. Your content is never uploaded, stored, or shared.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it support other languages?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The synonym dictionary is optimized for English. Other languages may still work, but the tool will have fewer words to work with.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I paraphrase a long essay?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Definitely. The tool handles thousands of words without breaking a sweat. Performance depends on your device, but it's designed to be fast even with large documents.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Will the output be 100% unique?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">It will be a unique rewording, but no automated tool can guarantee passing every plagiarism checker. Use the tool as a starting point, then add your own voice to make it truly original.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is the Smart Paraphraser really free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes! It's completely free, with no usage limits or premium plans — just like all our tools here at Textify.tools.</div></div>
+        </div>
       </div>
     </main>
 
