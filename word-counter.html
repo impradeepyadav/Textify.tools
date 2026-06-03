@@ -48,7 +48,7 @@
           },
           {
             "@type": "Question", "name": "Does it work on mobile?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes, it’s fully responsive and works perfectly on phones and tablets." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, it's fully responsive and works perfectly on phones and tablets." }
           },
           {
             "@type": "Question", "name": "Is my text private?",
@@ -189,8 +189,33 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
-    main { flex: 1; padding: 40px 40px; width: 100%; max-width: 100%; background: transparent; }
-    h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
+    /* MAIN – full width with content container for padding */
+    main {
+      flex: 1;
+      padding: 40px 0; /* no left/right padding */
+      width: 100%;
+      max-width: 100%;
+      background: transparent;
+    }
+    .content-container {
+      width: 100%;
+      padding: 0 40px;
+    }
+    @media (max-width: 768px) {
+      .content-container {
+        padding: 0 16px;
+      }
+      main {
+        padding: 20px 0;
+      }
+    }
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      text-align: left; /* left aligned */
+    }
     h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
     h3 { font-size: 20px; font-weight: 700; margin: 25px 0 12px; }
     p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
@@ -253,10 +278,10 @@
     }
     .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
     
-    @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 12px; } footer { padding: 30px 16px 20px; } }
+    @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 0; } footer { padding: 30px 16px 20px; } }
     @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     @media (min-width: 1800px) {
-      main { padding: 50px 60px; }
+      main { padding: 50px 0; }
       header { padding: 0 60px; }
       footer { padding: 50px 60px 30px; }
       h1 { font-size: 44px; }
@@ -291,130 +316,132 @@
     </header>
 
     <main>
-      <h1>Free Online Word Counter – Real‑Time Text Analysis</h1>
-      <p style="text-align:center; max-width:800px; margin:0 auto 20px;">Paste your text below and get instant stats you won't find in a basic counter: <strong>unique words, top keywords, longest and shortest words, average sentence length</strong>, and more. Everything runs locally — your text never leaves your device.</p>
+      <div class="content-container">
+        <h1>Free Online Word Counter – Real‑Time Text Analysis</h1>
+        <p style="max-width:800px; margin:0 0 20px;">Paste your text below and get instant stats you won't find in a basic counter: <strong>unique words, top keywords, longest and shortest words, average sentence length</strong>, and more. Everything runs locally — your text never leaves your device.</p>
 
-      <textarea id="inputText" placeholder="Paste or type your text here..."></textarea>
+        <textarea id="inputText" placeholder="Paste or type your text here..."></textarea>
 
-      <div class="stats-grid" id="mainStatsGrid">
-        <div class="stat-card"><span class="stat-value" id="wordCount">0</span><div class="stat-label">Words</div></div>
-        <div class="stat-card"><span class="stat-value" id="charCount">0</span><div class="stat-label">Characters</div></div>
-        <div class="stat-card"><span class="stat-value" id="charNoSpaces">0</span><div class="stat-label">Characters (no spaces)</div></div>
-        <div class="stat-card"><span class="stat-value" id="sentenceCount">0</span><div class="stat-label">Sentences</div></div>
-        <div class="stat-card"><span class="stat-value" id="paragraphCount">0</span><div class="stat-label">Paragraphs</div></div>
-        <div class="stat-card"><span class="stat-value" id="uniqueWords">0</span><div class="stat-label">Unique Words</div></div>
-        <div class="stat-card"><span class="stat-value" id="avgWordLength">0</span><div class="stat-label">Avg. Word Length</div></div>
-        <div class="stat-card"><span class="stat-value" id="avgSentenceLength">0</span><div class="stat-label">Avg. Sentence (words)</div></div>
-        <div class="stat-card"><span class="stat-value" id="readingTime">0 min</span><div class="stat-label">Reading Time</div></div>
-        <div class="stat-card"><span class="stat-value" id="speakingTime">0 min</span><div class="stat-label">Speaking Time</div></div>
-      </div>
-
-      <div class="stats-grid" id="extraStatsGrid" style="margin-bottom:20px;">
-        <div class="stat-card"><span class="stat-value" id="longestWord">–</span><div class="stat-label">Longest Word</div></div>
-        <div class="stat-card"><span class="stat-value" id="shortestWord">–</span><div class="stat-label">Shortest Word</div></div>
-        <div class="stat-card"><span class="stat-value" id="topWord1">–</span><div class="stat-label">Top Keyword #1</div></div>
-        <div class="stat-card"><span class="stat-value" id="topWord2">–</span><div class="stat-label">Top Keyword #2</div></div>
-        <div class="stat-card"><span class="stat-value" id="topWord3">–</span><div class="stat-label">Top Keyword #3</div></div>
-      </div>
-
-      <div class="btn-row">
-        <button class="btn btn-primary" onclick="clearText()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-        <button class="btn btn-outline" onclick="copyText()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
-      </div>
-
-      <div style="margin-top:40px;">
-        <h2>How to Use This Word Counter</h2>
-        <div class="how-to-card">
-          <div class="step-num">1</div>
-          <div><h4>Type or Paste Your Text</h4><p>Enter any text — an essay, blog post, social media caption, speech, or article.</p></div>
-        </div>
-        <div class="how-to-card">
-          <div class="step-num">2</div>
-          <div><h4>Watch the Stats Update Instantly</h4><p>All numbers refresh as you type. No button needed — see word count, unique words, reading time, and top keywords immediately.</p></div>
-        </div>
-        <div class="how-to-card">
-          <div class="step-num">3</div>
-          <div><h4>Copy or Clear</h4><p>Copy the entire text to your clipboard, or clear the field to start fresh. All processing stays on your device.</p></div>
+        <div class="stats-grid" id="mainStatsGrid">
+          <div class="stat-card"><span class="stat-value" id="wordCount">0</span><div class="stat-label">Words</div></div>
+          <div class="stat-card"><span class="stat-value" id="charCount">0</span><div class="stat-label">Characters</div></div>
+          <div class="stat-card"><span class="stat-value" id="charNoSpaces">0</span><div class="stat-label">Characters (no spaces)</div></div>
+          <div class="stat-card"><span class="stat-value" id="sentenceCount">0</span><div class="stat-label">Sentences</div></div>
+          <div class="stat-card"><span class="stat-value" id="paragraphCount">0</span><div class="stat-label">Paragraphs</div></div>
+          <div class="stat-card"><span class="stat-value" id="uniqueWords">0</span><div class="stat-label">Unique Words</div></div>
+          <div class="stat-card"><span class="stat-value" id="avgWordLength">0</span><div class="stat-label">Avg. Word Length</div></div>
+          <div class="stat-card"><span class="stat-value" id="avgSentenceLength">0</span><div class="stat-label">Avg. Sentence (words)</div></div>
+          <div class="stat-card"><span class="stat-value" id="readingTime">0 min</span><div class="stat-label">Reading Time</div></div>
+          <div class="stat-card"><span class="stat-value" id="speakingTime">0 min</span><div class="stat-label">Speaking Time</div></div>
         </div>
 
-        <h2>Word Tips & Insights</h2>
-        <p><strong>Why track unique words?</strong> A high number of unique words often indicates richer vocabulary and less repetition. If your unique‑word count is close to your total word count, you're using a wide range of vocabulary. If it's low, you may be repeating yourself — try mixing in synonyms.</p>
-        <p><strong>What's a good average sentence length?</strong> For most online content, aim for an average of 15–20 words per sentence. Shorter sentences improve readability; longer ones can make text feel dense. Use the average sentence length stat to gauge whether your writing is scannable.</p>
-        <p><strong>How long should my blog post be?</strong> Studies show that posts between 1,500 and 2,500 words tend to perform well in search engines, but quality always beats quantity. Use the word counter to keep an eye on length while you draft.</p>
-        <p><strong>Using top keywords to improve SEO:</strong> The top keyword stats show which words appear most often. If your main topic word isn't among them, you might need to emphasize it more. Conversely, if a filler word like "the" or "and" is #1, that's normal — the tool filters common stop words in some views, but for raw data it includes everything.</p>
+        <div class="stats-grid" id="extraStatsGrid" style="margin-bottom:20px;">
+          <div class="stat-card"><span class="stat-value" id="longestWord">–</span><div class="stat-label">Longest Word</div></div>
+          <div class="stat-card"><span class="stat-value" id="shortestWord">–</span><div class="stat-label">Shortest Word</div></div>
+          <div class="stat-card"><span class="stat-value" id="topWord1">–</span><div class="stat-label">Top Keyword #1</div></div>
+          <div class="stat-card"><span class="stat-value" id="topWord2">–</span><div class="stat-label">Top Keyword #2</div></div>
+          <div class="stat-card"><span class="stat-value" id="topWord3">–</span><div class="stat-label">Top Keyword #3</div></div>
+        </div>
 
-        <h2>A Writer's Guide to Word Count</h2>
-        <p>Different kinds of writing call for different lengths. Here's a quick cheat sheet:</p>
-        <ul>
-          <li><strong>Social media captions:</strong> 50–150 characters (about 10–30 words). Short and punchy wins.</li>
-          <li><strong>Blog posts:</strong> 1,000–2,000 words is the sweet spot for SEO, but tutorials and guides can go longer.</li>
-          <li><strong>Essays & school papers:</strong> Follow the assigned word count — our tool helps you stay on track.</li>
-          <li><strong>Email newsletters:</strong> Keep it under 500 words for the best open and click rates.</li>
-          <li><strong>Speeches & presentations:</strong> At 130 words per minute, a 5‑minute talk needs roughly 650 words. Adjust the number in the speaking time stat to plan your script.</li>
-        </ul>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="clearText()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+          <button class="btn btn-outline" onclick="copyText()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
+        </div>
 
-        <h2>How Word Count Affects Different Types of Writing</h2>
-        <p>Every format has its own "ideal" length, and straying too far can hurt your message. Here's a closer look at some common scenarios:</p>
-        <ul>
-          <li><strong>Landing pages:</strong> The best‑converting landing pages often use 300–500 words. Enough to persuade, not enough to bore.</li>
-          <li><strong>Product descriptions:</strong> Aim for 100–300 words. Include key features, benefits, and a call to action without overwhelming the buyer.</li>
-          <li><strong>Press releases:</strong> Keep it around 400–600 words. Journalists appreciate concise, fact‑packed announcements.</li>
-          <li><strong>Cover letters:</strong> Stick to 200–400 words. Three to four paragraphs that show enthusiasm and fit — never a full page.</li>
-          <li><strong>Resumes:</strong> Bullet points often beat paragraphs. Use the character count to keep each line sharp and under one line.</li>
-        </ul>
+        <div style="margin-top:40px;">
+          <h2>How to Use This Word Counter</h2>
+          <div class="how-to-card">
+            <div class="step-num">1</div>
+            <div><h4>Type or Paste Your Text</h4><p>Enter any text — an essay, blog post, social media caption, speech, or article.</p></div>
+          </div>
+          <div class="how-to-card">
+            <div class="step-num">2</div>
+            <div><h4>Watch the Stats Update Instantly</h4><p>All numbers refresh as you type. No button needed — see word count, unique words, reading time, and top keywords immediately.</p></div>
+          </div>
+          <div class="how-to-card">
+            <div class="step-num">3</div>
+            <div><h4>Copy or Clear</h4><p>Copy the entire text to your clipboard, or clear the field to start fresh. All processing stays on your device.</p></div>
+          </div>
 
-        <h2>Word Count and SEO: Best Practices</h2>
-        <p>Search engines love content that answers questions thoroughly. But more words don't always mean better rankings. Here's what actually matters:</p>
-        <ul>
-          <li><strong>Match search intent:</strong> If the top‑ranking pages for your keyword average 1,200 words, a 400‑word article probably won't compete — and a 3,000‑word one might be overkill unless it's truly better.</li>
-          <li><strong>Break it up:</strong> Use headings, short paragraphs, and bullet points to make long posts scannable. Our average sentence length stat can help you keep paragraphs digestible.</li>
-          <li><strong>Unique value:</strong> Don't pad word count with fluff. Use the unique‑word and top‑keyword data to spot over‑used terms and inject more meaningful vocabulary.</li>
-          <li><strong>Internal linking:</strong> A longer post gives you more natural places to link to your other content. Just keep it relevant.</li>
-        </ul>
+          <h2>Word Tips & Insights</h2>
+          <p><strong>Why track unique words?</strong> A high number of unique words often indicates richer vocabulary and less repetition. If your unique‑word count is close to your total word count, you're using a wide range of vocabulary. If it's low, you may be repeating yourself — try mixing in synonyms.</p>
+          <p><strong>What's a good average sentence length?</strong> For most online content, aim for an average of 15–20 words per sentence. Shorter sentences improve readability; longer ones can make text feel dense. Use the average sentence length stat to gauge whether your writing is scannable.</p>
+          <p><strong>How long should my blog post be?</strong> Studies show that posts between 1,500 and 2,500 words tend to perform well in search engines, but quality always beats quantity. Use the word counter to keep an eye on length while you draft.</p>
+          <p><strong>Using top keywords to improve SEO:</strong> The top keyword stats show which words appear most often. If your main topic word isn't among them, you might need to emphasize it more. Conversely, if a filler word like "the" or "and" is #1, that's normal — the tool filters common stop words in some views, but for raw data it includes everything.</p>
 
-        <h2>Privacy & Security</h2>
-        <p>All text processing happens locally in your browser. Your text is never uploaded, stored, or shared. You can count words with complete peace of mind — and the tool even works offline once loaded.</p>
+          <h2>A Writer's Guide to Word Count</h2>
+          <p>Different kinds of writing call for different lengths. Here's a quick cheat sheet:</p>
+          <ul>
+            <li><strong>Social media captions:</strong> 50–150 characters (about 10–30 words). Short and punchy wins.</li>
+            <li><strong>Blog posts:</strong> 1,000–2,000 words is the sweet spot for SEO, but tutorials and guides can go longer.</li>
+            <li><strong>Essays & school papers:</strong> Follow the assigned word count — our tool helps you stay on track.</li>
+            <li><strong>Email newsletters:</strong> Keep it under 500 words for the best open and click rates.</li>
+            <li><strong>Speeches & presentations:</strong> At 130 words per minute, a 5‑minute talk needs roughly 650 words. Adjust the number in the speaking time stat to plan your script.</li>
+          </ul>
 
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">How accurate is the word count?<i data-lucide="chevron-down" width="16"></i></div>
-          <div class="faq-answer">Very accurate. It counts words separated by spaces and handles punctuation correctly, just like most modern word processors.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">What counts as a word?<i data-lucide="chevron-down" width="16"></i></div>
-          <div class="faq-answer">Any sequence of characters separated by spaces. Hyphenated words like "state‑of‑the‑art" count as one word, while numbers like "1,000" also count as one.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">Can I see how many times I repeated a word?<i data-lucide="chevron-down" width="16"></i></div>
-          <div class="faq-answer">Yes — check the "Top Keyword" cards below the main stats. They show your three most‑used words. For deeper analysis, try our Keyword Density Analyzer tool.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">Does the counter work with languages other than English?<i data-lucide="chevron-down" width="16"></i></div>
-          <div class="faq-answer">Yes, it works with any language that uses spaces between words, including Spanish, French, German, and others. It may not be accurate for languages without spaces, like Chinese or Japanese.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">What is a good reading time for a blog post?<i data-lucide="chevron-down" width="16"></i></div>
-          <div class="faq-answer">Most readers prefer posts that take 5–7 minutes to read (about 1,000–1,400 words). Longer posts (10+ minutes) work well for in‑depth guides but can lose impatient readers.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">Can I use this tool for school assignments?<i data-lucide="chevron-down" width="16"></i></div>
-          <div class="faq-answer">Definitely. Many students use it to check if they've met word‑count requirements for essays, reports, and applications.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div>
-          <div class="faq-answer">Yes, it's fully responsive and works perfectly on phones and tablets.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div>
-          <div class="faq-answer">Absolutely. All counting happens locally in your browser. No data is sent anywhere.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">Does the counter include spaces in the character count?<i data-lucide="chevron-down" width="16"></i></div>
-          <div class="faq-answer">Yes, the main character count includes spaces. Use the "Characters (no spaces)" stat when you need the count without spaces, for example for SMS or Twitter.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="toggleFaq(this)">Can I count words in a PDF or Word document?<i data-lucide="chevron-down" width="16"></i></div>
-          <div class="faq-answer">You'll need to copy and paste the text from your document into the box. Our tool works with plain text only and doesn't read files directly.</div>
+          <h2>How Word Count Affects Different Types of Writing</h2>
+          <p>Every format has its own "ideal" length, and straying too far can hurt your message. Here's a closer look at some common scenarios:</p>
+          <ul>
+            <li><strong>Landing pages:</strong> The best‑converting landing pages often use 300–500 words. Enough to persuade, not enough to bore.</li>
+            <li><strong>Product descriptions:</strong> Aim for 100–300 words. Include key features, benefits, and a call to action without overwhelming the buyer.</li>
+            <li><strong>Press releases:</strong> Keep it around 400–600 words. Journalists appreciate concise, fact‑packed announcements.</li>
+            <li><strong>Cover letters:</strong> Stick to 200–400 words. Three to four paragraphs that show enthusiasm and fit — never a full page.</li>
+            <li><strong>Resumes:</strong> Bullet points often beat paragraphs. Use the character count to keep each line sharp and under one line.</li>
+          </ul>
+
+          <h2>Word Count and SEO: Best Practices</h2>
+          <p>Search engines love content that answers questions thoroughly. But more words don't always mean better rankings. Here's what actually matters:</p>
+          <ul>
+            <li><strong>Match search intent:</strong> If the top‑ranking pages for your keyword average 1,200 words, a 400‑word article probably won't compete — and a 3,000‑word one might be overkill unless it's truly better.</li>
+            <li><strong>Break it up:</strong> Use headings, short paragraphs, and bullet points to make long posts scannable. Our average sentence length stat can help you keep paragraphs digestible.</li>
+            <li><strong>Unique value:</strong> Don't pad word count with fluff. Use the unique‑word and top‑keyword data to spot over‑used terms and inject more meaningful vocabulary.</li>
+            <li><strong>Internal linking:</strong> A longer post gives you more natural places to link to your other content. Just keep it relevant.</li>
+          </ul>
+
+          <h2>Privacy & Security</h2>
+          <p>All text processing happens locally in your browser. Your text is never uploaded, stored, or shared. You can count words with complete peace of mind — and the tool even works offline once loaded.</p>
+
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">How accurate is the word count?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Very accurate. It counts words separated by spaces and handles punctuation correctly, just like most modern word processors.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">What counts as a word?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Any sequence of characters separated by spaces. Hyphenated words like "state‑of‑the‑art" count as one word, while numbers like "1,000" also count as one.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Can I see how many times I repeated a word?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Yes — check the "Top Keyword" cards below the main stats. They show your three most‑used words. For deeper analysis, try our Keyword Density Analyzer tool.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Does the counter work with languages other than English?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Yes, it works with any language that uses spaces between words, including Spanish, French, German, and others. It may not be accurate for languages without spaces, like Chinese or Japanese.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">What is a good reading time for a blog post?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Most readers prefer posts that take 5–7 minutes to read (about 1,000–1,400 words). Longer posts (10+ minutes) work well for in‑depth guides but can lose impatient readers.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Can I use this tool for school assignments?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Definitely. Many students use it to check if they've met word‑count requirements for essays, reports, and applications.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Yes, it's fully responsive and works perfectly on phones and tablets.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Absolutely. All counting happens locally in your browser. No data is sent anywhere.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Does the counter include spaces in the character count?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Yes, the main character count includes spaces. Use the "Characters (no spaces)" stat when you need the count without spaces, for example for SMS or Twitter.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">Can I count words in a PDF or Word document?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">You'll need to copy and paste the text from your document into the box. Our tool works with plain text only and doesn't read files directly.</div>
+          </div>
         </div>
       </div>
     </main>
