@@ -38,7 +38,6 @@
             --table-header: #f3f4f6; --table-hover: #fafafa; --shadow: rgba(0, 0, 0, 0.1);
             --overlay-bg: rgba(0, 0, 0, 0.5); --success-bg: #f0fdf4; --success-text: #166534;
             --sidebar-bg: #ffffff; --accent: #f8fafc; --toast-bg: #1f2937; --toast-text: #ffffff;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.04); --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
         body.dark-mode {
             --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
@@ -50,7 +49,6 @@
             --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0, 0, 0, 0.5);
             --overlay-bg: rgba(0, 0, 0, 0.75); --success-bg: #052e16; --success-text: #86efac;
             --sidebar-bg: #0f172a; --accent: #1e293b; --toast-bg: #f1f5f9; --toast-text: #0f172a;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.3); --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -63,7 +61,6 @@
             overflow-x: hidden;
         }
 
-        /* FULL-WIDTH WRAPPER */
         .page-wrapper {
             width: 100%;
             max-width: 100%;
@@ -147,16 +144,46 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        /* MAIN */
+        /* MAIN – full width */
         main {
             flex: 1;
-            padding: 40px 40px;
+            padding: 40px 0;
             width: 100%;
             max-width: 100%;
             background: transparent;
         }
-        h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
-        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 40px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .content-container {
+            width: 100%;
+            padding: 0 40px;
+        }
+        @media (max-width: 768px) {
+            .content-container {
+                padding: 0 16px;
+            }
+            main {
+                padding: 20px 0;
+            }
+        }
+        h1 {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            text-align: left;
+            word-wrap: break-word;
+        }
+        h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
+        h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            text-align: left;
+            word-wrap: break-word;
+        }
+        p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
+        ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
         textarea { width: 100%; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; transition: 0.2s; margin-bottom: 22px; }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
         .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
@@ -183,13 +210,12 @@
         .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
-
         .how-to-card { background: var(--accent); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
         .how-to-card .step-num { background: var(--primary); color: var(--bg); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
         .how-to-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
         .how-to-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin: 0; }
 
-        /* FOOTER – 5 equal columns, black links (light mode) */
+        /* FOOTER – 5 equal columns, black links light mode */
         footer {
             border-top: 1px solid var(--footer-border);
             padding: 40px 40px 25px;
@@ -224,13 +250,13 @@
 
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
-            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
-            main { padding: 20px 12px; }
+            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; }
+            main { padding: 20px 0; }
             footer { padding: 30px 16px 20px; }
         }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
         @media (min-width: 1800px) {
-            main { padding: 50px 60px; }
+            main { padding: 50px 0; }
             header { padding: 0 60px; }
             footer { padding: 50px 60px 30px; }
             h1 { font-size: 44px; }
@@ -266,90 +292,93 @@
         </header>
 
         <main>
-            <h1>Text Scrambler – Shuffle Letters Within Words</h1>
-            <p class="subtitle">Randomly shuffle the letters inside each word of your text. Keep the first and last letter intact or scramble everything — perfect for word games, fun effects, or creative writing exercises.</p>
+            <div class="content-container">
+                <h1>Text Scrambler – Shuffle Letters Within Words</h1>
+                <!-- Subtitle without emoji, left-aligned -->
+                <p class="subtitle">Randomly shuffle the letters inside each word of your text. Keep the first and last letter intact or scramble everything — perfect for word games, fun effects, or creative writing exercises.</p>
 
-            <textarea id="inputText" placeholder="Paste your text here...&#10;Example: The quick brown fox jumps over the lazy dog"></textarea>
+                <textarea id="inputText" placeholder="Paste your text here...&#10;Example: The quick brown fox jumps over the lazy dog"></textarea>
 
-            <div class="options-grid" id="scrambleOptions">
-                <label class="option-card active" onclick="setScrambleMode('full')">
-                    <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
-                    <span class="label-text">Full Shuffle (All letters)</span>
-                    <input type="radio" name="scrambleMode" value="full" checked>
-                </label>
-                <label class="option-card" onclick="setScrambleMode('preserve-ends')">
-                    <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
-                    <span class="label-text">Preserve First & Last Letters</span>
-                    <input type="radio" name="scrambleMode" value="preserve-ends">
-                </label>
-            </div>
-
-            <div class="checkbox-group">
-                <label><input type="checkbox" id="ignoreNumbers"> 🧮 Ignore numbers (keep them as is)</label>
-                <label><input type="checkbox" id="ignorePunctuation"> 🔤 Ignore punctuation (keep attached to words)</label>
-                <label><input type="checkbox" id="lowercaseOnly"> 🔡 Only scramble lowercase letters</label>
-            </div>
-
-            <div style="display:flex; gap:10px; margin-bottom:30px;">
-                <button class="btn btn-primary" id="scrambleBtn" onclick="scrambleText()"><i data-lucide="shuffle" width="18" height="18"></i> Scramble Text</button>
-                <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-            </div>
-
-            <div class="output-area" id="outputArea">
-                <div class="char-count-box" id="charCountInfo"></div>
-                <textarea id="outputText" readonly></textarea>
-                <div style="display:flex; gap:10px; margin-top:15px;">
-                    <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
-                    <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
-                </div>
-            </div>
-
-            <div style="margin-top:60px; border-top:1px solid var(--line); padding:30px 0 0 0;">
-                <h2>How to Use the Text Scrambler</h2>
-                <div class="how-to-card">
-                    <div class="step-num">1</div>
-                    <div><h4>Enter your text</h4><p>Paste or type the content you want to scramble into the main text area.</p></div>
-                </div>
-                <div class="how-to-card">
-                    <div class="step-num">2</div>
-                    <div><h4>Choose scramble mode</h4><p>Select "Full Shuffle" for complete randomization, or "Preserve First & Last Letters" for a more readable scramble.</p></div>
-                </div>
-                <div class="how-to-card">
-                    <div class="step-num">3</div>
-                    <div><h4>Set options</h4><p>Optionally ignore numbers, punctuation, or only scramble lowercase letters for more control.</p></div>
-                </div>
-                <div class="how-to-card">
-                    <div class="step-num">4</div>
-                    <div><h4>Click "Scramble Text"</h4><p>The result appears instantly. Use the copy or download buttons to save the scrambled output.</p></div>
+                <div class="options-grid" id="scrambleOptions">
+                    <label class="option-card active" onclick="setScrambleMode('full')">
+                        <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
+                        <span class="label-text">Full Shuffle (All letters)</span>
+                        <input type="radio" name="scrambleMode" value="full" checked>
+                    </label>
+                    <label class="option-card" onclick="setScrambleMode('preserve-ends')">
+                        <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
+                        <span class="label-text">Preserve First & Last Letters</span>
+                        <input type="radio" name="scrambleMode" value="preserve-ends">
+                    </label>
                 </div>
 
-                <h2>What Does This Text Scrambler Do?</h2>
-                <p>The tool processes your text word by word. Depending on your chosen mode:</p>
-                <ul>
-                    <li><strong>Full Shuffle:</strong> Completely randomizes the order of letters within each word. The result is often unreadable but fun — perfect for puzzles or creative writing exercises.</li>
-                    <li><strong>Preserve First & Last Letters:</strong> Shuffles only the middle letters, keeping the first and last character of each word in their original positions. This creates text that is often still readable (like "tihs is a txet"), making it great for games or brain teasers.</li>
-                    <li><strong>Ignore Numbers:</strong> Numbers remain unchanged, only letters are shuffled.</li>
-                    <li><strong>Ignore Punctuation:</strong> Punctuation marks stay attached to their original words but do not participate in shuffling.</li>
-                    <li><strong>Only Scramble Lowercase Letters:</strong> Uppercase letters remain in place — useful for preserving proper nouns or headings.</li>
-                </ul>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" id="ignoreNumbers"> Ignore numbers (keep them as is)</label>
+                    <label><input type="checkbox" id="ignorePunctuation"> Ignore punctuation (keep attached to words)</label>
+                    <label><input type="checkbox" id="lowercaseOnly"> Only scramble lowercase letters</label>
+                </div>
 
-                <h2>Creative Uses for the Text Scrambler</h2>
-                <ul>
-                    <li><strong>Word Games:</strong> Create scrambled word puzzles for friends, students, or social media followers.</li>
-                    <li><strong>Fun Messages:</strong> Send a scrambled message as a prank or teaser (easily decodable with Preserve First & Last mode).</li>
-                    <li><strong>Creative Writing:</strong> Generate random letter order for unique poem structures or constrained writing exercises.</li>
-                    <li><strong>Testing / Debugging:</strong> Scramble text to stress‑test language processing algorithms or readability analyzers.</li>
-                    <li><strong>Brain Teasers:</strong> Challenge yourself or others to unscramble the text back into the original.</li>
-                </ul>
+                <div style="display:flex; gap:10px; margin-bottom:30px;">
+                    <button class="btn btn-primary" id="scrambleBtn" onclick="scrambleText()"><i data-lucide="shuffle" width="18" height="18"></i> Scramble Text</button>
+                    <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+                </div>
 
-                <h2>Privacy & Security</h2>
-                <p>All text scrambling happens locally in your browser. Your original text is never uploaded to any server, stored, or shared. You can use the Text Scrambler with complete peace of mind.</p>
+                <div class="output-area" id="outputArea">
+                    <div class="char-count-box" id="charCountInfo"></div>
+                    <textarea id="outputText" readonly></textarea>
+                    <div style="display:flex; gap:10px; margin-top:15px;">
+                        <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
+                        <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+                    </div>
+                </div>
 
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is the scrambling random?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, the tool uses the browser's built‑in random number generator to shuffle letters. Each click produces a different random order.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I unscramble the text?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool does not include an unscrambling feature. However, if you used "Preserve First & Last Letters", the text might still be readable. For full unscrambling, you would need a separate word‑recognition tool.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on all devices including iPhone and Android.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, 100% private. All processing happens inside your browser. No data leaves your device.</div></div>
+                <div style="margin-top:60px; border-top:1px solid var(--line); padding:30px 0 0 0;">
+                    <h2>How to Use the Text Scrambler</h2>
+                    <div class="how-to-card">
+                        <div class="step-num">1</div>
+                        <div><h4>Enter your text</h4><p>Paste or type the content you want to scramble into the main text area.</p></div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">2</div>
+                        <div><h4>Choose scramble mode</h4><p>Select "Full Shuffle" for complete randomization, or "Preserve First & Last Letters" for a more readable scramble.</p></div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">3</div>
+                        <div><h4>Set options</h4><p>Optionally ignore numbers, punctuation, or only scramble lowercase letters for more control.</p></div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">4</div>
+                        <div><h4>Click "Scramble Text"</h4><p>The result appears instantly. Use the copy or download buttons to save the scrambled output.</p></div>
+                    </div>
+
+                    <h2>What Does This Text Scrambler Do?</h2>
+                    <p>The tool processes your text word by word. Depending on your chosen mode:</p>
+                    <ul>
+                        <li><strong>Full Shuffle:</strong> Completely randomizes the order of letters within each word. The result is often unreadable but fun — perfect for puzzles or creative writing exercises.</li>
+                        <li><strong>Preserve First & Last Letters:</strong> Shuffles only the middle letters, keeping the first and last character of each word in their original positions. This creates text that is often still readable (like "tihs is a txet"), making it great for games or brain teasers.</li>
+                        <li><strong>Ignore Numbers:</strong> Numbers remain unchanged, only letters are shuffled.</li>
+                        <li><strong>Ignore Punctuation:</strong> Punctuation marks stay attached to their original words but do not participate in shuffling.</li>
+                        <li><strong>Only Scramble Lowercase Letters:</strong> Uppercase letters remain in place — useful for preserving proper nouns or headings.</li>
+                    </ul>
+
+                    <h2>Creative Uses for the Text Scrambler</h2>
+                    <ul>
+                        <li><strong>Word Games:</strong> Create scrambled word puzzles for friends, students, or social media followers.</li>
+                        <li><strong>Fun Messages:</strong> Send a scrambled message as a prank or teaser (easily decodable with Preserve First & Last mode).</li>
+                        <li><strong>Creative Writing:</strong> Generate random letter order for unique poem structures or constrained writing exercises.</li>
+                        <li><strong>Testing / Debugging:</strong> Scramble text to stress‑test language processing algorithms or readability analyzers.</li>
+                        <li><strong>Brain Teasers:</strong> Challenge yourself or others to unscramble the text back into the original.</li>
+                    </ul>
+
+                    <h2>Privacy & Security</h2>
+                    <p>All text scrambling happens locally in your browser. Your original text is never uploaded to any server, stored, or shared. You can use the Text Scrambler with complete peace of mind.</p>
+
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is the scrambling random?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, the tool uses the browser's built‑in random number generator to shuffle letters. Each click produces a different random order.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I unscramble the text?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool does not include an unscrambling feature. However, if you used "Preserve First & Last Letters", the text might still be readable. For full unscrambling, you would need a separate word‑recognition tool.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on all devices including iPhone and Android.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, 100% private. All processing happens inside your browser. No data leaves your device.</div></div>
+                </div>
             </div>
         </main>
 
@@ -644,10 +673,10 @@
                 return scrambleWord(part, currentMode, options);
             }).join('');
             document.getElementById('outputText').value = scrambled;
-            document.getElementById('charCountInfo').innerHTML = `<strong>✅ Scrambled!</strong> &nbsp; Characters: <strong>${scrambled.length.toLocaleString()}</strong> &nbsp; | &nbsp; Original length: <strong>${input.length.toLocaleString()}</strong>`;
+            document.getElementById('charCountInfo').innerHTML = `<strong>Scrambled!</strong> &nbsp; Characters: <strong>${scrambled.length.toLocaleString()}</strong> &nbsp; | &nbsp; Original length: <strong>${input.length.toLocaleString()}</strong>`;
             document.getElementById('outputArea').style.display = 'block';
             document.getElementById('outputArea').scrollIntoView({ behavior: 'smooth' });
-            showToast('✅ Text scrambled successfully!');
+            showToast('Text scrambled successfully!');
         }
 
         async function copyToClipboard() {
@@ -663,7 +692,7 @@
                 btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!';
                 btn.style.background = '#16a34a';
                 lucide.createIcons();
-                showToast('📋 Text copied to clipboard!');
+                showToast('Text copied to clipboard!');
             } catch (err) {
                 textarea.focus(); textarea.select(); alert("Please press Ctrl+C to copy.");
             } finally {
@@ -682,7 +711,7 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            showToast('💾 Downloaded as .txt');
+            showToast('Downloaded as .txt');
         }
 
         function resetTool() {
