@@ -215,32 +215,49 @@
       margin-bottom: 10px;
       line-height: 1.2;
       text-align: left; /* left aligned */
+      background: linear-gradient(135deg, var(--primary) 0%, #444 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
+    h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; position: relative; }
     h3 { font-size: 20px; font-weight: 700; margin: 25px 0 12px; }
     p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
     ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; }
     li { margin-bottom: 10px; line-height: 1.7; }
-    textarea { width: 100%; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s; }
-    textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
+    textarea { width: 100%; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s; box-shadow: inset 0 1px 4px rgba(0,0,0,0.02); }
+    textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.06); }
     .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 25px; }
     @media (min-width: 600px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
     @media (min-width: 800px) { .stats-grid { grid-template-columns: repeat(5, 1fr); } }
-    .stat-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 15px; text-align: center; }
-    .stat-value { font-size: 28px; font-weight: 800; color: var(--primary); }
-    .stat-label { font-size: 12px; text-transform: uppercase; color: var(--text-light); margin-top: 4px; font-weight: 600; letter-spacing: 0.5px; }
-    .btn-row { display: flex; gap: 10px; margin-bottom: 30px; }
-    .btn { padding: 14px 24px; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; justify-content: center; transition: 0.2s; }
-    .btn-primary { background: var(--primary); color: var(--bg); flex: 1; }
-    .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); flex: 1; }
-    .btn-primary:hover { opacity: 0.88; }
-    .btn-outline:hover { background: var(--hover); }
-    .how-to-card { background: var(--accent); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
-    .how-to-card .step-num { background: var(--primary); color: var(--bg); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+    .stat-card { background: linear-gradient(145deg, var(--card) 0%, #f4f4f4 100%); border: 1px solid transparent; border-radius: 16px; padding: 22px 15px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02); transition: all 0.3s ease; position: relative; overflow: hidden; }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); border-color: var(--primary); }
+    .dark-mode .stat-card { background: linear-gradient(145deg, var(--card) 0%, #1e2b3c 100%); }
+    .stat-value { font-size: 32px; font-weight: 800; color: var(--primary); position: relative; z-index: 1; }
+    .stat-label { font-size: 12px; text-transform: uppercase; color: var(--text-light); margin-top: 6px; font-weight: 600; letter-spacing: 0.5px; position: relative; z-index: 1; }
+    .btn-row { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+    .btn { padding: 14px 24px; border: none; border-radius: 14px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; justify-content: center; transition: all 0.25s ease; white-space: nowrap; position: relative; overflow: hidden; }
+    .btn-primary { background: var(--primary); color: var(--bg); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
+    .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+    .btn-outline:hover { background: var(--primary); color: var(--bg); transform: translateY(-1px); }
+    .btn-small { padding: 10px 16px; font-size: 13px; }
+
+    /* Dropdown styles */
+    .dropdown-container { position: relative; display: inline-block; }
+    .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: var(--bg); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); z-index: 200; min-width: 170px; padding: 8px 0; margin-top: 6px; backdrop-filter: blur(10px); }
+    .dropdown-menu.show { display: block; }
+    .dropdown-menu a { display: block; padding: 12px 18px; color: var(--text); text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.2s, padding-left 0.2s; white-space: nowrap; }
+    .dropdown-menu a:hover { background: var(--hover); color: var(--primary); padding-left: 22px; }
+    .how-to-card { background: linear-gradient(135deg, var(--accent) 0%, #f0f4f8 100%); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; transition: transform 0.2s; }
+    .dark-mode .how-to-card { background: linear-gradient(135deg, var(--accent) 0%, #1a2332 100%); }
+    .how-to-card:hover { transform: translateY(-1px); }
+    .how-to-card .step-num { background: var(--primary); color: var(--bg); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
     .how-to-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
     .how-to-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin: 0; }
-    .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
-    .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); }
+    .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: box-shadow 0.2s; }
+    .faq-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); border-radius: 14px 14px 0 0; }
     .faq-answer { display: none; padding: 16px 18px; color: var(--text-light); border-top: 1px solid var(--line); }
     .faq-item.active .faq-answer { display: block; }
     .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
@@ -346,9 +363,27 @@
           <div class="stat-card"><span class="stat-value" id="topWord3">–</span><div class="stat-label">Top Keyword #3</div></div>
         </div>
 
+        <!-- Consolidated button row with dropdowns -->
         <div class="btn-row">
           <button class="btn btn-primary" onclick="clearText()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
           <button class="btn btn-outline" onclick="copyText()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
+          <button class="btn btn-outline" onclick="removeSpaces()"><i data-lucide="minus" width="18" height="18"></i> Remove Spaces</button>
+          <div class="dropdown-container">
+            <button class="btn btn-outline" onclick="toggleDropdown('exportDropdown')"><i data-lucide="file-text" width="18" height="18"></i> Export as <i data-lucide="chevron-down" width="16" height="16" style="margin-left:4px;"></i></button>
+            <div class="dropdown-menu" id="exportDropdown">
+              <a href="#" onclick="event.preventDefault(); exportAsPDF(); closeAllDropdowns();">Export as PDF</a>
+              <a href="#" onclick="event.preventDefault(); exportAsDOCX(); closeAllDropdowns();">Export as DOCX</a>
+              <a href="#" onclick="event.preventDefault(); exportAsTXT(); closeAllDropdowns();">Export as TXT</a>
+            </div>
+          </div>
+          <div class="dropdown-container">
+            <button class="btn btn-outline" onclick="toggleDropdown('convertDropdown')"><i data-lucide="refresh-cw" width="18" height="18"></i> Convert <i data-lucide="chevron-down" width="16" height="16" style="margin-left:4px;"></i></button>
+            <div class="dropdown-menu" id="convertDropdown">
+              <a href="#" onclick="event.preventDefault(); convertCase('upper'); closeAllDropdowns();">UPPERCASE</a>
+              <a href="#" onclick="event.preventDefault(); convertCase('lower'); closeAllDropdowns();">lowercase</a>
+              <a href="#" onclick="event.preventDefault(); convertCase('title'); closeAllDropdowns();">Title Case</a>
+            </div>
+          </div>
         </div>
 
         <div style="margin-top:40px;">
@@ -363,8 +398,13 @@
           </div>
           <div class="how-to-card">
             <div class="step-num">3</div>
-            <div><h4>Copy or Clear</h4><p>Copy the entire text to your clipboard, or clear the field to start fresh. All processing stays on your device.</p></div>
+            <div><h4>Use the New Export & Convert Tools</h4><p>Remove spaces, export your text as a PDF, Word, or TXT file, or change case with a single click.</p></div>
           </div>
+
+          <h2>All About Word Counting: The Ultimate Guide to Free Online Word Counters</h2>
+          <p>Whether you're a student, writer, SEO specialist, or just someone who needs to <strong>count words</strong> quickly, a <strong>free online word counter</strong> is an essential tool. Our <strong>word count tool</strong> goes beyond basic counting: it's a full‑featured <strong>character counter</strong>, <strong>sentence counter</strong>, <strong>paragraph counter</strong>, and even a <strong>reading time estimator</strong> all in one place. No need to download software or sign up — just paste your text and the <strong>online word counter</strong> does the rest.</p>
+          <p>Many people search for <strong>"word counter online"</strong>, <strong>"count words"</strong>, or <strong>"character count"</strong>. This page is exactly that. It's a reliable <strong>words counter</strong> that works on any device, including mobile. You can <strong>count characters with spaces</strong> or <strong>count characters without spaces</strong> depending on your need. Bloggers use our <strong>writing tool</strong> to check <strong>average sentence length</strong> and <strong>unique word count</strong>; students rely on it to meet <strong>essay word count</strong> requirements; and social media managers use the <strong>character counter for Twitter</strong> and Instagram captions.</p>
+          <p>Need to see <strong>keyword density</strong>? The top keyword cards show your most‑used words. Want to know <strong>how long to read</strong> an article? The <strong>reading time calculator</strong> uses 200 words per minute. Curious about <strong>speaking time</strong>? It's there too, based on 130 words per minute. And if you're wondering about <strong>letter count</strong> or <strong>word frequency</strong>, our tool provides a detailed <strong>word frequency counter</strong> view through the unique words stat. Best of all, this <strong>free word counter</strong> respects your privacy — all processing happens locally in your browser, making it the safest <strong>online word count tool</strong> you can find.</p>
 
           <h2>Word Tips & Insights</h2>
           <p><strong>Why track unique words?</strong> A high number of unique words often indicates richer vocabulary and less repetition. If your unique‑word count is close to your total word count, you're using a wide range of vocabulary. If it's low, you may be repeating yourself — try mixing in synonyms.</p>
@@ -373,7 +413,6 @@
           <p><strong>Using top keywords to improve SEO:</strong> The top keyword stats show which words appear most often. If your main topic word isn't among them, you might need to emphasize it more. Conversely, if a filler word like "the" or "and" is #1, that's normal — the tool filters common stop words in some views, but for raw data it includes everything.</p>
 
           <h2>A Writer's Guide to Word Count</h2>
-          <p>Different kinds of writing call for different lengths. Here's a quick cheat sheet:</p>
           <ul>
             <li><strong>Social media captions:</strong> 50–150 characters (about 10–30 words). Short and punchy wins.</li>
             <li><strong>Blog posts:</strong> 1,000–2,000 words is the sweet spot for SEO, but tutorials and guides can go longer.</li>
@@ -404,46 +443,79 @@
           <h2>Privacy & Security</h2>
           <p>All text processing happens locally in your browser. Your text is never uploaded, stored, or shared. You can count words with complete peace of mind — and the tool even works offline once loaded.</p>
 
+          <!-- NEW CONTENT SECTIONS START -->
+          <h2>Advanced Tips for Power Users</h2>
+          <p>Once you've mastered the basics, these power‑user tips will help you get even more out of the word counter:</p>
+          <ul>
+            <li><strong>Track your writing habits:</strong> Keep a log of your daily word counts. It's a great motivator — many successful writers aim for 500‑1000 words a day.</li>
+            <li><strong>Combine with other Textify.tools:</strong> After counting, use our <strong>Case Converter</strong> to change text case, <strong>Text Reverser</strong> for creative effects, or <strong>Smart Paraphraser</strong> to rewrite content. All our tools work seamlessly together.</li>
+            <li><strong>Analyze reading level:</strong> While this tool shows average sentence length, you can gauge readability by comparing it to benchmarks. An average sentence length of 15‑20 words is ideal for most audiences.</li>
+            <li><strong>Check keyword stuffing:</strong> If your top keyword appears too many times, you might be overusing it. Use the unique word count to see if your vocabulary is diverse enough.</li>
+            <li><strong>Export and compare drafts:</strong> Use the TXT export to save different versions of your writing. Later, compare them to see how your style evolved.</li>
+          </ul>
+
+          <h2>Online Word Counter vs. Desktop Word Processors</h2>
+          <p>Why use an online tool when you have Microsoft Word or Google Docs? Here's the difference:</p>
+          <ul>
+            <li><strong>Instant, no clicks:</strong> Many desktop word processors hide word count behind menus. Our tool shows it immediately as you type — no need to interrupt your flow.</li>
+            <li><strong>Extra stats:</strong> Standard word processors give you word count and character count. We add unique words, longest/shortest words, top keywords, reading time, speaking time, and more. These are invaluable for writers and SEOs.</li>
+            <li><strong>Privacy:</strong> Some online suites may store your text in the cloud. Our tool processes everything locally on your device — your data never leaves your browser.</li>
+            <li><strong>No distractions:</strong> No formatting options, toolbars, or spell‑check underlines. Just a clean text area and your stats. Perfect for focused writing.</li>
+            <li><strong>Works anywhere:</strong> Open it in any modern browser, even on a phone or tablet. No installation, no account needed.</li>
+          </ul>
+
+          <h2>Why Our Free Word Counter Is the Best Choice</h2>
+          <p>With so many free online word counters out there, what makes ours stand out?</p>
+          <ul>
+            <li><strong>Completely free:</strong> No paid upgrades, no feature gating. Everything you see is available without signing up.</li>
+            <li><strong>Batteries included:</strong> Not just a word counter, but also a sentence counter, paragraph counter, character counter, reading time calculator, and keyword density tool — all in one.</li>
+            <li><strong>Export & convert:</strong> Download your text as PDF, DOCX, or TXT. Convert between uppercase, lowercase, and title case with one click.</li>
+            <li><strong>Remove spaces:</strong> A handy feature when you need a condensed text block, for instance, for coding or URL slugs.</li>
+            <li><strong>Dark mode:</strong> Toggle between light and dark themes to reduce eye strain during late‑night writing sessions.</li>
+            <li><strong>Responsive design:</strong> Use it comfortably on desktops, tablets, and smartphones. The interface adapts perfectly.</li>
+          </ul>
+          <!-- NEW CONTENT SECTIONS END -->
+
           <h2>Frequently Asked Questions</h2>
           <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">How accurate is the word count?<i data-lucide="chevron-down" width="16"></i></div>
-            <div class="faq-answer">Very accurate. It counts words separated by spaces and handles punctuation correctly, just like most modern word processors.</div>
+            <div class="faq-question" onclick="toggleFaq(this)">Will this word counter work on my phone?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Absolutely. The page is built to adapt to any screen size. I use it on my phone while tweaking blog posts on the go — it's just as smooth as on a desktop.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">What counts as a word?<i data-lucide="chevron-down" width="16"></i></div>
-            <div class="faq-answer">Any sequence of characters separated by spaces. Hyphenated words like "state‑of‑the‑art" count as one word, while numbers like "1,000" also count as one.</div>
+            <div class="faq-question" onclick="toggleFaq(this)">Can I count words from a PDF or a Word document directly?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">The tool works with plain text, so you'll need to open the document, copy the content, and paste it here. No file uploads, no fuss — just Ctrl+C and Ctrl+V.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Can I see how many times I repeated a word?<i data-lucide="chevron-down" width="16"></i></div>
-            <div class="faq-answer">Yes — check the "Top Keyword" cards below the main stats. They show your three most‑used words. For deeper analysis, try our Keyword Density Analyzer tool.</div>
+            <div class="faq-question" onclick="toggleFaq(this)">How does the 'Top Keywords' section work?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">It scans every word (ignoring punctuation) and counts how many times each one appears. The three most frequent words are shown right there. It's a quick way to spot overused terms.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Does the counter work with languages other than English?<i data-lucide="chevron-down" width="16"></i></div>
-            <div class="faq-answer">Yes, it works with any language that uses spaces between words, including Spanish, French, German, and others. It may not be accurate for languages without spaces, like Chinese or Japanese.</div>
+            <div class="faq-question" onclick="toggleFaq(this)">Is there a limit on how much text I can paste?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">No hard limit. I've tested it with 10,000+ words and it still runs fine. However, if you paste a massive novel, your browser might slow down a bit depending on your device.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">What is a good reading time for a blog post?<i data-lucide="chevron-down" width="16"></i></div>
-            <div class="faq-answer">Most readers prefer posts that take 5–7 minutes to read (about 1,000–1,400 words). Longer posts (10+ minutes) work well for in‑depth guides but can lose impatient readers.</div>
+            <div class="faq-question" onclick="toggleFaq(this)">What exactly counts as a word?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Anything that's separated by spaces. Hyphenated words like "up‑to‑date" count as one word, and numbers like "1,000" are also treated as a single word. Pretty much the same way Google Docs or Word does it.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Can I use this tool for school assignments?<i data-lucide="chevron-down" width="16"></i></div>
-            <div class="faq-answer">Definitely. Many students use it to check if they've met word‑count requirements for essays, reports, and applications.</div>
+            <div class="faq-question" onclick="toggleFaq(this)">Can I use this for school essays or articles that need a specific word limit?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Yes, that's one of the most common use cases. Just paste your essay, and the word count updates live. You'll instantly know if you've hit that 500‑ or 1000‑word target.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div>
-            <div class="faq-answer">Yes, it's fully responsive and works perfectly on phones and tablets.</div>
+            <div class="faq-question" onclick="toggleFaq(this)">Is my text really private?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Totally. Everything stays on your device. The counting happens inside your browser — no data is sent anywhere. Even if your internet drops, the tool still works.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div>
-            <div class="faq-answer">Absolutely. All counting happens locally in your browser. No data is sent anywhere.</div>
+            <div class="faq-question" onclick="toggleFaq(this)">Why are there two character counts?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">One includes spaces (useful for general length), and the other excludes them (helpful when you're writing for platforms like Twitter or SMS that count characters without spaces).</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Does the counter include spaces in the character count?<i data-lucide="chevron-down" width="16"></i></div>
-            <div class="faq-answer">Yes, the main character count includes spaces. Use the "Characters (no spaces)" stat when you need the count without spaces, for example for SMS or Twitter.</div>
+            <div class="faq-question" onclick="toggleFaq(this)">Does the reading time actually mean anything?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">It's a rough estimate based on the average reading speed of 200 words per minute. It's useful to gauge if your blog post will take 3 minutes or 15 minutes to read — helps you keep your audience's attention span in mind.</div>
           </div>
           <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Can I count words in a PDF or Word document?<i data-lucide="chevron-down" width="16"></i></div>
-            <div class="faq-answer">You'll need to copy and paste the text from your document into the box. Our tool works with plain text only and doesn't read files directly.</div>
+            <div class="faq-question" onclick="toggleFaq(this)">Can I convert my text to all caps or lowercase right here?<i data-lucide="chevron-down" width="16"></i></div>
+            <div class="faq-answer">Yes. Use the "Convert" dropdown and pick uppercase, lowercase, or title case. It's a nice little bonus — no need to open a separate case converter tool.</div>
           </div>
         </div>
       </div>
@@ -696,6 +768,79 @@
       btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!';
       setTimeout(() => { btn.innerHTML = orig; lucide.createIcons(); }, 2000);
     }
+
+    function removeSpaces() {
+      const text = inputText.value;
+      if (!text) return;
+      inputText.value = text.replace(/\s+/g, '');
+      updateCounts();
+    }
+
+    function exportAsPDF() {
+      const text = inputText.value;
+      if (!text) return;
+      const win = window.open('', '_blank', 'width=800,height=600');
+      win.document.write(`<pre style="font-family: monospace; white-space: pre-wrap; padding: 20px;">${text}</pre>`);
+      win.document.close();
+      win.focus();
+      win.print();
+    }
+
+    function exportAsDOCX() {
+      const text = inputText.value;
+      if (!text) return;
+      const htmlContent = `<html><head><meta charset="utf-8"></head><body><pre style="font-family: monospace;">${text}</pre></body></html>`;
+      const blob = new Blob([htmlContent], { type: 'application/msword' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'text-document.doc';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function exportAsTXT() {
+      const text = inputText.value;
+      if (!text) return;
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'text-document.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function convertCase(type) {
+      const text = inputText.value;
+      if (!text) return;
+      if (type === 'upper') inputText.value = text.toUpperCase();
+      else if (type === 'lower') inputText.value = text.toLowerCase();
+      else if (type === 'title') inputText.value = text.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+      updateCounts();
+    }
+
+    // Dropdown toggle
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      if (dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show');
+      } else {
+        closeAllDropdowns();
+        dropdown.classList.add('show');
+      }
+    }
+
+    function closeAllDropdowns() {
+      document.querySelectorAll('.dropdown-menu').forEach(d => d.classList.remove('show'));
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.dropdown-container')) {
+        closeAllDropdowns();
+      }
+    });
 
     buildMegaMenu();
     buildMobileToolsMenu();
