@@ -21,19 +21,13 @@
     <meta name="twitter:title" content="Word Frequency Counter – Count Word Occurrences & Density | Textify.tools">
     <meta name="twitter:description" content="Free online word frequency counter. Count how many times each word appears, filter stop words, sort by frequency or alphabetically, and download results.">
 
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/mstile-150x150.png">
+    <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.textify.tools/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.textify.tools/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.textify.tools/apple-touch-icon.png">
 
-    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -135,7 +129,6 @@
             overflow-x: hidden;
         }
 
-        /* FULL-WIDTH WRAPPER */
         .page-wrapper {
             width: 100%;
             max-width: 100%;
@@ -146,7 +139,6 @@
             min-height: 100vh;
         }
 
-        /* HEADER – full width with generous padding */
         header {
             border-bottom: 1px solid var(--line);
             display: flex; justify-content: center;
@@ -216,16 +208,45 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        /* MAIN – generous side padding */
         main {
             flex: 1;
-            padding: 40px 40px;
+            padding: 40px 0;
             width: 100%;
             max-width: 100%;
             background: transparent;
         }
-        h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
-        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 40px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .content-container {
+            width: 100%;
+            padding: 0 40px;
+        }
+        @media (max-width: 768px) {
+            .content-container {
+                padding: 0 16px;
+            }
+            main {
+                padding: 20px 0;
+            }
+        }
+        h1 {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            text-align: left;
+            word-wrap: break-word;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            text-align: left;
+            word-wrap: break-word;
+        }
+        h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
+        h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
+        p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
+        ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
         textarea { width: 100%; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s; }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
         .stats-panel { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 22px; }
@@ -267,7 +288,6 @@
         .related-tool-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 15px; text-decoration: none; color: var(--text); font-weight: 500; transition: 0.2s; }
         .related-tool-card:hover { border-color: var(--primary); background: var(--hover); }
         
-        /* FOOTER – 5 equal columns, black links (light mode) */
         footer {
             border-top: 1px solid var(--footer-border);
             padding: 40px 40px 25px;
@@ -300,18 +320,15 @@
         }
         .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
-        /* RESPONSIVE */
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
-            main { padding: 20px 12px; }
+            main { padding: 20px 0; }
             footer { padding: 30px 16px 20px; }
         }
-        @media (min-width: 769px) {
-            .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; }
-        }
+        @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
         @media (min-width: 1800px) {
-            main { padding: 50px 60px; }
+            main { padding: 50px 0; }
             header { padding: 0 60px; }
             footer { padding: 50px 60px 30px; }
             h1 { font-size: 44px; }
@@ -347,126 +364,128 @@
         </header>
 
         <main>
-            <h1>Word Frequency Counter</h1>
-            <p class="subtitle">Analyze how many times each word appears in your text. Identify the most common words, filter out common stop words, and view results sorted by frequency or alphabetically — all in your browser, completely private.</p>
+            <div class="content-container">
+                <h1>Word Frequency Counter</h1>
+                <p class="subtitle">Analyze how many times each word appears in your text. Identify the most common words, filter out common stop words, and view results sorted by frequency or alphabetically — all in your browser, completely private.</p>
 
-            <textarea id="inputText" placeholder="Paste your text here... e.g., a paragraph, an article, or any content you want to analyze."></textarea>
+                <textarea id="inputText" placeholder="Paste your text here... e.g., a paragraph, an article, or any content you want to analyze."></textarea>
 
-            <div class="stats-panel" id="statsPanel" style="display: none;">
-                <div class="stats-card"><span class="stat-value" id="uniqueWords">0</span><div class="stat-label">Unique Words</div></div>
-                <div class="stats-card"><span class="stat-value" id="totalWords">0</span><div class="stat-label">Total Words</div></div>
-                <div class="stats-card"><span class="stat-value" id="totalChars">0</span><div class="stat-label">Characters</div></div>
-            </div>
-
-            <div class="options-grid">
-                <label class="checkbox-group"><input type="checkbox" id="caseSensitive"> Case‑sensitive (Hello ≠ hello)</label>
-                <label class="checkbox-group"><input type="checkbox" id="filterStopwords" checked> 🔍 Filter common stop words (a, an, the, of, to, etc.)</label>
-                <label class="checkbox-group"><input type="checkbox" id="minWordLength"> Minimum word length: <input type="number" id="minLength" value="0" min="0" max="50" style="width:60px; padding:4px 8px; border-radius:6px; border:1px solid var(--input-border); background:var(--input-bg); color:var(--text); margin-left:4px;"> characters</label>
-            </div>
-
-            <div class="sort-buttons">
-                <button class="btn btn-primary" id="sortByFreq" onclick="sortByFrequency()"><i data-lucide="bar-chart-2" width="16"></i> Sort by Frequency</button>
-                <button class="btn btn-primary" id="sortByAlpha" onclick="sortByAlphabetical()"><i data-lucide="sort-asc" width="16"></i> Sort Alphabetically</button>
-                <button class="btn btn-primary" id="exportBtn" onclick="exportResults()"><i data-lucide="download" width="16"></i> Export CSV</button>
-            </div>
-
-            <div class="action-buttons">
-                <button class="btn btn-primary" id="analyzeBtn" onclick="analyzeText()"><i data-lucide="pie-chart" width="18"></i> Analyze Word Frequency</button>
-                <button class="btn btn-outline" onclick="clearText()"><i data-lucide="trash-2" width="18"></i> Clear</button>
-            </div>
-
-            <div class="results-area" id="resultsArea">
-                <div class="char-count-box" id="resultInfo" style="background: var(--success-bg); padding: 12px 18px; border-radius: 12px; margin-bottom: 20px; text-align: center; color: var(--success-text); font-weight: 600; font-size: 14px;"></div>
-                <div style="overflow-x: auto;">
-                    <table class="results-table" id="resultsTable">
-                        <thead><tr><th>#</th><th>Word</th><th>Count</th><th>Frequency</th><th>Percentage</th></tr></thead>
-                        <tbody id="resultsBody"></tbody>
-                    </table>
+                <div class="stats-panel" id="statsPanel" style="display: none;">
+                    <div class="stats-card"><span class="stat-value" id="uniqueWords">0</span><div class="stat-label">Unique Words</div></div>
+                    <div class="stats-card"><span class="stat-value" id="totalWords">0</span><div class="stat-label">Total Words</div></div>
+                    <div class="stats-card"><span class="stat-value" id="totalChars">0</span><div class="stat-label">Characters</div></div>
                 </div>
-            </div>
 
-            <div class="section">
-                <h2>How to Use the Word Frequency Counter</h2>
-                <div class="how-to-card">
-                    <div class="step-num">1</div>
-                    <div><h4>Enter your text</h4><p>Paste or type the content you want to analyze. It can be a paragraph, an article, or any text.</p></div>
+                <div class="options-grid">
+                    <label class="checkbox-group"><input type="checkbox" id="caseSensitive"> Case‑sensitive (Hello ≠ hello)</label>
+                    <label class="checkbox-group"><input type="checkbox" id="filterStopwords" checked> Filter common stop words (a, an, the, of, to, etc.)</label>
+                    <label class="checkbox-group"><input type="checkbox" id="minWordLength"> Minimum word length: <input type="number" id="minLength" value="0" min="0" max="50" style="width:60px; padding:4px 8px; border-radius:6px; border:1px solid var(--input-border); background:var(--input-bg); color:var(--text); margin-left:4px;"> characters</label>
                 </div>
-                <div class="how-to-card">
-                    <div class="step-num">2</div>
-                    <div><h4>Choose options</h4><p>Enable case‑sensitive matching, filter common stop words, or set a minimum word length to ignore short words.</p></div>
-                </div>
-                <div class="how-to-card">
-                    <div class="step-num">3</div>
-                    <div><h4>Click Analyze Word Frequency</h4><p>The results table shows each unique word, its count, frequency, and percentage.</p></div>
-                </div>
-                <div class="how-to-card">
-                    <div class="step-num">4</div>
-                    <div><h4>Sort or export results</h4><p>Sort by frequency descending or alphabetically, and download the data as a CSV file for further analysis.</p></div>
-                </div>
-            </div>
 
-            <div class="section">
-                <h2>Why Use a Word Frequency Counter?</h2>
-                <p>Word frequency analysis is useful for many scenarios:</p>
-                <ul style="padding-left: 22px; color: var(--text-light); line-height: 1.8; margin-top: 15px;">
-                    <li><strong>SEO & Content Optimization</strong> — Identify overused keywords or find the most relevant terms in your content.</li>
-                    <li><strong>Plagiarism Detection</strong> — Spot unusual word repetition patterns.</li>
-                    <li><strong>Academic Writing</strong> — Avoid repetitive language and improve vocabulary variety.</li>
-                    <li><strong>Social Media Analysis</strong> — Understand which words or hashtags appear most frequently in posts or comments.</li>
-                    <li><strong>Language Learning</strong> — Analyze which words appear most often in a foreign language text to focus learning on frequent vocabulary.</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h2>Why Choose Our Word Frequency Counter?</h2>
-                <div class="how-to-card">
-                    <div class="step-num"><i data-lucide="shield-check" width="18" height="18"></i></div>
-                    <div><h4>100% Private & Secure</h4><p>All analysis runs locally in your browser. Your text never leaves your device – perfect for confidential documents.</p></div>
+                <div class="sort-buttons">
+                    <button class="btn btn-primary" id="sortByFreq" onclick="sortByFrequency()"><i data-lucide="bar-chart-2" width="16"></i> Sort by Frequency</button>
+                    <button class="btn btn-primary" id="sortByAlpha" onclick="sortByAlphabetical()"><i data-lucide="sort-asc" width="16"></i> Sort Alphabetically</button>
+                    <button class="btn btn-primary" id="exportBtn" onclick="exportResults()"><i data-lucide="download" width="16"></i> Export CSV</button>
                 </div>
-                <div class="how-to-card">
-                    <div class="step-num"><i data-lucide="zap" width="18" height="18"></i></div>
-                    <div><h4>Instant & Powerful</h4><p>Handles large texts instantly. See word counts, frequency bars, and percentages at a glance.</p></div>
-                </div>
-                <div class="how-to-card">
-                    <div class="step-num"><i data-lucide="sliders" width="18" height="18"></i></div>
-                    <div><h4>Customizable Filters</h4><p>Filter out over 150 English stop words, set minimum word length, toggle case sensitivity – tailor the analysis exactly to your needs.</p></div>
-                </div>
-                <div class="how-to-card">
-                    <div class="step-num"><i data-lucide="download" width="18" height="18"></i></div>
-                    <div><h4>Export Ready</h4><p>Download results as a CSV file for use in Excel, Google Sheets, or any data tool.</p></div>
-                </div>
-            </div>
 
-            <div class="section">
-                <h2>About Stop Words</h2>
-                <p>The word frequency counter includes a built‑in list of over 150 common English stop words (e.g., "a", "an", "the", "of", "to", "and", "for", "with"). Enabling the "Filter stop words" option will remove these words from the analysis, allowing you to focus on meaningful, content‑bearing words. You can also set a minimum word length to ignore very short words.</p>
-            </div>
-
-            <div class="section">
-                <h2>Privacy & Security</h2>
-                <p>All analysis happens locally in your browser. Your text is never uploaded to any server – you can use the word frequency counter with complete peace of mind for any document, including sensitive or proprietary content.</p>
-            </div>
-
-            <div class="section">
-                <h2>Related Text Analysis Tools</h2>
-                <div class="related-tools">
-                    <a class="related-tool-card" href="/word-counter">Word Counter</a>
-                    <a class="related-tool-card" href="/character-frequency-counter">Character Frequency Counter</a>
-                    <a class="related-tool-card" href="/keyword-density-checker">Keyword Density Checker</a>
-                    <a class="related-tool-card" href="/text-statistics">Text Statistics</a>
-                    <a class="related-tool-card" href="/sentence-counter">Sentence Counter</a>
-                    <a class="related-tool-card" href="/reading-time-estimator">Reading Time Estimator</a>
-                    <a class="related-tool-card" href="/text-diff-checker">Text Diff Checker</a>
-                    <a class="related-tool-card" href="/case-converter">Case Converter</a>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="analyzeBtn" onclick="analyzeText()"><i data-lucide="pie-chart" width="18"></i> Analyze Word Frequency</button>
+                    <button class="btn btn-outline" onclick="clearText()"><i data-lucide="trash-2" width="18"></i> Clear</button>
                 </div>
-            </div>
 
-            <div class="section">
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How accurate is the word frequency counter?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool splits text by spaces and punctuation, then counts each occurrence exactly. With case‑sensitivity off (default), "Hello" and "hello" are counted as the same word.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What are stop words?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Stop words are common words (such as "the", "and", "of", "to") that are often filtered out in text analysis because they add little meaning. You can enable or disable this filter as needed.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes — the page is fully responsive and works on iPhones, Android devices, and tablets.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All processing happens directly in your browser — no data leaves your device.</div></div>
+                <div class="results-area" id="resultsArea">
+                    <div class="char-count-box" id="resultInfo" style="background: var(--success-bg); padding: 12px 18px; border-radius: 12px; margin-bottom: 20px; text-align: center; color: var(--success-text); font-weight: 600; font-size: 14px;"></div>
+                    <div style="overflow-x: auto;">
+                        <table class="results-table" id="resultsTable">
+                            <thead><tr><th>#</th><th>Word</th><th>Count</th><th>Frequency</th><th>Percentage</th></tr></thead>
+                            <tbody id="resultsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>How to Use the Word Frequency Counter</h2>
+                    <div class="how-to-card">
+                        <div class="step-num">1</div>
+                        <div><h4>Enter your text</h4><p>Paste or type the content you want to analyze. It can be a paragraph, an article, or any text.</p></div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">2</div>
+                        <div><h4>Choose options</h4><p>Enable case‑sensitive matching, filter common stop words, or set a minimum word length to ignore short words.</p></div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">3</div>
+                        <div><h4>Click Analyze Word Frequency</h4><p>The results table shows each unique word, its count, frequency, and percentage.</p></div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">4</div>
+                        <div><h4>Sort or export results</h4><p>Sort by frequency descending or alphabetically, and download the data as a CSV file for further analysis.</p></div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Why Use a Word Frequency Counter?</h2>
+                    <p>Word frequency analysis is useful for many scenarios:</p>
+                    <ul>
+                        <li><strong>SEO & Content Optimization</strong> — Identify overused keywords or find the most relevant terms in your content.</li>
+                        <li><strong>Plagiarism Detection</strong> — Spot unusual word repetition patterns.</li>
+                        <li><strong>Academic Writing</strong> — Avoid repetitive language and improve vocabulary variety.</li>
+                        <li><strong>Social Media Analysis</strong> — Understand which words or hashtags appear most frequently in posts or comments.</li>
+                        <li><strong>Language Learning</strong> — Analyze which words appear most often in a foreign language text to focus learning on frequent vocabulary.</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Why Choose Our Word Frequency Counter?</h2>
+                    <div class="how-to-card">
+                        <div class="step-num"><i data-lucide="shield-check" width="18" height="18"></i></div>
+                        <div><h4>100% Private & Secure</h4><p>All analysis runs locally in your browser. Your text never leaves your device – perfect for confidential documents.</p></div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num"><i data-lucide="zap" width="18" height="18"></i></div>
+                        <div><h4>Instant & Powerful</h4><p>Handles large texts instantly. See word counts, frequency bars, and percentages at a glance.</p></div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num"><i data-lucide="sliders" width="18" height="18"></i></div>
+                        <div><h4>Customizable Filters</h4><p>Filter out over 150 English stop words, set minimum word length, toggle case sensitivity – tailor the analysis exactly to your needs.</p></div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num"><i data-lucide="download" width="18" height="18"></i></div>
+                        <div><h4>Export Ready</h4><p>Download results as a CSV file for use in Excel, Google Sheets, or any data tool.</p></div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>About Stop Words</h2>
+                    <p>The word frequency counter includes a built‑in list of over 150 common English stop words (e.g., "a", "an", "the", "of", "to", "and", "for", "with"). Enabling the "Filter stop words" option will remove these words from the analysis, allowing you to focus on meaningful, content‑bearing words. You can also set a minimum word length to ignore very short words.</p>
+                </div>
+
+                <div class="section">
+                    <h2>Privacy & Security</h2>
+                    <p>All analysis happens locally in your browser. Your text is never uploaded to any server – you can use the word frequency counter with complete peace of mind for any document, including sensitive or proprietary content.</p>
+                </div>
+
+                <div class="section">
+                    <h2>Related Text Analysis Tools</h2>
+                    <div class="related-tools">
+                        <a class="related-tool-card" href="/word-counter">Word Counter</a>
+                        <a class="related-tool-card" href="/character-frequency-counter">Character Frequency Counter</a>
+                        <a class="related-tool-card" href="/keyword-density-checker">Keyword Density Checker</a>
+                        <a class="related-tool-card" href="/text-statistics">Text Statistics</a>
+                        <a class="related-tool-card" href="/sentence-counter">Sentence Counter</a>
+                        <a class="related-tool-card" href="/reading-time-estimator">Reading Time Estimator</a>
+                        <a class="related-tool-card" href="/text-diff-checker">Text Diff Checker</a>
+                        <a class="related-tool-card" href="/case-converter">Case Converter</a>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How accurate is the word frequency counter?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool splits text by spaces and punctuation, then counts each occurrence exactly. With case‑sensitivity off (default), "Hello" and "hello" are counted as the same word.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What are stop words?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Stop words are common words (such as "the", "and", "of", "to") that are often filtered out in text analysis because they add little meaning. You can enable or disable this filter as needed.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes — the page is fully responsive and works on iPhones, Android devices, and tablets.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All processing happens directly in your browser — no data leaves your device.</div></div>
+                </div>
             </div>
         </main>
 
@@ -675,7 +694,7 @@
 
         function analyzeText() {
             const input = document.getElementById('inputText').value;
-            if (!input.trim()) { showToast('Please enter some text to analyze.', 2500); return; }
+            if (!input.trim()) { showToast('Please enter some text to analyze.'); return; }
             const caseSensitive = document.getElementById('caseSensitive').checked;
             const filterStopwords = document.getElementById('filterStopwords').checked;
             const minWordLen = parseInt(document.getElementById('minLength').value) || 0;
@@ -692,7 +711,7 @@
             renderResults();
             updateStats(totalWords, currentData.length, input.length);
             document.getElementById('resultsArea').style.display = 'block';
-            showToast('✅ Word frequency analysis complete!');
+            showToast('Word frequency analysis complete!');
         }
 
         function renderResults() {
@@ -707,7 +726,7 @@
                     <td>${item.percentage}%</td>
                 </tr>
             `).join('');
-            document.getElementById('resultInfo').innerHTML = `<span>📊 <strong>${currentData.length}</strong> unique words</span> <span>🔤 <strong>${currentData.reduce((sum, i) => sum + i.count, 0)}</strong> total filtered words</span>`;
+            document.getElementById('resultInfo').innerHTML = `<span><strong>${currentData.length}</strong> unique words</span> <span><strong>${currentData.reduce((sum, i) => sum + i.count, 0)}</strong> total filtered words</span>`;
         }
 
         function updateStats(totalRaw, unique, chars) {
@@ -717,18 +736,18 @@
             document.getElementById('totalChars').textContent = chars;
         }
 
-        function sortByFrequency() { if (currentData.length === 0) return; currentData.sort((a, b) => b.count - a.count); renderResults(); showToast('📊 Sorted by frequency'); }
-        function sortByAlphabetical() { if (currentData.length === 0) return; currentData.sort((a, b) => a.word.localeCompare(b.word)); renderResults(); showToast('🔤 Sorted alphabetically'); }
+        function sortByFrequency() { if (currentData.length === 0) return; currentData.sort((a, b) => b.count - a.count); renderResults(); showToast('Sorted by frequency'); }
+        function sortByAlphabetical() { if (currentData.length === 0) return; currentData.sort((a, b) => a.word.localeCompare(b.word)); renderResults(); showToast('Sorted alphabetically'); }
 
         function exportResults() {
-            if (currentData.length === 0) { showToast('No data to export. Please analyze text first.', 2500); return; }
+            if (currentData.length === 0) { showToast('No data to export. Please analyze text first.'); return; }
             const csvRows = [['Word', 'Count', 'Percentage']];
             currentData.forEach(item => csvRows.push([item.word, item.count, item.percentage + '%']));
             const csvContent = csvRows.map(row => row.join(',')).join('\n');
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
             const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'word-frequency.csv';
             document.body.appendChild(link); link.click(); document.body.removeChild(link); URL.revokeObjectURL(link.href);
-            showToast('📁 Exported as CSV');
+            showToast('Exported as CSV');
         }
 
         function clearText() {
@@ -736,7 +755,7 @@
             document.getElementById('resultsArea').style.display = 'none';
             document.getElementById('statsPanel').style.display = 'none';
             currentData = [];
-            showToast('🧹 Cleared');
+            showToast('Cleared');
         }
 
         function escapeHtml(text) { return text.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m])); }
