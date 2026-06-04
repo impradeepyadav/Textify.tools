@@ -54,8 +54,6 @@
             --accent: #f8fafc;
             --toast-bg: #1f2937;
             --toast-text: #ffffff;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
         body.dark-mode {
             --bg: #0f172a;
@@ -85,8 +83,6 @@
             --accent: #1e293b;
             --toast-bg: #f1f5f9;
             --toast-text: #0f172a;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -99,7 +95,6 @@
             overflow-x: hidden;
         }
 
-        /* FULL-WIDTH WRAPPER */
         .page-wrapper {
             width: 100%;
             max-width: 100%;
@@ -149,7 +144,7 @@
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
         .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
         .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
-        .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
+        .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; }
         .mobile-sidebar.active { left: 0; }
         .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
         .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
@@ -183,16 +178,46 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        /* MAIN */
+        /* MAIN – full width, content container inside for breathing */
         main {
             flex: 1;
-            padding: 40px 40px;
+            padding: 40px 0;
             width: 100%;
             max-width: 100%;
             background: transparent;
         }
-        h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
-        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 40px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .content-container {
+            width: 100%;
+            padding: 0 40px;
+        }
+        @media (max-width: 768px) {
+            .content-container {
+                padding: 0 16px;
+            }
+            main {
+                padding: 20px 0;
+            }
+        }
+        h1 {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            text-align: left;
+            word-wrap: break-word;
+        }
+        h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
+        h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            text-align: left;
+            word-wrap: break-word;
+        }
+        p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
+        ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
         textarea { width: 100%; height: 160px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; transition: 0.2s; margin-bottom: 22px; }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
         .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
@@ -225,7 +250,7 @@
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
-        /* FOOTER – 5 equal columns, black links (light mode) */
+        /* FOOTER – 5 equal columns, black links light mode */
         footer {
             border-top: 1px solid var(--footer-border);
             padding: 40px 40px 25px;
@@ -260,13 +285,13 @@
 
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
-            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
-            main { padding: 20px 12px; }
+            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; }
+            main { padding: 20px 0; }
             footer { padding: 30px 16px 20px; }
         }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
         @media (min-width: 1800px) {
-            main { padding: 50px 60px; }
+            main { padding: 50px 0; }
             header { padding: 0 60px; }
             footer { padding: 50px 60px 30px; }
             h1 { font-size: 44px; }
@@ -302,121 +327,123 @@
         </header>
 
         <main>
-            <h1>Text Sorter – Sort Lines Alphabetically, Numerically & More</h1>
-            <p class="subtitle">Enter a list of items, choose a sorting method, and instantly get sorted output. Works completely in your browser.</p>
+            <div class="content-container">
+                <h1>Text Sorter – Sort Lines Alphabetically, Numerically & More</h1>
+                <p class="subtitle">Enter a list of items, choose a sorting method, and instantly get sorted output. Works completely in your browser.</p>
 
-            <textarea id="inputText" placeholder="Paste or type your list here (one item per line)..."></textarea>
+                <textarea id="inputText" placeholder="Paste or type your list here (one item per line)..."></textarea>
 
-            <div class="options-grid" id="sortOptions">
-                <label class="option-card active" onclick="setSort('alpha-az')">
-                    <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
-                    <span class="label-text">A → Z (Alphabetical)</span>
-                    <input type="radio" name="sortType" value="alpha-az" checked>
-                </label>
-                <label class="option-card" onclick="setSort('alpha-za')">
-                    <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
-                    <span class="label-text">Z → A (Reverse Alphabetical)</span>
-                    <input type="radio" name="sortType" value="alpha-za">
-                </label>
-                <label class="option-card" onclick="setSort('numeric-asc')">
-                    <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
-                    <span class="label-text">1 → 9 (Numeric Ascending)</span>
-                    <input type="radio" name="sortType" value="numeric-asc">
-                </label>
-                <label class="option-card" onclick="setSort('numeric-desc')">
-                    <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
-                    <span class="label-text">9 → 1 (Numeric Descending)</span>
-                    <input type="radio" name="sortType" value="numeric-desc">
-                </label>
-                <label class="option-card" onclick="setSort('random')">
-                    <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
-                    <span class="label-text">Random Shuffle</span>
-                    <input type="radio" name="sortType" value="random">
-                </label>
-                <label class="option-card" onclick="setSort('reverse')">
-                    <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
-                    <span class="label-text">Reverse Order</span>
-                    <input type="radio" name="sortType" value="reverse">
-                </label>
-            </div>
-
-            <div class="checkboxes">
-                <label><input type="checkbox" id="removeDuplicates"> Remove duplicate lines</label>
-                <label><input type="checkbox" id="trimLines"> Trim whitespace</label>
-                <label><input type="checkbox" id="skipEmpty"> Skip empty lines</label>
-            </div>
-
-            <div style="display:flex; gap:10px; margin-bottom:30px;">
-                <button class="btn btn-primary" id="sortBtn" onclick="sortText()"><i data-lucide="arrow-up-down" width="18" height="18"></i> Sort List</button>
-                <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
-            </div>
-
-            <div class="output-area" id="outputArea">
-                <div style="background:var(--success-bg);padding:14px 18px;border-radius:12px;margin-bottom:20px;text-align:center;color:var(--success-text);font-weight:600;font-size:15px;border:1px solid rgba(22,163,74,0.2);" id="resultInfo"></div>
-                <textarea id="outputText" readonly></textarea>
-                <div style="display:flex;gap:10px;margin-top:15px;">
-                    <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Sorted Text</button>
-                    <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+                <div class="options-grid" id="sortOptions">
+                    <label class="option-card active" onclick="setSort('alpha-az')">
+                        <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
+                        <span class="label-text">A → Z (Alphabetical)</span>
+                        <input type="radio" name="sortType" value="alpha-az" checked>
+                    </label>
+                    <label class="option-card" onclick="setSort('alpha-za')">
+                        <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
+                        <span class="label-text">Z → A (Reverse Alphabetical)</span>
+                        <input type="radio" name="sortType" value="alpha-za">
+                    </label>
+                    <label class="option-card" onclick="setSort('numeric-asc')">
+                        <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
+                        <span class="label-text">1 → 9 (Numeric Ascending)</span>
+                        <input type="radio" name="sortType" value="numeric-asc">
+                    </label>
+                    <label class="option-card" onclick="setSort('numeric-desc')">
+                        <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
+                        <span class="label-text">9 → 1 (Numeric Descending)</span>
+                        <input type="radio" name="sortType" value="numeric-desc">
+                    </label>
+                    <label class="option-card" onclick="setSort('random')">
+                        <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
+                        <span class="label-text">Random Shuffle</span>
+                        <input type="radio" name="sortType" value="random">
+                    </label>
+                    <label class="option-card" onclick="setSort('reverse')">
+                        <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
+                        <span class="label-text">Reverse Order</span>
+                        <input type="radio" name="sortType" value="reverse">
+                    </label>
                 </div>
-            </div>
 
-            <div style="margin-top:60px; border-top:1px solid var(--line); padding:30px 0 0 0;">
-                <h2>How to Use the Text Sorter</h2>
-                <div class="how-to-card">
-                    <div class="step-num">1</div>
-                    <div>
-                        <h4>Enter your list</h4>
-                        <p>Paste or type your items into the text area. Each item must be on a separate line for correct sorting.</p>
+                <div class="checkboxes">
+                    <label><input type="checkbox" id="removeDuplicates"> Remove duplicate lines</label>
+                    <label><input type="checkbox" id="trimLines"> Trim whitespace</label>
+                    <label><input type="checkbox" id="skipEmpty"> Skip empty lines</label>
+                </div>
+
+                <div style="display:flex; gap:10px; margin-bottom:30px;">
+                    <button class="btn btn-primary" id="sortBtn" onclick="sortText()"><i data-lucide="arrow-up-down" width="18" height="18"></i> Sort List</button>
+                    <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+                </div>
+
+                <div class="output-area" id="outputArea">
+                    <div style="background:var(--success-bg);padding:14px 18px;border-radius:12px;margin-bottom:20px;text-align:center;color:var(--success-text);font-weight:600;font-size:15px;border:1px solid rgba(22,163,74,0.2);" id="resultInfo"></div>
+                    <textarea id="outputText" readonly></textarea>
+                    <div style="display:flex;gap:10px;margin-top:15px;">
+                        <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Sorted Text</button>
+                        <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
                     </div>
                 </div>
-                <div class="how-to-card">
-                    <div class="step-num">2</div>
-                    <div>
-                        <h4>Choose a sort method</h4>
-                        <p>Click one of the option cards to select the sorting direction: A→Z, Z→A, numeric ascending/descending, random shuffle, or reverse order.</p>
-                    </div>
-                </div>
-                <div class="how-to-card">
-                    <div class="step-num">3</div>
-                    <div>
-                        <h4>Adjust extra options</h4>
-                        <p>Enable "Remove duplicate lines" to delete repeated items, "Trim whitespace" to clean up extra spaces, or "Skip empty lines" to ignore blank rows.</p>
-                    </div>
-                </div>
-                <div class="how-to-card">
-                    <div class="step-num">4</div>
-                    <div>
-                        <h4>Click "Sort List"</h4>
-                        <p>The sorted result appears instantly in the output area. Use the "Copy Sorted Text" or "Download .txt" buttons to save the result.</p>
-                    </div>
-                </div>
-            </div>
 
-            <div style="margin-top:50px;">
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Is the Text Sorter free to use?<i data-lucide="chevron-down" width="16"></i></div>
-                    <div class="faq-answer">Yes! 100% free with no limits, no registration, and no hidden fees. Use it as much as you need.</div>
+                <div style="margin-top:60px; border-top:1px solid var(--line); padding:30px 0 0 0;">
+                    <h2>How to Use the Text Sorter</h2>
+                    <div class="how-to-card">
+                        <div class="step-num">1</div>
+                        <div>
+                            <h4>Enter your list</h4>
+                            <p>Paste or type your items into the text area. Each item must be on a separate line for correct sorting.</p>
+                        </div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">2</div>
+                        <div>
+                            <h4>Choose a sort method</h4>
+                            <p>Click one of the option cards to select the sorting direction: A→Z, Z→A, numeric ascending/descending, random shuffle, or reverse order.</p>
+                        </div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">3</div>
+                        <div>
+                            <h4>Adjust extra options</h4>
+                            <p>Enable "Remove duplicate lines" to delete repeated items, "Trim whitespace" to clean up extra spaces, or "Skip empty lines" to ignore blank rows.</p>
+                        </div>
+                    </div>
+                    <div class="how-to-card">
+                        <div class="step-num">4</div>
+                        <div>
+                            <h4>Click "Sort List"</h4>
+                            <p>The sorted result appears instantly in the output area. Use the "Copy Sorted Text" or "Download .txt" buttons to save the result.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">What sort methods are supported?<i data-lucide="chevron-down" width="16"></i></div>
-                    <div class="faq-answer">You can sort alphabetically (A‑Z or Z‑A), numerically (ascending or descending), randomly shuffle the list, or simply reverse the current order.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Can I remove duplicate lines while sorting?<i data-lucide="chevron-down" width="16"></i></div>
-                    <div class="faq-answer">Absolutely. Just check the "Remove duplicate lines" option before clicking "Sort List". It will keep only unique entries in the output.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">What does "Trim whitespace" do?<i data-lucide="chevron-down" width="16"></i></div>
-                    <div class="faq-answer">It removes leading and trailing spaces from each line before sorting. This helps you get consistent results even if your input has extra spaces.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile devices?<i data-lucide="chevron-down" width="16"></i></div>
-                    <div class="faq-answer">Yes! The page is fully responsive and works smoothly on iPhones, Android phones, and tablets.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div>
-                    <div class="faq-answer">100% private. All processing happens locally in your browser – no data is ever sent to any server.</div>
+
+                <div style="margin-top:50px;">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">Is the Text Sorter free to use?<i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">Yes! 100% free with no limits, no registration, and no hidden fees. Use it as much as you need.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">What sort methods are supported?<i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">You can sort alphabetically (A‑Z or Z‑A), numerically (ascending or descending), randomly shuffle the list, or simply reverse the current order.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">Can I remove duplicate lines while sorting?<i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">Absolutely. Just check the "Remove duplicate lines" option before clicking "Sort List". It will keep only unique entries in the output.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">What does "Trim whitespace" do?<i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">It removes leading and trailing spaces from each line before sorting. This helps you get consistent results even if your input has extra spaces.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile devices?<i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">Yes! The page is fully responsive and works smoothly on iPhones, Android phones, and tablets.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">100% private. All processing happens locally in your browser – no data is ever sent to any server.</div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -481,7 +508,7 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // Full tools list (80+ tools)
+        // Full tools list
         const tools = [
             { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
             { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
@@ -689,10 +716,10 @@
 
             const result = lines.join('\n');
             document.getElementById('outputText').value = result;
-            document.getElementById('resultInfo').innerHTML = `<strong>✅ Sorted successfully!</strong> &nbsp; Lines: <strong>${lines.length.toLocaleString()}</strong> &nbsp; | &nbsp; Characters: <strong>${result.length.toLocaleString()}</strong>`;
+            document.getElementById('resultInfo').innerHTML = `<strong>Sorted successfully!</strong> &nbsp; Lines: <strong>${lines.length.toLocaleString()}</strong> &nbsp; | &nbsp; Characters: <strong>${result.length.toLocaleString()}</strong>`;
             document.getElementById('outputArea').style.display = 'block';
             document.getElementById('outputArea').scrollIntoView({behavior:'smooth'});
-            showToast('✅ Text sorted successfully!');
+            showToast('Text sorted successfully!');
         }
 
         async function copyToClipboard() {
@@ -707,7 +734,7 @@
                 }
                 btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!'; btn.style.background = '#16a34a';
                 lucide.createIcons();
-                showToast('📋 Copied to clipboard!');
+                showToast('Copied to clipboard!');
             } catch (err) {
                 showToast('Copy failed. Please try Ctrl+C.', 2500);
             } finally {
@@ -722,7 +749,7 @@
             const a = document.createElement('a');
             a.href = url; a.download = 'sorted-text.txt'; a.click();
             URL.revokeObjectURL(url);
-            showToast('💾 Downloaded as .txt');
+            showToast('Downloaded as .txt');
         }
 
         function resetTool() {
