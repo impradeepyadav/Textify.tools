@@ -143,16 +143,40 @@
     .search-results-list .result-tag { font-size: 10px; background: var(--hover); padding: 3px 8px; border-radius: 12px; color: var(--text-light); text-transform: uppercase; font-weight: 600; }
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
-    
-    /* MAIN */
+
+    /* MAIN – full width, content container */
     main {
       flex: 1;
-      padding: 40px 40px;
+      padding: 40px 0;
       width: 100%;
       background: transparent;
     }
-    h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
-    .post-date { font-size: 14px; color: var(--text-light); margin-bottom: 25px; text-align: center; }
+    .content-container {
+      width: 100%;
+      padding: 0 40px;
+    }
+    @media (max-width: 768px) {
+      .content-container {
+        padding: 0 16px;
+      }
+      main {
+        padding: 20px 0;
+      }
+    }
+
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      text-align: left;
+    }
+    .post-date {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 25px;
+      text-align: left;
+    }
     h2 { font-size: 24px; font-weight: 700; margin: 35px 0 15px; }
     h3 { font-size: 20px; font-weight: 700; margin: 25px 0 10px; }
     p { line-height: 1.8; color: var(--text-light); margin-bottom: 18px; font-size: 16px; }
@@ -164,7 +188,7 @@
     .tip-box p { margin: 0; }
     .cta-button { display: inline-block; background: var(--primary); color: var(--bg); padding: 12px 24px; border-radius: 10px; font-weight: 600; text-decoration: none; margin: 20px 0; transition: opacity 0.2s; }
     .cta-button:hover { opacity: 0.88; }
-    
+
     /* FOOTER */
     footer {
       border-top: 1px solid var(--footer-border);
@@ -216,14 +240,14 @@
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
       header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
-      main { padding: 20px 12px; }
+      main { padding: 20px 0; }
       footer { padding: 30px 16px 20px; }
     }
     @media (min-width: 769px) {
       .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; }
     }
     @media (min-width: 1800px) {
-      main { padding: 50px 60px; }
+      main { padding: 50px 0; }
       header { padding: 0 60px; }
       footer { padding: 50px 60px 30px; }
       h1 { font-size: 44px; }
@@ -234,8 +258,8 @@
     <header>
       <div class="header-inner">
         <a href="/" class="logo">
-          <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-          Textify.Tools
+          <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
+          Textify.tools
         </a>
         <div class="header-right">
           <div class="desktop-nav">
@@ -243,7 +267,7 @@
               <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
               <div class="tools-mega-menu" id="megaMenu"></div>
             </div>
-            <a href="/privacy">Privacy</a>
+            <a href="privacy">Privacy</a>
             <a href="/blog">Blog</a>
           </div>
           <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
@@ -259,65 +283,67 @@
     </header>
 
     <main>
-      <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
+      <div class="content-container">
+        <a href="/blog" class="back-link"><i data-lucide="arrow-left" width="16"></i> Back to Blog</a>
 
-      <h1>How Accurate is an Online Word Counter?</h1>
-      <p class="post-date">📅 March 28, 2026</p>
+        <h1>How Accurate is an Online Word Counter?</h1>
+        <p class="post-date">March 28, 2026</p>
 
-      <p>If you write for a living – or for school – you've probably used a word counter. But how accurate are online word counters compared to desktop apps like Microsoft Word, Google Docs, or Scrivener? We put the <strong>Textify Word Counter</strong> to the test, and the results might surprise you.</p>
+        <p>If you write for a living – or for school – you've probably used a word counter. But how accurate are online word counters compared to desktop apps like Microsoft Word, Google Docs, or Scrivener? We put the <strong>Textify Word Counter</strong> to the test, and the results might surprise you.</p>
 
-      <p>In this article, we'll break down how our tool counts each metric, how it compares to other solutions, and give you five productivity hacks to get the most out of word counting.</p>
+        <p>In this article, we'll break down how our tool counts each metric, how it compares to other solutions, and give you five productivity hacks to get the most out of word counting.</p>
 
-      <h2>How the Textify Word Counter Works</h2>
-      <p>The Textify Word Counter processes everything directly in your browser using JavaScript. It doesn't send anything to a server. The counting logic is simple but carefully tuned:</p>
-      <ul>
-        <li><strong>Words:</strong> Defined as any sequence of non‑whitespace characters. Punctuation attached to words (like "hello!") counts as part of the word, which matches most standard definitions.</li>
-        <li><strong>Characters:</strong> Every single character, including spaces and line breaks.</li>
-        <li><strong>Characters (no spaces):</strong> Total characters minus every space character.</li>
-        <li><strong>Sentences:</strong> Based on punctuation marks like period, exclamation, and question mark. A text with no punctuation is counted as one sentence.</li>
-        <li><strong>Paragraphs:</strong> Any block of text separated by one or more blank lines.</li>
-        <li><strong>Reading and speaking time:</strong> Derived from the word count using standard rates (200 words per minute reading, 130 WPM speaking).</li>
-      </ul>
+        <h2>How the Textify Word Counter Works</h2>
+        <p>The Textify Word Counter processes everything directly in your browser using JavaScript. It doesn't send anything to a server. The counting logic is simple but carefully tuned:</p>
+        <ul>
+          <li><strong>Words:</strong> Defined as any sequence of non‑whitespace characters. Punctuation attached to words (like "hello!") counts as part of the word, which matches most standard definitions.</li>
+          <li><strong>Characters:</strong> Every single character, including spaces and line breaks.</li>
+          <li><strong>Characters (no spaces):</strong> Total characters minus every space character.</li>
+          <li><strong>Sentences:</strong> Based on punctuation marks like period, exclamation, and question mark. A text with no punctuation is counted as one sentence.</li>
+          <li><strong>Paragraphs:</strong> Any block of text separated by one or more blank lines.</li>
+          <li><strong>Reading and speaking time:</strong> Derived from the word count using standard rates (200 words per minute reading, 130 WPM speaking).</li>
+        </ul>
 
-      <h2>Accuracy Test: Textify vs. Microsoft Word vs. Google Docs</h2>
-      <p>We copied the same 500‑word article into all three tools. Here's what we found:</p>
-      <ul>
-        <li><strong>Word count:</strong> All three tools returned exactly the same number (500).</li>
-        <li><strong>Character count (no spaces):</strong> Identical across all three.</li>
-        <li><strong>Character count (with spaces):</strong> Within 0‑2 characters, due to how each tool handles trailing spaces at the end of lines – a negligible difference.</li>
-        <li><strong>Sentence count:</strong> Textify counted one extra sentence because it treats an ellipsis ("...") as a sentence break, whereas Word ignores it. This can be adjusted, but we chose to keep it transparent.</li>
-      </ul>
-      <p>The bottom line: <strong>for word and character counts, the Textify Word Counter is just as accurate as any desktop app.</strong></p>
+        <h2>Accuracy Test: Textify vs. Microsoft Word vs. Google Docs</h2>
+        <p>We copied the same 500‑word article into all three tools. Here's what we found:</p>
+        <ul>
+          <li><strong>Word count:</strong> All three tools returned exactly the same number (500).</li>
+          <li><strong>Character count (no spaces):</strong> Identical across all three.</li>
+          <li><strong>Character count (with spaces):</strong> Within 0‑2 characters, due to how each tool handles trailing spaces at the end of lines – a negligible difference.</li>
+          <li><strong>Sentence count:</strong> Textify counted one extra sentence because it treats an ellipsis ("...") as a sentence break, whereas Word ignores it. This can be adjusted, but we chose to keep it transparent.</li>
+        </ul>
+        <p>The bottom line: <strong>for word and character counts, the Textify Word Counter is just as accurate as any desktop app.</strong></p>
 
-      <h2>5 Productivity Hacks Using a Word Counter</h2>
-      <p>Beyond simply seeing how much you've written, a word counter can become a powerful productivity tool. Here are five creative ways to use it.</p>
+        <h2>5 Productivity Hacks Using a Word Counter</h2>
+        <p>Beyond simply seeing how much you've written, a word counter can become a powerful productivity tool. Here are five creative ways to use it.</p>
 
-      <h3>1. Set a Daily Writing Goal and Track It</h3>
-      <p>Many famous writers have a daily word goal – Ernest Hemingway aimed for 500, Stephen King for 2,000. Use the real‑time word counter to see exactly when you hit your target. Clear the text box each day and start fresh. It's a simple yet effective habit builder.</p>
+        <h3>1. Set a Daily Writing Goal and Track It</h3>
+        <p>Many famous writers have a daily word goal – Ernest Hemingway aimed for 500, Stephen King for 2,000. Use the real‑time word counter to see exactly when you hit your target. Clear the text box each day and start fresh. It's a simple yet effective habit builder.</p>
 
-      <h3>2. Monitor Your Reading Time for Presentations</h3>
-      <p>Are you preparing a speech or a webinar? The "Speaking Time" metric gives you an estimate of how long it will take to deliver your text. Keep tweaking until you're within your allotted time slot. Aim for 130 words per minute – the comfortable spoken pace.</p>
+        <h3>2. Monitor Your Reading Time for Presentations</h3>
+        <p>Are you preparing a speech or a webinar? The "Speaking Time" metric gives you an estimate of how long it will take to deliver your text. Keep tweaking until you're within your allotted time slot. Aim for 130 words per minute – the comfortable spoken pace.</p>
 
-      <h3>3. Improve Readability by Tracking Sentence Length</h3>
-      <p>Long, complex sentences can confuse readers. Use the average word length feature to get a rough idea of sentence complexity. If your average word length exceeds 6‑7 characters, your text may be heavy on jargon. Try breaking it into shorter sentences and see how the numbers change.</p>
+        <h3>3. Improve Readability by Tracking Sentence Length</h3>
+        <p>Long, complex sentences can confuse readers. Use the average word length feature to get a rough idea of sentence complexity. If your average word length exceeds 6‑7 characters, your text may be heavy on jargon. Try breaking it into shorter sentences and see how the numbers change.</p>
 
-      <h3>4. Optimize Social Media Posts for Character Limits</h3>
-      <p>Every platform has its own character limit: Twitter (280), LinkedIn (3,000), Instagram captions (2,200). Paste your draft into the word counter and immediately see the character count. You'll never have to trim after posting again.</p>
+        <h3>4. Optimize Social Media Posts for Character Limits</h3>
+        <p>Every platform has its own character limit: Twitter (280), LinkedIn (3,000), Instagram captions (2,200). Paste your draft into the word counter and immediately see the character count. You'll never have to trim after posting again.</p>
 
-      <div class="tip-box">
-        <p><strong>💡 Pro tip:</strong> Use the "Characters (no spaces)" count for Twitter, since spaces aren't always counted the same way by the platform. It's a safer metric to stay within the limit.</p>
+        <div class="tip-box">
+          <p><strong>Pro tip:</strong> Use the "Characters (no spaces)" count for Twitter, since spaces aren't always counted the same way by the platform. It's a safer metric to stay within the limit.</p>
+        </div>
+
+        <h3>5. Gamify Your Editing Process</h3>
+        <p>Challenge yourself to reduce the word count of a rambling draft by 10‑20% without losing meaning. Copy the original into the word counter, note the word count, then edit in another tool. Paste the revised version back in and see the difference. It's a great way to develop concise writing skills.</p>
+
+        <h2>Why Privacy Matters Even for Counting</h2>
+        <p>You might wonder: "It's just a word count, why does privacy matter?" But think about it – you might paste a confidential business proposal, a personal diary entry, or an unpublished manuscript just to check the length. With server‑based counters, that text could be logged, stored, or analyzed. Textify's tool processes everything locally. That means your most sensitive drafts stay on your device.</p>
+
+        <h2>Try the Word Counter Yourself</h2>
+        <p>Don't take our word for it. Paste any text into the <a href="/word-counter">Textify Word Counter</a> and watch the stats update in real time. It's free, private, and works on any device – no installation needed.</p>
+
+        <a href="/word-counter" class="cta-button">Open the Word Counter →</a>
       </div>
-
-      <h3>5. Gamify Your Editing Process</h3>
-      <p>Challenge yourself to reduce the word count of a rambling draft by 10‑20% without losing meaning. Copy the original into the word counter, note the word count, then edit in another tool. Paste the revised version back in and see the difference. It's a great way to develop concise writing skills.</p>
-
-      <h2>Why Privacy Matters Even for Counting</h2>
-      <p>You might wonder: "It's just a word count, why does privacy matter?" But think about it – you might paste a confidential business proposal, a personal diary entry, or an unpublished manuscript just to check the length. With server‑based counters, that text could be logged, stored, or analyzed. Textify's tool processes everything locally. That means your most sensitive drafts stay on your device.</p>
-
-      <h2>Try the Word Counter Yourself</h2>
-      <p>Don't take our word for it. Paste any text into the <a href="/word-counter">Textify Word Counter</a> and watch the stats update in real time. It's free, private, and works on any device – no installation needed.</p>
-
-      <a href="/word-counter" class="cta-button">Open the Word Counter →</a>
     </main>
 
     <footer>
@@ -325,14 +351,14 @@
         <div class="footer-grid">
           <div>
             <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-              <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-              Textify.Tools
+              <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+              Textify.tools
             </a>
             <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
           </div>
-          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
+          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
           <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-          <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
+          <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
           <div>
             <h5>FOLLOW US</h5>
             <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
@@ -349,15 +375,15 @@
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
       <a href="/" class="mobile-sidebar-logo">
-        <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-        Textify.Tools
+        <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
+        Textify.tools
       </a>
       <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
     </div>
     <div class="mobile-sidebar-nav">
       <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
       <div class="mobile-tools-menu" id="mobileToolsMenu"></div>
-      <a href="/privacy">Privacy</a>
+      <a href="privacy">Privacy</a>
       <a href="/blog">Blog</a>
     </div>
     <div class="mobile-sidebar-actions">
