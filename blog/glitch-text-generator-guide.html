@@ -28,70 +28,36 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #0a0a0a;
-      --text-light: #525252;
-      --line: #e5e5e5;
-      --primary: #000000;
-      --hover: #f3f4f6;
-      --card: #fafafa;
-      --input-bg: #ffffff;
+      --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
+      --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
       --input-border: #d4d4d4;
-      --footer-bg: #ffffff;
-      --footer-text: #333333;
-      --footer-heading: #000000;
-      --footer-link-color: #000000;
-      --footer-link-hover: #000000;
+      --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000;
+      --footer-link-color: #000000; --footer-link-hover: #000000;
       --footer-border: #e5e5e5;
-      --faq-bg: #fafafa;
-      --faq-active: #f3f4f6;
-      --table-header: #f3f4f6;
-      --table-hover: #fafafa;
-      --shadow: rgba(0,0,0,0.1);
-      --overlay-bg: rgba(0,0,0,0.5);
-      --success-bg: #f0fdf4;
-      --success-text: #166534;
-      --sidebar-bg: #ffffff;
-      --accent: #f8fafc;
-      --toast-bg: #1f2937;
-      --toast-text: #ffffff;
+      --faq-bg: #fafafa; --faq-active: #f3f4f6;
+      --table-header: #f3f4f6; --table-hover: #fafafa; --shadow: rgba(0,0,0,0.1);
+      --overlay-bg: rgba(0,0,0,0.5); --success-bg: #f0fdf4; --success-text: #166534;
+      --sidebar-bg: #ffffff; --accent: #f8fafc;
+      --toast-bg: #1f2937; --toast-text: #ffffff;
     }
     body.dark-mode {
-      --bg: #0f172a;
-      --text: #f1f5f9;
-      --text-light: #94a3b8;
-      --line: #1e293b;
-      --primary: #ffffff;
-      --hover: #1e293b;
-      --card: #1e293b;
-      --input-bg: #1e293b;
+      --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
+      --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
       --input-border: #334155;
-      --footer-bg: #0f172a;
-      --footer-text: #e2e8f0;
-      --footer-heading: #ffffff;
-      --footer-link-color: #60a5fa;
-      --footer-link-hover: #ffffff;
+      --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff;
+      --footer-link-color: #60a5fa; --footer-link-hover: #ffffff;
       --footer-border: #334155;
-      --faq-bg: #1e293b;
-      --faq-active: #334155;
-      --table-header: #1e293b;
-      --table-hover: #1e293b;
-      --shadow: rgba(0,0,0,0.5);
-      --overlay-bg: rgba(0,0,0,0.75);
-      --success-bg: #052e16;
-      --success-text: #86efac;
-      --sidebar-bg: #0f172a;
-      --accent: #1e293b;
-      --toast-bg: #f1f5f9;
-      --toast-text: #0f172a;
+      --faq-bg: #1e293b; --faq-active: #334155;
+      --table-header: #1e293b; --table-hover: #1e293b; --shadow: rgba(0,0,0,0.5);
+      --overlay-bg: rgba(0,0,0,0.75); --success-bg: #052e16; --success-text: #86efac;
+      --sidebar-bg: #0f172a; --accent: #1e293b;
+      --toast-bg: #f1f5f9; --toast-text: #0f172a;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
+      background: var(--bg); color: var(--text); min-height: 100vh;
       transition: background 0.3s, color 0.3s;
       overflow-x: hidden;
     }
@@ -295,7 +261,7 @@
               <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
               <div class="tools-mega-menu" id="megaMenu"></div>
             </div>
-            <a href="privacy">Privacy</a>
+            <a href="/privacy">Privacy</a>
             <a href="/blog">Blog</a>
           </div>
           <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
@@ -382,9 +348,9 @@
             </a>
             <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
           </div>
-          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
           <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-          <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+          <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
           <div>
             <h5>FOLLOW US</h5>
             <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
@@ -409,7 +375,7 @@
     <div class="mobile-sidebar-nav">
       <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
       <div class="mobile-tools-menu" id="mobileToolsMenu"></div>
-      <a href="privacy">Privacy</a>
+      <a href="/privacy">Privacy</a>
       <a href="/blog">Blog</a>
     </div>
     <div class="mobile-sidebar-actions">
