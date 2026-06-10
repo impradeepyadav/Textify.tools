@@ -6,7 +6,6 @@
     <meta name="theme-color" content="#ffffff">
     <title>Free Online Text Diff Checker – Compare Two Texts Instantly | Textify.tools</title>
     <meta name="description" content="Compare two texts side by side and instantly see every difference highlighted. Works entirely in your browser – fast, private, and no uploads.">
-    <meta name="keywords" content="text diff checker, compare text online, text comparison tool, diff tool, line diff, find differences, compare documents, text compare, diff checker, online diff">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/text-diff-checker">
     <meta property="og:type" content="website">
@@ -15,6 +14,16 @@
     <meta property="og:description" content="Compare two texts side by side and see every difference instantly. Free, private, and no uploads.">
     <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
     <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
+
+    <!-- Preconnect to critical third-party origins (Core Web Vitals) -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://cmp.gatekeeperconsent.com">
+    <link rel="preconnect" href="https://the.gatekeeperconsent.com">
+    <link rel="preconnect" href="https://www.ezojs.com">
+    <link rel="preconnect" href="https://ezoicanalytics.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
@@ -23,9 +32,80 @@
         gtag('js', new Date());
         gtag('config', 'G-6VGXXT81MB');
     </script>
+
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186"
     crossorigin="anonymous"></script>
+
+    <!-- Gatekeeper Consent -->
+    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+
+    <!-- Ezoic -->
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>
+        window.ezstandalone = window.ezstandalone || {};
+        ezstandalone.cmd = ezstandalone.cmd || [];
+    </script>
+    <script src="//ezoicanalytics.com/analytics.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://textify.tools/text-diff-checker/#webpage",
+          "url": "https://textify.tools/text-diff-checker",
+          "name": "Free Online Text Diff Checker – Compare Two Texts Instantly",
+          "description": "Compare two texts side by side and instantly see every difference highlighted. Works entirely in your browser – fast, private, and no uploads.",
+          "isPartOf": { "@id": "https://textify.tools/#website" },
+          "about": { "@id": "https://textify.tools/#tools" },
+          "breadcrumb": { "@id": "https://textify.tools/text-diff-checker/#breadcrumb" },
+          "mainEntity": { "@id": "https://textify.tools/text-diff-checker/#faq" },
+          "datePublished": "2024-01-20",
+          "dateModified": "2026-06-10",
+          "author": { "@id": "https://textify.tools/#author" },
+          "publisher": { "@id": "https://textify.tools/#organization" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://textify.tools/text-diff-checker/#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
+            { "@type": "ListItem", "position": 2, "name": "Text Diff Checker", "item": "https://textify.tools/text-diff-checker" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://textify.tools/text-diff-checker/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question", "name": "Is the Text Diff Checker really free?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free! No login, no watermarks, no limits. Use it as much as you need." }
+            },
+            {
+              "@type": "Question", "name": "How accurate is the diff algorithm?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Our tool uses a line‑based Longest Common Subsequence (LCS) algorithm, which is the standard for diff utilities. It accurately shows inserted and deleted lines, even with complex changes." }
+            },
+            {
+              "@type": "Question", "name": "Can I compare large files?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes, but performance depends on your device. For very large texts (tens of thousands of lines), the browser might slow down. For most documents (up to a few thousand lines), it works instantly." }
+            },
+            {
+              "@type": "Question", "name": "Does this support character‑level differences?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Currently, the diff is line‑based, which is best for most document comparisons. For character‑level diff, you would need a specialized tool, but our line diff still highlights changes clearly." }
+            },
+            {
+              "@type": "Question", "name": "Is my data private?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All processing happens inside your browser. We never store, log, or transmit your texts. Your data stays completely private." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -266,7 +346,7 @@
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
                     Textify.tools
                 </a>
                 <div class="header-right">
@@ -417,7 +497,7 @@
                 <div class="footer-grid">
                     <div>
                         <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;" width="24" height="24" loading="lazy">
                             Textify.tools
                         </a>
                         <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
@@ -441,7 +521,7 @@
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
+                <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy">
                 Textify.tools
             </a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
