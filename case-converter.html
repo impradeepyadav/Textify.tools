@@ -24,11 +24,21 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/mstile-150x150.png">
 
+    <!-- Preconnect to critical third-party origins (Core Web Vitals) -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://cmp.gatekeeperconsent.com">
+    <link rel="preconnect" href="https://the.gatekeeperconsent.com">
+    <link rel="preconnect" href="https://www.ezojs.com">
+    <link rel="preconnect" href="https://ezoicanalytics.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
     <!-- Google AdSense -->
     <script async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186"
     crossorigin="anonymous"></script>
 
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -37,66 +47,93 @@
         gtag('config', 'G-6VGXXT81MB');
     </script>
 
-    <!-- FAQ Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Is the case converter free?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, completely free – no signup, no hidden fees, no limits. Use it as much as you like."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can I convert large amounts of text?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Absolutely. The tool works efficiently with thousands of characters and even multiple paragraphs. The live stats update in real time."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Does this support special characters and emojis?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, special characters (punctuation, numbers) remain unchanged; only letters are transformed. Emojis are preserved exactly as they are."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Will the title case option capitalise every word?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Title case capitalises every word that is considered a content word (nouns, verbs, adjectives, adverbs). Small words like “and”, “of”, “the” may be left lowercase depending on style – but our algorithm uses simple capitalisation of every word for maximum control."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What does the Trim Spaces button do?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "It removes extra spaces, tabs, and newlines by collapsing them into single spaces and trimming leading/trailing whitespace. For example, \"Hello     world\" becomes \"Hello world\"."
-                }
-            }
-        ]
-    }
-    </script>
+    <!-- Gatekeeper Consent -->
+    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
 
-    <!-- WebApplication Schema -->
+    <!-- Ezoic -->
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>
+        window.ezstandalone = window.ezstandalone || {};
+        ezstandalone.cmd = ezstandalone.cmd || [];
+    </script>
+    <script src="//ezoicanalytics.com/analytics.js"></script>
+
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Case Converter",
-        "url": "https://textify.tools/case-converter",
-        "description": "Free online Case Converter to change text to UPPERCASE, lowercase, Title Case and more. All processing happens in your browser.",
-        "applicationCategory": "Utility",
-        "operatingSystem": "All"
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://textify.tools/case-converter/#webpage",
+          "url": "https://textify.tools/case-converter",
+          "name": "Case Converter – Free Online Text Case Converter",
+          "description": "Free online Case Converter to change text to UPPERCASE, lowercase & Title Case. Easily format bulk Excel data and remove extra spaces instantly!",
+          "isPartOf": { "@id": "https://textify.tools/#website" },
+          "about": { "@id": "https://textify.tools/#tools" },
+          "breadcrumb": { "@id": "https://textify.tools/case-converter/#breadcrumb" },
+          "mainEntity": { "@id": "https://textify.tools/case-converter/#faq" },
+          "datePublished": "2024-01-10",
+          "dateModified": "2026-06-10",
+          "author": { "@id": "https://textify.tools/#author" },
+          "publisher": { "@id": "https://textify.tools/#organization" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://textify.tools/case-converter/#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
+            { "@type": "ListItem", "position": 2, "name": "Case Converter", "item": "https://textify.tools/case-converter" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://textify.tools/case-converter/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is the case converter free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, completely free – no signup, no hidden fees, no limits. Use it as much as you like."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I convert large amounts of text?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. The tool works efficiently with thousands of characters and even multiple paragraphs. The live stats update in real time."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does this support special characters and emojis?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, special characters (punctuation, numbers) remain unchanged; only letters are transformed. Emojis are preserved exactly as they are."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will the title case option capitalise every word?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Title case capitalises every word that is considered a content word (nouns, verbs, adjectives, adverbs). Small words like “and”, “of”, “the” may be left lowercase depending on style – but our algorithm uses simple capitalisation of every word for maximum control."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does the Trim Spaces button do?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It removes extra spaces, tabs, and newlines by collapsing them into single spaces and trimming leading/trailing whitespace. For example, \"Hello     world\" becomes \"Hello world\"."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 </head>
@@ -387,7 +424,7 @@
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
                     Textify.tools
                 </a>
                 <div class="header-right">
@@ -507,7 +544,7 @@
                 <div class="footer-grid">
                     <div>
                         <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;" width="24" height="24" loading="lazy">
                             Textify.tools
                         </a>
                         <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
@@ -531,7 +568,7 @@
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img" width="20" height="20" loading="lazy">
                 Textify.tools
             </a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
