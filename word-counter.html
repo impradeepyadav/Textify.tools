@@ -51,10 +51,28 @@
   </script>
   <script src="//ezoicanalytics.com/analytics.js"></script>
 
+  <!-- Structured Data (Enhanced for tool page) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://textify.tools/word-counter/#tool",
+        "name": "Word Counter",
+        "url": "https://textify.tools/word-counter",
+        "description": "Count words, characters, sentences, paragraphs, reading time, unique words, top keywords, and more. All processing stays in your browser for complete privacy.",
+        "applicationCategory": "WebApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": { "@id": "https://textify.tools/#author" },
+        "publisher": { "@id": "https://textify.tools/#organization" },
+        "browserRequirements": "Requires JavaScript"
+      },
       {
         "@type": "WebPage",
         "@id": "https://textify.tools/word-counter/#webpage",
@@ -62,7 +80,7 @@
         "name": "Free Online Word Counter – Count Words, Characters & More",
         "description": "Count words, characters, sentences, reading time, unique words, top keywords, and more. All processing stays in your browser for complete privacy.",
         "isPartOf": { "@id": "https://textify.tools/#website" },
-        "about": { "@id": "https://textify.tools/#tools" },
+        "about": { "@id": "https://textify.tools/word-counter/#tool" },
         "breadcrumb": { "@id": "https://textify.tools/word-counter/#breadcrumb" },
         "mainEntity": { "@id": "https://textify.tools/word-counter/#faq" },
         "datePublished": "2024-01-01",
