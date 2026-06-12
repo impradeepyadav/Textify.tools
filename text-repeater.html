@@ -57,11 +57,28 @@
     </script>
     <script src="//ezoicanalytics.com/analytics.js"></script>
 
-    <!-- Structured Data -->
+    <!-- Structured Data (Enhanced for tool page) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://textify.tools/text-repeater/#tool",
+          "name": "Text Repeater",
+          "url": "https://textify.tools/text-repeater",
+          "description": "Repeat any text, message, or emoji up to 100,000 times with custom separators, font styles, and visual effects. Free, private, and browser-based.",
+          "applicationCategory": "WebApplication",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": { "@id": "https://textify.tools/#author" },
+          "publisher": { "@id": "https://textify.tools/#organization" },
+          "browserRequirements": "Requires JavaScript"
+        },
         {
           "@type": "WebPage",
           "@id": "https://textify.tools/text-repeater/#webpage",
@@ -69,7 +86,7 @@
           "name": "Free Online Text Repeater – Repeat Messages & Emojis Up to 100k",
           "description": "Repeat any text, message, or emoji up to 100,000 times instantly. Works great for WhatsApp, Discord, and social media — no signup, completely private.",
           "isPartOf": { "@id": "https://textify.tools/#website" },
-          "about": { "@id": "https://textify.tools/#tools" },
+          "about": { "@id": "https://textify.tools/text-repeater/#tool" },
           "breadcrumb": { "@id": "https://textify.tools/text-repeater/#breadcrumb" },
           "mainEntity": [
             { "@id": "https://textify.tools/text-repeater/#faq" },
