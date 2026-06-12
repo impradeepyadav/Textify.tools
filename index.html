@@ -63,92 +63,254 @@
     </script>
     <script src="//ezoicanalytics.com/analytics.js"></script>
 
-    <!-- Structured Data -->
+    <!-- Structured Data (Enhanced for tool website) -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@graph": [{
-                "@type": "WebSite",
-                "@id": "https://textify.tools/#website",
-                "url": "https://textify.tools/",
-                "name": "Textify Tools",
-                "description": "Free online text tools including word counter, paraphraser, text repeater, JSON formatter, password generator, and more.",
-                "publisher": { "@id": "https://textify.tools/#organization" },
-                "potentialAction": [{
-                    "@type": "SearchAction",
-                    "target": {
-                        "@type": "EntryPoint",
-                        "urlTemplate": "https://textify.tools/search?q={search_term_string}"
-                    },
-                    "query-input": "required name=search_term_string"
-                }]
-            }, {
-                "@type": "Organization",
-                "@id": "https://textify.tools/#organization",
-                "name": "Textify Tools",
-                "url": "https://textify.tools/",
-                "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png" },
-                "sameAs": [
-                    "https://www.facebook.com/textifydottools",
-                    "https://www.instagram.com/textifydottools",
-                    "https://x.com/textifydottools"
-                ]
-            }, {
-                "@type": "Person",
-                "@id": "https://textify.tools/#author",
-                "name": "Textify Tools Team",
-                "url": "https://textify.tools/about",
-                "worksFor": { "@id": "https://textify.tools/#organization" }
-            }, {
-                "@type": "CollectionPage",
-                "@id": "https://textify.tools/#collection",
-                "url": "https://textify.tools/",
-                "name": "Free Online Text Tools",
-                "description": "Collection of free online text utilities and writing tools.",
-                "isPartOf": { "@id": "https://textify.tools/#website" },
-                "mainEntity": { "@id": "https://textify.tools/#tools" },
-                "datePublished": "2024-01-01",
-                "dateModified": "2026-06-10",
-                "author": { "@id": "https://textify.tools/#author" }
-            }, {
-                "@type": "ItemList",
-                "@id": "https://textify.tools/#tools",
-                "name": "Top Textify Tools",
-                "numberOfItems": 5,
-                "itemListOrder": "https://schema.org/ItemListOrderAscending",
-                "itemListElement": [
-                    { "@type": "ListItem", "position": 1, "url": "https://textify.tools/word-counter" },
-                    { "@type": "ListItem", "position": 2, "url": "https://textify.tools/text-repeater" },
-                    { "@type": "ListItem", "position": 3, "url": "https://textify.tools/smart-paraphraser" },
-                    { "@type": "ListItem", "position": 4, "url": "https://textify.tools/json-formatter" },
-                    { "@type": "ListItem", "position": 5, "url": "https://textify.tools/password-generator" }
-                ]
-            }, {
-                "@type": "FAQPage",
-                "@id": "https://textify.tools/#faq",
-                "mainEntity": [{
-                    "@type": "Question",
-                    "name": "Is Textify Tools free to use?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes, all Textify Tools are completely free to use without registration or hidden charges."
-                    }
-                }, {
-                    "@type": "Question",
-                    "name": "Do I need to install any software?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "No, all tools work directly in your web browser on desktop and mobile devices."
-                    }
-                }, {
-                    "@type": "Question",
-                    "name": "Are my texts and files secure?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Yes, most tools process data directly in your browser and do not store your content on servers."
-                    }
-                }]
-            }]
+            "@graph": [
+                {
+                    "@type": "WebSite",
+                    "@id": "https://textify.tools/#website",
+                    "url": "https://textify.tools/",
+                    "name": "Textify Tools",
+                    "description": "Free online text tools including word counter, paraphraser, text repeater, JSON formatter, password generator, and more.",
+                    "publisher": { "@id": "https://textify.tools/#organization" },
+                    "potentialAction": [{
+                        "@type": "SearchAction",
+                        "target": {
+                            "@type": "EntryPoint",
+                            "urlTemplate": "https://textify.tools/search?q={search_term_string}"
+                        },
+                        "query-input": "required name=search_term_string"
+                    }]
+                },
+                {
+                    "@type": "Organization",
+                    "@id": "https://textify.tools/#organization",
+                    "name": "Textify Tools",
+                    "url": "https://textify.tools/",
+                    "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png" },
+                    "sameAs": [
+                        "https://www.facebook.com/textifydottools",
+                        "https://www.instagram.com/textifydottools",
+                        "https://x.com/textifydottools"
+                    ]
+                },
+                {
+                    "@type": "Person",
+                    "@id": "https://textify.tools/#author",
+                    "name": "Textify Tools Team",
+                    "url": "https://textify.tools/about",
+                    "worksFor": { "@id": "https://textify.tools/#organization" }
+                },
+                {
+                    "@type": "CollectionPage",
+                    "@id": "https://textify.tools/#collection",
+                    "url": "https://textify.tools/",
+                    "name": "Free Online Text Tools",
+                    "description": "Collection of free online text utilities and writing tools — word counter, paraphraser, JSON formatter, password generator, and more.",
+                    "isPartOf": { "@id": "https://textify.tools/#website" },
+                    "mainEntity": { "@id": "https://textify.tools/#tools-list" },
+                    "datePublished": "2024-01-01",
+                    "dateModified": "2026-06-10",
+                    "author": { "@id": "https://textify.tools/#author" }
+                },
+                {
+                    "@type": "ItemList",
+                    "@id": "https://textify.tools/#tools-list",
+                    "name": "Top Textify Tools",
+                    "numberOfItems": 12,
+                    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "item": {
+                                "@type": "SoftwareApplication",
+                                "name": "Word Counter",
+                                "url": "https://textify.tools/word-counter",
+                                "description": "Count words, characters, sentences, and paragraphs instantly.",
+                                "applicationCategory": "WebApplication",
+                                "operatingSystem": "Web Browser",
+                                "offers": {
+                                    "@type": "Offer",
+                                    "price": "0",
+                                    "priceCurrency": "USD"
+                                }
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 2,
+                            "item": {
+                                "@type": "SoftwareApplication",
+                                "name": "Text Repeater",
+                                "url": "https://textify.tools/text-repeater",
+                                "description": "Repeat text up to 100,000 times with styles and effects.",
+                                "applicationCategory": "WebApplication",
+                                "operatingSystem": "Web Browser"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 3,
+                            "item": {
+                                "@type": "SoftwareApplication",
+                                "name": "Smart Paraphraser",
+                                "url": "https://textify.tools/smart-paraphraser",
+                                "description": "Rewrite sentences while keeping the original meaning.",
+                                "applicationCategory": "WebApplication",
+                                "operatingSystem": "Web Browser"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 4,
+                            "item": {
+                                "@type": "SoftwareApplication",
+                                "name": "JSON Formatter",
+                                "url": "https://textify.tools/json-formatter",
+                                "description": "Format messy JSON data into readable, indented structure.",
+                                "applicationCategory": "WebApplication",
+                                "operatingSystem": "Web Browser"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 5,
+                            "item": {
+                                "@type": "SoftwareApplication",
+                                "name": "Password Generator",
+                                "url": "https://textify.tools/password-generator",
+                                "description": "Generate strong random passwords with custom length and characters.",
+                                "applicationCategory": "WebApplication",
+                                "operatingSystem": "Web Browser"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 6,
+                            "item": {
+                                "@type": "SoftwareApplication",
+                                "name": "Case Converter",
+                                "url": "https://textify.tools/case-converter",
+                                "description": "Convert text to uppercase, lowercase, title case and more.",
+                                "applicationCategory": "WebApplication",
+                                "operatingSystem": "Web Browser"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 7,
+                            "item": {
+                                "@type": "SoftwareApplication",
+                                "name": "Text to Handwriting",
+                                "url": "https://textify.tools/text-to-handwriting",
+                                "description": "Convert typed text into realistic handwriting style.",
+                                "applicationCategory": "WebApplication",
+                                "operatingSystem": "Web Browser"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 8,
+                            "item": {
+                                "@type": "SoftwareApplication",
+                                "name": "JWT Decoder",
+                                "url": "https://textify.tools/jwt-decoder",
+                                "description": "Decode JWT tokens to view header and payload instantly.",
+                                "applicationCategory": "WebApplication",
+                                "operatingSystem": "Web Browser"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 9,
+                            "item": {
+                                "@type": "SoftwareApplication",
+                                "name": "Slug Generator",
+                                "url": "https://textify.tools/slug-generator",
+                                "description": "Create SEO‑friendly URL slugs from any text.",
+                                "applicationCategory": "WebApplication",
+                                "operatingSystem": "Web Browser"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 10,
+                            "item": {
+                                "@type": "SoftwareApplication",
+                                "name": "Text Diff Checker",
+                                "url": "https://textify.tools/text-diff-checker",
+                                "description": "Compare two texts and spot every difference.",
+                                "applicationCategory": "WebApplication",
+                                "operatingSystem": "Web Browser"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 11,
+                            "item": {
+                                "@type": "SoftwareApplication",
+                                "name": "Lorem Ipsum Generator",
+                                "url": "https://textify.tools/lorem-ipsum-generator",
+                                "description": "Generate placeholder Lorem Ipsum text for designs and mockups.",
+                                "applicationCategory": "WebApplication",
+                                "operatingSystem": "Web Browser"
+                            }
+                        },
+                        {
+                            "@type": "ListItem",
+                            "position": 12,
+                            "item": {
+                                "@type": "SoftwareApplication",
+                                "name": "HTML Entity Encoder/Decoder",
+                                "url": "https://textify.tools/html-entity-encoder-decoder",
+                                "description": "Convert text to HTML entities and back.",
+                                "applicationCategory": "WebApplication",
+                                "operatingSystem": "Web Browser"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "@type": "FAQPage",
+                    "@id": "https://textify.tools/#faq",
+                    "mainEntity": [{
+                        "@type": "Question",
+                        "name": "Is Textify Tools free to use?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, all Textify Tools are completely free to use without registration or hidden charges."
+                        }
+                    }, {
+                        "@type": "Question",
+                        "name": "Do I need to install any software?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No, all tools work directly in your web browser on desktop and mobile devices."
+                        }
+                    }, {
+                        "@type": "Question",
+                        "name": "Are my texts and files secure?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, most tools process data directly in your browser and do not store your content on servers."
+                        }
+                    }]
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        {
+                            "@type": "ListItem",
+                            "position": 1,
+                            "name": "Home",
+                            "item": "https://textify.tools/"
+                        }
+                    ]
+                }
+            ]
         }
     </script>
 </head>
