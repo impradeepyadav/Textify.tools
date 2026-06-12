@@ -424,7 +424,7 @@
           Paste your text below and get instant stats: unique words, top keywords, longest and shortest words, average sentence length, and more. Everything runs locally — your text never leaves your device.
         </p>
 
-        <!-- New: Paste button directly above textarea -->
+        <!-- Paste button directly above textarea -->
         <div class="textarea-toolbar">
           <button class="paste-btn-top" onclick="pasteText()">
             <i data-lucide="clipboard-paste" width="14" height="14"></i> Paste from clipboard
@@ -462,11 +462,10 @@
           </div>
         </div>
 
-        <!-- Button row with existing paste button (kept for convenience) -->
+        <!-- Button row without the lower paste button -->
         <div class="btn-row">
           <button class="btn btn-primary" onclick="clearText()"><i data-lucide="trash-2" width="16" height="16"></i> Clear</button>
           <button class="btn btn-outline" onclick="copyText()"><i data-lucide="copy" width="16" height="16"></i> Copy Text</button>
-          <button class="btn btn-outline" onclick="pasteText()"><i data-lucide="clipboard-paste" width="16" height="16"></i> Paste</button>
           <button class="btn btn-outline" onclick="removeSpaces()"><i data-lucide="minus" width="16" height="16"></i> Remove Spaces</button>
           <div class="dropdown-container">
             <button class="btn btn-outline" onclick="toggleDropdown('exportDropdown')"><i data-lucide="file-text" width="16" height="16"></i> Export <i data-lucide="chevron-down" width="14" height="14"></i></button>
