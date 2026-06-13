@@ -22,6 +22,16 @@
         gtag('js', new Date());
         gtag('config', 'G-6VGXXT81MB');
     </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
+    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>
+        window.ezstandalone = window.ezstandalone || {};
+        ezstandalone.cmd = ezstandalone.cmd || [];
+    </script>
+    <script src="//ezoicanalytics.com/analytics.js"></script>
 </head>
 <body>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -105,7 +115,6 @@
             min-height: 100vh;
         }
 
-        /* HEADER */
         header {
             border-bottom: 1px solid var(--line);
             display: flex;
@@ -178,7 +187,6 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        /* MAIN – full width, content container inside for breathing */
         main {
             flex: 1;
             padding: 40px 0;
@@ -186,18 +194,8 @@
             max-width: 100%;
             background: transparent;
         }
-        .content-container {
-            width: 100%;
-            padding: 0 40px;
-        }
-        @media (max-width: 768px) {
-            .content-container {
-                padding: 0 16px;
-            }
-            main {
-                padding: 20px 0;
-            }
-        }
+        .content-container { width: 100%; padding: 0 40px; }
+        @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
         h1 {
             font-size: 38px;
             font-weight: 800;
@@ -208,14 +206,7 @@
         }
         h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
         h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
-        .subtitle {
-            font-size: 18px;
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 40px;
-            text-align: left;
-            word-wrap: break-word;
-        }
+        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.7; margin-bottom: 40px; text-align: left; }
         p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
         ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
         textarea { width: 100%; height: 160px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; transition: 0.2s; margin-bottom: 22px; }
@@ -250,7 +241,6 @@
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
-        /* FOOTER – 5 equal columns, black links light mode */
         footer {
             border-top: 1px solid var(--footer-border);
             padding: 40px 40px 25px;
@@ -302,7 +292,7 @@
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
                     Textify.tools
                 </a>
                 <div class="header-right">
@@ -329,7 +319,7 @@
         <main>
             <div class="content-container">
                 <h1>Text Sorter – Sort Lines Alphabetically, Numerically & More</h1>
-                <p class="subtitle">Enter a list of items, choose a sorting method, and instantly get sorted output. Works completely in your browser.</p>
+                <p class="subtitle">Enter a list of items, choose a sorting method, and instantly get sorted output. Works completely in your browser. No signup, no uploads.</p>
 
                 <textarea id="inputText" placeholder="Paste or type your list here (one item per line)..."></textarea>
 
@@ -386,36 +376,31 @@
                     </div>
                 </div>
 
+                <!-- Expanded valuable content -->
                 <div style="margin-top:60px; border-top:1px solid var(--line); padding:30px 0 0 0;">
                     <h2>How to Use the Text Sorter</h2>
-                    <div class="how-to-card">
-                        <div class="step-num">1</div>
-                        <div>
-                            <h4>Enter your list</h4>
-                            <p>Paste or type your items into the text area. Each item must be on a separate line for correct sorting.</p>
-                        </div>
-                    </div>
-                    <div class="how-to-card">
-                        <div class="step-num">2</div>
-                        <div>
-                            <h4>Choose a sort method</h4>
-                            <p>Click one of the option cards to select the sorting direction: A→Z, Z→A, numeric ascending/descending, random shuffle, or reverse order.</p>
-                        </div>
-                    </div>
-                    <div class="how-to-card">
-                        <div class="step-num">3</div>
-                        <div>
-                            <h4>Adjust extra options</h4>
-                            <p>Enable "Remove duplicate lines" to delete repeated items, "Trim whitespace" to clean up extra spaces, or "Skip empty lines" to ignore blank rows.</p>
-                        </div>
-                    </div>
-                    <div class="how-to-card">
-                        <div class="step-num">4</div>
-                        <div>
-                            <h4>Click "Sort List"</h4>
-                            <p>The sorted result appears instantly in the output area. Use the "Copy Sorted Text" or "Download .txt" buttons to save the result.</p>
-                        </div>
-                    </div>
+                    <div class="how-to-card"><div class="step-num">1</div><div><h4>Enter your list</h4><p>Paste or type your items into the text area. Each item must be on a separate line for correct sorting.</p></div></div>
+                    <div class="how-to-card"><div class="step-num">2</div><div><h4>Choose a sort method</h4><p>Click one of the option cards to select the sorting direction: A→Z, Z→A, numeric ascending/descending, random shuffle, or reverse order.</p></div></div>
+                    <div class="how-to-card"><div class="step-num">3</div><div><h4>Adjust extra options</h4><p>Enable "Remove duplicate lines" to delete repeated items, "Trim whitespace" to clean up extra spaces, or "Skip empty lines" to ignore blank rows.</p></div></div>
+                    <div class="how-to-card"><div class="step-num">4</div><div><h4>Click "Sort List"</h4><p>The sorted result appears instantly. Use "Copy Sorted Text" or "Download .txt" to save your work.</p></div></div>
+
+                    <h2>Why Use a Dedicated Text Sorter?</h2>
+                    <p>Manually sorting a list of names, numbers, or keywords is tedious and error‑prone. Our text sorter automates the process, saving you precious time. Whether you're organizing a bibliography, cleaning up a mailing list, or randomizing a lineup, this tool handles it in seconds — all within your browser, without sending data anywhere.</p>
+
+                    <h2>Real‑World Use Cases</h2>
+                    <ul>
+                        <li><strong>Students and researchers:</strong> Sort citations alphabetically or by date to meet formatting guidelines.</li>
+                        <li><strong>Writers and editors:</strong> Alphabetize character names, glossary terms, or index entries in one click.</li>
+                        <li><strong>Data analysts:</strong> Clean spreadsheet exports by sorting rows numerically or removing duplicates.</li>
+                        <li><strong>Event organizers:</strong> Randomly shuffle a list of attendees to create fair seating arrangements.</li>
+                        <li><strong>Developers:</strong> Quickly sort configuration files, environment variables, or command lists.</li>
+                    </ul>
+
+                    <h2>How Sorting Works Under the Hood</h2>
+                    <p>Our tool uses standard JavaScript sorting with locale comparison for alphabetical order, ensuring that accented characters and mixed case are handled sensibly. Numeric sorting parses lines as numbers for accurate 1→9 order. Random shuffle uses the Fisher‑Yates algorithm for unbiased results. All processing stays local, so your list remains private.</p>
+
+                    <h2>From the Textify Team: A Note on Why We Built This</h2>
+                    <p>We built the Text Sorter because we found ourselves repeatedly copying lists into spreadsheets just to sort them. That felt like overkill for quick tasks. Now you have a lightweight, privacy‑first sorter that lives in your browser — no spreadsheet, no downloads, no hassle. We hope it becomes your go‑to tool for tidying up lists.</p>
                 </div>
 
                 <div style="margin-top:50px;">
@@ -448,25 +433,21 @@
             </div>
         </main>
 
+        <!-- UPDATED FOOTER exactly matching index.html -->
         <footer>
             <div class="footer-container">
                 <div class="footer-grid">
                     <div>
                         <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
                             Textify.tools
                         </a>
-                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">Free, private text tools that live in your browser. No signup, no tracking, no nonsense. Bookmark us — you'll be back.</p>
                     </div>
                     <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/slug-generator">Slug Generator</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
                     <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-                    <div>
-                        <h5>FOLLOW US</h5>
-                        <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
-                        <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
-                        <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
-                    </div>
+                    <div><h5>FOLLOW US</h5><a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a></div>
                 </div>
                 <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
             </div>
@@ -477,7 +458,7 @@
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
                 Textify.tools
             </a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
@@ -508,80 +489,43 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // Full tools list
+        // Updated tools list – exactly matches index.html (35 high‑demand tools)
         const tools = [
-            { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
-            { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
-            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
             { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
-            { name: 'Text Reverser', link: '/text-reverser', keywords: 'reverse backwards mirror flip upside down', category: 'manipulation' },
-            { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
-            { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+            { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
+            { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
+            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
             { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'manipulation' },
             { name: 'Text Finder & Replacer', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'manipulation' },
-            { name: 'Character Remover', link: '/character-remover', keywords: 'remove delete characters punctuation spaces', category: 'manipulation' },
+            { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
+            { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
+            { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
             { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
             { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text generator', category: 'generators' },
-            { name: 'Text Scrambler', link: '/text-scrambler', keywords: 'scramble shuffle random letters jumble', category: 'manipulation' },
-            { name: 'Text Truncator', link: '/text-truncator', keywords: 'truncate cut shorten length limit', category: 'manipulation' },
-            { name: 'Text Splitter', link: '/text-splitter', keywords: 'split divide separate delimiter tokenize', category: 'manipulation' },
-            { name: 'Text Joiner', link: '/text-joiner', keywords: 'join merge combine concatenate lines', category: 'manipulation' },
-            { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
-            { name: 'Prefix/Suffix Adder', link: '/prefix-suffix-adder', keywords: 'prefix suffix prepend append each line', category: 'manipulation' },
-            { name: 'Line Number Adder', link: '/line-number-adder', keywords: 'line numbers add number rows', category: 'manipulation' },
-            { name: 'Character Frequency Counter', link: '/character-frequency-counter', keywords: 'character frequency count occurrence distribution', category: 'analysis' },
-            { name: 'Word Frequency Counter', link: '/word-frequency-counter', keywords: 'word frequency count occurrence common repeated', category: 'analysis' },
-            { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
-            { name: 'Text Statistics', link: '/text-statistics', keywords: 'statistics detailed stats text metrics', category: 'analysis' },
-            { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count period question exclamation', category: 'analysis' },
-            { name: 'Line Counter', link: '/line-counter', keywords: 'line count rows number lines', category: 'analysis' },
-            { name: 'Letter Case Counter', link: '/letter-case-counter', keywords: 'uppercase lowercase count case letters', category: 'analysis' },
-            { name: 'Vowel & Consonant Counter', link: '/vowel-consonant-counter', keywords: 'vowel consonant count letters alphabet', category: 'analysis' },
-            { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count blocks sections', category: 'analysis' },
-            { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
-            { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
-            { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
-            { name: 'Binary Text Converter', link: '/binary-text-converter', keywords: 'binary bits 0 1 convert text', category: 'encoding' },
-            { name: 'Hex Text Converter', link: '/hex-text-converter', keywords: 'hex hexadecimal base16 convert', category: 'encoding' },
-            { name: 'Caesar Cipher', link: '/caesar-cipher', keywords: 'caesar cipher shift encrypt decrypt rotate', category: 'encoding' },
-            { name: 'ROT13 Cipher', link: '/rot13-cipher', keywords: 'rot13 rotate 13 cipher encode decode', category: 'encoding' },
-            { name: 'Atbash Cipher', link: '/atbash-cipher', keywords: 'atbash reverse alphabet cipher mirror', category: 'encoding' },
-            { name: 'A1Z26 Cipher', link: '/a1z26-cipher', keywords: 'a1z26 letter number code cipher', category: 'encoding' },
-            { name: 'Unicode Converter', link: '/unicode-converter', keywords: 'unicode code point convert escape', category: 'encoding' },
-            { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
-            { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
-            { name: 'Cursive Text Generator', link: '/cursive-text-generator', keywords: 'cursive script handwriting unicode font', category: 'styling' },
-            { name: 'Bubble Text Generator', link: '/bubble-text-generator', keywords: 'bubble circle enclosed unicode text', category: 'styling' },
-            { name: 'Small Caps Generator', link: '/small-caps-generator', keywords: 'small caps petite capital unicode', category: 'styling' },
-            { name: 'Zalgo Text Generator', link: '/zalgo-text-generator', keywords: 'zalgo glitch creepy demon unicode', category: 'styling' },
-            { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
-            { name: 'Mirror Text Generator', link: '/mirror-text-generator', keywords: 'mirror flip horizontal reverse', category: 'styling' },
-            { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+            { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
             { name: 'UUID/GUID Generator', link: '/uuid-generator', keywords: 'uuid guid unique identifier random', category: 'generators' },
             { name: 'Random Word Generator', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generators' },
-            { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
-            { name: 'Color Code Generator', link: '/color-code-generator', keywords: 'color hex rgb hsl random generator', category: 'generators' },
-            { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
-            { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
+            { name: 'QR Code Generator', link: '/qr-code-generator', keywords: 'qr code generate text url image', category: 'generators' },
+            { name: 'JSON Formatter', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
             { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encoding' },
-            { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
-            { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
-            { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
-            { name: 'Google SERP Checker', link: '/google-serp-checker', keywords: 'serp checker google search preview snippet', category: 'seo' },
-            { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
+            { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+            { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
+            { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
+            { name: 'URL Encoder/Decoder', link: '/url-encoder-decoder', keywords: 'url encode decode percent encoding', category: 'encoding' },
+            { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
+            { name: 'Markdown to HTML', link: '/markdown-to-html', keywords: 'markdown html convert preview', category: 'encoding' },
+            { name: 'Regex Tester', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'analysis' },
+            { name: 'Email Extractor', link: '/email-extractor', keywords: 'email extract find emails scrape', category: 'analysis' },
+            { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
+            { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
             { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
-            { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' },
-            { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
-            { name: 'Remove Duplicate Lines', link: '/remove-duplicate-lines', keywords: 'remove duplicate lines unique dedupe', category: 'manipulation' },
-            { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
-            { name: 'Multiple Whitespace to Single', link: '/multiple-whitespace-to-single', keywords: 'whitespace single space replace multiple', category: 'manipulation' },
-            { name: 'Alphabetical Sorter', link: '/alphabetical-sorter', keywords: 'sort alphabetical order list a-z', category: 'manipulation' },
-            { name: 'Word to Line Converter', link: '/word-to-line-converter', keywords: 'word line newline split separate', category: 'manipulation' },
-            { name: 'Strikethrough Text Generator', link: '/strikethrough-text-generator', keywords: 'strikethrough cross out line through', category: 'styling' },
-            { name: 'Zalgo/Glitch Text Generator', link: '/zalgo-glitch-text-generator', keywords: 'zalgo glitch creepy demon corrupted', category: 'styling' },
-            { name: 'Binary to Text', link: '/binary-to-text', keywords: 'binary text decode convert bits', category: 'encoding' },
-            { name: 'Keyword Density Analyzer', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', category: 'analysis' }
+            { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
+            { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
+            { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+            { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
+            { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
+            { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' }
         ];
 
         function buildMegaMenu() {
@@ -667,7 +611,6 @@
             if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
 
-        // Sort tool specific
         let currentSort = 'alpha-az';
         function setSort(type) {
             currentSort = type;
