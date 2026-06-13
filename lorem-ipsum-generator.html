@@ -23,6 +23,15 @@
         gtag('js', new Date());
         gtag('config', 'G-6VGXXT81MB');
     </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
+    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>
+        window.ezstandalone = window.ezstandalone || {};
+        ezstandalone.cmd = ezstandalone.cmd || [];
+    </script>
+    <script src="//ezoicanalytics.com/analytics.js"></script>
 </head>
 <body>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -59,18 +68,7 @@
             transition: background 0.3s, color 0.3s;
             overflow-x: hidden;
         }
-
-        .page-wrapper {
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-            background: transparent;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* HEADER */
+        .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
         header {
             border-bottom: 1px solid var(--line);
             display: flex;
@@ -143,7 +141,6 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        /* MAIN – full width, content container inside for breathing */
         main {
             flex: 1;
             padding: 40px 0;
@@ -156,31 +153,13 @@
             padding: 0 40px;
         }
         @media (max-width: 768px) {
-            .content-container {
-                padding: 0 16px;
-            }
-            main {
-                padding: 20px 0;
-            }
+            .content-container { padding: 0 16px; }
+            main { padding: 20px 0; }
         }
-        h1 {
-            font-size: 38px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            line-height: 1.3;
-            text-align: left;
-            word-wrap: break-word;
-        }
+        h1 { font-size: 38px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; text-align: left; }
         h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
         h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
-        .subtitle {
-            font-size: 18px;
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 40px;
-            text-align: left;
-            word-wrap: break-word;
-        }
+        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.7; margin-bottom: 40px; text-align: left; }
         p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
         ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
         textarea { width: 100%; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s; }
@@ -202,10 +181,6 @@
         .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
-        .table-wrapper { overflow-x: auto; margin: 25px 0; border: 1px solid var(--line); border-radius: 10px; }
-        .info-table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        .info-table th, .info-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); color: var(--text-light); }
-        .info-table th { background: var(--table-header); font-weight: 700; color: var(--text); } .info-table tr:hover { background: var(--table-hover); }
         .tip-box { background: #f0fdfa; padding: 18px 20px; border-left: 4px solid #16a34a; border-radius: 8px; margin-bottom: 22px; }
         body.dark-mode .tip-box { background: #052e16; }
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
@@ -214,7 +189,6 @@
         @keyframes spin { to { transform: rotate(360deg); } }
         .badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; background: var(--hover); color: var(--text-light); margin-left: 6px; }
 
-        /* FOOTER */
         footer {
             border-top: 1px solid var(--footer-border);
             padding: 40px 40px 25px;
@@ -232,24 +206,13 @@
         @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-        .footer-grid a {
-            color: var(--footer-link-color);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 9px;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.2s, padding-left 0.2s;
-        }
-        .footer-grid a:hover {
-            color: var(--footer-link-hover);
-            padding-left: 6px;
-        }
+        .footer-grid a { color: var(--footer-link-color); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; transition: color 0.2s, padding-left 0.2s; }
+        .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
         .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
-            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; }
+            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
             main { padding: 20px 0; }
             footer { padding: 30px 16px 20px; }
         }
@@ -327,7 +290,6 @@
                             </select>
                         </div>
                     </div>
-                    <!-- New Font Style option -->
                     <div class="grid-2" style="margin-top:14px;">
                         <div class="input-group">
                             <label>Font Style</label>
@@ -396,6 +358,9 @@
                         <p style="margin:0;font-size:14px;"><strong>Pro Tip:</strong> For a more modern alternative, you can also try "Bacon Ipsum" or "Hipster Ipsum", but the classic Lorem Ipsum remains the most universally recognised placeholder text.</p>
                     </div>
 
+                    <h2>From the Textify Team</h2>
+                    <p>We built this Lorem Ipsum generator because we were tired of hunting for placeholder text online. Now you can generate exactly the amount you need, right in your browser, with no ads tracking your work. We hope it helps you focus on what really matters — your design.</p>
+
                     <h2>Frequently Asked Questions</h2>
                     <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What does Lorem Ipsum mean?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Lorem Ipsum is scrambled Latin derived from Cicero's "De Finibus Bonorum et Malorum". It is nonsense text, intentionally meaningless, used solely as placeholder.</div></div>
                     <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I generate specific lengths?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, you can specify exactly how many paragraphs, sentences, or words you need. The tool generates exactly the requested amount.</div></div>
@@ -406,25 +371,21 @@
             </div>
         </main>
 
+        <!-- UPDATED FOOTER -->
         <footer>
             <div class="footer-container">
                 <div class="footer-grid">
                     <div>
                         <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
                             Textify.tools
                         </a>
-                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">Free, private text tools that live in your browser. No signup, no tracking, no nonsense. Bookmark us — you'll be back.</p>
                     </div>
                     <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/slug-generator">Slug Generator</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
                     <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-                    <div>
-                        <h5>FOLLOW US</h5>
-                        <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
-                        <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
-                        <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
-                    </div>
+                    <div><h5>FOLLOW US</h5><a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a></div>
                 </div>
                 <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
             </div>
@@ -466,105 +427,67 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // Complete tools list
+        // 35 high‑demand tools
         const tools = [
-            { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
-            { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
-            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
             { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
-            { name: 'Text Reverser', link: '/text-reverser', keywords: 'reverse backwards mirror flip upside down', category: 'manipulation' },
-            { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
-            { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+            { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
+            { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
+            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
             { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'manipulation' },
             { name: 'Text Finder & Replacer', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'manipulation' },
-            { name: 'Character Remover', link: '/character-remover', keywords: 'remove delete characters punctuation spaces', category: 'manipulation' },
+            { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
+            { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
+            { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
             { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
             { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text generator', category: 'generators' },
-            { name: 'Text Scrambler', link: '/text-scrambler', keywords: 'scramble shuffle random letters jumble', category: 'manipulation' },
-            { name: 'Text Truncator', link: '/text-truncator', keywords: 'truncate cut shorten length limit', category: 'manipulation' },
-            { name: 'Text Splitter', link: '/text-splitter', keywords: 'split divide separate delimiter tokenize', category: 'manipulation' },
-            { name: 'Text Joiner', link: '/text-joiner', keywords: 'join merge combine concatenate lines', category: 'manipulation' },
-            { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
-            { name: 'Prefix/Suffix Adder', link: '/prefix-suffix-adder', keywords: 'prefix suffix prepend append each line', category: 'manipulation' },
-            { name: 'Line Number Adder', link: '/line-number-adder', keywords: 'line numbers add number rows', category: 'manipulation' },
-            { name: 'Character Frequency Counter', link: '/character-frequency-counter', keywords: 'character frequency count occurrence distribution', category: 'analysis' },
-            { name: 'Word Frequency Counter', link: '/word-frequency-counter', keywords: 'word frequency count occurrence common repeated', category: 'analysis' },
-            { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
-            { name: 'Text Statistics', link: '/text-statistics', keywords: 'statistics detailed stats text metrics', category: 'analysis' },
-            { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count period question exclamation', category: 'analysis' },
-            { name: 'Line Counter', link: '/line-counter', keywords: 'line count rows number lines', category: 'analysis' },
-            { name: 'Letter Case Counter', link: '/letter-case-counter', keywords: 'uppercase lowercase count case letters', category: 'analysis' },
-            { name: 'Vowel & Consonant Counter', link: '/vowel-consonant-counter', keywords: 'vowel consonant count letters alphabet', category: 'analysis' },
-            { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count blocks sections', category: 'analysis' },
-            { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
-            { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
-            { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
-            { name: 'Binary Text Converter', link: '/binary-text-converter', keywords: 'binary bits 0 1 convert text', category: 'encoding' },
-            { name: 'Hex Text Converter', link: '/hex-text-converter', keywords: 'hex hexadecimal base16 convert', category: 'encoding' },
-            { name: 'Caesar Cipher', link: '/caesar-cipher', keywords: 'caesar cipher shift encrypt decrypt rotate', category: 'encoding' },
-            { name: 'ROT13 Cipher', link: '/rot13-cipher', keywords: 'rot13 rotate 13 cipher encode decode', category: 'encoding' },
-            { name: 'Atbash Cipher', link: '/atbash-cipher', keywords: 'atbash reverse alphabet cipher mirror', category: 'encoding' },
-            { name: 'A1Z26 Cipher', link: '/a1z26-cipher', keywords: 'a1z26 letter number code cipher', category: 'encoding' },
-            { name: 'Unicode Converter', link: '/unicode-converter', keywords: 'unicode code point convert escape', category: 'encoding' },
-            { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
-            { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
-            { name: 'Cursive Text Generator', link: '/cursive-text-generator', keywords: 'cursive script handwriting unicode font', category: 'styling' },
-            { name: 'Bubble Text Generator', link: '/bubble-text-generator', keywords: 'bubble circle enclosed unicode text', category: 'styling' },
-            { name: 'Small Caps Generator', link: '/small-caps-generator', keywords: 'small caps petite capital unicode', category: 'styling' },
-            { name: 'Zalgo Text Generator', link: '/zalgo-text-generator', keywords: 'zalgo glitch creepy demon unicode', category: 'styling' },
-            { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
-            { name: 'Mirror Text Generator', link: '/mirror-text-generator', keywords: 'mirror flip horizontal reverse', category: 'styling' },
-            { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+            { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
             { name: 'UUID/GUID Generator', link: '/uuid-generator', keywords: 'uuid guid unique identifier random', category: 'generators' },
             { name: 'Random Word Generator', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generators' },
-            { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
-            { name: 'Color Code Generator', link: '/color-code-generator', keywords: 'color hex rgb hsl random generator', category: 'generators' },
-            { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
-            { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
+            { name: 'QR Code Generator', link: '/qr-code-generator', keywords: 'qr code generate text url image', category: 'generators' },
+            { name: 'JSON Formatter', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
             { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encoding' },
-            { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
-            { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
-            { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
-            { name: 'Google SERP Checker', link: '/google-serp-checker', keywords: 'serp checker google search preview snippet', category: 'seo' },
-            { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
+            { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+            { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
+            { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
+            { name: 'URL Encoder/Decoder', link: '/url-encoder-decoder', keywords: 'url encode decode percent encoding', category: 'encoding' },
+            { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
+            { name: 'Markdown to HTML', link: '/markdown-to-html', keywords: 'markdown html convert preview', category: 'encoding' },
+            { name: 'Regex Tester', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'analysis' },
+            { name: 'Email Extractor', link: '/email-extractor', keywords: 'email extract find emails scrape', category: 'analysis' },
+            { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
+            { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
             { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
+            { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
+            { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
+            { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+            { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
+            { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
             { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' }
         ];
 
-        function buildMegaMenu() { const m = document.getElementById('megaMenu'); if (m) m.innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
-        function buildMobileToolsMenu() { const m = document.getElementById('mobileToolsMenu'); if (m) m.innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+        function buildMegaMenu() { document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+        function buildMobileToolsMenu() { document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
         function buildSearchList() {
-            const list = document.getElementById('fullSearchResultsList');
-            if (list) list.innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category}</span></a>`).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
+            document.getElementById('fullSearchResultsList').innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category}</span></a>`).join('')
+                + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
         }
 
         let toastTimer;
-        function showToast(msg, dur=3000) {
-            const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
-            clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
-        }
-
+        function showToast(msg, dur=3000) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur); }
         function toggleTheme() {
             const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
                   ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (b.classList.contains('dark-mode')) {
-                b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
-                if(ms) { ms.style.display='block'; mm.style.display='none'; }
-                localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
-            } else {
-                b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
-                if(ms) { ms.style.display='none'; mm.style.display='block'; }
-                localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
-            }
+            if(b.classList.contains('dark-mode')) { b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none'; if(ms){ms.style.display='block'; mm.style.display='none';} localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff'); }
+            else { b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block'; if(ms){ms.style.display='none'; mm.style.display='block';} localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a'); }
             lucide.createIcons();
         }
         document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
-        if (localStorage.getItem('theme') === 'dark') {
+        if(localStorage.getItem('theme')==='dark') {
             document.body.classList.add('dark-mode');
             document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
             const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
+            if(ms && mm){ms.style.display='none'; mm.style.display='block';}
         }
 
         function openMobileSidebar() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
@@ -579,23 +502,14 @@
             const items = document.querySelectorAll('#fullSearchResultsList .search-result-item');
             const nr = document.getElementById('fullNoResult'), qs = document.getElementById('fullSearchQuery');
             let c = 0;
-            items.forEach(i => {
-                const kw = i.getAttribute('data-keywords') || '', t = i.textContent.toLowerCase();
-                if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
-                else { i.classList.add('hidden-item'); }
-            });
-            if (c === 0 && q !== '') { if(nr) nr.classList.add('show'); if(qs) qs.textContent = q; }
-            else { if(nr) nr.classList.remove('show'); }
+            items.forEach(i => { const kw = i.getAttribute('data-keywords') || '', t = i.textContent.toLowerCase(); if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; } else { i.classList.add('hidden-item'); } });
+            if (c === 0 && q !== '') { if(nr) nr.classList.add('show'); if(qs) qs.textContent = q; } else { if(nr) nr.classList.remove('show'); }
         }
         document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); }
-            if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
-        });
+        document.addEventListener('keydown', e => { if(e.key==='Escape'){closeFullSearch();closeMobileSidebar();} if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openFullSearch();} });
 
-        function toggleFaq(el) { const i = el.parentElement; i.classList.toggle('active'); const icon = el.querySelector('svg'); if (icon) icon.style.transform = i.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)'; }
+        function toggleFaq(el) { const i = el.parentElement; i.classList.toggle('active'); const icon = el.querySelector('svg'); if(icon) icon.style.transform = i.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)'; }
 
-        // Font styles map (same as text repeater)
         const FONTS = {
             bold: (c) => { if(c>='a'&&c<='z') return String.fromCodePoint(0x1D41A+c.charCodeAt(0)-97); if(c>='A'&&c<='Z') return String.fromCodePoint(0x1D400+c.charCodeAt(0)-65); if(c>='0'&&c<='9') return String.fromCodePoint(0x1D7CE+c.charCodeAt(0)-48); return c; },
             italic: (c) => { if(c>='a'&&c<='z') return String.fromCodePoint(0x1D44E+c.charCodeAt(0)-97); if(c>='A'&&c<='Z') return String.fromCodePoint(0x1D434+c.charCodeAt(0)-65); return c; },
@@ -615,7 +529,6 @@
             return text.split('').map(c => FONTS[style](c)).join('');
         }
 
-        // Lorem Ipsum word pool
         const loremWords = [
             "lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit",
             "sed", "do", "eiusmod", "tempor", "incididunt", "ut", "labore", "et", "dolore",
@@ -667,29 +580,22 @@
                 setTimeout(() => {
                     try {
                         let result = [];
-
                         if (outputType === 'paragraphs') {
                             for (let p = 0; p < count; p++) {
                                 let paragraph = '';
                                 const sentences = Math.floor(Math.random() * 4) + 3;
-                                
                                 for (let s = 0; s < sentences; s++) {
                                     const wordCount = Math.floor(Math.random() * 12) + 5;
                                     let sentenceWords = [];
-                                    
                                     if (p === 0 && s === 0 && startWithLorem) {
                                         sentenceWords = ["Lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit"];
                                     } else {
-                                        for (let w = 0; w < wordCount; w++) {
-                                            sentenceWords.push(getRandomWord());
-                                        }
+                                        for (let w = 0; w < wordCount; w++) sentenceWords.push(getRandomWord());
                                     }
-                                    
                                     let sentence = sentenceWords.join(' ');
                                     sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1) + '.';
                                     paragraph += sentence + ' ';
                                 }
-                                // Apply font style to the whole paragraph before pushing
                                 result.push(applyFont(paragraph.trim(), fontStyle));
                             }
                             if (htmlFormat === 'p') result = result.map(p => `<p>${p}</p>`);
@@ -714,7 +620,6 @@
                             } else {
                                 for (let w = 0; w < count; w++) result.push(getRandomWord());
                             }
-                            // Join words with space and apply font to whole string
                             let wordsStr = result.join(' ');
                             result = [applyFont(wordsStr, fontStyle)];
                         }
@@ -724,10 +629,7 @@
                         document.getElementById('outputArea').style.display = 'block';
                         document.getElementById('outputArea').scrollIntoView({ behavior: 'smooth' });
                         showToast('Lorem Ipsum generated successfully!');
-                    } catch (e) {
-                        alert("Error generating text. Please try again.");
-                        console.error(e);
-                    }
+                    } catch (e) { alert("Error generating text. Please try again."); console.error(e); }
                     btn.innerHTML = origHTML;
                     btn.disabled = false;
                 }, 50);
@@ -741,16 +643,10 @@
             try {
                 if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(textarea.value);
                 else { textarea.focus(); textarea.select(); textarea.setSelectionRange(0, 999999); document.execCommand('copy'); }
-                btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!';
-                btn.style.background = '#16a34a';
-                lucide.createIcons();
+                btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!'; btn.style.background = '#16a34a'; lucide.createIcons();
                 showToast('Copied to clipboard!');
-            } catch (err) {
-                textarea.focus(); textarea.select();
-                alert("Please press Ctrl+C (Cmd+C on Mac) to copy the text.");
-            } finally {
-                setTimeout(() => { btn.innerHTML = origHTML; btn.style.background = ''; lucide.createIcons(); }, 2000);
-            }
+            } catch (err) { textarea.focus(); textarea.select(); alert("Please press Ctrl+C (Cmd+C on Mac) to copy."); }
+            finally { setTimeout(() => { btn.innerHTML = origHTML; btn.style.background = ''; lucide.createIcons(); }, 2000); }
         }
 
         function downloadText() {
@@ -760,18 +656,12 @@
             try {
                 const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
                 const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url; a.download = 'lorem-ipsum.txt'; document.body.appendChild(a); a.click();
+                const a = document.createElement('a'); a.href = url; a.download = 'lorem-ipsum.txt'; document.body.appendChild(a); a.click();
                 document.body.removeChild(a); URL.revokeObjectURL(url);
-                btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Downloaded!';
-                lucide.createIcons();
+                btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Downloaded!'; lucide.createIcons();
                 showToast('File downloaded!');
-                setTimeout(() => { btn.innerHTML = origHTML; lucide.createIcons(); }, 2000);
-            } catch (err) {
-                alert("Download blocked. Please allow popups or copy manually.");
-                btn.innerHTML = origHTML;
-                lucide.createIcons();
-            }
+            } catch (err) { alert("Download blocked. Please allow popups or copy manually."); btn.innerHTML = origHTML; lucide.createIcons(); }
+            finally { setTimeout(() => { btn.innerHTML = origHTML; lucide.createIcons(); }, 2000); }
         }
 
         function resetTool() {
