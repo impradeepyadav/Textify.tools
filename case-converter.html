@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
     <title>Case Converter Online | UPPERCASE, lowercase & Title Case</title>
-    <meta name="description" content="Free online Case Converter to change text to UPPERCASE, lowercase & Title Case. Easily format bulk Excel data and remove extra spaces instantly!">
+    <meta name="description" content="Free online Case Converter to change text to UPPERCASE, lowercase, Title Case, and more. Includes live stats, extra space removal, and download options. No signup, fully private.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/case-converter">
     <meta property="og:type" content="website">
@@ -24,7 +24,6 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/mstile-150x150.png">
 
-    <!-- Preconnect to critical third-party origins (Core Web Vitals) -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
     <link rel="preconnect" href="https://cmp.gatekeeperconsent.com">
@@ -33,12 +32,8 @@
     <link rel="preconnect" href="https://ezoicanalytics.com">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
-    <!-- Google AdSense -->
-    <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186"
-    crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
 
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -47,11 +42,9 @@
         gtag('config', 'G-6VGXXT81MB');
     </script>
 
-    <!-- Gatekeeper Consent -->
     <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
     <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
 
-    <!-- Ezoic -->
     <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
     <script>
         window.ezstandalone = window.ezstandalone || {};
@@ -59,7 +52,6 @@
     </script>
     <script src="//ezoicanalytics.com/analytics.js"></script>
 
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -153,7 +145,7 @@
             --footer-bg: #ffffff;
             --footer-text: #333333;
             --footer-heading: #000000;
-            --footer-link-color: #000000;   /* black links in light mode */
+            --footer-link-color: #000000;
             --footer-link-hover: #000000;
             --footer-border: #e5e5e5;
             --faq-bg: #fafafa;
@@ -183,7 +175,7 @@
             --footer-bg: #0f172a;
             --footer-text: #e2e8f0;
             --footer-heading: #ffffff;
-            --footer-link-color: #60a5fa;   /* blue links in dark mode */
+            --footer-link-color: #60a5fa;
             --footer-link-hover: #ffffff;
             --footer-border: #334155;
             --faq-bg: #1e293b;
@@ -210,7 +202,6 @@
             transition: background 0.3s, color 0.3s;
         }
 
-        /* FULL‑WIDTH PAGE WRAPPER */
         .page-wrapper {
             width: 100%;
             max-width: 100%;
@@ -221,7 +212,6 @@
             min-height: 100vh;
         }
 
-        /* HEADER – full width with comfortable padding */
         header {
             border-bottom: 1px solid var(--line);
             display: flex;
@@ -268,7 +258,6 @@
         .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
 
-        /* MOBILE SIDEBAR */
         .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
         .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
         .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
@@ -291,7 +280,6 @@
         .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
         .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
 
-        /* SEARCH OVERLAY */
         .search-overlay-full { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--overlay-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 300; display: flex; flex-direction: column; align-items: center; padding-top: 80px; opacity: 0; visibility: hidden; transition: 0.3s; }
         .search-overlay-full.active { opacity: 1; visibility: visible; }
         .search-container { width: 90%; max-width: 550px; display: flex; flex-direction: column; max-height: 80vh; }
@@ -307,7 +295,6 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        /* MAIN – full width with side padding */
         main {
             flex: 1;
             padding: 40px 40px;
@@ -366,7 +353,6 @@
         .step-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
         .step-card p { font-size: 14px; margin: 0; }
 
-        /* FOOTER – 5 equal columns, black links (light mode) */
         footer {
             border-top: 1px solid var(--footer-border);
             padding: 40px 40px 25px;
@@ -505,28 +491,57 @@
             <div class="section">
                 <h2>What Each Case Conversion Does</h2>
                 <ul>
-                    <li><strong>UPPERCASE:</strong> Converts every letter to capital letters. Ideal for headings, shouting emphasis, or acronym formatting.</li>
-                    <li><strong>lowercase:</strong> Converts all characters to small letters. Useful for normalising text or preparing data for case‑sensitive systems.</li>
-                    <li><strong>Title Case:</strong> Capitalises the first letter of every major word. Perfect for book titles, article headlines, and academic references.</li>
-                    <li><strong>Sentence case:</strong> Capitalises only the first letter of each sentence. Best for standard prose, emails, and content writing.</li>
-                    <li><strong>aLtErNaTiNg cAsE:</strong> Randomly alternates between upper and lower case. Creates a fun, stylish effect for social media or creative posts.</li>
-                    <li><strong>RaNdOm cAsE:</strong> Each character is randomly assigned upper or lower case. Great for parody, memes, or visual variety.</li>
-                    <li><strong>iNVERSE cASE:</strong> Flips the case of every character (uppercase becomes lowercase and vice versa). Useful for correcting accidental caps lock text.</li>
-                    <li><strong>Trim / Remove Extra Spaces:</strong> Collapses multiple spaces, tabs, and line breaks into single spaces and removes leading/trailing whitespace. Perfect for cleaning messy data (e.g., "Amit    Kumar" → "Amit Kumar").</li>
+                    <li><strong>UPPERCASE:</strong> Converts every letter to capital letters. Ideal for headings, acronyms, and emphasis. Often used in legal documents, warning labels, and technical specifications.</li>
+                    <li><strong>lowercase:</strong> Converts all characters to small letters. Useful for normalising user‑generated content, email addresses, and preparing data for case‑sensitive systems.</li>
+                    <li><strong>Title Case:</strong> Capitalises the first letter of every major word. Perfect for book titles, article headlines, blog post names, and academic references. Follows a simple all‑word capitalisation rule for maximum control.</li>
+                    <li><strong>Sentence case:</strong> Capitalises only the first letter of each sentence. Best for standard prose, emails, and general content writing where a natural flow is needed.</li>
+                    <li><strong>aLtErNaTiNg cAsE:</strong> Randomly alternates between upper and lower case. Creates a fun, meme‑like effect popular on social media platforms.</li>
+                    <li><strong>RaNdOm cAsE:</strong> Each character is randomly assigned upper or lower case. Great for parody accounts, visual variety, and attracting attention.</li>
+                    <li><strong>iNVERSE cASE:</strong> Flips the case of every character (uppercase becomes lowercase and vice versa). Perfect for fixing accidental caps lock text.</li>
+                    <li><strong>Trim / Remove Extra Spaces:</strong> Collapses multiple spaces, tabs, and line breaks into single spaces and removes leading/trailing whitespace. Perfect for cleaning messy data.</li>
                 </ul>
             </div>
 
             <div class="section">
-                <h2>Real‑World Use Cases for Case Conversion</h2>
+                <h2>Case Converter vs. Manual Editing: Why This Tool Saves You Hours</h2>
+                <p>Manually retyping or reformatting case is tedious and error‑prone, especially with long documents. Our tool eliminates repetitive work by applying transformations instantly across thousands of characters. Whether you're fixing a 50‑page report that was accidentally typed in all caps, or converting a database of names into proper case, you can do it in seconds instead of hours.</p>
+                <p>Moreover, the built‑in live counter (words, characters, lines) keeps you informed about the document's length, which is crucial for meeting editorial guidelines. The trim spaces feature also handles inconsistent spacing that often creeps into copied text.</p>
+            </div>
+
+            <div class="section">
+                <h2>How Different Professionals Use Case Conversion</h2>
                 <ul>
-                    <li><strong>Clean up messy text:</strong> Paste copied text with inconsistent capitalisation or extra spaces and convert it to proper sentence case or title case in one go.</li>
-                    <li><strong>Prepare data for databases:</strong> Normalise names, addresses, or product descriptions by using uppercase, lowercase, or trimming spaces for consistency.</li>
-                    <li><strong>Social media styling:</strong> Create eye‑catching posts with alternating or random case to stand out in feeds.</li>
-                    <li><strong>Fix caps lock errors:</strong> If you accidentally typed a paragraph with Caps Lock on, use the “Inverse Case” to restore it immediately.</li>
-                    <li><strong>Format code comments:</strong> Ensure code comments follow a uniform case style without retyping everything.</li>
-                    <li><strong>Data entry tasks:</strong> Quickly count lines or words while preparing bulk text – the live counter helps you meet character or line limits.</li>
+                    <li><strong>Writers and bloggers:</strong> Convert headlines to title case for SEO‑friendly blog posts, or switch between sentence case and uppercase for different sections.</li>
+                    <li><strong>Data analysts:</strong> Clean and normalise Excel data by converting names, addresses, and product listings to a consistent case. The trim spaces feature is invaluable for removing irregular spacing.</li>
+                    <li><strong>Social media managers:</strong> Create eye‑catching posts with alternating or random case, making brand announcements stand out in crowded feeds.</li>
+                    <li><strong>Students and academics:</strong> Format citations, paper titles, and section headings according to required style guides (APA, MLA, Chicago) without manually changing each word.</li>
+                    <li><strong>Customer support teams:</strong> Quickly de‑escalate accidentally all‑caps messages by converting them to normal case, or ensure canned responses follow consistent formatting.</li>
+                    <li><strong>Developers and system admins:</strong> Transform code comments, configuration values, or command‑line arguments into the required case (e.g., lowercase for YAML keys, uppercase for environment variables).</li>
                 </ul>
-                <div class="tip-box"><p>💡 <strong>Pro tip:</strong> All conversions happen locally in your browser – your text is never uploaded to any server, so it stays 100% private for sensitive documents.</p></div>
+            </div>
+
+            <div class="section">
+                <h2>The Psychology of Text Case in Writing</h2>
+                <p>Case isn't just about grammar; it affects readability and perception. Studies show that uppercase text can slow reading speed by up to 13% because it removes the visual shape of words. This makes sentence case or lowercase more comfortable for long‑form content. Meanwhile, title case helps readers quickly identify headlines and key points by creating a visual hierarchy.</p>
+                <p>When used deliberately, alternating or random case can signal informality, humour, or even sarcasm — a common tactic in internet culture. Understanding these nuances allows you to choose the right case for the right context, and our tool gives you instant access to all these styles so you can experiment effortlessly.</p>
+            </div>
+
+            <div class="section">
+                <h2>How to Bulk Clean Data from Excel or CSV Files</h2>
+                <p>If you work with spreadsheets, you often face inconsistent text: some entries in all caps, some in lowercase, and extra spaces everywhere. Here's a quick workflow using this tool:</p>
+                <ol>
+                    <li>Copy the entire column from your Excel or CSV file.</li>
+                    <li>Paste it into the input box. You'll see the live line count updating.</li>
+                    <li>Click <strong>Trim Spaces</strong> to remove all leading/trailing/multiple spaces.</li>
+                    <li>Choose the desired case (for names, use Title Case; for product IDs, UPPERCASE or lowercase).</li>
+                    <li>Copy the cleaned output and paste it directly back into your spreadsheet. No more manual editing cell by cell.</li>
+                </ol>
+                <p>This method works for thousands of rows and respects line breaks, so each entry stays on its own line. It's a massive time‑saver for anyone dealing with messy data imports.</p>
+            </div>
+
+            <div class="section">
+                <h2>From the Textify Team: Why We Built This Case Converter</h2>
+                <p>We built this tool after spending far too many Monday mornings manually reformatting data exports that arrived in all uppercase. We wanted a simple, private, no‑fuss converter that didn't require opening a heavy word processor or navigating a cluttered website. Just paste, click, and copy. That's the entire philosophy behind Textify.tools — straightforward tools that get out of your way and respect your privacy. We hope this saves you as much time as it saves us.</p>
             </div>
 
             <div class="section">
@@ -547,17 +562,12 @@
                             <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;" width="24" height="24" loading="lazy">
                             Textify.tools
                         </a>
-                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">Free, private text tools that live in your browser. No signup, no tracking, no nonsense. Bookmark us — you'll be back.</p>
                     </div>
                     <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/slug-generator">Slug Generator</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
                     <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-                    <div>
-                        <h5>FOLLOW US</h5>
-                        <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
-                        <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
-                        <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
-                    </div>
+                    <div><h5>FOLLOW US</h5><a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a></div>
                 </div>
                 <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
             </div>
@@ -599,79 +609,43 @@
     <div class="toast" id="toast"></div>
 
     <script>
+        // UPDATED TOOLS LIST – matches index.html (35 high‑demand tools)
         const tools = [
-            { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
-            { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
-            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
             { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
-            { name: 'Text Reverser', link: '/text-reverser', keywords: 'reverse backwards mirror flip upside down', category: 'manipulation' },
-            { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
-            { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+            { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
+            { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
+            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
             { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'manipulation' },
             { name: 'Text Finder & Replacer', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'manipulation' },
-            { name: 'Character Remover', link: '/character-remover', keywords: 'remove delete characters punctuation spaces', category: 'manipulation' },
+            { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
+            { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
+            { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
             { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
             { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text generator', category: 'generators' },
-            { name: 'Text Scrambler', link: '/text-scrambler', keywords: 'scramble shuffle random letters jumble', category: 'manipulation' },
-            { name: 'Text Truncator', link: '/text-truncator', keywords: 'truncate cut shorten length limit', category: 'manipulation' },
-            { name: 'Text Splitter', link: '/text-splitter', keywords: 'split divide separate delimiter tokenize', category: 'manipulation' },
-            { name: 'Text Joiner', link: '/text-joiner', keywords: 'join merge combine concatenate lines', category: 'manipulation' },
-            { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
-            { name: 'Prefix/Suffix Adder', link: '/prefix-suffix-adder', keywords: 'prefix suffix prepend append each line', category: 'manipulation' },
-            { name: 'Line Number Adder', link: '/line-number-adder', keywords: 'line numbers add number rows', category: 'manipulation' },
-            { name: 'Character Frequency Counter', link: '/character-frequency-counter', keywords: 'character frequency count occurrence distribution', category: 'analysis' },
-            { name: 'Word Frequency Counter', link: '/word-frequency-counter', keywords: 'word frequency count occurrence common repeated', category: 'analysis' },
-            { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
-            { name: 'Text Statistics', link: '/text-statistics', keywords: 'statistics detailed stats text metrics', category: 'analysis' },
-            { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count period question exclamation', category: 'analysis' },
-            { name: 'Line Counter', link: '/line-counter', keywords: 'line count rows number lines', category: 'analysis' },
-            { name: 'Letter Case Counter', link: '/letter-case-counter', keywords: 'uppercase lowercase count case letters', category: 'analysis' },
-            { name: 'Vowel & Consonant Counter', link: '/vowel-consonant-counter', keywords: 'vowel consonant count letters alphabet', category: 'analysis' },
-            { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count blocks sections', category: 'analysis' },
-            { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
-            { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
-            { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
-            { name: 'Binary Text Converter', link: '/binary-text-converter', keywords: 'binary bits 0 1 convert text', category: 'encoding' },
-            { name: 'Hex Text Converter', link: '/hex-text-converter', keywords: 'hex hexadecimal base16 convert', category: 'encoding' },
-            { name: 'Caesar Cipher', link: '/caesar-cipher', keywords: 'caesar cipher shift encrypt decrypt rotate', category: 'encoding' },
-            { name: 'ROT13 Cipher', link: '/rot13-cipher', keywords: 'rot13 rotate 13 cipher encode decode', category: 'encoding' },
-            { name: 'Atbash Cipher', link: '/atbash-cipher', keywords: 'atbash reverse alphabet cipher mirror', category: 'encoding' },
-            { name: 'A1Z26 Cipher', link: '/a1z26-cipher', keywords: 'a1z26 letter number code cipher', category: 'encoding' },
-            { name: 'Unicode Converter', link: '/unicode-converter', keywords: 'unicode code point convert escape', category: 'encoding' },
-            { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
-            { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
-            { name: 'Cursive Text Generator', link: '/cursive-text-generator', keywords: 'cursive script handwriting unicode font', category: 'styling' },
-            { name: 'Bubble Text Generator', link: '/bubble-text-generator', keywords: 'bubble circle enclosed unicode text', category: 'styling' },
-            { name: 'Small Caps Generator', link: '/small-caps-generator', keywords: 'small caps petite capital unicode', category: 'styling' },
-            { name: 'Zalgo Text Generator', link: '/zalgo-text-generator', keywords: 'zalgo glitch creepy demon unicode', category: 'styling' },
-            { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
-            { name: 'Mirror Text Generator', link: '/mirror-text-generator', keywords: 'mirror flip horizontal reverse', category: 'styling' },
-            { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+            { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
             { name: 'UUID/GUID Generator', link: '/uuid-generator', keywords: 'uuid guid unique identifier random', category: 'generators' },
             { name: 'Random Word Generator', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generators' },
-            { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
-            { name: 'Color Code Generator', link: '/color-code-generator', keywords: 'color hex rgb hsl random generator', category: 'generators' },
-            { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
-            { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
+            { name: 'QR Code Generator', link: '/qr-code-generator', keywords: 'qr code generate text url image', category: 'generators' },
+            { name: 'JSON Formatter', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
             { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encoding' },
-            { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
-            { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
-            { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
-            { name: 'Google SERP Checker', link: '/google-serp-checker', keywords: 'serp checker google search preview snippet', category: 'seo' },
-            { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
+            { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+            { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
+            { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
+            { name: 'URL Encoder/Decoder', link: '/url-encoder-decoder', keywords: 'url encode decode percent encoding', category: 'encoding' },
+            { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
+            { name: 'Markdown to HTML', link: '/markdown-to-html', keywords: 'markdown html convert preview', category: 'encoding' },
+            { name: 'Regex Tester', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'analysis' },
+            { name: 'Email Extractor', link: '/email-extractor', keywords: 'email extract find emails scrape', category: 'analysis' },
+            { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
+            { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
             { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
-            { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' },
-            { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
-            { name: 'Remove Duplicate Lines', link: '/remove-duplicate-lines', keywords: 'remove duplicate lines unique dedupe', category: 'manipulation' },
-            { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
-            { name: 'Multiple Whitespace to Single', link: '/multiple-whitespace-to-single', keywords: 'whitespace single space replace multiple', category: 'manipulation' },
-            { name: 'Alphabetical Sorter', link: '/alphabetical-sorter', keywords: 'sort alphabetical order list a-z', category: 'manipulation' },
-            { name: 'Word to Line Converter', link: '/word-to-line-converter', keywords: 'word line newline split separate', category: 'manipulation' },
-            { name: 'Strikethrough Text Generator', link: '/strikethrough-text-generator', keywords: 'strikethrough cross out line through', category: 'styling' },
-            { name: 'Zalgo/Glitch Text Generator', link: '/zalgo-glitch-text-generator', keywords: 'zalgo glitch creepy demon corrupted', category: 'styling' },
-            { name: 'Binary to Text', link: '/binary-to-text', keywords: 'binary text decode convert bits', category: 'encoding' },
-            { name: 'Keyword Density Analyzer', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', category: 'analysis' }
+            { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
+            { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
+            { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+            { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
+            { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
+            { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' }
         ];
 
         function buildMegaMenu() {
@@ -766,14 +740,14 @@
         }
         inputText.addEventListener('input', updateStats);
 
-        function clearInput() { inputText.value = ''; updateStats(); document.getElementById('outputText').value = ''; showToast('🧹 Input cleared'); }
+        function clearInput() { inputText.value = ''; updateStats(); document.getElementById('outputText').value = ''; showToast('Input cleared'); }
         function trimSpaces() {
             const text = inputText.value;
-            if (!text.trim()) { showToast('⚠️ Nothing to trim'); return; }
+            if (!text.trim()) { showToast('Nothing to trim'); return; }
             const cleaned = text.replace(/\s+/g, ' ').trim();
             inputText.value = cleaned;
             updateStats();
-            showToast('✨ Extra spaces removed');
+            showToast('Extra spaces removed');
         }
 
         function toTitleCase(str) { return str.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()); }
@@ -784,7 +758,7 @@
 
         function convertCase(type) {
             const input = inputText.value;
-            if (!input.trim()) { showToast('⚠️ Please enter some text first'); return; }
+            if (!input.trim()) { showToast('Please enter some text first'); return; }
             let result;
             switch(type) {
                 case 'upper': result = input.toUpperCase(); break;
@@ -797,24 +771,24 @@
                 default: result = input;
             }
             document.getElementById('outputText').value = result;
-            showToast('✓ Converted to ' + type);
+            showToast('Converted to ' + type);
         }
 
         function copyOutput() {
             const output = document.getElementById('outputText');
-            if (!output.value) { showToast('⚠️ Nothing to copy'); return; }
+            if (!output.value) { showToast('Nothing to copy'); return; }
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(output.value).then(() => showToast('📋 Text copied!'));
+                navigator.clipboard.writeText(output.value).then(() => showToast('Text copied!'));
             } else {
                 output.select();
                 document.execCommand('copy');
-                showToast('📋 Text copied!');
+                showToast('Text copied!');
             }
         }
 
         function downloadOutput() {
             const output = document.getElementById('outputText').value;
-            if (!output) { showToast('⚠️ Nothing to download'); return; }
+            if (!output) { showToast('Nothing to download'); return; }
             const blob = new Blob([output], {type: 'text/plain'});
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -822,7 +796,7 @@
             a.download = 'case-converter-result.txt';
             a.click();
             URL.revokeObjectURL(url);
-            showToast('💾 Downloaded as .txt');
+            showToast('Downloaded as .txt');
         }
 
         function toggleFaq(el) {
