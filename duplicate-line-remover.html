@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
-    <title>Duplicate Line Remover – Remove Duplicate Lines Online | Textify.tools</title>
-    <meta name="description" content="Free online duplicate line remover – quickly eliminate duplicate lines from any text. Supports case‑sensitive, trim, and skip empty lines options. Private and fast.">
+    <title>Duplicate Line Remover – Remove Duplicate Lines Instantly | Textify.tools</title>
+    <meta name="description" content="Free online Duplicate Line Remover tool. Remove duplicate lines with case‑sensitive or case‑insensitive options, trim spaces, and skip empty lines. Works locally in your browser – fast, private, and no signup.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/duplicate-line-remover">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/duplicate-line-remover">
     <meta property="og:title" content="Duplicate Line Remover – Remove Duplicate Lines Online">
-    <meta property="og:description" content="Eliminate duplicate lines from any text instantly. Free, private, and works in your browser.">
-    
+    <meta property="og:description" content="Quickly remove duplicate lines from any list. Choose case‑sensitive or case‑insensitive deduplication, trim whitespace, and ignore empty lines. All processing stays in your browser.">
     <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
     <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
     
@@ -23,6 +22,15 @@
         gtag('js', new Date());
         gtag('config', 'G-6VGXXT81MB');
     </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
+    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>
+        window.ezstandalone = window.ezstandalone || {};
+        ezstandalone.cmd = ezstandalone.cmd || [];
+    </script>
+    <script src="//ezoicanalytics.com/analytics.js"></script>
 </head>
 <body>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -55,8 +63,6 @@
             --accent: #f8fafc;
             --toast-bg: #1f2937;
             --toast-text: #ffffff;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
         body.dark-mode {
             --bg: #0f172a;
@@ -86,39 +92,20 @@
             --accent: #1e293b;
             --toast-bg: #f1f5f9;
             --toast-text: #0f172a;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            transition: background 0.3s, color 0.3s;
+            background: var(--bg); color: var(--text); min-height: 100vh;
+            transition: background 0.3s, color 0.3s; overflow-x: hidden;
         }
-        /* FULL WIDTH WRAPPER */
-        .page-wrapper {
-            width: 100%;
-            margin: 0 auto;
-            background: transparent;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* HEADER – full width */
+        .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
         header {
             border-bottom: 1px solid var(--line);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 40px;
-            height: 64px;
-            transition: border-color 0.3s;
-            background: transparent;
-            width: 100%;
+            display: flex; justify-content: center; align-items: center;
+            padding: 0 40px; height: 64px; transition: border-color 0.3s;
+            background: transparent; width: 100%; position: relative; z-index: 100;
         }
         .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
@@ -147,7 +134,7 @@
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
         .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
         .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
-        .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
+        .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; }
         .mobile-sidebar.active { left: 0; }
         .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
         .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
@@ -180,86 +167,45 @@
         .search-results-list .result-tag { font-size: 10px; background: var(--hover); padding: 3px 8px; border-radius: 12px; color: var(--text-light); text-transform: uppercase; font-weight: 600; }
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
-
-        /* MAIN – full width */
-        main {
-            flex: 1;
-            padding: 40px 40px;
-            width: 100%;
-            background: transparent;
-        }
-        .content-container {
-            width: 100%;
-            margin: 0 auto;
-        }
-        h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
-        p.subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 35px; }
-        textarea { width: 100%; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s; }
+        main { flex: 1; padding: 40px 0; width: 100%; max-width: 100%; background: transparent; }
+        .content-container { width: 100%; padding: 0 40px; }
+        @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
+        h1 { font-size: 38px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; text-align: left; }
+        h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
+        h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
+        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.7; margin-bottom: 30px; text-align: left; }
+        p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
+        ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
+        textarea { width: 100%; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: monospace; transition: 0.2s; margin-bottom: 22px; min-height: 160px; }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
-        .checkbox-group { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 25px; }
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-bottom: 20px; }
         .checkbox-group label { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--text); cursor: pointer; }
+        .checkbox-group input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; margin: 0; }
         .btn { padding: 15px 26px; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; justify-content: center; transition: 0.2s; }
         .btn-primary { background: var(--primary); color: var(--bg); width: 100%; }
         .btn-primary:hover { opacity: 0.88; }
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
         .btn-outline:hover { background: var(--hover); }
         .output-area { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); display: none; }
-        .output-area textarea { height: 160px; background: var(--card); }
+        .output-area textarea { height: 200px; background: var(--card); width: 100%; margin-bottom: 15px; }
         .char-count-box { background: var(--success-bg); padding: 14px 18px; border-radius: 12px; margin-bottom: 20px; text-align: center; color: var(--success-text); font-weight: 600; font-size: 15px; border: 1px solid rgba(22,163,74,0.2); }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
         .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
-        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
-        .toast.show { transform: translateX(-50%) translateY(0); }
-
-        /* FOOTER – full width, 5 columns, black links (light mode) */
-        footer {
-            border-top: 1px solid var(--footer-border);
-            padding: 40px 40px 25px;
-            background: transparent;
-            width: 100%;
-        }
-        .footer-container { width: 100%; max-width: 1200px; margin: 0 auto; }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 35px;
-        }
-        @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
-        .footer-grid h5 {
-            color: var(--footer-heading);
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
-        .footer-grid a {
-            color: var(--footer-link-color);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 9px;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.2s, padding-left 0.2s;
-        }
+        footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 25px; background: transparent; width: 100%; }
+        .footer-container { width: 100%; max-width: 100%; }
+        .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 35px; width: 100%; }
+        @media (max-width: 1200px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media(max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
+        .footer-grid a { color: var(--footer-link-color); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; transition: color 0.2s, padding-left 0.2s; }
         .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
-        .footer-bottom {
-            width: 100%;
-            margin-top: 35px;
-            padding-top: 18px;
-            border-top: 1px solid var(--footer-border);
-            text-align: center;
-            font-size: 13px;
-            color: var(--footer-text);
-        }
-
-        @media (max-width: 768px) {
-            .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
-            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
-            main { padding: 20px 16px; }
-            footer { padding: 30px 16px 20px; }
-        }
+        .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+        @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 0; } footer { padding: 30px 16px 20px; } }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     </style>
 
@@ -267,8 +213,8 @@
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                    Textify.Tools
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
+                    Textify.tools
                 </a>
                 <div class="header-right">
                     <div class="desktop-nav">
@@ -294,15 +240,14 @@
         <main>
             <div class="content-container">
                 <h1>Duplicate Line Remover</h1>
-                <p class="subtitle">Remove duplicate lines from your text instantly. Keep only unique lines while preserving order. Perfect for cleaning up lists, data, or any repeated content.</p>
+                <p class="subtitle">Paste your list of items and instantly remove duplicate lines. Choose case‑sensitive or case‑insensitive deduplication, trim whitespace, and skip empty lines. All processing is local — your data stays private.</p>
 
-                <textarea id="inputText" placeholder="Paste your text here...&#10;Example:&#10;apple&#10;banana&#10;apple&#10;orange&#10;banana"></textarea>
+                <textarea id="inputText" placeholder="Paste your text or list here (one item per line)..."></textarea>
 
                 <div class="checkbox-group">
-                    <label><input type="checkbox" id="caseSensitive"> 🔍 Case‑sensitive (treat "Apple" and "apple" as different)</label>
-                    <label><input type="checkbox" id="trimLines"> ✂️ Trim whitespace from each line</label>
-                    <label><input type="checkbox" id="skipEmpty"> 📄 Skip empty lines</label>
-                    <label><input type="checkbox" id="preserveOrder"> 📌 Preserve original order (first occurrence)</label>
+                    <label><input type="checkbox" id="caseInsensitive"> Case‑insensitive (ignore upper/lowercase when comparing)</label>
+                    <label><input type="checkbox" id="trimLines"> Trim extra spaces around lines</label>
+                    <label><input type="checkbox" id="skipEmpty"> Skip empty lines</label>
                 </div>
 
                 <div style="display:flex; gap:10px; margin-bottom:30px;">
@@ -311,50 +256,47 @@
                 </div>
 
                 <div class="output-area" id="outputArea">
-                    <div class="char-count-box" id="charCountInfo"></div>
+                    <div class="char-count-box" id="resultInfo"></div>
                     <textarea id="outputText" readonly></textarea>
-                    <div style="display:flex; gap:10px; margin-top:15px;">
-                        <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Text</button>
+                    <div style="display:flex;gap:10px;margin-top:15px;">
+                        <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Result</button>
                         <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
                     </div>
                 </div>
 
-                <div style="margin-top:60px; border-top:1px solid var(--line); padding-top:30px;">
+                <!-- Rich content -->
+                <div style="margin-top:60px;border-top:1px solid var(--line);padding-top:30px;">
                     <h2>How to Use the Duplicate Line Remover</h2>
-                    <p>Follow these simple steps to clean up your text:</p>
-                    <ol style="margin-bottom:25px;">
-                        <li><strong>Enter your text</strong> – Paste or type the content with duplicate lines into the main text area.</li>
-                        <li><strong>Choose options</strong> – Select case‑sensitivity, trim whitespace, skip empty lines, or preserve original order.</li>
-                        <li><strong>Click "Remove Duplicates"</strong> – The tool will instantly remove duplicate lines and show the result.</li>
-                        <li><strong>Copy or download</strong> – Use the "Copy Text" button or "Download .txt" to save the cleaned result.</li>
-                    </ol>
+                    <p>Simply paste your text into the box above, adjust the options if needed, and click "Remove Duplicates". The unique lines will appear instantly, along with a count of how many duplicates were removed.</p>
 
-                    <h2>What This Tool Does</h2>
-                    <p>The Duplicate Line Remover processes your text line by line and eliminates any repeated lines. You can customize the behavior:</p>
-                    <ul>
-                        <li><strong>Case‑sensitive:</strong> When enabled, "Hello" and "hello" are treated as different lines. When disabled, they are considered duplicates.</li>
-                        <li><strong>Trim whitespace:</strong> Removes leading and trailing spaces from each line before comparison (but keeps the trimmed version in the output).</li>
-                        <li><strong>Skip empty lines:</strong> Completely removes empty lines from the result.</li>
-                        <li><strong>Preserve original order:</strong> Keeps the first occurrence of each line and discards later duplicates. This is the default and most useful for cleaning lists.</li>
-                    </ul>
+                    <h2>Why Remove Duplicate Lines?</h2>
+                    <p>Duplicate entries can clutter lists, skew data analysis, or cause errors in processing. Whether you're cleaning up a mailing list, removing repeated items from a CSV export, or tidying a set of keywords, this tool does the job in seconds.</p>
 
                     <h2>Common Use Cases</h2>
                     <ul>
-                        <li><strong>Cleaning CSV/Excel data:</strong> Remove duplicate rows from spreadsheets or lists.</li>
-                        <li><strong>Managing email lists:</strong> Deduplicate email addresses for newsletters.</li>
-                        <li><strong>Code refactoring:</strong> Remove repeated import statements or configuration lines.</li>
-                        <li><strong>Content editing:</strong> Eliminate repeated paragraphs or bullet points.</li>
-                        <li><strong>Word lists:</strong> Create a unique word list from a large text corpus.</li>
+                        <li><strong>Email lists:</strong> Remove duplicate addresses before sending a campaign.</li>
+                        <li><strong>Keyword research:</strong> Deduplicate search terms from multiple sources.</li>
+                        <li><strong>Code cleanup:</strong> Eliminate duplicate imports or configuration lines.</li>
+                        <li><strong>Inventory management:</strong> Get a unique list of product IDs or SKUs.</li>
+                        <li><strong>Survey data:</strong> Filter out repeated responses before analysis.</li>
                     </ul>
 
-                    <h2>Privacy & Security</h2>
-                    <p>All processing happens locally in your browser. Your text is never uploaded to any server, stored, or shared. You can use the Duplicate Line Remover with complete peace of mind – even for sensitive data.</p>
+                    <h2>Understanding the Options</h2>
+                    <ul>
+                        <li><strong>Case‑insensitive:</strong> Treats "Apple" and "apple" as the same line and keeps the first occurrence.</li>
+                        <li><strong>Trim extra spaces:</strong> Removes leading and trailing spaces before comparing, so " hello " and "hello" are considered duplicates.</li>
+                        <li><strong>Skip empty lines:</strong> Ignores blank rows, keeping only lines that contain text.</li>
+                    </ul>
+
+                    <h2>From the Textify Team</h2>
+                    <p>We built this duplicate line remover because we kept finding ourselves manually scrolling through long lists, hunting for repeats. It's a simple, focused tool that does one job well — and like everything on Textify, it runs entirely in your browser. No data ever leaves your device. We hope it saves you from tedious cleanup work.</p>
 
                     <h2>Frequently Asked Questions</h2>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it keep the first or last duplicate?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">By default, the tool keeps the first occurrence of each line and removes subsequent duplicates, preserving the original order.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How does case‑sensitivity work?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">When case‑sensitive is ON, "Apple" and "apple" are considered different lines. When OFF, they are treated as duplicates and only the first occurrence is kept (based on whatever case appears first).</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work on mobile?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely! The page is fully responsive and works on all devices including iPhone and Android.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, 100% private. All processing happens inside your browser. No data leaves your device.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is the Duplicate Line Remover free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free. No signup, no limits. Use it as often as you need.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it preserve the order of lines?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. The first occurrence of each line is kept, and the order of first appearance is maintained.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. All processing happens in your browser. Your text is never uploaded or stored.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I remove duplicates case‑insensitively but keep the original case?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. When you enable case‑insensitive mode, the first version of the line that appears (with its original case) is retained.</div></div>
+                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What happens to blank lines when "Skip empty lines" is off?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Empty lines are treated as regular lines. If there are multiple empty lines, only the first one will be kept, and the rest will be removed as duplicates.</div></div>
                 </div>
             </div>
         </main>
@@ -364,33 +306,26 @@
                 <div class="footer-grid">
                     <div>
                         <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
-                            Textify.Tools
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            Textify.tools
                         </a>
-                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
+                        <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">Free, private text tools that live in your browser. No signup, no tracking, no nonsense. Bookmark us — you'll be back.</p>
                     </div>
                     <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+                    <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/slug-generator">Slug Generator</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
                     <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-                    <div>
-                        <h5>FOLLOW US</h5>
-                        <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
-                        <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
-                        <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
-                    </div>
+                    <div><h5>FOLLOW US</h5><a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a></div>
                 </div>
                 <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
             </div>
         </footer>
     </div>
 
+    <!-- Mobile sidebar, search overlay identical to other tool pages -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
-            <a href="/" class="mobile-sidebar-logo">
-                <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
-                Textify.Tools
-            </a>
+            <a href="/" class="mobile-sidebar-logo"><img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
         <div class="mobile-sidebar-nav">
@@ -419,130 +354,68 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // Complete tools list – Google SERP Simulator replaced with Google SERP Checker
+        // 35 high‑demand tools – exact match to index.html
         const tools = [
-            { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
-            { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
-            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
             { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
-            { name: 'Text Reverser', link: '/text-reverser', keywords: 'reverse backwards mirror flip upside down', category: 'manipulation' },
-            { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
-            { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+            { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
+            { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
+            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
             { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'manipulation' },
             { name: 'Text Finder & Replacer', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'manipulation' },
-            { name: 'Character Remover', link: '/character-remover', keywords: 'remove delete characters punctuation spaces', category: 'manipulation' },
+            { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
+            { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
+            { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
             { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
             { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text generator', category: 'generators' },
-            { name: 'Text Scrambler', link: '/text-scrambler', keywords: 'scramble shuffle random letters jumble', category: 'manipulation' },
-            { name: 'Text Truncator', link: '/text-truncator', keywords: 'truncate cut shorten length limit', category: 'manipulation' },
-            { name: 'Text Splitter', link: '/text-splitter', keywords: 'split divide separate delimiter tokenize', category: 'manipulation' },
-            { name: 'Text Joiner', link: '/text-joiner', keywords: 'join merge combine concatenate lines', category: 'manipulation' },
-            { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
-            { name: 'Prefix/Suffix Adder', link: '/prefix-suffix-adder', keywords: 'prefix suffix prepend append each line', category: 'manipulation' },
-            { name: 'Line Number Adder', link: '/line-number-adder', keywords: 'line numbers add number rows', category: 'manipulation' },
-            { name: 'Character Frequency Counter', link: '/character-frequency-counter', keywords: 'character frequency count occurrence distribution', category: 'analysis' },
-            { name: 'Word Frequency Counter', link: '/word-frequency-counter', keywords: 'word frequency count occurrence common repeated', category: 'analysis' },
-            { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
-            { name: 'Text Statistics', link: '/text-statistics', keywords: 'statistics detailed stats text metrics', category: 'analysis' },
-            { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count period question exclamation', category: 'analysis' },
-            { name: 'Line Counter', link: '/line-counter', keywords: 'line count rows number lines', category: 'analysis' },
-            { name: 'Letter Case Counter', link: '/letter-case-counter', keywords: 'uppercase lowercase count case letters', category: 'analysis' },
-            { name: 'Vowel & Consonant Counter', link: '/vowel-consonant-counter', keywords: 'vowel consonant count letters alphabet', category: 'analysis' },
-            { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count blocks sections', category: 'analysis' },
-            { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
-            { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
-            { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
-            { name: 'Binary Text Converter', link: '/binary-text-converter', keywords: 'binary bits 0 1 convert text', category: 'encoding' },
-            { name: 'Hex Text Converter', link: '/hex-text-converter', keywords: 'hex hexadecimal base16 convert', category: 'encoding' },
-            { name: 'Caesar Cipher', link: '/caesar-cipher', keywords: 'caesar cipher shift encrypt decrypt rotate', category: 'encoding' },
-            { name: 'ROT13 Cipher', link: '/rot13-cipher', keywords: 'rot13 rotate 13 cipher encode decode', category: 'encoding' },
-            { name: 'Atbash Cipher', link: '/atbash-cipher', keywords: 'atbash reverse alphabet cipher mirror', category: 'encoding' },
-            { name: 'A1Z26 Cipher', link: '/a1z26-cipher', keywords: 'a1z26 letter number code cipher', category: 'encoding' },
-            { name: 'Unicode Converter', link: '/unicode-converter', keywords: 'unicode code point convert escape', category: 'encoding' },
-            { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
-            { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
-            { name: 'Cursive Text Generator', link: '/cursive-text-generator', keywords: 'cursive script handwriting unicode font', category: 'styling' },
-            { name: 'Bubble Text Generator', link: '/bubble-text-generator', keywords: 'bubble circle enclosed unicode text', category: 'styling' },
-            { name: 'Small Caps Generator', link: '/small-caps-generator', keywords: 'small caps petite capital unicode', category: 'styling' },
-            { name: 'Zalgo Text Generator', link: '/zalgo-text-generator', keywords: 'zalgo glitch creepy demon unicode', category: 'styling' },
-            { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
-            { name: 'Mirror Text Generator', link: '/mirror-text-generator', keywords: 'mirror flip horizontal reverse', category: 'styling' },
-            { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+            { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
             { name: 'UUID/GUID Generator', link: '/uuid-generator', keywords: 'uuid guid unique identifier random', category: 'generators' },
             { name: 'Random Word Generator', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generators' },
-            { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
-            { name: 'Color Code Generator', link: '/color-code-generator', keywords: 'color hex rgb hsl random generator', category: 'generators' },
-            { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
-            { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
+            { name: 'QR Code Generator', link: '/qr-code-generator', keywords: 'qr code generate text url image', category: 'generators' },
+            { name: 'JSON Formatter', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
             { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encoding' },
-            { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
-            { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
-            { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
-            { name: 'Google SERP Checker', link: '/google-serp-checker', keywords: 'serp checker google search preview snippet', category: 'seo' },
-            { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
+            { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+            { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
+            { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
+            { name: 'URL Encoder/Decoder', link: '/url-encoder-decoder', keywords: 'url encode decode percent encoding', category: 'encoding' },
+            { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
+            { name: 'Markdown to HTML', link: '/markdown-to-html', keywords: 'markdown html convert preview', category: 'encoding' },
+            { name: 'Regex Tester', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'analysis' },
+            { name: 'Email Extractor', link: '/email-extractor', keywords: 'email extract find emails scrape', category: 'analysis' },
+            { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
+            { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
             { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
-            { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' },
-            { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
-            { name: 'Remove Duplicate Lines', link: '/remove-duplicate-lines', keywords: 'remove duplicate lines unique dedupe', category: 'manipulation' },
-            { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
-            { name: 'Multiple Whitespace to Single', link: '/multiple-whitespace-to-single', keywords: 'whitespace single space replace multiple', category: 'manipulation' },
-            { name: 'Alphabetical Sorter', link: '/alphabetical-sorter', keywords: 'sort alphabetical order list a-z', category: 'manipulation' },
-            { name: 'Word to Line Converter', link: '/word-to-line-converter', keywords: 'word line newline split separate', category: 'manipulation' },
-            { name: 'Strikethrough Text Generator', link: '/strikethrough-text-generator', keywords: 'strikethrough cross out line through', category: 'styling' },
-            { name: 'Zalgo/Glitch Text Generator', link: '/zalgo-glitch-text-generator', keywords: 'zalgo glitch creepy demon corrupted', category: 'styling' },
-            { name: 'Binary to Text', link: '/binary-to-text', keywords: 'binary text decode convert bits', category: 'encoding' },
-            { name: 'Keyword Density Analyzer', link: '/keyword-density-analyzer', keywords: 'keyword density analyzer seo content', category: 'analysis' }
+            { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
+            { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
+            { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+            { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
+            { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
+            { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' }
         ];
 
-        function buildMegaMenu() {
-            const menu = document.getElementById('megaMenu');
-            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-        }
-
-        function buildMobileToolsMenu() {
-            const menu = document.getElementById('mobileToolsMenu');
-            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-        }
-
+        function buildMegaMenu() { document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+        function buildMobileToolsMenu() { document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
         function buildSearchList() {
-            const list = document.getElementById('fullSearchResultsList');
-            if (list) {
-                list.innerHTML = tools.map(tool => `
-                    <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
-                        ${tool.name} <span class="result-tag">${tool.category}</span>
-                    </a>
-                `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
-            }
+            document.getElementById('fullSearchResultsList').innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category}</span></a>`).join('')
+                + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
         }
 
         let toastTimer;
-        function showToast(msg, dur=3000) {
-            const t = document.getElementById('toast');
-            t.textContent = msg; t.classList.add('show');
-            clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
-        }
+        function showToast(msg, dur=3000) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur); }
 
         function toggleTheme() {
             const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
                   ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (b.classList.contains('dark-mode')) {
-                b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
-                if(ms) { ms.style.display='block'; mm.style.display='none'; }
-                localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
-            } else {
-                b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
-                if(ms) { ms.style.display='none'; mm.style.display='block'; }
-                localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
-            }
+            if(b.classList.contains('dark-mode')) { b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none'; if(ms){ms.style.display='block'; mm.style.display='none';} localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff'); }
+            else { b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block'; if(ms){ms.style.display='none'; mm.style.display='block';} localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a'); }
             lucide.createIcons();
         }
         document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
-        if (localStorage.getItem('theme') === 'dark') {
+        if(localStorage.getItem('theme')==='dark') {
             document.body.classList.add('dark-mode');
             document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
             const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
+            if(ms && mm){ms.style.display='none'; mm.style.display='block';}
         }
 
         function openMobileSidebar() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
@@ -557,52 +430,44 @@
             const items = document.querySelectorAll('#fullSearchResultsList .search-result-item');
             const nr = document.getElementById('fullNoResult'), qs = document.getElementById('fullSearchQuery');
             let c = 0;
-            items.forEach(i => {
-                const kw = i.getAttribute('data-keywords') || '', t = i.textContent.toLowerCase();
-                if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
-                else { i.classList.add('hidden-item'); }
-            });
-            if (c === 0 && q !== '') { if(nr) nr.classList.add('show'); if(qs) qs.textContent = q; }
-            else { if(nr) nr.classList.remove('show'); }
+            items.forEach(i => { const kw = i.getAttribute('data-keywords')||'', t = i.textContent.toLowerCase(); if(q===''||kw.includes(q)||t.includes(q)){i.classList.remove('hidden-item');c++;} else {i.classList.add('hidden-item');} });
+            if(c===0 && q!==''){nr.classList.add('show');qs.textContent=q;} else {nr.classList.remove('show');}
         }
         document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); }
-            if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
-        });
+        document.addEventListener('keydown', e => { if(e.key==='Escape'){closeFullSearch();closeMobileSidebar();} if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openFullSearch();} });
 
-        function toggleFaq(el) {
-            const item = el.parentElement;
-            item.classList.toggle('active');
-            const icon = el.querySelector('svg');
-            if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
-        }
+        function toggleFaq(el) { const item=el.parentElement; item.classList.toggle('active'); const icon=el.querySelector('svg'); if(icon)icon.style.transform=item.classList.contains('active')?'rotate(180deg)':'rotate(0deg)'; }
 
         function removeDuplicates() {
             const input = document.getElementById('inputText').value;
-            if (!input.trim()) { showToast('Please enter some text to process.', 2500); return; }
-            const caseSensitive = document.getElementById('caseSensitive').checked;
+            if (!input.trim()) { showToast('Please enter some text first.', 2500); return; }
+
+            const caseInsensitive = document.getElementById('caseInsensitive').checked;
             const trimLines = document.getElementById('trimLines').checked;
             const skipEmpty = document.getElementById('skipEmpty').checked;
-            const preserveOrder = document.getElementById('preserveOrder').checked;
+
             let lines = input.split('\n');
-            if (trimLines) lines = lines.map(line => line.trim());
-            if (skipEmpty) lines = lines.filter(line => line !== '');
+            const totalLines = lines.length;
+
+            if (trimLines) lines = lines.map(l => l.trim());
+            if (skipEmpty) lines = lines.filter(l => l.trim() !== '');
+
             const seen = new Set();
-            const result = [];
-            for (let line of lines) {
-                let compareLine = caseSensitive ? line : line.toLowerCase();
-                if (!seen.has(compareLine)) { seen.add(compareLine); result.push(line); }
-            }
-            const output = result.join('\n');
-            const inputLinesCount = lines.length;
-            const outputLinesCount = result.length;
-            const removedCount = inputLinesCount - outputLinesCount;
-            document.getElementById('outputText').value = output;
-            document.getElementById('charCountInfo').innerHTML = `<strong>✅ Removed ${removedCount} duplicate line(s)!</strong> &nbsp; Original lines: <strong>${inputLinesCount.toLocaleString()}</strong> &nbsp; | &nbsp; Unique lines: <strong>${outputLinesCount.toLocaleString()}</strong> &nbsp; | &nbsp; Characters: <strong>${output.length.toLocaleString()}</strong>`;
+            const uniqueLines = [];
+            lines.forEach(line => {
+                const key = caseInsensitive ? line.toLowerCase() : line;
+                if (!seen.has(key)) {
+                    seen.add(key);
+                    uniqueLines.push(line);
+                }
+            });
+
+            const result = uniqueLines.join('\n');
+            document.getElementById('outputText').value = result;
+            document.getElementById('resultInfo').innerHTML = `<strong>Done!</strong> &nbsp; Original lines: <strong>${totalLines.toLocaleString()}</strong> &nbsp; | &nbsp; Unique lines: <strong>${uniqueLines.length.toLocaleString()}</strong> &nbsp; | &nbsp; Removed: <strong>${(totalLines - (skipEmpty ? lines.length : totalLines) + (lines.length - uniqueLines.length)).toLocaleString()}</strong>`;
             document.getElementById('outputArea').style.display = 'block';
             document.getElementById('outputArea').scrollIntoView({ behavior: 'smooth' });
-            showToast(`✅ Removed ${removedCount} duplicate lines!`);
+            showToast('Duplicates removed successfully!');
         }
 
         async function copyToClipboard() {
@@ -611,38 +476,39 @@
             const origHTML = btn.innerHTML;
             try {
                 if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(textarea.value);
-                else { textarea.focus(); textarea.select(); textarea.setSelectionRange(0, 999999); document.execCommand('copy'); }
-                btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!';
-                btn.style.background = '#16a34a';
-                lucide.createIcons();
-                showToast('📋 Text copied to clipboard!');
-            } catch (err) { textarea.focus(); textarea.select(); alert("Please press Ctrl+C to copy."); }
+                else { textarea.focus(); textarea.select(); document.execCommand('copy'); }
+                btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Copied!'; btn.style.background = '#16a34a';
+                lucide.createIcons(); showToast('Copied to clipboard!');
+            } catch (err) { textarea.focus(); textarea.select(); alert("Please press Ctrl+C (Cmd+C on Mac) to copy."); }
             finally { setTimeout(() => { btn.innerHTML = origHTML; btn.style.background = ''; lucide.createIcons(); }, 2000); }
         }
 
         function downloadText() {
             const text = document.getElementById('outputText').value;
-            const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a'); a.href = url; a.download = 'unique-lines.txt';
-            document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
-            showToast('💾 Downloaded as .txt');
+            if (!text) { showToast('Nothing to download'); return; }
+            const btn = document.getElementById('downloadBtn');
+            const origHTML = btn.innerHTML;
+            try {
+                const blob = new Blob([text], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a'); a.href = url; a.download = 'unique-lines.txt';
+                document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+                btn.innerHTML = '<i data-lucide="check" width="18" height="18"></i> Downloaded!'; lucide.createIcons();
+                showToast('Downloaded as .txt');
+            } catch (err) { alert("Download blocked. Please copy manually."); btn.innerHTML = origHTML; lucide.createIcons(); }
+            finally { setTimeout(() => { btn.innerHTML = origHTML; lucide.createIcons(); }, 2000); }
         }
 
         function resetTool() {
             document.getElementById('inputText').value = '';
             document.getElementById('outputText').value = '';
             document.getElementById('outputArea').style.display = 'none';
-            document.getElementById('caseSensitive').checked = false;
+            document.getElementById('caseInsensitive').checked = false;
             document.getElementById('trimLines').checked = false;
             document.getElementById('skipEmpty').checked = false;
-            document.getElementById('preserveOrder').checked = true;
         }
 
-        buildMegaMenu();
-        buildMobileToolsMenu();
-        buildSearchList();
-        lucide.createIcons();
+        buildMegaMenu(); buildMobileToolsMenu(); buildSearchList(); lucide.createIcons();
     </script>
 </body>
 </html>
