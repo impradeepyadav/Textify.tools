@@ -6,7 +6,6 @@
   <meta name="theme-color" content="#ffffff">
   <title>Text to Handwriting – Convert Text to Handwritten Notes | Textify.tools</title>
   <meta name="description" content="Convert any text into beautiful handwritten notes instantly. Choose from multiple handwriting styles, ink colors, paper backgrounds, and download as image or PDF. Free, private, no login required.">
-  <meta name="keywords" content="text to handwriting converter, handwritten text generator, convert text to handwriting, online handwriting maker, text to cursive, handwritten notes generator, text to pen, assignment handwriting, realistic handwriting online, text to handwriting tool, free handwriting generator, text to handwritten image, text to PDF handwriting, handwriting font converter">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://textify.tools/text-to-handwriting">
   <meta property="og:type" content="website">
@@ -29,6 +28,15 @@
     gtag('js', new Date());
     gtag('config', 'G-6VGXXT81MB');
   </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
+  <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+  <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+  <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+  <script>
+    window.ezstandalone = window.ezstandalone || {};
+    ezstandalone.cmd = ezstandalone.cmd || [];
+  </script>
+  <script src="//ezoicanalytics.com/analytics.js"></script>
 </head>
 <body>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -51,8 +59,6 @@
       --footer-border: #e5e5e5;
       --faq-bg: #fafafa;
       --faq-active: #f3f4f6;
-      --table-header: #f3f4f6;
-      --table-hover: #fafafa;
       --shadow: rgba(0,0,0,0.1);
       --overlay-bg: rgba(0,0,0,0.5);
       --success-bg: #f0fdf4;
@@ -80,8 +86,6 @@
       --footer-border: #334155;
       --faq-bg: #1e293b;
       --faq-active: #334155;
-      --table-header: #1e293b;
-      --table-hover: #1e293b;
       --shadow: rgba(0,0,0,0.5);
       --overlay-bg: rgba(0,0,0,0.75);
       --success-bg: #052e16;
@@ -102,27 +106,11 @@
       overflow-x: hidden;
     }
 
-    .page-wrapper {
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
-      background: transparent;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    /* HEADER */
+    .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
     header {
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0 40px;
-      height: 64px;
-      transition: border-color 0.3s;
-      background: transparent;
-      width: 100%;
+      border-bottom: 1px solid var(--line); display: flex; justify-content: center;
+      align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
+      background: transparent; width: 100%;
     }
     .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
@@ -151,7 +139,7 @@
     .hamburger-btn .menu-icon span:first-child { width: 16px; }
     .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
     .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
-    .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
+    .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; }
     .mobile-sidebar.active { left: 0; }
     .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
     .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
@@ -185,42 +173,11 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
-    /* MAIN – full width with content container */
-    main {
-      flex: 1;
-      padding: 40px 0;
-      width: 100%;
-      max-width: 100%;
-      background: transparent;
-    }
-    .content-container {
-      width: 100%;
-      padding: 0 40px;
-    }
-    @media (max-width: 768px) {
-      .content-container {
-        padding: 0 16px;
-      }
-      main {
-        padding: 20px 0;
-      }
-    }
-    h1 {
-      font-size: 38px;
-      font-weight: 800;
-      margin-bottom: 12px;
-      line-height: 1.3;
-      text-align: left;
-      word-wrap: break-word;
-    }
-    .subtitle {
-      font-size: 18px;
-      color: var(--text-light);
-      line-height: 1.7;
-      margin-bottom: 40px;
-      text-align: left;
-      word-wrap: break-word;
-    }
+    main { flex: 1; padding: 40px 0; width: 100%; max-width: 100%; background: transparent; }
+    .content-container { width: 100%; padding: 0 40px; }
+    @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
+    h1 { font-size: 38px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; text-align: left; }
+    .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.7; margin-bottom: 40px; text-align: left; }
     h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
     h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
     p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
@@ -263,7 +220,6 @@
     .tip-box { background: var(--accent); padding: 18px 20px; border-left: 4px solid #16a34a; border-radius: 8px; margin-bottom: 22px; }
     .step-card { background: var(--accent); padding: 18px; border-radius: 12px; border: 1px solid var(--line); }
 
-    /* FOOTER */
     footer {
       border-top: 1px solid var(--footer-border);
       padding: 40px 40px 25px;
@@ -271,29 +227,13 @@
       width: 100%;
     }
     .footer-container { width: 100%; max-width: 100%; }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 35px;
-      width: 100%;
-    }
+    .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 35px; width: 100%; }
     @media (max-width: 1200px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
     @media(max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
     .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-    .footer-grid a {
-      color: var(--footer-link-color);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 9px;
-      font-size: 13px;
-      font-weight: 500;
-      transition: color 0.2s, padding-left 0.2s;
-    }
-    .footer-grid a:hover {
-      color: var(--footer-link-hover);
-      padding-left: 6px;
-    }
+    .footer-grid a { color: var(--footer-link-color); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; transition: color 0.2s, padding-left 0.2s; }
+    .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
     .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
     @media (max-width: 768px) {
@@ -414,6 +354,7 @@
           </div>
         </div>
 
+        <!-- Expanded valuable content -->
         <div class="section">
           <h2>How to Use the Handwriting Converter</h2>
           <div class="tip-box">
@@ -428,24 +369,29 @@
 
           <h2>Why Use Our Handwriting Converter?</h2>
           <ul>
-            <li><strong>Free online handwriting maker</strong> – no signup, no limits.</li>
-            <li><strong>Multiple handwriting fonts</strong> (Indie Flower, Caveat, Kalam, and more) for a realistic handwritten look.</li>
-            <li><strong>Realistic pen colours</strong> and paper backgrounds (lined, grid, vintage) – perfect for assignments, notes, or creative projects.</li>
-            <li><strong>Natural jitter effect</strong> – tiny random variations make each character unique, mimicking real handwriting.</li>
-            <li><strong>Download as PNG or PDF</strong> – share your handwritten notes anywhere.</li>
-            <li><strong>100% private</strong> – your text stays in your browser; nothing is uploaded.</li>
+            <li><strong>Realistic handwriting styles</strong> – Six unique fonts that mimic actual pen strokes, from casual cursive to bold marker style.</li>
+            <li><strong>Customisable ink and paper</strong> – Match your favourite pen colour and choose from plain, lined, grid, or vintage paper backgrounds.</li>
+            <li><strong>Natural jitter effect</strong> – Tiny random variations in rotation and spacing make each letter look genuinely handwritten, not like a computer font.</li>
+            <li><strong>Multiple export options</strong> – Download your work as a high‑resolution PNG image or a PDF document. Both preserve the background and ink colour exactly as you see them on screen.</li>
+            <li><strong>100% private and client‑side</strong> – Your text never leaves your device. No signup, no uploads, no data collection. Even the image generation happens inside your browser using html2canvas.</li>
+            <li><strong>Works offline</strong> – Once the page loads, the handwriting converter functions without an internet connection. Perfect for late‑night assignment work or travel.</li>
           </ul>
 
-          <h2>Related Tools</h2>
-          <p>Try these other free tools from Textify.tools:</p>
-          <div class="related-tools" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-top: 15px;">
-            <a class="related-tool-card" href="/cursive-text-generator" style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); font-weight:500;">Cursive Text Generator</a>
-            <a class="related-tool-card" href="/fancy-text-generator" style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); font-weight:500;">Fancy Text Generator</a>
-            <a class="related-tool-card" href="/bold-text-generator" style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); font-weight:500;">Bold Text Generator</a>
-            <a class="related-tool-card" href="/italic-text-generator" style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); font-weight:500;">Italic Text Generator</a>
-            <a class="related-tool-card" href="/strikethrough-generator" style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); font-weight:500;">Strikethrough Generator</a>
-            <a class="related-tool-card" href="/small-caps-generator" style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; text-decoration:none; color:var(--text); font-weight:500;">Small Caps Generator</a>
-          </div>
+          <h2>Who Uses This Tool?</h2>
+          <p>Our text‑to‑handwriting converter has become popular with students, teachers, content creators, and anyone who wants to add a personal, handcrafted feel to their digital text. Here are some common scenarios:</p>
+          <ul>
+            <li><strong>Students:</strong> Create handwritten‑looking assignments and notes quickly. While we encourage genuine handwriting practice, this tool can help when you need a clean digital copy.</li>
+            <li><strong>Teachers and educators:</strong> Generate handwritten worksheets, feedback notes, or classroom materials with a personal touch.</li>
+            <li><strong>Content creators:</strong> Design eye‑catching social media posts, quote cards, or thumbnails with a handwritten aesthetic.</li>
+            <li><strong>Designers:</strong> Mock up hand‑lettered elements for invitations, greeting cards, or branding concepts without scanning physical paper.</li>
+            <li><strong>Journaling and scrapbooking:</strong> Print handwritten pages to include in physical journals or memory books.</li>
+          </ul>
+
+          <h2>How the Natural Jitter Effect Works</h2>
+          <p>When you enable the "Natural Jitter" option, the tool adds microscopic random rotations and vertical shifts to every single character. In real handwriting, no two letters are perfectly identical — your hand naturally varies pressure, angle, and spacing. The jitter effect replicates this by applying subtle CSS transforms to each <code>&lt;span&gt;</code> element inside the preview. The result is text that looks remarkably organic, even upon close inspection. The PNG and PDF downloads capture these effects exactly as rendered.</p>
+
+          <h2>From the Textify Team</h2>
+          <p>We built this handwriting converter because we wanted a simple, private way to add a handwritten feel to digital text — without installing any software or worrying about data privacy. Whether you're preparing an assignment, designing a card, or just having fun, we hope this tool brings a little warmth to your words. As always, everything stays in your browser.</p>
         </div>
 
         <div class="section">
@@ -459,6 +405,7 @@
       </div>
     </main>
 
+    <!-- Updated footer matching index.html -->
     <footer>
       <div class="footer-container">
         <div class="footer-grid">
@@ -467,17 +414,12 @@
               <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
               Textify.tools
             </a>
-            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">What if free online text tools were actually… pleasant? That's textify.tools — browser-based, privacy-focused, and no signup required. Give it a bookmark. You'll be back.</p>
+            <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">Free, private text tools that live in your browser. No signup, no tracking, no nonsense. Bookmark us — you'll be back.</p>
           </div>
           <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
-          <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/text-reverser">Text Reverser</a><a href="/slug-generator">Slug Generator</a><a href="/text-sorter">Text Sorter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
+          <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/slug-generator">Slug Generator</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
           <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-          <div>
-            <h5>FOLLOW US</h5>
-            <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
-          </div>
+          <div><h5>FOLLOW US</h5><a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a></div>
         </div>
         <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
       </div>
@@ -487,10 +429,7 @@
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
-      <a href="/" class="mobile-sidebar-logo">
-        <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img">
-        Textify.tools
-      </a>
+      <a href="/" class="mobile-sidebar-logo"><img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy">Textify.tools</a>
       <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
     </div>
     <div class="mobile-sidebar-nav">
@@ -519,68 +458,42 @@
   <div class="toast" id="toast"></div>
 
   <script>
+    // 35 high‑demand tools
     const tools = [
-      { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
-      { name: 'Smart Paraphraser', link: '/smart-paraphraser', keywords: 'paraphrase rewrite rephrase article spinner', category: 'manipulation' },
       { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
-      { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
       { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
-      { name: 'Text Reverser', link: '/text-reverser', keywords: 'reverse backwards mirror flip upside down', category: 'manipulation' },
-      { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
-      { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+      { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
+      { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
+      { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
       { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'manipulation' },
       { name: 'Text Finder & Replacer', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'manipulation' },
-      { name: 'Character Remover', link: '/character-remover', keywords: 'remove delete characters punctuation spaces', category: 'manipulation' },
+      { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
+      { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
+      { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
       { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
       { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text generator', category: 'generators' },
-      { name: 'Text Scrambler', link: '/text-scrambler', keywords: 'scramble shuffle random letters jumble', category: 'manipulation' },
-      { name: 'Text Truncator', link: '/text-truncator', keywords: 'truncate cut shorten length limit', category: 'manipulation' },
-      { name: 'Text Splitter', link: '/text-splitter', keywords: 'split divide separate delimiter tokenize', category: 'manipulation' },
-      { name: 'Text Joiner', link: '/text-joiner', keywords: 'join merge combine concatenate lines', category: 'manipulation' },
-      { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
-      { name: 'Prefix/Suffix Adder', link: '/prefix-suffix-adder', keywords: 'prefix suffix prepend append each line', category: 'manipulation' },
-      { name: 'Line Number Adder', link: '/line-number-adder', keywords: 'line numbers add number rows', category: 'manipulation' },
-      { name: 'Character Frequency Counter', link: '/character-frequency-counter', keywords: 'character frequency count occurrence distribution', category: 'analysis' },
-      { name: 'Word Frequency Counter', link: '/word-frequency-counter', keywords: 'word frequency count occurrence common repeated', category: 'analysis' },
-      { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
-      { name: 'Text Statistics', link: '/text-statistics', keywords: 'statistics detailed stats text metrics', category: 'analysis' },
-      { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count period question exclamation', category: 'analysis' },
-      { name: 'Line Counter', link: '/line-counter', keywords: 'line count rows number lines', category: 'analysis' },
-      { name: 'Letter Case Counter', link: '/letter-case-counter', keywords: 'uppercase lowercase count case letters', category: 'analysis' },
-      { name: 'Vowel & Consonant Counter', link: '/vowel-consonant-counter', keywords: 'vowel consonant count letters alphabet', category: 'analysis' },
-      { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count blocks sections', category: 'analysis' },
-      { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
-      { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
-      { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
-      { name: 'Binary Text Converter', link: '/binary-text-converter', keywords: 'binary bits 0 1 convert text', category: 'encoding' },
-      { name: 'Hex Text Converter', link: '/hex-text-converter', keywords: 'hex hexadecimal base16 convert', category: 'encoding' },
-      { name: 'Caesar Cipher', link: '/caesar-cipher', keywords: 'caesar cipher shift encrypt decrypt rotate', category: 'encoding' },
-      { name: 'ROT13 Cipher', link: '/rot13-cipher', keywords: 'rot13 rotate 13 cipher encode decode', category: 'encoding' },
-      { name: 'Atbash Cipher', link: '/atbash-cipher', keywords: 'atbash reverse alphabet cipher mirror', category: 'encoding' },
-      { name: 'A1Z26 Cipher', link: '/a1z26-cipher', keywords: 'a1z26 letter number code cipher', category: 'encoding' },
-      { name: 'Unicode Converter', link: '/unicode-converter', keywords: 'unicode code point convert escape', category: 'encoding' },
-      { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
-      { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
-      { name: 'Cursive Text Generator', link: '/cursive-text-generator', keywords: 'cursive script handwriting unicode font', category: 'styling' },
-      { name: 'Bubble Text Generator', link: '/bubble-text-generator', keywords: 'bubble circle enclosed unicode text', category: 'styling' },
-      { name: 'Small Caps Generator', link: '/small-caps-generator', keywords: 'small caps petite capital unicode', category: 'styling' },
-      { name: 'Zalgo Text Generator', link: '/zalgo-text-generator', keywords: 'zalgo glitch creepy demon unicode', category: 'styling' },
-      { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
-      { name: 'Mirror Text Generator', link: '/mirror-text-generator', keywords: 'mirror flip horizontal reverse', category: 'styling' },
-      { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+      { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
       { name: 'UUID/GUID Generator', link: '/uuid-generator', keywords: 'uuid guid unique identifier random', category: 'generators' },
       { name: 'Random Word Generator', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generators' },
-      { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
-      { name: 'Color Code Generator', link: '/color-code-generator', keywords: 'color hex rgb hsl random generator', category: 'generators' },
-      { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
-      { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
+      { name: 'QR Code Generator', link: '/qr-code-generator', keywords: 'qr code generate text url image', category: 'generators' },
+      { name: 'JSON Formatter', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
       { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encoding' },
-      { name: 'HTML/CSS Minifier', link: '/html-css-minifier', keywords: 'minify html css compress reduce', category: 'encoding' },
-      { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify indent', category: 'encoding' },
-      { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image decode picture preview', category: 'encoding' },
-      { name: 'Google SERP Checker', link: '/google-serp-checker', keywords: 'serp checker google search preview snippet', category: 'seo' },
-      { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
+      { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+      { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
+      { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
+      { name: 'URL Encoder/Decoder', link: '/url-encoder-decoder', keywords: 'url encode decode percent encoding', category: 'encoding' },
+      { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
+      { name: 'Markdown to HTML', link: '/markdown-to-html', keywords: 'markdown html convert preview', category: 'encoding' },
+      { name: 'Regex Tester', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'analysis' },
+      { name: 'Email Extractor', link: '/email-extractor', keywords: 'email extract find emails scrape', category: 'analysis' },
+      { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
+      { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
       { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
+      { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
+      { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
+      { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+      { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
+      { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
       { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' }
     ];
 
