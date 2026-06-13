@@ -227,12 +227,12 @@
     <main>
       <div class="content-container">
         <h1>Textify Blog</h1>
-        <p class="subtitle">Tips, tutorials, and updates about text tools, productivity, and online privacy.</p>
-        <p class="intro-text">We write about the tools we build and the problems they solve — from repeating text on WhatsApp and counting words for essays, to comparing code with a diff checker and generating strong passwords. Everything here is free, private, and runs right in your browser.</p>
+        <p class="subtitle">Tips, tutorials, and real talk about text tools, writing, and staying private online.</p>
+        <p class="intro-text">We write about the tools we actually use every day — from making WhatsApp messages more fun to formatting messy JSON. Everything you'll find here runs right in your browser, keeps your data with you, and doesn't ask for a signup. Grab a coffee and pick a post that catches your eye.</p>
         
         <div class="blog-grid" id="blogGrid"></div>
         <div class="load-more-container" id="loadMoreContainer">
-          <button class="btn-load" id="loadMoreBtn" onclick="loadMorePosts()">Load More Posts</button>
+          <button class="btn-load" id="loadMoreBtn" onclick="loadMorePosts()">Show me more</button>
         </div>
       </div>
     </main>
@@ -404,21 +404,39 @@
       if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
     });
 
-    // --- Blog posts (only about the 35 high‑demand tools) ---
+    // --- Blog posts with a human, conversational tone ---
     const allPosts = [
-      { slug: "how-to-repeat-text-on-whatsapp", title: "How to Repeat Text on WhatsApp Safely", date: "May 2, 2026", excerpt: "Learn the easiest way to send repeated messages on WhatsApp using online tools without getting banned.", icon: "message-circle" },
-      { slug: "text-repeater-for-instagram-bio", title: "Make Your Instagram Bio Stand Out with Text Repeater", date: "April 28, 2026", excerpt: "Decorations, fonts, and line breaks – use our text repeater to craft a unique Instagram bio.", icon: "sparkles" },
-      { slug: "top-5-text-tools-for-developers", title: "Top 5 Free Text Tools Every Developer Should Bookmark", date: "April 22, 2026", excerpt: "From diff checkers to case converters, these tools save hours of manual work.", icon: "code" },
-      { slug: "password-generator-privacy", title: "Why Client-Side Password Generators Are Safer", date: "April 15, 2026", excerpt: "Understanding the privacy benefits of generating passwords directly in your browser.", icon: "shield-check" },
-      { slug: "what-is-lorem-ipsum", title: "What Is Lorem Ipsum and When to Use It", date: "April 12, 2026", excerpt: "The classic placeholder text explained – from history to modern design usage.", icon: "file-text" },
-      { slug: "slug-generator-seo-tips", title: "SEO-Friendly URL Slugs: Best Practices", date: "April 10, 2026", excerpt: "Create clean, readable URLs with our slug generator and improve your search rankings.", icon: "globe" },
-      { slug: "case-converter-for-writers", title: "Case Converter: A Writer's Best Friend", date: "April 4, 2026", excerpt: "Fix CAPS LOCK accidents or convert headlines to title case instantly.", icon: "type" },
-      { slug: "word-counter-accuracy", title: "How Accurate is an Online Word Counter?", date: "March 28, 2026", excerpt: "We test our word counter against desktop apps – the results are impressive.", icon: "hash" },
-      { slug: "text-diff-checker-tutorial", title: "Spot Differences in Code Instantly with Text Diff Checker", date: "March 25, 2026", excerpt: "A quick guide to using the diff tool for comparing code snippets.", icon: "git-compare" },
-      { slug: "emoji-text-art", title: "Create Emoji Art with Text Repeater", date: "March 20, 2026", excerpt: "Use custom separators and emojis to craft amazing text patterns.", icon: "palette" }
+      { slug: "how-to-repeat-text-on-whatsapp", title: "How to Repeat Text on WhatsApp Without Annoying Everyone", date: "May 2, 2026", excerpt: "We’ve all been there — you want to send a long, dramatic message but don’t want to type it out a hundred times. Here’s how to do it safely.", icon: "message-circle" },
+      { slug: "text-repeater-for-instagram-bio", title: "Make Your Instagram Bio Stand Out with Our Text Repeater", date: "April 28, 2026", excerpt: "Add decorations, play with line breaks, and turn your bio into something that actually makes people stop scrolling.", icon: "sparkles" },
+      { slug: "top-5-text-tools-for-developers", title: "5 Text Tools Every Developer Should Bookmark Right Now", date: "April 22, 2026", excerpt: "We asked our dev friends which tools they use daily. From diff checkers to formatters, here’s the shortlist.", icon: "code" },
+      { slug: "password-generator-privacy", title: "Why a Client‑Side Password Generator Just Makes Sense", date: "April 15, 2026", excerpt: "Generating passwords on a website that sends them to a server? No thanks. Here’s why keeping it local matters.", icon: "shield-check" },
+      { slug: "what-is-lorem-ipsum", title: "What’s the Deal with Lorem Ipsum, Anyway?", date: "April 12, 2026", excerpt: "From its weird history to modern design use — a quick dive into the world’s favorite placeholder text.", icon: "file-text" },
+      { slug: "slug-generator-seo-tips", title: "Crafting SEO‑Friendly URL Slugs That Humans Actually Read", date: "April 10, 2026", excerpt: "A clean slug isn’t just for search engines — it makes your links look trustworthy. Here’s how to nail it.", icon: "globe" },
+      { slug: "case-converter-for-writers", title: "Case Converter: The Little Tool That Saves Your Sanity", date: "April 4, 2026", excerpt: "Ever typed a whole paragraph with Caps Lock on? Yeah, me too. Here’s how to fix it in one click.", icon: "type" },
+      { slug: "word-counter-accuracy", title: "Just How Accurate Is an Online Word Counter?", date: "March 28, 2026", excerpt: "We tested ours against Word, Google Docs, and even a manual count. The results might surprise you.", icon: "hash" },
+      { slug: "text-diff-checker-tutorial", title: "Spot Every Tiny Change in Your Code with a Diff Checker", date: "March 25, 2026", excerpt: "If you’ve ever stared at two files wondering what changed, this one’s for you. A quick, visual guide.", icon: "git-compare" },
+      { slug: "emoji-text-art", title: "Yes, You Can Make Emoji Art with a Text Repeater", date: "March 20, 2026", excerpt: "We turned emojis into patterns, borders, and even a tiny checkers board. Here’s how you can too.", icon: "palette" },
+      { slug: "json-formatter-guide", title: "Tame That Wild JSON with Our Instant Formatter", date: "March 18, 2026", excerpt: "Messy API response? Paste it in, watch it become readable. No accounts, no uploads, just clean JSON.", icon: "braces" },
+      { slug: "text-sorter-tips", title: "Sorting Lists Has Never Been This Easy — Honestly", date: "March 15, 2026", excerpt: "Whether it’s a bibliography, a mailing list, or just your favorite movies, our Text Sorter puts everything in order.", icon: "arrow-up-down" },
+      { slug: "text-to-handwriting-guide", title: "Turn Typed Notes into Handwritten‑Looking Pages", date: "March 12, 2026", excerpt: "Perfect for assignments, personal letters, or that nostalgic feel. No printer? No problem.", icon: "pen-tool" },
+      { slug: "bold-italic-text-for-social", title: "Bold and Italic Unicode Text: Because Plain Is Boring", date: "March 10, 2026", excerpt: "Make your tweets, captions, and bios stand out with text styles that work anywhere — even where formatting isn’t allowed.", icon: "bold" },
+      { slug: "fancy-text-styles", title: "50+ Ways to Dress Up Your Text (Without Installing a Single Font)", date: "March 8, 2026", excerpt: "From script to bubble to fraktur — our fancy text generator gives you more than fifty styles to play with.", icon: "sparkles" },
+      { slug: "utm-builder-campaigns", title: "Stop Guessing Where Your Traffic Comes From — Use UTMs", date: "March 5, 2026", excerpt: "Our UTM Builder creates clean tracking URLs in seconds. Perfect for email, social, or ads.", icon: "link" },
+      { slug: "sha256-md5-hash-explained", title: "SHA‑256 vs MD5: What Are They and When Should You Use Them?", date: "March 2, 2026", excerpt: "A friendly, non‑scary explanation of cryptographic hashes, and why you might need them.", icon: "shield" },
+      { slug: "random-number-generator-uses", title: "Five Unexpected Ways a Random Number Generator Can Save Your Day", date: "Feb 28, 2026", excerpt: "Giveaways, sampling, testing, even deciding who does the dishes — the possibilities are endless.", icon: "dice-6" },
+      { slug: "qr-code-generator-quick", title: "Turn Any Text into a QR Code in Under a Second", date: "Feb 25, 2026", excerpt: "Need a scannable link? Paste your text, download the QR code, and you’re done. Works offline.", icon: "qr-code" },
+      { slug: "morse-code-fun", title: "Learning Morse Code? This Converter Makes It a Breeze", date: "Feb 22, 2026", excerpt: "Translate text to dots and dashes and back again. A fun tool for hobbyists and curious minds.", icon: "radio" },
+      { slug: "regex-tester-for-devs", title: "Debug Regular Expressions Right in Your Browser", date: "Feb 20, 2026", excerpt: "Stop guessing why your regex isn’t matching. Our tester shows results in real time.", icon: "search-code" },
+      { slug: "email-extractor-guide", title: "Pull Every Email Address Out of a Block of Text Instantly", date: "Feb 18, 2026", excerpt: "Got a messy document full of emails? Our extractor finds them all in one click.", icon: "at-sign" },
+      { slug: "keyword-density-checker-seo", title: "Spot Overused Keywords Before They Hurt Your SEO", date: "Feb 15, 2026", excerpt: "Our keyword density checker gives you a clear picture of your word usage — no fluff, just numbers.", icon: "percent" },
+      { slug: "strikethrough-text-fun", title: "Add Strikethrough Text to Your Memes and Messages", date: "Feb 12, 2026", excerpt: "Sometimes you need to cross something out for comedic effect. Here’s how to do it in WhatsApp, Instagram, and more.", icon: "strikethrough" },
+      { slug: "url-encoder-decoder-guide", title: "When (and Why) You Need URL Encoding", date: "Feb 10, 2026", excerpt: "Special characters breaking your links? Our client‑side encoder fixes that in a flash.", icon: "link-2" },
+      { slug: "uuid-generator-developer", title: "Generate Unique IDs That Won’t Clash — Offline", date: "Feb 8, 2026", excerpt: "Perfect for databases, file names, or tracking. No network needed, just pure randomness.", icon: "fingerprint" },
+      { slug: "whitespace-cleaner-tips", title: "How to Clean Up Text That’s Full of Extra Spaces", date: "Feb 5, 2026", excerpt: "Ever copied text from a PDF and it turned into a mess? Our whitespace cleaner fixes that in seconds.", icon: "sparkles" },
+      { slug: "markdown-to-html-converter", title: "Convert Markdown to Clean HTML Without Leaving Your Browser", date: "Feb 2, 2026", excerpt: "Bloggers, developers, note‑takers — this one’s for you. Instant, offline, and totally private.", icon: "file-code" }
     ];
 
-    let visiblePosts = 9;
+    let visiblePosts = 12;
     const blogGrid = document.getElementById('blogGrid');
     const loadMoreContainer = document.getElementById('loadMoreContainer');
 
@@ -433,7 +451,7 @@
             <span class="post-card-date">${post.date}</span>
             <h3><a href="/blog/${post.slug}">${post.title}</a></h3>
             <p class="post-card-excerpt">${post.excerpt}</p>
-            <a href="/blog/${post.slug}" class="read-more">Read More →</a>
+            <a href="/blog/${post.slug}" class="read-more">Read more →</a>
           </div>
         </div>
       `).join('');
@@ -441,7 +459,7 @@
     }
 
     function loadMorePosts() {
-      visiblePosts += 6;
+      visiblePosts += 8;
       if (visiblePosts >= allPosts.length) {
         visiblePosts = allPosts.length;
         loadMoreContainer.style.display = 'none';
@@ -450,7 +468,6 @@
     }
 
     renderPosts(visiblePosts);
-    // Since there are only 10 posts now, hide the load more button if all are shown initially (9 shown, 1 remaining)
     if (visiblePosts >= allPosts.length) {
       loadMoreContainer.style.display = 'none';
     }
