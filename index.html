@@ -39,8 +39,15 @@
     <link rel="preconnect" href="https://ezoicanalytics.com">
     <!-- Preconnect for Lucide icons -->
     <link rel="preconnect" href="https://unpkg.com">
+
+    <!-- Inter font (added fix) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- yandex verification -->
-<meta name="yandex-verification" content="6e105f6188a8c833" />
+    <meta name="yandex-verification" content="6e105f6188a8c833" />
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
@@ -357,6 +364,9 @@
         .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
+        .tools-mega-menu::-webkit-scrollbar { width: 6px; }
+        .tools-mega-menu::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
+
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
         .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
@@ -464,8 +474,8 @@
         @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-        .footer-grid a { color: var(--footer-link-color); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; transition: color 0.2s, padding-left 0.2s; }
-        .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
+        .footer-grid a { color: var(--footer-link-color); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; transition: transform 0.2s; } /* changed to transform */
+        .footer-grid a:hover { color: var(--footer-link-hover); transform: translateX(6px); } /* smooth move */
         .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
         @media (max-width: 768px) {
             .desktop-nav { display: none; }
@@ -746,7 +756,7 @@
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo"><img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.Tools</a>
-            <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
+            <button class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
         <div class="mobile-sidebar-nav">
             <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
@@ -866,7 +876,7 @@
                 if(ms){ms.style.display='none'; mm.style.display='block';} localStorage.setItem('theme','dark');
                 document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
             }
-            lucide.createIcons();
+            // Removed lucide.createIcons() to avoid resetting icon state (like rotated chevrons)
         }
         document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
         if(localStorage.getItem('theme')==='dark'){
