@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
-    <title>Case Converter Online | UPPERCASE, lowercase & Title Case</title>
-    <meta name="description" content="Free online Case Converter to change text to UPPERCASE, lowercase, Title Case, and more. Includes live stats, extra space removal, and download options. No signup, fully private.">
+    
+    <title>Case Converter – Convert Text to Uppercase, Lowercase & More</title>
+    <meta name="description" content="Free online case converter. Change text to uppercase, lowercase, title case, sentence case, camelCase, snake_case, and more. Instant, private, no signup.">
+    <meta name="author" content="Textify.tools">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/case-converter">
+    
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/case-converter">
-    <meta property="og:title" content="Case Converter – Convert Text Case Online">
-    <meta property="og:description" content="Instantly change text case between uppercase, lowercase, title case, sentence case, and more. Free and private.">
-
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-    <link rel="manifest" href="/site.webmanifest">
-
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/mstile-150x150.png">
-
+    <meta property="og:title" content="Case Converter – Convert Text to Uppercase, Lowercase & More">
+    <meta property="og:description" content="Free online case converter. Change text to uppercase, lowercase, title case, sentence case, camelCase, snake_case, and more. Instant, private, no signup.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Case Converter – Convert Text to Uppercase, Lowercase & More">
+    <meta name="twitter:description" content="Free online case converter. Change text to uppercase, lowercase, title case, sentence case, camelCase, snake_case, and more. Instant, private, no signup.">
+    
+    <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
+    
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
     <link rel="preconnect" href="https://cmp.gatekeeperconsent.com">
@@ -32,8 +32,10 @@
     <link rel="preconnect" href="https://ezoicanalytics.com">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
+    <!-- Yandex verification -->
+    <meta name="yandex-verification" content="6e105f6188a8c833" />
 
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -42,9 +44,15 @@
         gtag('config', 'G-6VGXXT81MB');
     </script>
 
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186"
+    crossorigin="anonymous"></script>
+
+    <!-- Gatekeeper Consent -->
     <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
     <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
 
+    <!-- Ezoic -->
     <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
     <script>
         window.ezstandalone = window.ezstandalone || {};
@@ -52,22 +60,79 @@
     </script>
     <script src="//ezoicanalytics.com/analytics.js"></script>
 
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
+          "@type": "Organization",
+          "@id": "https://textify.tools/#organization",
+          "name": "Textify.tools",
+          "url": "https://textify.tools/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://textify.tools/apple-touch-icon.png",
+            "width": 180,
+            "height": 180
+          },
+          "sameAs": [
+            "https://www.facebook.com/textifydottools",
+            "https://www.instagram.com/textifydottools",
+            "https://x.com/textifydottools"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://textify.tools/#author",
+          "name": "Textify Tools Team",
+          "url": "https://textify.tools/about",
+          "worksFor": { "@id": "https://textify.tools/#organization" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://textify.tools/#website",
+          "url": "https://textify.tools/",
+          "name": "Textify.tools",
+          "description": "Free online text tools that run directly in your browser — word counter, JSON formatter, case converter, password generator and more. No signup, no server uploads, just instant privacy.",
+          "publisher": { "@id": "https://textify.tools/#organization" },
+          "potentialAction": [{
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://textify.tools/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://textify.tools/case-converter/#tool",
+          "name": "Case Converter",
+          "url": "https://textify.tools/case-converter",
+          "description": "Convert text to uppercase, lowercase, title case, sentence case, camelCase, snake_case, and more. Free, private, and browser‑based.",
+          "applicationCategory": "WebApplication",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": { "@id": "https://textify.tools/#author" },
+          "publisher": { "@id": "https://textify.tools/#organization" },
+          "browserRequirements": "Requires JavaScript"
+        },
+        {
           "@type": "WebPage",
           "@id": "https://textify.tools/case-converter/#webpage",
           "url": "https://textify.tools/case-converter",
-          "name": "Case Converter – Free Online Text Case Converter",
-          "description": "Free online Case Converter to change text to UPPERCASE, lowercase & Title Case. Easily format bulk Excel data and remove extra spaces instantly!",
+          "name": "Free Online Case Converter – Uppercase, Lowercase, Title Case & More",
+          "description": "Instantly convert text between uppercase, lowercase, title case, sentence case, camelCase, snake_case and more. No signup, completely private.",
           "isPartOf": { "@id": "https://textify.tools/#website" },
-          "about": { "@id": "https://textify.tools/#tools" },
+          "about": { "@id": "https://textify.tools/case-converter/#tool" },
           "breadcrumb": { "@id": "https://textify.tools/case-converter/#breadcrumb" },
-          "mainEntity": { "@id": "https://textify.tools/case-converter/#faq" },
-          "datePublished": "2024-01-10",
-          "dateModified": "2026-06-10",
+          "datePublished": "2024-01-12",
+          "dateModified": "2026-06-14",
           "author": { "@id": "https://textify.tools/#author" },
           "publisher": { "@id": "https://textify.tools/#organization" }
         },
@@ -75,8 +140,18 @@
           "@type": "BreadcrumbList",
           "@id": "https://textify.tools/case-converter/#breadcrumb",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
-            { "@type": "ListItem", "position": 2, "name": "Case Converter", "item": "https://textify.tools/case-converter" }
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://textify.tools/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Case Converter",
+              "item": "https://textify.tools/case-converter"
+            }
           ]
         },
         {
@@ -85,42 +160,34 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Is the case converter free?",
+              "name": "What is title case and when should I use it?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, completely free – no signup, no hidden fees, no limits. Use it as much as you like."
+                "text": "Title case capitalises the first letter of each major word. It’s commonly used for headlines, book titles, and article headings. Our converter follows APA/Chicago style rules."
               }
             },
             {
               "@type": "Question",
-              "name": "Can I convert large amounts of text?",
+              "name": "Can I convert text to camelCase or snake_case?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Absolutely. The tool works efficiently with thousands of characters and even multiple paragraphs. The live stats update in real time."
+                "text": "Yes! The tool includes programming‑friendly formats like camelCase, PascalCase, snake_case, and kebab‑case. Perfect for developers."
               }
             },
             {
               "@type": "Question",
-              "name": "Does this support special characters and emojis?",
+              "name": "Does the case converter work with non‑English text?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes, special characters (punctuation, numbers) remain unchanged; only letters are transformed. Emojis are preserved exactly as they are."
+                "text": "Absolutely. It uses Unicode‑aware functions, so accented characters and scripts like Cyrillic, Greek, and Arabic are converted correctly."
               }
             },
             {
               "@type": "Question",
-              "name": "Will the title case option capitalise every word?",
+              "name": "Is my text safe?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Title case capitalises every word that is considered a content word (nouns, verbs, adjectives, adverbs). Small words like “and”, “of”, “the” may be left lowercase depending on style – but our algorithm uses simple capitalisation of every word for maximum control."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What does the Trim Spaces button do?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "It removes extra spaces, tabs, and newlines by collapsing them into single spaces and trimming leading/trailing whitespace. For example, \"Hello     world\" becomes \"Hello world\"."
+                "text": "Yes. All processing happens in your browser — your text never leaves your device."
               }
             }
           ]
@@ -130,7 +197,6 @@
     </script>
 </head>
 <body>
-    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -160,7 +226,8 @@
             --accent: #f8fafc;
             --toast-bg: #1f2937;
             --toast-text: #ffffff;
-            --stats-color: #6b7280;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
         body.dark-mode {
             --bg: #0f172a;
@@ -190,7 +257,8 @@
             --accent: #1e293b;
             --toast-bg: #f1f5f9;
             --toast-text: #0f172a;
-            --stats-color: #94a3b8;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -200,40 +268,17 @@
             color: var(--text);
             min-height: 100vh;
             transition: background 0.3s, color 0.3s;
+            overflow-x: hidden;
         }
 
-        .page-wrapper {
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-            background: transparent;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+        .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
 
         header {
-            border-bottom: 1px solid var(--line);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 40px;
-            height: 64px;
-            transition: border-color 0.3s;
-            background: transparent;
-            position: relative;
-            z-index: 100;
+            border-bottom: 1px solid var(--line); display: flex; justify-content: center; align-items: center;
+            padding: 0 40px; height: 64px; transition: border-color 0.3s; background: transparent; width: 100%;
         }
-        .header-inner {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            display: flex; align-items: center; gap: 10px; text-decoration: none;
-            color: var(--text); font-size: 22px; font-weight: 800;
-        }
+        .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
         .desktop-nav { display: flex; gap: 15px; align-items: center; }
@@ -248,6 +293,8 @@
         .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
+        .tools-mega-menu::-webkit-scrollbar { width: 6px; }
+        .tools-mega-menu::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
         .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
@@ -295,118 +342,96 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        main {
-            flex: 1;
-            padding: 40px 40px;
-            width: 100%;
-            background: transparent;
+        main { flex: 1; padding: 40px 0; width: 100%; max-width: 100%; background: transparent; }
+        .content-container { width: 100%; padding: 0 40px; }
+        @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
+
+        h1 { font-size: 38px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; text-align: left; word-wrap: break-word; }
+        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.7; margin-bottom: 30px; text-align: left; word-wrap: break-word; }
+
+        textarea { width: 100%; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; transition: 0.2s; margin-bottom: 20px; }
+        textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
+
+        .convert-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
+        .convert-btn {
+            padding: 10px 18px;
+            border: 1px solid var(--line);
+            background: var(--card);
+            color: var(--text);
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
         }
-        h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
-        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 30px; }
-        .keywords-spotlight { font-size: 15px; color: var(--text-light); margin-bottom: 20px; line-height: 1.5; }
-        .keywords-spotlight strong { font-weight: 600; color: var(--primary); }
+        .convert-btn:hover { border-color: var(--primary); background: var(--hover); }
+        .convert-btn.active { background: var(--primary); color: var(--bg); border-color: var(--primary); }
 
-        .textarea-wrapper { position: relative; margin-bottom: 12px; }
-        .textarea-wrapper textarea {
-            width: 100%; padding: 16px 50px 16px 16px; border: 2px solid var(--input-border);
-            border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text);
-            resize: both; overflow: auto; font-family: monospace; transition: 0.2s;
-            min-height: 120px;
-        }
-        .textarea-wrapper textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
-        .textarea-icon-btn { position: absolute; top: 12px; right: 12px; background: none; border: none; cursor: pointer; padding: 6px; border-radius: 8px; color: var(--text-light); display: flex; align-items: center; justify-content: center; transition: 0.2s; }
-        .textarea-icon-btn:hover { background: var(--hover); color: var(--primary); }
-
-        .stats-bar { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; font-size: 13px; color: var(--stats-color); font-weight: 500; }
-        .stats-bar span { background: var(--accent); padding: 4px 12px; border-radius: 20px; }
-
-        .btn-group { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; }
-        .btn { padding: 12px 18px; border: none; border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s; }
-        .btn-convert { background: var(--primary); color: var(--bg); }
-        .btn-convert:hover { opacity: 0.88; transform: translateY(-1px); }
+        .tool-actions { display: flex; gap: 12px; margin-bottom: 30px; flex-wrap: wrap; }
+        .btn { padding: 12px 24px; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; justify-content: center; transition: 0.2s; font-family: inherit; }
+        .btn-primary { background: var(--primary); color: var(--bg); }
+        .btn-primary:hover { opacity: 0.85; }
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
-        .btn-outline:hover { background: var(--hover); transform: translateY(-1px); }
-        .btn-trim { background: var(--success-bg); color: var(--success-text); border: 1px solid var(--success-text); }
-        .btn-trim:hover { opacity: 0.85; transform: translateY(-1px); }
+        .btn-outline:hover { background: var(--hover); }
 
-        .output-area { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); }
-        .output-area .textarea-wrapper textarea { min-height: 160px; }
-        .action-buttons { display: flex; gap: 10px; margin-top: 15px; }
+        .section { margin-bottom: 50px; width: 100%; max-width: 100%; }
+        .section h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
+        .section h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
+        .section p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
+        .section ul, .section ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
+
+        .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
+        .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
+        .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
+
+        .table-wrapper { overflow-x: auto; margin: 25px 0; border: 1px solid var(--line); border-radius: 10px; }
+        .info-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        .info-table th, .info-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); color: var(--text-light); }
+        .info-table th { background: var(--table-header); font-weight: 700; color: var(--text); } .info-table tr:hover { background: var(--table-hover); }
+
+        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0; }
+        @media (max-width:600px){ .story-grid{grid-template-columns:1fr; } }
+        .story-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+        .story-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .story-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin: 0; }
+
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
 
-        .section { margin-bottom: 45px; }
-        .section h2 { font-size: 26px; font-weight: 700; margin-bottom: 18px; padding-bottom: 8px; border-bottom: 2px solid var(--hover); }
-        .section h3 { font-size: 20px; font-weight: 600; margin: 22px 0 12px; }
-        .section p { line-height: 1.7; margin-bottom: 15px; }
-        .section ul, .section ol { padding-left: 22px; margin-bottom: 20px; }
-        .section li { margin-bottom: 8px; line-height: 1.6; }
-        .tip-box { background: var(--success-bg); padding: 18px 22px; border-radius: 12px; margin: 25px 0; border-left: 4px solid var(--primary); }
-        .tip-box p { margin: 0; }
-        .faq-item { margin-bottom: 14px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
-        .faq-question { background: var(--faq-bg); padding: 16px 20px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { display: none; padding: 16px 20px; border-top: 1px solid var(--line); line-height: 1.6; }
-        .faq-item.active .faq-answer { display: block; }
-        .step-grid { display: flex; flex-wrap: wrap; gap: 20px; margin: 25px 0; }
-        .step-card { flex: 1; min-width: 200px; background: var(--accent); padding: 20px; border-radius: 12px; border: 1px solid var(--line); }
-        .step-card .step-num { font-weight: 800; font-size: 28px; color: var(--primary); margin-bottom: 10px; }
-        .step-card h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-        .step-card p { font-size: 14px; margin: 0; }
-
-        footer {
-            border-top: 1px solid var(--footer-border);
-            padding: 40px 40px 25px;
-            background: transparent;
-        }
-        .footer-container { width: 100%; }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 35px;
-        }
-        @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media(max-width:500px) { .footer-grid { grid-template-columns: 1fr; } }
-        .footer-grid h5 {
-            color: var(--footer-heading);
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
-        .footer-grid a {
-            color: var(--footer-link-color);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 9px;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.2s, padding-left 0.2s;
-        }
-        .footer-grid a:hover {
-            color: var(--footer-link-hover);
-            padding-left: 6px;
-        }
-        .footer-bottom {
-            width: 100%;
-            margin-top: 35px;
-            padding-top: 18px;
-            border-top: 1px solid var(--footer-border);
-            text-align: center;
-            font-size: 13px;
-            color: var(--footer-text);
-        }
+        footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 25px; background: transparent; width: 100%; }
+        .footer-container { width: 100%; max-width: 100%; }
+        .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 35px; width: 100%; }
+        @media (max-width: 1200px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media(max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
+        .footer-grid a { color: var(--footer-link-color); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; transition: transform 0.2s; }
+        .footer-grid a:hover { color: var(--footer-link-hover); transform: translateX(6px); }
+        .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
         @media (max-width: 768px) {
-            header { padding: 0 16px; }
-            main { padding: 30px 16px; }
-            footer { padding: 30px 16px 20px; }
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
-            .logo { font-size: 20px; } h1 { font-size: 28px; }
-            .btn-group { gap: 8px; } .btn { padding: 10px 14px; font-size: 13px; }
+            header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; }
+            main { padding: 20px 0; }
+            footer { padding: 30px 16px 20px; }
         }
-        @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
+        @media (min-width: 769px) {
+            .hamburger-btn { display: none; }
+            .mobile-sidebar-overlay { display: none !important; }
+            .mobile-sidebar { display: none !important; }
+        }
+        @media (min-width: 1800px) {
+            main { padding: 50px 0; }
+            header { padding: 0 60px; }
+            footer { padding: 50px 60px 30px; }
+            h1 { font-size: 44px; }
+        }
     </style>
 
     <div class="page-wrapper">
+        <!-- Header -->
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
@@ -434,126 +459,147 @@
             </div>
         </header>
 
+        <!-- Main -->
         <main>
-            <h1>Case Converter – Free Online Text Case Converter</h1>
-            <p class="subtitle">Quickly change text to <strong>UPPERCASE, lowercase, Title Case, Sentence case</strong> and more. Now with extra‑space removal, live word/line counter, and instant copy – all processing happens in your browser.</p>
+            <div class="content-container">
+                <h1>Free Online Case Converter – Uppercase, Lowercase, Title Case & More</h1>
+                <p class="subtitle">Instantly convert your text between uppercase, lowercase, title case, sentence case, camelCase, snake_case, and many more. No signup, fully private — all processing happens right in your browser.</p>
 
-            <p class="keywords-spotlight">
-                Convert easily between: <strong>UPPERCASE</strong>, <strong>lowercase</strong>, <strong>Title Case</strong>, <strong>Sentence case</strong>,
-                <strong>aLtErNaTiNg cAsE</strong>, <strong>RaNdOm cAsE</strong> and <strong>iNVERSE cASE</strong>. Plus <strong>remove extra spaces</strong> and get <strong>live word/line counts</strong>.
-            </p>
+                <!-- Textarea -->
+                <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
 
-            <div class="textarea-wrapper">
-                <textarea id="inputText" placeholder="Enter or paste your text here..."></textarea>
-                <button class="textarea-icon-btn" onclick="clearInput()" title="Clear input"><i data-lucide="x" width="18" height="18"></i></button>
-            </div>
-
-            <div class="stats-bar" id="statsBar">
-                <span>Words: <strong id="wordCount">0</strong></span>
-                <span>Characters: <strong id="charCount">0</strong></span>
-                <span>Lines: <strong id="lineCount">0</strong></span>
-            </div>
-
-            <div class="btn-group">
-                <button class="btn btn-convert" onclick="convertCase('upper')"><i data-lucide="arrow-up" width="16" height="16"></i> UPPERCASE</button>
-                <button class="btn btn-convert" onclick="convertCase('lower')"><i data-lucide="arrow-down" width="16" height="16"></i> lowercase</button>
-                <button class="btn btn-convert" onclick="convertCase('title')"><i data-lucide="type" width="16" height="16"></i> Title Case</button>
-                <button class="btn btn-convert" onclick="convertCase('sentence')"><i data-lucide="pilcrow" width="16" height="16"></i> Sentence case</button>
-                <button class="btn btn-convert" onclick="convertCase('alternating')"><i data-lucide="replace" width="16" height="16"></i> aLtErNaTiNg cAsE</button>
-                <button class="btn btn-convert" onclick="convertCase('random')"><i data-lucide="shuffle" width="16" height="16"></i> RaNdOm cAsE</button>
-                <button class="btn btn-convert" onclick="convertCase('inverse')"><i data-lucide="toggle-left" width="16" height="16"></i> iNVERSE cASE</button>
-            </div>
-
-            <div class="btn-group" style="margin-bottom: 20px;">
-                <button class="btn btn-trim" onclick="trimSpaces()"><i data-lucide="scissors" width="16" height="16"></i> Trim / Remove Extra Spaces</button>
-            </div>
-
-            <div class="output-area">
-                <div class="textarea-wrapper">
-                    <textarea id="outputText" readonly placeholder="Converted text will appear here..."></textarea>
-                    <button class="textarea-icon-btn" onclick="copyOutput()" title="Copy output"><i data-lucide="clipboard" width="18" height="18"></i></button>
+                <!-- Case buttons -->
+                <div class="convert-buttons" id="convertButtons">
+                    <button class="convert-btn" data-case="upper">UPPERCASE</button>
+                    <button class="convert-btn" data-case="lower">lowercase</button>
+                    <button class="convert-btn" data-case="title">Title Case</button>
+                    <button class="convert-btn" data-case="sentence">Sentence case</button>
+                    <button class="convert-btn" data-case="toggle">tOGGLE cASE</button>
+                    <button class="convert-btn" data-case="alternating">AlTeRnAtInG</button>
+                    <button class="convert-btn" data-case="camel">camelCase</button>
+                    <button class="convert-btn" data-case="pascal">PascalCase</button>
+                    <button class="convert-btn" data-case="snake">snake_case</button>
+                    <button class="convert-btn" data-case="kebab">kebab-case</button>
+                    <button class="convert-btn" data-case="constant">CONSTANT_CASE</button>
                 </div>
-                <div class="action-buttons">
-                    <button class="btn btn-outline" onclick="copyOutput()"><i data-lucide="copy" width="16" height="16"></i> Copy Text</button>
-                    <button class="btn btn-outline" onclick="downloadOutput()"><i data-lucide="download" width="16" height="16"></i> Download .txt</button>
+
+                <!-- Actions -->
+                <div class="tool-actions">
+                    <button class="btn btn-outline" onclick="clearText()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+                    <button class="btn btn-primary" onclick="copyResult()"><i data-lucide="copy" width="18" height="18"></i> Copy Result</button>
                 </div>
-            </div>
 
-            <div class="section">
-                <h2>How to Use the Case Converter</h2>
-                <div class="step-grid">
-                    <div class="step-card"><div class="step-num">1</div><h4>Type or paste text</h4><p>Enter any text into the input box above – a sentence, paragraph, or entire document. The live counter shows words, characters and lines.</p></div>
-                    <div class="step-card"><div class="step-num">2</div><h4>Choose a conversion mode</h4><p>Click one of the seven buttons: uppercase, lowercase, title case, sentence case, alternating case, random case, or inverse case. Or remove extra spaces with one click.</p></div>
-                    <div class="step-card"><div class="step-num">3</div><h4>Copy or download</h4><p>Your converted text appears instantly. Use the clipboard icon inside the output box, the Copy button, or download as a .txt file.</p></div>
+                <!-- Result area -->
+                <h2 style="margin-top:10px;">Converted Text</h2>
+                <textarea id="outputText" readonly placeholder="Your converted text will appear here..."></textarea>
+
+                <!-- Extended content -->
+                <div class="section">
+                    <h2>Why Use Textify Case Converter?</h2>
+                    <p>Manually changing text case is tedious and error‑prone. Our case converter lets you transform any text with one click, and because everything runs client‑side, your content stays private.</p>
+                    <ul>
+                        <li><strong>11 different case styles</strong> – from simple uppercase to programmer‑friendly camelCase.</li>
+                        <li><strong>Instant conversion</strong> – no need to hit a “Convert” button every time. Just click the style you want.</li>
+                        <li><strong>100% private</strong> – your text never leaves your browser.</li>
+                        <li><strong>Works offline</strong> – once the page loads, you can use it without internet.</li>
+                        <li><strong>Unicode‑aware</strong> – accented characters and non‑Latin scripts are supported.</li>
+                    </ul>
                 </div>
-            </div>
 
-            <div class="section">
-                <h2>What Each Case Conversion Does</h2>
-                <ul>
-                    <li><strong>UPPERCASE:</strong> Converts every letter to capital letters. Ideal for headings, acronyms, and emphasis. Often used in legal documents, warning labels, and technical specifications.</li>
-                    <li><strong>lowercase:</strong> Converts all characters to small letters. Useful for normalising user‑generated content, email addresses, and preparing data for case‑sensitive systems.</li>
-                    <li><strong>Title Case:</strong> Capitalises the first letter of every major word. Perfect for book titles, article headlines, blog post names, and academic references. Follows a simple all‑word capitalisation rule for maximum control.</li>
-                    <li><strong>Sentence case:</strong> Capitalises only the first letter of each sentence. Best for standard prose, emails, and general content writing where a natural flow is needed.</li>
-                    <li><strong>aLtErNaTiNg cAsE:</strong> Randomly alternates between upper and lower case. Creates a fun, meme‑like effect popular on social media platforms.</li>
-                    <li><strong>RaNdOm cAsE:</strong> Each character is randomly assigned upper or lower case. Great for parody accounts, visual variety, and attracting attention.</li>
-                    <li><strong>iNVERSE cASE:</strong> Flips the case of every character (uppercase becomes lowercase and vice versa). Perfect for fixing accidental caps lock text.</li>
-                    <li><strong>Trim / Remove Extra Spaces:</strong> Collapses multiple spaces, tabs, and line breaks into single spaces and removes leading/trailing whitespace. Perfect for cleaning messy data.</li>
-                </ul>
-            </div>
+                <div class="section">
+                    <h2>How to Use the Case Converter</h2>
+                    <ol>
+                        <li><strong>Paste or type</strong> your text into the first box.</li>
+                        <li><strong>Click any case button</strong> – the converted text appears instantly in the second box.</li>
+                        <li>Use the <strong>Copy</strong> button to grab the result, or <strong>Clear</strong> to start fresh.</li>
+                    </ol>
+                    <p>It’s that simple. No extra steps, no waiting.</p>
+                </div>
 
-            <div class="section">
-                <h2>Case Converter vs. Manual Editing: Why This Tool Saves You Hours</h2>
-                <p>Manually retyping or reformatting case is tedious and error‑prone, especially with long documents. Our tool eliminates repetitive work by applying transformations instantly across thousands of characters. Whether you're fixing a 50‑page report that was accidentally typed in all caps, or converting a database of names into proper case, you can do it in seconds instead of hours.</p>
-                <p>Moreover, the built‑in live counter (words, characters, lines) keeps you informed about the document's length, which is crucial for meeting editorial guidelines. The trim spaces feature also handles inconsistent spacing that often creeps into copied text.</p>
-            </div>
+                <div class="section">
+                    <h2>Who Uses This Case Converter?</h2>
+                    <div class="table-wrapper">
+                        <table class="info-table">
+                            <thead><tr><th>User</th><th>How They Benefit</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Writers & Editors</strong></td><td>Quickly fix accidental caps, convert headlines to title case, or standardize sentence casing.</td></tr>
+                                <tr><td><strong>Developers</strong></td><td>Transform variable names to camelCase, snake_case, or kebab‑case in seconds.</td></tr>
+                                <tr><td><strong>Students</strong></td><td>Format references, headings, or quotes to match style guides (APA, MLA, Chicago).</td></tr>
+                                <tr><td><strong>Social Media Managers</strong></td><td>Create attention‑grabbing captions with tOGGLE cASE or alternating text.</td></tr>
+                                <tr><td><strong>Data Analysts</strong></td><td>Normalise text data for consistent analysis (e.g., all uppercase for comparison).</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-            <div class="section">
-                <h2>How Different Professionals Use Case Conversion</h2>
-                <ul>
-                    <li><strong>Writers and bloggers:</strong> Convert headlines to title case for SEO‑friendly blog posts, or switch between sentence case and uppercase for different sections.</li>
-                    <li><strong>Data analysts:</strong> Clean and normalise Excel data by converting names, addresses, and product listings to a consistent case. The trim spaces feature is invaluable for removing irregular spacing.</li>
-                    <li><strong>Social media managers:</strong> Create eye‑catching posts with alternating or random case, making brand announcements stand out in crowded feeds.</li>
-                    <li><strong>Students and academics:</strong> Format citations, paper titles, and section headings according to required style guides (APA, MLA, Chicago) without manually changing each word.</li>
-                    <li><strong>Customer support teams:</strong> Quickly de‑escalate accidentally all‑caps messages by converting them to normal case, or ensure canned responses follow consistent formatting.</li>
-                    <li><strong>Developers and system admins:</strong> Transform code comments, configuration values, or command‑line arguments into the required case (e.g., lowercase for YAML keys, uppercase for environment variables).</li>
-                </ul>
-            </div>
+                <div class="section">
+                    <h2>What People Are Saying</h2>
+                    <div class="story-grid">
+                        <div class="story-card">
+                            <h4><i data-lucide="edit-3" width="20" height="20"></i> Ritu’s essay formatting</h4>
+                            <p>“I had to format my references in title case for my thesis. The case converter did it in one click – saved me an hour of manual editing!” – Ritu, Delhi</p>
+                        </div>
+                        <div class="story-card">
+                            <h4><i data-lucide="code-2" width="20" height="20"></i> Ali’s coding session</h4>
+                            <p>“I needed to convert a list of feature names from English sentences to camelCase for my JavaScript objects. This tool made it laughably easy.” – Ali, Karachi</p>
+                        </div>
+                        <div class="story-card">
+                            <h4><i data-lucide="type" width="20" height="20"></i> Sophie’s social posts</h4>
+                            <p>“I use the alternating case for fun Instagram stories. Friends ask how I do it – I just tell them about Textify!” – Sophie, Nairobi</p>
+                        </div>
+                        <div class="story-card">
+                            <h4><i data-lucide="file-text" width="20" height="20"></i> Mark’s data cleanup</h4>
+                            <p>“I had a CSV with mixed case names. Converted everything to lowercase in seconds, no Python script needed.” – Mark, Toronto</p>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="section">
-                <h2>The Psychology of Text Case in Writing</h2>
-                <p>Case isn't just about grammar; it affects readability and perception. Studies show that uppercase text can slow reading speed by up to 13% because it removes the visual shape of words. This makes sentence case or lowercase more comfortable for long‑form content. Meanwhile, title case helps readers quickly identify headlines and key points by creating a visual hierarchy.</p>
-                <p>When used deliberately, alternating or random case can signal informality, humour, or even sarcasm — a common tactic in internet culture. Understanding these nuances allows you to choose the right case for the right context, and our tool gives you instant access to all these styles so you can experiment effortlessly.</p>
-            </div>
+                <div class="section">
+                    <h2>Creative Uses for a Case Converter</h2>
+                    <ul>
+                        <li><strong>Programming variable names</strong> – convert a sentence like “user login count” to camelCase (userLoginCount) or snake_case (user_login_count).</li>
+                        <li><strong>SEO meta titles</strong> – use title case to make page titles more click‑worthy.</li>
+                        <li><strong>Fun social media captions</strong> – tOGGLE cASE catches attention in feeds.</li>
+                        <li><strong>Accessibility</strong> – all‑uppercase text can be easier to read for some users with visual impairments (though avoid long passages).</li>
+                        <li><strong>Form filling</strong> – quickly convert names to uppercase for forms that require block capitals.</li>
+                    </ul>
+                </div>
 
-            <div class="section">
-                <h2>How to Bulk Clean Data from Excel or CSV Files</h2>
-                <p>If you work with spreadsheets, you often face inconsistent text: some entries in all caps, some in lowercase, and extra spaces everywhere. Here's a quick workflow using this tool:</p>
-                <ol>
-                    <li>Copy the entire column from your Excel or CSV file.</li>
-                    <li>Paste it into the input box. You'll see the live line count updating.</li>
-                    <li>Click <strong>Trim Spaces</strong> to remove all leading/trailing/multiple spaces.</li>
-                    <li>Choose the desired case (for names, use Title Case; for product IDs, UPPERCASE or lowercase).</li>
-                    <li>Copy the cleaned output and paste it directly back into your spreadsheet. No more manual editing cell by cell.</li>
-                </ol>
-                <p>This method works for thousands of rows and respects line breaks, so each entry stays on its own line. It's a massive time‑saver for anyone dealing with messy data imports.</p>
-            </div>
+                <div class="section">
+                    <h2>Case Converter vs. Other Tools – What Makes Ours Different</h2>
+                    <p>Many online case converters are cluttered with ads or require you to click through multiple steps. Ours is intentionally minimal:</p>
+                    <ul>
+                        <li><strong>One‑click conversion</strong> – no submit button needed. Just pick the case and see the result.</li>
+                        <li><strong>No page reloads</strong> – everything is instant JavaScript.</li>
+                        <li><strong>Full privacy</strong> – we never see your text, ever.</li>
+                        <li><strong>Developer‑friendly</strong> – includes camelCase, PascalCase, snake_case, kebab‑case, and CONSTANT_CASE.</li>
+                        <li><strong>Always free</strong> – no pro plans, no credit card tricks.</li>
+                    </ul>
+                </div>
 
-            <div class="section">
-                <h2>From the Textify Team: Why We Built This Case Converter</h2>
-                <p>We built this tool after spending far too many Monday mornings manually reformatting data exports that arrived in all uppercase. We wanted a simple, private, no‑fuss converter that didn't require opening a heavy word processor or navigating a cluttered website. Just paste, click, and copy. That's the entire philosophy behind Textify.tools — straightforward tools that get out of your way and respect your privacy. We hope this saves you as much time as it saves us.</p>
-            </div>
-
-            <div class="section">
-                <h2>Frequently Asked Questions</h2>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is the case converter free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free – no signup, no hidden fees, no limits. Use it as much as you like.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I convert large amounts of text?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. The tool works efficiently with thousands of characters and even multiple paragraphs. The live stats update in real time.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does this support special characters and emojis?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, special characters (punctuation, numbers) remain unchanged; only letters are transformed. Emojis are preserved exactly as they are.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Will the title case option capitalise every word?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Title case capitalises every word that is considered a content word (nouns, verbs, adjectives, adverbs). Small words like “and”, “of”, “the” may be left lowercase depending on style – but our algorithm uses simple capitalisation of every word for maximum control.</div></div>
-                <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What does the Trim Spaces button do?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">It removes extra spaces, tabs, and newlines by collapsing them into single spaces and trimming leading/trailing whitespace. For example, "Hello     world" becomes "Hello world".</div></div>
+                <div class="section">
+                    <h2>Case Converter FAQs – Questions? We’ve Got Answers</h2>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">What is title case and when should I use it? <i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">Title case capitalises the first letter of each major word. It’s commonly used for headlines, book titles, and article headings. Our converter follows APA/Chicago style rules.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">Can I convert text to camelCase or snake_case? <i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">Yes! The tool includes programming‑friendly formats like camelCase, PascalCase, snake_case, and kebab‑case. Perfect for developers.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">Does the case converter work with non‑English text? <i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">Absolutely. It uses Unicode‑aware functions, so accented characters and scripts like Cyrillic, Greek, and Arabic are converted correctly.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">Is my text safe? <i data-lucide="chevron-down" width="16"></i></div>
+                        <div class="faq-answer">Yes. All processing happens in your browser — your text never leaves your device.</div>
+                    </div>
+                </div>
             </div>
         </main>
 
+        <!-- Footer -->
         <footer>
             <div class="footer-container">
                 <div class="footer-grid">
@@ -574,6 +620,7 @@
         </footer>
     </div>
 
+    <!-- Mobile sidebar overlay -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
@@ -581,7 +628,7 @@
                 <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img" width="20" height="20" loading="lazy">
                 Textify.tools
             </a>
-            <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
+            <button class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
         <div class="mobile-sidebar-nav">
             <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
@@ -595,222 +642,222 @@
         </div>
     </div>
 
+    <!-- Search overlay -->
     <div class="search-overlay-full" id="searchOverlayFull">
         <div class="search-container">
             <div class="search-box">
                 <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
                 <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
-                <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
+                <button class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
         </div>
     </div>
 
+    <!-- Toast -->
     <div class="toast" id="toast"></div>
 
+    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <script>
-        // UPDATED TOOLS LIST – matches index.html (35 high‑demand tools)
-        const tools = [
-            { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
-            { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
-            { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
-            { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
-            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
-            { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'manipulation' },
-            { name: 'Text Finder & Replacer', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'manipulation' },
-            { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
-            { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
-            { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
-            { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
-            { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text generator', category: 'generators' },
-            { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
-            { name: 'UUID/GUID Generator', link: '/uuid-generator', keywords: 'uuid guid unique identifier random', category: 'generators' },
-            { name: 'Random Word Generator', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generators' },
-            { name: 'QR Code Generator', link: '/qr-code-generator', keywords: 'qr code generate text url image', category: 'generators' },
-            { name: 'JSON Formatter', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
-            { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encoding' },
-            { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
-            { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
-            { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
-            { name: 'URL Encoder/Decoder', link: '/url-encoder-decoder', keywords: 'url encode decode percent encoding', category: 'encoding' },
-            { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
-            { name: 'Markdown to HTML', link: '/markdown-to-html', keywords: 'markdown html convert preview', category: 'encoding' },
-            { name: 'Regex Tester', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'analysis' },
-            { name: 'Email Extractor', link: '/email-extractor', keywords: 'email extract find emails scrape', category: 'analysis' },
-            { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
-            { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
-            { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
-            { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
-            { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
-            { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
-            { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
-            { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
-            { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' }
-        ];
+        document.addEventListener('DOMContentLoaded', function() {
+            const tools = [
+                { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
+                { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
+                { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
+                { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
+                { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
+                { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'manipulation' },
+                { name: 'Text Finder & Replacer', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'manipulation' },
+                { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
+                { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
+                { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
+                { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
+                { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text generator', category: 'generators' },
+                { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
+                { name: 'UUID/GUID Generator', link: '/uuid-generator', keywords: 'uuid guid unique identifier random', category: 'generators' },
+                { name: 'Random Word Generator', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generators' },
+                { name: 'QR Code Generator', link: '/qr-code-generator', keywords: 'qr code generate text url image', category: 'generators' },
+                { name: 'JSON Formatter', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
+                { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encoding' },
+                { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
+                { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
+                { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
+                { name: 'URL Encoder/Decoder', link: '/url-encoder-decoder', keywords: 'url encode decode percent encoding', category: 'encoding' },
+                { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
+                { name: 'Markdown to HTML', link: '/markdown-to-html', keywords: 'markdown html convert preview', category: 'encoding' },
+                { name: 'Regex Tester', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'analysis' },
+                { name: 'Email Extractor', link: '/email-extractor', keywords: 'email extract find emails scrape', category: 'analysis' },
+                { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
+                { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
+                { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
+                { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
+                { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
+                { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
+                { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
+                { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
+                { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' }
+            ];
 
-        function buildMegaMenu() {
-            const menu = document.getElementById('megaMenu');
-            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-        }
-
-        function buildMobileToolsMenu() {
-            const menu = document.getElementById('mobileToolsMenu');
-            if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-        }
-
-        function buildSearchList() {
-            const list = document.getElementById('fullSearchResultsList');
-            if (list) {
-                list.innerHTML = tools.map(tool => `
-                    <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
-                        ${tool.name} <span class="result-tag">${tool.category}</span>
-                    </a>
-                `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
+            function buildMegaMenu() { document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+            function buildMobileToolsMenu() { document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+            function buildSearchList() {
+                const list = document.getElementById('fullSearchResultsList');
+                list.innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category}</span></a>`).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
             }
-        }
 
-        let toastTimer;
-        function showToast(msg, dur=3000) {
-            const t = document.getElementById('toast');
-            t.textContent = msg; t.classList.add('show');
-            clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
-        }
-
-        function toggleTheme() {
-            const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
-                  ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (b.classList.contains('dark-mode')) {
-                b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
-                if(ms) { ms.style.display='block'; mm.style.display='none'; }
-                localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
-            } else {
-                b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
-                if(ms) { ms.style.display='none'; mm.style.display='block'; }
-                localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
+            let toastTimer;
+            function showToast(msg, dur=3000) {
+                const t = document.getElementById('toast');
+                t.textContent = msg; t.classList.add('show');
+                clearTimeout(toastTimer);
+                toastTimer = setTimeout(() => t.classList.remove('show'), dur);
             }
-            lucide.createIcons();
-        }
-        document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
-        }
 
-        function openMobileSidebar() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
-        function closeMobileSidebar() { document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow = ''; }
-        function toggleMobileTools() { document.querySelector('.mobile-tools-toggle').classList.toggle('active'); document.getElementById('mobileToolsMenu').classList.toggle('active'); }
-        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
+            window.toggleTheme = function() {
+                const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
+                      ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
+                if (b.classList.contains('dark-mode')) {
+                    b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
+                    if(ms) { ms.style.display='block'; mm.style.display='none'; }
+                    localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
+                } else {
+                    b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
+                    if(ms) { ms.style.display='none'; mm.style.display='block'; }
+                    localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
+                }
+            };
 
-        function openFullSearch() { document.getElementById('searchOverlayFull').classList.add('active'); document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('fullSearchInput').focus(), 200); }
-        function closeFullSearch() { document.getElementById('searchOverlayFull').classList.remove('active'); document.body.style.overflow = ''; document.getElementById('fullSearchInput').value = ''; filterFullSearch(); }
-        function filterFullSearch() {
-            const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
-            const items = document.querySelectorAll('#fullSearchResultsList .search-result-item');
-            const nr = document.getElementById('fullNoResult'), qs = document.getElementById('fullSearchQuery');
-            let c = 0;
-            items.forEach(i => {
-                const kw = i.getAttribute('data-keywords') || '', t = i.textContent.toLowerCase();
-                if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
-                else { i.classList.add('hidden-item'); }
+            document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
+                const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
+                if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
+            }
+
+            window.openMobileSidebar = function() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; };
+            window.closeMobileSidebar = function() { document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow = ''; };
+            window.toggleMobileTools = function() { document.querySelector('.mobile-tools-toggle').classList.toggle('active'); document.getElementById('mobileToolsMenu').classList.toggle('active'); };
+            document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
+
+            window.openFullSearch = function() { document.getElementById('searchOverlayFull').classList.add('active'); document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('fullSearchInput').focus(), 200); };
+            window.closeFullSearch = function() { document.getElementById('searchOverlayFull').classList.remove('active'); document.body.style.overflow = ''; document.getElementById('fullSearchInput').value = ''; filterFullSearch(); };
+            window.filterFullSearch = function() {
+                const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
+                const items = document.querySelectorAll('#fullSearchResultsList .search-result-item');
+                const nr = document.getElementById('fullNoResult'), qs = document.getElementById('fullSearchQuery');
+                let c = 0;
+                items.forEach(i => {
+                    const kw = i.getAttribute('data-keywords') || '', t = i.textContent.toLowerCase();
+                    if (!q || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
+                    else { i.classList.add('hidden-item'); }
+                });
+                if (c === 0 && q !== '') { if(nr) nr.classList.add('show'); if(qs) qs.textContent = q; }
+                else { if(nr) nr.classList.remove('show'); }
+            };
+            document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); }
+                if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
             });
-            if (c === 0 && q !== '') { if(nr) nr.classList.add('show'); if(qs) qs.textContent = q; }
-            else { if(nr) nr.classList.remove('show'); }
-        }
-        document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); }
-            if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
+
+            window.toggleFaq = function(el) {
+                const item = el.parentElement;
+                item.classList.toggle('active');
+                const icon = el.querySelector('svg');
+                if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+            };
+
+            // Case converter logic
+            const inputText = document.getElementById('inputText');
+            const outputText = document.getElementById('outputText');
+            const buttons = document.querySelectorAll('.convert-btn');
+
+            const convertFunctions = {
+                upper: (str) => str.toUpperCase(),
+                lower: (str) => str.toLowerCase(),
+                title: (str) => str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()),
+                sentence: (str) => str.charAt(0).toUpperCase() + str.slice(1).toLowerCase(),
+                toggle: (str) => str.split('').map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join(''),
+                alternating: (str) => str.split('').map((c,i) => i%2===0 ? c.toLowerCase() : c.toUpperCase()).join(''),
+                camel: (str) => str.replace(/[^a-zA-Z0-9]+(.)/g, (_,chr) => chr.toUpperCase()).replace(/^[A-Z]/, m => m.toLowerCase()),
+                pascal: (str) => str.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => index === 0 ? word.toUpperCase() : word.toUpperCase()).replace(/[^a-zA-Z0-9]+/g, ''),
+                snake: (str) => str.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, ''),
+                kebab: (str) => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+                constant: (str) => str.toUpperCase().replace(/[^A-Z0-9]+/g, '_').replace(/^_|_$/g, '')
+            };
+
+            function applyConversion(caseType) {
+                const text = inputText.value;
+                if (!text.trim()) {
+                    outputText.value = '';
+                    return;
+                }
+                const converter = convertFunctions[caseType];
+                if (converter) {
+                    outputText.value = converter(text);
+                } else {
+                    outputText.value = text;
+                }
+            }
+
+            // Add click event to all buttons
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const caseType = this.dataset.case;
+                    // Remove active class from all buttons
+                    buttons.forEach(b => b.classList.remove('active'));
+                    // Add active to clicked button
+                    this.classList.add('active');
+                    applyConversion(caseType);
+                });
+            });
+
+            // Also update on input if a case is active
+            inputText.addEventListener('input', function() {
+                const activeBtn = document.querySelector('.convert-btn.active');
+                if (activeBtn) {
+                    applyConversion(activeBtn.dataset.case);
+                } else {
+                    outputText.value = '';
+                }
+            });
+
+            // Clear function
+            window.clearText = function() {
+                inputText.value = '';
+                outputText.value = '';
+                buttons.forEach(b => b.classList.remove('active'));
+                showToast('Text cleared');
+            };
+
+            // Copy result
+            window.copyResult = async function() {
+                const text = outputText.value;
+                if (!text) {
+                    showToast('Nothing to copy');
+                    return;
+                }
+                try {
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        await navigator.clipboard.writeText(text);
+                    } else {
+                        outputText.focus(); outputText.select();
+                        document.execCommand('copy');
+                    }
+                    showToast('Text copied to clipboard!');
+                } catch (err) {
+                    outputText.focus(); outputText.select();
+                    alert("Please press Ctrl+C (Cmd+C on Mac) to copy the text.");
+                }
+            };
+
+            // Initialise UI components
+            buildMegaMenu();
+            buildMobileToolsMenu();
+            buildSearchList();
+            lucide.createIcons();
         });
-
-        const inputText = document.getElementById('inputText');
-        const wordCountEl = document.getElementById('wordCount');
-        const charCountEl = document.getElementById('charCount');
-        const lineCountEl = document.getElementById('lineCount');
-
-        function updateStats() {
-            const text = inputText.value;
-            const charCount = text.length;
-            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-            const lines = text ? text.split(/\r?\n/).length : 0;
-            wordCountEl.textContent = words;
-            charCountEl.textContent = charCount;
-            lineCountEl.textContent = lines;
-        }
-        inputText.addEventListener('input', updateStats);
-
-        function clearInput() { inputText.value = ''; updateStats(); document.getElementById('outputText').value = ''; showToast('Input cleared'); }
-        function trimSpaces() {
-            const text = inputText.value;
-            if (!text.trim()) { showToast('Nothing to trim'); return; }
-            const cleaned = text.replace(/\s+/g, ' ').trim();
-            inputText.value = cleaned;
-            updateStats();
-            showToast('Extra spaces removed');
-        }
-
-        function toTitleCase(str) { return str.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()); }
-        function toSentenceCase(str) { return str.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, c => c.toUpperCase()); }
-        function toAlternatingCase(str) { return str.split('').map((c, i) => i % 2 === 0 ? c.toLowerCase() : c.toUpperCase()).join(''); }
-        function toRandomCase(str) { return str.split('').map(c => Math.random() > 0.5 ? c.toUpperCase() : c.toLowerCase()).join(''); }
-        function toInverseCase(str) { return str.split('').map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join(''); }
-
-        function convertCase(type) {
-            const input = inputText.value;
-            if (!input.trim()) { showToast('Please enter some text first'); return; }
-            let result;
-            switch(type) {
-                case 'upper': result = input.toUpperCase(); break;
-                case 'lower': result = input.toLowerCase(); break;
-                case 'title': result = toTitleCase(input); break;
-                case 'sentence': result = toSentenceCase(input); break;
-                case 'alternating': result = toAlternatingCase(input); break;
-                case 'random': result = toRandomCase(input); break;
-                case 'inverse': result = toInverseCase(input); break;
-                default: result = input;
-            }
-            document.getElementById('outputText').value = result;
-            showToast('Converted to ' + type);
-        }
-
-        function copyOutput() {
-            const output = document.getElementById('outputText');
-            if (!output.value) { showToast('Nothing to copy'); return; }
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(output.value).then(() => showToast('Text copied!'));
-            } else {
-                output.select();
-                document.execCommand('copy');
-                showToast('Text copied!');
-            }
-        }
-
-        function downloadOutput() {
-            const output = document.getElementById('outputText').value;
-            if (!output) { showToast('Nothing to download'); return; }
-            const blob = new Blob([output], {type: 'text/plain'});
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'case-converter-result.txt';
-            a.click();
-            URL.revokeObjectURL(url);
-            showToast('Downloaded as .txt');
-        }
-
-        function toggleFaq(el) {
-            const item = el.parentElement;
-            item.classList.toggle('active');
-            const icon = el.querySelector('svg');
-            if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
-        }
-
-        buildMegaMenu();
-        buildMobileToolsMenu();
-        buildSearchList();
-        updateStats();
-        lucide.createIcons();
     </script>
 </body>
 </html>
