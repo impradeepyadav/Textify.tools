@@ -23,7 +23,7 @@
     <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
     <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
     
-    <!-- Preconnect to critical third-party origins (Core Web Vitals) -->
+    <!-- Preconnect to critical third-party origins -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
     <link rel="preconnect" href="https://cmp.gatekeeperconsent.com">
@@ -57,11 +57,51 @@
     </script>
     <script src="//ezoicanalytics.com/analytics.js"></script>
 
-    <!-- Structured Data (Enhanced for tool page) -->
+    <!-- ========== ENHANCED STRUCTURED DATA – FULLY SELF‑CONTAINED ========== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://textify.tools/#organization",
+          "name": "Textify.tools",
+          "url": "https://textify.tools/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://textify.tools/apple-touch-icon.png",
+            "width": 180,
+            "height": 180
+          },
+          "sameAs": [
+            "https://www.facebook.com/textifydottools",
+            "https://www.instagram.com/textifydottools",
+            "https://x.com/textifydottools"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://textify.tools/#author",
+          "name": "Textify Tools Team",
+          "url": "https://textify.tools/about",
+          "worksFor": { "@id": "https://textify.tools/#organization" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://textify.tools/#website",
+          "url": "https://textify.tools/",
+          "name": "Textify.tools",
+          "description": "Free online text tools that run directly in your browser — word counter, JSON formatter, case converter, password generator and more. No signup, no server uploads, just instant privacy.",
+          "publisher": { "@id": "https://textify.tools/#organization" },
+          "potentialAction": [{
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://textify.tools/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }]
+        },
         {
           "@type": "SoftwareApplication",
           "@id": "https://textify.tools/text-repeater/#tool",
@@ -77,7 +117,19 @@
           },
           "author": { "@id": "https://textify.tools/#author" },
           "publisher": { "@id": "https://textify.tools/#organization" },
-          "browserRequirements": "Requires JavaScript"
+          "browserRequirements": "Requires JavaScript",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://textify.tools/text-repeater-screenshot.png",
+            "caption": "Screenshot of the Text Repeater tool interface",
+            "width": 1200,
+            "height": 630
+          },
+          "screenshot": {
+            "@type": "ImageObject",
+            "url": "https://textify.tools/text-repeater-screenshot.png",
+            "caption": "Text Repeater tool in action"
+          }
         },
         {
           "@type": "WebPage",
@@ -93,7 +145,7 @@
             { "@id": "https://textify.tools/text-repeater/#howto" }
           ],
           "datePublished": "2024-01-15",
-          "dateModified": "2026-06-10",
+          "dateModified": "2026-06-14",
           "author": { "@id": "https://textify.tools/#author" },
           "publisher": { "@id": "https://textify.tools/#organization" }
         },
@@ -626,7 +678,7 @@
                     </div>
                 </div>
 
-                <!-- Extended valuable content -->
+                <!-- Extended valuable content (unchanged) -->
                 <div style="margin-top:60px;border-top:1px solid var(--line);padding-top:30px;">
                     <h2>What is Textify Text Repeater?</h2>
                     <p>Welcome to <strong>Textify.tools</strong> — a free, privacy‑first online text repeater. Unlike many tools, it runs entirely in your browser, meaning your text never leaves your device. Use it to generate repeated text for testing, create dummy data for programming, or simply duplicate messages without having to type them over and over.</p>
