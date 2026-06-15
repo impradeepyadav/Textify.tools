@@ -37,16 +37,25 @@
     <link rel="preconnect" href="https://the.gatekeeperconsent.com">
     <link rel="preconnect" href="https://www.ezojs.com">
     <link rel="preconnect" href="https://ezoicanalytics.com">
-    <!-- Preconnect for Lucide icons -->
     <link rel="preconnect" href="https://unpkg.com">
 
-    <!-- Inter font (added fix) -->
+    <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- yandex verification -->
     <meta name="yandex-verification" content="6e105f6188a8c833" />
+
+    <!-- Inline script to prevent dark mode flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
@@ -120,7 +129,7 @@
                     "isPartOf": { "@id": "https://textify.tools/#website" },
                     "mainEntity": { "@id": "https://textify.tools/#tools-list" },
                     "datePublished": "2024-01-01",
-                    "dateModified": "2026-06-14",
+                    "dateModified": "2025-06-15",
                     "author": { "@id": "https://textify.tools/#author" }
                 },
                 {
@@ -351,17 +360,31 @@
         .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
         .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
         .tools-menu-container { position: relative; }
-        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; }
+        .tools-trigger {
+            display: flex; align-items: center; gap: 4px; cursor: pointer;
+            padding: 6px 8px; border-radius: 6px; color: var(--text-light);
+            font-weight: 500; font-size: 14px; transition: 0.2s;
+            background: none; border: none; font-family: inherit;
+        }
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
         .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
+        /* Mega menu visible when parent has class 'open' (keyboard toggle) or hover */
         .tools-mega-menu {
             position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
             background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
             padding: 12px 8px; min-width: 200px; max-height: 70vh; overflow-y: auto;
-            box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50;
+            box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden;
+            transition: 0.25s; z-index: 50;
         }
-        .tools-menu-container:hover .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
+        .tools-menu-container:hover .tools-mega-menu,
+        .tools-menu-container.open .tools-mega-menu {
+            opacity: 1; visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .tools-menu-container:hover .tools-trigger i,
+        .tools-menu-container.open .tools-trigger i {
+            transform: rotate(180deg);
+        }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
@@ -461,7 +484,7 @@
         .info-table a { color: var(--text); text-decoration: none; font-weight: 600; }
         .info-table a:hover { text-decoration: underline; }
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
-        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
+        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; border: none; width: 100%; text-align: left; font-family: inherit; }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
@@ -474,8 +497,8 @@
         @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-        .footer-grid a { color: var(--footer-link-color); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; transition: transform 0.2s; } /* changed to transform */
-        .footer-grid a:hover { color: var(--footer-link-hover); transform: translateX(6px); } /* smooth move */
+        .footer-grid a { color: var(--footer-link-color); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; transition: transform 0.2s; }
+        .footer-grid a:hover { color: var(--footer-link-hover); transform: translateX(6px); }
         .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
         @media (max-width: 768px) {
             .desktop-nav { display: none; }
@@ -523,8 +546,11 @@
                 </a>
                 <div class="header-right">
                     <div class="desktop-nav">
-                        <div class="tools-menu-container">
-                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                        <div class="tools-menu-container" id="toolsMenuContainer">
+                            <!-- Accessible trigger button -->
+                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleToolsMenu()">
+                                Tools <i data-lucide="chevron-down"></i>
+                            </button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
                         </div>
                         <a href="privacy">Privacy</a>
@@ -723,11 +749,41 @@
 
                 <div class="section">
                     <h2>Questions? We've got answers.</h2>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is every tool actually free? <i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yep, 100% free – no “pro” plans, no credit card tricks. I fund this with a few non‑annoying ads and my own love for building helpful stuff. If it ever changes, I’ll put a giant banner here. Promise.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Do I have to create an account? <i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Not at all. That's the whole point. No registration, no login. Just open the page and start using the tool.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I use the output for commercial projects? <i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. The text you generate belongs to you. Use it for work, school, or anything else without worrying about attribution.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How do you keep the lights on if it's all free? <i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">We show a few non‑intrusive ads (via Google AdSense) to cover hosting and development. That's it. No selling data, no hidden fees.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What if I need a tool that isn't listed? <i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">We're all ears! Drop us a message through our <a href="contact">Contact page</a>. If it's something that can run safely in a browser, we'll probably build it.</div></div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Is every tool actually free?
+                            <i data-lucide="chevron-down" width="16"></i>
+                        </button>
+                        <div class="faq-answer">Yep, 100% free – no “pro” plans, no credit card tricks. I fund this with a few non‑annoying ads and my own love for building helpful stuff. If it ever changes, I’ll put a giant banner here. Promise.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Do I have to create an account?
+                            <i data-lucide="chevron-down" width="16"></i>
+                        </button>
+                        <div class="faq-answer">Not at all. That's the whole point. No registration, no login. Just open the page and start using the tool.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Can I use the output for commercial projects?
+                            <i data-lucide="chevron-down" width="16"></i>
+                        </button>
+                        <div class="faq-answer">Absolutely. The text you generate belongs to you. Use it for work, school, or anything else without worrying about attribution.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            How do you keep the lights on if it's all free?
+                            <i data-lucide="chevron-down" width="16"></i>
+                        </button>
+                        <div class="faq-answer">We show a few non‑intrusive ads (via Google AdSense) to cover hosting and development. That's it. No selling data, no hidden fees.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            What if I need a tool that isn't listed?
+                            <i data-lucide="chevron-down" width="16"></i>
+                        </button>
+                        <div class="faq-answer">We're all ears! Drop us a message through our <a href="contact">Contact page</a>. If it's something that can run safely in a browser, we'll probably build it.</div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -833,11 +889,17 @@
 
         function renderCategoryFilters() {
             const bar = document.getElementById('categoryFilterBar');
-            bar.innerHTML = categories.map(cat => `<button class="cat-chip ${cat.key==='all'?'active':''}" data-cat="${cat.key}" onclick="filterByCategory('${cat.key}', this)">${cat.label}</button>`).join('');
+            bar.innerHTML = categories.map(cat => `<button class="cat-chip ${cat.key==='all'?'active':''}" data-cat="${cat.key}" onclick="filterByCategory('${cat.key}', this)" aria-pressed="${cat.key==='all'}">${cat.label}</button>`).join('');
         }
         function filterByCategory(catKey, btnEl) {
-            document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
-            if (btnEl) btnEl.classList.add('active');
+            document.querySelectorAll('.cat-chip').forEach(c => {
+                c.classList.remove('active');
+                c.setAttribute('aria-pressed', 'false');
+            });
+            if (btnEl) {
+                btnEl.classList.add('active');
+                btnEl.setAttribute('aria-pressed', 'true');
+            }
             document.querySelectorAll('.tool-card').forEach(card => {
                 card.classList.toggle('hidden-card', catKey !== 'all' && card.dataset.category !== catKey);
             });
@@ -848,11 +910,13 @@
                     <div class="tool-icon" style="color:${t.color}"><i data-lucide="${t.icon}" width="24" height="24"></i></div>
                     <h3>${t.name}</h3><p>${t.desc}</p><span class="badge">Free</span>
                 </a>`).join('');
-            lucide.createIcons();
-            filterByCategory('all', document.querySelector('.cat-chip[data-cat="all"]'));
         }
-        function buildMegaMenu() { document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
-        function buildMobileToolsMenu() { document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+        function buildMegaMenu() {
+            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join('');
+        }
+        function buildMobileToolsMenu() {
+            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join('');
+        }
         function buildSearchList() {
             const list = document.getElementById('fullSearchResultsList');
             list.innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category}</span></a>`).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
@@ -861,36 +925,116 @@
             const grid = document.getElementById('categoryGrid');
             const icons = { manipulation: 'edit-3', analysis: 'bar-chart-2', encoding: 'code-2', styling: 'sparkles', generators: 'dices', seo: 'monitor' };
             grid.innerHTML = categories.filter(c => c.key !== 'all').map(cat => `<div class="category-card" onclick="filterByCategory('${cat.key}', document.querySelector('.cat-chip[data-cat=\\'${cat.key}\\']'))"><i data-lucide="${icons[cat.key] || 'grid'}"></i><span>${cat.label}</span></div>`).join('');
-            lucide.createIcons();
         }
+
         let toastTimer;
-        function showToast(msg, dur=3000) { const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('show'), dur); }
+        function showToast(msg, dur=3000) {
+            const t=document.getElementById('toast');
+            t.textContent=msg;
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer=setTimeout(()=>t.classList.remove('show'), dur);
+        }
+
         function toggleTheme() {
-            const b=document.body, s=document.getElementById('sunIcon'), m=document.getElementById('moonIcon'), ms=document.getElementById('mobileSunIcon'), mm=document.getElementById('mobileMoonIcon');
-            if(b.classList.contains('dark-mode')) {
-                b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
-                if(ms){ms.style.display='block'; mm.style.display='none';} localStorage.setItem('theme','light');
+            const b=document.body, s=document.getElementById('sunIcon'), m=document.getElementById('moonIcon'),
+                  ms=document.getElementById('mobileSunIcon'), mm=document.getElementById('mobileMoonIcon');
+            if (b.classList.contains('dark-mode')) {
+                b.classList.remove('dark-mode');
+                s.style.display='block'; m.style.display='none';
+                if (ms){ms.style.display='block'; mm.style.display='none';}
+                localStorage.setItem('theme','light');
                 document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
             } else {
-                b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
-                if(ms){ms.style.display='none'; mm.style.display='block';} localStorage.setItem('theme','dark');
+                b.classList.add('dark-mode');
+                s.style.display='none'; m.style.display='block';
+                if (ms){ms.style.display='none'; mm.style.display='block';}
+                localStorage.setItem('theme','dark');
                 document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
             }
-            // Removed lucide.createIcons() to avoid resetting icon state (like rotated chevrons)
         }
-        document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
-        if(localStorage.getItem('theme')==='dark'){
-            document.body.classList.add('dark-mode'); document.getElementById('sunIcon').style.display='none';
-            document.getElementById('moonIcon').style.display='block';
-            const ms=document.getElementById('mobileSunIcon'), mm=document.getElementById('mobileMoonIcon');
-            if(ms&&mm){ms.style.display='none'; mm.style.display='block';}
+
+        // ---- Mega menu keyboard & touch toggle ----
+        function toggleToolsMenu() {
+            const container = document.getElementById('toolsMenuContainer');
+            const trigger = document.getElementById('toolsTrigger');
+            const isOpen = container.classList.contains('open');
+            if (isOpen) {
+                container.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
+            } else {
+                container.classList.add('open');
+                trigger.setAttribute('aria-expanded', 'true');
+                // Focus first link for keyboard users
+                const firstLink = container.querySelector('.tools-mega-menu a');
+                if (firstLink) firstLink.focus();
+            }
         }
-        function openMobileSidebar(){ document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow='hidden'; }
-        function closeMobileSidebar(){ document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow=''; }
-        function toggleMobileTools(){ document.querySelector('.mobile-tools-toggle').classList.toggle('active'); document.getElementById('mobileToolsMenu').classList.toggle('active'); }
+        // Close mega menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const container = document.getElementById('toolsMenuContainer');
+            if (container && !container.contains(e.target) && container.classList.contains('open')) {
+                container.classList.remove('open');
+                document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+            }
+        });
+        // Close mega menu on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const container = document.getElementById('toolsMenuContainer');
+                if (container && container.classList.contains('open')) {
+                    container.classList.remove('open');
+                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                    document.getElementById('toolsTrigger').focus();
+                }
+            }
+        });
+
+        // ---- Theme init from localStorage (prevent flash already done with inline script in head) ----
+        // Now just set initial icon states
+        (function initIcons() {
+            const sun = document.getElementById('sunIcon');
+            const moon = document.getElementById('moonIcon');
+            const ms = document.getElementById('mobileSunIcon');
+            const mm = document.getElementById('mobileMoonIcon');
+            if (document.body.classList.contains('dark-mode')) {
+                sun.style.display = 'none';
+                moon.style.display = 'block';
+                if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
+            } else {
+                sun.style.display = 'block';
+                moon.style.display = 'none';
+                if (ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
+            }
+        })();
+
+        function openMobileSidebar(){
+            document.getElementById('mobileSidebar').classList.add('active');
+            document.getElementById('mobileSidebarOverlay').classList.add('active');
+            document.body.style.overflow='hidden';
+        }
+        function closeMobileSidebar(){
+            document.getElementById('mobileSidebar').classList.remove('active');
+            document.getElementById('mobileSidebarOverlay').classList.remove('active');
+            document.body.style.overflow='';
+        }
+        function toggleMobileTools(){
+            document.querySelector('.mobile-tools-toggle').classList.toggle('active');
+            document.getElementById('mobileToolsMenu').classList.toggle('active');
+        }
         document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l=>l.addEventListener('click', closeMobileSidebar));
-        function openFullSearch(){ document.getElementById('searchOverlayFull').classList.add('active'); document.body.style.overflow='hidden'; setTimeout(()=>document.getElementById('fullSearchInput').focus(),200); }
-        function closeFullSearch(){ document.getElementById('searchOverlayFull').classList.remove('active'); document.body.style.overflow=''; document.getElementById('fullSearchInput').value=''; filterFullSearch(); }
+
+        function openFullSearch(){
+            document.getElementById('searchOverlayFull').classList.add('active');
+            document.body.style.overflow='hidden';
+            setTimeout(()=>document.getElementById('fullSearchInput').focus(),200);
+        }
+        function closeFullSearch(){
+            document.getElementById('searchOverlayFull').classList.remove('active');
+            document.body.style.overflow='';
+            document.getElementById('fullSearchInput').value='';
+            filterFullSearch();
+        }
         function filterFullSearch(){
             const q=document.getElementById('fullSearchInput').value.toLowerCase().trim();
             const items=document.querySelectorAll('#fullSearchResultsList .search-result-item');
@@ -905,11 +1049,39 @@
         }
         document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l=>l.addEventListener('click', closeFullSearch));
         document.addEventListener('keydown', e=>{
-            if(e.key==='Escape'){ closeFullSearch(); closeMobileSidebar(); }
-            if((e.ctrlKey||e.metaKey)&&e.key==='k'){ e.preventDefault(); openFullSearch(); }
+            if(e.key==='Escape'){
+                // Escape closes search or sidebar, but not if mega menu is open (handled above)
+                closeFullSearch();
+                closeMobileSidebar();
+            }
+            if((e.ctrlKey||e.metaKey)&&e.key==='k'){
+                e.preventDefault();
+                openFullSearch();
+            }
         });
-        function toggleFaq(el){ const item=el.parentElement; item.classList.toggle('active'); const icon=el.querySelector('svg'); if(icon) icon.style.transform=item.classList.contains('active')?'rotate(180deg)':'rotate(0deg)'; }
-        renderCategoryFilters(); renderToolCards(); buildMegaMenu(); buildMobileToolsMenu(); buildSearchList(); renderCategoryGrid(); lucide.createIcons();
+
+        function toggleFaq(btnEl){
+            const item = btnEl.parentElement;
+            const expanded = btnEl.getAttribute('aria-expanded') === 'true';
+            item.classList.toggle('active');
+            btnEl.setAttribute('aria-expanded', !expanded);
+            const icon = btnEl.querySelector('svg');
+            if(icon) {
+                icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+        }
+
+        // ---- Build everything ----
+        renderCategoryFilters();
+        renderToolCards();
+        buildMegaMenu();
+        buildMobileToolsMenu();
+        buildSearchList();
+        renderCategoryGrid();
+        lucide.createIcons(); // single call after all dynamic content
+
+        // Initialize filter to 'all' and ensure active chip is pressed
+        filterByCategory('all', document.querySelector('.cat-chip[data-cat="all"]'));
     </script>
 </body>
 </html>
