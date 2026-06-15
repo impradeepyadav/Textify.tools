@@ -20,9 +20,16 @@
     <meta name="twitter:title" content="Title Case Converter – APA, Chicago, MLA & AP Styles">
     <meta name="twitter:description" content="Convert text to title case using APA, Chicago, MLA, or AP style. Perfect for headlines, paper titles, and blog posts. Instant, private, and free.">
     
-    <link rel="shortcut icon" href="https://www.textify.tools/favicon.ico">
-    <link rel="icon" type="image/x-icon" href="https://www.textify.tools/favicon.ico">
-    
+    <!-- Icons (full set) -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png">
+
     <!-- Preconnect -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
@@ -32,8 +39,23 @@
     <link rel="preconnect" href="https://ezoicanalytics.com">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
+    <!-- Inter font (added) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Yandex verification -->
     <meta name="yandex-verification" content="6e105f6188a8c833" />
+
+    <!-- Inline script to prevent dark mode flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
@@ -60,7 +82,7 @@
     </script>
     <script src="//ezoicanalytics.com/analytics.js"></script>
 
-    <!-- Structured Data -->
+    <!-- Structured Data (date fixed) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -132,7 +154,7 @@
           "about": { "@id": "https://textify.tools/title-case-converter/#tool" },
           "breadcrumb": { "@id": "https://textify.tools/title-case-converter/#breadcrumb" },
           "datePublished": "2024-01-12",
-          "dateModified": "2026-06-14",
+          "dateModified": "2025-06-15",
           "author": { "@id": "https://textify.tools/#author" },
           "publisher": { "@id": "https://textify.tools/#organization" }
         },
@@ -229,7 +251,7 @@
             --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
             --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
-        body.dark-mode {
+        html.dark-mode {
             --bg: #0f172a;
             --text: #f1f5f9;
             --text-light: #94a3b8;
@@ -285,16 +307,36 @@
         .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
         .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
         .tools-menu-container { position: relative; }
-        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; }
+        /* Accessible trigger button */
+        .tools-trigger {
+            display: flex; align-items: center; gap: 4px; cursor: pointer;
+            padding: 6px 8px; border-radius: 6px; color: var(--text-light);
+            font-weight: 500; font-size: 14px; transition: 0.2s;
+            background: none; border: none; font-family: inherit;
+        }
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
         .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
-        .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 200px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
-        .tools-menu-container:hover .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
+        .tools-mega-menu {
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+            background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
+            padding: 12px 8px; min-width: 200px; max-height: 70vh; overflow-y: auto;
+            box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden;
+            transition: 0.25s; z-index: 50;
+        }
+        .tools-menu-container:hover .tools-mega-menu,
+        .tools-menu-container.open .tools-mega-menu {
+            opacity: 1; visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .tools-menu-container:hover .tools-trigger i,
+        .tools-menu-container.open .tools-trigger i {
+            transform: rotate(180deg);
+        }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
         .tools-mega-menu::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
+
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
         .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
@@ -381,10 +423,26 @@
         .section p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
         .section ul, .section ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
 
+        /* FAQ buttons now accessible */
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
-        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
+        .faq-question {
+            background: var(--faq-bg);
+            padding: 16px 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text);
+            font-size: 15px;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
+        }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
-        .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
         .table-wrapper { overflow-x: auto; margin: 25px 0; border: 1px solid var(--line); border-radius: 10px; }
         .info-table { width: 100%; border-collapse: collapse; min-width: 600px; }
@@ -440,8 +498,10 @@
                 </a>
                 <div class="header-right">
                     <div class="desktop-nav">
-                        <div class="tools-menu-container">
-                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                        <div class="tools-menu-container" id="toolsMenuContainer">
+                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleToolsMenu()">
+                                Tools <i data-lucide="chevron-down"></i>
+                            </button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
                         </div>
                         <a href="privacy">Privacy</a>
@@ -579,19 +639,19 @@
                 <div class="section">
                     <h2>Title Case Converter FAQs – Questions? We’ve Got Answers</h2>
                     <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">What is title case and when should I use it? <i data-lucide="chevron-down" width="16"></i></div>
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What is title case and when should I use it? <i data-lucide="chevron-down" width="16"></i></button>
                         <div class="faq-answer">Title case capitalises the first letter of each major word. It's used for headlines, book titles, article headings, and paper titles. Different style guides (APA, Chicago, MLA, AP) have slightly different rules.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">Which style guide should I choose? <i data-lucide="chevron-down" width="16"></i></div>
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Which style guide should I choose? <i data-lucide="chevron-down" width="16"></i></button>
                         <div class="faq-answer">APA is common in social sciences, Chicago for books and publishing, MLA for humanities, and AP for journalism and news. Our default title case follows a simple capitalisation rule.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">Does the converter handle prepositions and articles correctly? <i data-lucide="chevron-down" width="16"></i></div>
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Does the converter handle prepositions and articles correctly? <i data-lucide="chevron-down" width="16"></i></button>
                         <div class="faq-answer">Yes, each style automatically lowercases short prepositions, articles, and coordinating conjunctions according to the corresponding style guide rules.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">Is my text safe and private? <i data-lucide="chevron-down" width="16"></i></div>
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Is my text safe and private? <i data-lucide="chevron-down" width="16"></i></button>
                         <div class="faq-answer">Absolutely. All conversion happens inside your browser — your text never leaves your device.</div>
                     </div>
                 </div>
@@ -705,34 +765,85 @@
             }
 
             let toastTimer;
-            function showToast(msg, dur=3000) {
+            window.showToast = function(msg, dur=3000) {
                 const t = document.getElementById('toast');
                 t.textContent = msg; t.classList.add('show');
                 clearTimeout(toastTimer);
                 toastTimer = setTimeout(() => t.classList.remove('show'), dur);
-            }
+            };
 
             window.toggleTheme = function() {
-                const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
-                      ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-                if (b.classList.contains('dark-mode')) {
-                    b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
+                const html = document.documentElement;
+                const s = document.getElementById('sunIcon');
+                const m = document.getElementById('moonIcon');
+                const ms = document.getElementById('mobileSunIcon');
+                const mm = document.getElementById('mobileMoonIcon');
+                if (html.classList.contains('dark-mode')) {
+                    html.classList.remove('dark-mode');
+                    s.style.display='block'; m.style.display='none';
                     if(ms) { ms.style.display='block'; mm.style.display='none'; }
-                    localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
+                    localStorage.setItem('theme','light');
+                    document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
                 } else {
-                    b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
+                    html.classList.add('dark-mode');
+                    s.style.display='none'; m.style.display='block';
                     if(ms) { ms.style.display='none'; mm.style.display='block'; }
-                    localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
+                    localStorage.setItem('theme','dark');
+                    document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
                 }
             };
 
-            document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
-            if (localStorage.getItem('theme') === 'dark') {
-                document.body.classList.add('dark-mode');
-                document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
-                const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-                if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
-            }
+            // Initial icon state based on pre-applied dark-mode class from inline script
+            (function initIcons() {
+                const sun = document.getElementById('sunIcon');
+                const moon = document.getElementById('moonIcon');
+                const ms = document.getElementById('mobileSunIcon');
+                const mm = document.getElementById('mobileMoonIcon');
+                if (document.documentElement.classList.contains('dark-mode')) {
+                    sun.style.display = 'none';
+                    moon.style.display = 'block';
+                    if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
+                } else {
+                    sun.style.display = 'block';
+                    moon.style.display = 'none';
+                    if (ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
+                }
+            })();
+
+            // ---- Mega menu keyboard & touch toggle ----
+            window.toggleToolsMenu = function() {
+                const container = document.getElementById('toolsMenuContainer');
+                const trigger = document.getElementById('toolsTrigger');
+                const isOpen = container.classList.contains('open');
+                if (isOpen) {
+                    container.classList.remove('open');
+                    trigger.setAttribute('aria-expanded', 'false');
+                } else {
+                    container.classList.add('open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                    const firstLink = container.querySelector('.tools-mega-menu a');
+                    if (firstLink) firstLink.focus();
+                }
+            };
+            // Close mega menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const container = document.getElementById('toolsMenuContainer');
+                if (container && !container.contains(e.target) && container.classList.contains('open')) {
+                    container.classList.remove('open');
+                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                }
+            });
+            // Close mega menu on Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const container = document.getElementById('toolsMenuContainer');
+                    if (container && container.classList.contains('open')) {
+                        container.classList.remove('open');
+                        document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                        document.getElementById('toolsTrigger').focus();
+                    }
+                }
+            });
 
             window.openMobileSidebar = function() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; };
             window.closeMobileSidebar = function() { document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow = ''; };
@@ -756,15 +867,23 @@
             };
             document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
             document.addEventListener('keydown', e => {
-                if (e.key === 'Escape') { closeFullSearch(); closeMobileSidebar(); }
+                if (e.key === 'Escape') {
+                    closeFullSearch();
+                    closeMobileSidebar();
+                }
                 if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
             });
 
-            window.toggleFaq = function(el) {
-                const item = el.parentElement;
+            // Accessible FAQ toggle
+            window.toggleFaq = function(btnEl) {
+                const item = btnEl.parentElement;
+                const expanded = btnEl.getAttribute('aria-expanded') === 'true';
                 item.classList.toggle('active');
-                const icon = el.querySelector('svg');
-                if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                btnEl.setAttribute('aria-expanded', !expanded);
+                const icon = btnEl.querySelector('svg');
+                if (icon) {
+                    icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
             };
 
             // Title case conversion functions
@@ -772,14 +891,12 @@
             const outputText = document.getElementById('outputText');
             const styleButtons = document.querySelectorAll('.style-btn');
 
-            // Words that are always lowercased in title case (unless first/last)
             const minorWords = /^(a|an|the|and|but|or|nor|for|so|yet|at|by|in|of|on|to|up|as|is|if|it|be|am|are|was|were|been|being|have|has|had|having|do|does|did|doing|will|would|shall|should|may|might|must|can|could|off|out|over|per|than|that|this|with|from|into|onto|upon|near|above|below|between|among|through|during|before|after|around|without|within|along|across|except|about|like|via|vs|versus)$/i;
             const subordinatingConjunctions = /^(after|although|as|because|before|even if|even though|if|in order that|once|provided that|rather than|since|so that|than|that|though|unless|until|when|whenever|where|whereas|wherever|whether|while|why)$/i;
 
             function titleCaseDefault(text) {
                 return text.replace(/\w\S*/g, (word) => word.charAt(0).toUpperCase() + word.substr(1).toLowerCase());
             }
-
             function titleCaseAPA(text) {
                 return text.replace(/\w\S*/g, (word, index, words) => {
                     if (index === 0 || index === words.length - 1) return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
@@ -788,7 +905,6 @@
                     return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
                 });
             }
-
             function titleCaseChicago(text) {
                 return text.replace(/\w\S*/g, (word, index, words) => {
                     if (index === 0 || index === words.length - 1) return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
@@ -796,12 +912,7 @@
                     return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
                 });
             }
-
-            function titleCaseMLA(text) {
-                // MLA is essentially the same as Chicago for practical purposes
-                return titleCaseChicago(text);
-            }
-
+            function titleCaseMLA(text) { return titleCaseChicago(text); }
             function titleCaseAP(text) {
                 return text.replace(/\w\S*/g, (word, index, words) => {
                     if (index === 0 || index === words.length - 1) return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
@@ -811,48 +922,27 @@
                 });
             }
 
-            const converters = {
-                default: titleCaseDefault,
-                apa: titleCaseAPA,
-                chicago: titleCaseChicago,
-                mla: titleCaseMLA,
-                ap: titleCaseAP
-            };
+            const converters = { default: titleCaseDefault, apa: titleCaseAPA, chicago: titleCaseChicago, mla: titleCaseMLA, ap: titleCaseAP };
 
             function applyStyle(style) {
                 const text = inputText.value.trim();
-                if (!text) {
-                    outputText.value = '';
-                    return;
-                }
+                if (!text) { outputText.value = ''; return; }
                 outputText.value = converters[style](text);
             }
 
-            // Attach click events to style buttons
             styleButtons.forEach(btn => {
                 btn.addEventListener('click', function() {
                     styleButtons.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
-                    const style = this.dataset.style;
-                    applyStyle(style);
+                    applyStyle(this.dataset.style);
                 });
             });
 
-            // Reapply active style when input changes
             inputText.addEventListener('input', function() {
                 const activeBtn = document.querySelector('.style-btn.active');
-                if (activeBtn) {
-                    applyStyle(activeBtn.dataset.style);
-                } else {
-                    outputText.value = '';
-                }
+                if (activeBtn) applyStyle(activeBtn.dataset.style);
+                else outputText.value = '';
             });
-
-            // Initial conversion on load if text is present (unlikely)
-            const initialActive = document.querySelector('.style-btn.active');
-            if (initialActive && inputText.value.trim()) {
-                applyStyle(initialActive.dataset.style);
-            }
 
             window.clearText = function() {
                 inputText.value = '';
@@ -862,10 +952,7 @@
 
             window.copyResult = async function() {
                 const text = outputText.value;
-                if (!text) {
-                    showToast('Nothing to copy');
-                    return;
-                }
+                if (!text) { showToast('Nothing to copy'); return; }
                 try {
                     if (navigator.clipboard && navigator.clipboard.writeText) {
                         await navigator.clipboard.writeText(text);
