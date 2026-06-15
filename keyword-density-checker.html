@@ -12,9 +12,48 @@
     <meta property="og:url" content="https://textify.tools/keyword-density-checker">
     <meta property="og:title" content="Keyword Density Checker – Analyze Keyword Usage Instantly">
     <meta property="og:description" content="Check keyword density of your content. Identify top keywords, counts, and percentages. All processing stays in your browser – 100% private.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Keyword Density Checker – Analyze Keyword Usage Instantly">
+    <meta name="twitter:description" content="Check keyword density of your content. Identify top keywords, counts, and percentages. All processing stays in your browser – 100% private.">
+    
+    <!-- Icons (full set) -->
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://cmp.gatekeeperconsent.com">
+    <link rel="preconnect" href="https://the.gatekeeperconsent.com">
+    <link rel="preconnect" href="https://www.ezojs.com">
+    <link rel="preconnect" href="https://ezoicanalytics.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Yandex verification -->
+    <meta name="yandex-verification" content="6e105f6188a8c833" />
+
+    <!-- Inline script to prevent dark mode flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -22,18 +61,138 @@
         gtag('js', new Date());
         gtag('config', 'G-6VGXXT81MB');
     </script>
+
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
+
+    <!-- Gatekeeper Consent -->
     <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
     <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+
+    <!-- Ezoic -->
     <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
     <script>
         window.ezstandalone = window.ezstandalone || {};
         ezstandalone.cmd = ezstandalone.cmd || [];
     </script>
     <script src="//ezoicanalytics.com/analytics.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://textify.tools/#organization",
+          "name": "Textify.tools",
+          "url": "https://textify.tools/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://textify.tools/apple-touch-icon.png",
+            "width": 180,
+            "height": 180
+          },
+          "sameAs": [
+            "https://www.facebook.com/textifydottools",
+            "https://www.instagram.com/textifydottools",
+            "https://x.com/textifydottools"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://textify.tools/#author",
+          "name": "Textify Tools Team",
+          "url": "https://textify.tools/about",
+          "worksFor": { "@id": "https://textify.tools/#organization" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://textify.tools/#website",
+          "url": "https://textify.tools/",
+          "name": "Textify.tools",
+          "description": "Free online text tools that run directly in your browser — word counter, JSON formatter, case converter, password generator and more. No signup, no server uploads, just instant privacy.",
+          "publisher": { "@id": "https://textify.tools/#organization" },
+          "potentialAction": [{
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://textify.tools/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://textify.tools/keyword-density-checker/#tool",
+          "name": "Keyword Density Checker",
+          "url": "https://textify.tools/keyword-density-checker",
+          "description": "Analyze keyword density of any text. See top keywords, counts, and percentage density. Free, private, and browser‑based.",
+          "applicationCategory": "WebApplication",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": { "@id": "https://textify.tools/#author" },
+          "publisher": { "@id": "https://textify.tools/#organization" },
+          "browserRequirements": "Requires JavaScript"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://textify.tools/keyword-density-checker/#webpage",
+          "url": "https://textify.tools/keyword-density-checker",
+          "name": "Free Online Keyword Density Checker – Analyze Keyword Usage Instantly",
+          "description": "Analyze how often keywords appear in your text, calculate percentage density, and identify top keywords. Private, instant, and no signup.",
+          "isPartOf": { "@id": "https://textify.tools/#website" },
+          "about": { "@id": "https://textify.tools/keyword-density-checker/#tool" },
+          "breadcrumb": { "@id": "https://textify.tools/keyword-density-checker/#breadcrumb" },
+          "datePublished": "2024-03-01",
+          "dateModified": "2025-06-15",
+          "author": { "@id": "https://textify.tools/#author" },
+          "publisher": { "@id": "https://textify.tools/#organization" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://textify.tools/keyword-density-checker/#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
+            { "@type": "ListItem", "position": 2, "name": "Keyword Density Checker", "item": "https://textify.tools/keyword-density-checker" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://textify.tools/keyword-density-checker/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question", "name": "Does this tool send my text anywhere?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. Everything is processed locally in your browser. Your content is never uploaded or stored on any server." }
+            },
+            {
+              "@type": "Question", "name": "What counts as a word?",
+              "acceptedAnswer": { "@type": "Answer", "text": "The tool splits your text by spaces and punctuation. Numbers and hyphenated words are treated as single terms. When case‑sensitive mode is on, \"SEO\" and \"seo\" are counted separately." }
+            },
+            {
+              "@type": "Question", "name": "What are stop words?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Stop words are common words like \"the\", \"and\", \"of\", \"in\", etc. They appear very frequently but don't carry much meaning. Excluding them gives you a clearer picture of the important keywords." }
+            },
+            {
+              "@type": "Question", "name": "How is density calculated?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Density (%) = (count of a specific word / total words) x 100. For example, if the word \"SEO\" appears 15 times in a 500‑word article, its density is 3%." }
+            },
+            {
+              "@type": "Question", "name": "Can I check multi‑word phrases?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Currently, the tool analyzes single words only. For phrase analysis, you can use our Text Finder & Replacer or the Word Frequency Counter for deeper insights." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <style>
         :root {
             --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
@@ -45,7 +204,7 @@
             --overlay-bg: rgba(0,0,0,0.5); --success-bg: #f0fdf4; --success-text: #166534;
             --sidebar-bg: #ffffff; --accent: #f8fafc; --toast-bg: #1f2937; --toast-text: #ffffff;
         }
-        body.dark-mode {
+        html.dark-mode {
             --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
             --primary: #ffffff; --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b;
             --input-border: #334155; --footer-bg: #0f172a; --footer-text: #e2e8f0;
@@ -68,7 +227,7 @@
             align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
             background: transparent; width: 100%;
         }
-        .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -76,14 +235,35 @@
         .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
         .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
         .tools-menu-container { position: relative; }
-        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; }
+        /* Accessible trigger button */
+        .tools-trigger {
+            display: flex; align-items: center; gap: 4px; cursor: pointer;
+            padding: 6px 8px; border-radius: 6px; color: var(--text-light);
+            font-weight: 500; font-size: 14px; transition: 0.2s;
+            background: none; border: none; font-family: inherit;
+        }
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
         .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
-        .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 200px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
-        .tools-menu-container:hover .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
+        .tools-mega-menu {
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+            background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
+            padding: 12px 8px; min-width: 200px; max-height: 70vh; overflow-y: auto;
+            box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden;
+            transition: 0.25s; z-index: 50;
+        }
+        .tools-menu-container:hover .tools-mega-menu,
+        .tools-menu-container.open .tools-mega-menu {
+            opacity: 1; visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .tools-menu-container:hover .tools-trigger i,
+        .tools-menu-container.open .tools-trigger i {
+            transform: rotate(180deg);
+        }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
+        .tools-mega-menu::-webkit-scrollbar { width: 6px; }
+        .tools-mega-menu::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
         .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
@@ -157,45 +337,83 @@
         .density-bar { display: inline-block; height: 6px; background: var(--primary); border-radius: 3px; vertical-align: middle; margin-left: 8px; }
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
+
+        /* Accessible FAQ buttons */
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
-        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
+        .faq-question {
+            background: var(--faq-bg);
+            padding: 16px 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text);
+            font-size: 15px;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
+        }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
-        .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
         .tip-box { background: #f0fdfa; padding: 18px 20px; border-left: 4px solid #16a34a; border-radius: 8px; margin-bottom: 22px; }
-        body.dark-mode .tip-box { background: #052e16; }
+        html.dark-mode .tip-box { background: #052e16; }
+
         footer {
             border-top: 1px solid var(--footer-border);
             padding: 40px 40px 25px;
             background: transparent;
             width: 100%;
         }
-        .footer-container { width: 100%; }
+        .footer-container { width: 100%; max-width: 100%; }
         .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 35px; width: 100%; }
         @media (max-width: 1200px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-        .footer-grid a { color: var(--footer-link-color); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; transition: color 0.2s, padding-left 0.2s; }
-        .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
+        .footer-grid a {
+            color: var(--footer-link-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 9px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+        .footer-grid a:hover {
+            color: var(--footer-link-hover);
+            transform: translateX(6px);
+        }
         .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 0; } footer { padding: 30px 16px 20px; }
         }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
+        @media (min-width: 1800px) {
+            main { padding: 50px 0; }
+            header { padding: 0 60px; }
+            footer { padding: 50px 60px 30px; }
+            h1 { font-size: 44px; }
+        }
     </style>
 
     <div class="page-wrapper">
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
                     Textify.tools
                 </a>
                 <div class="header-right">
                     <div class="desktop-nav">
-                        <div class="tools-menu-container">
-                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                        <div class="tools-menu-container" id="toolsMenuContainer">
+                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleToolsMenu()">
+                                Tools <i data-lucide="chevron-down"></i>
+                            </button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
                         </div>
                         <a href="privacy">Privacy</a>
@@ -280,23 +498,39 @@
                     <h2>From the Textify Team</h2>
                     <p>We built this keyword density checker because we wanted a simple, private way to audit content without relying on bloated SEO platforms. It runs entirely in your browser, so your article ideas and drafts remain confidential. We hope it helps you craft better, more balanced content.</p>
 
+                    <!-- Accessible FAQ buttons -->
                     <h2>Frequently Asked Questions</h2>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does this tool send my text anywhere?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">No. Everything is processed locally in your browser. Your content is never uploaded or stored on any server.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What counts as a word?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">The tool splits your text by spaces and punctuation. Numbers and hyphenated words are treated as single terms. When case‑sensitive mode is on, "SEO" and "seo" are counted separately.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What are stop words?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Stop words are common words like "the", "and", "of", "in", etc. They appear very frequently but don't carry much meaning. Excluding them gives you a clearer picture of the important keywords.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">How is density calculated?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Density (%) = (count of a specific word / total words) x 100. For example, if the word "SEO" appears 15 times in a 500‑word article, its density is 3%.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I check multi‑word phrases?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Currently, the tool analyzes single words only. For phrase analysis, you can use our <a href="/text-finder-replacer">Text Finder & Replacer</a> or the <a href="/word-frequency-counter">Word Frequency Counter</a> for deeper insights.</div></div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Does this tool send my text anywhere?<i data-lucide="chevron-down" width="16"></i></button>
+                        <div class="faq-answer">No. Everything is processed locally in your browser. Your content is never uploaded or stored on any server.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What counts as a word?<i data-lucide="chevron-down" width="16"></i></button>
+                        <div class="faq-answer">The tool splits your text by spaces and punctuation. Numbers and hyphenated words are treated as single terms. When case‑sensitive mode is on, "SEO" and "seo" are counted separately.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What are stop words?<i data-lucide="chevron-down" width="16"></i></button>
+                        <div class="faq-answer">Stop words are common words like "the", "and", "of", "in", etc. They appear very frequently but don't carry much meaning. Excluding them gives you a clearer picture of the important keywords.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">How is density calculated?<i data-lucide="chevron-down" width="16"></i></button>
+                        <div class="faq-answer">Density (%) = (count of a specific word / total words) x 100. For example, if the word "SEO" appears 15 times in a 500‑word article, its density is 3%.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I check multi‑word phrases?<i data-lucide="chevron-down" width="16"></i></button>
+                        <div class="faq-answer">Currently, the tool analyzes single words only. For phrase analysis, you can use our <a href="/text-finder-replacer">Text Finder & Replacer</a> for deeper insights.</div>
+                    </div>
                 </div>
             </div>
         </main>
 
-        <!-- Footer matching index.html -->
+        <!-- Footer with Slug Generator link & fixed hover -->
         <footer>
             <div class="footer-container">
                 <div class="footer-grid">
                     <div>
                         <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;" width="24" height="24" loading="lazy">
                             Textify.tools
                         </a>
                         <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">Free, private text tools that live in your browser. No signup, no tracking, no nonsense. Bookmark us — you'll be back.</p>
@@ -314,8 +548,8 @@
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
-            <a href="/" class="mobile-sidebar-logo"><img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy">Textify.tools</a>
-            <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
+            <a href="/" class="mobile-sidebar-logo"><img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
+            <button class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
         <div class="mobile-sidebar-nav">
             <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
@@ -334,7 +568,7 @@
             <div class="search-box">
                 <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
                 <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
-                <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
+                <button class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
         </div>
@@ -343,7 +577,7 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // 35 high‑demand tools
+        // 35 high‑demand tools (same as index.html)
         const tools = [
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
             { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
@@ -390,21 +624,81 @@
         }
 
         let toastTimer;
-        function showToast(msg, dur=3000) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur); }
-        function toggleTheme() {
-            const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
-                  ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if(b.classList.contains('dark-mode')) { b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none'; if(ms){ms.style.display='block'; mm.style.display='none';} localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff'); }
-            else { b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block'; if(ms){ms.style.display='none'; mm.style.display='block';} localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a'); }
-            lucide.createIcons();
-        }
-        document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
-        if(localStorage.getItem('theme')==='dark') {
-            document.body.classList.add('dark-mode');
-            document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if(ms && mm){ms.style.display='none'; mm.style.display='block';}
-        }
+        window.showToast = function(msg, dur=3000) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur); };
+
+        // Theme toggle on <html> element
+        window.toggleTheme = function() {
+            const html = document.documentElement;
+            const s = document.getElementById('sunIcon');
+            const m = document.getElementById('moonIcon');
+            const ms = document.getElementById('mobileSunIcon');
+            const mm = document.getElementById('mobileMoonIcon');
+            if (html.classList.contains('dark-mode')) {
+                html.classList.remove('dark-mode');
+                s.style.display='block'; m.style.display='none';
+                if(ms) { ms.style.display='block'; mm.style.display='none'; }
+                localStorage.setItem('theme','light');
+                document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
+            } else {
+                html.classList.add('dark-mode');
+                s.style.display='none'; m.style.display='block';
+                if(ms) { ms.style.display='none'; mm.style.display='block'; }
+                localStorage.setItem('theme','dark');
+                document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
+            }
+        };
+
+        // Initial icon state based on pre-applied dark-mode class from inline script
+        (function initIcons() {
+            const sun = document.getElementById('sunIcon');
+            const moon = document.getElementById('moonIcon');
+            const ms = document.getElementById('mobileSunIcon');
+            const mm = document.getElementById('mobileMoonIcon');
+            if (document.documentElement.classList.contains('dark-mode')) {
+                sun.style.display = 'none';
+                moon.style.display = 'block';
+                if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
+            } else {
+                sun.style.display = 'block';
+                moon.style.display = 'none';
+                if (ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
+            }
+        })();
+
+        // Mega menu keyboard & touch toggle
+        window.toggleToolsMenu = function() {
+            const container = document.getElementById('toolsMenuContainer');
+            const trigger = document.getElementById('toolsTrigger');
+            const isOpen = container.classList.contains('open');
+            if (isOpen) {
+                container.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
+            } else {
+                container.classList.add('open');
+                trigger.setAttribute('aria-expanded', 'true');
+                const firstLink = container.querySelector('.tools-mega-menu a');
+                if (firstLink) firstLink.focus();
+            }
+        };
+        // Close mega menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const container = document.getElementById('toolsMenuContainer');
+            if (container && !container.contains(e.target) && container.classList.contains('open')) {
+                container.classList.remove('open');
+                document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+            }
+        });
+        // Close mega menu on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const container = document.getElementById('toolsMenuContainer');
+                if (container && container.classList.contains('open')) {
+                    container.classList.remove('open');
+                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                    document.getElementById('toolsTrigger').focus();
+                }
+            }
+        });
 
         function openMobileSidebar() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
         function closeMobileSidebar() { document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow = ''; }
@@ -424,9 +718,17 @@
         document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
         document.addEventListener('keydown', e => { if(e.key==='Escape'){closeFullSearch();closeMobileSidebar();} if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openFullSearch();} });
 
-        function toggleFaq(el) { const item=el.parentElement; item.classList.toggle('active'); const icon=el.querySelector('svg'); if(icon)icon.style.transform=item.classList.contains('active')?'rotate(180deg)':'rotate(0deg)'; }
+        // Accessible FAQ toggle
+        window.toggleFaq = function(btnEl) {
+            const item = btnEl.parentElement;
+            const expanded = btnEl.getAttribute('aria-expanded') === 'true';
+            item.classList.toggle('active');
+            btnEl.setAttribute('aria-expanded', !expanded);
+            const icon = btnEl.querySelector('svg');
+            if (icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+        };
 
-        const stopWords = new Set(['the','and','of','to','in','a','is','that','for','it','on','with','as','was','are','be','this','by','at','or','an','from','but','not','we','you','i','he','she','they','his','her','its','our','your','my','me','us','who','which','will','would','can','could','should','may','has','had','been','when','where','why','how','all','any','both','each','few','more','most','other','some','such','no','nor','not','only','own','same','so','than','too','very','just','because','about','into','through','during','before','after','above','below','up','down','out','off','over','under','again','further','then','once','here','there','when','where','why','how','all','both','each','few','more','most','other','some','such','no','nor','not','only','own','same','so','than','too','very']);
+        const stopWords = new Set(['the','and','of','to','in','a','is','that','for','it','on','with','as','was','are','be','this','by','at','or','an','from','but','not','we','you','i','he','she','they','his','her','its','our','your','my','me','us','who','which','will','would','can','could','should','may','has','had','been','when','where','why','how','all','any','both','each','few','more','most','other','some','such','no','nor','not','only','own','same','so','than','too','very','just','because','about','into','through','during','before','after','above','below','up','down','out','off','over','under','again','further','then','once','here','there']);
 
         function analyzeDensity() {
             const text = document.getElementById('inputText').value;
