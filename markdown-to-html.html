@@ -12,9 +12,48 @@
     <meta property="og:url" content="https://textify.tools/markdown-to-html">
     <meta property="og:title" content="Markdown to HTML Converter – Convert .md to HTML Instantly">
     <meta property="og:description" content="Paste your Markdown and get clean HTML code instantly. Live preview, copy, and download options. Works entirely in your browser.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Markdown to HTML Converter – Convert .md to HTML Instantly">
+    <meta name="twitter:description" content="Paste your Markdown and get clean HTML code instantly. Live preview, copy, and download options. Works entirely in your browser.">
+    
+    <!-- Icons (full set) -->
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png">
 
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://cmp.gatekeeperconsent.com">
+    <link rel="preconnect" href="https://the.gatekeeperconsent.com">
+    <link rel="preconnect" href="https://www.ezojs.com">
+    <link rel="preconnect" href="https://ezoicanalytics.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Yandex verification -->
+    <meta name="yandex-verification" content="6e105f6188a8c833" />
+
+    <!-- Inline script to prevent dark mode flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -22,20 +61,141 @@
         gtag('js', new Date());
         gtag('config', 'G-6VGXXT81MB');
     </script>
+
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
+
+    <!-- Gatekeeper Consent -->
     <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
     <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+
+    <!-- Ezoic -->
     <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
     <script>
         window.ezstandalone = window.ezstandalone || {};
         ezstandalone.cmd = ezstandalone.cmd || [];
     </script>
     <script src="//ezoicanalytics.com/analytics.js"></script>
+
     <!-- Marked JS for Markdown parsing -->
     <script src="https://unpkg.com/marked/marked.min.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://textify.tools/#organization",
+          "name": "Textify.tools",
+          "url": "https://textify.tools/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://textify.tools/apple-touch-icon.png",
+            "width": 180,
+            "height": 180
+          },
+          "sameAs": [
+            "https://www.facebook.com/textifydottools",
+            "https://www.instagram.com/textifydottools",
+            "https://x.com/textifydottools"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://textify.tools/#author",
+          "name": "Textify Tools Team",
+          "url": "https://textify.tools/about",
+          "worksFor": { "@id": "https://textify.tools/#organization" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://textify.tools/#website",
+          "url": "https://textify.tools/",
+          "name": "Textify.tools",
+          "description": "Free online text tools that run directly in your browser — word counter, JSON formatter, case converter, password generator and more. No signup, no server uploads, just instant privacy.",
+          "publisher": { "@id": "https://textify.tools/#organization" },
+          "potentialAction": [{
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://textify.tools/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://textify.tools/markdown-to-html/#tool",
+          "name": "Markdown to HTML Converter",
+          "url": "https://textify.tools/markdown-to-html",
+          "description": "Convert Markdown to clean HTML instantly with live preview. Free, private, and browser‑based.",
+          "applicationCategory": "WebApplication",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": { "@id": "https://textify.tools/#author" },
+          "publisher": { "@id": "https://textify.tools/#organization" },
+          "browserRequirements": "Requires JavaScript"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://textify.tools/markdown-to-html/#webpage",
+          "url": "https://textify.tools/markdown-to-html",
+          "name": "Free Online Markdown to HTML Converter – Convert .md Instantly",
+          "description": "Paste your Markdown and get clean HTML code instantly. Live preview, copy, and download options. No signup, completely private.",
+          "isPartOf": { "@id": "https://textify.tools/#website" },
+          "about": { "@id": "https://textify.tools/markdown-to-html/#tool" },
+          "breadcrumb": { "@id": "https://textify.tools/markdown-to-html/#breadcrumb" },
+          "datePublished": "2024-01-25",
+          "dateModified": "2025-06-15",
+          "author": { "@id": "https://textify.tools/#author" },
+          "publisher": { "@id": "https://textify.tools/#organization" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://textify.tools/markdown-to-html/#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
+            { "@type": "ListItem", "position": 2, "name": "Markdown to HTML", "item": "https://textify.tools/markdown-to-html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://textify.tools/markdown-to-html/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question", "name": "Is this Markdown converter free?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free with no limits. No signup or payment required." }
+            },
+            {
+              "@type": "Question", "name": "What dialect of Markdown is supported?",
+              "acceptedAnswer": { "@type": "Answer", "text": "We support standard Markdown (headings, lists, code blocks, links, images, etc.) and a few GitHub‑flavored extensions like tables and strikethrough, thanks to the marked library." }
+            },
+            {
+              "@type": "Question", "name": "Can I see a preview before copying the HTML?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The live preview updates as soon as you convert your text, so you can see exactly how the rendered HTML will look." }
+            },
+            {
+              "@type": "Question", "name": "Is my text private?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes. All processing happens in your browser. Your Markdown content is never uploaded or stored anywhere." }
+            },
+            {
+              "@type": "Question", "name": "Does it work offline?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Once the page has loaded (including the marked library), the converter works without an internet connection." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -64,7 +224,7 @@
             --toast-bg: #1f2937;
             --toast-text: #ffffff;
         }
-        body.dark-mode {
+        html.dark-mode {
             --bg: #0f172a;
             --text: #f1f5f9;
             --text-light: #94a3b8;
@@ -104,16 +264,10 @@
         .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
         header {
             border-bottom: 1px solid var(--line);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 40px;
-            height: 64px;
-            transition: border-color 0.3s;
-            background: transparent;
-            width: 100%;
+            display: flex; justify-content: center; align-items: center;
+            padding: 0 40px; height: 64px; transition: border-color 0.3s; background: transparent; width: 100%;
         }
-        .header-inner { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
@@ -121,14 +275,33 @@
         .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
         .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
         .tools-menu-container { position: relative; }
-        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; }
+        .tools-trigger {
+            display: flex; align-items: center; gap: 4px; cursor: pointer;
+            padding: 6px 8px; border-radius: 6px; color: var(--text-light);
+            font-weight: 500; font-size: 14px; transition: 0.2s;
+            background: none; border: none; font-family: inherit;
+        }
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
         .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
-        .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 200px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
-        .tools-menu-container:hover .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
+        .tools-mega-menu {
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+            background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
+            padding: 12px 8px; min-width: 200px; max-height: 70vh; overflow-y: auto;
+            box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden;
+            transition: 0.25s; z-index: 50;
+        }
+        .tools-menu-container:hover .tools-mega-menu,
+        .tools-menu-container.open .tools-mega-menu {
+            opacity: 1; visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .tools-menu-container:hover .tools-trigger i,
+        .tools-menu-container.open .tools-trigger i { transform: rotate(180deg); }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
+        .tools-mega-menu::-webkit-scrollbar { width: 6px; }
+        .tools-mega-menu::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
+
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
         .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
@@ -138,6 +311,7 @@
         .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
         .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; }
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
+
         .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
         .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
         .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
@@ -194,45 +368,82 @@
         .preview-box { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 20px; max-height: 400px; overflow-y: auto; }
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
+
+        /* Accessible FAQ buttons */
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
-        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; }
+        .faq-question {
+            background: var(--faq-bg);
+            padding: 16px 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text);
+            font-size: 15px;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
+        }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
         .tip-box { background: #f0fdfa; padding: 18px 20px; border-left: 4px solid #16a34a; border-radius: 8px; margin-bottom: 22px; }
-        body.dark-mode .tip-box { background: #052e16; }
+        html.dark-mode .tip-box { background: #052e16; }
+
         footer {
             border-top: 1px solid var(--footer-border);
             padding: 40px 40px 25px;
             background: transparent;
             width: 100%;
         }
-        .footer-container { width: 100%; }
+        .footer-container { width: 100%; max-width: 100%; }
         .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 35px; width: 100%; }
         @media (max-width: 1200px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
         @media(max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
         .footer-grid h5 { color: var(--footer-heading); font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-        .footer-grid a { color: var(--footer-link-color); text-decoration: none; display: block; margin-bottom: 9px; font-size: 13px; font-weight: 500; transition: color 0.2s, padding-left 0.2s; }
-        .footer-grid a:hover { color: var(--footer-link-hover); padding-left: 6px; }
+        .footer-grid a {
+            color: var(--footer-link-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 9px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: transform 0.2s; /* smooth move */
+        }
+        .footer-grid a:hover {
+            color: var(--footer-link-hover);
+            transform: translateX(6px); /* no layout shift */
+        }
         .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
+
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 0; } footer { padding: 30px 16px 20px; }
         }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
+        @media (min-width: 1800px) {
+            main { padding: 50px 0; }
+            header { padding: 0 60px; }
+            footer { padding: 50px 60px 30px; }
+            h1 { font-size: 44px; }
+        }
     </style>
 
     <div class="page-wrapper">
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img">
+                    <img src="https://www.textify.tools/favicon.ico" alt="Textify.Tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
                     Textify.tools
                 </a>
                 <div class="header-right">
                     <div class="desktop-nav">
-                        <div class="tools-menu-container">
-                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                        <div class="tools-menu-container" id="toolsMenuContainer">
+                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleToolsMenu()">
+                                Tools <i data-lucide="chevron-down"></i>
+                            </button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
                         </div>
                         <a href="privacy">Privacy</a>
@@ -299,23 +510,39 @@
                     <h2>From the Textify Team</h2>
                     <p>We built this converter to make the lives of writers and developers a little easier. No more hunting for an online converter that might store your content. Paste your Markdown, get your HTML, and move on with your project. Fast, private, and always free.</p>
 
+                    <!-- Accessible FAQ buttons -->
                     <h2>Frequently Asked Questions</h2>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is this Markdown converter free?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes, completely free with no limits. No signup or payment required.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">What dialect of Markdown is supported?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">We support standard Markdown (headings, lists, code blocks, links, images, etc.) and a few GitHub‑flavored extensions like tables and strikethrough, thanks to the marked library.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Can I see a preview before copying the HTML?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Absolutely. The live preview updates as soon as you convert your text, so you can see exactly how the rendered HTML will look.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Yes. All processing happens in your browser. Your Markdown content is never uploaded or stored anywhere.</div></div>
-                    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Does it work offline?<i data-lucide="chevron-down" width="16"></i></div><div class="faq-answer">Once the page has loaded (including the marked library), the converter works without an internet connection.</div></div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Is this Markdown converter free?<i data-lucide="chevron-down" width="16"></i></button>
+                        <div class="faq-answer">Yes, completely free with no limits. No signup or payment required.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What dialect of Markdown is supported?<i data-lucide="chevron-down" width="16"></i></button>
+                        <div class="faq-answer">We support standard Markdown (headings, lists, code blocks, links, images, etc.) and a few GitHub‑flavored extensions like tables and strikethrough, thanks to the marked library.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I see a preview before copying the HTML?<i data-lucide="chevron-down" width="16"></i></button>
+                        <div class="faq-answer">Absolutely. The live preview updates as soon as you convert your text, so you can see exactly how the rendered HTML will look.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></button>
+                        <div class="faq-answer">Yes. All processing happens in your browser. Your Markdown content is never uploaded or stored anywhere.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Does it work offline?<i data-lucide="chevron-down" width="16"></i></button>
+                        <div class="faq-answer">Once the page has loaded (including the marked library), the converter works without an internet connection.</div>
+                    </div>
                 </div>
             </div>
         </main>
 
-        <!-- Footer matching index.html -->
+        <!-- Footer with Slug Generator link & fixed hover -->
         <footer>
             <div class="footer-container">
                 <div class="footer-grid">
                     <div>
                         <a href="/" style="display:flex;align-items:center;gap:8px;color:var(--footer-heading);font-size:20px;font-weight:800;text-decoration:none;">
-                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;">
+                            <img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" style="width:24px; height:24px; border-radius:4px; object-fit:contain;" width="24" height="24" loading="lazy">
                             Textify.tools
                         </a>
                         <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">Free, private text tools that live in your browser. No signup, no tracking, no nonsense. Bookmark us — you'll be back.</p>
@@ -334,7 +561,7 @@
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo"><img src="https://www.textify.tools/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
-            <button class="mobile-sidebar-close" onclick="closeMobileSidebar()"><i data-lucide="x" width="20" height="20"></i></button>
+            <button class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
         <div class="mobile-sidebar-nav">
             <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
@@ -353,7 +580,7 @@
             <div class="search-box">
                 <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
                 <input type="text" id="fullSearchInput" placeholder="Search all text tools..." oninput="filterFullSearch()" autofocus>
-                <button class="search-close-btn" onclick="closeFullSearch()"><i data-lucide="x" width="20" height="20"></i></button>
+                <button class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
         </div>
@@ -362,7 +589,7 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // 35 high‑demand tools (same as index.html)
+        // Tools list matching index.html
         const tools = [
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
             { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
@@ -409,21 +636,81 @@
         }
 
         let toastTimer;
-        function showToast(msg, dur=3000) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur); }
-        function toggleTheme() {
-            const b = document.body, s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
-                  ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if(b.classList.contains('dark-mode')) { b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none'; if(ms){ms.style.display='block'; mm.style.display='none';} localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff'); }
-            else { b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block'; if(ms){ms.style.display='none'; mm.style.display='block';} localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a'); }
-            lucide.createIcons();
-        }
-        document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
-        if(localStorage.getItem('theme')==='dark') {
-            document.body.classList.add('dark-mode');
-            document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if(ms && mm){ms.style.display='none'; mm.style.display='block';}
-        }
+        window.showToast = function(msg, dur=3000) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur); };
+
+        // Toggle theme on <html> element
+        window.toggleTheme = function() {
+            const html = document.documentElement;
+            const s = document.getElementById('sunIcon');
+            const m = document.getElementById('moonIcon');
+            const ms = document.getElementById('mobileSunIcon');
+            const mm = document.getElementById('mobileMoonIcon');
+            if (html.classList.contains('dark-mode')) {
+                html.classList.remove('dark-mode');
+                s.style.display='block'; m.style.display='none';
+                if(ms) { ms.style.display='block'; mm.style.display='none'; }
+                localStorage.setItem('theme','light');
+                document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
+            } else {
+                html.classList.add('dark-mode');
+                s.style.display='none'; m.style.display='block';
+                if(ms) { ms.style.display='none'; mm.style.display='block'; }
+                localStorage.setItem('theme','dark');
+                document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
+            }
+        };
+
+        // Initial icon state based on pre-applied dark-mode class from inline script
+        (function initIcons() {
+            const sun = document.getElementById('sunIcon');
+            const moon = document.getElementById('moonIcon');
+            const ms = document.getElementById('mobileSunIcon');
+            const mm = document.getElementById('mobileMoonIcon');
+            if (document.documentElement.classList.contains('dark-mode')) {
+                sun.style.display = 'none';
+                moon.style.display = 'block';
+                if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
+            } else {
+                sun.style.display = 'block';
+                moon.style.display = 'none';
+                if (ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
+            }
+        })();
+
+        // Mega menu keyboard & touch toggle
+        window.toggleToolsMenu = function() {
+            const container = document.getElementById('toolsMenuContainer');
+            const trigger = document.getElementById('toolsTrigger');
+            const isOpen = container.classList.contains('open');
+            if (isOpen) {
+                container.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
+            } else {
+                container.classList.add('open');
+                trigger.setAttribute('aria-expanded', 'true');
+                const firstLink = container.querySelector('.tools-mega-menu a');
+                if (firstLink) firstLink.focus();
+            }
+        };
+        // Close mega menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const container = document.getElementById('toolsMenuContainer');
+            if (container && !container.contains(e.target) && container.classList.contains('open')) {
+                container.classList.remove('open');
+                document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+            }
+        });
+        // Close mega menu on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const container = document.getElementById('toolsMenuContainer');
+                if (container && container.classList.contains('open')) {
+                    container.classList.remove('open');
+                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                    document.getElementById('toolsTrigger').focus();
+                }
+            }
+        });
 
         function openMobileSidebar() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; }
         function closeMobileSidebar() { document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow = ''; }
@@ -443,18 +730,21 @@
         document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
         document.addEventListener('keydown', e => { if(e.key==='Escape'){closeFullSearch();closeMobileSidebar();} if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openFullSearch();} });
 
-        function toggleFaq(el) { const item=el.parentElement; item.classList.toggle('active'); const icon=el.querySelector('svg'); if(icon)icon.style.transform=item.classList.contains('active')?'rotate(180deg)':'rotate(0deg)'; }
+        // Accessible FAQ toggle
+        window.toggleFaq = function(btnEl) {
+            const item = btnEl.parentElement;
+            const expanded = btnEl.getAttribute('aria-expanded') === 'true';
+            item.classList.toggle('active');
+            btnEl.setAttribute('aria-expanded', !expanded);
+            const icon = btnEl.querySelector('svg');
+            if (icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+        };
 
         function convertMarkdown() {
             const input = document.getElementById('markdownInput').value;
             if (!input.trim()) { showToast('Please enter some Markdown text.'); return; }
             let html;
-            try {
-                html = marked.parse(input);
-            } catch (e) {
-                alert('Error parsing Markdown. Please check your input.');
-                return;
-            }
+            try { html = marked.parse(input); } catch (e) { alert('Error parsing Markdown. Please check your input.'); return; }
             document.getElementById('htmlOutput').value = html;
             document.getElementById('previewBox').innerHTML = html;
             document.getElementById('outputArea').style.display = 'block';
