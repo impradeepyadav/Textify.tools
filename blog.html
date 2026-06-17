@@ -179,7 +179,6 @@
     .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
     .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
     .tools-menu-container { position: relative; }
-    /* Accessible trigger button */
     .tools-trigger {
       display: flex; align-items: center; gap: 4px; cursor: pointer;
       padding: 6px 8px; border-radius: 6px; color: var(--text-light);
@@ -574,7 +573,7 @@
       if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
     });
 
-    // Blog posts
+    // Expanded blog posts – original 28 plus 15 new ones (total 43), all written in a human, US English style
     const allPosts = [
       { slug: "how-to-repeat-text-on-whatsapp", title: "How to Repeat Text on WhatsApp Without Annoying Everyone", date: "May 2, 2026", excerpt: "We've all been there — you want to send a long, dramatic message but don't want to type it out a hundred times. Here's how to do it safely.", icon: "message-circle" },
       { slug: "text-repeater-for-instagram-bio", title: "Make Your Instagram Bio Stand Out with Our Text Repeater", date: "April 28, 2026", excerpt: "Add decorations, play with line breaks, and turn your bio into something that actually makes people stop scrolling.", icon: "sparkles" },
@@ -603,10 +602,27 @@
       { slug: "url-encoder-decoder-guide", title: "When (and Why) You Need URL Encoding", date: "Feb 10, 2026", excerpt: "Special characters breaking your links? Our client‑side encoder fixes that in a flash.", icon: "link-2" },
       { slug: "uuid-generator-developer", title: "Generate Unique IDs That Won't Clash — Offline", date: "Feb 8, 2026", excerpt: "Perfect for databases, file names, or tracking. No network needed, just pure randomness.", icon: "fingerprint" },
       { slug: "whitespace-cleaner-tips", title: "How to Clean Up Text That's Full of Extra Spaces", date: "Feb 5, 2026", excerpt: "Ever copied text from a PDF and it turned into a mess? Our whitespace cleaner fixes that in seconds.", icon: "sparkles" },
-      { slug: "markdown-to-html-converter", title: "Convert Markdown to Clean HTML Without Leaving Your Browser", date: "Feb 2, 2026", excerpt: "Bloggers, developers, note‑takers — this one's for you. Instant, offline, and totally private.", icon: "file-code" }
+      { slug: "markdown-to-html-converter", title: "Convert Markdown to Clean HTML Without Leaving Your Browser", date: "Feb 2, 2026", excerpt: "Bloggers, developers, note‑takers — this one's for you. Instant, offline, and totally private.", icon: "file-code" },
+
+      // 15 additional high‑value posts (human‑written style, US English)
+      { slug: "offline-word-counter-tricks", title: "How to Count Words Without an Internet Connection", date: "June 15, 2026", excerpt: "Airplane mode? No problem. Our word counter runs completely offline, so you can hit your daily writing goal anywhere — even when your Wi‑Fi ghosts you.", icon: "wifi-off" },
+      { slug: "json-formatter-vs-online-validators", title: "JSON Formatter vs. Online Validators: Why Local Tools Are Safer", date: "June 12, 2026", excerpt: "Most online validators send your data to a server. Here's why that's a privacy nightmare and how a client‑side formatter keeps your API responses out of someone else's logs.", icon: "lock" },
+      { slug: "hidden-danger-online-password-generators", title: "The Hidden Danger of Online Password Generators (And How to Stay Safe)", date: "June 10, 2026", excerpt: "Not all password generators are created equal. Some phone home with the very passwords they create. Learn how to pick one that respects your digital boundaries.", icon: "alert-triangle" },
+      { slug: "remove-duplicate-lines-quickly", title: "5 Quick Ways to Remove Duplicate Lines from Any Text File", date: "June 7, 2026", excerpt: "Got a list with a thousand entries and no time to scroll? We'll show you three keyboard shortcuts and a dead‑simple tool that removes doubles in a click.", icon: "list-x" },
+      { slug: "case-converter-mobile-guide", title: "Case Converter on Mobile: A Step‑by‑Step Guide", date: "June 5, 2026", excerpt: "Your phone's autocorrect can't fix an all‑caps disaster. Use our mobile‑friendly case converter to salvage that draft before you send it — no squinting required.", icon: "smartphone" },
+      { slug: "slug-generator-for-better-blogs", title: "How to Use a Slug Generator for Better Blog URLs", date: "June 3, 2026", excerpt: "Stop URLs like `/blog/123?ref=home` from haunting your analytics. This quick guide teaches you to craft clean, readable slugs that search engines (and readers) love.", icon: "edit" },
+      { slug: "why-client-side-diff-checker", title: "Why Your Diff Checker Should Be Client‑Side (Not Cloud‑Based)", date: "May 30, 2026", excerpt: "Comparing sensitive code or contracts? Uploading them to a third‑party server is asking for trouble. Here's why a browser‑based diff tool is the only safe bet.", icon: "shield-off" },
+      { slug: "complete-text-cleaning-guide", title: "The Complete Guide to Text Cleaning: From Whitespace to Encoding", date: "May 28, 2026", excerpt: "Invisible characters, non‑breaking spaces, weird Unicode — we break down the most common text gremlins and show you how to clean them up fast.", icon: "broom" },
+      { slug: "lorem-ipsum-alternatives", title: "Lorem Ipsum Alternatives: When Placeholder Text Needs a Refresh", date: "May 25, 2026", excerpt: "Tired of the same old Latin? Try our generator with a twist, or learn how to create your own meaningful placeholder that actually helps your design flow.", icon: "pilcrow" },
+      { slug: "random-word-generator-creativity", title: "Using a Random Word Generator for Brainstorming and Creativity", date: "May 22, 2026", excerpt: "Writer's block? Get a random noun, verb, or adjective and challenge yourself to weave it into a story. It works for naming projects, too — ask me how I know.", icon: "lightbulb" },
+      { slug: "morse-code-history-modern-uses", title: "Morse Code History and Modern Uses – Plus a Free Converter", date: "May 20, 2026", excerpt: "From SOS signals to escape rooms, Morse code is far from dead. Discover its surprising applications and try our instant translator for fun.", icon: "antenna" },
+      { slug: "hidden-emails-in-document", title: "How to Spot Hidden Emails in a Large Document (and Extract Them)", date: "May 18, 2026", excerpt: "Digging through a 50‑page PDF for contact info is nobody's idea of fun. Our email extractor finds them all, even the ones buried in headers and footers.", icon: "search" },
+      { slug: "text-to-handwriting-personal-touch", title: "Text to Handwriting: Making Digital Notes Feel Personal", date: "May 15, 2026", excerpt: "Printing assignments that look handwritten used to be a chore. Our tool lets you pick a style, tweak the pen color, and download an image — no printer needed.", icon: "feather" },
+      { slug: "fancy-text-for-social-no-app", title: "Fancy Text Styles for Instagram, Twitter, and Beyond – No App Needed", date: "May 12, 2026", excerpt: "You don't need a sketchy app to get cursive, bold, or bubble letters. Our Unicode text generator works right in your browser, so your bio stays fresh and your phone stays clean.", icon: "wand-2" },
+      { slug: "utm-codes-that-dont-break", title: "How to Build UTM Codes That Won't Break Your Analytics", date: "May 10, 2026", excerpt: "One typo in a UTM parameter can mess up an entire campaign. Learn the naming conventions that keep your data clean and your reports trustworthy.", icon: "bar-chart-2" }
     ];
 
-    let visiblePosts = 12;
+    let visiblePosts = 15;
     const blogGrid = document.getElementById('blogGrid');
     const loadMoreContainer = document.getElementById('loadMoreContainer');
 
@@ -629,7 +645,7 @@
     }
 
     function loadMorePosts() {
-      visiblePosts += 3;
+      visiblePosts += 6;
       if (visiblePosts >= allPosts.length) {
         visiblePosts = allPosts.length;
         loadMoreContainer.style.display = 'none';
