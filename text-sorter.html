@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
-    <title>Text Sorter – Sort Lines Alphabetically, Numerically & Randomly | Textify.tools</title>
-    <meta name="description" content="Free online Text Sorter tool. Sort lines alphabetically, numerically, randomly, reverse order, or remove duplicates. Fast, private, and no login required.">
+    <title>Online Text Sorter – Quickly Sort Any Text List</title>
+    <meta name="description" content="Sort text lines, words, and lists instantly with our free Text Sorter. Arrange text alphabetically (A–Z or Z–A), remove duplicates, and organize content online in seconds.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/text-sorter">
     <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
     <meta name="twitter:title" content="Text Sorter – Sort Lines Quickly Online">
     <meta name="twitter:description" content="Sort any list alphabetically, numerically, or randomly. No uploads, just instant results.">
     
-    <!-- Icons (full set) -->
+    <!-- Icons -->
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -77,7 +77,7 @@
     </script>
     <script src="//ezoicanalytics.com/analytics.js"></script>
 
-    <!-- Structured Data (new) -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -226,6 +226,14 @@
             --accent: #f8fafc;
             --toast-bg: #1f2937;
             --toast-text: #ffffff;
+            --saved-accent-az: #3b82f6;
+            --saved-accent-za: #f97316;
+            --saved-accent-num: #22c55e;
+            --saved-accent-desc: #8b5cf6;
+            --saved-accent-random: #ec4899;
+            --saved-accent-reverse: #6b7280;
+            --saved-accent-length-asc: #14b8a6;
+            --saved-accent-length-desc: #f43f5e;
         }
         html.dark-mode {
             --bg: #0f172a;
@@ -255,6 +263,14 @@
             --accent: #1e293b;
             --toast-bg: #f1f5f9;
             --toast-text: #0f172a;
+            --saved-accent-az: #60a5fa;
+            --saved-accent-za: #fb923c;
+            --saved-accent-num: #4ade80;
+            --saved-accent-desc: #a78bfa;
+            --saved-accent-random: #f472b6;
+            --saved-accent-reverse: #9ca3af;
+            --saved-accent-length-asc: #2dd4bf;
+            --saved-accent-length-desc: #fb7185;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -296,7 +312,6 @@
         .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
         .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
         .tools-menu-container { position: relative; }
-        /* Accessible trigger button */
         .tools-trigger {
             display: flex; align-items: center; gap: 4px; cursor: pointer;
             padding: 6px 8px; border-radius: 6px; color: var(--text-light);
@@ -392,8 +407,16 @@
         .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.7; margin-bottom: 40px; text-align: left; }
         p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
         ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
-        textarea { width: 100%; height: 160px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; transition: 0.2s; margin-bottom: 22px; }
+        textarea { width: 100%; height: 160px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; transition: 0.2s; margin-bottom: 8px; }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
+        .live-counter {
+            display: flex;
+            gap: 18px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 18px;
+        }
         .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
         .option-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 12px; }
         .option-card:hover { border-color: var(--primary); background: var(--hover); }
@@ -418,7 +441,6 @@
         .how-to-card .step-num { background: var(--primary); color: var(--bg); width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
         .how-to-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
         .how-to-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; margin: 0; }
-        /* Accessible FAQ buttons */
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
         .faq-question {
             background: var(--faq-bg);
@@ -438,6 +460,267 @@
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
+
+        /* ========== Fresh Saved Sorts Panel ========== */
+        .saved-sorts-section {
+            margin-top: 40px;
+            border-radius: 16px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            box-shadow: 0 8px 30px var(--shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .saved-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            cursor: pointer;
+            user-select: none;
+            background: var(--hover);
+            border-bottom: 1px solid transparent;
+            transition: background 0.2s;
+        }
+        .saved-header:hover {
+            background: var(--faq-active);
+        }
+        .saved-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .saved-header-icon {
+            background: var(--primary);
+            color: var(--bg);
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .saved-header-text h3 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .saved-count {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-left: 4px;
+        }
+        .saved-toggle-icon {
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .saved-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s;
+        }
+        .saved-body.open {
+            max-height: 1200px;
+            padding: 24px;
+        }
+        .save-new-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .save-new-row input {
+            flex: 1 1 200px;
+            min-width: 200px;
+            padding: 12px 16px;
+            border: 2px solid var(--input-border);
+            border-radius: 12px;
+            background: var(--input-bg);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .save-new-row input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+        }
+        .save-new-row .btn-save {
+            background: var(--primary);
+            color: var(--bg);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
+            white-space: nowrap;
+        }
+        .save-new-row .btn-save:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .saved-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .saved-item {
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            transition: box-shadow 0.2s, transform 0.1s;
+            border-left: 6px solid var(--saved-accent-az);
+        }
+        .saved-item:hover {
+            box-shadow: 0 6px 18px var(--shadow);
+            transform: translateY(-2px);
+        }
+        .saved-item-info {
+            flex: 1 1 200px;
+        }
+        .saved-item-name {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text);
+            margin-bottom: 4px;
+            border-bottom: 1px dashed transparent;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .saved-item-name:hover {
+            border-bottom-color: var(--text-light);
+        }
+        .saved-item-name input {
+            width: 100%;
+            font: inherit;
+            font-weight: 700;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 6px;
+            padding: 4px 8px;
+            color: var(--text);
+            outline: none;
+        }
+        .saved-item-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        .saved-method-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--hover);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--text);
+        }
+        .saved-time {
+            font-weight: 500;
+        }
+        .saved-item-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .btn-icon {
+            background: var(--hover);
+            border: 1px solid var(--line);
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .btn-icon:hover {
+            background: var(--faq-active);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .btn-icon i {
+            width: 16px;
+            height: 16px;
+        }
+        .no-saves {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .no-saves-icon {
+            width: 48px;
+            height: 48px;
+            color: var(--text-light);
+            opacity: 0.6;
+        }
+        .no-saves p {
+            font-size: 15px;
+            margin: 0;
+        }
+        .no-saves .sub-message {
+            font-size: 13px;
+            color: var(--text-light);
+            opacity: 0.7;
+        }
+        .clear-saves-row {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 16px;
+        }
+        .btn-clear-saves {
+            background: transparent;
+            border: 1px solid #ef4444;
+            color: #ef4444;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-clear-saves:hover {
+            background: #ef4444;
+            color: #ffffff;
+        }
+        /* left accent colors */
+        .accent-az { border-left-color: var(--saved-accent-az); }
+        .accent-za { border-left-color: var(--saved-accent-za); }
+        .accent-numeric-asc { border-left-color: var(--saved-accent-num); }
+        .accent-numeric-desc { border-left-color: var(--saved-accent-desc); }
+        .accent-random { border-left-color: var(--saved-accent-random); }
+        .accent-reverse { border-left-color: var(--saved-accent-reverse); }
+        .accent-length-asc { border-left-color: var(--saved-accent-length-asc); }
+        .accent-length-desc { border-left-color: var(--saved-accent-length-desc); }
 
         footer {
             border-top: 1px solid var(--footer-border);
@@ -476,6 +759,8 @@
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; }
             main { padding: 20px 0; }
             footer { padding: 30px 16px 20px; }
+            .saved-item { flex-direction: column; align-items: flex-start; }
+            .saved-item-actions { width: 100%; justify-content: flex-end; }
         }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
         @media (min-width: 1800px) {
@@ -521,7 +806,11 @@
                 <h1>Text Sorter – Sort Lines Alphabetically, Numerically & More</h1>
                 <p class="subtitle">Enter a list of items, choose a sorting method, and instantly get sorted output. Works completely in your browser. No signup, no uploads.</p>
 
-                <textarea id="inputText" placeholder="Paste or type your list here (one item per line)..."></textarea>
+                <textarea id="inputText" placeholder="Paste or type your list here (one item per line)..." oninput="updateLiveCounter()"></textarea>
+                <div class="live-counter" id="liveCounter">
+                    <span>Lines: <strong id="liveLineCount">0</strong></span>
+                    <span>Characters: <strong id="liveCharCount">0</strong></span>
+                </div>
 
                 <div class="options-grid" id="sortOptions">
                     <label class="option-card active" onclick="setSort('alpha-az')">
@@ -544,6 +833,16 @@
                         <span class="label-text">9 → 1 (Numeric Descending)</span>
                         <input type="radio" name="sortType" value="numeric-desc">
                     </label>
+                    <label class="option-card" onclick="setSort('length-asc')">
+                        <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
+                        <span class="label-text">Shortest → Longest (Length)</span>
+                        <input type="radio" name="sortType" value="length-asc">
+                    </label>
+                    <label class="option-card" onclick="setSort('length-desc')">
+                        <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
+                        <span class="label-text">Longest → Shortest (Length)</span>
+                        <input type="radio" name="sortType" value="length-desc">
+                    </label>
                     <label class="option-card" onclick="setSort('random')">
                         <span class="check-icon"><i data-lucide="check" width="14" height="14"></i></span>
                         <span class="label-text">Random Shuffle</span>
@@ -562,21 +861,47 @@
                     <label><input type="checkbox" id="skipEmpty"> Skip empty lines</label>
                 </div>
 
-                <div style="display:flex; gap:10px; margin-bottom:30px;">
+                <div style="display:flex; gap:10px; margin-bottom:30px; flex-wrap:wrap;">
                     <button class="btn btn-primary" id="sortBtn" onclick="sortText()"><i data-lucide="arrow-up-down" width="18" height="18"></i> Sort List</button>
+                    <button class="btn btn-outline" onclick="randomPick()"><i data-lucide="dices" width="18" height="18"></i> Random Pick</button>
                     <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
                 </div>
 
                 <div class="output-area" id="outputArea">
                     <div style="background:var(--success-bg);padding:14px 18px;border-radius:12px;margin-bottom:20px;text-align:center;color:var(--success-text);font-weight:600;font-size:15px;border:1px solid rgba(22,163,74,0.2);" id="resultInfo"></div>
                     <textarea id="outputText" readonly></textarea>
-                    <div style="display:flex;gap:10px;margin-top:15px;">
+                    <div style="display:flex;gap:10px;margin-top:15px; flex-wrap:wrap;">
                         <button class="btn btn-primary" id="copyBtn" onclick="copyToClipboard()"><i data-lucide="copy" width="18" height="18"></i> Copy Sorted Text</button>
                         <button class="btn btn-primary" style="background:#16a34a;" id="downloadBtn" onclick="downloadText()"><i data-lucide="download" width="18" height="18"></i> Download .txt</button>
+                        <button class="btn btn-outline" id="saveSortBtn" onclick="saveCurrentSort()"><i data-lucide="bookmark" width="18" height="18"></i> Save for Future</button>
                     </div>
                 </div>
 
-                <!-- Expanded valuable content -->
+                <!-- Saved Sorts Panel -->
+                <div class="saved-sorts-section" id="savedSection">
+                    <div class="saved-header" onclick="toggleSavedPanel()">
+                        <div class="saved-header-left">
+                            <div class="saved-header-icon">
+                                <i data-lucide="archive" width="20" height="20"></i>
+                            </div>
+                            <div class="saved-header-text">
+                                <h3>Your Saved Sorts <span class="saved-count" id="savedCountBadge"></span></h3>
+                            </div>
+                        </div>
+                        <div class="saved-toggle-icon">
+                            <i data-lucide="chevron-down" id="savedToggleIcon" width="22" height="22"></i>
+                        </div>
+                    </div>
+                    <div class="saved-body" id="savedBody">
+                        <div class="save-new-row">
+                            <input type="text" id="newSaveName" placeholder="Name this sort (e.g., bibliography A-Z)" maxlength="50">
+                            <button class="btn-save" onclick="saveCurrentSort()"><i data-lucide="plus" width="16" height="16"></i> Save Current Sort</button>
+                        </div>
+                        <ul class="saved-list" id="savedList"></ul>
+                    </div>
+                </div>
+
+                <!-- Expanded content -->
                 <div style="margin-top:60px; border-top:1px solid var(--line); padding:30px 0 0 0;">
                     <h2>How to Use the Text Sorter</h2>
                     <div class="how-to-card"><div class="step-num">1</div><div><h4>Enter your list</h4><p>Paste or type your items into the text area. Each item must be on a separate line for correct sorting.</p></div></div>
@@ -599,12 +924,20 @@
                     <h2>How Sorting Works Under the Hood</h2>
                     <p>Our tool uses standard JavaScript sorting with locale comparison for alphabetical order, ensuring that accented characters and mixed case are handled sensibly. Numeric sorting parses lines as numbers for accurate 1→9 order. Random shuffle uses the Fisher‑Yates algorithm for unbiased results. All processing stays local, so your list remains private.</p>
 
-                    <h2>From the Textify Team: A Note on Why We Built This</h2>
-                    <p>We built the Text Sorter because we found ourselves repeatedly copying lists into spreadsheets just to sort them. That felt like overkill for quick tasks. Now you have a lightweight, privacy‑first sorter that lives in your browser — no spreadsheet, no downloads, no hassle. We hope it becomes your go‑to tool for tidying up lists.</p>
+                    <!-- New section: Sorting Tips & Tricks -->
+                    <h2>Sorting Tips & Tricks – Get the Most Out of the Sorter</h2>
+                    <p>Even though sorting a list sounds simple, a few small habits can make a big difference in the results you get. Here are some practical pointers that we've picked up from watching how people use the tool.</p>
+                    <p><strong>Numbers with units or symbols.</strong> The numeric sort works best when each line contains a clean number — like <em>42</em> or <em>3.14</em>. If your numbers have commas, dollar signs, or units (like <em>$1,200</em> or <em>10kg</em>), the sorter may treat them as text. A quick workaround is to strip out the extra characters before sorting, or simply copy the values you need and paste them as plain digits.</p>
+                    <p><strong>Accented characters and special letters.</strong> Alphabetical sorting follows your browser's language settings, which means letters like <em>é</em>, <em>ü</em>, or <em>ç</em> are placed intelligently alongside their plain counterparts. That said, if you're sorting a mix of languages, results may vary slightly. For the most predictable outcome, stick to one language or strip accents if exact ASCII order matters.</p>
+                    <p><strong>Using the length sort creatively.</strong> Beyond the classic A‑Z sort, the "Shortest → Longest" and "Longest → Shortest" options are great for spotting outliers. For instance, if you've collected user comments or survey answers, sorting by length can quickly surface the longest (and often most detailed) responses, or help you identify suspiciously short entries that might be spam.</p>
+                    <p><strong>Trimming whitespace before sorting.</strong> We can't stress this enough — always turn on "Trim whitespace" if your data comes from a spreadsheet or a copy‑paste that might have trailing spaces. Those invisible spaces can completely change the sort order, especially with numerical or reverse sorts. It's a tiny checkbox that saves you from head‑scratching moments.</p>
+                    <p><strong>Dealing with empty lines.</strong> A blank line in your list isn't just an annoyance; it can throw off the final line count and make the output look messy. Enable "Skip empty lines" to keep your result clean, and combine it with "Remove duplicate lines" if you want to see only the unique values.</p>
+                    <p><strong>Large lists are no problem.</strong> Because everything runs directly in your browser, even a list with thousands of lines sorts almost instantly. There's no server to wait for, and no upload limit. We've tested it with over 50,000 entries — your computer's RAM is the only ceiling, and that's rarely a concern for typical use.</p>
+                    <p>These little tricks might seem obvious once you know them, but they often save a lot of back‑and‑forth. Play around with the options — you'll be surprised how much control you have with just a few clicks.</p>
                 </div>
 
                 <div style="margin-top:50px;">
-                    <h2>Frequently Asked Questions</h2>
+                    <h2>Text Sorter FAQs – Questions? We've Got Answers</h2>
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Is the Text Sorter free to use?<i data-lucide="chevron-down" width="16"></i></button>
                         <div class="faq-answer">Yes! 100% free with no limits, no registration, and no hidden fees. Use it as much as you need.</div>
@@ -633,7 +966,6 @@
             </div>
         </main>
 
-        <!-- Footer with Slug Generator link & fixed hover -->
         <footer>
             <div class="footer-container">
                 <div class="footer-grid">
@@ -689,7 +1021,6 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // Tools list matching index.html
         const tools = [
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
             { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
@@ -732,12 +1063,10 @@
             const menu = document.getElementById('megaMenu');
             if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
         }
-
         function buildMobileToolsMenu() {
             const menu = document.getElementById('mobileToolsMenu');
             if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
         }
-
         function buildSearchList() {
             const list = document.getElementById('fullSearchResultsList');
             if (list) {
@@ -756,7 +1085,6 @@
             clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
         };
 
-        // Theme toggle with dark mode on <html>
         window.toggleTheme = function() {
             const html = document.documentElement;
             const s = document.getElementById('sunIcon');
@@ -778,7 +1106,6 @@
             }
         };
 
-        // Initial icon state based on pre-applied dark-mode class from inline script
         (function initIcons() {
             const sun = document.getElementById('sunIcon');
             const moon = document.getElementById('moonIcon');
@@ -795,7 +1122,6 @@
             }
         })();
 
-        // Mega menu keyboard & touch toggle
         window.toggleToolsMenu = function() {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
@@ -810,7 +1136,6 @@
                 if (firstLink) firstLink.focus();
             }
         };
-        // Close mega menu when clicking outside
         document.addEventListener('click', function(e) {
             const container = document.getElementById('toolsMenuContainer');
             if (container && !container.contains(e.target) && container.classList.contains('open')) {
@@ -818,7 +1143,6 @@
                 document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
             }
         });
-        // Close mega menu on Escape
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 const container = document.getElementById('toolsMenuContainer');
@@ -856,7 +1180,6 @@
             if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
         });
 
-        // Accessible FAQ toggle
         window.toggleFaq = function(btnEl) {
             const item = btnEl.parentElement;
             const expanded = btnEl.getAttribute('aria-expanded') === 'true';
@@ -868,12 +1191,32 @@
             }
         };
 
-        // Sort logic
+        // Live counter
+        function updateLiveCounter() {
+            const text = document.getElementById('inputText').value;
+            const lines = text.split('\n').length || (text.trim() === '' ? 0 : 1);
+            document.getElementById('liveLineCount').textContent = text.trim() === '' ? 0 : lines;
+            document.getElementById('liveCharCount').textContent = text.length;
+        }
+
+        // Sort methods
         let currentSort = 'alpha-az';
         function setSort(type) {
             currentSort = type;
             document.querySelectorAll('.option-card').forEach(card => card.classList.remove('active'));
             document.querySelector(`input[value="${type}"]`).closest('.option-card').classList.add('active');
+        }
+
+        function getProcessedLines() {
+            const input = document.getElementById('inputText').value;
+            const removeDuplicates = document.getElementById('removeDuplicates').checked;
+            const trimLines = document.getElementById('trimLines').checked;
+            const skipEmpty = document.getElementById('skipEmpty').checked;
+            let lines = input.split('\n');
+            if (trimLines) lines = lines.map(l => l.trim());
+            if (skipEmpty) lines = lines.filter(l => l.trim() !== '');
+            if (removeDuplicates) lines = [...new Set(lines)];
+            return lines;
         }
 
         function sortText() {
@@ -882,30 +1225,37 @@
                 showToast('Please enter some text to sort.', 2500);
                 return;
             }
-            const removeDuplicates = document.getElementById('removeDuplicates').checked;
-            const trimLines = document.getElementById('trimLines').checked;
-            const skipEmpty = document.getElementById('skipEmpty').checked;
-            
-            let lines = input.split('\n');
-            if (trimLines) lines = lines.map(l => l.trim());
-            if (skipEmpty) lines = lines.filter(l => l.trim() !== '');
-            if (removeDuplicates) lines = [...new Set(lines)];
-
+            let lines = getProcessedLines();
             switch (currentSort) {
                 case 'alpha-az': lines.sort((a, b) => a.localeCompare(b)); break;
                 case 'alpha-za': lines.sort((a, b) => b.localeCompare(a)); break;
                 case 'numeric-asc': lines.sort((a, b) => parseFloat(a) - parseFloat(b)); break;
                 case 'numeric-desc': lines.sort((a, b) => parseFloat(b) - parseFloat(a)); break;
+                case 'length-asc': lines.sort((a, b) => a.length - b.length); break;
+                case 'length-desc': lines.sort((a, b) => b.length - a.length); break;
                 case 'random': for (let i = lines.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [lines[i], lines[j]] = [lines[j], lines[i]]; } break;
                 case 'reverse': lines.reverse(); break;
             }
-
             const result = lines.join('\n');
             document.getElementById('outputText').value = result;
             document.getElementById('resultInfo').innerHTML = `<strong>Sorted successfully!</strong> &nbsp; Lines: <strong>${lines.length.toLocaleString()}</strong> &nbsp; | &nbsp; Characters: <strong>${result.length.toLocaleString()}</strong>`;
             document.getElementById('outputArea').style.display = 'block';
             document.getElementById('outputArea').scrollIntoView({behavior:'smooth'});
             showToast('Text sorted successfully!');
+        }
+
+        function randomPick() {
+            const lines = getProcessedLines().filter(l => l.trim() !== '');
+            if (lines.length === 0) {
+                showToast('No items to pick from. Add some text first.', 2500);
+                return;
+            }
+            const pick = lines[Math.floor(Math.random() * lines.length)];
+            document.getElementById('outputText').value = pick;
+            document.getElementById('resultInfo').innerHTML = `<strong>🎲 Random Pick from ${lines.length} items:</strong>`;
+            document.getElementById('outputArea').style.display = 'block';
+            document.getElementById('outputArea').scrollIntoView({behavior:'smooth'});
+            showToast('Random item picked!');
         }
 
         async function copyToClipboard() {
@@ -946,7 +1296,220 @@
             document.getElementById('removeDuplicates').checked = false;
             document.getElementById('trimLines').checked = false;
             document.getElementById('skipEmpty').checked = false;
+            updateLiveCounter();
         }
+
+        // ========== Saved Sorts ==========
+        const STORAGE_KEY = 'textify_saved_sorts';
+
+        function getSavedSorts() {
+            try {
+                const data = localStorage.getItem(STORAGE_KEY);
+                return data ? JSON.parse(data) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveSavedSorts(sorts) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(sorts));
+        }
+
+        function getTimeAgo(timestamp) {
+            const now = new Date();
+            const then = new Date(timestamp);
+            const diffMs = now - then;
+            const seconds = Math.floor(diffMs / 1000);
+            if (seconds < 60) return 'just now';
+            const minutes = Math.floor(seconds / 60);
+            if (minutes < 60) return `${minutes}m ago`;
+            const hours = Math.floor(minutes / 60);
+            if (hours < 24) return `${hours}h ago`;
+            const days = Math.floor(hours / 24);
+            if (days < 30) return `${days}d ago`;
+            return then.toLocaleDateString();
+        }
+
+        function getSortMethodLabel(method) {
+            const map = {
+                'alpha-az': 'A → Z',
+                'alpha-za': 'Z → A',
+                'numeric-asc': '1 → 9',
+                'numeric-desc': '9 → 1',
+                'length-asc': 'Shortest → Longest',
+                'length-desc': 'Longest → Shortest',
+                'random': 'Random',
+                'reverse': 'Reverse'
+            };
+            return map[method] || method;
+        }
+
+        function getAccentClass(method) {
+            const map = {
+                'alpha-az': 'accent-az',
+                'alpha-za': 'accent-za',
+                'numeric-asc': 'accent-numeric-asc',
+                'numeric-desc': 'accent-numeric-desc',
+                'length-asc': 'accent-length-asc',
+                'length-desc': 'accent-length-desc',
+                'random': 'accent-random',
+                'reverse': 'accent-reverse'
+            };
+            return map[method] || '';
+        }
+
+        function saveCurrentSort() {
+            const output = document.getElementById('outputText').value;
+            if (!output.trim()) {
+                showToast('Nothing to save. Sort some text first.', 2500);
+                return;
+            }
+            let name = document.getElementById('newSaveName').value.trim();
+            if (!name) name = 'Sort ' + new Date().toLocaleString();
+            
+            const sortData = {
+                id: Date.now(),
+                name: name,
+                input: document.getElementById('inputText').value,
+                output: output,
+                sortMethod: currentSort,
+                removeDuplicates: document.getElementById('removeDuplicates').checked,
+                trimLines: document.getElementById('trimLines').checked,
+                skipEmpty: document.getElementById('skipEmpty').checked,
+                timestamp: new Date().toISOString()
+            };
+
+            const sorts = getSavedSorts();
+            sorts.unshift(sortData);
+            if (sorts.length > 20) sorts.pop();
+            saveSavedSorts(sorts);
+            renderSavedList();
+            document.getElementById('newSaveName').value = '';
+            showToast('Sort saved for future reference!');
+        }
+
+        function loadSort(id) {
+            const sorts = getSavedSorts();
+            const item = sorts.find(s => s.id == id);
+            if (item) {
+                document.getElementById('inputText').value = item.input;
+                document.getElementById('outputText').value = item.output;
+                setSort(item.sortMethod);
+                document.getElementById('removeDuplicates').checked = item.removeDuplicates;
+                document.getElementById('trimLines').checked = item.trimLines;
+                document.getElementById('skipEmpty').checked = item.skipEmpty;
+                document.getElementById('outputArea').style.display = 'block';
+                document.getElementById('resultInfo').innerHTML = `<strong>Loaded saved sort:</strong> ${escapeHtml(item.name)}`;
+                document.getElementById('outputArea').scrollIntoView({behavior:'smooth'});
+                updateLiveCounter();
+                showToast('Loaded saved sort.');
+            }
+        }
+
+        function deleteSort(id) {
+            let sorts = getSavedSorts();
+            sorts = sorts.filter(s => s.id != id);
+            saveSavedSorts(sorts);
+            renderSavedList();
+            showToast('Saved sort deleted.');
+        }
+
+        function clearAllSaves() {
+            if (confirm('Delete all saved sorts?')) {
+                saveSavedSorts([]);
+                renderSavedList();
+                showToast('All saved sorts cleared.');
+            }
+        }
+
+        function startEditName(id, element) {
+            const sorts = getSavedSorts();
+            const item = sorts.find(s => s.id == id);
+            if (!item) return;
+            const currentName = item.name;
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = currentName;
+            input.maxLength = 50;
+            element.innerHTML = '';
+            element.appendChild(input);
+            input.focus();
+            input.select();
+            const saveEdit = () => {
+                const newName = input.value.trim() || currentName;
+                item.name = newName;
+                saveSavedSorts(sorts);
+                renderSavedList();
+            };
+            input.addEventListener('blur', saveEdit);
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') saveEdit();
+                if (e.key === 'Escape') {
+                    input.value = currentName;
+                    saveEdit();
+                }
+            });
+        }
+
+        function renderSavedList() {
+            const list = document.getElementById('savedList');
+            const sorts = getSavedSorts();
+            const countBadge = document.getElementById('savedCountBadge');
+            if (countBadge) {
+                countBadge.textContent = sorts.length ? `(${sorts.length})` : '';
+            }
+
+            let clearBtnHTML = '';
+            if (sorts.length > 0) {
+                clearBtnHTML = `<div class="clear-saves-row"><button class="btn-clear-saves" onclick="clearAllSaves()"><i data-lucide="trash-2" width="14" height="14"></i> Clear All Saves</button></div>`;
+            }
+
+            if (sorts.length === 0) {
+                list.innerHTML = `
+                    <div class="no-saves">
+                        <i data-lucide="archive" class="no-saves-icon" width="48" height="48"></i>
+                        <p>No saved sorts yet</p>
+                        <span class="sub-message">Sort some text and click "Save for Future" to store it here.</span>
+                    </div>`;
+                lucide.createIcons();
+                return;
+            }
+
+            list.innerHTML = sorts.map(s => `
+                <li class="saved-item ${getAccentClass(s.sortMethod)}">
+                    <div class="saved-item-info">
+                        <div class="saved-item-name" ondblclick="startEditName(${s.id}, this)" title="Double-click to edit name">${escapeHtml(s.name)}</div>
+                        <div class="saved-item-meta">
+                            <span class="saved-method-badge">${getSortMethodLabel(s.sortMethod)}</span>
+                            ${s.removeDuplicates ? '<span class="saved-method-badge">Deduped</span>' : ''}
+                            ${s.trimLines ? '<span class="saved-method-badge">Trimmed</span>' : ''}
+                            ${s.skipEmpty ? '<span class="saved-method-badge">No empty</span>' : ''}
+                            <span class="saved-time">${getTimeAgo(s.timestamp)}</span>
+                        </div>
+                    </div>
+                    <div class="saved-item-actions">
+                        <button class="btn-icon" onclick="loadSort(${s.id})" title="Load"><i data-lucide="folder-open" width="16" height="16"></i></button>
+                        <button class="btn-icon" onclick="deleteSort(${s.id})" title="Delete"><i data-lucide="trash-2" width="16" height="16"></i></button>
+                    </div>
+                </li>
+            `).join('') + clearBtnHTML;
+            lucide.createIcons();
+        }
+
+        function escapeHtml(text) {
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+
+        function toggleSavedPanel() {
+            const body = document.getElementById('savedBody');
+            const icon = document.getElementById('savedToggleIcon');
+            body.classList.toggle('open');
+            icon.style.transform = body.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        renderSavedList();
+        updateLiveCounter();
 
         buildMegaMenu();
         buildMobileToolsMenu();
