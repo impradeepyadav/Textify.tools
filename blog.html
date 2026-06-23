@@ -313,6 +313,17 @@
       object-fit: cover;
       display: block;
     }
+    .post-card-img .fallback-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: var(--hover);
+    }
     .post-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
     .post-card-date { font-size: 12px; color: var(--text-light); margin-bottom: 8px; }
     .post-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
@@ -625,49 +636,55 @@
       if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
     });
 
-    // ---------- 6 Blog Posts (images in root folder) ----------
+    // ---------- 6 Blog Posts (with Fallback Icons) ----------
     const allPosts = [
       {
         slug: "how-to-repeat-text-on-whatsapp",
         title: "How to Repeat Text on WhatsApp Without Annoying Everyone",
         date: "May 2, 2026",
         excerpt: "We've all been there — you want to send a long, dramatic message but don't want to type it out a hundred times. Here's how to do it safely.",
-        img: "/whatsapp-repeat-text-guide.png"
+        img: "/whatsapp-repeat-text-guide.png",
+        icon: "message-circle"
       },
       {
         slug: "top-5-text-tools-for-developers",
         title: "5 Text Tools Every Developer Should Bookmark Right Now",
         date: "April 22, 2026",
         excerpt: "We asked our dev friends which tools they use daily. From diff checkers to formatters, here's the shortlist.",
-        img: "/top-dev-text-tools.png"
+        img: "/top-dev-text-tools.png",
+        icon: "code"
       },
       {
         slug: "password-generator-privacy",
         title: "Why a Client‑Side Password Generator Just Makes Sense",
         date: "April 15, 2026",
         excerpt: "Generating passwords on a website that sends them to a server? No thanks. Here's why keeping it local matters.",
-        img: "/client-side-password-generator.png"
+        img: "/client-side-password-generator.png",
+        icon: "shield-check"
       },
       {
         slug: "json-formatter-guide",
         title: "Tame That Wild JSON with Our Instant Formatter",
         date: "March 18, 2026",
         excerpt: "Messy API response? Paste it in, watch it become readable. No accounts, no uploads, just clean JSON.",
-        img: "/json-formatter-tool.png"
+        img: "/json-formatter-tool.png",
+        icon: "braces"
       },
       {
         slug: "text-to-handwriting-guide",
         title: "Turn Typed Notes into Handwritten‑Looking Pages",
         date: "March 12, 2026",
         excerpt: "Perfect for assignments, personal letters, or that nostalgic feel. No printer? No problem.",
-        img: "/text-to-handwriting-notes.png"
+        img: "/text-to-handwriting-notes.png",
+        icon: "pen-tool"
       },
       {
         slug: "whitespace-cleaner-tips",
         title: "How to Clean Up Text That’s Full of Extra Spaces",
         date: "February 5, 2026",
         excerpt: "Ever copied text from a PDF and it turned into a mess? Our whitespace cleaner fixes that in seconds.",
-        img: "/whitespace-cleaner-tool.png"
+        img: "/whitespace-cleaner-tool.png",
+        icon: "sparkles"
       }
     ];
 
@@ -680,7 +697,11 @@
       blogGrid.innerHTML = postsToShow.map(post => `
         <div class="post-card">
           <div class="post-card-img">
-            <img src="${post.img}" alt="${post.title}" loading="lazy">
+            <img src="${post.img}" alt="${post.title}" loading="lazy"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="fallback-icon">
+              <i data-lucide="${post.icon}" width="48" height="48" stroke-width="1.5"></i>
+            </div>
           </div>
           <div class="post-card-body">
             <span class="post-card-date">${post.date}</span>
