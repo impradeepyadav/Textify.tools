@@ -40,7 +40,6 @@ All titles and meta descriptions are keyword‑rich yet natural, and the grid la
 - **Canonical URLs** to avoid duplicate content.
 
 ## 📂 Project Structure
-
 textify.tools/
 ├── index.html # Home page
 ├── blog/
