@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <meta name="theme-color" content="#ffffff">
-  <title>Blog – Textify.tools</title>
-  <meta name="description" content="Helpful guides, tips, and updates about text tools, productivity, writing, and online privacy from Textify.tools.">
+  <title>Textify.tools Blog – Free Online Text Tools Guides &amp; Tips</title>
+  <meta name="description" content="Honest guides, quick tips, and real talk about free online text tools. Learn to repeat text on WhatsApp, format JSON, clean whitespace, and more.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://textify.tools/blog">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://textify.tools/blog">
-  <meta property="og:title" content="Blog – Textify.tools">
-  <meta property="og:description" content="Learn how to use text tools effectively with our free guides and tutorials.">
+  <meta property="og:title" content="Textify.tools Blog – Free Online Text Tools Guides & Tips">
+  <meta property="og:description" content="Honest guides, quick tips, and real talk about free online text tools. Learn to repeat text on WhatsApp, format JSON, clean whitespace, and more.">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Blog – Textify.tools">
-  <meta name="twitter:description" content="Learn how to use text tools effectively with our free guides and tutorials.">
+  <meta name="twitter:title" content="Textify.tools Blog – Free Online Text Tools Guides & Tips">
+  <meta name="twitter:description" content="Honest guides, quick tips, and real talk about free online text tools. Learn to repeat text on WhatsApp, format JSON, clean whitespace, and more.">
 
   <!-- Icons -->
   <link rel="shortcut icon" href="/favicon.ico">
@@ -103,8 +103,8 @@
         "@type": "WebPage",
         "@id": "https://textify.tools/blog/#webpage",
         "url": "https://textify.tools/blog",
-        "name": "Blog – Textify.tools",
-        "description": "Helpful guides, tips, and updates about text tools, productivity, writing, and online privacy from Textify.tools.",
+        "name": "Textify.tools Blog – Free Online Text Tools Guides & Tips",
+        "description": "Honest guides, quick tips, and real talk about free online text tools. Learn to repeat text on WhatsApp, format JSON, clean whitespace, and more.",
         "isPartOf": { "@id": "https://textify.tools/#website" },
         "datePublished": "2024-01-01",
         "dateModified": "2026-06-17",
@@ -268,7 +268,7 @@
     /* ---------- Main Content ---------- */
     main { flex: 1; padding: 40px 0; width: 100%; background: transparent; }
     .content-container {
-      max-width: 960px;   /* enough for 2 columns comfortably */
+      max-width: 960px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -278,8 +278,7 @@
     }
 
     h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
-    .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 15px; text-align: center; }
-    .intro-text { font-size: 16px; line-height: 1.7; color: var(--text-light); margin: 0 0 40px 0; text-align: center; }
+    .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 40px; text-align: center; }
 
     /* ---------- Blog Grid – 2 columns ---------- */
     .blog-grid {
@@ -289,7 +288,7 @@
     }
     @media (max-width: 600px) {
       .blog-grid {
-        grid-template-columns: 1fr;   /* single column on small phones */
+        grid-template-columns: 1fr;
       }
     }
 
@@ -309,7 +308,7 @@
     .post-card-img {
       position: relative;
       width: 100%;
-      padding-bottom: 66%;   /* 3:2 ratio for nicer look in 2 columns */
+      padding-bottom: 66%;
       background: var(--hover);
       overflow: hidden;
     }
@@ -341,7 +340,7 @@
     .post-card-excerpt { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 16px; flex: 1; }
     .read-more { align-self: flex-start; background: var(--primary); color: var(--bg); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13px; transition: opacity 0.2s; }
     .read-more:hover { opacity: 0.85; }
-    .load-more-container { text-align: center; margin-top: 30px; display: block; }   /* visible by default, hidden when all posts shown */
+    .load-more-container { text-align: center; margin-top: 30px; display: block; }
     .load-more-container button {
       background: var(--primary);
       color: var(--bg);
@@ -439,9 +438,8 @@
     <!-- Main Content -->
     <main>
       <div class="content-container">
-        <h1>Textify Blog</h1>
-        <p class="subtitle">Tips, tutorials, and real talk about text tools, writing, and staying private online.</p>
-        <p class="intro-text">We write about the tools we actually use every day — from making WhatsApp messages more fun to formatting messy JSON. Everything you'll find here runs right in your browser, keeps your data with you, and doesn't ask for a signup. Grab a coffee and pick a post that catches your eye.</p>
+        <h1>Blog</h1>
+        <p class="subtitle">We Write About Text Tools (And Why They’re Actually Useful)</p>
         
         <div class="blog-grid" id="blogGrid"></div>
         <div class="load-more-container" id="loadMoreContainer">
@@ -661,59 +659,58 @@
       if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
     });
 
-    // ---------- 6 Blog Posts (FIXED) ----------
+    // ---------- 6 Blog Posts (SEO-friendly titles & human excerpts) ----------
     const allPosts = [
       {
         slug: "how-to-repeat-text-on-whatsapp",
-        title: "How to Repeat Text on WhatsApp Without Annoying Everyone",
+        title: "How to Repeat a Message a Ton of Times on WhatsApp (Without Annoying People)",
         date: "May 2, 2026",
-        excerpt: "We've all been there — you want to send a long, dramatic message but don't want to type it out a hundred times. Here's how to do it safely.",
+        excerpt: "Ever wanted to send the same message a hundred times without copy‑pasting like a maniac? Here’s a dead‑simple trick using our repeat tool.",
         img: "/whatsapp-repeat-text-guide.png",
         icon: "message-circle"
       },
       {
         slug: "top-5-text-tools-for-developers",
-        title: "5 Text Tools Every Developer Should Bookmark Right Now",
+        title: "5 Text Tools That Actually Save Devs Time (And They’re All Free)",
         date: "April 22, 2026",
-        excerpt: "We asked our dev friends which tools they use daily. From diff checkers to formatters, here's the shortlist.",
+        excerpt: "I asked a few dev buddies which tools they genuinely use every week. Diff checkers, formatters… they all made the list.",
         img: "/​top-dev-text-tools.png",
         icon: "code"
       },
       {
         slug: "password-generator-privacy",
-        title: "Why a Client‑Side Password Generator Just Makes Sense",
+        title: "Don’t Trust Random Password Generators – Here’s One That Stays in Your Browser",
         date: "April 15, 2026",
-        excerpt: "Generating passwords on a website that sends them to a server? No thanks. Here's why keeping it local matters.",
+        excerpt: "A lot of online password tools send your stuff to a server. We built one that never leaves your device. Here’s why that matters.",
         img: "/client-side-password-generator.png",
         icon: "shield-check"
       },
       {
         slug: "json-formatter-guide",
-        title: "Tame That Wild JSON with Our Instant Formatter",
+        title: "Got Ugly JSON? This Free Formatter Makes It Readable Instantly",
         date: "March 18, 2026",
-        excerpt: "Messy API response? Paste it in, watch it become readable. No accounts, no uploads, just clean JSON.",
+        excerpt: "Paste that messy API response, hit a button, and boom — it’s beautiful. No signups, no weird uploads. Just works.",
         img: "/json-formatter-tool.png",
         icon: "braces"
       },
       {
         slug: "text-to-handwriting-guide",
-        title: "Turn Typed Notes into Handwritten‑Looking Pages",
+        title: "Turn Any Text into Realistic Handwriting for Free",
         date: "March 12, 2026",
-        excerpt: "Perfect for assignments, personal letters, or that nostalgic feel. No printer? No problem.",
+        excerpt: "Need your typed notes to look handwritten? This little tool does the job. Perfect for assignments, letters, or just having fun.",
         img: "/text-to-handwriting-notes.png",
         icon: "pen-tool"
       },
       {
         slug: "whitespace-cleaner-tips",
-        title: "How to Clean Up Text That’s Full of Extra Spaces",
+        title: "How to Instantly Fix Text That’s Full of Random Extra Spaces",
         date: "February 5, 2026",
-        excerpt: "Ever copied text from a PDF and it turned into a mess? Our whitespace cleaner fixes that in seconds.",
+        excerpt: "Copied something from a PDF and now it’s a gap‑filled mess? Our whitespace cleaner tidies it up before you can blink.",
         img: "/whitespace-cleaner-tool.png",
         icon: "sparkles"
       }
     ];
 
-    // ---------- Show 4 initially, then load more button for the last 2 ----------
     let visiblePosts = 4;
     const blogGrid = document.getElementById('blogGrid');
     const loadMoreContainer = document.getElementById('loadMoreContainer');
@@ -741,15 +738,14 @@
     }
 
     function loadMorePosts() {
-      visiblePosts += 2;   // load remaining 2
+      visiblePosts += 2;
       if (visiblePosts >= allPosts.length) {
         visiblePosts = allPosts.length;
-        loadMoreContainer.style.display = 'none';   // hide button when all posts shown
+        loadMoreContainer.style.display = 'none';
       }
       renderPosts(visiblePosts);
     }
 
-    // Initial render: show 4 posts, button visible
     renderPosts(visiblePosts);
     if (visiblePosts >= allPosts.length) {
       loadMoreContainer.style.display = 'none';
