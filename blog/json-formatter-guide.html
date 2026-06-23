@@ -291,7 +291,8 @@
               </button>
               <div class="tools-mega-menu" id="megaMenu"></div>
             </div>
-            <a href="privacy">Privacy</a>
+            <!-- FIXED: changed from "privacy" to "/privacy" -->
+            <a href="/privacy">Privacy</a>
             <a href="/blog">Blog</a>
           </div>
           <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
@@ -376,9 +377,11 @@
             </a>
             <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">Free, private text tools that live in your browser. No signup, no tracking, no nonsense. Bookmark us — you'll be back.</p>
           </div>
-          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
+          <!-- FIXED: all QUICK LINKS now use absolute paths -->
+          <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
           <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/slug-generator">Slug Generator</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-          <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
+          <!-- FIXED: all LEGAL & INFO links now use absolute paths -->
+          <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
           <div>
             <h5>FOLLOW US</h5>
             <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
@@ -403,7 +406,8 @@
     <div class="mobile-sidebar-nav">
       <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
       <div class="mobile-tools-menu" id="mobileToolsMenu"></div>
-      <a href="privacy">Privacy</a>
+      <!-- FIXED: changed from "privacy" to "/privacy" -->
+      <a href="/privacy">Privacy</a>
       <a href="/blog">Blog</a>
     </div>
     <div class="mobile-sidebar-actions">
