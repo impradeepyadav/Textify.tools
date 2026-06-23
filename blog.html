@@ -165,7 +165,7 @@
       background: var(--bg); color: var(--text); min-height: 100vh;
       transition: background 0.3s, color 0.3s;
     }
-    .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
+    .page-wrapper { width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
 
     /* ---------- Header ---------- */
     header {
@@ -173,7 +173,14 @@
       align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
       background: transparent; width: 100%;
     }
-    .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
+    .header-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
     .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
     .header-right { display: flex; align-items: center; gap: 12px; }
@@ -260,27 +267,29 @@
 
     /* ---------- Main Content ---------- */
     main { flex: 1; padding: 40px 0; width: 100%; background: transparent; }
-    .content-container { width: 100%; padding: 0 40px; }
-    @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
+    .content-container {
+      max-width: 960px;   /* enough for 2 columns comfortably */
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    @media (max-width: 768px) {
+      .content-container { padding: 0 16px; }
+      main { padding: 20px 0; }
+    }
 
-    h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: left; }
-    .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 15px; text-align: left; }
-    .intro-text { font-size: 16px; line-height: 1.7; color: var(--text-light); margin: 0 0 40px 0; text-align: left; }
+    h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: center; }
+    .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 15px; text-align: center; }
+    .intro-text { font-size: 16px; line-height: 1.7; color: var(--text-light); margin: 0 0 40px 0; text-align: center; }
 
-    /* ---------- Blog Grid ---------- */
+    /* ---------- Blog Grid – 2 columns ---------- */
     .blog-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 600px) {
       .blog-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 500px) {
-      .blog-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;   /* single column on small phones */
       }
     }
 
@@ -300,7 +309,7 @@
     .post-card-img {
       position: relative;
       width: 100%;
-      padding-bottom: 100%; /* 1:1 square */
+      padding-bottom: 66%;   /* 3:2 ratio for nicer look in 2 columns */
       background: var(--hover);
       overflow: hidden;
     }
@@ -332,7 +341,20 @@
     .post-card-excerpt { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 16px; flex: 1; }
     .read-more { align-self: flex-start; background: var(--primary); color: var(--bg); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13px; transition: opacity 0.2s; }
     .read-more:hover { opacity: 0.85; }
-    .load-more-container { text-align: center; margin-top: 30px; display: none; }
+    .load-more-container { text-align: center; margin-top: 30px; display: block; }   /* visible by default, hidden when all posts shown */
+    .load-more-container button {
+      background: var(--primary);
+      color: var(--bg);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      font-family: inherit;
+    }
+    .load-more-container button:hover { opacity: 0.85; }
 
     /* ---------- Footer ---------- */
     footer {
@@ -341,7 +363,10 @@
       background: transparent;
       width: 100%;
     }
-    .footer-container { width: 100%; max-width: 100%; }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
     .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 35px; width: 100%; }
     @media (max-width: 1200px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width:768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
@@ -420,7 +445,7 @@
         
         <div class="blog-grid" id="blogGrid"></div>
         <div class="load-more-container" id="loadMoreContainer">
-          <button class="btn-load" id="loadMoreBtn" onclick="loadMorePosts()">Show me more</button>
+          <button id="loadMoreBtn" onclick="loadMorePosts()">Show more posts</button>
         </div>
       </div>
     </main>
@@ -651,7 +676,7 @@
         title: "5 Text Tools Every Developer Should Bookmark Right Now",
         date: "April 22, 2026",
         excerpt: "We asked our dev friends which tools they use daily. From diff checkers to formatters, here's the shortlist.",
-        img: "/​top-dev-text-tools.png",
+        img: "/top-dev-text-tools.png",
         icon: "code"
       },
       {
@@ -688,9 +713,8 @@
       }
     ];
 
-    console.log("Total posts:", allPosts.length); // Debug: should show 6
-
-    let visiblePosts = 6;
+    // ---------- Show 4 initially, then load more button for the last 2 ----------
+    let visiblePosts = 4;
     const blogGrid = document.getElementById('blogGrid');
     const loadMoreContainer = document.getElementById('loadMoreContainer');
 
@@ -717,16 +741,21 @@
     }
 
     function loadMorePosts() {
-      visiblePosts += 6;
+      visiblePosts += 2;   // load remaining 2
       if (visiblePosts >= allPosts.length) {
         visiblePosts = allPosts.length;
-        loadMoreContainer.style.display = 'none';
+        loadMoreContainer.style.display = 'none';   // hide button when all posts shown
       }
       renderPosts(visiblePosts);
     }
 
+    // Initial render: show 4 posts, button visible
     renderPosts(visiblePosts);
-    loadMoreContainer.style.display = 'none';
+    if (visiblePosts >= allPosts.length) {
+      loadMoreContainer.style.display = 'none';
+    } else {
+      loadMoreContainer.style.display = 'block';
+    }
 
     buildMegaMenu(); buildMobileToolsMenu(); buildSearchList(); lucide.createIcons();
   </script>
