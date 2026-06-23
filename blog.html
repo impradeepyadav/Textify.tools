@@ -267,7 +267,7 @@
     .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 15px; text-align: left; }
     .intro-text { font-size: 16px; line-height: 1.7; color: var(--text-light); margin: 0 0 40px 0; text-align: left; }
 
-    /* ---------- Blog Grid (Instagram Style Square Images) ---------- */
+    /* ---------- Blog Grid ---------- */
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -313,7 +313,7 @@
       object-fit: cover;
       display: block;
     }
-    .post-card-img .fallback-icon {
+    .fallback-icon {
       display: none;
       position: absolute;
       top: 0;
@@ -636,7 +636,7 @@
       if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
     });
 
-    // ---------- 6 Blog Posts (images in root folder) ----------
+    // ---------- 6 Blog Posts (FIXED) ----------
     const allPosts = [
       {
         slug: "how-to-repeat-text-on-whatsapp",
@@ -687,6 +687,8 @@
         icon: "sparkles"
       }
     ];
+
+    console.log("Total posts:", allPosts.length); // Debug: should show 6
 
     let visiblePosts = 6;
     const blogGrid = document.getElementById('blogGrid');
