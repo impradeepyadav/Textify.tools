@@ -16,7 +16,7 @@
   <meta name="twitter:title" content="Blog – Textify.tools">
   <meta name="twitter:description" content="Learn how to use text tools effectively with our free guides and tutorials.">
   
-  <!-- Icons (full set) -->
+  <!-- Icons -->
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -77,7 +77,7 @@
   </script>
   <script src="//ezoicanalytics.com/analytics.js"></script>
 
-  <!-- Structured Data (dateModified fixed) -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -131,6 +131,7 @@
 <body>
   <script src="https://unpkg.com/lucide@0.344.0"></script>
   <style>
+    /* ---------- CSS Variables & Reset ---------- */
     :root {
       --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
       --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff;
@@ -166,6 +167,7 @@
     }
     .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
 
+    /* ---------- Header ---------- */
     header {
       border-bottom: 1px solid var(--line); display: flex; justify-content: center;
       align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
@@ -216,6 +218,8 @@
     .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
     .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; }
     .hamburger-btn .menu-icon span:first-child { width: 16px; }
+
+    /* ---------- Mobile Sidebar ---------- */
     .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
     .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
     .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; }
@@ -237,6 +241,8 @@
     .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
     .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
     .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ---------- Search Overlay ---------- */
     .search-overlay-full { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--overlay-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 300; display: flex; flex-direction: column; align-items: center; padding-top: 80px; opacity: 0; visibility: hidden; transition: 0.3s; }
     .search-overlay-full.active { opacity: 1; visibility: visible; }
     .search-container { width: 90%; max-width: 550px; display: flex; flex-direction: column; max-height: 80vh; }
@@ -252,6 +258,7 @@
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
+    /* ---------- Main Content ---------- */
     main { flex: 1; padding: 40px 0; width: 100%; background: transparent; }
     .content-container { width: 100%; padding: 0 40px; }
     @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
@@ -259,10 +266,53 @@
     h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: left; }
     .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.6; margin-bottom: 15px; text-align: left; }
     .intro-text { font-size: 16px; line-height: 1.7; color: var(--text-light); margin: 0 0 40px 0; text-align: left; }
-    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
-    .post-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
-    .post-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
-    .post-card-img { width: 100%; height: 180px; background: var(--hover); display: flex; align-items: center; justify-content: center; color: var(--text); }
+
+    /* ---------- Blog Grid (Instagram Style Square Images) ---------- */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 500px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .post-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .post-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .post-card-img {
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%; /* 1:1 square */
+      background: var(--hover);
+      overflow: hidden;
+    }
+    .post-card-img img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .post-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
     .post-card-date { font-size: 12px; color: var(--text-light); margin-bottom: 8px; }
     .post-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
@@ -271,11 +321,9 @@
     .post-card-excerpt { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 16px; flex: 1; }
     .read-more { align-self: flex-start; background: var(--primary); color: var(--bg); padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 13px; transition: opacity 0.2s; }
     .read-more:hover { opacity: 0.85; }
-    .load-more-container { text-align: center; margin-top: 30px; }
-    .btn-load { background: var(--primary); color: var(--bg); border: none; padding: 14px 32px; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
-    .btn-load:hover { opacity: 0.88; }
-    .btn-load:disabled { opacity: 0.5; cursor: not-allowed; }
+    .load-more-container { text-align: center; margin-top: 30px; display: none; }
 
+    /* ---------- Footer ---------- */
     footer {
       border-top: 1px solid var(--footer-border);
       padding: 40px 40px 25px;
@@ -322,6 +370,7 @@
   </style>
 
   <div class="page-wrapper">
+    <!-- Header -->
     <header>
       <div class="header-inner">
         <a href="/" class="logo">
@@ -351,6 +400,7 @@
       </div>
     </header>
 
+    <!-- Main Content -->
     <main>
       <div class="content-container">
         <h1>Textify Blog</h1>
@@ -364,6 +414,7 @@
       </div>
     </main>
 
+    <!-- Footer -->
     <footer>
       <div class="footer-container">
         <div class="footer-grid">
@@ -389,6 +440,7 @@
     </footer>
   </div>
 
+  <!-- Mobile Sidebar -->
   <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
   <div class="mobile-sidebar" id="mobileSidebar">
     <div class="mobile-sidebar-header">
@@ -410,6 +462,7 @@
     </div>
   </div>
 
+  <!-- Search Overlay -->
   <div class="search-overlay-full" id="searchOverlayFull">
     <div class="search-container">
       <div class="search-box">
@@ -421,10 +474,11 @@
     </div>
   </div>
 
+  <!-- Toast -->
   <div class="toast" id="toast"></div>
 
   <script>
-    // 35 high‑demand tools (same as index.html)
+    // ---------- Tools List ----------
     const tools = [
       { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
       { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
@@ -473,7 +527,7 @@
     let toastTimer;
     window.showToast = function(msg, dur=3000) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur); };
 
-    // Theme toggle on <html> element
+    // Theme Toggle
     window.toggleTheme = function() {
       const html = document.documentElement;
       const s = document.getElementById('sunIcon');
@@ -495,7 +549,6 @@
       }
     };
 
-    // Initial icon state based on pre-applied dark-mode class from inline script
     (function initIcons() {
       const sun = document.getElementById('sunIcon');
       const moon = document.getElementById('moonIcon');
@@ -512,7 +565,6 @@
       }
     })();
 
-    // Mega menu keyboard & touch toggle
     window.toggleToolsMenu = function() {
       const container = document.getElementById('toolsMenuContainer');
       const trigger = document.getElementById('toolsTrigger');
@@ -527,7 +579,7 @@
         if (firstLink) firstLink.focus();
       }
     };
-    // Close mega menu when clicking outside
+
     document.addEventListener('click', function(e) {
       const container = document.getElementById('toolsMenuContainer');
       if (container && !container.contains(e.target) && container.classList.contains('open')) {
@@ -535,7 +587,7 @@
         document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
       }
     });
-    // Close mega menu on Escape
+
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         const container = document.getElementById('toolsMenuContainer');
@@ -573,56 +625,53 @@
       if ((e.ctrlKey||e.metaKey) && e.key === 'k') { e.preventDefault(); openFullSearch(); }
     });
 
-    // Expanded blog posts – original 28 plus 15 new ones (total 43), all written in a human, US English style
+    // ---------- 6 Blog Posts (images in root folder) ----------
     const allPosts = [
-      { slug: "how-to-repeat-text-on-whatsapp", title: "How to Repeat Text on WhatsApp Without Annoying Everyone", date: "May 2, 2026", excerpt: "We've all been there — you want to send a long, dramatic message but don't want to type it out a hundred times. Here's how to do it safely.", icon: "message-circle" },
-      { slug: "text-repeater-for-instagram-bio", title: "Make Your Instagram Bio Stand Out with Our Text Repeater", date: "April 28, 2026", excerpt: "Add decorations, play with line breaks, and turn your bio into something that actually makes people stop scrolling.", icon: "sparkles" },
-      { slug: "top-5-text-tools-for-developers", title: "5 Text Tools Every Developer Should Bookmark Right Now", date: "April 22, 2026", excerpt: "We asked our dev friends which tools they use daily. From diff checkers to formatters, here's the shortlist.", icon: "code" },
-      { slug: "password-generator-privacy", title: "Why a Client‑Side Password Generator Just Makes Sense", date: "April 15, 2026", excerpt: "Generating passwords on a website that sends them to a server? No thanks. Here's why keeping it local matters.", icon: "shield-check" },
-      { slug: "what-is-lorem-ipsum", title: "What's the Deal with Lorem Ipsum, Anyway?", date: "April 12, 2026", excerpt: "From its weird history to modern design use — a quick dive into the world's favorite placeholder text.", icon: "file-text" },
-      { slug: "slug-generator-seo-tips", title: "Crafting SEO‑Friendly URL Slugs That Humans Actually Read", date: "April 10, 2026", excerpt: "A clean slug isn't just for search engines — it makes your links look trustworthy. Here's how to nail it.", icon: "globe" },
-      { slug: "case-converter-for-writers", title: "Case Converter: The Little Tool That Saves Your Sanity", date: "April 4, 2026", excerpt: "Ever typed a whole paragraph with Caps Lock on? Yeah, me too. Here's how to fix it in one click.", icon: "type" },
-      { slug: "word-counter-accuracy", title: "Just How Accurate Is an Online Word Counter?", date: "March 28, 2026", excerpt: "We tested ours against Word, Google Docs, and even a manual count. The results might surprise you.", icon: "hash" },
-      { slug: "text-diff-checker-tutorial", title: "Spot Every Tiny Change in Your Code with a Diff Checker", date: "March 25, 2026", excerpt: "If you've ever stared at two files wondering what changed, this one's for you. A quick, visual guide.", icon: "git-compare" },
-      { slug: "emoji-text-art", title: "Yes, You Can Make Emoji Art with a Text Repeater", date: "March 20, 2026", excerpt: "We turned emojis into patterns, borders, and even a tiny checkers board. Here's how you can too.", icon: "palette" },
-      { slug: "json-formatter-guide", title: "Tame That Wild JSON with Our Instant Formatter", date: "March 18, 2026", excerpt: "Messy API response? Paste it in, watch it become readable. No accounts, no uploads, just clean JSON.", icon: "braces" },
-      { slug: "text-sorter-tips", title: "Sorting Lists Has Never Been This Easy — Honestly", date: "March 15, 2026", excerpt: "Whether it's a bibliography, a mailing list, or just your favorite movies, our Text Sorter puts everything in order.", icon: "arrow-up-down" },
-      { slug: "text-to-handwriting-guide", title: "Turn Typed Notes into Handwritten‑Looking Pages", date: "March 12, 2026", excerpt: "Perfect for assignments, personal letters, or that nostalgic feel. No printer? No problem.", icon: "pen-tool" },
-      { slug: "bold-italic-text-for-social", title: "Bold and Italic Unicode Text: Because Plain Is Boring", date: "March 10, 2026", excerpt: "Make your tweets, captions, and bios stand out with text styles that work anywhere — even where formatting isn't allowed.", icon: "bold" },
-      { slug: "fancy-text-styles", title: "50+ Ways to Dress Up Your Text (Without Installing a Single Font)", date: "March 8, 2026", excerpt: "From script to bubble to fraktur — our fancy text generator gives you more than fifty styles to play with.", icon: "sparkles" },
-      { slug: "utm-builder-campaigns", title: "Stop Guessing Where Your Traffic Comes From — Use UTMs", date: "March 5, 2026", excerpt: "Our UTM Builder creates clean tracking URLs in seconds. Perfect for email, social, or ads.", icon: "link" },
-      { slug: "sha256-md5-hash-explained", title: "SHA‑256 vs MD5: What Are They and When Should You Use Them?", date: "March 2, 2026", excerpt: "A friendly, non‑scary explanation of cryptographic hashes, and why you might need them.", icon: "shield" },
-      { slug: "random-number-generator-uses", title: "Five Unexpected Ways a Random Number Generator Can Save Your Day", date: "Feb 28, 2026", excerpt: "Giveaways, sampling, testing, even deciding who does the dishes — the possibilities are endless.", icon: "dice-6" },
-      { slug: "qr-code-generator-quick", title: "Turn Any Text into a QR Code in Under a Second", date: "Feb 25, 2026", excerpt: "Need a scannable link? Paste your text, download the QR code, and you're done. Works offline.", icon: "qr-code" },
-      { slug: "morse-code-fun", title: "Learning Morse Code? This Converter Makes It a Breeze", date: "Feb 22, 2026", excerpt: "Translate text to dots and dashes and back again. A fun tool for hobbyists and curious minds.", icon: "radio" },
-      { slug: "regex-tester-for-devs", title: "Debug Regular Expressions Right in Your Browser", date: "Feb 20, 2026", excerpt: "Stop guessing why your regex isn't matching. Our tester shows results in real time.", icon: "search-code" },
-      { slug: "email-extractor-guide", title: "Pull Every Email Address Out of a Block of Text Instantly", date: "Feb 18, 2026", excerpt: "Got a messy document full of emails? Our extractor finds them all in one click.", icon: "at-sign" },
-      { slug: "keyword-density-checker-seo", title: "Spot Overused Keywords Before They Hurt Your SEO", date: "Feb 15, 2026", excerpt: "Our keyword density checker gives you a clear picture of your word usage — no fluff, just numbers.", icon: "percent" },
-      { slug: "strikethrough-text-fun", title: "Add Strikethrough Text to Your Memes and Messages", date: "Feb 12, 2026", excerpt: "Sometimes you need to cross something out for comedic effect. Here's how to do it in WhatsApp, Instagram, and more.", icon: "strikethrough" },
-      { slug: "url-encoder-decoder-guide", title: "When (and Why) You Need URL Encoding", date: "Feb 10, 2026", excerpt: "Special characters breaking your links? Our client‑side encoder fixes that in a flash.", icon: "link-2" },
-      { slug: "uuid-generator-developer", title: "Generate Unique IDs That Won't Clash — Offline", date: "Feb 8, 2026", excerpt: "Perfect for databases, file names, or tracking. No network needed, just pure randomness.", icon: "fingerprint" },
-      { slug: "whitespace-cleaner-tips", title: "How to Clean Up Text That's Full of Extra Spaces", date: "Feb 5, 2026", excerpt: "Ever copied text from a PDF and it turned into a mess? Our whitespace cleaner fixes that in seconds.", icon: "sparkles" },
-      { slug: "markdown-to-html-converter", title: "Convert Markdown to Clean HTML Without Leaving Your Browser", date: "Feb 2, 2026", excerpt: "Bloggers, developers, note‑takers — this one's for you. Instant, offline, and totally private.", icon: "file-code" },
-
-      // 15 additional high‑value posts (human‑written style, US English)
-      { slug: "offline-word-counter-tricks", title: "How to Count Words Without an Internet Connection", date: "June 15, 2026", excerpt: "Airplane mode? No problem. Our word counter runs completely offline, so you can hit your daily writing goal anywhere — even when your Wi‑Fi ghosts you.", icon: "wifi-off" },
-      { slug: "json-formatter-vs-online-validators", title: "JSON Formatter vs. Online Validators: Why Local Tools Are Safer", date: "June 12, 2026", excerpt: "Most online validators send your data to a server. Here's why that's a privacy nightmare and how a client‑side formatter keeps your API responses out of someone else's logs.", icon: "lock" },
-      { slug: "hidden-danger-online-password-generators", title: "The Hidden Danger of Online Password Generators (And How to Stay Safe)", date: "June 10, 2026", excerpt: "Not all password generators are created equal. Some phone home with the very passwords they create. Learn how to pick one that respects your digital boundaries.", icon: "alert-triangle" },
-      { slug: "remove-duplicate-lines-quickly", title: "5 Quick Ways to Remove Duplicate Lines from Any Text File", date: "June 7, 2026", excerpt: "Got a list with a thousand entries and no time to scroll? We'll show you three keyboard shortcuts and a dead‑simple tool that removes doubles in a click.", icon: "list-x" },
-      { slug: "case-converter-mobile-guide", title: "Case Converter on Mobile: A Step‑by‑Step Guide", date: "June 5, 2026", excerpt: "Your phone's autocorrect can't fix an all‑caps disaster. Use our mobile‑friendly case converter to salvage that draft before you send it — no squinting required.", icon: "smartphone" },
-      { slug: "slug-generator-for-better-blogs", title: "How to Use a Slug Generator for Better Blog URLs", date: "June 3, 2026", excerpt: "Stop URLs like `/blog/123?ref=home` from haunting your analytics. This quick guide teaches you to craft clean, readable slugs that search engines (and readers) love.", icon: "edit" },
-      { slug: "why-client-side-diff-checker", title: "Why Your Diff Checker Should Be Client‑Side (Not Cloud‑Based)", date: "May 30, 2026", excerpt: "Comparing sensitive code or contracts? Uploading them to a third‑party server is asking for trouble. Here's why a browser‑based diff tool is the only safe bet.", icon: "shield-off" },
-      { slug: "complete-text-cleaning-guide", title: "The Complete Guide to Text Cleaning: From Whitespace to Encoding", date: "May 28, 2026", excerpt: "Invisible characters, non‑breaking spaces, weird Unicode — we break down the most common text gremlins and show you how to clean them up fast.", icon: "broom" },
-      { slug: "lorem-ipsum-alternatives", title: "Lorem Ipsum Alternatives: When Placeholder Text Needs a Refresh", date: "May 25, 2026", excerpt: "Tired of the same old Latin? Try our generator with a twist, or learn how to create your own meaningful placeholder that actually helps your design flow.", icon: "pilcrow" },
-      { slug: "random-word-generator-creativity", title: "Using a Random Word Generator for Brainstorming and Creativity", date: "May 22, 2026", excerpt: "Writer's block? Get a random noun, verb, or adjective and challenge yourself to weave it into a story. It works for naming projects, too — ask me how I know.", icon: "lightbulb" },
-      { slug: "morse-code-history-modern-uses", title: "Morse Code History and Modern Uses – Plus a Free Converter", date: "May 20, 2026", excerpt: "From SOS signals to escape rooms, Morse code is far from dead. Discover its surprising applications and try our instant translator for fun.", icon: "antenna" },
-      { slug: "hidden-emails-in-document", title: "How to Spot Hidden Emails in a Large Document (and Extract Them)", date: "May 18, 2026", excerpt: "Digging through a 50‑page PDF for contact info is nobody's idea of fun. Our email extractor finds them all, even the ones buried in headers and footers.", icon: "search" },
-      { slug: "text-to-handwriting-personal-touch", title: "Text to Handwriting: Making Digital Notes Feel Personal", date: "May 15, 2026", excerpt: "Printing assignments that look handwritten used to be a chore. Our tool lets you pick a style, tweak the pen color, and download an image — no printer needed.", icon: "feather" },
-      { slug: "fancy-text-for-social-no-app", title: "Fancy Text Styles for Instagram, Twitter, and Beyond – No App Needed", date: "May 12, 2026", excerpt: "You don't need a sketchy app to get cursive, bold, or bubble letters. Our Unicode text generator works right in your browser, so your bio stays fresh and your phone stays clean.", icon: "wand-2" },
-      { slug: "utm-codes-that-dont-break", title: "How to Build UTM Codes That Won't Break Your Analytics", date: "May 10, 2026", excerpt: "One typo in a UTM parameter can mess up an entire campaign. Learn the naming conventions that keep your data clean and your reports trustworthy.", icon: "bar-chart-2" }
+      {
+        slug: "how-to-repeat-text-on-whatsapp",
+        title: "How to Repeat Text on WhatsApp Without Annoying Everyone",
+        date: "May 2, 2026",
+        excerpt: "We've all been there — you want to send a long, dramatic message but don't want to type it out a hundred times. Here's how to do it safely.",
+        img: "/whatsapp-repeat-text-guide.png"
+      },
+      {
+        slug: "top-5-text-tools-for-developers",
+        title: "5 Text Tools Every Developer Should Bookmark Right Now",
+        date: "April 22, 2026",
+        excerpt: "We asked our dev friends which tools they use daily. From diff checkers to formatters, here's the shortlist.",
+        img: "/top-dev-text-tools.png"
+      },
+      {
+        slug: "password-generator-privacy",
+        title: "Why a Client‑Side Password Generator Just Makes Sense",
+        date: "April 15, 2026",
+        excerpt: "Generating passwords on a website that sends them to a server? No thanks. Here's why keeping it local matters.",
+        img: "/client-side-password-generator.png"
+      },
+      {
+        slug: "json-formatter-guide",
+        title: "Tame That Wild JSON with Our Instant Formatter",
+        date: "March 18, 2026",
+        excerpt: "Messy API response? Paste it in, watch it become readable. No accounts, no uploads, just clean JSON.",
+        img: "/json-formatter-tool.png"
+      },
+      {
+        slug: "text-to-handwriting-guide",
+        title: "Turn Typed Notes into Handwritten‑Looking Pages",
+        date: "March 12, 2026",
+        excerpt: "Perfect for assignments, personal letters, or that nostalgic feel. No printer? No problem.",
+        img: "/text-to-handwriting-notes.png"
+      },
+      {
+        slug: "whitespace-cleaner-tips",
+        title: "How to Clean Up Text That’s Full of Extra Spaces",
+        date: "February 5, 2026",
+        excerpt: "Ever copied text from a PDF and it turned into a mess? Our whitespace cleaner fixes that in seconds.",
+        img: "/whitespace-cleaner-tool.png"
+      }
     ];
 
-    let visiblePosts = 15;
+    let visiblePosts = 6;
     const blogGrid = document.getElementById('blogGrid');
     const loadMoreContainer = document.getElementById('loadMoreContainer');
 
@@ -631,7 +680,7 @@
       blogGrid.innerHTML = postsToShow.map(post => `
         <div class="post-card">
           <div class="post-card-img">
-            <i data-lucide="${post.icon}" width="48" height="48" stroke-width="1.5"></i>
+            <img src="${post.img}" alt="${post.title}" loading="lazy">
           </div>
           <div class="post-card-body">
             <span class="post-card-date">${post.date}</span>
@@ -654,9 +703,7 @@
     }
 
     renderPosts(visiblePosts);
-    if (visiblePosts >= allPosts.length) {
-      loadMoreContainer.style.display = 'none';
-    }
+    loadMoreContainer.style.display = 'none';
 
     buildMegaMenu(); buildMobileToolsMenu(); buildSearchList(); lucide.createIcons();
   </script>
