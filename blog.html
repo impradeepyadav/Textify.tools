@@ -305,22 +305,22 @@
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
+
+    /* ---------- IMAGE CONTAINER – FULL PHOTO VISIBLE, NO CROPPING ---------- */
     .post-card-img {
       position: relative;
       width: 100%;
-      padding-bottom: 66%;
+      /* no fixed aspect ratio – height comes from the image */
       background: var(--hover);
-      overflow: hidden;
+      overflow: hidden; /* still hidden if fallback icon exceeds, but img is normal flow */
     }
     .post-card-img img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
       display: block;
+      width: 100%;
+      height: auto;       /* natural height, no cropping */
+      object-fit: fill;   /* or just remove object-fit entirely */
     }
+    /* Fallback icon – shown only when image fails (via onerror), positioned over container */
     .fallback-icon {
       display: none;
       position: absolute;
@@ -331,7 +331,13 @@
       align-items: center;
       justify-content: center;
       background: var(--hover);
+      pointer-events: none;
     }
+    /* If image fails, fallback-icon becomes flex */
+    .post-card-img img.error ~ .fallback-icon {
+      display: flex;
+    }
+
     .post-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
     .post-card-date { font-size: 12px; color: var(--text-light); margin-bottom: 8px; }
     .post-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; line-height: 1.4; }
@@ -721,7 +727,7 @@
         <div class="post-card">
           <div class="post-card-img">
             <img src="${post.img}" alt="${post.title}" loading="lazy"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                 onerror="this.classList.add('error'); this.nextElementSibling.style.display='flex';">
             <div class="fallback-icon">
               <i data-lucide="${post.icon || 'image'}" width="48" height="48" stroke-width="1.5"></i>
             </div>
