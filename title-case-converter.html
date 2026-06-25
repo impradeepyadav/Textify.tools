@@ -7,9 +7,10 @@
     
     <title>Title Case Converter – Turn Any Text into a Perfect Title</title>
     <meta name="description" content="Convert text to title case instantly with our free online Title Case Converter. Perfect for headlines, blog posts, essays, and professional content.">
-    <meta name="author" content="Textify.tools">
+    <meta name="author" content="Textify Tools Team">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/title-case-converter">
+    <link rel="alternate" hreflang="en-US" href="https://textify.tools/title-case-converter">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -36,10 +37,6 @@
     
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
-    <link rel="preconnect" href="https://cmp.gatekeeperconsent.com">
-    <link rel="preconnect" href="https://the.gatekeeperconsent.com">
-    <link rel="preconnect" href="https://www.ezojs.com">
-    <link rel="preconnect" href="https://ezoicanalytics.com">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
     <!-- Yandex verification -->
@@ -66,18 +63,6 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186"
     crossorigin="anonymous"></script>
-
-    <!-- Gatekeeper Consent -->
-    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
-    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
-
-    <!-- Ezoic -->
-    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
-    <script>
-        window.ezstandalone = window.ezstandalone || {};
-        ezstandalone.cmd = ezstandalone.cmd || [];
-    </script>
-    <script src="//ezoicanalytics.com/analytics.js"></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -352,7 +337,7 @@
         }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
 
-        /* Toolbar – black translucent background */
+        /* Toolbar */
         .toolbar-btns {
             position: absolute;
             bottom: 14px;
@@ -409,7 +394,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Download dropdown */
         .download-wrapper { position: relative; display: flex; }
         .download-dropdown {
             position: absolute;
@@ -436,7 +420,6 @@
         }
         .download-option:hover { background: var(--hover); }
 
-        /* Stats bar */
         .stats-bar {
             display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px;
             padding: 10px 16px; background: rgba(0, 0, 0, 0.7);
@@ -456,10 +439,9 @@
         .score-green { background: var(--score-green); color: #fff; }
         .score-orange { background: var(--score-orange); color: #000; }
         .score-red { background: var(--score-red); color: #fff; }
-        body.dark-mode .stats-bar { background: rgba(255, 255, 255, 0.15); }
-        body.dark-mode .stats-bar span { color: #ffffff; }
+        html.dark-mode .stats-bar { background: rgba(255, 255, 255, 0.15); }
+        html.dark-mode .stats-bar span { color: #ffffff; }
 
-        /* All case buttons in one clean row */
         .case-buttons-row {
             display: flex;
             flex-wrap: wrap;
@@ -492,7 +474,6 @@
         .prog-btn { background: #064e3b; border-color: #064e3b; }
         .prog-btn:hover { background: #065f46; border-color: #065f46; }
 
-        /* Custom terms modal */
         .custom-terms-modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--overlay-bg); backdrop-filter: blur(4px);
@@ -519,7 +500,6 @@
         .modal-actions .btn-save { background: var(--primary); color: var(--bg); }
         .modal-actions .btn-clear { background: #ef4444; color: #ffffff; margin-right: auto; }
 
-        /* Sections */
         .section { margin-bottom: 50px; width: 100%; max-width: 100%; }
         .section h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
         .section h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
@@ -691,7 +671,7 @@
                     <button class="prog-btn" onclick="applyProgCase('constant')">CONSTANT_CASE</button>
                 </div>
 
-                <!-- ========== EXTENSIVE, HUMAN‑WRITTEN CONTENT ========== -->
+                <!-- ========== EXTENSIVE, HUMAN‑WRITTEN CONTENT (unchanged) ========== -->
                 <div class="section">
                     <h2>Your Headlines Deserve to Shine – Here’s How</h2>
                     <p>We built this Title Case Converter because we've been in your shoes. Staring at a blinking cursor, wondering whether that little preposition should be uppercase or lowercase, checking three style guides at once. It's not just about rules – it's about making sure your work looks as professional as you are.</p>
@@ -818,7 +798,7 @@
                     <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
                     <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/title-case-converter">Title Case Converter</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
                     <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-                    <div><h5>FOLLOW US</h5><a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a></div>
+                    <div><h5>FOLLOW US</h5><a href="https://www.facebook.com/textifydottools" target="_blank" rel="nofollow noopener noreferrer">Facebook</a><a href="https://www.instagram.com/textifydottools" target="_blank" rel="nofollow noopener noreferrer">Instagram</a><a href="https://x.com/textifydottools" target="_blank" rel="nofollow noopener noreferrer">X (Twitter)</a></div>
                 </div>
                 <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
             </div>
@@ -1381,6 +1361,19 @@
             updateScoreBadge();
             autoResize();
         });
+    </script>
+
+    <!-- Buy Me a Coffee Widget -->
+    <script
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="textify.tools"
+      data-description="Support me on Buy me a coffee!"
+      data-color="#FFDD00"
+      data-position="Right"
+      data-x_margin="18"
+      data-y_margin="18">
     </script>
 </body>
 </html>
