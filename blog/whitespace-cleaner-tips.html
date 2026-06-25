@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <meta name="theme-color" content="#ffffff">
   <title>Whitespace Cleaner Tips – Clean Up Messy Text Instantly | Textify Blog</title>
   <meta name="description" content="Learn how to remove extra spaces, tabs, and blank lines from any text using Textify's free Whitespace Cleaner. Perfect for cleaning messy copy‑pasted content.">
+  <meta name="author" content="Textify Tools Team">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://textify.tools/blog/whitespace-cleaner-tips">
+  <link rel="alternate" hreflang="en-US" href="https://textify.tools/blog/whitespace-cleaner-tips">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://textify.tools/blog/whitespace-cleaner-tips">
   <meta property="og:title" content="Whitespace Cleaner Tips – Clean Up Messy Text Instantly">
@@ -293,7 +295,6 @@
               </button>
               <div class="tools-mega-menu" id="megaMenu"></div>
             </div>
-            <!-- FIXED: "privacy" → "/privacy" -->
             <a href="/privacy">Privacy</a>
             <a href="/blog">Blog</a>
           </div>
@@ -386,16 +387,14 @@
             </a>
             <p style="font-size:13px;margin-top:15px;color:var(--footer-text);max-width:100%;line-height:1.6;">Free, private text tools that live in your browser. No signup, no tracking, no nonsense. Bookmark us — you'll be back.</p>
           </div>
-          <!-- FIXED: all QUICK LINKS now use absolute paths -->
           <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="/about">About Us</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/blog">Blog</a></div>
           <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/slug-generator">Slug Generator</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
-          <!-- FIXED: all LEGAL & INFO links now use absolute paths -->
           <div><h5>LEGAL & INFO</h5><a href="/disclaimer">Disclaimer</a><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Use</a></div>
           <div>
             <h5>FOLLOW US</h5>
-            <a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+            <a href="https://www.facebook.com/textifydottools" target="_blank" rel="nofollow noopener noreferrer">Facebook</a>
+            <a href="https://www.instagram.com/textifydottools" target="_blank" rel="nofollow noopener noreferrer">Instagram</a>
+            <a href="https://x.com/textifydottools" target="_blank" rel="nofollow noopener noreferrer">X (Twitter)</a>
           </div>
         </div>
         <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
@@ -415,7 +414,6 @@
     <div class="mobile-sidebar-nav">
       <button class="mobile-tools-toggle" onclick="toggleMobileTools()">Tools <i data-lucide="chevron-down"></i></button>
       <div class="mobile-tools-menu" id="mobileToolsMenu"></div>
-      <!-- FIXED: "privacy" → "/privacy" -->
       <a href="/privacy">Privacy</a>
       <a href="/blog">Blog</a>
     </div>
@@ -574,6 +572,19 @@
     document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeFullSearch();closeMobileSidebar();}if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openFullSearch();}});
 
     buildMegaMenu(); buildMobileToolsMenu(); buildSearchList(); lucide.createIcons();
+  </script>
+
+  <!-- Buy Me a Coffee Widget -->
+  <script
+    data-name="BMC-Widget"
+    data-cfasync="false"
+    src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+    data-id="textify.tools"
+    data-description="Support me on Buy me a coffee!"
+    data-color="#FFDD00"
+    data-position="Right"
+    data-x_margin="18"
+    data-y_margin="18">
   </script>
 </body>
 </html>
