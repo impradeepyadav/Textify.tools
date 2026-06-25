@@ -7,9 +7,10 @@
     
     <title>Compare Two Texts Online – Free Text Diff Checker</title>
     <meta name="description" content="Compare two texts online for free and instantly highlight differences. Find added, removed, and changed text with our fast Text Diff Checker.">
-    <meta name="author" content="Textify.tools">
+    <meta name="author" content="Textify Tools Team">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/text-diff-checker">
+    <link rel="alternate" hreflang="en-US" href="https://textify.tools/text-diff-checker">
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/text-diff-checker">
@@ -30,10 +31,6 @@
 
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
-    <link rel="preconnect" href="https://cmp.gatekeeperconsent.com">
-    <link rel="preconnect" href="https://the.gatekeeperconsent.com">
-    <link rel="preconnect" href="https://www.ezojs.com">
-    <link rel="preconnect" href="https://ezoicanalytics.com">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,16 +58,6 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186"
     crossorigin="anonymous"></script>
-
-    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
-    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
-
-    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
-    <script>
-        window.ezstandalone = window.ezstandalone || {};
-        ezstandalone.cmd = ezstandalone.cmd || [];
-    </script>
-    <script src="//ezoicanalytics.com/analytics.js"></script>
 
     <script type="application/ld+json">
     {
@@ -266,8 +253,6 @@
             --sbs-empty: #f8fafc;
             --inline-added-bg: #bbf7d0;
             --inline-removed-bg: #fecaca;
-
-            /* Only action buttons stay colorful */
             --icon-compare: #22c55e;
             --icon-swap: #f97316;
             --icon-load: #3b82f6;
@@ -373,7 +358,6 @@
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
         .tools-mega-menu::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
 
-        /* Header icons back to default – no custom colors */
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; transition: transform 0.15s ease, background 0.2s; }
         .theme-btn:hover { background: var(--hover); }
         .theme-btn:active { transform: scale(0.9); }
@@ -471,7 +455,6 @@
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
         .btn-outline:hover { background: var(--hover); }
 
-        /* Action buttons stay colorful */
         .btn-compare svg { color: var(--icon-compare); }
         .btn-swap svg { color: var(--icon-swap); }
         .btn-load-example svg { color: var(--icon-load); }
@@ -714,7 +697,7 @@
                     <div id="diffDisplay"></div>
                 </div>
 
-                <!-- Human-written US English content -->
+                <!-- Content sections -->
                 <div class="section">
                     <h2>Why you'll love this diff tool</h2>
                     <p>Ever had two versions of a document and no clue what actually changed? Manually comparing them line by line is painful and mistakes happen. That's exactly why we built this thing. Our diff checker grabs your two text chunks, runs a fast comparison algorithm (all in your browser, nothing leaves your computer), and paints the changes in green and red. It's that simple.</p>
@@ -831,7 +814,7 @@
                     <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
                     <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/slug-generator">Slug Generator</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
                     <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-                    <div><h5>FOLLOW US</h5><a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a></div>
+                    <div><h5>FOLLOW US</h5><a href="https://www.facebook.com/textifydottools" target="_blank" rel="nofollow noopener noreferrer">Facebook</a><a href="https://www.instagram.com/textifydottools" target="_blank" rel="nofollow noopener noreferrer">Instagram</a><a href="https://x.com/textifydottools" target="_blank" rel="nofollow noopener noreferrer">X (Twitter)</a></div>
                 </div>
                 <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
             </div>
@@ -1333,6 +1316,19 @@
             buildSearchList();
             lucide.createIcons();
         });
+    </script>
+
+    <!-- Buy Me a Coffee Widget -->
+    <script
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="textify.tools"
+      data-description="Support me on Buy me a coffee!"
+      data-color="#FFDD00"
+      data-position="Right"
+      data-x_margin="18"
+      data-y_margin="18">
     </script>
 </body>
 </html>
