@@ -7,9 +7,10 @@
     
     <title>Online Case Converter: Easily Convert Text to Upper, Lower, & Title Case</title>
     <meta name="description" content="Say goodbye to manual retyping. Use our free online case converter to change text to upper, lower, or title case instantly. Safe, secure, and easy.">
-    <meta name="author" content="Textify.tools">
+    <meta name="author" content="Textify Tools Team">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/case-converter">
+    <link rel="alternate" hreflang="en-US" href="https://textify.tools/case-converter">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -26,10 +27,6 @@
     <!-- Preconnect -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
-    <link rel="preconnect" href="https://cmp.gatekeeperconsent.com">
-    <link rel="preconnect" href="https://the.gatekeeperconsent.com">
-    <link rel="preconnect" href="https://www.ezojs.com">
-    <link rel="preconnect" href="https://ezoicanalytics.com">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
     <!-- Yandex verification -->
@@ -47,18 +44,6 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186"
     crossorigin="anonymous"></script>
-
-    <!-- Gatekeeper Consent -->
-    <script data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
-    <script data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
-
-    <!-- Ezoic -->
-    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
-    <script>
-        window.ezstandalone = window.ezstandalone || {};
-        ezstandalone.cmd = ezstandalone.cmd || [];
-    </script>
-    <script src="//ezoicanalytics.com/analytics.js"></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -191,12 +176,14 @@
         .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; }
         .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
         .tools-menu-container { position: relative; }
-        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; }
+        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; background: none; border: none; font-family: inherit; }
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
         .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
         .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 200px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
-        .tools-menu-container:hover .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .tools-menu-container:hover .tools-trigger i { transform: rotate(180deg); }
+        .tools-menu-container:hover .tools-mega-menu,
+        .tools-menu-container.open .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .tools-menu-container:hover .tools-trigger i,
+        .tools-menu-container.open .tools-trigger i { transform: rotate(180deg); }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
 
@@ -278,7 +265,6 @@
         }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
 
-        /* Toolbar – black translucent background, perfectly fitting all icons */
         .toolbar-btns {
             position: absolute;
             bottom: 14px;
@@ -336,7 +322,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Responsive toolbar */
         @media (max-width: 600px) {
             textarea { padding-bottom: 120px; }
             .toolbar-btns { gap: 5px; bottom: 10px; right: 8px; padding: 5px 8px; }
@@ -366,7 +351,6 @@
             textarea { padding-bottom: 90px; }
         }
 
-        /* Download dropdown */
         .download-wrapper { position: relative; display: flex; }
         .download-dropdown {
             position: absolute;
@@ -393,7 +377,6 @@
         }
         .download-option:hover { background: var(--hover); }
 
-        /* Stats bar */
         .stats-bar {
             display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px;
             padding: 10px 16px; background: rgba(0, 0, 0, 0.7);
@@ -404,7 +387,6 @@
         body.dark-mode .stats-bar { background: rgba(255, 255, 255, 0.15); }
         body.dark-mode .stats-bar span { color: #ffffff; }
 
-        /* Convert buttons */
         .convert-buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 25px; }
         .convert-btn {
             padding: 10px 18px; background: #000000; color: #ffffff;
@@ -421,7 +403,6 @@
         }
         @keyframes pulseActive { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
-        /* Custom terms modal */
         .custom-terms-modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--overlay-bg); backdrop-filter: blur(4px);
@@ -448,7 +429,6 @@
         .modal-actions .btn-save { background: var(--primary); color: var(--bg); }
         .modal-actions .btn-clear { background: #ef4444; color: #ffffff; margin-right: auto; }
 
-        /* Sections */
         .section { margin-bottom: 50px; width: 100%; max-width: 100%; }
         .section h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
         .section h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
@@ -456,7 +436,7 @@
         .section ul, .section ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
 
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
-        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; transition: all 0.2s ease; }
+        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; transition: all 0.2s ease; border: none; width: 100%; text-align: left; font-family: inherit; }
         .faq-question:hover { background: var(--faq-active); }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; } .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
@@ -510,8 +490,10 @@
                 </a>
                 <div class="header-right">
                     <div class="desktop-nav">
-                        <div class="tools-menu-container">
-                            <span class="tools-trigger">Tools <i data-lucide="chevron-down"></i></span>
+                        <div class="tools-menu-container" id="toolsMenuContainer">
+                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleToolsMenu()">
+                                Tools <i data-lucide="chevron-down"></i>
+                            </button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
                         </div>
                         <a href="privacy">Privacy</a>
@@ -534,7 +516,7 @@
                 <h1>Free Online Case Converter – The Smartest Way to Change Text Case</h1>
                 <p class="subtitle">Paste your text and choose from 14 different case styles. Add custom terms to protect brand names like iPhone or McDonald's. Download as PDF, TXT, or DOC. Nothing leaves your browser – complete privacy, zero signups.</p>
 
-                <!-- Textarea with perfectly fitting toolbar -->
+                <!-- Textarea with toolbar -->
                 <div class="textarea-wrapper">
                     <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
                     <div class="toolbar-btns">
@@ -607,7 +589,7 @@
                     <button class="convert-btn" data-case="constant">CONSTANT_CASE</button>
                 </div>
 
-                <!-- ================= ALL CONTENT SECTIONS (fully styled) ================= -->
+                <!-- Content sections unchanged -->
                 <div class="section">
                     <h2>What Is a Case Converter and Why Do You Need One?</h2>
                     <p>If you have ever typed an entire paragraph only to realise the caps lock was on, or spent several minutes reformatting a heading to match a style guide, you already understand why a case converter is a genuinely useful tool. A case converter takes any block of text and changes its letter casing in a single click – instead of editing each character individually, you paste your content, pick the style you want, and the job is done.</p>
@@ -711,27 +693,27 @@
                 <div class="section">
                     <h2>Frequently Asked Questions About Our Case Converter</h2>
                     <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">What exactly does the Capitalized case option do? <i data-lucide="chevron-down" width="16"></i></div>
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">What exactly does the Capitalized case option do? <i data-lucide="chevron-down" width="16"></i></button>
                         <div class="faq-answer">Capitalized case changes only the very first letter of your entire text to uppercase, leaving every other character exactly as it was. This is different from Sentence case, which also converts the rest of the text to lowercase. Capitalized is useful when you want to ensure a proper noun or title starts correctly without altering anything else.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">How does the custom terms feature work? <i data-lucide="chevron-down" width="16"></i></div>
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">How does the custom terms feature work? <i data-lucide="chevron-down" width="16"></i></button>
                         <div class="faq-answer">Click the gear icon in the toolbar and type any words or phrases you want to protect, one per line. After you apply a case style, the converter scans the result and replaces any matches with the exact spelling you provided. For example, adding "iPhone" means it will always appear as "iPhone" and never become "Iphone" after title case conversion.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">Can this tool handle camelCase and snake_case conversions? <i data-lucide="chevron-down" width="16"></i></div>
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Can this tool handle camelCase and snake_case conversions? <i data-lucide="chevron-down" width="16"></i></button>
                         <div class="faq-answer">Yes, absolutely. The converter includes camelCase, PascalCase, snake_case, kebab‑case, and CONSTANT_CASE – all the formats that developers use daily for variable names, function names, and database fields.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">Does the tool work properly on mobile phones? <i data-lucide="chevron-down" width="16"></i></div>
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Does the tool work properly on mobile phones? <i data-lucide="chevron-down" width="16"></i></button>
                         <div class="faq-answer">Yes, it is fully responsive. The text area and toolbar icons automatically adjust to fit any screen size, from large desktop monitors down to small mobile displays, without any horizontal scrolling.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">Is my text actually safe when I use this? <i data-lucide="chevron-down" width="16"></i></div>
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">Is my text actually safe when I use this? <i data-lucide="chevron-down" width="16"></i></button>
                         <div class="faq-answer">Completely. All processing takes place inside your own browser using JavaScript. Your text is never uploaded to any server, stored anywhere, or seen by anyone. You can verify this by disconnecting your internet after the page loads – the tool will continue working without any connection.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">How do I download my converted text? <i data-lucide="chevron-down" width="16"></i></div>
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">How do I download my converted text? <i data-lucide="chevron-down" width="16"></i></button>
                         <div class="faq-answer">Click the download icon in the toolbar, and a small menu will appear with three choices – PDF, TXT, and DOC. Select the format you want, and the file will be saved to your device immediately. There are no watermarks and no registration required.</div>
                     </div>
                 </div>
@@ -752,7 +734,7 @@
                     <div><h5>QUICK LINKS</h5><a href="/">Home</a><a href="about">About Us</a><a href="contact">Contact</a><a href="privacy">Privacy</a><a href="/blog">Blog</a></div>
                     <div><h5>POPULAR TOOLS</h5><a href="/text-repeater">Text Repeater</a><a href="/json-formatter">JSON Formatter</a><a href="/word-counter">Word Counter</a><a href="/case-converter">Case Converter</a><a href="/slug-generator">Slug Generator</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/password-generator">Password Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a></div>
                     <div><h5>LEGAL & INFO</h5><a href="disclaimer">Disclaimer</a><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-                    <div><h5>FOLLOW US</h5><a href="https://www.facebook.com/textifydottools" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.instagram.com/textifydottools" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com/textifydottools" target="_blank" rel="noopener noreferrer">X (Twitter)</a></div>
+                    <div><h5>FOLLOW US</h5><a href="https://www.facebook.com/textifydottools" target="_blank" rel="nofollow noopener noreferrer">Facebook</a><a href="https://www.instagram.com/textifydottools" target="_blank" rel="nofollow noopener noreferrer">Instagram</a><a href="https://x.com/textifydottools" target="_blank" rel="nofollow noopener noreferrer">X (Twitter)</a></div>
                 </div>
                 <div class="footer-bottom">© www.textify.tools. All rights reserved.</div>
             </div>
@@ -877,13 +859,50 @@
                 }
             };
 
-            document.getElementById('sunIcon').style.display='block'; document.getElementById('moonIcon').style.display='none';
-            if (localStorage.getItem('theme') === 'dark') {
-                document.body.classList.add('dark-mode');
-                document.getElementById('sunIcon').style.display='none'; document.getElementById('moonIcon').style.display='block';
+            // Initial theme icon setup
+            (function initIcons() {
+                const sun = document.getElementById('sunIcon'), moon = document.getElementById('moonIcon');
                 const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-                if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
-            }
+                if (document.body.classList.contains('dark-mode')) {
+                    sun.style.display = 'none'; moon.style.display = 'block';
+                    if(ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
+                } else {
+                    sun.style.display = 'block'; moon.style.display = 'none';
+                    if(ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
+                }
+            })();
+
+            window.toggleToolsMenu = function() {
+                const container = document.getElementById('toolsMenuContainer');
+                const trigger = document.getElementById('toolsTrigger');
+                const isOpen = container.classList.contains('open');
+                if (isOpen) {
+                    container.classList.remove('open');
+                    trigger.setAttribute('aria-expanded', 'false');
+                } else {
+                    container.classList.add('open');
+                    trigger.setAttribute('aria-expanded', 'true');
+                    const firstLink = container.querySelector('.tools-mega-menu a');
+                    if (firstLink) firstLink.focus();
+                }
+            };
+            document.addEventListener('click', function(e) {
+                const container = document.getElementById('toolsMenuContainer');
+                if (container && !container.contains(e.target) && container.classList.contains('open')) {
+                    container.classList.remove('open');
+                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                }
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const container = document.getElementById('toolsMenuContainer');
+                    if (container && container.classList.contains('open')) {
+                        container.classList.remove('open');
+                        document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                        document.getElementById('toolsTrigger').focus();
+                    }
+                }
+            });
 
             window.openMobileSidebar = function() { document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; };
             window.closeMobileSidebar = function() { document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow = ''; };
@@ -913,9 +932,11 @@
 
             window.toggleFaq = function(el) {
                 const item = el.parentElement;
+                const expanded = el.getAttribute('aria-expanded') === 'true';
                 item.classList.toggle('active');
+                el.setAttribute('aria-expanded', !expanded);
                 const icon = el.querySelector('svg');
-                if (icon) icon.style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                if (icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
             };
 
             const downloadBtn = document.querySelector('.download-wrapper > button');
@@ -1119,6 +1140,19 @@
             buildSearchList();
             lucide.createIcons();
         });
+    </script>
+
+    <!-- Buy Me a Coffee Widget -->
+    <script
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="textify.tools"
+      data-description="Support me on Buy me a coffee!"
+      data-color="#FFDD00"
+      data-position="Right"
+      data-x_margin="18"
+      data-y_margin="18">
     </script>
 </body>
 </html>
