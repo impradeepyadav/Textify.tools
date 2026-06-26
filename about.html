@@ -141,17 +141,29 @@
       --toast-bg: #f1f5f9; --toast-text: #0f172a;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg); color: var(--text); min-height: 100vh;
       transition: background 0.3s, color 0.3s;
+      overflow-x: hidden; width: 100%; max-width: 100vw;
     }
-    .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
+
+    /* Extra responsive helpers */
+    img, video, canvas, iframe, embed, object, svg {
+      max-width: 100%;
+      height: auto;
+    }
+    pre, code {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .page-wrapper { width: 100%; max-width: 100vw; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
     header {
       border-bottom: 1px solid var(--line); display: flex; justify-content: center;
       align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
-      background: transparent; width: 100%;
+      background: transparent; width: 100%; max-width: 100vw;
     }
     .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
@@ -201,7 +213,7 @@
     .hamburger-btn .menu-icon span:first-child { width: 16px; }
     .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
     .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
-    .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; }
+    .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; max-width: 85vw; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; }
     .mobile-sidebar.active { left: 0; }
     .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
     .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
@@ -224,30 +236,30 @@
     .search-overlay-full.active { opacity: 1; visibility: visible; }
     .search-container { width: 90%; max-width: 550px; display: flex; flex-direction: column; max-height: 80vh; }
     .search-box { display: flex; align-items: center; gap: 10px; background: var(--bg); border-radius: 16px; padding: 8px 16px; border: 2px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 10px; }
-    .search-box input { flex: 1; border: none; background: transparent; font-size: 17px; color: var(--text); outline: none; font-family: inherit; padding: 10px 0; }
+    .search-box input { flex: 1; border: none; background: transparent; font-size: 17px; color: var(--text); outline: none; font-family: inherit; padding: 10px 0; min-width: 0; }
     .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; max-height: 60vh; }
     .search-results-list .search-result-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; border-bottom: 1px solid var(--line); }
     .search-results-list .search-result-item:last-child { border-bottom: none; }
     .search-results-list .search-result-item:hover { background: var(--hover); color: var(--primary); }
     .search-results-list .search-result-item.hidden-item { display: none; }
-    .search-results-list .result-tag { font-size: 10px; background: var(--hover); padding: 3px 8px; border-radius: 12px; color: var(--text-light); text-transform: uppercase; font-weight: 600; }
+    .search-results-list .result-tag { font-size: 10px; background: var(--hover); padding: 3px 8px; border-radius: 12px; color: var(--text-light); text-transform: uppercase; font-weight: 600; flex-shrink: 0; }
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
-    main { flex: 1; padding: 40px 40px; width: 100%; background: transparent; }
+    main { flex: 1; padding: 40px 40px; width: 100%; max-width: 100vw; background: transparent; overflow-x: hidden; }
     .content-container { width: 100%; margin: 0 auto; }
-    h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; }
-    h2 { font-size: 26px; font-weight: 700; margin: 35px 0 15px; padding-bottom: 8px; border-bottom: 2px solid var(--hover); }
-    h3 { font-size: 22px; font-weight: 700; margin: 30px 0 12px; }
-    p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
+    h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; word-wrap: break-word; }
+    h2 { font-size: 26px; font-weight: 700; margin: 35px 0 15px; padding-bottom: 8px; border-bottom: 2px solid var(--hover); word-wrap: break-word; }
+    h3 { font-size: 22px; font-weight: 700; margin: 30px 0 12px; word-wrap: break-word; }
+    p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; word-wrap: break-word; }
     ul { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
 
     footer {
       border-top: 1px solid var(--footer-border);
       padding: 40px 40px 25px;
       background: transparent;
-      width: 100%;
+      width: 100%; max-width: 100vw; overflow-x: hidden;
     }
     .footer-container { width: 100%; max-width: 100%; }
     .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 35px; width: 100%; }
@@ -269,7 +281,8 @@
     }
     .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
-    @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 16px; } footer { padding: 30px 16px 20px; } }
+    @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; } main { padding: 20px 16px; } footer { padding: 30px 16px 20px; } }
+    @media (max-width: 500px) { h1 { font-size: 24px; } p { font-size: 15px; } }
     @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     @media (min-width: 1800px) {
       main { padding: 50px 60px; }
@@ -316,30 +329,30 @@
 
         <!-- Mission / Values -->
         <h2>What We Believe In</h2>
-        <p><strong>Privacy shouldn’t be a premium feature.</strong> We think it’s absurd that basic text tools require accounts or upload your data to the cloud. Every tool on this site processes everything locally in your browser. We can’t see your text — and we don’t want to.</p>
-        <p><strong>Speed is a feature.</strong> You shouldn’t have to watch a loading spinner when all you need is to count words. Our tools execute instantly because we’ve obsessed over performance. No bulky frameworks, no unnecessary animations — just the result you need, right now.</p>
-        <p><strong>Keep it simple, keep it human.</strong> We write our tooltips and instructions like we’re talking to a friend. If a tool is confusing, we failed — not you. That’s why our feedback page is always open. Real people read those messages.</p>
+        <p><strong>Privacy shouldn't be a premium feature.</strong> We think it's absurd that basic text tools require accounts or upload your data to the cloud. Every tool on this site processes everything locally in your browser. We can't see your text — and we don't want to.</p>
+        <p><strong>Speed is a feature.</strong> You shouldn't have to watch a loading spinner when all you need is to count words. Our tools execute instantly because we've obsessed over performance. No bulky frameworks, no unnecessary animations — just the result you need, right now.</p>
+        <p><strong>Keep it simple, keep it human.</strong> We write our tooltips and instructions like we're talking to a friend. If a tool is confusing, we failed — not you. That's why our feedback page is always open. Real people read those messages.</p>
 
         <h2>How We Keep the Lights On</h2>
-        <p>Textify.tools is free and always will be. We make just enough money to cover hosting and development by showing a few non‑intrusive ads (via Google AdSense). No creepy tracking, no selling your data — we literally don’t have any data to sell. If we ever introduce a paid plan (unlikely), we’ll announce it with a giant banner — not a hidden checkbox.</p>
+        <p>Textify.tools is free and always will be. We make just enough money to cover hosting and development by showing a few non‑intrusive ads (via Google AdSense). No creepy tracking, no selling your data — we literally don't have any data to sell. If we ever introduce a paid plan (unlikely), we'll announce it with a giant banner — not a hidden checkbox.</p>
 
         <h2>What Drives Us Every Day</h2>
         <ul>
-          <li><strong>Your feedback.</strong> We read every message we get. When someone says a tool saved them time or made them smile, that’s the fuel that keeps us building.</li>
+          <li><strong>Your feedback.</strong> We read every message we get. When someone says a tool saved them time or made them smile, that's the fuel that keeps us building.</li>
           <li><strong>Solving real problems.</strong> Every tool on this site exists because someone needed it. The invisible text generator? A user requested it. The JWT decoder? Our developer needed it for his own debugging.</li>
-          <li><strong>Staying independent.</strong> We don’t have investors, board meetings, or a roadmap designed by a committee. We build what feels right, at our own pace, and that keeps the quality high.</li>
+          <li><strong>Staying independent.</strong> We don't have investors, board meetings, or a roadmap designed by a committee. We build what feels right, at our own pace, and that keeps the quality high.</li>
         </ul>
 
         <h2>Fun Facts</h2>
         <ul>
-          <li>The most repeated phrase ever entered: “I’m sorry 😂” (over 500,000 times — we checked anonymously).</li>
-          <li>We once spent an entire afternoon picking the exact shade of green for our success messages. It’s #16a34a, in case you wondered.</li>
+          <li>The most repeated phrase ever entered: "I'm sorry 😂" (over 500,000 times — we checked anonymously).</li>
+          <li>We once spent an entire afternoon picking the exact shade of green for our success messages. It's #16a34a, in case you wondered.</li>
           <li>We tested the text repeater so many times that Slack temporarily blocked our test messages. Worth it.</li>
           <li>The invisible text feature was inspired by a user who wanted to leave blank lines in a comment box without breaking the layout. Now people use it for all kinds of creative stuff.</li>
         </ul>
 
         <h2>Join the Journey</h2>
-        <p>We’re always tinkering, and we’d love to hear from you. Have a tool idea? Found a bug? Just want to say hi? Drop us a message on <a href="contact" style="color:var(--primary); font-weight:600;">our Contact page</a>. We answer personally (and usually within a day).</p>
+        <p>We're always tinkering, and we'd love to hear from you. Have a tool idea? Found a bug? Just want to say hi? Drop us a message on <a href="contact" style="color:var(--primary); font-weight:600;">our Contact page</a>. We answer personally (and usually within a day).</p>
         <p>Thanks for being part of Textify.tools. We hope these tools save you a little time and a lot of frustration.</p>
         <p style="font-weight:600; margin-top:20px;">— The Textify.tools Team</p>
       </div>
