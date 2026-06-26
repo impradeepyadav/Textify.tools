@@ -152,20 +152,32 @@
       --toast-bg: #f1f5f9; --toast-text: #0f172a;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg); color: var(--text); min-height: 100vh;
       transition: background 0.3s, color 0.3s; overflow-x: hidden;
+      width: 100%; max-width: 100vw;
     }
+
+    /* Extra responsive helpers */
+    img, video, canvas, iframe, embed, object, svg {
+      max-width: 100%;
+      height: auto;
+    }
+    pre, code {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
     .page-wrapper {
-      width: 100%; max-width: 100%; margin: 0 auto;
-      background: transparent; display: flex; flex-direction: column; min-height: 100vh;
+      width: 100%; max-width: 100vw; margin: 0 auto;
+      background: transparent; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden;
     }
     header {
       border-bottom: 1px solid var(--line); display: flex; justify-content: center;
       align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
-      background: transparent; width: 100%;
+      background: transparent; width: 100%; max-width: 100vw;
     }
     .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
@@ -214,7 +226,7 @@
     .hamburger-btn .menu-icon span:first-child { width: 16px; }
     .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
     .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
-    .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; }
+    .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; max-width: 85vw; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4,0,0.2,1); overflow-y: auto; }
     .mobile-sidebar.active { left: 0; }
     .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
     .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
@@ -237,37 +249,37 @@
     .search-overlay-full.active { opacity: 1; visibility: visible; }
     .search-container { width: 90%; max-width: 550px; display: flex; flex-direction: column; max-height: 80vh; }
     .search-box { display: flex; align-items: center; gap: 10px; background: var(--bg); border-radius: 16px; padding: 8px 16px; border: 2px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 10px; }
-    .search-box input { flex: 1; border: none; background: transparent; font-size: 17px; color: var(--text); outline: none; font-family: inherit; padding: 10px 0; }
+    .search-box input { flex: 1; border: none; background: transparent; font-size: 17px; color: var(--text); outline: none; font-family: inherit; padding: 10px 0; min-width: 0; }
     .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; max-height: 60vh; }
     .search-results-list .search-result-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; border-bottom: 1px solid var(--line); }
     .search-results-list .search-result-item:last-child { border-bottom: none; }
     .search-results-list .search-result-item:hover { background: var(--hover); color: var(--primary); }
     .search-results-list .search-result-item.hidden-item { display: none; }
-    .search-results-list .result-tag { font-size: 10px; background: var(--hover); padding: 3px 8px; border-radius: 12px; color: var(--text-light); text-transform: uppercase; font-weight: 600; }
+    .search-results-list .result-tag { font-size: 10px; background: var(--hover); padding: 3px 8px; border-radius: 12px; color: var(--text-light); text-transform: uppercase; font-weight: 600; flex-shrink: 0; }
     .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
     .search-no-result.show { display: block; }
 
-    main { flex: 1; padding: 40px 0; width: 100%; background: transparent; }
+    main { flex: 1; padding: 40px 0; width: 100%; max-width: 100vw; background: transparent; overflow-x: hidden; }
     .content-container { width: 100%; padding: 0 40px; }
     @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
-    h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: left; }
+    h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; text-align: left; word-wrap: break-word; }
     .post-date { font-size: 14px; color: var(--text-light); margin-bottom: 25px; text-align: left; }
-    h2 { font-size: 24px; font-weight: 700; margin: 35px 0 15px; }
-    h3 { font-size: 20px; font-weight: 700; margin: 25px 0 10px; }
-    p { line-height: 1.8; color: var(--text-light); margin-bottom: 18px; font-size: 16px; }
+    h2 { font-size: 24px; font-weight: 700; margin: 35px 0 15px; word-wrap: break-word; }
+    h3 { font-size: 20px; font-weight: 700; margin: 25px 0 10px; word-wrap: break-word; }
+    p { line-height: 1.8; color: var(--text-light); margin-bottom: 18px; font-size: 16px; word-wrap: break-word; }
     ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; }
     li { margin-bottom: 10px; line-height: 1.7; }
     .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-weight: 600; text-decoration: none; margin-bottom: 20px; }
     .back-link:hover { opacity: 0.8; }
-    .tip-box { background: var(--accent); padding: 18px 20px; border-left: 4px solid #16a34a; border-radius: 8px; margin-bottom: 22px; }
+    .tip-box { background: var(--accent); padding: 18px 20px; border-left: 4px solid #16a34a; border-radius: 8px; margin-bottom: 22px; word-wrap: break-word; }
     .tip-box p { margin: 0; }
-    .cta-button { display: inline-block; background: var(--primary); color: var(--bg); padding: 12px 24px; border-radius: 10px; font-weight: 600; text-decoration: none; margin: 20px 0; transition: opacity 0.2s; }
+    .cta-button { display: inline-block; background: var(--primary); color: var(--bg); padding: 12px 24px; border-radius: 10px; font-weight: 600; text-decoration: none; margin: 20px 0; transition: opacity 0.2s; white-space: nowrap; }
     .cta-button:hover { opacity: 0.88; }
 
     footer {
       border-top: 1px solid var(--footer-border); padding: 40px 40px 25px;
-      background: transparent; width: 100%;
+      background: transparent; width: 100%; max-width: 100vw; overflow-x: hidden;
     }
     .footer-container { width: 100%; max-width: 100%; }
     .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 35px; width: 100%; }
@@ -292,8 +304,12 @@
 
     @media (max-width: 768px) {
       .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
-      header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; }
+      header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 20px; }
       main { padding: 20px 0; } footer { padding: 30px 16px 20px; }
+    }
+    @media (max-width: 500px) {
+      h1 { font-size: 24px; }
+      p { font-size: 15px; }
     }
     @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
     @media (min-width: 1800px) {
@@ -344,10 +360,10 @@
 
         <p>You've probably seen those long, scroll‑stopping WhatsApp messages where a word, emoji, or phrase is repeated over and over — maybe a birthday wish that fills the whole screen or a funny pattern that makes the group laugh. That's exactly what a <strong>WhatsApp Text Repeater</strong> does. It's a simple online tool that lets you multiply any text instantly, so you get one giant message instead of typing the same thing a hundred times.</p>
 
-        <p>In plain English: a WhatsApp Text Repeater takes a piece of text (like “Hello” or “😂”) and repeats it as many times as you want — all in one copy‑ready block. No manual copy‑pasting, no risk of carpal tunnel. Whether you're spicing up a group chat or just messing around, it's the go‑to trick for text that grabs attention.</p>
+        <p>In plain English: a WhatsApp Text Repeater takes a piece of text (like "Hello" or "😂") and repeats it as many times as you want — all in one copy‑ready block. No manual copy‑pasting, no risk of carpal tunnel. Whether you're spicing up a group chat or just messing around, it's the go‑to trick for text that grabs attention.</p>
 
         <h2>So, What Exactly Is It?</h2>
-        <p>Think of a text repeater as a “copy machine” for words. You type something, pick how many copies you want (from 2 up to 100,000), and hit a button. The tool spits out one long, ready‑to‑paste message. It's usually a web‑based tool — no downloads, no sign‑ups. You just visit the page, type, generate, and copy.</p>
+        <p>Think of a text repeater as a "copy machine" for words. You type something, pick how many copies you want (from 2 up to 100,000), and hit a button. The tool spits out one long, ready‑to‑paste message. It's usually a web‑based tool — no downloads, no sign‑ups. You just visit the page, type, generate, and copy.</p>
         <p>Here's the cool part: most repeaters let you control how the repeats are separated. You can stack them line by line, pack them together in a paragraph, or even add custom separators like dashes or stars. That means your message can look exactly how you want it to.</p>
 
         <h2>How Does a Text Repeater Work?</h2>
@@ -357,12 +373,12 @@
           <li><strong>How many times to repeat it:</strong> Maybe 50 times for a short joke, or 500 times for an over‑the‑top celebration.</li>
           <li><strong>The separator:</strong> Usually a new line (so each repeat gets its own line), but you could use a space, a comma, or nothing at all.</li>
         </ul>
-        <p>Once you click “Repeat,” the tool generates the entire block instantly. Then you just copy the output and paste it into WhatsApp. No scripts, no bots, no violating any terms of service — just smart text generation.</p>
+        <p>Once you click "Repeat," the tool generates the entire block instantly. Then you just copy the output and paste it into WhatsApp. No scripts, no bots, no violating any terms of service — just smart text generation.</p>
 
         <h2>Why Do People Use It for WhatsApp?</h2>
         <p>Honestly, because it's fun and saves a ton of time. Here are some of the most common ways people use a WhatsApp text repeater:</p>
         <ul>
-          <li><strong>Epic birthday / anniversary wishes:</strong> Imagine “🎉 Happy Birthday 🎉” stacked 200 times. It fills the chat and puts a smile on their face.</li>
+          <li><strong>Epic birthday / anniversary wishes:</strong> Imagine "🎉 Happy Birthday 🎉" stacked 200 times. It fills the chat and puts a smile on their face.</li>
           <li><strong>Playful pranks:</strong> Send a harmless, repetitive message to a friend who's in on the joke. It's way better than spamming individual messages.</li>
           <li><strong>Visual patterns & art:</strong> With emojis and new lines, you can create simple ASCII‑style designs or rhythmic text patterns.</li>
           <li><strong>Group announcements:</strong> Make a message impossible to miss by repeating an important line a few times.</li>
@@ -381,8 +397,8 @@
           <li><strong>Open the <a href="/text-repeater">Text Repeater</a>.</strong> It's free and works on desktop and mobile.</li>
           <li><strong>Type your text.</strong> It can be anything — a word, an emoji, even a multi‑line message.</li>
           <li><strong>Set the repeat count.</strong> For WhatsApp, 100–500 repeats is usually the sweet spot. Long enough to impress, not so long that it crashes the chat.</li>
-          <li><strong>Choose the separator.</strong> Pick <strong>“New Line (Stack)”</strong> — this puts each repetition on its own line and gives you that clean, stacked look.</li>
-          <li><strong>Generate & copy.</strong> Hit the “Repeat / Convert” button, then copy the output with one click.</li>
+          <li><strong>Choose the separator.</strong> Pick <strong>"New Line (Stack)"</strong> — this puts each repetition on its own line and gives you that clean, stacked look.</li>
+          <li><strong>Generate & copy.</strong> Hit the "Repeat / Convert" button, then copy the output with one click.</li>
           <li><strong>Paste into WhatsApp.</strong> Open any chat and paste. The whole thing appears as a single, scrollable message.</li>
         </ol>
 
@@ -391,10 +407,10 @@
         <h2>Best Settings for WhatsApp</h2>
         <p>After testing a bunch of combinations, here's what works best for a smooth experience:</p>
         <ul>
-          <li><strong>Separator:</strong> Always “New Line.” It keeps each repetition distinct and avoids a messy wall of text that WhatsApp might reformat weirdly.</li>
+          <li><strong>Separator:</strong> Always "New Line." It keeps each repetition distinct and avoids a messy wall of text that WhatsApp might reformat weirdly.</li>
           <li><strong>Repeat count:</strong> 100–500. Going beyond 1,000 can make the message extremely long and a little obnoxious for the receiver. Remember, you can always send a second message later.</li>
           <li><strong>Emojis:</strong> They shine in a text repeater. A hundred smiley faces or party poppers on separate lines look awesome.</li>
-          <li><strong>Add line numbers?</strong> If you want to show the exact count, turn on “Add Line Numbers” — each line will be prefixed with 1., 2., etc. It adds a nice organized touch.</li>
+          <li><strong>Add line numbers?</strong> If you want to show the exact count, turn on "Add Line Numbers" — each line will be prefixed with 1., 2., etc. It adds a nice organized touch.</li>
           <li><strong>Unicode styles:</strong> You can try bold or italic text, but keep in mind that WhatsApp doesn't support all fancy fonts, so they might appear as plain text on some phones.</li>
         </ul>
 
