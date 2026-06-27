@@ -327,7 +327,7 @@
             padding-bottom: 6px;
         }
 
-        .textarea-wrapper { position: relative; margin-bottom: 20px; width: 100%; }
+        .textarea-wrapper { position: relative; margin-bottom: 20px; width: 100%; z-index: 1; }
         textarea {
             width: 100%;
             min-height: 280px;
@@ -354,7 +354,7 @@
             gap: 8px;
             flex-wrap: wrap;
             align-items: flex-end;
-            z-index: 5;
+            z-index: 10;
             background: rgba(0,0,0,0.75);
             border-radius: 10px;
             padding: 8px 10px;
@@ -408,14 +408,29 @@
             text-align: center;
         }
 
-        .dropdown-wrapper { position: relative; }
+        .dropdown-wrapper { position: relative; z-index: 11; }
+        .dropdown-wrapper.open { z-index: 101; }
         .dropdown-menu {
-            position: absolute; top: calc(100% + 4px); left: 0; min-width: 160px;
-            background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
-            box-shadow: 0 10px 25px var(--shadow); padding: 6px 0; z-index: 50;
-            opacity: 0; visibility: hidden; transform: translateY(4px); transition: 0.2s;
+            position: fixed;
+            min-width: 160px;
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            box-shadow: 0 10px 25px var(--shadow);
+            padding: 6px 0;
+            z-index: 102;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(4px);
+            transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+            pointer-events: none;
         }
-        .dropdown-wrapper.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-wrapper.open .dropdown-menu { 
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
         .dropdown-menu button {
             display: block; width: 100%; text-align: left; padding: 10px 14px;
             border: none; background: none; color: var(--text); font-size: 14px;
@@ -991,16 +1006,33 @@
                 else { container.classList.add('open'); trigger.setAttribute('aria-expanded', 'true'); const firstLink = container.querySelector('.tools-mega-menu a'); if (firstLink) firstLink.focus(); }
             };
             document.addEventListener('click', function(e) {
+                // Close dropdowns when clicking outside
+                if (!e.target.closest('.dropdown-wrapper')) { 
+                    document.querySelectorAll('.dropdown-wrapper.open').forEach(el => {
+                        el.classList.remove('open');
+                        el.style.zIndex = '11';
+                    }); 
+                }
+                // Close tools menu when clicking outside
                 const container = document.getElementById('toolsMenuContainer');
                 if (container && !container.contains(e.target) && container.classList.contains('open')) {
-                    container.classList.remove('open'); document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                    container.classList.remove('open'); 
+                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
                 }
             });
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
+                    // Close dropdowns
+                    document.querySelectorAll('.dropdown-wrapper.open').forEach(el => {
+                        el.classList.remove('open');
+                        el.style.zIndex = '11';
+                    });
+                    // Close tools menu
                     const container = document.getElementById('toolsMenuContainer');
                     if (container && container.classList.contains('open')) {
-                        container.classList.remove('open'); document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false'); document.getElementById('toolsTrigger').focus();
+                        container.classList.remove('open'); 
+                        document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                        document.getElementById('toolsTrigger').focus();
                     }
                 }
             });
@@ -1038,14 +1070,49 @@
             };
 
             window.toggleDropdown = function(id) {
-                const wrapper = document.getElementById(id); if (!wrapper) return;
+                const wrapper = document.getElementById(id); 
+                if (!wrapper) return;
                 const isOpen = wrapper.classList.contains('open');
-                document.querySelectorAll('.dropdown-wrapper.open').forEach(el => el.classList.remove('open'));
-                if (!isOpen) wrapper.classList.add('open');
+                
+                // Close all other dropdowns first
+                document.querySelectorAll('.dropdown-wrapper.open').forEach(el => {
+                    if (el !== wrapper) {
+                        el.classList.remove('open');
+                        el.style.zIndex = '11';
+                    }
+                });
+                
+                if (!isOpen) {
+                    // Calculate position before opening
+                    const btn = wrapper.querySelector('.icon-btn');
+                    if (btn) {
+                        const rect = btn.getBoundingClientRect();
+                        const dropdown = wrapper.querySelector('.dropdown-menu');
+                        if (dropdown) {
+                            // Position below the button
+                            dropdown.style.top = rect.bottom + 4 + 'px';
+                            dropdown.style.left = rect.left + 'px';
+                            
+                            // Check if dropdown would go off-screen to the right
+                            const dropdownWidth = dropdown.offsetWidth || 160;
+                            if (rect.left + dropdownWidth > window.innerWidth) {
+                                dropdown.style.left = (window.innerWidth - dropdownWidth - 10) + 'px';
+                            }
+                            
+                            // Check if dropdown would go off-screen at the bottom
+                            const dropdownHeight = dropdown.scrollHeight || 200;
+                            if (rect.bottom + 4 + dropdownHeight > window.innerHeight) {
+                                dropdown.style.top = rect.top - dropdownHeight - 4 + 'px';
+                            }
+                        }
+                    }
+                    wrapper.classList.add('open');
+                    wrapper.style.zIndex = '101';
+                } else {
+                    wrapper.classList.remove('open');
+                    wrapper.style.zIndex = '11';
+                }
             };
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.dropdown-wrapper')) { document.querySelectorAll('.dropdown-wrapper.open').forEach(el => el.classList.remove('open')); }
-            });
 
             function countSyllables(word) {
                 word = word.toLowerCase().replace(/[^a-z]/g, ''); if (word.length <= 3) return 1;
@@ -1125,12 +1192,16 @@
                 let newText = text;
                 switch(type) { case 'upper': newText = text.toUpperCase(); break; case 'lower': newText = text.toLowerCase(); break; case 'title': newText = text.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()); break; case 'sentence': newText = text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase()); break; }
                 textarea.value = newText; updateStats(); autoResizeTextarea(); pushState(newText);
-                document.getElementById('caseDropdown').classList.remove('open'); showToast(`Text converted to ${type} case ✓`);
+                document.getElementById('caseDropdown').classList.remove('open');
+                document.getElementById('caseDropdown').style.zIndex = '11';
+                showToast(`Text converted to ${type} case ✓`);
             };
 
             window.exportAs = function(format) {
                 const text = document.getElementById('inputText').value; if (!text.trim()) { showToast('Nothing to export!'); return; }
-                const filename = `word-counter-${Date.now()}`; document.getElementById('exportDropdown').classList.remove('open');
+                const filename = `word-counter-${Date.now()}`; 
+                document.getElementById('exportDropdown').classList.remove('open');
+                document.getElementById('exportDropdown').style.zIndex = '11';
                 switch(format) { case 'txt': downloadBlob(text, filename + '.txt', 'text/plain'); break; case 'docx': exportDocx(text, filename); break; case 'pdf': exportPdf(text, filename); break; }
             };
             function downloadBlob(content, filename, mimeType) { const blob = new Blob([content], { type: mimeType }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); showToast(`Exported as ${filename} ✓`); }
