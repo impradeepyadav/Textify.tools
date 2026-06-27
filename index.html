@@ -840,15 +840,19 @@
     <div class="toast" id="toast"></div>
 
     <script>
+        // Updated category names for global understanding
         const categories = [
             { key: 'all', label: 'All Tools' },
-            { key: 'manipulation', label: 'Text Manipulation' },
-            { key: 'analysis', label: 'Analysis & Stats' },
-            { key: 'encoding', label: 'Encoding & Ciphers' },
-            { key: 'styling', label: 'Unicode Styling' },
-            { key: 'generators', label: 'Generators' },
-            { key: 'seo', label: 'SEO & Web' },
+            { key: 'manipulation', label: 'Writing Tools' },
+            { key: 'analysis', label: 'Developer Tools' },
+            { key: 'encoding', label: 'Text Converters' },
+            { key: 'styling', label: 'Text Formatting' },
+            { key: 'seo', label: 'SEO Tools' },
+            { key: 'generators', label: 'Generators' }
         ];
+
+        // Map category keys to new labels for search results
+        const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
 
         const tools = [
             { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', icon: 'hash', link: '/word-counter', keywords: 'word count character counter letters', color: '#8b5cf6', category: 'analysis' },
@@ -920,7 +924,8 @@
         }
         function buildSearchList() {
             const list = document.getElementById('fullSearchResultsList');
-            list.innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category}</span></a>`).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
+            // Use category labels instead of keys for the tag
+            list.innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${categoryLabelMap[t.category] || t.category}</span></a>`).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
         }
         function renderCategoryGrid() {
             const grid = document.getElementById('categoryGrid');
