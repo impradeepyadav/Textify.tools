@@ -162,7 +162,6 @@
             width: 100%; max-width: 100vw;
         }
 
-        /* Extra responsive helpers */
         img, video, canvas, iframe, embed, object, svg {
             max-width: 100%;
             height: auto;
@@ -174,7 +173,6 @@
 
         .page-wrapper { width: 100%; max-width: 100vw; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
 
-        /* Header */
         header {
             border-bottom: 1px solid var(--line); display: flex; justify-content: center; align-items: center;
             padding: 0 40px; height: 64px; transition: border-color 0.3s; background: transparent; width: 100%; max-width: 100vw;
@@ -208,7 +206,6 @@
         .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
 
-        /* Mobile sidebar */
         .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
         .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
         .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; max-width: 85vw; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto; }
@@ -231,7 +228,6 @@
         .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; }
         .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
 
-        /* Search overlay */
         .search-overlay-full { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--overlay-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 300; display: flex; flex-direction: column; align-items: center; padding-top: 80px; opacity: 0; visibility: hidden; transition: 0.3s; }
         .search-overlay-full.active { opacity: 1; visibility: visible; }
         .search-container { width: 90%; max-width: 550px; display: flex; flex-direction: column; max-height: 80vh; }
@@ -248,7 +244,6 @@
         .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
         .search-no-result.show { display: block; }
 
-        /* Main */
         main { flex: 1; padding: 40px 0; width: 100%; max-width: 100vw; background: transparent; overflow-x: hidden; }
         .content-container { width: 100%; padding: 0 40px; }
         @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
@@ -256,7 +251,6 @@
         h1 { font-size: 38px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; text-align: left; word-wrap: break-word; }
         .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.7; margin-bottom: 30px; text-align: left; word-wrap: break-word; }
 
-        /* Textarea */
         .textarea-wrapper { position: relative; margin-bottom: 10px; width: 100%; max-width: 100%; }
         textarea {
             width: 100%;
@@ -277,6 +271,7 @@
         }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
 
+        /* ========== FIXED TOOLBAR CSS ========== */
         .toolbar-btns {
             position: absolute;
             bottom: 14px;
@@ -292,10 +287,10 @@
             border-radius: 14px;
             padding: 8px 12px;
             max-width: calc(100% - 28px);
+            /* === CRITICAL FIX: allow dropdown to overflow === */
             overflow: visible;
             box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
+            z-index: 50;  /* ensure toolbar stays above textarea */
         }
 
         .toolbar-btns button {
@@ -336,6 +331,32 @@
             letter-spacing: 0.5px;
         }
 
+        .download-wrapper { position: relative; display: flex; }
+        .download-dropdown {
+            position: absolute;
+            bottom: calc(100% + 8px);
+            right: 0;
+            background: var(--card);
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            padding: 4px;
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            z-index: 200;   /* ensure dropdown appears above everything */
+        }
+        .download-dropdown.active { display: flex; }
+        .download-option {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            white-space: nowrap;
+            font-size: 13px;
+            color: var(--text);
+            transition: background 0.2s;
+        }
+        .download-option:hover { background: var(--hover); }
+
         @media (max-width: 600px) {
             textarea { padding-bottom: 120px; }
             .toolbar-btns { gap: 5px; bottom: 10px; right: 8px; padding: 5px 8px; }
@@ -364,32 +385,6 @@
             .toolbar-btns button .icon-label { font-size: 4px; }
             textarea { padding-bottom: 90px; }
         }
-
-        .download-wrapper { position: relative; display: flex; }
-        .download-dropdown {
-            position: absolute;
-            bottom: calc(100% + 8px);
-            right: 0;
-            background: var(--card);
-            border: 1px solid var(--input-border);
-            border-radius: 8px;
-            padding: 4px;
-            display: none;
-            flex-direction: column;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-            z-index: 100;
-        }
-        .download-dropdown.active { display: flex; }
-        .download-option {
-            padding: 8px 12px;
-            cursor: pointer;
-            border-radius: 4px;
-            white-space: nowrap;
-            font-size: 13px;
-            color: var(--text);
-            transition: background 0.2s;
-        }
-        .download-option:hover { background: var(--hover); }
 
         .stats-bar {
             display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px;
@@ -536,7 +531,6 @@
                 <h1>Free Online Case Converter – The Smartest Way to Change Text Case</h1>
                 <p class="subtitle">Paste your text and choose from 14 different case styles. Add custom terms to protect brand names like iPhone or McDonald's. Download as PDF, TXT, or DOC. Nothing leaves your browser – complete privacy, zero signups.</p>
 
-                <!-- Textarea with toolbar -->
                 <div class="textarea-wrapper">
                     <textarea id="inputText" placeholder="Type or paste your text here..."></textarea>
                     <div class="toolbar-btns">
@@ -582,7 +576,6 @@
                     </div>
                 </div>
 
-                <!-- Stats bar -->
                 <div class="stats-bar" id="statsBar">
                     <div>Words: <span id="wordCount">0</span></div>
                     <div>Characters: <span id="charCount">0</span></div>
@@ -591,7 +584,6 @@
                     <div>Reading time: <span id="readTime">0 min</span></div>
                 </div>
 
-                <!-- Case buttons -->
                 <div class="convert-buttons" id="convertButtons">
                     <button class="convert-btn" data-case="upper">UPPERCASE</button>
                     <button class="convert-btn" data-case="lower">lowercase</button>
@@ -609,7 +601,7 @@
                     <button class="convert-btn" data-case="constant">CONSTANT_CASE</button>
                 </div>
 
-                <!-- Content sections unchanged -->
+                <!-- Content sections -->
                 <div class="section">
                     <h2>What Is a Case Converter and Why Do You Need One?</h2>
                     <p>If you have ever typed an entire paragraph only to realise the caps lock was on, or spent several minutes reformatting a heading to match a style guide, you already understand why a case converter is a genuinely useful tool. A case converter takes any block of text and changes its letter casing in a single click – instead of editing each character individually, you paste your content, pick the style you want, and the job is done.</p>
@@ -740,7 +732,6 @@
             </div>
         </main>
 
-        <!-- Footer -->
         <footer>
             <div class="footer-container">
                 <div class="footer-grid">
@@ -879,7 +870,6 @@
                 }
             };
 
-            // Initial theme icon setup
             (function initIcons() {
                 const sun = document.getElementById('sunIcon'), moon = document.getElementById('moonIcon');
                 const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
@@ -959,6 +949,7 @@
                 if (icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
             };
 
+            // ======== DOWNLOAD DROPDOWN (FIXED) ========
             const downloadBtn = document.querySelector('.download-wrapper > button');
             if (downloadBtn) {
                 downloadBtn.addEventListener('click', function(e) {
