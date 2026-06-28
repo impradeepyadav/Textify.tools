@@ -349,7 +349,7 @@
         }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
 
-        /* Toolbar */
+        /* Toolbar – FIXED */
         .toolbar-btns {
             position: absolute;
             bottom: 14px;
@@ -365,9 +365,10 @@
             border-radius: 14px;
             padding: 8px 12px;
             max-width: calc(100% - 28px);
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
+            /* === FIX: allow dropdown to overflow === */
+            overflow: visible;
             box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            z-index: 50; /* ensure toolbar stays above textarea */
         }
         .toolbar-btns button {
             background: transparent;
@@ -419,7 +420,7 @@
             display: none;
             flex-direction: column;
             box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-            z-index: 100;
+            z-index: 200;  /* higher than toolbar */
             min-width: 100px;
         }
         .download-dropdown.active { display: flex; }
@@ -1060,7 +1061,7 @@
                 if (icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
             };
 
-            // Download button
+            // Download button – FIXED DROPDOWN
             const downloadBtn = document.querySelector('.download-wrapper > button');
             if (downloadBtn) {
                 downloadBtn.addEventListener('click', function(e) {
