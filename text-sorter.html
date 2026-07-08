@@ -135,7 +135,7 @@
           "about": { "@id": "https://textify.tools/text-sorter/#tool" },
           "breadcrumb": { "@id": "https://textify.tools/text-sorter/#breadcrumb" },
           "datePublished": "2024-01-22",
-          "dateModified": "2025-06-15",
+          "dateModified": "2026-06-20",
           "author": { "@id": "https://textify.tools/#author" },
           "publisher": { "@id": "https://textify.tools/#organization" }
         },
@@ -743,7 +743,6 @@
                     <h2>How Sorting Works Under the Hood</h2>
                     <p>Our tool uses standard JavaScript sorting with locale comparison for alphabetical order, ensuring that accented characters and mixed case are handled sensibly. Numeric sorting parses lines as numbers for accurate 1→9 order. Random shuffle uses the Fisher‑Yates algorithm for unbiased results. All processing stays local, so your list remains private.</p>
 
-                    <!-- New section: Sorting Tips & Tricks -->
                     <h2>Sorting Tips & Tricks – Get the Most Out of the Sorter</h2>
                     <p>Even though sorting a list sounds simple, a few small habits can make a big difference in the results you get. Here are some practical pointers that we've picked up from watching how people use the tool.</p>
                     <p><strong>Numbers with units or symbols.</strong> The numeric sort works best when each line contains a clean number — like <em>42</em> or <em>3.14</em>. If your numbers have commas, dollar signs, or units (like <em>$1,200</em> or <em>10kg</em>), the sorter may treat them as text. A quick workaround is to strip out the extra characters before sorting, or simply copy the values you need and paste them as plain digits.</p>
@@ -840,42 +839,123 @@
     <div class="toast" id="toast"></div>
 
     <script>
+        // Category label mapping for search tags
+        const categoryLabelMap = {
+            analysis: 'Text Analysis',
+            cleaning: 'Text Cleaning',
+            formatting: 'Text Formatting',
+            'line-tools': 'Line Tools',
+            extract: 'Find & Extract',
+            compare: 'Compare',
+            convert: 'Convert',
+            encode: 'Encode',
+            generators: 'Generate'
+        };
+
+        // Full 100+ text utilities with SEO‑friendly URLs and correct categories
         const tools = [
+            // ---- Text Analysis ----
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
-            { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'manipulation' },
-            { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'manipulation' },
-            { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'manipulation' },
-            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'manipulation' },
-            { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'manipulation' },
-            { name: 'Text Finder & Replacer', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'manipulation' },
-            { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'manipulation' },
-            { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'manipulation' },
-            { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'manipulation' },
+            { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', category: 'analysis' },
+            { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count block format', category: 'analysis' },
+            { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
+            { name: 'Speaking Time Calculator', link: '/speaking-time-calculator', keywords: 'speaking time talk duration speech', category: 'analysis' },
+            { name: 'Keyword Counter', link: '/keyword-counter', keywords: 'keyword frequency count word', category: 'analysis' },
+            { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
+            { name: 'Duplicate Word Finder', link: '/duplicate-word-finder', keywords: 'duplicate word find highlight', category: 'analysis' },
+            { name: 'Text Statistics', link: '/text-statistics', keywords: 'text stats readability summary data', category: 'analysis' },
+            { name: 'Regex Tester', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'analysis' },
+
+            // ---- Text Cleaning ----
+            { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'cleaning' },
+            { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'cleaning' },
+            { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'cleaning' },
+            { name: 'Remove Empty Lines', link: '/remove-empty-lines', keywords: 'empty lines remove delete blank', category: 'cleaning' },
+            { name: 'Remove Blank Characters', link: '/remove-blank-characters', keywords: 'blank chars invisible characters remove', category: 'cleaning' },
+            { name: 'Remove Emojis', link: '/remove-emojis', keywords: 'emoji remove strip smiley', category: 'cleaning' },
+            { name: 'Remove Symbols', link: '/remove-symbols', keywords: 'symbols remove special characters clean', category: 'cleaning' },
+            { name: 'Remove Punctuation', link: '/remove-punctuation', keywords: 'punctuation remove comma period', category: 'cleaning' },
+            { name: 'Remove Numbers', link: '/remove-numbers', keywords: 'numbers remove digits numeric', category: 'cleaning' },
+            { name: 'Remove HTML Tags', link: '/remove-html-tags', keywords: 'html tags strip remove clean', category: 'cleaning' },
+            { name: 'Text Cleaner', link: '/text-cleaner', keywords: 'clean text sanitize format', category: 'cleaning' },
+
+            // ---- Text Formatting ----
+            { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'formatting' },
+            { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'formatting' },
+            { name: 'Sentence Case Converter', link: '/sentence-case-converter', keywords: 'sentence case capitalize first letter', category: 'formatting' },
+            { name: 'Toggle Case Converter', link: '/toggle-case-converter', keywords: 'toggle case invert swap', category: 'formatting' },
+            { name: 'Capitalize Words', link: '/capitalize-words', keywords: 'capitalize first letter each word', category: 'formatting' },
+            { name: 'Text Repeater', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste', category: 'formatting' },
+            { name: 'Text Finder & Replacer', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'formatting' },
+            { name: 'Line Break Converter', link: '/line-break-converter', keywords: 'line break crlf lf converter', category: 'formatting' },
+            { name: 'Text Indenter', link: '/text-indenter', keywords: 'indent text tab spaces', category: 'formatting' },
+            { name: 'Wrap Text', link: '/wrap-text', keywords: 'word wrap text line width', category: 'formatting' },
+            { name: 'Unwrap Text', link: '/unwrap-text', keywords: 'unwrap text join lines paragraph', category: 'formatting' },
+            { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'formatting' },
+            { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font', category: 'formatting' },
+            { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font', category: 'formatting' },
+            { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode', category: 'formatting' },
+            { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'formatting' },
+
+            // ---- Line Tools ----
+            { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'line-tools' },
+            { name: 'Reverse Lines', link: '/reverse-lines', keywords: 'reverse lines order flip', category: 'line-tools' },
+            { name: 'Shuffle Lines', link: '/shuffle-lines', keywords: 'shuffle lines randomize order', category: 'line-tools' },
+            { name: 'Number Lines', link: '/number-lines', keywords: 'number lines add numbers ordered', category: 'line-tools' },
+            { name: 'Remove Line Numbers', link: '/remove-line-numbers', keywords: 'remove line numbers strip', category: 'line-tools' },
+            { name: 'Unique Lines Extractor', link: '/unique-lines-extractor', keywords: 'unique lines extract distinct', category: 'line-tools' },
+            { name: 'Filter Lines', link: '/filter-lines', keywords: 'filter lines grep contain exclude', category: 'line-tools' },
+            { name: 'Trim Lines', link: '/trim-lines', keywords: 'trim lines spaces leading trailing', category: 'line-tools' },
+            { name: 'Join Lines', link: '/join-lines', keywords: 'join lines merge combine', category: 'line-tools' },
+            { name: 'Split Lines', link: '/split-lines', keywords: 'split lines delimiter break', category: 'line-tools' },
+
+            // ---- Find & Extract ----
+            { name: 'Email Extractor', link: '/email-extractor', keywords: 'email extract find emails scrape', category: 'extract' },
+            { name: 'URL Extractor', link: '/url-extractor', keywords: 'url extract link http https', category: 'extract' },
+            { name: 'Phone Extractor', link: '/phone-extractor', keywords: 'phone number extract landline mobile', category: 'extract' },
+            { name: 'Number Extractor', link: '/number-extractor', keywords: 'number extract digits numeric', category: 'extract' },
+            { name: 'Date Extractor', link: '/date-extractor', keywords: 'date extract calendar find', category: 'extract' },
+            { name: 'Domain Extractor', link: '/domain-extractor', keywords: 'domain name website extract', category: 'extract' },
+            { name: 'Hashtag Extractor', link: '/hashtag-extractor', keywords: 'hashtag extract social media', category: 'extract' },
+            { name: 'Mention Extractor', link: '/mention-extractor', keywords: 'mention extract username @ social', category: 'extract' },
+            { name: 'Keyword Extractor', link: '/keyword-extractor', keywords: 'keyword extract important terms', category: 'extract' },
+            { name: 'Duplicate Line Finder', link: '/duplicate-line-finder', keywords: 'duplicate line find report', category: 'extract' },
+
+            // ---- Compare ----
+            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'compare' },
+            { name: 'Word Compare', link: '/word-compare', keywords: 'word compare diff text', category: 'compare' },
+            { name: 'Line Compare', link: '/line-compare', keywords: 'line compare diff text', category: 'compare' },
+            { name: 'Character Compare', link: '/character-compare', keywords: 'character compare diff detailed', category: 'compare' },
+            { name: 'Similarity Checker', link: '/similarity-checker', keywords: 'similarity score comparison match', category: 'compare' },
+
+            // ---- Convert ----
+            { name: 'JSON Formatter', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'convert' },
+            { name: 'XML Formatter', link: '/xml-formatter', keywords: 'xml format beautify indent', category: 'convert' },
+            { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'convert' },
+            { name: 'Markdown to HTML', link: '/markdown-to-html', keywords: 'markdown html convert preview', category: 'convert' },
+            { name: 'HTML to Markdown', link: '/html-to-markdown', keywords: 'html markdown convert reverse', category: 'convert' },
+            { name: 'Text to HTML', link: '/text-to-html', keywords: 'text html convert web', category: 'convert' },
+            { name: 'HTML to Text', link: '/html-to-text', keywords: 'html text convert strip', category: 'convert' },
+            { name: 'CSV to Text', link: '/csv-to-text', keywords: 'csv convert text table', category: 'convert' },
+            { name: 'Text to CSV', link: '/text-to-csv', keywords: 'text csv convert comma separated', category: 'convert' },
+
+            // ---- Encode ----
+            { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encode' },
+            { name: 'URL Encoder/Decoder', link: '/url-encoder-decoder', keywords: 'url encode decode percent encoding', category: 'encode' },
+            { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encode' },
+            { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encode' },
+            { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encode' },
+
+            // ---- Generate ----
             { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
-            { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text generator', category: 'generators' },
+            { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text', category: 'generators' },
             { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
             { name: 'UUID/GUID Generator', link: '/uuid-generator', keywords: 'uuid guid unique identifier random', category: 'generators' },
             { name: 'Random Word Generator', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generators' },
+            { name: 'Random Text Generator', link: '/random-text-generator', keywords: 'random text generate string dummy', category: 'generators' },
             { name: 'QR Code Generator', link: '/qr-code-generator', keywords: 'qr code generate text url image', category: 'generators' },
-            { name: 'JSON Formatter', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'encoding' },
-            { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encoding' },
-            { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'encoding' },
-            { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encoding' },
-            { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encoding' },
-            { name: 'URL Encoder/Decoder', link: '/url-encoder-decoder', keywords: 'url encode decode percent encoding', category: 'encoding' },
-            { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encoding' },
-            { name: 'Markdown to HTML', link: '/markdown-to-html', keywords: 'markdown html convert preview', category: 'encoding' },
-            { name: 'Regex Tester', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'analysis' },
-            { name: 'Email Extractor', link: '/email-extractor', keywords: 'email extract find emails scrape', category: 'analysis' },
-            { name: 'Reading Time Estimator', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute', category: 'analysis' },
-            { name: 'Keyword Density Checker', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'analysis' },
-            { name: 'Text to Handwriting', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment', category: 'styling' },
-            { name: 'Bold Text Generator', link: '/bold-text-generator', keywords: 'bold unicode text style font serif', category: 'styling' },
-            { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font slant', category: 'styling' },
-            { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode text', category: 'styling' },
-            { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'styling' },
-            { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'seo' },
-            { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' }
+            { name: 'SHA256/MD5 Hash Generator', link: '/sha256-md5-generator', keywords: 'sha256 md5 hash digest checksum', category: 'generators' },
+            { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'generators' }
         ];
 
         function buildMegaMenu() {
@@ -891,7 +971,7 @@
             if (list) {
                 list.innerHTML = tools.map(tool => `
                     <a href="${tool.link}" class="search-result-item" data-keywords="${tool.keywords}">
-                        ${tool.name} <span class="result-tag">${tool.category}</span>
+                        ${tool.name} <span class="result-tag">${categoryLabelMap[tool.category] || tool.category}</span>
                     </a>
                 `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
             }
