@@ -8,22 +8,18 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Textify Tools Team">
     <link rel="canonical" href="https://textify.tools/">
-    <!-- hreflang for English (US) -->
     <link rel="alternate" hreflang="en-US" href="https://textify.tools/">
     <meta name="theme-color" content="#ffffff">
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/">
     <meta property="og:title" content="Free Online Text Tools – Textify.tools">
     <meta property="og:description" content="Fast, private text tools that don't need a login. Word counter, case changer, JSON beautifier & more. Everything stays in your browser.">
     <meta property="og:site_name" content="Textify.tools">
     <meta property="og:image" content="https://textify.tools/og-image.png">
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Free Online Text Tools – Textify.tools">
     <meta name="twitter:description" content="No signup, no uploads. Just open the page and get stuff done. Word counter, JSON formatter, password generator and loads more.">
     <meta name="twitter:image" content="https://textify.tools/og-image.png">
-    <!-- Icons -->
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -33,30 +29,23 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/mstile-150x150.png">
 
-    <!-- Preconnect for critical third-party origins -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
     <link rel="preconnect" href="https://unpkg.com">
-
-    <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Only Inter font – clean, readable, original style -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- yandex verification -->
     <meta name="yandex-verification" content="6e105f6188a8c833" />
 
-    <!-- Inline script to prevent dark mode flash -->
     <script>
         (function() {
             var theme = localStorage.getItem('theme');
-            if (theme === 'dark') {
-                document.documentElement.classList.add('dark-mode');
-            }
+            if (theme === 'dark') document.documentElement.classList.add('dark-mode');
         })();
     </script>
 
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -65,11 +54,9 @@
         gtag('config', 'G-6VGXXT81MB');
     </script>
 
-    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186"
         crossorigin="anonymous"></script>
 
-    <!-- Structured Data (CollectionPage + WebSite + Organization + FAQ + Tools) -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -83,10 +70,7 @@
                     "publisher": { "@id": "https://textify.tools/#organization" },
                     "potentialAction": [{
                         "@type": "SearchAction",
-                        "target": {
-                            "@type": "EntryPoint",
-                            "urlTemplate": "https://textify.tools/search?q={search_term_string}"
-                        },
+                        "target": { "@type": "EntryPoint", "urlTemplate": "https://textify.tools/search?q={search_term_string}" },
                         "query-input": "required name=search_term_string"
                     }]
                 },
@@ -95,17 +79,8 @@
                     "@id": "https://textify.tools/#organization",
                     "name": "Textify.tools",
                     "url": "https://textify.tools/",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://textify.tools/apple-touch-icon.png",
-                        "width": 180,
-                        "height": 180
-                    },
-                    "sameAs": [
-                        "https://www.facebook.com/textifydottools",
-                        "https://www.instagram.com/textifydottools",
-                        "https://x.com/textifydottools"
-                    ]
+                    "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 },
+                    "sameAs": ["https://www.facebook.com/textifydottools", "https://www.instagram.com/textifydottools", "https://x.com/textifydottools"]
                 },
                 {
                     "@type": "CollectionPage",
@@ -133,122 +108,23 @@
                     "numberOfItems": 5,
                     "itemListOrder": "https://schema.org/ItemListOrderAscending",
                     "itemListElement": [
-                        {
-                            "@type": "ListItem",
-                            "position": 1,
-                            "item": {
-                                "@type": "SoftwareApplication",
-                                "name": "JSON Formatter",
-                                "url": "https://textify.tools/json-formatter",
-                                "description": "Beautify and validate JSON data instantly. No data leaves your device.",
-                                "applicationCategory": "WebApplication",
-                                "operatingSystem": "Web Browser",
-                                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-                            }
-                        },
-                        {
-                            "@type": "ListItem",
-                            "position": 2,
-                            "item": {
-                                "@type": "SoftwareApplication",
-                                "name": "Word Counter",
-                                "url": "https://textify.tools/word-counter",
-                                "description": "Count words, characters, sentences, and paragraphs with one click.",
-                                "applicationCategory": "WebApplication",
-                                "operatingSystem": "Web Browser",
-                                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-                            }
-                        },
-                        {
-                            "@type": "ListItem",
-                            "position": 3,
-                            "item": {
-                                "@type": "SoftwareApplication",
-                                "name": "Password Generator",
-                                "url": "https://textify.tools/password-generator",
-                                "description": "Create strong random passwords offline – secure and customizable.",
-                                "applicationCategory": "WebApplication",
-                                "operatingSystem": "Web Browser",
-                                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-                            }
-                        },
-                        {
-                            "@type": "ListItem",
-                            "position": 4,
-                            "item": {
-                                "@type": "SoftwareApplication",
-                                "name": "Text to Handwriting",
-                                "url": "https://textify.tools/text-to-handwriting",
-                                "description": "Convert typed text into realistic handwriting for assignments and notes.",
-                                "applicationCategory": "WebApplication",
-                                "operatingSystem": "Web Browser",
-                                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-                            }
-                        },
-                        {
-                            "@type": "ListItem",
-                            "position": 5,
-                            "item": {
-                                "@type": "SoftwareApplication",
-                                "name": "Case Converter",
-                                "url": "https://textify.tools/case-converter",
-                                "description": "Switch between uppercase, lowercase, title case and more instantly.",
-                                "applicationCategory": "WebApplication",
-                                "operatingSystem": "Web Browser",
-                                "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
-                            }
-                        }
+                        { "@type": "ListItem", "position": 1, "item": { "@type": "SoftwareApplication", "name": "JSON Formatter", "url": "https://textify.tools/json-formatter", "description": "Beautify and validate JSON data instantly.", "applicationCategory": "WebApplication", "operatingSystem": "Web Browser", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } } },
+                        { "@type": "ListItem", "position": 2, "item": { "@type": "SoftwareApplication", "name": "Word Counter", "url": "https://textify.tools/word-counter", "description": "Count words, characters, sentences, and paragraphs.", "applicationCategory": "WebApplication", "operatingSystem": "Web Browser", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } } },
+                        { "@type": "ListItem", "position": 3, "item": { "@type": "SoftwareApplication", "name": "Password Generator", "url": "https://textify.tools/password-generator", "description": "Create strong random passwords offline.", "applicationCategory": "WebApplication", "operatingSystem": "Web Browser", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } } },
+                        { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareApplication", "name": "Text to Handwriting", "url": "https://textify.tools/text-to-handwriting", "description": "Convert typed text into realistic handwriting.", "applicationCategory": "WebApplication", "operatingSystem": "Web Browser", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } } },
+                        { "@type": "ListItem", "position": 5, "item": { "@type": "SoftwareApplication", "name": "Case Converter", "url": "https://textify.tools/case-converter", "description": "Switch between uppercase, lowercase, title case.", "applicationCategory": "WebApplication", "operatingSystem": "Web Browser", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } } }
                     ]
                 },
                 {
                     "@type": "FAQPage",
-                    "@id": "https://textify.tools/#faq",
                     "mainEntity": [
-                        {
-                            "@type": "Question",
-                            "name": "Is Textify.tools really free?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Yes! Every single tool is completely free. I don't hide features behind a paywall or ask for a credit card."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Do I need to create an account?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Not at all. Just open the page, paste your text, and get results. No signup, no email, no hassle."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Is my text safe and private?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Absolutely. All processing happens inside your browser. Your data never touches a server — I can't see it, and I never store it."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Can I use these tools offline?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Once a tool page loads, you can use it without an internet connection. Perfect for travel or spotty WiFi."
-                            }
-                        }
+                        { "@type": "Question", "name": "Is Textify.tools really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! Every single tool is completely free. I don't hide features behind a paywall or ask for a credit card." } },
+                        { "@type": "Question", "name": "Do I need to create an account?", "acceptedAnswer": { "@type": "Answer", "text": "Not at all. Just open the page, paste your text, and get results. No signup, no email, no hassle." } },
+                        { "@type": "Question", "name": "Is my text safe and private?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All processing happens inside your browser. Your data never touches a server — I can't see it, and I never store it." } },
+                        { "@type": "Question", "name": "Can I use these tools offline?", "acceptedAnswer": { "@type": "Answer", "text": "Once a tool page loads, you can use it without an internet connection. Perfect for travel or spotty WiFi." } }
                     ]
                 },
-                {
-                    "@type": "BreadcrumbList",
-                    "itemListElement": [
-                        {
-                            "@type": "ListItem",
-                            "position": 1,
-                            "name": "Home",
-                            "item": "https://textify.tools/"
-                        }
-                    ]
-                }
+                { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" } ] }
             ]
         }
     </script>
@@ -334,17 +210,20 @@
             transition: background 0.3s, color 0.3s; overflow-x: hidden;
         }
         .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
+        img, video, canvas, iframe, embed, object, svg { max-width: 100%; height: auto; }
+        table { max-width: 100%; }
+        pre, code { white-space: pre-wrap; word-wrap: break-word; }
 
-        img, video, canvas, iframe, embed, object, svg {
-            max-width: 100%;
-            height: auto;
-        }
-        table {
-            max-width: 100%;
-        }
-        pre, code {
-            white-space: pre-wrap;
-            word-wrap: break-word;
+        /* No special heading font – just Inter */
+        h1, h2, h3, h4, h5, h6,
+        .logo,
+        .tool-card h3,
+        .feature-card h4,
+        .section h2,
+        .section h3,
+        .faq-question {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 700;
         }
 
         header {
@@ -360,30 +239,12 @@
         .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
         .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
         .tools-menu-container { position: relative; }
-        .tools-trigger {
-            display: flex; align-items: center; gap: 4px; cursor: pointer;
-            padding: 6px 8px; border-radius: 6px; color: var(--text-light);
-            font-weight: 500; font-size: 14px; transition: 0.2s;
-            background: none; border: none; font-family: inherit;
-        }
+        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; background: none; border: none; font-family: inherit; }
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
         .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
-        .tools-mega-menu {
-            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
-            background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
-            padding: 12px 8px; min-width: 200px; max-height: 70vh; overflow-y: auto;
-            box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden;
-            transition: 0.25s; z-index: 50;
-        }
+        .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 200px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
         .tools-menu-container:hover .tools-mega-menu,
-        .tools-menu-container.open .tools-mega-menu {
-            opacity: 1; visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-        .tools-menu-container:hover .tools-trigger i,
-        .tools-menu-container.open .tools-trigger i {
-            transform: rotate(180deg);
-        }
+        .tools-menu-container.open .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
@@ -483,7 +344,7 @@
         .info-table a { color: var(--text); text-decoration: none; font-weight: 600; }
         .info-table a:hover { text-decoration: underline; }
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
-        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; border: none; width: 100%; text-align: left; font-family: inherit; }
+        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; border: none; width: 100%; text-align: left; }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
@@ -569,34 +430,47 @@
         <main>
             <div class="content-container">
                 <h1>Free Online Text Tools — Open, Use, Done. No Signup.</h1>
-                <p class="subtitle">I've built over 100 little text helpers that live right inside your browser. Word counter, case converter, JSON formatter, text cleaner — you name it. No sign‑up, no intrusive ads blocking your screen, and your text never leaves your computer. Just open the page and get stuff done. Oh, and it's all free, of course.</p>
+                <p class="subtitle">Over 100 free text tools that run right in your browser. Count words, change case, format JSON, clean up text — all without signing up. No ads that block your screen, and your text never leaves your device. Just open a tool and start working.</p>
 
                 <div class="category-filter-bar" id="categoryFilterBar"></div>
                 <div class="tools-grid" id="toolsGrid"></div>
 
+                <!-- Tools by Use Case -->
+                <div class="section">
+                    <h2>Find the right tool for your task</h2>
+                    <p>Not sure where to start? Use this quick guide to jump directly to the tools most people need for everyday jobs.</p>
+                    <div class="table-wrapper">
+                        <table class="info-table">
+                            <thead><tr><th>If you want to…</th><th>Try this tool</th></tr></thead>
+                            <tbody>
+                                <tr><td>Count words for an essay</td><td><a href="/word-counter">Word Counter</a></td></tr>
+                                <tr><td>Change text from UPPERCASE to lowercase</td><td><a href="/case-converter">Case Converter</a></td></tr>
+                                <tr><td>Make API responses readable</td><td><a href="/json-formatter">JSON Formatter</a></td></tr>
+                                <tr><td>Create a strong password</td><td><a href="/password-generator">Password Generator</a></td></tr>
+                                <tr><td>Compare two versions of a document</td><td><a href="/text-diff-checker">Text Diff Checker</a></td></tr>
+                                <tr><td>Extract all email addresses from a messy list</td><td><a href="/email-extractor">Email Extractor</a></td></tr>
+                                <tr><td>Remove duplicate lines from a list</td><td><a href="/duplicate-line-remover">Duplicate Line Remover</a></td></tr>
+                                <tr><td>Sort lines alphabetically</td><td><a href="/text-sorter">Text Sorter</a></td></tr>
+                                <tr><td>Make a QR code for a link</td><td><a href="/qr-code-generator">QR Code Generator</a></td></tr>
+                                <tr><td>Convert plain text to CSV</td><td><a href="/text-to-csv">Text to CSV</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Why people stick around -->
                 <div class="section">
                     <h2>Why people actually stick around (hint: it's not just the price)</h2>
                     <p>After talking to a bunch of users — friends, students, developers — a few things kept coming up. So I built the whole site around these four ideas. They're simple, but they seem to work.</p>
                     <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4><i data-lucide="zap" width="20" height="20"></i> Ridiculously fast</h4>
-                            <p>Because we never send your data to a server, the results just appear. No loading spinners, no waiting. I hate waiting, so I made sure you don't have to.</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i data-lucide="shield-check" width="20" height="20"></i> Your text stays yours</h4>
-                            <p>I don't have a database for your stuff. No logs, no cookies tracking what you type. Close the tab and it's gone forever. Perfect for work passwords, private essays, whatever.</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i data-lucide="smartphone" width="20" height="20"></i> Actually works on your phone</h4>
-                            <p>Whether you're on a tiny Samsung or a big tablet, every tool adapts. Big buttons, readable text. My mom uses it, and she's not exactly a tech wizard.</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i data-lucide="infinity" width="20" height="20"></i> No arbitrary limits</h4>
-                            <p>Want to repeat a phrase 100,000 times? Analyze a whole novel? Generate passwords until you're tired? Go ahead. The tools don't cut you off.</p>
-                        </div>
+                        <div class="feature-card"><h4><i data-lucide="zap" width="20" height="20"></i> Ridiculously fast</h4><p>Because we never send your data to a server, the results just appear. No loading spinners, no waiting. I hate waiting, so I made sure you don't have to.</p></div>
+                        <div class="feature-card"><h4><i data-lucide="shield-check" width="20" height="20"></i> Your text stays yours</h4><p>I don't have a database for your stuff. No logs, no cookies tracking what you type. Close the tab and it's gone forever. Perfect for work passwords, private essays, whatever.</p></div>
+                        <div class="feature-card"><h4><i data-lucide="smartphone" width="20" height="20"></i> Actually works on your phone</h4><p>Whether you're on a tiny Samsung or a big tablet, every tool adapts. Big buttons, readable text. My mom uses it, and she's not exactly a tech wizard.</p></div>
+                        <div class="feature-card"><h4><i data-lucide="infinity" width="20" height="20"></i> No arbitrary limits</h4><p>Want to repeat a phrase 100,000 times? Analyze a whole novel? Generate passwords until you're tired? Go ahead. The tools don't cut you off.</p></div>
                     </div>
                 </div>
 
+                <!-- How to use -->
                 <div class="section">
                     <h2>How to use these tools (it's not rocket science)</h2>
                     <p>You really don't need instructions, but since you're here, here's the 4‑step flow most people follow:</p>
@@ -608,32 +482,21 @@
                     </div>
                 </div>
 
+                <!-- Real stories -->
                 <div class="section">
                     <h2>A few real stories (people keep sending me these)</h2>
                     <div class="feature-grid" style="margin-top:20px;">
-                        <div class="feature-card" style="padding:20px;">
-                            <h4><i data-lucide="book-open" width="20" height="20"></i> Priya’s last‑minute homework</h4>
-                            <p>“My son forgot his essay had to be <em>handwritten</em>. We typed it together, ran it through Text to Handwriting, printed it, and he still got an A. The teacher even asked which pen he used!” – Priya, Mumbai</p>
-                        </div>
-                        <div class="feature-card" style="padding:20px;">
-                            <h4><i data-lucide="code" width="20" height="20"></i> Carlos debugged a token at 2 AM</h4>
-                            <p>“My React app was giving me a weird JWT error. I pasted the token into the JWT Decoder, saw the payload was missing a field, fixed it in 2 minutes, and went back to sleep. No terminal needed.” – Carlos, Mexico City</p>
-                        </div>
-                        <div class="feature-card" style="padding:20px;">
-                            <h4><i data-lucide="heart" width="20" height="20"></i> Emily pranked her brother with 10,000 ‘hello’s</h4>
-                            <p>“The Text Repeater generated a message so long it crashed his WhatsApp for a good 30 seconds. He still hasn’t forgiven me.” – Emily, London</p>
-                        </div>
-                        <div class="feature-card" style="padding:20px;">
-                            <h4><i data-lucide="palette" width="20" height="20"></i> Marco’s social media glow‑up</h4>
-                            <p>“I used the Fancy Text Generator for my TikTok bio and the Bold/Italic ones for Instagram. Friends keep asking how I do it – I just smile and send them a link.” – Marco, Jakarta</p>
-                        </div>
+                        <div class="feature-card" style="padding:20px;"><h4><i data-lucide="book-open" width="20" height="20"></i> Priya’s last‑minute homework</h4><p>“My son forgot his essay had to be <em>handwritten</em>. We typed it together, ran it through Text to Handwriting, printed it, and he still got an A. The teacher even asked which pen he used!” – Priya, Mumbai</p></div>
+                        <div class="feature-card" style="padding:20px;"><h4><i data-lucide="code" width="20" height="20"></i> Carlos debugged a token at 2 AM</h4><p>“My React app was giving me a weird JWT error. I pasted the token into the JWT Decoder, saw the payload was missing a field, fixed it in 2 minutes, and went back to sleep. No terminal needed.” – Carlos, Mexico City</p></div>
+                        <div class="feature-card" style="padding:20px;"><h4><i data-lucide="heart" width="20" height="20"></i> Emily pranked her brother with 10,000 ‘hello’s</h4><p>“The Text Repeater generated a message so long it crashed his WhatsApp for a good 30 seconds. He still hasn’t forgiven me.” – Emily, London</p></div>
+                        <div class="feature-card" style="padding:20px;"><h4><i data-lucide="palette" width="20" height="20"></i> Marco’s social media glow‑up</h4><p>“I used the Fancy Text Generator for my TikTok bio and the Bold/Italic ones for Instagram. Friends keep asking how I do it – I just smile and send them a link.” – Marco, Jakarta</p></div>
                     </div>
                 </div>
 
+                <!-- Workflows -->
                 <div class="section">
                     <h2>Real‑world ways to chain these tools together</h2>
                     <p>I didn't just throw 100 tools together randomly. People keep combining them into little workflows that save a ton of time. Here are a few I've seen:</p>
-
                     <h3>For students and academics</h3>
                     <p>Essays, research papers, the usual battle with word limits and formatting. Stop doing everything manually.</p>
                     <ul>
@@ -642,7 +505,6 @@
                         <li><strong>Text to Handwriting</strong> when the assignment "must be handwritten".</li>
                         <li><strong>Duplicate Line Remover</strong> and <strong>Whitespace Cleaner</strong> for cleaning up messy bibliographies.</li>
                     </ul>
-
                     <h3>For developers</h3>
                     <p>JSON, tokens, regular expressions – all the stuff that can slow you down. Now you can fix things without opening a terminal.</p>
                     <ul>
@@ -651,7 +513,6 @@
                         <li><strong>Regex Tester</strong> for those patterns you always forget.</li>
                         <li><strong>Markdown to HTML</strong> before you push documentation.</li>
                     </ul>
-
                     <h3>For writers and content creators</h3>
                     <p>Polishing articles, checking SEO, making social posts pop.</p>
                     <ul>
@@ -660,7 +521,6 @@
                         <li><strong>Text Diff Checker</strong> when you're editing with a partner.</li>
                         <li><strong>Fancy Text Generator</strong> and <strong>Bold/Italic</strong> for captions that actually get noticed.</li>
                     </ul>
-
                     <h3>Popular tool combinations</h3>
                     <div class="table-wrapper">
                         <table class="info-table">
@@ -677,6 +537,7 @@
                     <p>Mix and match however you like. Because everything runs offline, you can chain tools without worrying about data privacy. Once you get used to having this little workbench, you'll wonder why other sites make it so hard.</p>
                 </div>
 
+                <!-- Privacy -->
                 <div class="section">
                     <h2>Why I don't want your data (honestly)</h2>
                     <p style="font-size:16px;">Storing user data is a huge headache. Servers cost money, GDPR is scary, and hackers are always poking around. By keeping every tool in your browser, I avoid all that. Your text never leaves your device. I can't lose what I never had.</p>
@@ -684,12 +545,14 @@
                     <p style="font-size:16px;">If a government ever asks for your data, I'll happily show them an empty folder. That's privacy by design, not just a fancy policy.</p>
                 </div>
 
+                <!-- Categories -->
                 <div class="section">
                     <h2>Browse tools by category</h2>
                     <p>All neatly grouped so you don't get lost. Click any category to filter the grid above, or just scroll.</p>
                     <div class="category-grid" id="categoryGrid"></div>
                 </div>
 
+                <!-- Who's using what -->
                 <div class="section">
                     <h2>Who's using what</h2>
                     <p>A quick snapshot of how different people put these tools to work.</p>
@@ -710,28 +573,18 @@
                     </div>
                 </div>
 
+                <!-- Small details -->
                 <div class="section">
                     <h2>The tiny details that took way too long</h2>
                     <div class="feature-grid">
-                        <div class="feature-card">
-                            <h4><i data-lucide="coffee" width="20" height="20"></i> Dark mode that doesn't suck</h4>
-                            <p>I tested the dark theme with 12 different people at a coffee shop. The current colors are the result of three spilled lattes and a lot of squinting.</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i data-lucide="smartphone" width="20" height="20"></i> Mobile‑first, not mobile‑only</h4>
-                            <p>My mom uses the site on her old Samsung. If the buttons are too small for her, I hear about it. So I made sure everything is tappable even on tiny screens.</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i data-lucide="zap" width="20" height="20"></i> Instant results, no spinner</h4>
-                            <p>The word counter updates as you type, faster than you can blink. I spent an evening removing artificial delays just because they felt “fancy”. Nope, fast is better.</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i data-lucide="package" width="20" height="20"></i> No frameworks, no bloat</h4>
-                            <p>Vanilla JavaScript and a tiny icon library. The whole site loads faster than most single pages on the web. It was a personal challenge — and I won.</p>
-                        </div>
+                        <div class="feature-card"><h4><i data-lucide="coffee" width="20" height="20"></i> Dark mode that doesn't suck</h4><p>I tested the dark theme with 12 different people at a coffee shop. The current colors are the result of three spilled lattes and a lot of squinting.</p></div>
+                        <div class="feature-card"><h4><i data-lucide="smartphone" width="20" height="20"></i> Mobile‑first, not mobile‑only</h4><p>My mom uses the site on her old Samsung. If the buttons are too small for her, I hear about it. So I made sure everything is tappable even on tiny screens.</p></div>
+                        <div class="feature-card"><h4><i data-lucide="zap" width="20" height="20"></i> Instant results, no spinner</h4><p>The word counter updates as you type, faster than you can blink. I spent an evening removing artificial delays just because they felt “fancy”. Nope, fast is better.</p></div>
+                        <div class="feature-card"><h4><i data-lucide="package" width="20" height="20"></i> No frameworks, no bloat</h4><p>Vanilla JavaScript and a tiny icon library. The whole site loads faster than most single pages on the web. It was a personal challenge — and I won.</p></div>
                     </div>
                 </div>
 
+                <!-- Privacy again -->
                 <div class="section">
                     <h2>Let's talk about privacy for a sec</h2>
                     <p>I built Textify.tools after getting frustrated with sites that demanded signups, pushed giant ads, or made me wonder where my data was going. Here's what you can count on:</p>
@@ -743,87 +596,28 @@
                     </ul>
                 </div>
 
-                <!-- EXPANDED FAQ SECTION -->
+                <!-- What sets Textify apart -->
+                <div class="section">
+                    <h2>What sets Textify.tools apart from other "free tool" sites</h2>
+                    <p>There are plenty of websites offering text tools. So why do people keep coming back to this one? I think it boils down to a few honest differences:</p>
+                    <ul>
+                        <li><strong>No clutter.</strong> You won't find a dozen flashing banners or a chatbot asking how it can help. Just the tool, a clean interface, and a couple of subtle ads that keep the lights on.</li>
+                        <li><strong>No feature walls.</strong> Every option is available right away. You don't have to "upgrade to pro" to get the advanced features because there are none – everything is already free.</li>
+                        <li><strong>Built for real people.</strong> I'm not a corporation. The tools were created based on feedback from friends, students, and my own daily frustrations. When you email me a suggestion, I actually read it and often build it.</li>
+                        <li><strong>Transparent privacy.</strong> Because there's no server processing your text, there's nothing to explain. Your data never leaves your device. Period.</li>
+                    </ul>
+                </div>
+
+                <!-- FAQ - exactly 7 questions -->
                 <div class="section">
                     <h2>Questions? Here's what people usually ask.</h2>
-                    
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            Is every tool actually free?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">Yep, 100% free – no “pro” plans, no credit card tricks. I fund this with a few non‑annoying ads and my own love for building helpful stuff. If that ever changes, I’ll put a giant banner here. I promise.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            Do I really not need an account?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">Really. That's the whole point. Open the page, use the tool, close it. No registration, no login, no strings attached.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            Can I use the output for commercial projects?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">Absolutely. The text you generate belongs to you. Use it for work, school, or anything else. No attribution needed.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            How do you make money if it's free?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">A few small ads (via Google AdSense) cover hosting and development. No data selling, no hidden fees. It's honestly pretty low‑maintenance.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            What if I need a tool that isn't here?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">I'm all ears! Drop a message through the <a href="contact-us">Contact page</a>. If it can run safely in a browser, there's a good chance I'll build it.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            Do these tools work on my phone or tablet?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">Absolutely. Every tool is built to adapt to whatever screen you're using. I test on actual phones (Android and iOS) and tablets. You can bookmark the site and use it just like an app — no download needed.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            Why no mobile app? Isn't that easier?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">Honestly? I didn't want the hassle of app store reviews, permissions, and updates. The website works perfectly on any device, and you can add a shortcut to your home screen for one‑tap access. It's one less thing to install.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            Are there ads? Will they get in the way?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">There are a couple of small, non‑intrusive banner ads (placed by Google AdSense). They never cover the tool area, and there are no pop‑ups. I make sure they don't ruin the experience — if they ever do, I'll adjust them.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            How often do you add new tools?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">I'm always tinkering. When I spot a common task that could be done faster in a browser, I build a little tool for it. There's no fixed schedule, but new things pop up every few weeks. Follow the blog or social links at the bottom to stay updated.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            Can I suggest a tool or report a problem?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">Please do! Head over to the <a href="contact-us">Contact page</a> or drop a message on social media. I read every suggestion and try to fix bugs within a day or two. This whole site is a side project, so your feedback really shapes it.</div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            What happens if I lose internet while using a tool?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">Nothing bad. Once a tool page loads, everything you do runs locally in your browser. You can disconnect your WiFi and keep working. The only thing you'll miss is loading a new tool that hasn't been cached yet — so bookmark your favorites for offline use.</div>
-                    </div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Is every tool actually free?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Yep, 100% free – no “pro” plans, no credit card tricks. I fund this with a few non‑annoying ads and my own love for building helpful stuff.</div></div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Do I really not need an account?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Really. That's the whole point. Open the page, use the tool, close it. No registration, no login, no strings attached.</div></div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I use the output for commercial projects?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Absolutely. The text you generate belongs to you. Use it for work, school, or anything else. No attribution needed.</div></div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">How do you make money if it's free?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">A few small ads (via Google AdSense) cover hosting and development. No data selling, no hidden fees.</div></div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What if I need a tool that isn't here?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">I'm all ears! Drop a message through the <a href="contact-us">Contact page</a>. If it can run safely in a browser, there's a good chance I'll build it.</div></div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Do these tools work on my phone or tablet?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Absolutely. Every tool adapts to any screen size. You can even add the site to your home screen and use it like an app.</div></div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I suggest a tool or report a problem?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Please do! Head over to the <a href="contact-us">Contact page</a> or drop a message on social media. I read every suggestion and try to fix bugs within a day or two.</div></div>
                 </div>
             </div>
         </main>
@@ -848,6 +642,7 @@
         </footer>
     </div>
 
+    <!-- Mobile sidebar & search overlay -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
@@ -879,7 +674,6 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // SEO-friendly category names aligned with Text Utilities
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'analysis', label: 'Text Analysis' },
@@ -892,12 +686,9 @@
             { key: 'encode', label: 'Encode' },
             { key: 'generators', label: 'Generate' }
         ];
-
         const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
 
-        // 100+ browser-based text utilities with SEO‑friendly URLs and correct categories
         const tools = [
-            // ---- Text Analysis ----
             { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', icon: 'hash', link: '/word-counter', keywords: 'word count character counter letters', color: '#8b5cf6', category: 'analysis' },
             { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', icon: 'text', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', color: '#8b5cf6', category: 'analysis' },
             { name: 'Paragraph Counter', desc: 'Quickly count paragraphs in your writing.', icon: 'align-left', link: '/paragraph-counter', keywords: 'paragraph count block format', color: '#8b5cf6', category: 'analysis' },
@@ -908,8 +699,6 @@
             { name: 'Duplicate Word Finder', desc: 'Find and highlight duplicate words in your text.', icon: 'search', link: '/duplicate-word-finder', keywords: 'duplicate word find highlight', color: '#0ea5e9', category: 'analysis' },
             { name: 'Text Statistics', desc: 'Full summary: words, chars, sentences, readability, and more.', icon: 'bar-chart-2', link: '/text-statistics', keywords: 'text stats readability summary data', color: '#0ea5e9', category: 'analysis' },
             { name: 'Regex Tester', desc: 'Test regular expressions with match highlighting.', icon: 'search-code', link: '/regex-tester', keywords: 'regex regular expression test match pattern', color: '#0ea5e9', category: 'analysis' },
-
-            // ---- Text Cleaning ----
             { name: 'Duplicate Line Remover', desc: 'Remove duplicate lines and keep only unique ones.', icon: 'list-filter', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', color: '#6366f1', category: 'cleaning' },
             { name: 'Whitespace Cleaner', desc: 'Remove extra spaces, tabs, and blank lines.', icon: 'sparkles', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', color: '#64748b', category: 'cleaning' },
             { name: 'Remove Extra Spaces', desc: 'Clean up unwanted spaces with one click.', icon: 'space', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', color: '#64748b', category: 'cleaning' },
@@ -921,8 +710,6 @@
             { name: 'Remove Numbers', desc: 'Delete all numeric digits.', icon: 'hash', link: '/remove-numbers', keywords: 'numbers remove digits numeric', color: '#64748b', category: 'cleaning' },
             { name: 'Remove HTML Tags', desc: 'Strip HTML/XML tags, leaving only text.', icon: 'code', link: '/remove-html-tags', keywords: 'html tags strip remove clean', color: '#64748b', category: 'cleaning' },
             { name: 'Text Cleaner', desc: 'All-in-one text cleaning.', icon: 'spray-can', link: '/text-cleaner', keywords: 'clean text sanitize format', color: '#64748b', category: 'cleaning' },
-
-            // ---- Text Formatting ----
             { name: 'Case Converter', desc: 'Convert to uppercase, lowercase, title case and more.', icon: 'type', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', color: '#10b981', category: 'formatting' },
             { name: 'Title Case Converter', desc: 'Proper title case for headlines.', icon: 'type', link: '/title-case-converter', keywords: 'title case headline capitalize proper', color: '#10b981', category: 'formatting' },
             { name: 'Sentence Case Converter', desc: 'First letter of each sentence capitalized.', icon: 'type', link: '/sentence-case-converter', keywords: 'sentence case capitalize first letter', color: '#10b981', category: 'formatting' },
@@ -939,8 +726,6 @@
             { name: 'Italic Text Generator', desc: 'Italic Unicode text using math symbols.', icon: 'italic', link: '/italic-text-generator', keywords: 'italic unicode text style font', color: '#ec4899', category: 'formatting' },
             { name: 'Strikethrough Generator', desc: 'Strikethrough Unicode text.', icon: 'strikethrough', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode', color: '#ec4899', category: 'formatting' },
             { name: 'Fancy Text Generator', desc: 'Generate multiple fancy Unicode styles at once.', icon: 'sparkles', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', color: '#ec4899', category: 'formatting' },
-
-            // ---- Line Tools ----
             { name: 'Text Sorter', desc: 'Sort lines alphabetically, numerically, or randomly.', icon: 'arrow-up-down', link: '/text-sorter', keywords: 'sort order alphabetically lines list', color: '#f97316', category: 'line-tools' },
             { name: 'Reverse Lines', desc: 'Reverse the order of lines.', icon: 'arrow-down-up', link: '/reverse-lines', keywords: 'reverse lines order flip', color: '#f97316', category: 'line-tools' },
             { name: 'Shuffle Lines', desc: 'Randomly reorder all lines.', icon: 'shuffle', link: '/shuffle-lines', keywords: 'shuffle lines randomize order', color: '#f97316', category: 'line-tools' },
@@ -951,8 +736,6 @@
             { name: 'Trim Lines', desc: 'Trim leading/trailing spaces from each line.', icon: 'scissors', link: '/trim-lines', keywords: 'trim lines spaces leading trailing', color: '#f97316', category: 'line-tools' },
             { name: 'Join Lines', desc: 'Merge multiple lines into a single line with a separator.', icon: 'merge', link: '/join-lines', keywords: 'join lines merge combine', color: '#f97316', category: 'line-tools' },
             { name: 'Split Lines', desc: 'Break a single line into multiple lines at a delimiter.', icon: 'split', link: '/split-lines', keywords: 'split lines delimiter break', color: '#f97316', category: 'line-tools' },
-
-            // ---- Find & Extract ----
             { name: 'Email Extractor', desc: 'Extract all email addresses from text.', icon: 'at-sign', link: '/email-extractor', keywords: 'email extract find emails scrape', color: '#0ea5e9', category: 'extract' },
             { name: 'URL Extractor', desc: 'Pull out all URLs from text.', icon: 'link', link: '/url-extractor', keywords: 'url extract link http https', color: '#0ea5e9', category: 'extract' },
             { name: 'Phone Extractor', desc: 'Extract phone numbers using common formats.', icon: 'phone', link: '/phone-extractor', keywords: 'phone number extract landline mobile', color: '#0ea5e9', category: 'extract' },
@@ -963,15 +746,11 @@
             { name: 'Mention Extractor', desc: 'Pull out @usernames from text.', icon: 'at-sign', link: '/mention-extractor', keywords: 'mention extract username @ social', color: '#0ea5e9', category: 'extract' },
             { name: 'Keyword Extractor', desc: 'Extract the most important words and phrases.', icon: 'key', link: '/keyword-extractor', keywords: 'keyword extract important terms', color: '#0ea5e9', category: 'extract' },
             { name: 'Duplicate Line Finder', desc: 'Show which lines appear more than once.', icon: 'search', link: '/duplicate-line-finder', keywords: 'duplicate line find report', color: '#0ea5e9', category: 'extract' },
-
-            // ---- Compare ----
             { name: 'Text Diff Checker', desc: 'Compare two texts and spot every difference.', icon: 'git-compare', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', color: '#f59e0b', category: 'compare' },
             { name: 'Word Compare', desc: 'Compare word‑by‑word and highlight differences.', icon: 'git-compare', link: '/word-compare', keywords: 'word compare diff text', color: '#f59e0b', category: 'compare' },
             { name: 'Line Compare', desc: 'Line‑by‑line comparison with added/removed lines.', icon: 'columns', link: '/line-compare', keywords: 'line compare diff text', color: '#f59e0b', category: 'compare' },
             { name: 'Character Compare', desc: 'Character‑level diff – spot every single change.', icon: 'diff', link: '/character-compare', keywords: 'character compare diff detailed', color: '#f59e0b', category: 'compare' },
             { name: 'Similarity Checker', desc: 'Get a percentage score of how similar two texts are.', icon: 'percent', link: '/similarity-checker', keywords: 'similarity score comparison match', color: '#f59e0b', category: 'compare' },
-
-            // ---- Convert ----
             { name: 'JSON Formatter/Beautifier', desc: 'Format messy JSON into readable, indented structure.', icon: 'braces', link: '/json-formatter', keywords: 'json format beautify pretty print', color: '#f59e0b', category: 'convert' },
             { name: 'XML Formatter', desc: 'Beautify and indent XML data.', icon: 'file-code', link: '/xml-formatter', keywords: 'xml format beautify indent', color: '#f59e0b', category: 'convert' },
             { name: 'Slug Generator', desc: 'Create SEO‑friendly URL slugs from any text.', icon: 'link-2', link: '/slug-generator', keywords: 'slug url seo friendly permalink', color: '#14b8a6', category: 'convert' },
@@ -981,15 +760,11 @@
             { name: 'HTML to Text', desc: 'Strip HTML and convert to plain text.', icon: 'file-text', link: '/html-to-text', keywords: 'html text convert strip', color: '#6366f1', category: 'convert' },
             { name: 'CSV to Text', desc: 'Turn CSV data into readable plain text or tables.', icon: 'file-spreadsheet', link: '/csv-to-text', keywords: 'csv convert text table', color: '#6366f1', category: 'convert' },
             { name: 'Text to CSV', desc: 'Format plain text into CSV rows and columns.', icon: 'file-spreadsheet', link: '/text-to-csv', keywords: 'text csv convert comma separated', color: '#6366f1', category: 'convert' },
-
-            // ---- Encode ----
             { name: 'Text Encoder/Decoder', desc: 'Base64 encode/decode, URL encoding, and more.', icon: 'code-2', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', color: '#6366f1', category: 'encode' },
             { name: 'URL Encoder/Decoder', desc: 'Encode or decode URLs with special characters.', icon: 'link-2', link: '/url-encoder-decoder', keywords: 'url encode decode percent encoding', color: '#14b8a6', category: 'encode' },
             { name: 'HTML Entity Encoder/Decoder', desc: 'Convert text to HTML entities and back.', icon: 'braces', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', color: '#f59e0b', category: 'encode' },
             { name: 'JWT Decoder', desc: 'Decode JWT tokens to view header and payload.', icon: 'lock', link: '/jwt-decoder', keywords: 'jwt decode token header payload', color: '#0ea5e9', category: 'encode' },
             { name: 'Morse Code Converter', desc: 'Convert text to Morse code and vice versa.', icon: 'radio', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', color: '#f59e0b', category: 'encode' },
-
-            // ---- Generate ----
             { name: 'Password Generator', desc: 'Generate strong random passwords.', icon: 'key', link: '/password-generator', keywords: 'password generator random strong secure', color: '#eab308', category: 'generators' },
             { name: 'Lorem Ipsum Generator', desc: 'Placeholder text for designs and mockups.', icon: 'file-text', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text', color: '#a855f7', category: 'generators' },
             { name: 'Random Number Generator', desc: 'Generate random numbers within a custom range.', icon: 'dice-6', link: '/random-number-generator', keywords: 'random number range integer generator', color: '#10b981', category: 'generators' },
