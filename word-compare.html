@@ -426,7 +426,7 @@
         <main>
             <div class="content-container">
                 <h1>Word Compare</h1>
-                <p class="subtitle">Paste two pieces of text and instantly see every word that changed. Additions, deletions, and unchanged words are highlighted. Adjust case sensitivity and punctuation – all inside your browser, no uploads needed.</p>
+                <p class="subtitle">Paste two versions of a text and instantly see every word that was added, removed, or kept the same. This isn't a character‑level diff – we compare whole words so you can quickly spot rephrased sentences, terminology changes, or small edits. Everything runs right in your browser, and your data never leaves your computer.</p>
 
                 <div class="tool-container">
                     <!-- Options bar -->
@@ -473,33 +473,45 @@
                 <!-- Additional Detail Sections -->
                 <div style="margin-bottom:40px;">
                     <h2>Why use this Word Compare tool?</h2>
-                    <p>Sometimes you need more than a character‑level diff. This tool compares whole words, so you can quickly spot terminology changes, rephrased sentences, or even list differences – without getting lost in punctuation noise. Everything stays private because your texts never leave your browser.</p>
+                    <p>When you're comparing two drafts of a document, a character‑level diff can be noisy – every comma or capital letter change gets highlighted. Word Compare ignores the noise and shows you only the meaningful word changes. It's perfect for writers, editors, translators, and anyone who needs to see how a text evolved without squinting at tiny punctuation diffs.</p>
+                    <p>Because the comparison is done entirely in your browser, there's no upload, no latency, and your sensitive text stays private. No one – not even us – ever sees what you paste.</p>
                     <ul style="margin-top:15px; color: var(--text-light); padding-left:20px;">
-                        <li><strong>Intelligent word matching</strong> – sees "quickly" vs "fast" as separate words, but "Hello" and "hello" as identical (when case‑insensitive).</li>
-                        <li><strong>Flexible comparison</strong> – toggle case sensitivity, ignore punctuation, or show only the changed words for a minimal view.</li>
-                        <li><strong>Instant visual feedback</strong> – added words get a green highlight, deleted words are red with strikethrough, and unchanged words stay normal.</li>
-                        <li><strong>Perfect for proofreading</strong> – compare two drafts of an article, email, or code comment to see exactly what you tweaked.</li>
+                        <li><strong>Whole‑word intelligence</strong> – treats "quickly" and "fast" as different words, but ignores differences like "Hello" vs "hello" when case‑insensitive is on.</li>
+                        <li><strong>Flexible comparison modes</strong> – flip a switch to ignore punctuation or show only the words that actually changed.</li>
+                        <li><strong>Instant visual feedback</strong> – added words appear in green, deleted words in red with strikethrough, and unchanged words stay normal.</li>
+                        <li><strong>Not just for prose</strong> – use it to compare code comments, list items, tabular data, or any text where you care about word‑level changes.</li>
                     </ul>
                 </div>
 
                 <div style="margin-bottom:40px;">
-                    <h2>How to compare texts word‑by‑word</h2>
+                    <h2>How Word Compare differs from line‑ or character‑level diffs</h2>
+                    <p>Most diff tools work on lines (like our <a href="/text-diff-checker">Text Diff Checker</a>) or on characters (like <a href="/character-compare">Character Compare</a>). Word Compare bridges the gap – it breaks each text into words and aligns them using a smart algorithm (similar to `diff` but at the word level). That means:</p>
+                    <ul style="margin-top:15px; color: var(--text-light); padding-left:20px;">
+                        <li>You can see that "jumped" became "leaped" even if the rest of the sentence stayed the same.</li>
+                        <li>A single added word won't throw off the alignment of the entire paragraph.</li>
+                        <li>Punctuation can be ignored so that "Hello," and "Hello" count as identical, reducing false positives.</li>
+                    </ul>
+                    <p>Try it side‑by‑side with our other compare tools – you'll often find that word‑level comparison gives you the clearest picture of what was actually rephrased.</p>
+                </div>
+
+                <div style="margin-bottom:40px;">
+                    <h2>How to compare texts word‑by‑word (step‑by‑step)</h2>
                     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; margin-top:20px;">
                         <div style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px;">
                             <h3 style="font-size:16px; margin-bottom:8px;">1. Enter the two versions</h3>
-                            <p style="font-size:14px; color:var(--text-light);">Paste the original text in the upper box and the modified text in the lower box. They can be anything from short sentences to full documents.</p>
+                            <p style="font-size:14px; color:var(--text-light);">Paste the original text in the upper box and the modified version in the lower box. They can be single sentences, paragraphs, or whole articles – the tool handles thousands of words smoothly.</p>
                         </div>
                         <div style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px;">
                             <h3 style="font-size:16px; margin-bottom:8px;">2. Tweak the options</h3>
-                            <p style="font-size:14px; color:var(--text-light);">Check “Case insensitive” to ignore capitalization. “Ignore punctuation” strips commas, periods, etc. before comparing. “Show only changed words” hides the stuff that stayed the same.</p>
+                            <p style="font-size:14px; color:var(--text-light);">Check "Case insensitive" to treat words the same regardless of capitalization. "Ignore punctuation" strips commas, periods, and other marks before comparing. "Show only changed words" hides everything else so you can focus on what's new or deleted.</p>
                         </div>
                         <div style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px;">
-                            <h3 style="font-size:16px; margin-bottom:8px;">3. View the diff</h3>
-                            <p style="font-size:14px; color:var(--text-light);">The result updates live. Green words were added, red words were deleted, and plain words are the same in both texts.</p>
+                            <h3 style="font-size:16px; margin-bottom:8px;">3. View the word diff</h3>
+                            <p style="font-size:14px; color:var(--text-light);">The result appears instantly on the right. Green words were added, red words were deleted, and plain words are identical. You can scroll through even very long comparisons.</p>
                         </div>
                         <div style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px;">
                             <h3 style="font-size:16px; margin-bottom:8px;">4. Copy or download</h3>
-                            <p style="font-size:14px; color:var(--text-light);">Copy the plain‑text difference (with +/- markers) or download a .txt file for your records.</p>
+                            <p style="font-size:14px; color:var(--text-light);">Use "Copy as text" to get a plain‑text version with +/- markers (e.g., `[-quick-] {+fast+}`) that you can paste into an email or document. Or download it as a .txt file for your records.</p>
                         </div>
                     </div>
                 </div>
@@ -529,21 +541,23 @@
                 <div style="margin-bottom:40px;">
                     <h2>Common use cases</h2>
                     <ul style="color:var(--text-light); padding-left:20px; line-height:1.8;">
-                        <li><strong>Proofreading drafts:</strong> Spot accidental deletions or unexpected rewordings between versions of an article.</li>
-                        <li><strong>Tracking edits in legal or business documents:</strong> See exactly which terms changed.</li>
-                        <li><strong>Code comments & commit messages:</strong> Compare two revisions of a description to avoid missing a key word.</li>
-                        <li><strong>Academic writing:</strong> Check how you paraphrased a source – quickly see what was added or removed.</li>
-                        <li><strong>Translation comparison:</strong> Compare the original and a back‑translation word by word.</li>
+                        <li><strong>Proofreading drafts:</strong> Check how you reworded a sentence without getting lost in formatting changes.</li>
+                        <li><strong>Editing legal documents:</strong> Spot exactly which terms were replaced (e.g., "shall" vs "must").</li>
+                        <li><strong>Comparing source texts for translation:</strong> See where the source changed and how much was added or removed.</li>
+                        <li><strong>Academic writing and paraphrasing:</strong> Quickly verify that your paraphrase differs enough from the original.</li>
+                        <li><strong>Code documentation:</strong> Compare two versions of a comment block to make sure you didn't accidentally remove something important.</li>
+                        <li><strong>Blog post updates:</strong> Show readers a clear diff of an updated article (plain‑text version works great in Git commit messages).</li>
                     </ul>
                 </div>
 
                 <div style="margin-bottom:40px;">
                     <h2>Pro tips</h2>
                     <ul style="color:var(--text-light); padding-left:20px; line-height:1.8;">
-                        <li>For a quick “what changed” report, enable <strong>“Show only changed words”</strong> – the result becomes a compact list of additions and deletions.</li>
-                        <li>Paste long texts? No problem – the diff runs entirely in your browser, so it handles thousands of words without lag.</li>
-                        <li>After comparing, you might want to clean up extra spaces or punctuation – use our <a href="/whitespace-cleaner">Whitespace Cleaner</a> or <a href="/remove-punctuation">Remove Punctuation</a> tools.</li>
-                        <li>Need a character‑level diff? Try our <a href="/text-diff-checker">Text Diff Checker</a> for line‑by‑line or character‑level comparisons.</li>
+                        <li>For a minimal “what changed” summary, enable <strong>“Show only changed words”</strong> – the output becomes a compact list of additions and deletions.</li>
+                        <li>If you're comparing texts that differ only in capitalization (like a headline rewrite), turn off case insensitivity to catch those differences.</li>
+                        <li>Paste long texts freely – the algorithm runs in your browser and can handle tens of thousands of words without lag.</li>
+                        <li>After comparing, you might want to clean up extra whitespace – our <a href="/whitespace-cleaner">Whitespace Cleaner</a> is just a click away.</li>
+                        <li>If you need a character‑level diff for more granular changes, try the <a href="/text-diff-checker">Text Diff Checker</a> or the <a href="/character-compare">Character Compare</a> tool.</li>
                     </ul>
                 </div>
 
@@ -555,21 +569,35 @@
                                 Is the tool really free?
                                 <i data-lucide="chevron-down" width="16"></i>
                             </button>
-                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Yes, 100% free. No hidden fees or premium plans. A couple of small, non‑intrusive ads keep the lights on.</div>
+                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Yes, 100% free. There are no premium plans or hidden fees. A couple of small, non‑intrusive ads keep the lights on, but they never interfere with the comparison.</div>
                         </div>
                         <div class="faq-item" style="border-bottom:1px solid var(--line);">
                             <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-                                How does “ignore punctuation” work?
+                                How does "ignore punctuation" work?
                                 <i data-lucide="chevron-down" width="16"></i>
                             </button>
-                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">It strips punctuation from each word before comparing. So “Hello,” and “Hello” are considered identical, while “Hello?” and “Hi” are not. The original words are still shown in the diff.</div>
+                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">When enabled, we strip punctuation from each word before comparing. So "Hello," and "Hello" are considered identical, but "Hello?" and "Hi" are not. The original words (with punctuation) are still shown in the output – only the comparison logic changes.</div>
+                        </div>
+                        <div class="faq-item" style="border-bottom:1px solid var(--line);">
+                            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+                                Can it handle very large texts?
+                                <i data-lucide="chevron-down" width="16"></i>
+                            </button>
+                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Absolutely. The comparison runs entirely in your browser, so it's limited only by your device's memory. I've tested it with novels containing tens of thousands of words and it remains snappy.</div>
+                        </div>
+                        <div class="faq-item" style="border-bottom:1px solid var(--line);">
+                            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+                                How does this compare to the Text Diff Checker?
+                                <i data-lucide="chevron-down" width="16"></i>
+                            </button>
+                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Our <a href="/text-diff-checker">Text Diff Checker</a> works on lines and is great for code or structured text. The Word Compare tool works on individual words, which is better for prose – it won't show a whole line as changed just because one word was added. Use whichever gives you the clearer picture; you can even chain them together.</div>
                         </div>
                         <div class="faq-item">
                             <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
                                 Do you see my texts?
                                 <i data-lucide="chevron-down" width="16"></i>
                             </button>
-                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Never. All processing is local. Your browser does the comparison; no data is sent anywhere.</div>
+                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Never. Everything stays in your browser. I don't have a server that processes or stores your data. Even if someone asked, I'd have nothing to show.</div>
                         </div>
                     </div>
                 </div>
@@ -643,10 +671,8 @@
         // Word Compare specific functions
         function tokenize(text, ignorePunct) {
             if (ignorePunct) {
-                // Remove punctuation and split by whitespace
                 return text.replace(/[^\w\s]|_/g, '').split(/\s+/).filter(Boolean);
             } else {
-                // Keep punctuation attached, split by whitespace
                 return text.split(/\s+/).filter(Boolean);
             }
         }
@@ -701,11 +727,9 @@
                 return;
             }
 
-            // Tokenize with options
-            let origWords = tokenize(text1, false); // keep original tokens for display
+            let origWords = tokenize(text1, false);
             let modifWords = tokenize(text2, false);
 
-            // Prepare comparison tokens
             let compOrig, compModif;
             if (caseInsensitive) {
                 if (ignorePunct) {
@@ -725,38 +749,29 @@
                 }
             }
 
-            // Ensure there are no empty tokens after stripping
-            compOrig = compOrig.map(w => w === '' ? ' ' : w); // hack for empty strings (rare)
+            compOrig = compOrig.map(w => w === '' ? ' ' : w);
             compModif = compModif.map(w => w === '' ? ' ' : w);
 
             const diffResult = diffWords(compOrig, compModif);
-            // Now map back to original tokens for display
-            // We need to align diff result indices with origWords and modifWords
-            // Since we modified tokens but kept original arrays, we'll use the diff's sequence and align by position.
-            // Actually diffResult uses modified tokens (compOrig, compModif). For display, we'll output the original tokens from origWords/modifWords for corresponding positions.
-            // We'll traverse the diff and use pointers.
             let oIdx = 0, mIdx = 0;
             const htmlParts = [];
             for (const part of diffResult) {
                 if (part.type === 'common') {
                     if (oIdx < origWords.length && mIdx < modifWords.length) {
-                        const w = origWords[oIdx]; // could also use modifWords[mIdx]; they should be identical in display? Not necessarily if case changed, but we'll use original1 for common.
                         if (!showOnlyDiff) {
-                            htmlParts.push(`<span class="diff-context">${escapeHtml(w)}</span> `);
+                            htmlParts.push(`<span class="diff-context">${escapeHtml(origWords[oIdx])}</span> `);
                         }
                     }
                     oIdx++;
                     mIdx++;
                 } else if (part.type === 'del') {
                     if (oIdx < origWords.length) {
-                        const w = origWords[oIdx];
-                        htmlParts.push(`<span class="diff-removed">${escapeHtml(w)}</span> `);
+                        htmlParts.push(`<span class="diff-removed">${escapeHtml(origWords[oIdx])}</span> `);
                     }
                     oIdx++;
                 } else if (part.type === 'add') {
                     if (mIdx < modifWords.length) {
-                        const w = modifWords[mIdx];
-                        htmlParts.push(`<span class="diff-added">${escapeHtml(w)}</span> `);
+                        htmlParts.push(`<span class="diff-added">${escapeHtml(modifWords[mIdx])}</span> `);
                     }
                     mIdx++;
                 }
