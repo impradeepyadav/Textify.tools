@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
     
-    <title>Online Word Counter Tool — Just Paste and Count Free</title>
-    <meta name="description" content="Need a quick count? Just paste your text here to check your words and characters instantly. No signups, no fuss—just a fast and clean tool that works.">
+    <title>Free Online Word Counter – Count Words, Characters & More Instantly</title>
+    <meta name="description" content="Paste your text and get word count, character count, readability scores, and more — all inside your browser. No signup, no uploads, just a fast and private word counter.">
     <meta name="author" content="Textify Tools Team">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/word-counter">
@@ -15,10 +15,10 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/word-counter">
     <meta property="og:title" content="Free Word Counter – Count Words, Characters & Sentences Instantly">
-    <meta property="og:description" content="Live word count, character count, sentences, paragraphs, reading time, readability scores, and unique insights. Fast, private, browser‑based.">
+    <meta property="og:description" content="Live word count, character count, sentences, paragraphs, reading time, and more. Works offline, no account needed.">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Word Counter – Count Words, Characters & Sentences Instantly">
-    <meta name="twitter:description" content="Live word count, character count, sentences, paragraphs, reading time, readability scores, and unique insights.">
+    <meta name="twitter:description" content="Live word count, character count, sentences, paragraphs, reading time, and more.">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -39,7 +39,6 @@
 
     <meta name="yandex-verification" content="6e105f6188a8c833" />
 
-    <!-- Prevents flash of wrong theme -->
     <script>
         (function() {
             var theme = localStorage.getItem('theme');
@@ -59,7 +58,6 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
 
-    <!-- Structured Data (date fixed) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -69,17 +67,8 @@
           "@id": "https://textify.tools/#organization",
           "name": "Textify.tools",
           "url": "https://textify.tools/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://textify.tools/apple-touch-icon.png",
-            "width": 180,
-            "height": 180
-          },
-          "sameAs": [
-            "https://www.facebook.com/textifydottools",
-            "https://www.instagram.com/textifydottools",
-            "https://x.com/textifydottools"
-          ]
+          "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 },
+          "sameAs": ["https://www.facebook.com/textifydottools", "https://www.instagram.com/textifydottools", "https://x.com/textifydottools"]
         },
         {
           "@type": "Person",
@@ -118,7 +107,7 @@
           "isPartOf": { "@id": "https://textify.tools/#website" },
           "about": { "@id": "https://textify.tools/word-counter/#tool" },
           "datePublished": "2024-01-10",
-          "dateModified": "2026-06-20",
+          "dateModified": "2026-07-15",
           "author": { "@id": "https://textify.tools/#author" },
           "publisher": { "@id": "https://textify.tools/#organization" }
         }
@@ -127,91 +116,39 @@
     </script>
 </head>
 <body>
+    <!-- All original CSS remains identical to the previous fixed version -->
     <style>
         :root {
-            --bg: #ffffff;
-            --text: #0a0a0a;
-            --text-light: #525252;
-            --line: #e5e5e5;
-            --primary: #000000;
-            --hover: #f3f4f6;
-            --card: #fafafa;
-            --input-bg: #ffffff;
-            --input-border: #d4d4d4;
-            --footer-bg: #ffffff;
-            --footer-text: #333333;
-            --footer-heading: #000000;
-            --footer-link-color: #000000;
-            --footer-link-hover: #000000;
-            --footer-border: #e5e5e5;
-            --faq-bg: #fafafa;
-            --faq-active: #f3f4f6;
-            --table-header: #f3f4f6;
-            --table-hover: #fafafa;
-            --shadow: rgba(0,0,0,0.1);
-            --overlay-bg: rgba(0,0,0,0.5);
-            --success-bg: #f0fdf4;
-            --success-text: #166534;
-            --sidebar-bg: #ffffff;
-            --accent: #f8fafc;
-            --toast-bg: #1f2937;
-            --toast-text: #ffffff;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
-            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5; --primary: #000000;
+            --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff; --input-border: #d4d4d4;
+            --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000;
+            --footer-link-color: #000000; --footer-link-hover: #000000; --footer-border: #e5e5e5;
+            --faq-bg: #fafafa; --faq-active: #f3f4f6; --table-header: #f3f4f6; --table-hover: #fafafa;
+            --shadow: rgba(0,0,0,0.1); --overlay-bg: rgba(0,0,0,0.5); --success-bg: #f0fdf4; --success-text: #166534;
+            --sidebar-bg: #ffffff; --accent: #f8fafc; --toast-bg: #1f2937; --toast-text: #ffffff;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.04); --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
         }
         html.dark-mode {
-            --bg: #0f172a;
-            --text: #f1f5f9;
-            --text-light: #94a3b8;
-            --line: #1e293b;
-            --primary: #ffffff;
-            --hover: #1e293b;
-            --card: #1e293b;
-            --input-bg: #1e293b;
-            --input-border: #334155;
-            --footer-bg: #0f172a;
-            --footer-text: #e2e8f0;
-            --footer-heading: #ffffff;
-            --footer-link-color: #60a5fa;
-            --footer-link-hover: #ffffff;
-            --footer-border: #334155;
-            --faq-bg: #1e293b;
-            --faq-active: #334155;
-            --table-header: #1e293b;
-            --table-hover: #1e293b;
-            --shadow: rgba(0,0,0,0.5);
-            --overlay-bg: rgba(0,0,0,0.75);
-            --success-bg: #052e16;
-            --success-text: #86efac;
-            --sidebar-bg: #0f172a;
-            --accent: #1e293b;
-            --toast-bg: #f1f5f9;
-            --toast-text: #0f172a;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b; --primary: #ffffff;
+            --hover: #1e293b; --card: #1e293b; --input-bg: #1e293b; --input-border: #334155;
+            --footer-bg: #0f172a; --footer-text: #e2e8f0; --footer-heading: #ffffff;
+            --footer-link-color: #60a5fa; --footer-link-hover: #ffffff; --footer-border: #334155;
+            --faq-bg: #1e293b; --faq-active: #334155; --table-header: #1e293b; --table-hover: #1e293b;
+            --shadow: rgba(0,0,0,0.5); --overlay-bg: rgba(0,0,0,0.75); --success-bg: #052e16; --success-text: #86efac;
+            --sidebar-bg: #0f172a; --accent: #1e293b; --toast-bg: #f1f5f9; --toast-text: #0f172a;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.3); --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; overflow-x: hidden; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            transition: background 0.3s, color 0.3s;
-            overflow-x: hidden;
-            width: 100%;
-            max-width: 100vw;
+            background: var(--bg); color: var(--text); min-height: 100vh;
+            transition: background 0.3s, color 0.3s; overflow-x: hidden; width: 100%; max-width: 100vw;
         }
 
-        /* Extra responsive helpers */
-        img, video, canvas, iframe, embed, object, svg {
-            max-width: 100%;
-            height: auto;
-        }
-        pre, code {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
+        /* (All other CSS rules same as previous fixed version – included for completeness) */
+        img, video, canvas, iframe, embed, object, svg { max-width: 100%; height: auto; }
+        pre, code { white-space: pre-wrap; word-wrap: break-word; }
 
         .page-wrapper { width: 100%; max-width: 100vw; margin: 0 auto; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
         header { border-bottom: 1px solid var(--line); display: flex; justify-content: center; align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s; background: transparent; width: 100%; max-width: 100vw; }
@@ -287,30 +224,9 @@
         h1 { font-size: 38px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; text-align: left; word-wrap: break-word; }
         .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.7; margin-bottom: 30px; text-align: left; word-wrap: break-word; }
 
-        .main-layout {
-            display: flex;
-            gap: 24px;
-            align-items: flex-start;
-            margin-bottom: 0;
-            width: 100%;
-            max-width: 100%;
-        }
-        .textarea-col {
-            flex: 1;
-            min-width: 0;
-            max-width: 100%;
-        }
-        .stats-col {
-            width: 260px;
-            flex-shrink: 0;
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-radius: 14px;
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            max-width: 100%;
-        }
+        .main-layout { display: flex; gap: 24px; align-items: flex-start; margin-bottom: 0; width: 100%; max-width: 100%; }
+        .textarea-col { flex: 1; min-width: 0; max-width: 100%; }
+        .stats-col { width: 260px; flex-shrink: 0; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; max-width: 100%; }
 
         #statsPlaceholder { display: none; }
         #statsList { list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 1.8; word-wrap: break-word; }
@@ -319,13 +235,7 @@
         #statsList .stat-label { font-weight: 600; margin-right: 4px; color: var(--text); }
         #statsList .stat-value { font-weight: 500; color: var(--primary); word-break: break-all; }
         #statsList .stat-inline { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-        .stats-header {
-            font-weight: 700;
-            font-size: 16px;
-            margin-bottom: 8px;
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 6px;
-        }
+        .stats-header { font-weight: 700; font-size: 16px; margin-bottom: 8px; border-bottom: 2px solid var(--primary); padding-bottom: 6px; }
 
         .textarea-wrapper { position: relative; margin-bottom: 20px; width: 100%; z-index: 1; }
         textarea {
@@ -361,13 +271,7 @@
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
-        .toolbar-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
-            flex-shrink: 0;
-        }
+        .toolbar-item { display: flex; flex-direction: column; align-items: center; gap: 3px; flex-shrink: 0; }
         .toolbar-item .icon-btn {
             background: transparent;
             border: 1px solid rgba(255,255,255,0.35);
@@ -384,29 +288,10 @@
             min-width: 36px;
             min-height: 36px;
         }
-        .toolbar-item .icon-btn:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: #ffffff;
-            color: #ffffff;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-        }
-        .toolbar-item .icon-btn:disabled {
-            opacity: 0.35;
-            pointer-events: none;
-            cursor: default;
-            transform: none;
-            box-shadow: none;
-        }
+        .toolbar-item .icon-btn:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; color: #ffffff; transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+        .toolbar-item .icon-btn:disabled { opacity: 0.35; pointer-events: none; cursor: default; transform: none; box-shadow: none; }
         .toolbar-item .icon-btn svg { width: 18px; height: 18px; }
-        .toolbar-label {
-            font-size: 10px;
-            color: rgba(255,255,255,0.8);
-            line-height: 1;
-            white-space: nowrap;
-            font-weight: 500;
-            text-align: center;
-        }
+        .toolbar-label { font-size: 10px; color: rgba(255,255,255,0.8); line-height: 1; white-space: nowrap; font-weight: 500; text-align: center; }
 
         .dropdown-wrapper { position: relative; z-index: 11; }
         .dropdown-wrapper.open { z-index: 101; }
@@ -425,18 +310,8 @@
             transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
             pointer-events: none;
         }
-        .dropdown-wrapper.open .dropdown-menu { 
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-        .dropdown-menu button {
-            display: block; width: 100%; text-align: left; padding: 10px 14px;
-            border: none; background: none; color: var(--text); font-size: 14px;
-            font-weight: 500; cursor: pointer; font-family: inherit; border-radius: 0;
-            transition: background 0.1s;
-        }
+        .dropdown-wrapper.open .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; }
+        .dropdown-menu button { display: block; width: 100%; text-align: left; padding: 10px 14px; border: none; background: none; color: var(--text); font-size: 14px; font-weight: 500; cursor: pointer; font-family: inherit; border-radius: 0; transition: background 0.1s; }
         .dropdown-menu button:hover { background: var(--hover); color: var(--primary); }
 
         .section { margin-bottom: 50px; width: 100%; max-width: 100%; }
@@ -472,14 +347,7 @@
         .footer-bottom { width: 100%; margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--footer-border); text-align: center; font-size: 13px; color: var(--footer-text); }
 
         .history-panel { margin-bottom: 30px; }
-        .history-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
+        .history-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
         .history-header h3 { margin: 0; }
         .history-list { max-height: 200px; overflow-y: auto; border: 1px solid var(--line); border-radius: 8px; }
         .history-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--line); font-size: 14px; word-wrap: break-word; gap: 8px; }
@@ -492,7 +360,6 @@
         .extract-panel.active { display: block; }
         .wpm-input { width: 60px; padding: 4px 8px; border: 1px solid var(--input-border); border-radius: 6px; font-size: 14px; background: var(--card); color: var(--text); }
 
-        /* Live count box */
         .live-count-box {
             background: rgba(0,0,0,0.75);
             border: 2px solid rgba(255,255,255,0.3);
@@ -512,16 +379,11 @@
         .keyword-density-section { margin-bottom: 30px; }
         .keyword-density-section h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
         .keyword-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 300px; }
-        .keyword-table th, .keyword-table td {
-            padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; color: var(--text-light);
-        }
+        .keyword-table th, .keyword-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; color: var(--text-light); }
         .keyword-table th { background: var(--table-header); color: var(--text); font-weight: 600; }
         .keyword-table tr:hover { background: var(--table-hover); }
 
-        @media (max-width: 900px) {
-            .main-layout { flex-direction: column; }
-            .stats-col { width: 100%; }
-        }
+        @media (max-width: 900px) { .main-layout { flex-direction: column; } .stats-col { width: 100%; } }
         @media (max-width: 768px) {
             .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; }
             header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; }
@@ -592,7 +454,7 @@
         <main>
             <div class="content-container">
                 <h1>Free Online Word Counter – Count Words, Characters & More</h1>
-                <p class="subtitle">Paste or type your text and instantly see word count, characters (with/without spaces), lines, readability scores, and many exclusive insights. All processing is private and browser‑based — nothing leaves your device.</p>
+                <p class="subtitle">Paste or type your text and instantly see word count, characters (with/without spaces), lines, readability scores, and more. Everything runs inside your browser — nothing leaves your device.</p>
 
                 <div class="main-layout">
                     <div class="textarea-col">
@@ -697,26 +559,51 @@
                     </div>
                 </div>
 
+                <!-- CONTENT SECTIONS -->
                 <div class="section">
-                    <h2 style="margin-top:20px;">Why Use Textify Word Counter?</h2>
-                    <p>Most word counters are slow, clunky, or require you to upload your text to a server. Our tool runs entirely in your browser — you get instant results without sacrificing privacy. Plus, you get readability scores, syllable count, lexical density, and much more that you won't find elsewhere.</p>
+                    <h2 style="margin-top:20px;">Why Use This Word Counter?</h2>
+                    <p>I needed a word counter that didn't force me to sign up, didn't feel sluggish, and didn't send my text to some server in the cloud. So I built one that ticks all three boxes – and then added a few things I always wished other counters had, like readability scores and local history. Here's what you get:</p>
                     <ul>
-                        <li><strong>Live statistics</strong> – no need to click a button. Every stat updates as you type or paste.</li>
-                        <li><strong>Complete privacy</strong> – your text stays on your device. We don't see it, we don't store it.</li>
-                        <li><strong>Readability scores</strong> – Flesch Reading Ease and Flesch‑Kincaid Grade Level shown numerically.</li>
-                        <li><strong>Text history</strong> – save multiple versions locally and compare them anytime.</li>
-                        <li><strong>Works offline</strong> – once loaded, no internet needed. All processing stays local.</li>
+                        <li><strong>Instant, live stats</strong> – no need to click a button. Every number updates as you type or paste.</li>
+                        <li><strong>Complete privacy</strong> – your text stays on your device. I don't see it, and I don't store it.</li>
+                        <li><strong>Readability scores</strong> – Flesch Reading Ease and Flesch‑Kincaid Grade Level, shown as clear numbers.</li>
+                        <li><strong>Text history</strong> – save multiple versions locally and compare them anytime (stored in your browser).</li>
+                        <li><strong>Works offline</strong> – once the page loads, you can disconnect and keep working.</li>
                     </ul>
+                    <p>A couple of small ads (via Google AdSense) help cover the hosting, but they won't block your screen or make you click through anything.</p>
                 </div>
 
                 <div class="section">
                     <h2>How to Use the Word Counter</h2>
                     <ol>
                         <li><strong>Paste or type</strong> your text into the box above.</li>
-                        <li><strong>Watch the stats</strong> appear instantly in the sidebar — words, characters, lines, sentences, readability, and more.</li>
+                        <li><strong>Watch the stats</strong> appear instantly in the sidebar – words, characters, sentences, and more.</li>
                         <li>Use the toolbar inside the textarea to clear, copy, change case, or export your text.</li>
                     </ol>
-                    <p>That's it. No signup, no ads that block the screen, just a clean, powerful word counter.</p>
+                    <p>That's it. No signup, no pop‑ups, just a clean, powerful word counter.</p>
+                </div>
+
+                <div class="section">
+                    <h2>Common Word & Character Targets</h2>
+                    <p>Wondering if your text meets typical requirements? Here's a quick reference of the most common limits people search for:</p>
+                    <div class="table-wrapper">
+                        <table class="info-table">
+                            <thead><tr><th>Use case</th><th>Typical word / character count</th></tr></thead>
+                            <tbody>
+                                <tr><td>Twitter post</td><td>280 characters</td></tr>
+                                <tr><td>Facebook post</td><td>No hard limit, but 40–80 words is optimal</td></tr>
+                                <tr><td>Instagram caption</td><td>2,200 characters max, but 125–150 is ideal</td></tr>
+                                <tr><td>Meta description (Google)</td><td>150–160 characters</td></tr>
+                                <tr><td>Blog post (short)</td><td>300–600 words</td></tr>
+                                <tr><td>Blog post (in‑depth)</td><td>1,500–2,500 words</td></tr>
+                                <tr><td>High school essay</td><td>300–500 words</td></tr>
+                                <tr><td>College application essay</td><td>250–650 words</td></tr>
+                                <tr><td>Short story</td><td>1,000–7,500 words</td></tr>
+                                <tr><td>Novel chapter</td><td>2,000–5,000 words</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Keep this table in mind while writing, and use the live counter above to stay on track. The history feature is especially handy when you're trying different drafts and want to compare word counts.</p>
                 </div>
 
                 <div class="section">
@@ -737,17 +624,40 @@
                 </div>
 
                 <div class="section">
-                    <h2>What People Are Saying</h2>
+                    <h2>How People Actually Use It (Typical Scenarios)</h2>
                     <div class="story-grid">
-                        <div class="story-card"><h4><i data-lucide="edit-3" width="20" height="20"></i> Ananya's college essay</h4><p>"I pasted my essay and instantly saw my Flesch‑Kincaid grade was too high. I simplified some sentences and brought it down – my professor loved it!"</p></div>
-                        <div class="story-card"><h4><i data-lucide="trending-up" width="20" height="20"></i> Rahul's SEO audit</h4><p>"The character breakdown helped me spot that I was using too many emojis in meta descriptions. Cleaned it up and CTR improved."</p></div>
-                        <div class="story-card"><h4><i data-lucide="message-circle" width="20" height="20"></i> Maria's Twitter thread</h4><p>"I extracted all hashtags from my thread and realized I used 15! Trimmed to 5 – engagement went up."</p></div>
-                        <div class="story-card"><h4><i data-lucide="terminal" width="20" height="20"></i> Kenji's dev workflow</h4><p>"I use the character breakdown to validate that my logs contain only ASCII letters and digits. So helpful."</p></div>
+                        <div class="story-card">
+                            <h4><i data-lucide="edit-3" width="20" height="20"></i> Polishing a college essay</h4>
+                            <p>A student pastes their 1,500‑word draft, sees that the Flesch‑Kincaid grade level is a bit high for their audience, and simplifies a few sentences to bring the readability down. The final version lands right in the sweet spot.</p>
+                        </div>
+                        <div class="story-card">
+                            <h4><i data-lucide="trending-up" width="20" height="20"></i> Checking meta description length</h4>
+                            <p>An SEO specialist pastes a meta description into the counter, instantly sees the character count (with spaces), and trims it to fit Google's recommended length. The live character‑with‑spaces number makes it effortless.</p>
+                        </div>
+                        <div class="story-card">
+                            <h4><i data-lucide="message-circle" width="20" height="20"></i> Trimming a Twitter thread</h4>
+                            <p>A social media manager extracts all hashtags from their thread, discovers they've used 12, and cuts them down to the 5 most relevant ones. The extract panel saves the day.</p>
+                        </div>
+                        <div class="story-card">
+                            <h4><i data-lucide="terminal" width="20" height="20"></i> Debugging application logs</h4>
+                            <p>A developer pastes a long error log into the counter and uses the character breakdown to make sure the log contains only ASCII letters and digits. The detailed stats make debugging a little less painful.</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h2>Word Counter FAQs – Questions? We've Got Answers</h2>
+                    <h2>Tips to Make the Most of This Word Counter</h2>
+                    <ul>
+                        <li><strong>Use the history</strong> to save multiple drafts. It's like a tiny version control system for your writing.</li>
+                        <li><strong>Adjust the speaking WPM</strong> to get a realistic presentation time. 130–150 WPM is a natural pace for most speakers.</li>
+                        <li><strong>Keep an eye on lexical density</strong> – if it's very low, your vocabulary may be repetitive. A score of 50–70% is often a sign of varied, engaging text.</li>
+                        <li><strong>Export as PDF or DOCX</strong> when you need a formatted copy for sharing or printing.</li>
+                    </ul>
+                </div>
+
+                <!-- REDUCED FAQ (6 questions) -->
+                <div class="section">
+                    <h2>Frequently Asked Questions</h2>
 
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
@@ -755,17 +665,17 @@
                             <i data-lucide="chevron-down" width="16"></i>
                         </button>
                         <div class="faq-answer">
-                            Great question — and you're not the first to ask. Every word processor has its own way of deciding what a "word" is. We count any sequence of non‑whitespace characters as a word, just like most word counters. Differences usually happen because of footnotes, text boxes, or special formatting that those editors count separately. Our counter gives you a clean, plain‑text count that matches what you'd see if you pasted into Notepad first. If you need exact parity with MS Word, strip all hidden content and paste only the body text — the numbers will align.
+                            Great question – and you're not the first to ask. Every word processor has its own definition of a "word". We count any sequence of non‑whitespace characters as a word, just like most counters. Discrepancies usually come from footnotes, text boxes, or special formatting that those editors count separately. Our counter gives you a clean, plain‑text count. If you need exact parity with MS Word, strip all hidden content and paste only the body text – the numbers will match.
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            Does this tool support languages other than English, like Hindi, Spanish, or French?
+                            Does this tool support languages like Hindi, Spanish, or French?
                             <i data-lucide="chevron-down" width="16"></i>
                         </button>
                         <div class="faq-answer">
-                            Absolutely — and we've tested it. The character counter works 100% universally, whether you're typing in English, हिंदी, Español, or emojis 🎉. Word counting splits on spaces, so it works for any language that uses spaces between words (including Devanagari‑script Hindi when typed with spaces). The readability scores and syllable counter are tuned for English, so they'll be less accurate for other languages, but the raw counts (words, characters) are rock‑solid for almost any script. If you're working with a language that doesn't use spaces (like Chinese), the character count is your best friend.
+                            Absolutely – and I've tested it. The character counter works universally, whether you're typing in English, हिंदी, Español, or emojis 🎉. Word counting splits on spaces, so it works for any language that uses spaces (including Devanagari‑script Hindi when typed with spaces). The readability scores and syllable counter are tuned for English, so they'll be less accurate for other languages, but the raw counts (words, characters) are solid for almost any script. If you're working with a language that doesn't use spaces (like Chinese), the character count is your best friend.
                         </div>
                     </div>
 
@@ -775,37 +685,7 @@
                             <i data-lucide="chevron-down" width="16"></i>
                         </button>
                         <div class="faq-answer">
-                            There's no hard limit — we've thrown entire novel manuscripts at it (80,000+ words) and it chugs along fine. Since everything runs in your browser, performance depends on your device. On a typical laptop, you can comfortably count 50,000–100,000 words without any lag. If you do manage to freeze your tab, just split the text into chunks — or treat yourself to a newer phone 😄. Seriously though, we built this to be lightweight, so you're unlikely to hit a wall.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            Can I count words in a PDF or scanned image?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">
-                            Not directly. Our tool works with raw text — you'll need to copy the text from the PDF (most PDF readers allow text selection) and paste it in. For scanned documents or image‑based PDFs, you'd need an OCR (optical character recognition) tool first to extract the text. We keep things simple and private: no file uploads, no server processing. If you can select the text, we can count it.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            How accurate is the reading and speaking time estimate?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">
-                            Pretty accurate for average content. Reading time uses the industry standard of 200 words per minute — that's an adult reading moderately complex material. Speaking time defaults to 150 words per minute (typical presentation speed). You can adjust the speaking WPM with the little box right inside the stats panel. Of course, if your text is packed with technical jargon or poetry, actual speed may vary. Think of it as a solid ballpark, not a stopwatch.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            How does the readability scoring work? Can I trust it for academic papers?
-                            <i data-lucide="chevron-down" width="16"></i>
-                        </button>
-                        <div class="faq-answer">
-                            We calculate two classic scores: <strong>Flesch Reading Ease</strong> (higher = easier) and <strong>Flesch‑Kincaid Grade Level</strong> (the US school grade needed to understand the text). These are based on average sentence length and syllables per word. We use a syllable‑counting heuristic that's about 95% accurate for English — good enough for most purposes. For academic work, these scores are widely accepted as quick readability indicators. If you need pharmaceutical‑grade accuracy, you'd want a dedicated linguistics tool, but for essays, blog posts, and reports, this is exactly what writing centres use.
+                            There's no hard limit. I've thrown entire novel manuscripts at it (80,000+ words) and it handles them fine. Since everything runs in your browser, performance depends on your device. On a typical laptop, you can comfortably count 50,000–100,000 words without any lag. If you do push it to the limit, just split the text into chunks – or treat yourself to a newer phone 😄.
                         </div>
                     </div>
 
@@ -815,7 +695,7 @@
                             <i data-lucide="chevron-down" width="16"></i>
                         </button>
                         <div class="faq-answer">
-                            Nothing. And we mean that literally. The entire word counter runs inside your own browser — it never travels to any server. We don't see your text, we don't store it, we don't even collect analytics on what you write. Even the history feature saves drafts only in your browser's local storage (you can clear it anytime). We built it this way because we're writers ourselves and got tired of tools that upload everything to the cloud. Your words are yours. Period.
+                            Nothing. And I mean that literally. The entire word counter runs inside your own browser – it never travels to any server. I don't see your text, I don't store it, I don't even collect analytics on what you write. Even the history feature saves drafts only in your browser's local storage (you can clear it anytime). I built it this way because I'm a writer myself and got tired of tools that upload everything to the cloud. Your words are yours. Period.
                         </div>
                     </div>
 
@@ -825,17 +705,17 @@
                             <i data-lucide="chevron-down" width="16"></i>
                         </button>
                         <div class="faq-answer">
-                            Yes! Once the page has loaded, all the JavaScript and fonts are cached. You can turn off your WiFi, head to a mountain cabin, or jump on a plane — the counter still works perfectly. We've personally used it on 14‑hour flights to edit long articles. The only thing you'll miss is the search‑tools overlay (it needs the index), but the core word counting, case changes, and export features run completely offline.
+                            Yes! Once the page has loaded, all the JavaScript and fonts are cached. You can turn off your WiFi, head to a mountain cabin, or jump on a plane – the counter still works perfectly. I've personally used it on 14‑hour flights to edit long articles. The only thing you'll miss is the search‑tools overlay (it needs the index), but the core word counting, case changes, and export features run completely offline.
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
-                            Why doesn't the keyword density show anything even though I have text?
+                            How accurate are the reading and speaking time estimates?
                             <i data-lucide="chevron-down" width="16"></i>
                         </button>
                         <div class="faq-answer">
-                            The keyword density table kicks in once you have at least a handful of words. We ignore extremely common stop words (like "the", "and", "is") to show only meaningful terms. If your text is very short or consists mostly of pronouns and articles, you might see "No significant keywords found." Try pasting a paragraph of real content — even a product description or a news snippet — and the table will populate immediately.
+                            Pretty accurate for average content. Reading time uses the industry standard of 200 words per minute – that's an adult reading moderately complex material. Speaking time defaults to 150 words per minute (typical presentation speed). You can adjust the speaking WPM with the little box inside the stats panel. If your text is packed with technical jargon or poetry, actual speed may vary, but it's a solid ballpark.
                         </div>
                     </div>
                 </div>
@@ -856,6 +736,7 @@
         </footer>
     </div>
 
+    <!-- Mobile sidebar & search overlay same as before -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
@@ -891,23 +772,15 @@
     <script src="https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
     <script src="https://unpkg.com/lucide@0.344.0"></script>
     <script>
+        // ---- Full JavaScript (identical to previous fixed version) ----
         (function() {
-            // Category label mapping for search tags
             const categoryLabelMap = {
-                analysis: 'Text Analysis',
-                cleaning: 'Text Cleaning',
-                formatting: 'Text Formatting',
-                'line-tools': 'Line Tools',
-                extract: 'Find & Extract',
-                compare: 'Compare',
-                convert: 'Convert',
-                encode: 'Encode',
-                generators: 'Generate'
+                analysis: 'Text Analysis', cleaning: 'Text Cleaning', formatting: 'Text Formatting',
+                'line-tools': 'Line Tools', extract: 'Find & Extract', compare: 'Compare',
+                convert: 'Convert', encode: 'Encode', generators: 'Generate'
             };
 
-            // Full 100+ text utilities with SEO‑friendly URLs and correct categories
             const tools = [
-                // ---- Text Analysis ----
                 { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
                 { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', category: 'analysis' },
                 { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count block format', category: 'analysis' },
@@ -918,8 +791,6 @@
                 { name: 'Duplicate Word Finder', link: '/duplicate-word-finder', keywords: 'duplicate word find highlight', category: 'analysis' },
                 { name: 'Text Statistics', link: '/text-statistics', keywords: 'text stats readability summary data', category: 'analysis' },
                 { name: 'Regex Tester', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'analysis' },
-
-                // ---- Text Cleaning ----
                 { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'cleaning' },
                 { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'cleaning' },
                 { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'cleaning' },
@@ -931,8 +802,6 @@
                 { name: 'Remove Numbers', link: '/remove-numbers', keywords: 'numbers remove digits numeric', category: 'cleaning' },
                 { name: 'Remove HTML Tags', link: '/remove-html-tags', keywords: 'html tags strip remove clean', category: 'cleaning' },
                 { name: 'Text Cleaner', link: '/text-cleaner', keywords: 'clean text sanitize format', category: 'cleaning' },
-
-                // ---- Text Formatting ----
                 { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'formatting' },
                 { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'formatting' },
                 { name: 'Sentence Case Converter', link: '/sentence-case-converter', keywords: 'sentence case capitalize first letter', category: 'formatting' },
@@ -949,8 +818,6 @@
                 { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font', category: 'formatting' },
                 { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode', category: 'formatting' },
                 { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'formatting' },
-
-                // ---- Line Tools ----
                 { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'line-tools' },
                 { name: 'Reverse Lines', link: '/reverse-lines', keywords: 'reverse lines order flip', category: 'line-tools' },
                 { name: 'Shuffle Lines', link: '/shuffle-lines', keywords: 'shuffle lines randomize order', category: 'line-tools' },
@@ -961,8 +828,6 @@
                 { name: 'Trim Lines', link: '/trim-lines', keywords: 'trim lines spaces leading trailing', category: 'line-tools' },
                 { name: 'Join Lines', link: '/join-lines', keywords: 'join lines merge combine', category: 'line-tools' },
                 { name: 'Split Lines', link: '/split-lines', keywords: 'split lines delimiter break', category: 'line-tools' },
-
-                // ---- Find & Extract ----
                 { name: 'Email Extractor', link: '/email-extractor', keywords: 'email extract find emails scrape', category: 'extract' },
                 { name: 'URL Extractor', link: '/url-extractor', keywords: 'url extract link http https', category: 'extract' },
                 { name: 'Phone Extractor', link: '/phone-extractor', keywords: 'phone number extract landline mobile', category: 'extract' },
@@ -973,15 +838,11 @@
                 { name: 'Mention Extractor', link: '/mention-extractor', keywords: 'mention extract username @ social', category: 'extract' },
                 { name: 'Keyword Extractor', link: '/keyword-extractor', keywords: 'keyword extract important terms', category: 'extract' },
                 { name: 'Duplicate Line Finder', link: '/duplicate-line-finder', keywords: 'duplicate line find report', category: 'extract' },
-
-                // ---- Compare ----
                 { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'compare' },
                 { name: 'Word Compare', link: '/word-compare', keywords: 'word compare diff text', category: 'compare' },
                 { name: 'Line Compare', link: '/line-compare', keywords: 'line compare diff text', category: 'compare' },
                 { name: 'Character Compare', link: '/character-compare', keywords: 'character compare diff detailed', category: 'compare' },
                 { name: 'Similarity Checker', link: '/similarity-checker', keywords: 'similarity score comparison match', category: 'compare' },
-
-                // ---- Convert ----
                 { name: 'JSON Formatter', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'convert' },
                 { name: 'XML Formatter', link: '/xml-formatter', keywords: 'xml format beautify indent', category: 'convert' },
                 { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'convert' },
@@ -991,15 +852,11 @@
                 { name: 'HTML to Text', link: '/html-to-text', keywords: 'html text convert strip', category: 'convert' },
                 { name: 'CSV to Text', link: '/csv-to-text', keywords: 'csv convert text table', category: 'convert' },
                 { name: 'Text to CSV', link: '/text-to-csv', keywords: 'text csv convert comma separated', category: 'convert' },
-
-                // ---- Encode ----
                 { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encode' },
                 { name: 'URL Encoder/Decoder', link: '/url-encoder-decoder', keywords: 'url encode decode percent encoding', category: 'encode' },
                 { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encode' },
                 { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encode' },
                 { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encode' },
-
-                // ---- Generate ----
                 { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
                 { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text', category: 'generators' },
                 { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
@@ -1090,14 +947,12 @@
                 else { container.classList.add('open'); trigger.setAttribute('aria-expanded', 'true'); const firstLink = container.querySelector('.tools-mega-menu a'); if (firstLink) firstLink.focus(); }
             };
             document.addEventListener('click', function(e) {
-                // Close dropdowns when clicking outside
                 if (!e.target.closest('.dropdown-wrapper')) { 
                     document.querySelectorAll('.dropdown-wrapper.open').forEach(el => {
                         el.classList.remove('open');
                         el.style.zIndex = '11';
                     }); 
                 }
-                // Close tools menu when clicking outside
                 const container = document.getElementById('toolsMenuContainer');
                 if (container && !container.contains(e.target) && container.classList.contains('open')) {
                     container.classList.remove('open'); 
@@ -1106,12 +961,10 @@
             });
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
-                    // Close dropdowns
                     document.querySelectorAll('.dropdown-wrapper.open').forEach(el => {
                         el.classList.remove('open');
                         el.style.zIndex = '11';
                     });
-                    // Close tools menu
                     const container = document.getElementById('toolsMenuContainer');
                     if (container && container.classList.contains('open')) {
                         container.classList.remove('open'); 
@@ -1157,37 +1010,21 @@
                 const wrapper = document.getElementById(id); 
                 if (!wrapper) return;
                 const isOpen = wrapper.classList.contains('open');
-                
-                // Close all other dropdowns first
                 document.querySelectorAll('.dropdown-wrapper.open').forEach(el => {
-                    if (el !== wrapper) {
-                        el.classList.remove('open');
-                        el.style.zIndex = '11';
-                    }
+                    if (el !== wrapper) { el.classList.remove('open'); el.style.zIndex = '11'; }
                 });
-                
                 if (!isOpen) {
-                    // Calculate position before opening
                     const btn = wrapper.querySelector('.icon-btn');
                     if (btn) {
                         const rect = btn.getBoundingClientRect();
                         const dropdown = wrapper.querySelector('.dropdown-menu');
                         if (dropdown) {
-                            // Position below the button
                             dropdown.style.top = rect.bottom + 4 + 'px';
                             dropdown.style.left = rect.left + 'px';
-                            
-                            // Check if dropdown would go off-screen to the right
                             const dropdownWidth = dropdown.offsetWidth || 160;
-                            if (rect.left + dropdownWidth > window.innerWidth) {
-                                dropdown.style.left = (window.innerWidth - dropdownWidth - 10) + 'px';
-                            }
-                            
-                            // Check if dropdown would go off-screen at the bottom
+                            if (rect.left + dropdownWidth > window.innerWidth) dropdown.style.left = (window.innerWidth - dropdownWidth - 10) + 'px';
                             const dropdownHeight = dropdown.scrollHeight || 200;
-                            if (rect.bottom + 4 + dropdownHeight > window.innerHeight) {
-                                dropdown.style.top = rect.top - dropdownHeight - 4 + 'px';
-                            }
+                            if (rect.bottom + 4 + dropdownHeight > window.innerHeight) dropdown.style.top = rect.top - dropdownHeight - 4 + 'px';
                         }
                     }
                     wrapper.classList.add('open');
