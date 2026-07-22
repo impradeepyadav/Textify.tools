@@ -343,16 +343,31 @@
         .input-area { display: flex; flex-direction: column; gap: 8px; }
         .input-area label { font-weight: 600; font-size: 14px; color: var(--text); }
 
-        /* Textarea container with action buttons */
         .textarea-container {
-            position: relative;
-            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
+
+        /* Dark containers for toolbar and stats */
+        .dark-bar {
+            background: #000000;
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: #ffffff;
+        }
+
+        .textarea-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
         .textarea-container textarea {
             width: 100%;
             min-height: 250px;
             padding: 14px;
-            padding-right: 190px; /* extra space for multiple buttons */
             border: 1px solid var(--input-border);
             border-radius: 12px;
             background: var(--input-bg);
@@ -364,32 +379,23 @@
         }
         .textarea-container textarea:focus { outline: none; border-color: var(--primary); }
 
-        .textarea-actions {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            display: flex;
-            gap: 4px;
-            z-index: 2;
-        }
         .action-btn {
-            background: var(--hover);
+            background: rgba(255,255,255,0.15);
             border: none;
             cursor: pointer;
             padding: 6px 8px;
             border-radius: 8px;
-            color: var(--text);
+            color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: 0.2s;
+            transition: background 0.2s;
             font-size: 14px;
             font-weight: 600;
             position: relative;
         }
-        .action-btn:hover { background: var(--primary); color: var(--bg); }
+        .action-btn:hover { background: rgba(255,255,255,0.3); color: #ffffff; }
 
-        /* Dropdowns for case, copy, download */
         .dropdown-wrapper {
             position: relative;
             display: inline-block;
@@ -400,11 +406,11 @@
             right: 0;
             top: 100%;
             margin-top: 4px;
-            background: var(--card);
-            border: 1px solid var(--line);
+            background: #1e1e1e;
+            border: 1px solid #444;
             border-radius: 10px;
             min-width: 180px;
-            box-shadow: 0 10px 25px var(--shadow);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             z-index: 10;
             overflow: hidden;
         }
@@ -417,28 +423,35 @@
             border: none;
             text-align: left;
             font-size: 14px;
-            color: var(--text);
+            color: #e5e7eb;
             cursor: pointer;
             font-family: inherit;
             font-weight: 500;
             transition: background 0.15s;
         }
         .dropdown-menu button:hover {
-            background: var(--hover);
-            color: var(--primary);
+            background: #333;
+            color: #ffffff;
         }
 
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
-        .stat-card { background: var(--stat-bg); border: 1px solid var(--stat-border); border-radius: 12px; padding: 18px; text-align: center; }
-        .stat-card .stat-value { font-size: 28px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
-        .stat-card .stat-label { font-size: 13px; color: var(--text-light); }
-        .button-row { display: flex; gap: 10px; flex-wrap: wrap; }
-        .btn { padding: 10px 22px; border-radius: 25px; font-weight: 600; font-size: 14px; border: 1px solid var(--line); background: var(--card); color: var(--text); cursor: pointer; display: flex; align-items: center; gap: 6px; transition: background 0.2s, border-color 0.2s; font-family: inherit; }
-        .btn:hover { background: var(--hover); border-color: var(--primary); }
-        .btn.primary { background: var(--primary); color: var(--bg); border: none; }
-        .btn.primary:hover { opacity: 0.9; }
-        .btn.success { background: #16a34a; color: #fff; border: none; }
-        .btn.success:hover { opacity: 0.9; }
+        .stats-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .stat-item .stat-value {
+            font-weight: 800;
+        }
+
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 25px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; }
         .footer-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 35px; width: 100%; }
@@ -505,82 +518,79 @@
                     <div class="input-area">
                         <label for="input-text">Your text</label>
                         <div class="textarea-container">
-                            <textarea id="input-text" placeholder="Type or paste your text here... Sentences end with . ! ?" oninput="updateStats()"></textarea>
-                            <div class="textarea-actions">
-                                <!-- Case converter button with dropdown -->
-                                <div class="dropdown-wrapper" id="caseDropdownContainer">
-                                    <button class="action-btn" id="caseConvertBtn" onclick="toggleDropdown(event, 'caseDropdownMenu')" title="Change case">Aa</button>
-                                    <div class="dropdown-menu" id="caseDropdownMenu">
-                                        <button onclick="applyCase('upper')">UPPERCASE</button>
-                                        <button onclick="applyCase('lower')">lowercase</button>
-                                        <button onclick="applyCase('title')">Title Case</button>
-                                        <button onclick="applyCase('sentence')">Sentence case</button>
-                                        <button onclick="applyCase('toggle')">tOGGLE cASE</button>
-                                        <button onclick="applyCase('capitalize')">Capitalize Each Word</button>
+                            <!-- Dark bar for icons -->
+                            <div class="dark-bar">
+                                <div class="textarea-toolbar">
+                                    <div class="dropdown-wrapper" id="caseDropdownContainer">
+                                        <button class="action-btn" id="caseConvertBtn" onclick="toggleDropdown(event, 'caseDropdownMenu')" title="Change case">Aa</button>
+                                        <div class="dropdown-menu" id="caseDropdownMenu">
+                                            <button onclick="applyCase('upper')">UPPERCASE</button>
+                                            <button onclick="applyCase('lower')">lowercase</button>
+                                            <button onclick="applyCase('title')">Title Case</button>
+                                            <button onclick="applyCase('sentence')">Sentence case</button>
+                                            <button onclick="applyCase('toggle')">tOGGLE cASE</button>
+                                            <button onclick="applyCase('capitalize')">Capitalize Each Word</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Paste button (direct action) -->
-                                <button class="action-btn" id="pasteBtn" onclick="pasteFromClipboard()" title="Paste from clipboard">
-                                    <i data-lucide="clipboard-paste" width="18" height="18"></i>
-                                </button>
-                                <!-- Copy button with dropdown -->
-                                <div class="dropdown-wrapper" id="copyDropdownContainer">
-                                    <button class="action-btn" onclick="toggleDropdown(event, 'copyDropdownMenu')" title="Copy options">
-                                        <i data-lucide="copy" width="18" height="18"></i>
+                                    <button class="action-btn" id="pasteBtn" onclick="pasteFromClipboard()" title="Paste from clipboard">
+                                        <i data-lucide="clipboard-paste" width="18" height="18"></i>
                                     </button>
-                                    <div class="dropdown-menu" id="copyDropdownMenu">
-                                        <button onclick="copyText()">Copy Text</button>
-                                        <button onclick="copyStats()">Copy Stats</button>
+                                    <div class="dropdown-wrapper" id="copyDropdownContainer">
+                                        <button class="action-btn" onclick="toggleDropdown(event, 'copyDropdownMenu')" title="Copy options">
+                                            <i data-lucide="copy" width="18" height="18"></i>
+                                        </button>
+                                        <div class="dropdown-menu" id="copyDropdownMenu">
+                                            <button onclick="copyText()">Copy Text</button>
+                                            <button onclick="copyStats()">Copy Stats</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- Download button with expanded dropdown -->
-                                <div class="dropdown-wrapper" id="downloadDropdownContainer">
-                                    <button class="action-btn" onclick="toggleDropdown(event, 'downloadDropdownMenu')" title="Download options">
-                                        <i data-lucide="download" width="18" height="18"></i>
+                                    <div class="dropdown-wrapper" id="downloadDropdownContainer">
+                                        <button class="action-btn" onclick="toggleDropdown(event, 'downloadDropdownMenu')" title="Download options">
+                                            <i data-lucide="download" width="18" height="18"></i>
+                                        </button>
+                                        <div class="dropdown-menu" id="downloadDropdownMenu">
+                                            <button onclick="downloadText('txt')">Download as .txt</button>
+                                            <button onclick="downloadText('csv')">Download as .csv</button>
+                                            <button onclick="downloadText('json')">Download as .json</button>
+                                            <button onclick="downloadText('html')">Download as .html</button>
+                                            <button onclick="downloadText('pdf')">Save as PDF</button>
+                                        </div>
+                                    </div>
+                                    <button class="action-btn" onclick="clearText()" title="Clear text">
+                                        <i data-lucide="trash-2" width="18" height="18"></i>
                                     </button>
-                                    <div class="dropdown-menu" id="downloadDropdownMenu">
-                                        <button onclick="downloadText('txt')">Download as .txt</button>
-                                        <button onclick="downloadText('csv')">Download as .csv</button>
-                                        <button onclick="downloadText('json')">Download as .json</button>
-                                        <button onclick="downloadText('html')">Download as .html</button>
-                                        <button onclick="downloadText('pdf')">Save as PDF</button>
-                                    </div>
                                 </div>
-                                <!-- Clear button -->
-                                <button class="action-btn" onclick="clearText()" title="Clear text">
-                                    <i data-lucide="trash-2" width="18" height="18"></i>
-                                </button>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="stats-grid" id="stats-container">
-                        <div class="stat-card">
-                            <div class="stat-value" id="sentence-count">0</div>
-                            <div class="stat-label">Sentences</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value" id="word-count">0</div>
-                            <div class="stat-label">Words</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value" id="char-count">0</div>
-                            <div class="stat-label">Characters (with spaces)</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value" id="char-count-no-spaces">0</div>
-                            <div class="stat-label">Characters (no spaces)</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value" id="paragraph-count">0</div>
-                            <div class="stat-label">Paragraphs</div>
-                        </div>
-                    </div>
+                            <!-- Dark bar for stats -->
+                            <div class="dark-bar">
+                                <div class="stats-row">
+                                    <div class="stat-item">
+                                        <span>Sentences:</span>
+                                        <span class="stat-value" id="sentence-count">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span>Words:</span>
+                                        <span class="stat-value" id="word-count">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span>Chars (with spaces):</span>
+                                        <span class="stat-value" id="char-count">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span>Chars (no spaces):</span>
+                                        <span class="stat-value" id="char-count-no-spaces">0</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span>Paragraphs:</span>
+                                        <span class="stat-value" id="paragraph-count">0</span>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div class="button-row">
-                        <button class="btn primary" onclick="copyStats()"><i data-lucide="copy" width="16" height="16"></i> Copy Stats</button>
-                        <button class="btn success" onclick="downloadText('txt')"><i data-lucide="download" width="16" height="16"></i> Download Text</button>
-                        <button class="btn" onclick="clearText()"><i data-lucide="trash-2" width="16" height="16"></i> Clear</button>
+                            <!-- Textarea below the dark bars -->
+                            <textarea id="input-text" placeholder="Type or paste your text here... Sentences end with . ! ?" oninput="updateStats()"></textarea>
+                        </div>
                     </div>
                 </div>
 
@@ -871,7 +881,7 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // Sentence Counter logic
+        // Sentence Counter logic – updates the stats row above the textarea
         function updateStats() {
             const text = document.getElementById('input-text').value;
 
@@ -892,6 +902,7 @@
             const paragraphs = text.split(/\n\s*\n/).filter(p => p.trim() !== '');
             const paragraphCount = text.trim() === '' ? 0 : Math.max(1, paragraphs.length);
 
+            // Update the stat values in the stats row
             document.getElementById('sentence-count').textContent = sentenceCount;
             document.getElementById('word-count').textContent = wordCount;
             document.getElementById('char-count').textContent = charCount;
@@ -934,7 +945,6 @@
             });
         }
 
-        // Get sentences array for structured downloads
         function getSentencesArray() {
             const text = document.getElementById('input-text').value;
             if (text.trim() === '') return [];
@@ -972,14 +982,12 @@
                     content = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Sentences</title></head><body><ol>${htmlSentences.map(s => `<li>${s}</li>`).join('')}</ol></body></html>`;
                     break;
                 case 'pdf':
-                    // Open print dialog for PDF
                     const printWindow = window.open('', '_blank', 'width=800,height=600');
                     const sentencesPdf = getSentencesArray();
                     printWindow.document.write(`<!DOCTYPE html><html><head><meta charset="utf-8"><title>Sentences PDF</title><style>body { font-family: Arial; padding: 40px; } p { margin: 8px 0; }</style></head><body>${sentencesPdf.map(s => `<p>${s}</p>`).join('')}</body></html>`);
                     printWindow.document.close();
                     printWindow.focus();
                     printWindow.print();
-                    // printWindow.close(); // optionally close after printing
                     showToast('Print dialog opened. Save as PDF from there.');
                     return;
                 default:
@@ -1009,7 +1017,6 @@
             showToast('Text cleared!');
         }
 
-        // Paste from clipboard
         async function pasteFromClipboard() {
             const input = document.getElementById('input-text');
             const pasteBtn = document.getElementById('pasteBtn');
@@ -1031,27 +1038,23 @@
                 showToast('Paste blocked. Please use Ctrl+V or right-click paste.');
                 input.focus();
             }
-            // Highlight the button briefly
-            pasteBtn.style.background = 'var(--primary)';
-            pasteBtn.style.color = 'var(--bg)';
+            pasteBtn.style.background = 'rgba(255,255,255,0.3)';
+            pasteBtn.style.color = '#ffffff';
             setTimeout(() => {
                 pasteBtn.style.background = '';
                 pasteBtn.style.color = '';
             }, 600);
         }
 
-        // Dropdown toggle helper
         function toggleDropdown(event, menuId) {
             event.stopPropagation();
             const menu = document.getElementById(menuId);
-            // Close any other open dropdowns first
             document.querySelectorAll('.dropdown-menu.show').forEach(m => {
                 if (m.id !== menuId) m.classList.remove('show');
             });
             menu.classList.toggle('show');
         }
 
-        // Apply selected case
         function applyCase(type) {
             const textarea = document.getElementById('input-text');
             let text = textarea.value;
@@ -1073,14 +1076,12 @@
             showToast('Case changed!');
         }
 
-        // Close dropdowns on outside click
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.dropdown-wrapper')) {
                 document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
             }
         });
 
-        // Toast
         let toastTimer;
         function showToast(msg, dur=3000) {
             const t=document.getElementById('toast');
@@ -1090,7 +1091,6 @@
             toastTimer=setTimeout(()=>t.classList.remove('show'), dur);
         }
 
-        // FAQ toggle
         function toggleFaq(btnEl){
             const item = btnEl.parentElement;
             const expanded = btnEl.getAttribute('aria-expanded') === 'true';
@@ -1103,7 +1103,7 @@
             }
         }
 
-        // Shared tools list
+        // Shared tools list (unchanged)
         const tools = [
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
             { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', category: 'analysis' },
@@ -1192,12 +1192,8 @@
             { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder', category: 'generators' }
         ];
 
-        function buildMegaMenu() {
-            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join('');
-        }
-        function buildMobileToolsMenu() {
-            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join('');
-        }
+        function buildMegaMenu() { document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+        function buildMobileToolsMenu() { document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
         function buildSearchList() {
             const list = document.getElementById('fullSearchResultsList');
             list.innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${t.category || 'tool'}</span></a>`).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
@@ -1207,17 +1203,13 @@
             const b=document.body, s=document.getElementById('sunIcon'), m=document.getElementById('moonIcon'),
                   ms=document.getElementById('mobileSunIcon'), mm=document.getElementById('mobileMoonIcon');
             if (b.classList.contains('dark-mode')) {
-                b.classList.remove('dark-mode');
-                s.style.display='block'; m.style.display='none';
+                b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none';
                 if (ms){ms.style.display='block'; mm.style.display='none';}
-                localStorage.setItem('theme','light');
-                document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
+                localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
             } else {
-                b.classList.add('dark-mode');
-                s.style.display='none'; m.style.display='block';
+                b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block';
                 if (ms){ms.style.display='none'; mm.style.display='block';}
-                localStorage.setItem('theme','dark');
-                document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
+                localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
             }
         }
 
@@ -1225,77 +1217,44 @@
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
             const isOpen = container.classList.contains('open');
-            if (isOpen) {
-                container.classList.remove('open');
-                trigger.setAttribute('aria-expanded', 'false');
-            } else {
-                container.classList.add('open');
-                trigger.setAttribute('aria-expanded', 'true');
-                const firstLink = container.querySelector('.tools-mega-menu a');
-                if (firstLink) firstLink.focus();
-            }
+            if (isOpen) { container.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); }
+            else { container.classList.add('open'); trigger.setAttribute('aria-expanded', 'true'); const firstLink = container.querySelector('.tools-mega-menu a'); if (firstLink) firstLink.focus(); }
         }
         document.addEventListener('click', function(e) {
             const container = document.getElementById('toolsMenuContainer');
             if (container && !container.contains(e.target) && container.classList.contains('open')) {
-                container.classList.remove('open');
-                document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                container.classList.remove('open'); document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
             }
         });
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 const container = document.getElementById('toolsMenuContainer');
                 if (container && container.classList.contains('open')) {
-                    container.classList.remove('open');
-                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                    container.classList.remove('open'); document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
                     document.getElementById('toolsTrigger').focus();
                 }
             }
         });
 
         (function initIcons() {
-            const sun = document.getElementById('sunIcon');
-            const moon = document.getElementById('moonIcon');
-            const ms = document.getElementById('mobileSunIcon');
-            const mm = document.getElementById('mobileMoonIcon');
+            const sun = document.getElementById('sunIcon'), moon = document.getElementById('moonIcon'),
+                  ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
             if (document.body.classList.contains('dark-mode')) {
-                sun.style.display = 'none';
-                moon.style.display = 'block';
+                sun.style.display = 'none'; moon.style.display = 'block';
                 if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
             } else {
-                sun.style.display = 'block';
-                moon.style.display = 'none';
+                sun.style.display = 'block'; moon.style.display = 'none';
                 if (ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
             }
         })();
 
-        function openMobileSidebar(){
-            document.getElementById('mobileSidebar').classList.add('active');
-            document.getElementById('mobileSidebarOverlay').classList.add('active');
-            document.body.style.overflow='hidden';
-        }
-        function closeMobileSidebar(){
-            document.getElementById('mobileSidebar').classList.remove('active');
-            document.getElementById('mobileSidebarOverlay').classList.remove('active');
-            document.body.style.overflow='';
-        }
-        function toggleMobileTools(){
-            document.querySelector('.mobile-tools-toggle').classList.toggle('active');
-            document.getElementById('mobileToolsMenu').classList.toggle('active');
-        }
+        function openMobileSidebar(){ document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow='hidden'; }
+        function closeMobileSidebar(){ document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow=''; }
+        function toggleMobileTools(){ document.querySelector('.mobile-tools-toggle').classList.toggle('active'); document.getElementById('mobileToolsMenu').classList.toggle('active'); }
         document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l=>l.addEventListener('click', closeMobileSidebar));
 
-        function openFullSearch(){
-            document.getElementById('searchOverlayFull').classList.add('active');
-            document.body.style.overflow='hidden';
-            setTimeout(()=>document.getElementById('fullSearchInput').focus(),200);
-        }
-        function closeFullSearch(){
-            document.getElementById('searchOverlayFull').classList.remove('active');
-            document.body.style.overflow='';
-            document.getElementById('fullSearchInput').value='';
-            filterFullSearch();
-        }
+        function openFullSearch(){ document.getElementById('searchOverlayFull').classList.add('active'); document.body.style.overflow='hidden'; setTimeout(()=>document.getElementById('fullSearchInput').focus(),200); }
+        function closeFullSearch(){ document.getElementById('searchOverlayFull').classList.remove('active'); document.body.style.overflow=''; document.getElementById('fullSearchInput').value=''; filterFullSearch(); }
         function filterFullSearch(){
             const q=document.getElementById('fullSearchInput').value.toLowerCase().trim();
             const items=document.querySelectorAll('#fullSearchResultsList .search-result-item');
@@ -1310,14 +1269,8 @@
         }
         document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l=>l.addEventListener('click', closeFullSearch));
         document.addEventListener('keydown', e=>{
-            if(e.key==='Escape'){
-                closeFullSearch();
-                closeMobileSidebar();
-            }
-            if((e.ctrlKey||e.metaKey)&&e.key==='k'){
-                e.preventDefault();
-                openFullSearch();
-            }
+            if(e.key==='Escape'){ closeFullSearch(); closeMobileSidebar(); }
+            if((e.ctrlKey||e.metaKey)&&e.key==='k'){ e.preventDefault(); openFullSearch(); }
         });
 
         buildMegaMenu();
