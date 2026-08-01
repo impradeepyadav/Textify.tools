@@ -123,7 +123,7 @@
           "about": { "@id": "https://textify.tools/reading-time-estimator/#tool" },
           "breadcrumb": { "@id": "https://textify.tools/reading-time-estimator/#breadcrumb" },
           "datePublished": "2024-02-20",
-          "dateModified": "2026-07-08",
+          "dateModified": "2026-08-01",
           "author": { "@id": "https://textify.tools/#author" },
           "publisher": { "@id": "https://textify.tools/#organization" }
         },
@@ -293,17 +293,79 @@
         h3 { font-size: 20px; font-weight: 700; margin: 30px 0 12px; }
         p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; word-wrap: break-word; }
         ul, ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; } li { margin-bottom: 10px; line-height: 1.7; }
-        textarea { width: 100%; height: 200px; padding: 16px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 22px; transition: 0.2s; max-width: 100%; }
-        textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
+
+        /* Textarea container with side icons */
+        .textarea-with-icons {
+            display: flex;
+            align-items: stretch;
+            margin-bottom: 22px;
+        }
+        .textarea-with-icons textarea {
+            flex: 1;
+            height: 200px;
+            padding: 16px;
+            border: 2px solid var(--input-border);
+            border-right: none;
+            border-radius: 14px 0 0 14px;
+            font-size: 16px;
+            background: var(--card);
+            color: var(--text);
+            resize: vertical;
+            font-family: inherit;
+            transition: border-color 0.2s;
+            max-width: 100%;
+            margin-bottom: 0;
+        }
+        .textarea-with-icons textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(0,0,0,0.04);
+        }
+        .icon-sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 12px 8px;
+            border-radius: 0 14px 14px 0;
+            border: 2px solid var(--input-border);
+            border-left: none;
+            min-width: 48px;
+        }
+        .icon-sidebar .textarea-action-btn {
+            background: transparent;
+            border: none;
+            padding: 6px;
+            cursor: pointer;
+            color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: background 0.2s;
+            width: 32px;
+            height: 32px;
+        }
+        .icon-sidebar .textarea-action-btn:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        .icon-sidebar .textarea-action-btn i {
+            width: 18px;
+            height: 18px;
+        }
+
         .input-group { margin-bottom: 20px; }
         .input-group label { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-light); display: block; margin-bottom: 6px; letter-spacing: 0.5px; }
         .input-group input { width: 100%; padding: 12px 14px; border: 1px solid var(--input-border); border-radius: 10px; font-size: 15px; background: var(--input-bg); color: var(--text); transition: 0.2s; max-width: 100%; }
         .input-group input:focus { outline: none; border-color: var(--primary); }
         .btn { padding: 15px 26px; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; justify-content: center; transition: 0.2s; white-space: nowrap; }
-        .btn-primary { background: var(--primary); color: var(--bg); width: 100%; }
+        .btn-primary { background: var(--primary); color: var(--bg); }
         .btn-primary:hover { opacity: 0.88; }
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
         .btn-outline:hover { background: var(--hover); }
+        .btn-sm { padding: 8px 14px; font-size: 13px; border-radius: 8px; }
         .result-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px; margin-top: 30px; display: none; word-wrap: break-word; }
         .result-card .time-display { font-size: 48px; font-weight: 800; color: var(--primary); line-height: 1; word-wrap: break-word; }
         .result-card .time-label { font-size: 16px; color: var(--text-light); margin-top: 8px; }
@@ -312,6 +374,11 @@
         .stat-item { background: var(--accent); border: 1px solid var(--line); border-radius: 10px; padding: 14px; text-align: center; word-wrap: break-word; }
         .stat-item .stat-value { font-size: 24px; font-weight: 700; color: var(--text); }
         .stat-item .stat-label { font-size: 12px; text-transform: uppercase; color: var(--text-light); margin-top: 4px; }
+
+        .speed-table { width:100%; border-collapse: collapse; font-size:14px; margin-bottom:25px; border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+        .speed-table th { background: var(--table-header); padding:12px; text-align:left; font-weight:600; }
+        .speed-table td { padding:12px; border-bottom:1px solid var(--line); }
+        .speed-table tr:last-child td { border-bottom: none; }
 
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
         .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; border: none; width: 100%; text-align: left; font-family: inherit; }
@@ -335,7 +402,7 @@
         .btn-container { display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
         .btn-container .btn { flex: 1 1 auto; min-width: fit-content; }
 
-        @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; } main { padding: 20px 0; } footer { padding: 30px 16px 20px; } .btn { padding: 14px 18px; font-size: 14px; } textarea { font-size: 14px; } .result-card .time-display { font-size: 36px; } }
+        @media (max-width: 768px) { .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } h2 { font-size: 22px; } main { padding: 20px 0; } footer { padding: 30px 16px 20px; } .btn { padding: 14px 18px; font-size: 14px; } .result-card .time-display { font-size: 36px; } }
         @media (max-width: 500px) { .btn-container { flex-direction: column; } .btn-container .btn { width: 100%; } h1 { font-size: 24px; } .subtitle { font-size: 15px; } .result-card .time-display { font-size: 28px; } }
         @media (min-width: 769px) { .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; } }
         @media (min-width: 1800px) { main { padding: 50px 0; } header { padding: 0 60px; } footer { padding: 50px 60px 30px; } h1 { font-size: 44px; } }
@@ -374,54 +441,171 @@
         <main>
             <div class="content-container">
                 <h1>Reading Time Estimator</h1>
-                <p class="subtitle">Estimate how long it takes to read your text. Adjust the reading speed to match your audience, and get instant word, character, and sentence counts.</p>
+                <p class="subtitle">Estimate how long it takes to read your text. Adjust the reading speed to match your audience, and get instant word, character, and sentence counts. Now also includes speaking time estimation.</p>
 
-                <textarea id="inputText" placeholder="Paste your text here..."></textarea>
+                <!-- Textarea with side icon bar -->
+                <div class="textarea-with-icons">
+                    <textarea id="inputText" placeholder="Paste your text here..."></textarea>
+                    <div class="icon-sidebar">
+                        <button class="textarea-action-btn" onclick="copyTextFromTextarea()" aria-label="Copy text">
+                            <i data-lucide="copy"></i>
+                        </button>
+                        <button class="textarea-action-btn" onclick="pasteFromClipboard()" aria-label="Paste from clipboard">
+                            <i data-lucide="clipboard-paste"></i>
+                        </button>
+                        <button class="textarea-action-btn" onclick="clearText()" aria-label="Clear text">
+                            <i data-lucide="trash-2"></i>
+                        </button>
+                    </div>
+                </div>
 
-                <div class="input-group" style="max-width: 300px;">
-                    <label for="wpm">Reading Speed (words per minute)</label>
-                    <input type="number" id="wpm" value="238" min="50" max="1000" step="1">
+                <div style="display:flex; gap:20px; flex-wrap:wrap; margin-bottom:20px;">
+                    <div class="input-group" style="max-width:250px;">
+                        <label for="wpm">Reading Speed (words per minute)</label>
+                        <input type="number" id="wpm" value="238" min="50" max="1000" step="1">
+                    </div>
+                    <div class="input-group" style="max-width:250px;">
+                        <label for="speakingWpm">Speaking Speed (words per minute)</label>
+                        <input type="number" id="speakingWpm" value="130" min="50" max="400" step="1">
+                    </div>
                 </div>
 
                 <div class="btn-container">
                     <button class="btn btn-primary" onclick="estimateReadingTime()"><i data-lucide="clock" width="18" height="18"></i> Estimate Reading Time</button>
-                    <button class="btn btn-outline" onclick="clearText()"><i data-lucide="trash-2" width="18" height="18"></i> Clear</button>
+                    <button class="btn btn-outline btn-sm" onclick="copyAllDetails()" id="copyBtn" style="display:none;"><i data-lucide="copy" width="16" height="16"></i> Copy All Details</button>
                 </div>
 
                 <div class="result-card" id="resultCard">
-                    <div class="time-display" id="readingTimeDisplay">0 min</div>
-                    <div class="time-label">estimated reading time</div>
-                    <div class="stats-grid">
+                    <div style="display:flex; align-items:baseline; gap:20px; flex-wrap:wrap;">
+                        <div>
+                            <div class="time-display" id="readingTimeDisplay">0 min</div>
+                            <div class="time-label">estimated reading time</div>
+                        </div>
+                        <div style="border-left:1px solid var(--line); padding-left:20px;">
+                            <div class="time-display" id="speakingTimeDisplay" style="font-size:36px;">0 min</div>
+                            <div class="time-label">estimated speaking time</div>
+                        </div>
+                    </div>
+                    <div class="stats-grid" style="margin-top:20px;">
                         <div class="stat-item"><div class="stat-value" id="wordCount">0</div><div class="stat-label">Total Words</div></div>
-                        <div class="stat-item"><div class="stat-value" id="charCount">0</div><div class="stat-label">Characters</div></div>
+                        <div class="stat-item"><div class="stat-value" id="charCount">0</div><div class="stat-label">Characters (with spaces)</div></div>
+                        <div class="stat-item"><div class="stat-value" id="charNoSpaces">0</div><div class="stat-label">Characters (no spaces)</div></div>
                         <div class="stat-item"><div class="stat-value" id="sentenceCount">0</div><div class="stat-label">Sentences</div></div>
-                        <div class="stat-item"><div class="stat-value" id="wpmValue">238</div><div class="stat-label">Words / Min</div></div>
+                        <div class="stat-item"><div class="stat-value" id="paragraphCount">0</div><div class="stat-label">Paragraphs</div></div>
+                        <div class="stat-item"><div class="stat-value" id="avgWordLength">0</div><div class="stat-label">Avg Word Length</div></div>
+                        <div class="stat-item"><div class="stat-value" id="avgSentenceLength">0</div><div class="stat-label">Avg Words / Sentence</div></div>
+                        <div class="stat-item"><div class="stat-value" id="wpmValue">238</div><div class="stat-label">Reading WPM</div></div>
+                        <div class="stat-item"><div class="stat-value" id="speakingWpmValue">130</div><div class="stat-label">Speaking WPM</div></div>
                     </div>
                 </div>
 
                 <div style="margin-top:60px; border-top:1px solid var(--line); padding:30px 0 0 0;">
                     <h2>How to Use the Reading Time Estimator</h2>
                     <ol>
-                        <li><strong>Paste your text</strong> into the text area.</li>
+                        <li><strong>Paste your text</strong> into the text area, or use the <strong>Paste</strong> / <strong>Copy</strong> buttons on the right side of the text box.</li>
                         <li><strong>Adjust the reading speed</strong> if needed (default 238 words per minute – average adult reading speed).</li>
-                        <li><strong>Click "Estimate Reading Time"</strong> to see the results.</li>
-                        <li>Review the estimated reading time and additional text statistics.</li>
+                        <li><strong>Adjust the speaking speed</strong> for presentation timing (default 130 words per minute).</li>
+                        <li><strong>Click "Estimate Reading Time"</strong> to see the results. The calculation only runs on button click.</li>
+                        <li>Review the estimated reading time, speaking time, and comprehensive text statistics.</li>
+                        <li>Use the <strong>Copy All Details</strong> button to copy a clean summary of all stats plus the tool link.</li>
                     </ol>
 
                     <h2>Why Use a Reading Time Estimator?</h2>
                     <p>Knowing the reading time of your content helps you plan better. It's particularly useful for:</p>
                     <ul>
                         <li><strong>Blog posts & articles:</strong> Set reader expectations with "X min read" labels.</li>
-                        <li><strong>Presentations & speeches:</strong> Gauge how long it will take to deliver your talk.</li>
+                        <li><strong>Presentations & speeches:</strong> Gauge how long it will take to deliver your talk (now with speaking time built in).</li>
                         <li><strong>Educational materials:</strong> Ensure your lessons fit within a class period.</li>
                         <li><strong>UX writing:</strong> Keep micro‑copy concise and scannable.</li>
                     </ul>
 
+                    <!-- New section: Importance for SEO -->
+                    <h2>The Importance of Reading Time for SEO</h2>
+                    <p>Modern search engines consider user engagement metrics like <strong>time on page</strong> and <strong>bounce rate</strong>. Displaying an accurate reading time helps set reader expectations, which can:</p>
+                    <ul>
+                        <li><strong>Reduce bounce rates</strong> – visitors who know the time commitment are more likely to stay and finish.</li>
+                        <li><strong>Improve dwell time</strong> – longer engagement signals quality to Google.</li>
+                        <li><strong>Increase social shares</strong> – readers appreciate transparency and share well‑formatted content.</li>
+                    </ul>
+                    <p>Using our estimator, you can fine‑tune your article length to match your audience's preferences, often leading to better rankings.</p>
+
+                    <h2>Reading Speed Examples</h2>
+                    <p>Different reading speeds produce significantly different estimates. Use the following table as a guide when you adjust the WPM slider:</p>
+                    <table class="speed-table">
+                        <thead>
+                            <tr>
+                                <th>Reading Speed</th>
+                                <th>WPM</th>
+                                <th>Time for 500 Words</th>
+                                <th>Time for 1000 Words</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Slow / Deep Reading</td>
+                                <td>150</td>
+                                <td>~3 min 20 sec</td>
+                                <td>~6 min 40 sec</td>
+                            </tr>
+                            <tr style="background:var(--table-hover);">
+                                <td>Average Adult</td>
+                                <td>238</td>
+                                <td>~2 min 6 sec</td>
+                                <td>~4 min 12 sec</td>
+                            </tr>
+                            <tr>
+                                <td>Speed Reading</td>
+                                <td>400</td>
+                                <td>~1 min 15 sec</td>
+                                <td>~2 min 30 sec</td>
+                            </tr>
+                            <tr>
+                                <td>Skimming</td>
+                                <td>600+</td>
+                                <td>&lt;50 sec</td>
+                                <td>&lt;1 min 40 sec</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                     <h2>How Is Reading Time Calculated?</h2>
                     <p>We split your text into words by standard word boundaries. The total word count is then divided by the reading speed (words per minute) to get the reading time in minutes. Seconds are rounded appropriately. The default speed of 238 WPM is based on research on average adult reading speed for non‑technical English text.</p>
 
-                    <h2>From the Textify Team</h2>
-                    <p>We built this estimator because we found ourselves constantly wondering whether a draft was too long for a quick read. Now you can paste any text and immediately see the time commitment — perfect for planning blog posts, emails, or speeches. All calculations stay local, so your text remains private.</p>
+                    <h2>How to Interpret the Results</h2>
+                    <p>Our tool provides two time estimates:</p>
+                    <ul>
+                        <li><strong>Reading time</strong> – how long a typical adult needs to read the text silently.</li>
+                        <li><strong>Speaking time</strong> – how long it takes to deliver the same text as a speech or presentation.</li>
+                    </ul>
+                    <p>Use the reading time for blog posts and articles. Use the speaking time to plan talks, podcasts, or video scripts. You can adjust both WPM values to match specific audiences – for example, children or non‑native speakers may require slower speeds.</p>
+
+                    <h2>Accuracy and Limitations</h2>
+                    <p>While our estimator provides a reliable approximation, actual reading time can vary due to:</p>
+                    <ul>
+                        <li><strong>Text complexity:</strong> Technical, academic, or jargon‑heavy content slows down reading.</li>
+                        <li><strong>Reader proficiency:</strong> Non‑native speakers may read more slowly.</li>
+                        <li><strong>Formatting:</strong> Lists, bullet points, and images can alter reading flow.</li>
+                        <li><strong>Purpose:</strong> Skimming vs. deep reading changes the effective WPM drastically.</li>
+                    </ul>
+                    <p>For the most accurate estimate, adjust the WPM slider based on your target audience. You can also use the Speaking Time section with the default 130 WPM for typical presentations.</p>
+
+                    <h2>Tips for Content Creators</h2>
+                    <p>Using a reading time estimator can help you craft more engaging content:</p>
+                    <ul>
+                        <li><strong>Set expectations:</strong> Display an estimated reading time at the top of articles to reduce bounce rates.</li>
+                        <li><strong>Break up long reads:</strong> If a piece exceeds 10 minutes, consider splitting it into a series or adding clear section breaks.</li>
+                        <li><strong>Optimize for mobile:</strong> Shorter reading times (2‑4 minutes) tend to perform better on mobile devices.</li>
+                        <li><strong>Test different speeds:</strong> Not all audiences read at the same pace; use both reading and speaking estimates to cover all scenarios.</li>
+                    </ul>
+
+                    <h2>Related Tools</h2>
+                    <p>Explore other free text analysis utilities from Textify.tools:</p>
+                    <ul>
+                        <li><a href="/word-counter">Word Counter</a> – count words, characters, and paragraphs in real time.</li>
+                        <li><a href="/sentence-counter">Sentence Counter</a> – count sentences and analyze structure.</li>
+                        <li><a href="/speaking-time-calculator">Speaking Time Calculator</a> – perfect for speeches and presentations.</li>
+                        <li><a href="/text-statistics">Text Statistics</a> – full readability and density report.</li>
+                    </ul>
 
                     <h2>Frequently Asked Questions</h2>
                     <div class="faq-item">
@@ -435,6 +619,18 @@
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Is my text private?<i data-lucide="chevron-down" width="16"></i></button>
                         <div class="faq-answer">Absolutely. Your text never leaves your device; everything is processed locally.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What is the average reading speed for technical content?<i data-lucide="chevron-down" width="16"></i></button>
+                        <div class="faq-answer">For dense technical documents, a speed of 150‑180 WPM is more realistic. Adjust the slider accordingly to get a better estimate.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I use this for speeches or presentations?<i data-lucide="chevron-down" width="16"></i></button>
+                        <div class="faq-answer">Yes, the new Speaking Time section (default 130 WPM) is perfect for that. Adjust the speaking WPM to match your delivery pace.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">How can I improve my reading speed?<i data-lucide="chevron-down" width="16"></i></button>
+                        <div class="faq-answer">Practice techniques like chunking, reducing subvocalization, and using a pointer. Start with 10‑15% above your current WPM and gradually increase.</div>
                     </div>
                 </div>
             </div>
@@ -491,7 +687,6 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // Category label mapping for search tags
         const categoryLabelMap = {
             analysis: 'Text Analysis',
             cleaning: 'Text Cleaning',
@@ -504,9 +699,7 @@
             generators: 'Generate'
         };
 
-        // Full 100+ text utilities with SEO‑friendly URLs and correct categories
         const tools = [
-            // ---- Text Analysis ----
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'analysis' },
             { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', category: 'analysis' },
             { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count block format', category: 'analysis' },
@@ -517,8 +710,6 @@
             { name: 'Duplicate Word Finder', link: '/duplicate-word-finder', keywords: 'duplicate word find highlight', category: 'analysis' },
             { name: 'Text Statistics', link: '/text-statistics', keywords: 'text stats readability summary data', category: 'analysis' },
             { name: 'Regex Tester', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'analysis' },
-
-            // ---- Text Cleaning ----
             { name: 'Duplicate Line Remover', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe', category: 'cleaning' },
             { name: 'Whitespace Cleaner', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'cleaning' },
             { name: 'Remove Extra Spaces', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup', category: 'cleaning' },
@@ -530,8 +721,6 @@
             { name: 'Remove Numbers', link: '/remove-numbers', keywords: 'numbers remove digits numeric', category: 'cleaning' },
             { name: 'Remove HTML Tags', link: '/remove-html-tags', keywords: 'html tags strip remove clean', category: 'cleaning' },
             { name: 'Text Cleaner', link: '/text-cleaner', keywords: 'clean text sanitize format', category: 'cleaning' },
-
-            // ---- Text Formatting ----
             { name: 'Case Converter', link: '/case-converter', keywords: 'uppercase lowercase title case sentence', category: 'formatting' },
             { name: 'Title Case Converter', link: '/title-case-converter', keywords: 'title case headline capitalize proper', category: 'formatting' },
             { name: 'Sentence Case Converter', link: '/sentence-case-converter', keywords: 'sentence case capitalize first letter', category: 'formatting' },
@@ -548,8 +737,6 @@
             { name: 'Italic Text Generator', link: '/italic-text-generator', keywords: 'italic unicode text style font', category: 'formatting' },
             { name: 'Strikethrough Generator', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode', category: 'formatting' },
             { name: 'Fancy Text Generator', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic', category: 'formatting' },
-
-            // ---- Line Tools ----
             { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'line-tools' },
             { name: 'Reverse Lines', link: '/reverse-lines', keywords: 'reverse lines order flip', category: 'line-tools' },
             { name: 'Shuffle Lines', link: '/shuffle-lines', keywords: 'shuffle lines randomize order', category: 'line-tools' },
@@ -560,8 +747,6 @@
             { name: 'Trim Lines', link: '/trim-lines', keywords: 'trim lines spaces leading trailing', category: 'line-tools' },
             { name: 'Join Lines', link: '/join-lines', keywords: 'join lines merge combine', category: 'line-tools' },
             { name: 'Split Lines', link: '/split-lines', keywords: 'split lines delimiter break', category: 'line-tools' },
-
-            // ---- Find & Extract ----
             { name: 'Email Extractor', link: '/email-extractor', keywords: 'email extract find emails scrape', category: 'extract' },
             { name: 'URL Extractor', link: '/url-extractor', keywords: 'url extract link http https', category: 'extract' },
             { name: 'Phone Extractor', link: '/phone-extractor', keywords: 'phone number extract landline mobile', category: 'extract' },
@@ -572,15 +757,11 @@
             { name: 'Mention Extractor', link: '/mention-extractor', keywords: 'mention extract username @ social', category: 'extract' },
             { name: 'Keyword Extractor', link: '/keyword-extractor', keywords: 'keyword extract important terms', category: 'extract' },
             { name: 'Duplicate Line Finder', link: '/duplicate-line-finder', keywords: 'duplicate line find report', category: 'extract' },
-
-            // ---- Compare ----
             { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'compare' },
             { name: 'Word Compare', link: '/word-compare', keywords: 'word compare diff text', category: 'compare' },
             { name: 'Line Compare', link: '/line-compare', keywords: 'line compare diff text', category: 'compare' },
             { name: 'Character Compare', link: '/character-compare', keywords: 'character compare diff detailed', category: 'compare' },
             { name: 'Similarity Checker', link: '/similarity-checker', keywords: 'similarity score comparison match', category: 'compare' },
-
-            // ---- Convert ----
             { name: 'JSON Formatter', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'convert' },
             { name: 'XML Formatter', link: '/xml-formatter', keywords: 'xml format beautify indent', category: 'convert' },
             { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'convert' },
@@ -590,15 +771,11 @@
             { name: 'HTML to Text', link: '/html-to-text', keywords: 'html text convert strip', category: 'convert' },
             { name: 'CSV to Text', link: '/csv-to-text', keywords: 'csv convert text table', category: 'convert' },
             { name: 'Text to CSV', link: '/text-to-csv', keywords: 'text csv convert comma separated', category: 'convert' },
-
-            // ---- Encode ----
             { name: 'Text Encoder/Decoder', link: '/text-encoder-decoder', keywords: 'encode decode base64 url binary hex', category: 'encode' },
             { name: 'URL Encoder/Decoder', link: '/url-encoder-decoder', keywords: 'url encode decode percent encoding', category: 'encode' },
             { name: 'HTML Entity Encoder/Decoder', link: '/html-entity-encoder-decoder', keywords: 'html entities encode decode escape unescape', category: 'encode' },
             { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'encode' },
             { name: 'Morse Code Converter', link: '/morse-code-converter', keywords: 'morse code dots dashes signal telegraph', category: 'encode' },
-
-            // ---- Generate ----
             { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generators' },
             { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text', category: 'generators' },
             { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generators' },
@@ -704,35 +881,151 @@
             const icon = btnEl.querySelector('svg'); if (icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
         };
 
-        function estimateReadingTime() {
-            const text = document.getElementById('inputText').value;
-            if (!text.trim()) { showToast('Please enter some text to estimate.'); return; }
-            const wpm = parseInt(document.getElementById('wpm').value) || 238;
-            if (wpm < 1) { showToast('WPM must be at least 1.'); return; }
-            const words = text.match(/[a-zA-ZÀ-ÿ0-9]+(?:'[a-zA-Z]+)?/g) || [];
-            const wordCount = words.length;
-            const charCount = text.length;
-            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
-            const totalMinutes = wordCount / wpm;
-            const minutes = Math.floor(totalMinutes);
-            const seconds = Math.round((totalMinutes - minutes) * 60);
-            let timeDisplay;
-            if (minutes === 0 && seconds === 0) timeDisplay = 'Less than 1 min';
-            else if (minutes === 0) timeDisplay = `${seconds} sec`;
-            else if (seconds === 0) timeDisplay = `${minutes} min`;
-            else timeDisplay = `${minutes} min ${seconds} sec`;
-            document.getElementById('readingTimeDisplay').textContent = timeDisplay;
-            document.getElementById('wordCount').textContent = wordCount;
-            document.getElementById('charCount').textContent = charCount;
-            document.getElementById('sentenceCount').textContent = sentences;
-            document.getElementById('wpmValue').textContent = wpm;
-            document.getElementById('resultCard').style.display = 'block';
+        // --- Copy text from textarea ---
+        window.copyTextFromTextarea = async function() {
+            const textarea = document.getElementById('inputText');
+            const text = textarea.value;
+            if (!text.trim()) {
+                showToast('Nothing to copy. Please enter some text first.');
+                return;
+            }
+            copyToClipboard(text, 'Text copied!');
+        };
+
+        // --- Paste from clipboard ---
+        window.pasteFromClipboard = async function() {
+            try {
+                const text = await navigator.clipboard.readText();
+                const textarea = document.getElementById('inputText');
+                textarea.value = text;
+                showToast('Text pasted from clipboard!');
+            } catch (err) {
+                showToast('Unable to paste. Please allow clipboard access or paste manually (Ctrl+V).');
+            }
+        };
+
+        // --- Enhanced Estimation Logic (only called on button click) ---
+        function formatTime(totalMinutes) {
+            if (totalMinutes <= 0) return 'Less than 1 min';
+            const mins = Math.floor(totalMinutes);
+            const secs = Math.round((totalMinutes - mins) * 60);
+            if (mins === 0) return `${secs} sec`;
+            if (secs === 0) return `${mins} min`;
+            return `${mins} min ${secs} sec`;
         }
 
-        function clearText() {
+        function updateStats() {
+            const text = document.getElementById('inputText').value;
+            if (!text.trim()) {
+                document.getElementById('resultCard').style.display = 'none';
+                document.getElementById('copyBtn').style.display = 'none';
+                return;
+            }
+
+            const wpm = parseInt(document.getElementById('wpm').value) || 238;
+            const speakingWpm = parseInt(document.getElementById('speakingWpm').value) || 130;
+
+            const wordsArr = text.match(/[a-zA-ZÀ-ÿ0-9]+(?:'[a-zA-Z]+)?/g) || [];
+            const wordCount = wordsArr.length;
+
+            const charCount = text.length;
+            const charNoSpaces = text.replace(/\s/g, '').length;
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+            const sentenceCount = sentences.length;
+            const paragraphs = text.split(/\n\s*\n/).filter(p => p.trim().length > 0);
+            const paragraphCount = paragraphs.length;
+
+            const avgWordLength = wordCount > 0 ? (charNoSpaces / wordCount).toFixed(1) : '0';
+            const avgSentenceLength = sentenceCount > 0 ? (wordCount / sentenceCount).toFixed(1) : '0';
+
+            const readingTotalMin = wordCount / wpm;
+            const speakingTotalMin = wordCount / speakingWpm;
+
+            document.getElementById('readingTimeDisplay').textContent = formatTime(readingTotalMin);
+            document.getElementById('speakingTimeDisplay').textContent = formatTime(speakingTotalMin);
+            document.getElementById('wordCount').textContent = wordCount;
+            document.getElementById('charCount').textContent = charCount;
+            document.getElementById('charNoSpaces').textContent = charNoSpaces;
+            document.getElementById('sentenceCount').textContent = sentenceCount;
+            document.getElementById('paragraphCount').textContent = paragraphCount;
+            document.getElementById('avgWordLength').textContent = avgWordLength;
+            document.getElementById('avgSentenceLength').textContent = avgSentenceLength;
+            document.getElementById('wpmValue').textContent = wpm;
+            document.getElementById('speakingWpmValue').textContent = speakingWpm;
+
+            document.getElementById('resultCard').style.display = 'block';
+            document.getElementById('copyBtn').style.display = 'inline-flex';
+        }
+
+        window.estimateReadingTime = function() {
+            updateStats();
+        };
+
+        window.clearText = function() {
             document.getElementById('inputText').value = '';
             document.getElementById('resultCard').style.display = 'none';
+            document.getElementById('copyBtn').style.display = 'none';
+        };
+
+        // --- Reliable copy function (works even on HTTP) ---
+        function copyToClipboard(text, successMsg = 'Copied!') {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast(successMsg);
+                }).catch(err => {
+                    fallbackCopy(text, successMsg);
+                });
+            } else {
+                fallbackCopy(text, successMsg);
+            }
         }
+
+        function fallbackCopy(text, successMsg) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast(successMsg);
+            } catch (err) {
+                showToast('Failed to copy. Please select and copy manually.');
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // --- Copy ALL DETAILS (emoji‑free, every stat + website name + link) ---
+        window.copyAllDetails = function() {
+            const readingTime = document.getElementById('readingTimeDisplay').textContent;
+            const speakingTime = document.getElementById('speakingTimeDisplay').textContent;
+            const words = document.getElementById('wordCount').textContent;
+            const chars = document.getElementById('charCount').textContent;
+            const charNoSpaces = document.getElementById('charNoSpaces').textContent;
+            const sentences = document.getElementById('sentenceCount').textContent;
+            const paragraphs = document.getElementById('paragraphCount').textContent;
+            const avgWordLen = document.getElementById('avgWordLength').textContent;
+            const avgSentLen = document.getElementById('avgSentenceLength').textContent;
+            const readWpm = document.getElementById('wpmValue').textContent;
+            const speakWpm = document.getElementById('speakingWpmValue').textContent;
+
+            const summary = `Reading Time: ${readingTime}\n` +
+                            `Speaking Time: ${speakingTime}\n` +
+                            `Total Words: ${words}\n` +
+                            `Characters (with spaces): ${chars}\n` +
+                            `Characters (no spaces): ${charNoSpaces}\n` +
+                            `Sentences: ${sentences}\n` +
+                            `Paragraphs: ${paragraphs}\n` +
+                            `Avg Word Length: ${avgWordLen} characters\n` +
+                            `Avg Sentence Length: ${avgSentLen} words\n` +
+                            `Reading Speed Used: ${readWpm} WPM\n` +
+                            `Speaking Speed Used: ${speakWpm} WPM\n\n` +
+                            `Estimated by Textify.tools Reading Time Estimator\n` +
+                            `https://textify.tools/reading-time-estimator`;
+
+            copyToClipboard(summary, 'All reading stats copied!');
+        };
 
         buildMegaMenu(); buildMobileToolsMenu(); buildSearchList(); lucide.createIcons();
     </script>
