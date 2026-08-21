@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
-    <title>Whitespace Cleaner – Remove Extra Spaces, Tabs & Blank Lines | Textify.tools</title>
-    <meta name="description" content="Clean up messy text by removing extra spaces, tabs, multiple line breaks, and blank lines. Works locally in your browser – fast, private, no login.">
+    <title>Whitespace Cleaner – Remove Extra Spaces, Tabs & Blank Lines</title>
+    <meta name="description" content="Clean up your text by removing extra whitespace, tabs, and newlines. This free online tool helps you format content quickly and easily.">
     <meta name="author" content="Textify Tools Team">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/whitespace-cleaner">
@@ -165,11 +165,11 @@
             },
             {
               "@type": "Question", "name": "What types of whitespace are removed?",
-              "acceptedAnswer": { "@type": "Answer", "text": "The tool handles regular spaces, tabs, line feeds, carriage returns, and any combination of them." }
+              "acceptedAnswer": { "@type": "Answer", "text": "The tool handles regular spaces, tabs, line feeds, carriage returns, non-breaking spaces, and any combination of them." }
             },
             {
-              "@type": "Question", "name": "Why does the output sometimes have blank lines?",
-              "acceptedAnswer": { "@type": "Answer", "text": "If 'Collapse line breaks' is enabled, a single blank line is kept as a paragraph separator. To remove all blank lines completely, also enable 'Remove empty lines' and 'Trim document edges'." }
+              "@type": "Question", "name": "Can I join all lines into one?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes, enable 'Join all lines' to merge every line into a single paragraph. You can also use 'Collapse all whitespace' to convert all whitespace (including line breaks) into a single space." }
             }
           ]
         }
@@ -375,6 +375,9 @@
         .option-card input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--primary); cursor: pointer; flex-shrink: 0; }
         .option-card .label-text { font-weight: 600; font-size: 15px; }
         .label-hint { font-size: 12px; color: var(--text-light); margin-left: 4px; }
+        .select-group { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+        .select-group label { font-size: 15px; font-weight: 500; }
+        .select-group select { padding: 10px 14px; border-radius: 8px; border: 2px solid var(--input-border); background: var(--input-bg); color: var(--text); font-size: 14px; font-family: inherit; }
         .btn { padding: 15px 26px; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; justify-content: center; transition: 0.2s; font-family: inherit; white-space: nowrap; }
         .btn-primary { background: var(--primary); color: var(--bg); width: 100%; }
         .btn-primary:hover { opacity: 0.88; }
@@ -517,11 +520,27 @@
                     <label class="option-card"><input type="checkbox" id="removeEmptyLines" checked> <span class="label-text">Remove empty lines</span><span class="label-hint"> (lines with only whitespace)</span></label>
                     <label class="option-card"><input type="checkbox" id="collapseLineBreaks" checked> <span class="label-text">Collapse line breaks</span><span class="label-hint"> (max 1 blank line)</span></label>
                     <label class="option-card"><input type="checkbox" id="trimDocument" checked> <span class="label-text">Trim document edges</span><span class="label-hint"> (remove leading/trailing blank lines)</span></label>
+                    <label class="option-card"><input type="checkbox" id="removeAllSpaces"> <span class="label-text">Remove all spaces</span><span class="label-hint"> (strip every space/tab)</span></label>
+                    <label class="option-card"><input type="checkbox" id="replaceTabs"> <span class="label-text">Replace tabs with spaces</span><span class="label-hint"> (convert tabs to spaces)</span></label>
+                    <label class="option-card"><input type="checkbox" id="removeNonBreaking"> <span class="label-text">Remove non‑breaking spaces</span><span class="label-hint"> (NBSP → normal space)</span></label>
+                    <label class="option-card"><input type="checkbox" id="joinLines"> <span class="label-text">Join all lines</span><span class="label-hint"> (merge into one line)</span></label>
+                    <label class="option-card"><input type="checkbox" id="collapseAllWhitespace"> <span class="label-text">Collapse all whitespace</span><span class="label-hint"> (any whitespace → single space)</span></label>
+                </div>
+
+                <div class="select-group">
+                    <label for="lineEnding">Line ending conversion:</label>
+                    <select id="lineEnding">
+                        <option value="none" selected>No change</option>
+                        <option value="windows">Windows (CRLF)</option>
+                        <option value="unix">Unix (LF)</option>
+                        <option value="mac">Mac (CR)</option>
+                    </select>
                 </div>
 
                 <div class="btn-container">
                     <button class="btn btn-primary" id="cleanBtn" onclick="cleanText()"><i data-lucide="sparkles" width="18" height="18"></i> Clean Text</button>
                     <button class="btn btn-outline" onclick="resetTool()"><i data-lucide="trash-2" width="18" height="18"></i> Clear All</button>
+                    <button class="btn btn-outline" onclick="loadExample()"><i data-lucide="file-text" width="18" height="18"></i> Load Example</button>
                 </div>
 
                 <div class="output-area" id="outputArea">
@@ -544,7 +563,7 @@
                     </div>
                     <div class="how-to-card">
                         <div class="step-num">2</div>
-                        <div><h4>Select the Cleaning Options</h4><p>Choose which types of whitespace to clean: trim leading/trailing spaces, collapse multiple spaces, remove empty lines, collapse line breaks, and trim document edges. All helpful options are enabled by default.</p></div>
+                        <div><h4>Select the Cleaning Options</h4><p>Choose which types of whitespace to clean: trim leading/trailing spaces, collapse multiple spaces, remove empty lines, collapse line breaks, trim document edges, remove all spaces, replace tabs, join lines, and more. All helpful options are enabled by default.</p></div>
                     </div>
                     <div class="how-to-card">
                         <div class="step-num">3</div>
@@ -563,6 +582,12 @@
                         <li><strong>Remove empty lines:</strong> Deletes lines that contain only whitespace characters (spaces, tabs).</li>
                         <li><strong>Collapse line breaks:</strong> Ensures that there are never more than one blank line between content (replaces multiple blank lines with a single blank line).</li>
                         <li><strong>Trim document edges:</strong> Removes leading and trailing blank lines from the entire text.</li>
+                        <li><strong>Remove all spaces:</strong> Strips every space and tab character from each line, leaving only non‑whitespace characters.</li>
+                        <li><strong>Replace tabs with spaces:</strong> Converts all tab characters to regular spaces.</li>
+                        <li><strong>Remove non‑breaking spaces:</strong> Replaces non‑breaking space characters (Unicode U+00A0) with normal spaces.</li>
+                        <li><strong>Join all lines:</strong> Merges all lines into a single line, separating them with a space.</li>
+                        <li><strong>Collapse all whitespace:</strong> Replaces any sequence of whitespace characters (spaces, tabs, line breaks) with a single space.</li>
+                        <li><strong>Line ending conversion:</strong> Convert line endings to Windows (CRLF), Unix (LF), or Mac (CR) format.</li>
                     </ul>
 
                     <h2>When Should You Use a Whitespace Cleaner?</h2>
@@ -573,9 +598,6 @@
                         <li><strong>Cleaning log files:</strong> Log files often contain many empty lines and trailing spaces – this tool makes them readable again.</li>
                         <li><strong>Pre‑processing before word counting:</strong> Run a whitespace cleanup before using a word counter to get accurate results.</li>
                     </ul>
-
-                    <h2>From the Textify Team</h2>
-                    <p>We built this whitespace cleaner because we kept finding ourselves manually deleting extra spaces and blank lines from copy‑pasted text. It's one of those tiny but constant annoyances. Now you can fix it with one click, entirely in your browser, with no data ever leaving your device. We hope it saves you from those tedious manual cleanups.</p>
 
                     <h2>Frequently Asked Questions</h2>
                     <div class="faq-item">
@@ -592,7 +614,7 @@
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What types of whitespace are removed?<i data-lucide="chevron-down" width="16"></i></button>
-                        <div class="faq-answer">The tool handles regular spaces, tabs, line feeds, carriage returns, and any combination of them. It also collapses excessive spaces within lines.</div>
+                        <div class="faq-answer">The tool handles regular spaces, tabs, line feeds, carriage returns, non-breaking spaces, and any combination of them. It also collapses excessive spaces within lines.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Why does the output sometimes have blank lines?<i data-lucide="chevron-down" width="16"></i></button>
@@ -896,38 +918,85 @@
         function cleanText() {
             const input = document.getElementById('inputText').value;
             if (!input.trim()) { showToast('Please enter some text to clean.'); return; }
+
             const trimLeading = document.getElementById('trimLeading').checked;
             const trimTrailing = document.getElementById('trimTrailing').checked;
             const collapseSpaces = document.getElementById('collapseSpaces').checked;
             const removeEmptyLines = document.getElementById('removeEmptyLines').checked;
             const collapseLineBreaks = document.getElementById('collapseLineBreaks').checked;
             const trimDocument = document.getElementById('trimDocument').checked;
+            const removeAllSpaces = document.getElementById('removeAllSpaces').checked;
+            const replaceTabs = document.getElementById('replaceTabs').checked;
+            const removeNonBreaking = document.getElementById('removeNonBreaking').checked;
+            const joinLines = document.getElementById('joinLines').checked;
+            const collapseAllWhitespace = document.getElementById('collapseAllWhitespace').checked;
+            const lineEnding = document.getElementById('lineEnding').value;
 
-            let lines = input.split(/\r?\n/);
-            if (trimLeading) lines = lines.map(line => line.replace(/^\s+/, ''));
-            if (trimTrailing) lines = lines.map(line => line.replace(/\s+$/, ''));
-            if (collapseSpaces) lines = lines.map(line => line.replace(/[ \t]+/g, ' '));
+            let text = input;
+            if (removeNonBreaking) {
+                text = text.replace(/\u00A0/g, ' ');
+            }
+            if (replaceTabs) {
+                text = text.replace(/\t/g, ' ');
+            }
+
+            let lines = text.split(/\r?\n/);
+
+            lines = lines.map(line => {
+                if (trimLeading) line = line.replace(/^\s+/, '');
+                if (trimTrailing) line = line.replace(/\s+$/, '');
+                if (removeAllSpaces) {
+                    line = line.replace(/[ \t]+/g, '');
+                } else if (collapseSpaces) {
+                    line = line.replace(/[ \t]+/g, ' ');
+                }
+                return line;
+            });
 
             let processedLines = lines;
-            if (removeEmptyLines) processedLines = processedLines.filter(line => line.trim().length > 0);
+            if (removeEmptyLines) {
+                processedLines = processedLines.filter(line => line.trim().length > 0);
+            }
 
-            if (collapseLineBreaks) {
+            if (collapseLineBreaks && !joinLines && !collapseAllWhitespace) {
                 const result = [];
                 let lastWasEmpty = false;
                 for (let i = 0; i < processedLines.length; i++) {
                     const isEmpty = (processedLines[i].trim().length === 0);
-                    if (!isEmpty) { result.push(processedLines[i]); lastWasEmpty = false; }
-                    else if (!lastWasEmpty) { result.push(''); lastWasEmpty = true; }
+                    if (!isEmpty) {
+                        result.push(processedLines[i]);
+                        lastWasEmpty = false;
+                    } else if (!lastWasEmpty) {
+                        result.push('');
+                        lastWasEmpty = true;
+                    }
                 }
                 processedLines = result;
             }
 
-            if (trimDocument) {
+            if (trimDocument && !joinLines && !collapseAllWhitespace) {
                 while (processedLines.length > 0 && processedLines[0].trim() === '') processedLines.shift();
-                while (processedLines.length > 0 && processedLines[processedLines.length-1].trim() === '') processedLines.pop();
+                while (processedLines.length > 0 && processedLines[processedLines.length - 1].trim() === '') processedLines.pop();
             }
 
-            const result = processedLines.join('\n');
+            if (joinLines) {
+                processedLines = [processedLines.join(' ')];
+            }
+
+            if (collapseAllWhitespace) {
+                const joined = processedLines.join(' ');
+                processedLines = [joined.replace(/\s+/g, ' ')];
+            }
+
+            let result = processedLines.join('\n');
+            if (lineEnding === 'windows') {
+                result = result.replace(/\n/g, '\r\n');
+            } else if (lineEnding === 'unix') {
+                result = result.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+            } else if (lineEnding === 'mac') {
+                result = result.replace(/\r\n/g, '\r').replace(/\n/g, '\r');
+            }
+
             document.getElementById('outputText').value = result;
             const originalChars = input.length;
             const newChars = result.length;
@@ -948,6 +1017,17 @@
             document.getElementById('removeEmptyLines').checked = true;
             document.getElementById('collapseLineBreaks').checked = true;
             document.getElementById('trimDocument').checked = true;
+            document.getElementById('removeAllSpaces').checked = false;
+            document.getElementById('replaceTabs').checked = false;
+            document.getElementById('removeNonBreaking').checked = false;
+            document.getElementById('joinLines').checked = false;
+            document.getElementById('collapseAllWhitespace').checked = false;
+            document.getElementById('lineEnding').value = 'none';
+        }
+
+        function loadExample() {
+            document.getElementById('inputText').value = "   Hello   world!\n\n\nThis is a   messy text.\tIt has extra spaces and tabs.\n\n\n    Multiple blank lines.\n\n\nEnd of example.   ";
+            showToast('Example loaded. Click "Clean Text" to see the result.');
         }
 
         async function copyResult() {
