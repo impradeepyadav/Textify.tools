@@ -369,6 +369,12 @@
         .footer-about-text a { color: var(--footer-link-color); text-decoration: none; }
         .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
 
+        /* Desktop footer explicitly set for min-width 769px (just to be safe) */
+        @media (min-width: 769px) {
+            .footer-middle { flex-direction: row; }
+            .footer-right-columns { flex-direction: row; }
+        }
+
         /* Mobile Footer Fix - columns stack properly one below another */
         @media (max-width: 768px) {
             footer { padding: 30px 16px 80px; }
@@ -659,6 +665,7 @@
                             <h5 class="footer-heading">Contact</h5>
                             <ul class="footer-links">
                                 <li><a href="/contact-us">Contact Us</a></li>
+                                <li><a href="/blog">Blog</a></li>
                                 <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
                             </ul>
                         </div>
