@@ -348,153 +348,33 @@
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
-
-        /* Footer CSS - UPDATED FOR PERFECT RESPONSIVENESS */
-        footer {
-            border-top: 1px solid var(--footer-border);
-            padding: 40px 20px;
-            background: transparent;
-            width: 100%;
-            margin-top: auto;
-        }
-        .footer-container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .footer-middle {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-        .footer-left-column {
-            flex: 1 1 300px;
-            max-width: 380px;
-        }
-        .footer-right-columns {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(160px, 1fr));
-            gap: 30px;
-            flex: 2 1 600px;
-        }
-        .footer-column {
-            min-width: 0;
-        }
-        .footer-heading {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--footer-heading);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        .footer-links a {
-            color: var(--footer-link-color);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s, transform 0.2s;
-            display: inline-block;
-        }
-        .footer-links a:hover {
-            color: var(--footer-link-hover);
-            transform: translateX(4px);
-        }
-        .footer-credit {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--footer-heading);
-            margin-bottom: 5px;
-        }
-        .footer-credit a {
-            color: var(--footer-link-color);
-            text-decoration: none;
-        }
-        .footer-credit a:hover {
-            color: var(--footer-link-hover);
-            text-decoration: underline;
-        }
-        .footer-copyright {
-            font-size: 14px;
-            color: var(--footer-text);
-            margin-bottom: 15px;
-        }
-        .footer-about-text {
-            font-size: 15px;
-            color: var(--footer-text);
-            line-height: 1.7;
-        }
-        .footer-about-text a {
-            color: var(--footer-link-color);
-            text-decoration: none;
-        }
-        .footer-about-text a:hover {
-            color: var(--footer-link-hover);
-            text-decoration: underline;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .footer-right-columns {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
-            }
-        }
+        footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
+        .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
+        .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
+        .footer-left-column { flex: 0 0 380px; max-width: 380px; }
+        .footer-right-columns { display: flex; flex: 1; gap: 30px; justify-content: flex-end; flex-wrap: wrap; }
+        .footer-column { min-width: 160px; }
+        .footer-heading { font-size: 16px; font-weight: 700; color: var(--footer-heading); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links a { color: var(--footer-link-color); text-decoration: none; font-size: 14px; transition: color 0.2s, transform 0.2s; display: inline-block; }
+        .footer-links a:hover { color: var(--footer-link-hover); transform: translateX(4px); }
+        .footer-credit { font-size: 16px; font-weight: 700; color: var(--footer-heading); margin-bottom: 4px; }
+        .footer-credit a { color: var(--footer-link-color); text-decoration: none; }
+        .footer-credit a:hover { color: var(--footer-link-hover); text-decoration: underline; }
+        .footer-copyright { font-size: 14px; color: var(--footer-text); margin-bottom: 15px; }
+        .footer-about-text { font-size: 15px; color: var(--footer-text); line-height: 1.7; }
+        .footer-about-text a { color: var(--footer-link-color); text-decoration: none; }
+        .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
         @media (max-width: 768px) {
-            footer {
-                padding: 30px 16px;
-            }
-            .footer-container {
-                padding: 0;
-            }
-            .footer-middle {
-                flex-direction: column;
-                gap: 30px;
-            }
-            .footer-left-column {
-                max-width: 100%;
-                flex: 1 1 auto;
-            }
-            .footer-right-columns {
-                grid-template-columns: 1fr;
-                gap: 25px;
-                width: 100%;
-            }
-            .footer-column {
-                width: 100%;
-            }
-            .footer-links a {
-                display: block;
-                padding: 6px 0;
-            }
-            .footer-links li {
-                margin-bottom: 5px;
-            }
+            footer { padding: 30px 16px 160px; }
+            .footer-middle { flex-direction: column; align-items: center; gap: 20px; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: center; }
+            .footer-right-columns { justify-content: center; gap: 20px; }
+            .footer-column { min-width: auto; text-align: center; }
+            .footer-links a { display: block; }
         }
-        @media (max-width: 480px) {
-            .footer-right-columns {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .footer-heading {
-                font-size: 15px;
-            }
-            .footer-links a {
-                font-size: 13px;
-            }
-        }
-
-        /* Other responsive rules */
+        @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
         @media (max-width: 768px) {
             .desktop-nav { display: none; }
             .theme-btn, .search-trigger { display: none; }
@@ -773,7 +653,6 @@
                             <h5 class="footer-heading">Contact</h5>
                             <ul class="footer-links">
                                 <li><a href="/contact-us">Contact Us</a></li>
-                                <li><a href="/blog">Blog</a></li>
                                 <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
                             </ul>
                         </div>
