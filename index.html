@@ -348,7 +348,9 @@
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
-        footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
+
+        /* Footer CSS - Fixed for mobile stacking */
+        footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 100px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
         .footer-left-column { flex: 0 0 380px; max-width: 380px; }
@@ -366,15 +368,19 @@
         .footer-about-text { font-size: 15px; color: var(--footer-text); line-height: 1.7; }
         .footer-about-text a { color: var(--footer-link-color); text-decoration: none; }
         .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
+
+        /* Mobile Footer Fix - columns stack properly one below another */
         @media (max-width: 768px) {
-            footer { padding: 30px 16px 160px; }
-            .footer-middle { flex-direction: column; align-items: center; gap: 20px; }
-            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: center; }
-            .footer-right-columns { justify-content: center; gap: 20px; }
-            .footer-column { min-width: auto; text-align: center; }
-            .footer-links a { display: block; }
+            footer { padding: 30px 16px 80px; }
+            .footer-middle { flex-direction: column; align-items: stretch; gap: 25px; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
+            .footer-right-columns { flex-direction: column; gap: 20px; justify-content: flex-start; align-items: flex-start; width: 100%; }
+            .footer-column { min-width: auto; width: 100%; text-align: left; }
+            .footer-links a { display: block; padding: 6px 0; }
+            .footer-links li { margin-bottom: 4px; }
+            .footer-heading { margin-bottom: 10px; }
         }
-        @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
+        @media (min-width: 1800px) { footer { padding: 60px 60px 120px; } }
         @media (max-width: 768px) {
             .desktop-nav { display: none; }
             .theme-btn, .search-trigger { display: none; }
