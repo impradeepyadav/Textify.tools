@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>PDF to Images Converter - Free Online Tool | Textify.tools</title>
-    <meta name="description" content="Convert PDF pages to JPG or PNG images right in your browser. Select pages, enter page number, choose scale and quality. Free, private, no upload to server.">
+    <title>PDF to Images - Free Online Tool | Textify.tools</title>
+    <meta name="description" content="Convert PDF pages to images (PNG or JPG) online. Upload your PDF, select format and quality, and download each page as an image. Free, private, no signup.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Pradeep Yadav">
     <link rel="canonical" href="https://textify.tools/pdf-to-images">
     <link rel="alternate" hreflang="en-US" href="https://textify.tools/pdf-to-images">
     <meta name="theme-color" content="#ffffff">
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/pdf-to-images">
-    <meta property="og:title" content="PDF to Images Converter – Free Online Tool">
-    <meta property="og:description" content="Extract pages from PDF as high-quality PNG or JPG images. Enter page number or select pages, set scale, and download instantly. No signup, no server processing.">
+    <meta property="og:title" content="PDF to Images – Free Online Tool">
+    <meta property="og:description" content="Convert PDF pages to PNG or JPG images. No uploads, no signup.">
     <meta property="og:site_name" content="Textify.tools">
     <meta property="og:image" content="https://textify.tools/og-image.png">
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PDF to Images Converter – Textify.tools">
-    <meta name="twitter:description" content="Convert PDF pages to images offline in your browser.">
+    <meta name="twitter:title" content="PDF to Images – Textify.tools">
+    <meta name="twitter:description" content="Convert PDF pages to images instantly — free, private, and works offline.">
     <meta name="twitter:image" content="https://textify.tools/og-image.png">
+    <!-- Icons -->
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,16 +32,18 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/mstile-150x150.png">
 
+    <!-- Preconnect for critical third-party origins -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
     <link rel="preconnect" href="https://unpkg.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- yandex verification -->
     <meta name="yandex-verification" content="6e105f6188a8c833" />
 
+    <!-- Inline script to prevent dark mode flash -->
     <script>
         (function() {
             var theme = localStorage.getItem('theme');
@@ -46,6 +51,7 @@
         })();
     </script>
 
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -54,8 +60,16 @@
         gtag('config', 'G-6VGXXT81MB');
     </script>
 
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
 
+    <!-- pdf.js library -->
+    <script src="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js';
+    </script>
+
+    <!-- Structured Data (SoftwareApplication + FAQ + Person + Breadcrumb) -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -85,9 +99,9 @@
                 },
                 {
                     "@type": "SoftwareApplication",
-                    "name": "PDF to Images Converter",
+                    "name": "PDF to Images",
                     "url": "https://textify.tools/pdf-to-images",
-                    "description": "Convert PDF pages to JPG or PNG images directly in your browser. Enter page number or select pages, choose scale and quality. No uploads to servers, complete privacy.",
+                    "description": "Convert PDF pages to images (PNG or JPG) directly in your browser. Choose format, quality, and scale, then download each page image. No uploads to servers, complete privacy.",
                     "applicationCategory": "WebApplication",
                     "operatingSystem": "Web Browser",
                     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -98,18 +112,27 @@
                     "mainEntity": [
                         {
                             "@type": "Question",
-                            "name": "How do I extract a specific page number?",
-                            "acceptedAnswer": { "@type": "Answer", "text": "Upload your PDF, then enter the page number in the 'Page number' field and click 'Extract This Page'. The tool will render and download only that page as an image." }
+                            "name": "How do I convert PDF to images?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Upload your PDF file. Select the image format (PNG or JPG), quality, and scale. Click 'Convert to Images' and then download each page as an image file."
+                            }
                         },
                         {
                             "@type": "Question",
-                            "name": "Can I convert multiple pages at once?",
-                            "acceptedAnswer": { "@type": "Answer", "text": "Yes, after uploading, thumbnails appear with checkboxes. Select the pages you want and click 'Download Selected' to get them as a ZIP (if more than one) or individually." }
+                            "name": "Which image formats are supported?",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "You can choose between PNG (lossless, larger file) and JPG (compressed, smaller file). For JPG, you can adjust the quality percentage."
+                            }
                         },
                         {
                             "@type": "Question",
                             "name": "Is my PDF data safe?",
-                            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The entire conversion happens in your browser using JavaScript. Your PDF never leaves your device." }
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "Absolutely. Processing happens entirely in your browser using JavaScript. Your PDF never leaves your device and is never uploaded to any server."
+                            }
                         }
                     ]
                 },
@@ -126,8 +149,6 @@
 </head>
 <body>
     <script src="https://unpkg.com/lucide@0.344.0"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -165,6 +186,7 @@
             --chip-hover: #e2e8f0;
             --error-text: #dc2626;
             --error-bg: #fef2f2;
+            --success-border: #86efac;
         }
         body.dark-mode {
             --bg: #0f172a;
@@ -202,16 +224,25 @@
             --chip-hover: #334155;
             --error-text: #fca5a5;
             --error-bg: #450a0a;
+            --success-border: #166534;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; overflow-x: hidden; }
-        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; transition: background 0.3s, color 0.3s; overflow-x: hidden; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg); color: var(--text); min-height: 100vh;
+            transition: background 0.3s, color 0.3s; overflow-x: hidden;
+        }
         .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
         img, video, canvas, iframe, embed, object, svg { max-width: 100%; height: auto; }
         table { max-width: 100%; }
         pre, code { white-space: pre-wrap; word-wrap: break-word; }
 
-        header { border-bottom: 1px solid var(--line); display: flex; justify-content: center; align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s; background: transparent; width: 100%; }
+        header {
+            border-bottom: 1px solid var(--line); display: flex; justify-content: center;
+            align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
+            background: transparent; width: 100%;
+        }
         .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
@@ -224,8 +255,10 @@
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
         .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
         .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 220px; max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
-        .tools-menu-container:hover .tools-mega-menu, .tools-menu-container.open .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .tools-menu-container:hover .tools-trigger i, .tools-menu-container.open .tools-trigger i { transform: rotate(180deg); }
+        .tools-menu-container:hover .tools-mega-menu,
+        .tools-menu-container.open .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .tools-menu-container:hover .tools-trigger i,
+        .tools-menu-container.open .tools-trigger i { transform: rotate(180deg); }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
@@ -282,23 +315,30 @@
         .subtitle { font-size: 16px; color: var(--text-light); line-height: 1.7; margin-bottom: 30px; text-align: left; word-wrap: break-word; }
         .tool-container { display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
 
-        .drop-zone { border: 2px dashed var(--input-border); border-radius: 12px; padding: 40px 20px; text-align: center; cursor: pointer; transition: border-color 0.2s, background 0.2s; background: var(--card); }
-        .drop-zone:hover, .drop-zone.dragover { border-color: var(--primary); background: var(--hover); }
+        /* Drop zone */
+        .drop-zone {
+            border: 2px dashed var(--input-border);
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+            background: var(--card);
+        }
+        .drop-zone:hover, .drop-zone.dragover {
+            border-color: var(--primary);
+            background: var(--hover);
+        }
         .drop-zone i { color: var(--text-light); margin-bottom: 10px; }
 
-        .page-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; margin-top: 15px; }
-        .page-item { position: relative; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--card); cursor: pointer; }
-        .page-item img { width: 100%; height: auto; display: block; }
-        .page-item .page-checkbox { position: absolute; top: 5px; left: 5px; width: 20px; height: 20px; cursor: pointer; }
-        .page-item .page-number { text-align: center; font-size: 12px; color: var(--text-light); padding: 4px 0; }
-
-        .tool-options { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
-        .tool-options label { font-size: 14px; font-weight: 600; color: var(--text); margin-right: 5px; }
-        .tool-options select, .tool-options input[type="number"] { padding: 8px 12px; border: 1px solid var(--input-border); border-radius: 8px; background: var(--input-bg); color: var(--text); font-family: inherit; font-size: 14px; }
-        .tool-options input[type="number"] { width: 70px; }
-        .page-extract-group { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-
-        .button-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+        /* Preview and options */
+        .preview-container { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
+        .file-info { font-size: 14px; color: var(--text-light); }
+        .options-panel { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+        .options-panel label { font-size: 14px; font-weight: 600; }
+        .options-panel select, .options-panel input[type="number"] { padding: 8px 12px; border: 1px solid var(--input-border); border-radius: 6px; background: var(--input-bg); color: var(--text); font-family: inherit; font-size: 14px; }
+        .options-panel .format-select, .options-panel .quality-field, .options-panel .scale-field { display: flex; align-items: center; gap: 8px; }
+        .action-buttons { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
         .btn { padding: 10px 22px; border-radius: 25px; font-weight: 600; font-size: 14px; border: 1px solid var(--line); background: var(--card); color: var(--text); cursor: pointer; display: flex; align-items: center; gap: 6px; transition: background 0.2s, border-color 0.2s; font-family: inherit; }
         .btn:hover { background: var(--hover); border-color: var(--primary); }
         .btn.primary { background: var(--primary); color: var(--bg); border: none; }
@@ -307,6 +347,15 @@
 
         .error-message { color: var(--error-text); background: var(--error-bg); border: 1px solid var(--error-text); padding: 12px; border-radius: 8px; margin-top: 8px; font-size: 13px; display: none; }
         .error-message.visible { display: block; }
+
+        .images-list { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
+        .image-item { display: flex; align-items: center; gap: 15px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+        .image-item img { max-width: 150px; max-height: 100px; object-fit: contain; border-radius: 4px; }
+        .image-item .image-info { flex: 1; }
+        .image-item .image-actions { display: flex; gap: 8px; }
+        .image-item .image-actions a { text-decoration: none; }
+        .progress-bar { width: 100%; height: 8px; background: var(--hover); border-radius: 4px; overflow: hidden; margin-top: 10px; }
+        .progress-bar .progress-fill { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s; }
 
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
@@ -385,64 +434,57 @@
 
         <main>
             <div class="content-container">
-                <h1>PDF to Images Converter</h1>
-                <p class="subtitle">Extract pages from any PDF as high-quality JPG or PNG images. Enter a specific page number to download that page, or select multiple pages for batch conversion. All processing happens in your browser — your PDF never leaves your device.</p>
+                <h1>PDF to Images</h1>
+                <p class="subtitle">Convert PDF pages to images (PNG or JPG). Upload your PDF, choose format, quality, and scale, then download each page as an image. No uploads to servers — your file never leaves your device.</p>
 
                 <div class="tool-container">
+                    <!-- Drop zone -->
                     <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
-                        <i data-lucide="upload-cloud" width="40" height="40"></i>
-                        <p style="font-weight:600; margin-bottom:5px;">Click to upload or drag & drop your PDF here</p>
-                        <p style="font-size:13px; color:var(--text-light);">Max file size depends on your browser memory</p>
-                        <input type="file" id="fileInput" accept="application/pdf" style="display:none;" onchange="handlePdfFile(this.files[0])">
+                        <i data-lucide="file-up" width="40" height="40"></i>
+                        <p style="font-weight:600; margin-bottom:5px;">Click to upload or drag & drop a PDF file</p>
+                        <p style="font-size:13px; color:var(--text-light);">Only PDF files are supported</p>
+                        <input type="file" id="fileInput" accept=".pdf,application/pdf" style="display:none;" onchange="handleFile(this.files)">
                     </div>
                     <div class="error-message" id="error-message"></div>
 
-                    <div id="pdfPreviewContainer" style="display:none;">
-                        <div class="page-grid" id="pageGrid"></div>
-
-                        <div class="tool-options" style="margin-top:20px;">
-                            <div>
-                                <label for="output-format">Output format:</label>
-                                <select id="output-format">
+                    <!-- Preview and options -->
+                    <div class="preview-container" id="previewContainer" style="display:none;">
+                        <div class="file-info" id="fileInfo"></div>
+                        <div class="options-panel" id="optionsPanel">
+                            <div class="format-select">
+                                <label for="format">Image format:</label>
+                                <select id="format">
                                     <option value="png" selected>PNG</option>
                                     <option value="jpeg">JPG</option>
                                 </select>
                             </div>
-                            <div>
+                            <div class="quality-field" id="qualityField" style="display:none;">
+                                <label for="quality">Quality (%):</label>
+                                <input type="number" id="quality" min="10" max="100" value="90" step="1" style="width:70px;">
+                            </div>
+                            <div class="scale-field">
                                 <label for="scale">Scale:</label>
-                                <select id="scale">
-                                    <option value="1" selected>1x (normal)</option>
-                                    <option value="2">2x (high quality)</option>
-                                    <option value="3">3x (very high)</option>
-                                </select>
+                                <input type="number" id="scale" min="0.5" max="4" value="1.5" step="0.1" style="width:70px;">
                             </div>
-                            <div id="jpeg-quality-group" style="display:none;">
-                                <label for="jpeg-quality">JPG quality:</label>
-                                <input type="number" id="jpeg-quality" min="0.1" max="1.0" step="0.1" value="0.9">
-                            </div>
-                            <div class="page-extract-group">
-                                <label for="single-page-number">Page number:</label>
-                                <input type="number" id="single-page-number" min="1" step="1" placeholder="e.g., 3">
-                                <button class="btn primary" onclick="extractSinglePage()"><i data-lucide="file-output" width="16" height="16"></i> Extract This Page</button>
-                            </div>
-                            <button class="btn primary" onclick="downloadImages()"><i data-lucide="download" width="16" height="16"></i> Download Selected</button>
-                            <button class="btn" onclick="resetAll()"><i data-lucide="trash-2" width="16" height="16"></i> Clear</button>
                         </div>
+                        <div class="action-buttons">
+                            <button class="btn primary" onclick="convertToImages()" id="convertBtn"><i data-lucide="image" width="16" height="16"></i> Convert to Images</button>
+                            <button class="btn" onclick="clearAll()"><i data-lucide="trash-2" width="16" height="16"></i> Clear</button>
+                        </div>
+                        <div class="progress-bar" id="progressBar" style="display:none;"><div class="progress-fill" id="progressFill"></div></div>
+                        <div class="images-list" id="imagesList"></div>
                     </div>
                 </div>
 
                 <!-- Additional Detail Sections -->
                 <div style="margin-bottom:40px;">
-                    <h2>Why use this PDF to Images converter?</h2>
-                    <p>Sometimes you need the contents of a PDF as image files — for embedding in documents, sharing on social media, or just because images are easier to handle. This tool does that instantly and privately. Because it runs entirely in your browser, your sensitive documents never touch a server.</p>
+                    <h2>Why convert PDF to images?</h2>
+                    <p>Extracting pages as images is useful for sharing specific pages, inserting into documents, or using in presentations. This tool makes it easy without any software installation.</p>
                     <ul style="margin-top:15px; color: var(--text-light); padding-left:20px;">
-                        <li><strong>Direct page extraction</strong> – type a page number and click "Extract This Page" to get just that page as an image.</li>
-                        <li><strong>Select specific pages</strong> – after upload, tick the pages you want to convert.</li>
-                        <li><strong>High-resolution output</strong> – choose 1x, 2x, or 3x scale for crisp images.</li>
-                        <li><strong>PNG or JPG</strong> – pick the format that suits your needs; JPG has adjustable quality.</li>
-                        <li><strong>Multiple downloads as ZIP</strong> – if you select more than one page, images are packaged into a single ZIP archive.</li>
-                        <li><strong>Drag & drop</strong> – simply drop your PDF onto the upload zone.</li>
-                        <li><strong>100% private</strong> – no uploads, no tracking, no signup.</li>
+                        <li><strong>High-quality output</strong> – choose PNG for lossless or JPG for smaller files.</li>
+                        <li><strong>Adjustable scale</strong> – increase resolution for printing or decrease for web.</li>
+                        <li><strong>Privacy guaranteed</strong> – your PDF never leaves your device.</li>
+                        <li><strong>Batch conversion</strong> – all pages are converted automatically.</li>
                     </ul>
                 </div>
 
@@ -451,19 +493,19 @@
                     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; margin-top:20px;">
                         <div style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px;">
                             <h3 style="font-size:16px; margin-bottom:8px;">1. Upload your PDF</h3>
-                            <p style="font-size:14px; color:var(--text-light);">Click or drag & drop your PDF file. It will load instantly in your browser.</p>
+                            <p style="font-size:14px; color:var(--text-light);">Click or drag your PDF into the drop zone.</p>
                         </div>
                         <div style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px;">
-                            <h3 style="font-size:16px; margin-bottom:8px;">2. Choose extraction method</h3>
-                            <p style="font-size:14px; color:var(--text-light);">Either type a page number for single-page extraction, or check multiple thumbnails for batch conversion.</p>
+                            <h3 style="font-size:16px; margin-bottom:8px;">2. Choose settings</h3>
+                            <p style="font-size:14px; color:var(--text-light);">Select PNG or JPG, quality (for JPG), and scale.</p>
                         </div>
                         <div style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px;">
-                            <h3 style="font-size:16px; margin-bottom:8px;">3. Set options</h3>
-                            <p style="font-size:14px; color:var(--text-light);">Pick output format (PNG or JPG), scale (1x, 2x, 3x), and JPG quality if applicable.</p>
+                            <h3 style="font-size:16px; margin-bottom:8px;">3. Convert</h3>
+                            <p style="font-size:14px; color:var(--text-light);">Click "Convert to Images" and wait for processing.</p>
                         </div>
                         <div style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px;">
-                            <h3 style="font-size:16px; margin-bottom:8px;">4. Download</h3>
-                            <p style="font-size:14px; color:var(--text-light);">Click "Extract This Page" for a single page, or "Download Selected" for multiple. A ZIP file is generated for multiple pages.</p>
+                            <h3 style="font-size:16px; margin-bottom:8px;">4. Download images</h3>
+                            <p style="font-size:14px; color:var(--text-light);">Each page will have its own download link.</p>
                         </div>
                     </div>
                 </div>
@@ -471,11 +513,10 @@
                 <div style="margin-bottom:40px;">
                     <h2>Common use cases</h2>
                     <ul style="color:var(--text-light); padding-left:20px; line-height:1.8;">
-                        <li><strong>Extract diagrams:</strong> Save charts and illustrations from PDF reports.</li>
-                        <li><strong>Share pages:</strong> Convert a single page to an image for quick WhatsApp or email sharing.</li>
-                        <li><strong>Create thumbnails:</strong> Generate preview images for PDF documents.</li>
-                        <li><strong>Editing:</strong> Convert PDF pages to images for use in design software or presentations.</li>
-                        <li><strong>Archiving:</strong> Turn important PDF pages into JPEG/PNG for long-term storage.</li>
+                        <li><strong>Share individual pages</strong> – extract specific pages as images for easy sharing.</li>
+                        <li><strong>Insert into documents</strong> – convert PDF pages to images for use in Word, PowerPoint, etc.</li>
+                        <li><strong>Web publishing</strong> – create image versions of PDF content for websites.</li>
+                        <li><strong>Archiving</strong> – save important PDF pages as images for backup.</li>
                     </ul>
                 </div>
 
@@ -487,39 +528,40 @@
                                 Is this tool free?
                                 <i data-lucide="chevron-down" width="16"></i>
                             </button>
-                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Yes, completely free. No hidden charges, no watermarks, no file size limits (beyond your browser's memory).</div>
+                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Yes, 100% free. No hidden charges, watermarks, or limitations.</div>
                         </div>
                         <div class="faq-item" style="border-bottom:1px solid var(--line);">
                             <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-                                Can I extract a single page by number?
+                                What is the difference between PNG and JPG?
                                 <i data-lucide="chevron-down" width="16"></i>
                             </button>
-                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Yes, enter the page number in the "Page number" field and click "Extract This Page". That page will be rendered and downloaded immediately as an image.</div>
+                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">PNG is lossless and keeps text sharp, but file sizes are larger. JPG is compressed and smaller, suitable for photos. For text-heavy PDFs, PNG is recommended.</div>
                         </div>
                         <div class="faq-item" style="border-bottom:1px solid var(--line);">
                             <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-                                Can I select only certain pages for batch conversion?
+                                Do my PDFs leave my device?
                                 <i data-lucide="chevron-down" width="16"></i>
                             </button>
-                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Yes, after upload, each page is shown as a thumbnail with a checkbox. Only checked pages will be converted when you click "Download Selected".</div>
+                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Never. All processing happens in your browser. Your PDF is never uploaded or stored anywhere.</div>
                         </div>
                         <div class="faq-item">
                             <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-                                Is my PDF uploaded to any server?
+                                What does the scale setting do?
                                 <i data-lucide="chevron-down" width="16"></i>
                             </button>
-                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">No. The PDF is read entirely in your browser using JavaScript. It never leaves your device.</div>
+                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Scale multiplies the rendering resolution. A scale of 1 gives the original PDF size, 2 doubles it (higher quality but larger file). We recommend 1.5–2 for good quality.</div>
                         </div>
                     </div>
                 </div>
 
                 <div style="margin-bottom:40px;">
-                    <h2>Related tools</h2>
+                    <h2>Related tools you might like</h2>
                     <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;">
-                        <a href="/images-to-pdf" style="padding:8px 16px; border-radius:20px; background:var(--hover); color:var(--text); text-decoration:none; font-weight:500; font-size:14px;">Images to PDF</a>
-                        <a href="/jpg-to-pdf" style="padding:8px 16px; border-radius:20px; background:var(--hover); color:var(--text); text-decoration:none; font-weight:500; font-size:14px;">JPG to PDF</a>
-                        <a href="/pdf-compressor" style="padding:8px 16px; border-radius:20px; background:var(--hover); color:var(--text); text-decoration:none; font-weight:500; font-size:14px;">PDF Compressor</a>
+                        <a href="/pdf-to-images" style="padding:8px 16px; border-radius:20px; background:var(--hover); color:var(--text); text-decoration:none; font-weight:500; font-size:14px;">PDF to Images</a>
                         <a href="/pdf-merge" style="padding:8px 16px; border-radius:20px; background:var(--hover); color:var(--text); text-decoration:none; font-weight:500; font-size:14px;">PDF Merge</a>
+                        <a href="/pdf-split" style="padding:8px 16px; border-radius:20px; background:var(--hover); color:var(--text); text-decoration:none; font-weight:500; font-size:14px;">PDF Split</a>
+                        <a href="/pdf-rotate" style="padding:8px 16px; border-radius:20px; background:var(--hover); color:var(--text); text-decoration:none; font-weight:500; font-size:14px;">PDF Rotate</a>
+                        <a href="/pdf-compressor" style="padding:8px 16px; border-radius:20px; background:var(--hover); color:var(--text); text-decoration:none; font-weight:500; font-size:14px;">PDF Compressor</a>
                     </div>
                 </div>
             </div>
@@ -554,6 +596,8 @@
                             <ul class="footer-links">
                                 <li><a href="/contact-us">Contact Us</a></li>
                                 <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
+                                <!-- BLOG LINK ADDED HERE -->
+                                <li><a href="/blog">Blog</a></li>
                             </ul>
                         </div>
                         <div class="footer-column">
@@ -604,173 +648,111 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // ============ PDF to Images Core ============
+        // ============ PDF to Images Core Logic ============
         let pdfDoc = null;
-        let pageRenderedImages = [];
+        let pdfFileName = '';
 
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-        async function handlePdfFile(file) {
-            if (!file || file.type !== 'application/pdf') {
-                showError('Please select a valid PDF file.');
+        function handleFile(fileList) {
+            const file = fileList[0];
+            if (!file || (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf'))) {
+                showError('Please select a PDF file.');
                 return;
             }
             hideError();
-            try {
-                const arrayBuffer = await file.arrayBuffer();
-                pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-                const numPages = pdfDoc.numPages;
-                pageRenderedImages = new Array(numPages).fill(null);
-                renderPageThumbnails();
-            } catch (err) {
-                showError('Error loading PDF: ' + err.message);
-            }
-        }
-
-        function renderPageThumbnails() {
-            const container = document.getElementById('pdfPreviewContainer');
-            const grid = document.getElementById('pageGrid');
-            container.style.display = 'block';
-            grid.innerHTML = '';
-
-            for (let i = 1; i <= pdfDoc.numPages; i++) {
-                const pageDiv = document.createElement('div');
-                pageDiv.className = 'page-item';
-                pageDiv.innerHTML = `
-                    <input type="checkbox" class="page-checkbox" data-page="${i}" checked onchange="updatePageSelection(this)">
-                    <canvas id="page-canvas-${i}" style="width:100%;"></canvas>
-                    <div class="page-number">Page ${i}</div>
-                `;
-                grid.appendChild(pageDiv);
-
-                renderPageToCanvas(i, 0.3).then(canvas => {
-                    const targetCanvas = document.getElementById(`page-canvas-${i}`);
-                    targetCanvas.width = canvas.width;
-                    targetCanvas.height = canvas.height;
-                    targetCanvas.getContext('2d').drawImage(canvas, 0, 0);
-                }).catch(err => {
-                    console.error('Error rendering page', i, err);
-                });
-            }
-        }
-
-        async function renderPageToCanvas(pageNumber, scale) {
-            const page = await pdfDoc.getPage(pageNumber);
-            const viewport = page.getViewport({ scale: scale });
-            const canvas = document.createElement('canvas');
-            canvas.width = viewport.width;
-            canvas.height = viewport.height;
-            const ctx = canvas.getContext('2d');
-            await page.render({ canvasContext: ctx, viewport: viewport }).promise;
-            return canvas;
-        }
-
-        function updatePageSelection(checkbox) {
-            // Visual only
-        }
-
-        function getSelectedPages() {
-            const checkboxes = document.querySelectorAll('.page-checkbox');
-            const selected = [];
-            checkboxes.forEach(cb => {
-                if (cb.checked) selected.push(parseInt(cb.dataset.page));
-            });
-            return selected;
-        }
-
-        async function extractSinglePage() {
-            if (!pdfDoc) {
-                showError('Please upload a PDF first.');
-                return;
-            }
-            const pageInput = document.getElementById('single-page-number');
-            const pageNum = parseInt(pageInput.value);
-            if (!pageNum || pageNum < 1 || pageNum > pdfDoc.numPages) {
-                showError(`Invalid page number. Please enter a number between 1 and ${pdfDoc.numPages}.`);
-                return;
-            }
-            hideError();
-            const format = document.getElementById('output-format').value;
-            const scale = parseFloat(document.getElementById('scale').value);
-            const jpegQuality = parseFloat(document.getElementById('jpeg-quality').value) || 0.9;
-
-            try {
-                const canvas = await renderPageToCanvas(pageNum, scale);
-                const dataUrl = canvas.toDataURL(format === 'png' ? 'image/png' : 'image/jpeg', format === 'png' ? undefined : jpegQuality);
-                const a = document.createElement('a');
-                a.href = dataUrl;
-                a.download = `page-${pageNum}.${format === 'png' ? 'png' : 'jpg'}`;
-                a.click();
-                showToast(`Page ${pageNum} downloaded!`);
-            } catch (err) {
-                showError('Error extracting page: ' + err.message);
-            }
-        }
-
-        async function downloadImages() {
-            if (!pdfDoc) {
-                showError('Please upload a PDF first.');
-                return;
-            }
-            const selectedPages = getSelectedPages();
-            if (selectedPages.length === 0) {
-                showError('Select at least one page or use "Extract This Page".');
-                return;
-            }
-            hideError();
-
-            const format = document.getElementById('output-format').value;
-            const scale = parseFloat(document.getElementById('scale').value);
-            const jpegQuality = parseFloat(document.getElementById('jpeg-quality').value) || 0.9;
-
-            try {
-                const images = [];
-                for (const pageNum of selectedPages) {
-                    const canvas = await renderPageToCanvas(pageNum, scale);
-                    const dataUrl = canvas.toDataURL(format === 'png' ? 'image/png' : 'image/jpeg', format === 'png' ? undefined : jpegQuality);
-                    images.push({ pageNum, dataUrl, format });
+            pdfFileName = file.name;
+            const reader = new FileReader();
+            reader.onload = async function(e) {
+                try {
+                    pdfDoc = await pdfjsLib.getDocument({ data: e.target.result }).promise;
+                    const pageCount = pdfDoc.numPages;
+                    document.getElementById('fileInfo').innerHTML = `File: ${pdfFileName} — ${pageCount} pages`;
+                    document.getElementById('previewContainer').style.display = 'flex';
+                    document.getElementById('imagesList').innerHTML = '';
+                } catch (err) {
+                    showError('Error loading PDF. Please try a different file.');
+                    console.error(err);
                 }
-
-                if (images.length === 1) {
-                    downloadSingleImage(images[0]);
-                } else {
-                    downloadZip(images);
-                }
-                showToast('Download started!');
-            } catch (err) {
-                showError('Error generating images: ' + err.message);
-            }
-        }
-
-        function downloadSingleImage(image) {
-            const a = document.createElement('a');
-            a.href = image.dataUrl;
-            a.download = `page-${image.pageNum}.${image.format === 'png' ? 'png' : 'jpg'}`;
-            a.click();
-        }
-
-        async function downloadZip(images) {
-            const zip = new JSZip();
-            images.forEach(img => {
-                const ext = img.format === 'png' ? 'png' : 'jpg';
-                const base64 = img.dataUrl.split(',')[1];
-                zip.file(`page-${img.pageNum}.${ext}`, base64, { base64: true });
-            });
-            const blob = await zip.generateAsync({ type: 'blob' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'pdf-pages.zip';
-            a.click();
-            URL.revokeObjectURL(a.href);
-        }
-
-        function resetAll() {
-            pdfDoc = null;
-            pageRenderedImages = [];
-            document.getElementById('pdfPreviewContainer').style.display = 'none';
-            document.getElementById('pageGrid').innerHTML = '';
+            };
+            reader.readAsArrayBuffer(file);
             document.getElementById('fileInput').value = '';
-            document.getElementById('single-page-number').value = '';
+        }
+
+        function onFormatChange() {
+            const format = document.getElementById('format').value;
+            const qualityField = document.getElementById('qualityField');
+            qualityField.style.display = format === 'jpeg' ? 'flex' : 'none';
+        }
+
+        async function convertToImages() {
+            if (!pdfDoc) {
+                showError('Please upload a PDF first.');
+                return;
+            }
+            hideError();
+            const format = document.getElementById('format').value;
+            const quality = parseInt(document.getElementById('quality').value, 10) || 90;
+            const scale = parseFloat(document.getElementById('scale').value) || 1.5;
+            const imageList = document.getElementById('imagesList');
+            imageList.innerHTML = '';
+            const progressBar = document.getElementById('progressBar');
+            const progressFill = document.getElementById('progressFill');
+            progressBar.style.display = 'block';
+            progressFill.style.width = '0%';
+
+            const totalPages = pdfDoc.numPages;
+            for (let pageNum = 1; pageNum <= totalPages; pageNum++) {
+                const page = await pdfDoc.getPage(pageNum);
+                const viewport = page.getViewport({ scale });
+                const canvas = document.createElement('canvas');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                const ctx = canvas.getContext('2d');
+                await page.render({ canvasContext: ctx, viewport }).promise;
+
+                let dataUrl;
+                if (format === 'png') {
+                    dataUrl = canvas.toDataURL('image/png');
+                } else {
+                    dataUrl = canvas.toDataURL('image/jpeg', quality / 100);
+                }
+
+                // Create list item
+                const item = document.createElement('div');
+                item.className = 'image-item';
+                const img = document.createElement('img');
+                img.src = dataUrl;
+                img.alt = `Page ${pageNum}`;
+                const info = document.createElement('div');
+                info.className = 'image-info';
+                info.innerHTML = `<strong>Page ${pageNum}</strong> — ${format.toUpperCase()}, ${scale}x scale`;
+                const actions = document.createElement('div');
+                actions.className = 'image-actions';
+                const downloadLink = document.createElement('a');
+                downloadLink.href = dataUrl;
+                downloadLink.download = `${pdfFileName.replace(/\.pdf$/i, '')}-page-${pageNum}.${format === 'png' ? 'png' : 'jpg'}`;
+                downloadLink.innerHTML = `<button class="btn primary"><i data-lucide="download" width="14" height="14"></i> Download</button>`;
+                actions.appendChild(downloadLink);
+                item.appendChild(img);
+                item.appendChild(info);
+                item.appendChild(actions);
+                imageList.appendChild(item);
+
+                // Update progress
+                const progress = Math.round((pageNum / totalPages) * 100);
+                progressFill.style.width = progress + '%';
+            }
+            lucide.createIcons();
+            showToast('All pages converted to images!');
+        }
+
+        function clearAll() {
+            pdfDoc = null;
+            pdfFileName = '';
+            document.getElementById('fileInfo').innerHTML = '';
+            document.getElementById('previewContainer').style.display = 'none';
+            document.getElementById('imagesList').innerHTML = '';
+            document.getElementById('progressBar').style.display = 'none';
+            document.getElementById('progressFill').style.width = '0%';
             hideError();
         }
 
@@ -786,16 +768,20 @@
             errorDiv.classList.remove('visible');
         }
 
-        // Toggle JPEG quality visibility
-        document.getElementById('output-format').addEventListener('change', function() {
-            document.getElementById('jpeg-quality-group').style.display = this.value === 'jpeg' ? 'flex' : 'none';
-        });
-
         // Drag & drop
         const dropZone = document.getElementById('dropZone');
-        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
-        dropZone.addEventListener('dragleave', () => { dropZone.classList.remove('dragover'); });
-        dropZone.addEventListener('drop', (e) => { e.preventDefault(); dropZone.classList.remove('dragover'); handlePdfFile(e.dataTransfer.files[0]); });
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            handleFile(e.dataTransfer.files);
+        });
 
         // ============ Toast ============
         let toastTimer;
@@ -835,6 +821,7 @@
         const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
 
         const tools = [
+            // Text Tools
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'text' },
             { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', category: 'text' },
             { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count block format', category: 'text' },
@@ -894,6 +881,8 @@
             { name: 'Mention Extractor', link: '/mention-extractor', keywords: 'mention extract username @ social', category: 'text' },
             { name: 'Keyword Extractor', link: '/keyword-extractor', keywords: 'keyword extract important terms', category: 'text' },
             { name: 'Duplicate Line Finder', link: '/duplicate-line-finder', keywords: 'duplicate line find report', category: 'text' },
+
+            // Developer Tools
             { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'developer' },
             { name: 'JSON Minifier', link: '/json-minifier', keywords: 'json minify compress', category: 'developer' },
             { name: 'JSON Validator', link: '/json-validator', keywords: 'json validate check', category: 'developer' },
@@ -946,6 +935,8 @@
             { name: 'HMAC Generator', link: '/hmac-generator', keywords: 'hmac hash generator', category: 'developer' },
             { name: 'Cron Expression Generator', link: '/cron-expression-generator', keywords: 'cron expression generator', category: 'developer' },
             { name: 'Cron Expression Tester', link: '/cron-expression-tester', keywords: 'cron expression tester', category: 'developer' },
+
+            // Generators
             { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generator' },
             { name: 'PIN Generator', link: '/pin-generator', keywords: 'pin generator random', category: 'generator' },
             { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generator' },
@@ -959,6 +950,8 @@
             { name: 'WhatsApp Link Generator', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', category: 'generator' },
             { name: 'Business Name Generator', link: '/business-name-generator', keywords: 'business name generator', category: 'generator' },
             { name: 'Invoice Number Generator', link: '/invoice-number-generator', keywords: 'invoice number generator', category: 'generator' },
+
+            // Image Tools
             { name: 'Image Compressor', link: '/image-compressor', keywords: 'image compressor reduce size', category: 'image' },
             { name: 'Image Resizer', link: '/image-resizer', keywords: 'image resize dimensions', category: 'image' },
             { name: 'Image Cropper', link: '/image-cropper', keywords: 'image crop', category: 'image' },
@@ -978,12 +971,14 @@
             { name: 'Photo 200KB', link: '/photo-200kb', keywords: 'photo 200kb compress', category: 'image' },
             { name: 'Signature Resizer', link: '/signature-resizer', keywords: 'signature resize image document', category: 'image' },
             { name: 'Passport Size Photo Maker', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image', category: 'image' },
-            { name: 'JPG to PDF', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image crop kb', category: 'pdf' },
+
+            // PDF Tools
+            { name: 'JPG to PDF', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image', category: 'pdf' },
             { name: 'PNG to PDF', link: '/png-to-pdf', keywords: 'png pdf converter', category: 'pdf' },
             { name: 'Images to PDF', link: '/images-to-pdf', keywords: 'images pdf converter combine', category: 'pdf' },
             { name: 'PDF Page Counter', link: '/pdf-page-counter', keywords: 'pdf page counter', category: 'pdf' },
             { name: 'PDF Metadata Viewer', link: '/pdf-metadata-viewer', keywords: 'pdf metadata viewer', category: 'pdf' },
-            { name: 'PDF to Images', link: '/pdf-to-images', keywords: 'pdf images converter extract pages page number', category: 'pdf' },
+            { name: 'PDF to Images', link: '/pdf-to-images', keywords: 'pdf images converter', category: 'pdf' },
             { name: 'PDF Merge', link: '/pdf-merge', keywords: 'pdf merge combine', category: 'pdf' },
             { name: 'PDF Split', link: '/pdf-split', keywords: 'pdf split separate', category: 'pdf' },
             { name: 'PDF Rotate', link: '/pdf-rotate', keywords: 'pdf rotate page', category: 'pdf' },
@@ -992,6 +987,8 @@
             { name: 'PDF Text Extractor', link: '/pdf-text-extractor', keywords: 'pdf text extractor', category: 'pdf' },
             { name: 'PDF Lock', link: '/pdf-lock', keywords: 'pdf lock password protect', category: 'pdf' },
             { name: 'PDF Unlock', link: '/pdf-unlock', keywords: 'pdf unlock password remove', category: 'pdf' },
+
+            // Business Tools
             { name: 'Invoice Generator', link: '/invoice-generator', keywords: 'invoice generator', category: 'business' },
             { name: 'Quotation Generator', link: '/quotation-generator', keywords: 'quotation generator', category: 'business' },
             { name: 'Receipt Generator', link: '/receipt-generator', keywords: 'receipt generator', category: 'business' },
@@ -1000,6 +997,8 @@
             { name: 'Discount Calculator', link: '/discount-calculator', keywords: 'discount calculator sale', category: 'business' },
             { name: 'Profit Margin Calculator', link: '/profit-margin-calculator', keywords: 'profit margin calculator', category: 'business' },
             { name: 'Salary Calculator', link: '/salary-calculator', keywords: 'salary calculator', category: 'business' },
+
+            // Finance Tools
             { name: 'EMI Calculator', link: '/emi-calculator', keywords: 'emi calculator loan', category: 'finance' },
             { name: 'Loan Calculator', link: '/loan-calculator', keywords: 'loan calculator', category: 'finance' },
             { name: 'SIP Calculator', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment', category: 'finance' },
@@ -1202,6 +1201,7 @@
         buildMobileToolsMenu();
         buildSearchList();
         lucide.createIcons();
+        onFormatChange(); // initialize format display
     </script>
 </body>
 </html>
