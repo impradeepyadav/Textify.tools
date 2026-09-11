@@ -368,10 +368,10 @@
         .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
         @media (max-width: 768px) {
             footer { padding: 30px 16px 160px; }
-            .footer-middle { flex-direction: column; align-items: center; gap: 20px; }
-            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: center; }
-            .footer-right-columns { justify-content: center; gap: 20px; }
-            .footer-column { min-width: auto; text-align: center; }
+            .footer-middle { flex-direction: column; align-items: flex-start; gap: 28px; text-align: left; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
+            .footer-right-columns { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 22px; width: 100%; }
+            .footer-column { min-width: auto; text-align: left; width: 100%; }
             .footer-links a { display: block; }
         }
         @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
@@ -466,6 +466,8 @@
                                 <tr><td>Make a QR code for a link</td><td><a href="/qr-code-generator">QR Code Generator</a></td></tr>
                                 <tr><td>Convert plain text to CSV</td><td><a href="/text-to-csv">Text to CSV</a></td></tr>
                                 <tr><td>Create a WhatsApp link</td><td><a href="/whatsapp-link-generator">WhatsApp Link Generator</a></td></tr>
+                                <tr><td>Print a shipping label for a parcel</td><td><a href="/shipping-label-generator">Shipping Label Generator</a></td></tr>
+                                <tr><td>Build a professional resume in minutes</td><td><a href="/resume-builder">Resume Builder</a></td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -494,12 +496,13 @@
                 </div>
 
                 <div class="section">
-                    <h2>A few real stories (people keep sending me these)</h2>
+                    <h2>Everyday jobs these tools are built for</h2>
+                    <p>Below are the most common scenarios these tools get used for. No quotes, no names — just the practical tasks they solve.</p>
                     <div class="feature-grid" style="margin-top:20px;">
-                        <div class="feature-card" style="padding:20px;"><h4><i data-lucide="book-open" width="20" height="20"></i> Priya's last-minute homework</h4><p>"My son forgot his essay had to be <em>handwritten</em>. We typed it together, ran it through Text to Handwriting, printed it, and he still got an A. The teacher even asked which pen he used!" – Priya, Mumbai</p></div>
-                        <div class="feature-card" style="padding:20px;"><h4><i data-lucide="code" width="20" height="20"></i> Carlos debugged a token at 2 AM</h4><p>"My React app was giving me a weird JWT error. I pasted the token into the JWT Decoder, saw the payload was missing a field, fixed it in 2 minutes, and went back to sleep. No terminal needed." – Carlos, Mexico City</p></div>
-                        <div class="feature-card" style="padding:20px;"><h4><i data-lucide="heart" width="20" height="20"></i> Emily pranked her brother with 10,000 'hello's</h4><p>"The Text Repeater generated a message so long it crashed his WhatsApp for a good 30 seconds. He still hasn't forgiven me." – Emily, London</p></div>
-                        <div class="feature-card" style="padding:20px;"><h4><i data-lucide="palette" width="20" height="20"></i> Marco's social media glow-up</h4><p>"I used the Fancy Text Generator for my TikTok bio and the Bold/Italic ones for Instagram. Friends keep asking how I do it – I just smile and send them a link." – Marco, Jakarta</p></div>
+                        <div class="feature-card" style="padding:20px;"><h4><i data-lucide="graduation-cap" width="20" height="20"></i> Homework and assignments</h4><p>Students use the Word Counter to hit exact word limits, the Text to Handwriting tool when a submission must be handwritten, and the Case Converter to fix formatting on headings and titles.</p></div>
+                        <div class="feature-card" style="padding:20px;"><h4><i data-lucide="code" width="20" height="20"></i> Debugging code and data</h4><p>Developers paste messy API responses into the JSON Formatter to make them readable, decode JWTs to check payloads, and test regex patterns without leaving the browser or opening a terminal.</p></div>
+                        <div class="feature-card" style="padding:20px;"><h4><i data-lucide="megaphone" width="20" height="20"></i> Writing and editing</h4><p>Writers and editors use the Reading Time Estimator to gauge article length, the Keyword Density Checker to keep SEO in check, and the Text Diff Checker to compare two versions of a draft side by side.</p></div>
+                        <div class="feature-card" style="padding:20px;"><h4><i data-lucide="package" width="20" height="20"></i> Small business paperwork</h4><p>Online sellers and small businesses generate shipping labels, invoices and quotations without opening a design tool or a spreadsheet — and can drop a QR code on a package in a couple of clicks.</p></div>
                     </div>
                 </div>
 
@@ -513,6 +516,7 @@
                         <li><strong>Case Converter</strong> or <strong>Title Case Converter</strong> for headings (APA, MLA, whatever).</li>
                         <li><strong>Text to Handwriting</strong> when the assignment "must be handwritten".</li>
                         <li><strong>Duplicate Line Remover</strong> and <strong>Whitespace Cleaner</strong> for cleaning up messy bibliographies.</li>
+                        <li><strong>Resume Builder</strong> to turn a plain text CV into something you can actually send out.</li>
                     </ul>
                     <h3>For developers</h3>
                     <p>JSON, tokens, regular expressions – all the stuff that can slow you down. Now you can fix things without opening a terminal.</p>
@@ -530,6 +534,13 @@
                         <li><strong>Text Diff Checker</strong> when you're editing with a partner.</li>
                         <li><strong>Fancy Text Generator</strong> and <strong>Bold/Italic</strong> for captions that actually get noticed.</li>
                     </ul>
+                    <h3>For small businesses and sellers</h3>
+                    <p>Labels, invoices, quotes — the boring paperwork that still has to get done.</p>
+                    <ul>
+                        <li><strong>Shipping Label Generator</strong> for a clean, printable parcel label in seconds.</li>
+                        <li><strong>Invoice Generator</strong> and <strong>Quotation Generator</strong> to bill customers without opening a spreadsheet.</li>
+                        <li><strong>QR Code Generator</strong> to drop a scannable tracking link right on the package.</li>
+                    </ul>
                     <h3>Popular tool combinations</h3>
                     <div class="table-wrapper">
                         <table class="info-table">
@@ -540,6 +551,8 @@
                                 <tr><td>Create a UTM-tracked link</td><td>UTM Builder → QR Code Generator → URL Encoder</td></tr>
                                 <tr><td>Clean a messy data dump</td><td>JSON Formatter → Text Sorter → Duplicate Line Remover</td></tr>
                                 <tr><td>Design a social media post</td><td>Fancy Text Generator → Bold/Italic Text → QR Code Generator</td></tr>
+                                <tr><td>Ship an order end-to-end</td><td>Shipping Label Generator → QR Code Generator → WhatsApp Link Generator</td></tr>
+                                <tr><td>Apply for a job</td><td>Resume Builder → Word Counter → Case Converter</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -575,6 +588,8 @@
                                 <tr><td><strong><a href="/markdown-to-html">Markdown to HTML</a></strong></td><td>Turning notes into web-ready HTML</td><td>Technical writers, bloggers</td></tr>
                                 <tr><td><strong><a href="/qr-code-generator">QR Code Generator</a></strong></td><td>Making scannable codes from text</td><td>Marketers, event organizers</td></tr>
                                 <tr><td><strong><a href="/whatsapp-link-generator">WhatsApp Link Generator</a></strong></td><td>Create click-to-chat links with pre-filled messages</td><td>Marketers, customer support, anyone sharing contact info</td></tr>
+                                <tr><td><strong><a href="/shipping-label-generator">Shipping Label Generator</a></strong></td><td>Printable parcel and courier labels</td><td>Online sellers, small business owners</td></tr>
+                                <tr><td><strong><a href="/resume-builder">Resume Builder</a></strong></td><td>Turning plain details into a clean, professional CV</td><td>Job seekers, freshers, career switchers</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -644,6 +659,8 @@
                                 <li><a href="/case-converter">Case Converter</a></li>
                                 <li><a href="/password-generator">Password Generator</a></li>
                                 <li><a href="/whatsapp-link-generator">WhatsApp Link Generator</a></li>
+                                <li><a href="/shipping-label-generator">Shipping Label Generator</a></li>
+                                <li><a href="/resume-builder">Resume Builder</a></li>
                                 <li><a href="/signature-resizer">Signature Resizer</a></li>
                                 <li><a href="/passport-size-photo-maker">Passport Size Photo Maker</a></li>
                                 <li><a href="/barcode-generator">Barcode Generator</a></li>
@@ -891,6 +908,8 @@
             { name: 'Quotation Generator', desc: 'Generate quotations.', icon: 'file-text', link: '/quotation-generator', keywords: 'quotation generator', color: '#10b981', category: 'business' },
             { name: 'Receipt Generator', desc: 'Generate receipts.', icon: 'file-text', link: '/receipt-generator', keywords: 'receipt generator', color: '#10b981', category: 'business' },
             { name: 'Payslip Generator', desc: 'Generate payslips.', icon: 'file-text', link: '/payslip-generator', keywords: 'payslip generator', color: '#10b981', category: 'business' },
+            { name: 'Shipping Label Generator', desc: 'Create printable shipping and courier labels with sender, receiver and tracking details.', icon: 'package', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', color: '#0ea5e9', category: 'business' },
+            { name: 'Resume Builder', desc: 'Build a clean, professional resume from your details and export it in seconds.', icon: 'scroll-text', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', color: '#8b5cf6', category: 'business' },
             { name: 'GST Calculator', desc: 'Calculate GST amounts.', icon: 'percent', link: '/gst-calculator', keywords: 'gst calculator tax', color: '#10b981', category: 'business' },
             { name: 'Discount Calculator', desc: 'Calculate discounts.', icon: 'percent', link: '/discount-calculator', keywords: 'discount calculator sale', color: '#10b981', category: 'business' },
             { name: 'Profit Margin Calculator', desc: 'Calculate profit margins.', icon: 'trending-up', link: '/profit-margin-calculator', keywords: 'profit margin calculator', color: '#10b981', category: 'business' },
