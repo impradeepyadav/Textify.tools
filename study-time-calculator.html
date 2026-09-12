@@ -79,7 +79,15 @@
                     "@type": "Organization",
                     "@id": "https://textify.tools/#organization",
                     "name": "Textify.tools",
-                    "url": "https://textify.tools/"
+                    "url": "https://textify.tools/",
+                    "sameAs": ["https://x.com/BuiltByPradeep"]
+                },
+                {
+                    "@type": "Person",
+                    "@id": "https://textify.tools/#author",
+                    "name": "Pradeep Yadav",
+                    "url": "https://textify.tools/about-us",
+                    "worksFor": { "@id": "https://textify.tools/#organization" }
                 },
                 {
                     "@type": "SoftwareApplication",
@@ -88,7 +96,8 @@
                     "description": "Plan your study schedule by allocating time across multiple subjects and calculating total study hours.",
                     "applicationCategory": "EducationalApplication",
                     "operatingSystem": "Web Browser",
-                    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+                    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+                    "author": { "@id": "https://textify.tools/#author" }
                 },
                 {
                     "@type": "FAQPage",
@@ -301,6 +310,7 @@
         .progress-bar { width: 100%; height: 8px; background: var(--hover); border-radius: 4px; margin-top: 8px; }
         .progress-bar .fill { height: 100%; background: var(--primary); border-radius: 4px; transition: width 0.3s; }
 
+        /* ============ FOOTER (matches index page) ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -321,13 +331,14 @@
         .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
         @media (max-width: 768px) {
             footer { padding: 30px 16px 160px; }
-            .footer-middle { flex-direction: column; align-items: center; gap: 20px; }
-            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: center; }
-            .footer-right-columns { justify-content: center; gap: 20px; }
-            .footer-column { min-width: auto; text-align: center; }
+            .footer-middle { flex-direction: column; align-items: flex-start; gap: 28px; text-align: left; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
+            .footer-right-columns { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 22px; width: 100%; }
+            .footer-column { min-width: auto; text-align: left; width: 100%; }
             .footer-links a { display: block; }
         }
         @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
+
         @media (max-width: 768px) {
             .desktop-nav { display: none; }
             .theme-btn, .search-trigger { display: none; }
@@ -336,13 +347,14 @@
             .logo { font-size: 20px; }
             h1 { font-size: 28px; }
             main { padding: 20px 0; }
-            footer { padding: 30px 16px 160px; }
         }
         @media (min-width: 769px) {
             .hamburger-btn { display: none; }
             .mobile-sidebar-overlay { display: none !important; }
             .mobile-sidebar { display: none !important; }
         }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
 
     <div class="page-wrapper">
@@ -499,6 +511,7 @@
             </div>
         </main>
 
+        <!-- ============ FOOTER (updated to match index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -518,6 +531,8 @@
                                 <li><a href="/case-converter">Case Converter</a></li>
                                 <li><a href="/password-generator">Password Generator</a></li>
                                 <li><a href="/whatsapp-link-generator">WhatsApp Link Generator</a></li>
+                                <li><a href="/shipping-label-generator">Shipping Label Generator</a></li>
+                                <li><a href="/resume-builder">Resume Builder</a></li>
                                 <li><a href="/signature-resizer">Signature Resizer</a></li>
                                 <li><a href="/passport-size-photo-maker">Passport Size Photo Maker</a></li>
                                 <li><a href="/barcode-generator">Barcode Generator</a></li>
@@ -579,6 +594,8 @@
     <div class="toast" id="toast"></div>
 
     <script>
+        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
+
         // ============ Study Time Calculator Logic ============
         let subjectCount = 0;
 
@@ -605,7 +622,7 @@
             const rows = document.querySelectorAll('.subject-row');
             const subjects = [];
             let totalHours = 0;
-            
+
             rows.forEach(row => {
                 const nameInput = row.querySelector('input[type="text"]');
                 const hoursInput = row.querySelector('input[type="number"]');
@@ -625,7 +642,6 @@
             document.getElementById('perDayHours').textContent = perDayRecommendation.toFixed(2);
             document.getElementById('subjectCount').textContent = subjects.length;
 
-            // Build breakdown
             const breakdownDiv = document.getElementById('breakdownList');
             breakdownDiv.innerHTML = '';
             subjects.forEach(sub => {
@@ -654,7 +670,6 @@
             window.toastTimer=setTimeout(()=>t.classList.remove('show'), dur);
         }
 
-        // Add initial subjects
         addSubject('Math', '4');
         addSubject('Science', '3');
         addSubject('English', '2');
@@ -672,7 +687,7 @@
             }
         }
 
-        // ============ Full Tools List (consistent with home page) ============
+        // ============ Full Tools List (matches index page) ============
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'text', label: 'Text Tools' },
@@ -747,6 +762,17 @@
             { name: 'Mention Extractor', link: '/mention-extractor', keywords: 'mention extract username @ social', category: 'text' },
             { name: 'Keyword Extractor', link: '/keyword-extractor', keywords: 'keyword extract important terms', category: 'text' },
             { name: 'Duplicate Line Finder', link: '/duplicate-line-finder', keywords: 'duplicate line find report', category: 'text' },
+            { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'text' },
+            { name: 'Reverse Lines', link: '/reverse-lines', keywords: 'reverse lines order flip', category: 'text' },
+            { name: 'Shuffle Lines', link: '/shuffle-lines', keywords: 'shuffle lines randomize order', category: 'text' },
+            { name: 'Number Lines', link: '/number-lines', keywords: 'number lines add numbers ordered', category: 'text' },
+            { name: 'Remove Line Numbers', link: '/remove-line-numbers', keywords: 'remove line numbers strip', category: 'text' },
+            { name: 'Unique Lines Extractor', link: '/unique-lines-extractor', keywords: 'unique lines extract distinct', category: 'text' },
+            { name: 'Filter Lines', link: '/filter-lines', keywords: 'filter lines grep contain exclude', category: 'text' },
+            { name: 'Trim Lines', link: '/trim-lines', keywords: 'trim lines spaces leading trailing', category: 'text' },
+            { name: 'Join Lines', link: '/join-lines', keywords: 'join lines merge combine', category: 'text' },
+            { name: 'Split Lines', link: '/split-lines', keywords: 'split lines delimiter break', category: 'text' },
+            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'text' },
 
             // Developer Tools
             { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'developer' },
@@ -839,7 +865,7 @@
             { name: 'Passport Size Photo Maker', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image', category: 'image' },
 
             // PDF Tools
-            { name: 'JPG to PDF', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image', category: 'pdf' },
+            { name: 'JPG to PDF', link: '/jpg-to-pdf', keywords: 'jpg pdf converter', category: 'pdf' },
             { name: 'PNG to PDF', link: '/png-to-pdf', keywords: 'png pdf converter', category: 'pdf' },
             { name: 'Images to PDF', link: '/images-to-pdf', keywords: 'images pdf converter combine', category: 'pdf' },
             { name: 'PDF Page Counter', link: '/pdf-page-counter', keywords: 'pdf page counter', category: 'pdf' },
@@ -859,6 +885,8 @@
             { name: 'Quotation Generator', link: '/quotation-generator', keywords: 'quotation generator', category: 'business' },
             { name: 'Receipt Generator', link: '/receipt-generator', keywords: 'receipt generator', category: 'business' },
             { name: 'Payslip Generator', link: '/payslip-generator', keywords: 'payslip generator', category: 'business' },
+            { name: 'Shipping Label Generator', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', category: 'business' },
+            { name: 'Resume Builder', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', category: 'business' },
             { name: 'GST Calculator', link: '/gst-calculator', keywords: 'gst calculator tax', category: 'business' },
             { name: 'Discount Calculator', link: '/discount-calculator', keywords: 'discount calculator sale', category: 'business' },
             { name: 'Profit Margin Calculator', link: '/profit-margin-calculator', keywords: 'profit margin calculator', category: 'business' },
@@ -915,18 +943,18 @@
             { name: 'Time Zone Converter', link: '/time-zone-converter', keywords: 'time zone converter', category: 'finance' },
             { name: 'Length Converter', link: '/length-converter', keywords: 'length converter units', category: 'finance' },
             { name: 'Weight Converter', link: '/weight-converter', keywords: 'weight converter units', category: 'finance' },
-            { name: 'Temperature Converter', link: '/temperature-converter', keywords: 'temperature converter celsius fahrenheit kelvin rankine', category: 'finance' },
-            { name: 'Area Converter', link: '/area-converter', keywords: 'area converter square meter acre hectare', category: 'finance' },
-            { name: 'Volume Converter', link: '/volume-converter', keywords: 'volume converter liter gallon quart pint cup cubic', category: 'finance' },
-            { name: 'Speed Converter', link: '/speed-converter', keywords: 'speed converter m/s km/h mph knots ft/s mach', category: 'finance' },
-            { name: 'Data Storage Converter', link: '/data-storage-converter', keywords: 'data storage converter bit byte kb mb gb tb kib mib gib', category: 'finance' },
-            { name: 'Energy Converter', link: '/energy-converter', keywords: 'energy converter joule kilojoule calorie watt btu ev ft-lb', category: 'finance' },
-            { name: 'Pressure Converter', link: '/pressure-converter', keywords: 'pressure converter pa kpa bar psi atm torr mmhg', category: 'finance' },
-            { name: 'Power Converter', link: '/power-converter', keywords: 'power converter watt horsepower btu cal ft-lb', category: 'finance' },
-            { name: 'Frequency Converter', link: '/frequency-converter', keywords: 'frequency converter hz khz mhz ghz rpm rad/s deg/s', category: 'finance' },
-            { name: 'Angle Converter', link: '/angle-converter', keywords: 'angle converter degree radian gradian arcmin arcsec mrad', category: 'finance' },
-            { name: 'Pace Converter', link: '/pace-converter', keywords: 'pace converter min/km min/mile km/h mph m/s', category: 'finance' },
-            { name: 'Fuel Economy Converter', link: '/fuel-economy-converter', keywords: 'fuel economy converter mpg l100km kml units', category: 'finance' }
+            { name: 'Temperature Converter', link: '/temperature-converter', keywords: 'temperature converter celsius fahrenheit', category: 'finance' },
+            { name: 'Area Converter', link: '/area-converter', keywords: 'area converter units', category: 'finance' },
+            { name: 'Volume Converter', link: '/volume-converter', keywords: 'volume converter units', category: 'finance' },
+            { name: 'Speed Converter', link: '/speed-converter', keywords: 'speed converter units', category: 'finance' },
+            { name: 'Data Storage Converter', link: '/data-storage-converter', keywords: 'data storage converter units', category: 'finance' },
+            { name: 'Energy Converter', link: '/energy-converter', keywords: 'energy converter units', category: 'finance' },
+            { name: 'Pressure Converter', link: '/pressure-converter', keywords: 'pressure converter units', category: 'finance' },
+            { name: 'Power Converter', link: '/power-converter', keywords: 'power converter units', category: 'finance' },
+            { name: 'Frequency Converter', link: '/frequency-converter', keywords: 'frequency converter units', category: 'finance' },
+            { name: 'Angle Converter', link: '/angle-converter', keywords: 'angle converter units', category: 'finance' },
+            { name: 'Pace Converter', link: '/pace-converter', keywords: 'pace converter units', category: 'finance' },
+            { name: 'Fuel Economy Converter', link: '/fuel-economy-converter', keywords: 'fuel economy converter units', category: 'finance' }
         ];
 
         // ============ Build Shared Components ============
@@ -1062,7 +1090,6 @@
         });
 
         // ============ Init ============
-        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
         buildMegaMenu();
         buildMobileToolsMenu();
         buildSearchList();
