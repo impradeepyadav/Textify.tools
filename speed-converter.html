@@ -63,7 +63,7 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
 
-    <!-- Structured Data (SoftwareApplication + FAQ + Person + Breadcrumb) -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -400,6 +400,7 @@
         .reference-table th, .reference-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); color: var(--text-light); }
         .reference-table th { background: var(--table-header); color: var(--text); font-weight: 600; }
 
+        /* ============ FOOTER (matches index page) ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -420,13 +421,14 @@
         .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
         @media (max-width: 768px) {
             footer { padding: 30px 16px 160px; }
-            .footer-middle { flex-direction: column; align-items: center; gap: 20px; }
-            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: center; }
-            .footer-right-columns { justify-content: center; gap: 20px; }
-            .footer-column { min-width: auto; text-align: center; }
+            .footer-middle { flex-direction: column; align-items: flex-start; gap: 28px; text-align: left; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
+            .footer-right-columns { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 22px; width: 100%; }
+            .footer-column { min-width: auto; text-align: left; width: 100%; }
             .footer-links a { display: block; }
         }
         @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
+
         @media (max-width: 768px) {
             .desktop-nav { display: none; }
             .theme-btn, .search-trigger { display: none; }
@@ -435,13 +437,14 @@
             .logo { font-size: 20px; }
             h1 { font-size: 28px; }
             main { padding: 20px 0; }
-            footer { padding: 30px 16px 160px; }
         }
         @media (min-width: 769px) {
             .hamburger-btn { display: none; }
             .mobile-sidebar-overlay { display: none !important; }
             .mobile-sidebar { display: none !important; }
         }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
 
     <div class="page-wrapper">
@@ -614,6 +617,7 @@
             </div>
         </main>
 
+        <!-- ============ FOOTER (updated to match index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -633,6 +637,8 @@
                                 <li><a href="/case-converter">Case Converter</a></li>
                                 <li><a href="/password-generator">Password Generator</a></li>
                                 <li><a href="/whatsapp-link-generator">WhatsApp Link Generator</a></li>
+                                <li><a href="/shipping-label-generator">Shipping Label Generator</a></li>
+                                <li><a href="/resume-builder">Resume Builder</a></li>
                                 <li><a href="/signature-resizer">Signature Resizer</a></li>
                                 <li><a href="/passport-size-photo-maker">Passport Size Photo Maker</a></li>
                                 <li><a href="/barcode-generator">Barcode Generator</a></li>
@@ -694,20 +700,20 @@
     <div class="toast" id="toast"></div>
 
     <script>
+        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
+
         // ============ Speed Converter Logic ============
         function convertSpeed(value, fromUnit, toUnit) {
-            // Convert to meters per second (m/s)
             let mps;
             switch(fromUnit) {
                 case 'ms': mps = value; break;
                 case 'kmh': mps = value / 3.6; break;
                 case 'mph': mps = value * 0.44704; break;
-                case 'knot': mps = value * 0.5144444444444445; break; // 1 knot = 1852/3600 m/s
+                case 'knot': mps = value * 0.5144444444444445; break;
                 case 'fts': mps = value * 0.3048; break;
-                case 'mach': mps = value * 340.29; break; // speed of sound at sea level
+                case 'mach': mps = value * 340.29; break;
                 default: return null;
             }
-            // Convert from m/s to target
             switch(toUnit) {
                 case 'ms': return mps;
                 case 'kmh': return mps * 3.6;
@@ -746,7 +752,6 @@
                 document.getElementById('resultUnit').textContent = 'Error';
                 return;
             }
-            // Format with appropriate precision
             const absResult = Math.abs(result);
             let display;
             if (absResult >= 1000) {
@@ -786,12 +791,9 @@
             window.toastTimer=setTimeout(()=>t.classList.remove('show'), dur);
         }
 
-        // Attach event listeners
         document.getElementById('valueInput').addEventListener('input', updateResult);
         document.getElementById('fromUnit').addEventListener('change', updateResult);
         document.getElementById('toUnit').addEventListener('change', updateResult);
-
-        // Initialize
         updateResult();
 
         // ============ FAQ Toggle ============
@@ -807,7 +809,7 @@
             }
         }
 
-        // ============ Full Tools List (consistent with home page) ============
+        // ============ Full Tools List (matches index page) ============
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'text', label: 'Text Tools' },
@@ -882,6 +884,17 @@
             { name: 'Mention Extractor', link: '/mention-extractor', keywords: 'mention extract username @ social', category: 'text' },
             { name: 'Keyword Extractor', link: '/keyword-extractor', keywords: 'keyword extract important terms', category: 'text' },
             { name: 'Duplicate Line Finder', link: '/duplicate-line-finder', keywords: 'duplicate line find report', category: 'text' },
+            { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'text' },
+            { name: 'Reverse Lines', link: '/reverse-lines', keywords: 'reverse lines order flip', category: 'text' },
+            { name: 'Shuffle Lines', link: '/shuffle-lines', keywords: 'shuffle lines randomize order', category: 'text' },
+            { name: 'Number Lines', link: '/number-lines', keywords: 'number lines add numbers ordered', category: 'text' },
+            { name: 'Remove Line Numbers', link: '/remove-line-numbers', keywords: 'remove line numbers strip', category: 'text' },
+            { name: 'Unique Lines Extractor', link: '/unique-lines-extractor', keywords: 'unique lines extract distinct', category: 'text' },
+            { name: 'Filter Lines', link: '/filter-lines', keywords: 'filter lines grep contain exclude', category: 'text' },
+            { name: 'Trim Lines', link: '/trim-lines', keywords: 'trim lines spaces leading trailing', category: 'text' },
+            { name: 'Join Lines', link: '/join-lines', keywords: 'join lines merge combine', category: 'text' },
+            { name: 'Split Lines', link: '/split-lines', keywords: 'split lines delimiter break', category: 'text' },
+            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'text' },
 
             // Developer Tools
             { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'developer' },
@@ -994,6 +1007,8 @@
             { name: 'Quotation Generator', link: '/quotation-generator', keywords: 'quotation generator', category: 'business' },
             { name: 'Receipt Generator', link: '/receipt-generator', keywords: 'receipt generator', category: 'business' },
             { name: 'Payslip Generator', link: '/payslip-generator', keywords: 'payslip generator', category: 'business' },
+            { name: 'Shipping Label Generator', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', category: 'business' },
+            { name: 'Resume Builder', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', category: 'business' },
             { name: 'GST Calculator', link: '/gst-calculator', keywords: 'gst calculator tax', category: 'business' },
             { name: 'Discount Calculator', link: '/discount-calculator', keywords: 'discount calculator sale', category: 'business' },
             { name: 'Profit Margin Calculator', link: '/profit-margin-calculator', keywords: 'profit margin calculator', category: 'business' },
@@ -1197,7 +1212,6 @@
         });
 
         // ============ Init ============
-        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
         buildMegaMenu();
         buildMobileToolsMenu();
         buildSearchList();
