@@ -10,19 +10,16 @@
     <link rel="canonical" href="https://textify.tools/power-converter">
     <link rel="alternate" hreflang="en-US" href="https://textify.tools/power-converter">
     <meta name="theme-color" content="#ffffff">
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/power-converter">
     <meta property="og:title" content="Power Converter – Free Online Tool">
     <meta property="og:description" content="Convert power units: watts, kilowatts, megawatts, horsepower, BTU/h, and more. Instant, private, free.">
     <meta property="og:site_name" content="Textify.tools">
     <meta property="og:image" content="https://textify.tools/og-image.png">
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Power Converter – Textify.tools">
     <meta name="twitter:description" content="Convert power units instantly — free, private, and works offline.">
     <meta name="twitter:image" content="https://textify.tools/og-image.png">
-    <!-- Icons -->
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -32,7 +29,6 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/mstile-150x150.png">
 
-    <!-- Preconnect for critical third-party origins -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
     <link rel="preconnect" href="https://unpkg.com">
@@ -40,10 +36,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- yandex verification -->
     <meta name="yandex-verification" content="6e105f6188a8c833" />
 
-    <!-- Inline script to prevent dark mode flash -->
     <script>
         (function() {
             var theme = localStorage.getItem('theme');
@@ -51,7 +45,6 @@
         })();
     </script>
 
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -60,10 +53,8 @@
         gtag('config', 'G-6VGXXT81MB');
     </script>
 
-    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
 
-    <!-- Structured Data (SoftwareApplication + FAQ + Person + Breadcrumb) -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -400,6 +391,7 @@
         .reference-table th, .reference-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); color: var(--text-light); }
         .reference-table th { background: var(--table-header); color: var(--text); font-weight: 600; }
 
+        /* ============ FOOTER (matches index page) ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -420,13 +412,14 @@
         .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
         @media (max-width: 768px) {
             footer { padding: 30px 16px 160px; }
-            .footer-middle { flex-direction: column; align-items: center; gap: 20px; }
-            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: center; }
-            .footer-right-columns { justify-content: center; gap: 20px; }
-            .footer-column { min-width: auto; text-align: center; }
+            .footer-middle { flex-direction: column; align-items: flex-start; gap: 28px; text-align: left; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
+            .footer-right-columns { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 22px; width: 100%; }
+            .footer-column { min-width: auto; text-align: left; width: 100%; }
             .footer-links a { display: block; }
         }
         @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
+
         @media (max-width: 768px) {
             .desktop-nav { display: none; }
             .theme-btn, .search-trigger { display: none; }
@@ -435,13 +428,14 @@
             .logo { font-size: 20px; }
             h1 { font-size: 28px; }
             main { padding: 20px 0; }
-            footer { padding: 30px 16px 160px; }
         }
         @media (min-width: 769px) {
             .hamburger-btn { display: none; }
             .mobile-sidebar-overlay { display: none !important; }
             .mobile-sidebar { display: none !important; }
         }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
 
     <div class="page-wrapper">
@@ -623,6 +617,7 @@
             </div>
         </main>
 
+        <!-- ============ FOOTER (updated to match index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -642,6 +637,8 @@
                                 <li><a href="/case-converter">Case Converter</a></li>
                                 <li><a href="/password-generator">Password Generator</a></li>
                                 <li><a href="/whatsapp-link-generator">WhatsApp Link Generator</a></li>
+                                <li><a href="/shipping-label-generator">Shipping Label Generator</a></li>
+                                <li><a href="/resume-builder">Resume Builder</a></li>
                                 <li><a href="/signature-resizer">Signature Resizer</a></li>
                                 <li><a href="/passport-size-photo-maker">Passport Size Photo Maker</a></li>
                                 <li><a href="/barcode-generator">Barcode Generator</a></li>
@@ -703,77 +700,42 @@
     <div class="toast" id="toast"></div>
 
     <script>
+        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
+
         // ============ Power Converter Logic ============
         function convertPower(value, fromUnit, toUnit) {
-            // Convert everything to watts (W)
             let w;
             switch(fromUnit) {
-                case 'w':
-                    w = value;
-                    break;
-                case 'kw':
-                    w = value * 1000;
-                    break;
-                case 'mw':
-                    w = value * 1000000;
-                    break;
-                case 'gw':
-                    w = value * 1000000000;
-                    break;
-                case 'hp_mech':
-                    w = value * 745.699872;
-                    break;
-                case 'hp_metric':
-                    w = value * 735.49875;
-                    break;
-                case 'btu_h':
-                    w = value * 0.29307107;
-                    break;
-                case 'cal_s':
-                    w = value * 4.1868;
-                    break;
-                case 'ft_lb_min':
-                    w = value * 0.0225969658;
-                    break;
-                default:
-                    return null;
+                case 'w': w = value; break;
+                case 'kw': w = value * 1000; break;
+                case 'mw': w = value * 1000000; break;
+                case 'gw': w = value * 1000000000; break;
+                case 'hp_mech': w = value * 745.699872; break;
+                case 'hp_metric': w = value * 735.49875; break;
+                case 'btu_h': w = value * 0.29307107; break;
+                case 'cal_s': w = value * 4.1868; break;
+                case 'ft_lb_min': w = value * 0.0225969658; break;
+                default: return null;
             }
-            // Convert from watts to target
             switch(toUnit) {
-                case 'w':
-                    return w;
-                case 'kw':
-                    return w / 1000;
-                case 'mw':
-                    return w / 1000000;
-                case 'gw':
-                    return w / 1000000000;
-                case 'hp_mech':
-                    return w / 745.699872;
-                case 'hp_metric':
-                    return w / 735.49875;
-                case 'btu_h':
-                    return w / 0.29307107;
-                case 'cal_s':
-                    return w / 4.1868;
-                case 'ft_lb_min':
-                    return w / 0.0225969658;
-                default:
-                    return null;
+                case 'w': return w;
+                case 'kw': return w / 1000;
+                case 'mw': return w / 1000000;
+                case 'gw': return w / 1000000000;
+                case 'hp_mech': return w / 745.699872;
+                case 'hp_metric': return w / 735.49875;
+                case 'btu_h': return w / 0.29307107;
+                case 'cal_s': return w / 4.1868;
+                case 'ft_lb_min': return w / 0.0225969658;
+                default: return null;
             }
         }
 
         function formatUnit(unit) {
             const map = {
-                'w': 'W',
-                'kw': 'kW',
-                'mw': 'MW',
-                'gw': 'GW',
-                'hp_mech': 'hp',
-                'hp_metric': 'PS',
-                'btu_h': 'BTU/h',
-                'cal_s': 'cal/s',
-                'ft_lb_min': 'ft·lb/min'
+                'w': 'W', 'kw': 'kW', 'mw': 'MW', 'gw': 'GW',
+                'hp_mech': 'hp', 'hp_metric': 'PS',
+                'btu_h': 'BTU/h', 'cal_s': 'cal/s', 'ft_lb_min': 'ft·lb/min'
             };
             return map[unit] || unit;
         }
@@ -793,7 +755,6 @@
                 document.getElementById('resultUnit').textContent = 'Error';
                 return;
             }
-            // Format with appropriate precision
             const absResult = Math.abs(result);
             let display;
             if (absResult >= 1e6) {
@@ -820,7 +781,6 @@
 
         function copyResult() {
             const value = document.getElementById('resultValue').textContent;
-            const unit = document.getElementById('resultUnit').textContent;
             if (value === '—' || value === 'Invalid input') return;
             navigator.clipboard.writeText(value).then(() => {
                 showToast('Copied: ' + value);
@@ -835,12 +795,9 @@
             window.toastTimer=setTimeout(()=>t.classList.remove('show'), dur);
         }
 
-        // Attach event listeners
         document.getElementById('valueInput').addEventListener('input', updateResult);
         document.getElementById('fromUnit').addEventListener('change', updateResult);
         document.getElementById('toUnit').addEventListener('change', updateResult);
-
-        // Initialize
         updateResult();
 
         // ============ FAQ Toggle ============
@@ -856,7 +813,7 @@
             }
         }
 
-        // ============ Full Tools List (consistent with home page) ============
+        // ============ Full Tools List ============
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'text', label: 'Text Tools' },
@@ -1043,6 +1000,8 @@
             { name: 'Quotation Generator', link: '/quotation-generator', keywords: 'quotation generator', category: 'business' },
             { name: 'Receipt Generator', link: '/receipt-generator', keywords: 'receipt generator', category: 'business' },
             { name: 'Payslip Generator', link: '/payslip-generator', keywords: 'payslip generator', category: 'business' },
+            { name: 'Shipping Label Generator', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', category: 'business' },
+            { name: 'Resume Builder', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', category: 'business' },
             { name: 'GST Calculator', link: '/gst-calculator', keywords: 'gst calculator tax', category: 'business' },
             { name: 'Discount Calculator', link: '/discount-calculator', keywords: 'discount calculator sale', category: 'business' },
             { name: 'Profit Margin Calculator', link: '/profit-margin-calculator', keywords: 'profit margin calculator', category: 'business' },
@@ -1105,7 +1064,7 @@
             { name: 'Speed Converter', link: '/speed-converter', keywords: 'speed converter units', category: 'finance' },
             { name: 'Data Storage Converter', link: '/data-storage-converter', keywords: 'data storage converter units', category: 'finance' },
             { name: 'Energy Converter', link: '/energy-converter', keywords: 'energy converter units', category: 'finance' },
-            { name: 'Pressure Converter', link: '/pressure-converter', keywords: 'pressure converter units', category: 'finance' },
+            { name: 'Pressure Converter', link: '/pressure-converter', keywords: 'pressure converter pa kpa bar psi atm torr mmhg', category: 'finance' },
             { name: 'Power Converter', link: '/power-converter', keywords: 'power converter watt horsepower btu cal ft-lb', category: 'finance' },
             { name: 'Frequency Converter', link: '/frequency-converter', keywords: 'frequency converter hz khz mhz ghz rpm rad/s deg/s', category: 'finance' },
             { name: 'Angle Converter', link: '/angle-converter', keywords: 'angle converter degree radian gradian arcmin arcsec mrad', category: 'finance' },
@@ -1246,7 +1205,6 @@
         });
 
         // ============ Init ============
-        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
         buildMegaMenu();
         buildMobileToolsMenu();
         buildSearchList();
