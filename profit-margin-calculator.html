@@ -130,7 +130,6 @@
 <body>
     <script src="https://unpkg.com/lucide@0.344.0"></script>
     <style>
-        /* Reusing same CSS as other tools for consistency */
         :root {
             --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5; --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff; --input-border: #d4d4d4;
             --footer-bg: #ffffff; --footer-text: #333333; --footer-heading: #000000; --footer-link-color: #2563eb; --footer-link-hover: #1d4ed8; --footer-border: #e5e5e5; --faq-bg: #fafafa; --faq-active: #f3f4f6; --table-header: #f3f4f6; --table-hover: #fafafa;
@@ -290,6 +289,7 @@
         .btn.primary { background: var(--primary); color: var(--bg); border: none; }
         .btn.primary:hover { opacity: 0.9; }
 
+        /* ============ FOOTER (matches index page) ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -309,15 +309,22 @@
         .footer-about-text a { color: var(--footer-link-color); text-decoration: none; }
         .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
         @media (max-width: 768px) {
-            footer { padding: 30px 16px 160px; } .footer-middle { flex-direction: column; align-items: center; gap: 20px; } .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: center; } .footer-right-columns { justify-content: center; gap: 20px; } .footer-column { min-width: auto; text-align: center; } .footer-links a { display: block; }
+            footer { padding: 30px 16px 160px; }
+            .footer-middle { flex-direction: column; align-items: flex-start; gap: 28px; text-align: left; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
+            .footer-right-columns { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 22px; width: 100%; }
+            .footer-column { min-width: auto; text-align: left; width: 100%; }
+            .footer-links a { display: block; }
         }
         @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
         @media (max-width: 768px) {
-            .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 0; } footer { padding: 30px 16px 160px; } .calc-field { min-width: 100%; } .result-grid { grid-template-columns: 1fr 1fr; }
+            .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 0; } .calc-field { min-width: 100%; } .result-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (min-width: 769px) {
             .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; }
         }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
 
     <div class="page-wrapper">
@@ -461,6 +468,7 @@
             </div>
         </main>
 
+        <!-- ============ FOOTER (updated to match index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -480,6 +488,8 @@
                                 <li><a href="/case-converter">Case Converter</a></li>
                                 <li><a href="/password-generator">Password Generator</a></li>
                                 <li><a href="/whatsapp-link-generator">WhatsApp Link Generator</a></li>
+                                <li><a href="/shipping-label-generator">Shipping Label Generator</a></li>
+                                <li><a href="/resume-builder">Resume Builder</a></li>
                                 <li><a href="/signature-resizer">Signature Resizer</a></li>
                                 <li><a href="/passport-size-photo-maker">Passport Size Photo Maker</a></li>
                                 <li><a href="/barcode-generator">Barcode Generator</a></li>
@@ -539,6 +549,8 @@
     <div class="toast" id="toast"></div>
 
     <script>
+        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
+
         // ============ Profit Margin Calculator Core Logic ============
         function updateMode() {
             const mode = document.getElementById('calcMode').value;
@@ -567,10 +579,9 @@
                 marginPercent = sellingPrice > 0 ? (profit / sellingPrice) * 100 : 0;
                 markupPercent = cost > 0 ? (profit / cost) * 100 : 0;
             } else {
-                // reverse mode: cost + desired margin% -> find selling price
                 const desiredMarginPercent = second;
                 if (desiredMarginPercent >= 100) {
-                    sellingPrice = Infinity; // avoid division by zero
+                    sellingPrice = Infinity;
                 } else {
                     sellingPrice = cost / (1 - desiredMarginPercent / 100);
                 }
@@ -579,7 +590,6 @@
                 markupPercent = cost > 0 ? (profit / cost) * 100 : 0;
             }
 
-            // Ensure sellingPrice is finite
             if (!isFinite(sellingPrice)) sellingPrice = 0;
 
             const fmt = (num) => isFinite(num) ? num.toFixed(2) : '0.00';
@@ -626,7 +636,7 @@
             }
         }
 
-        // ============ Full Tools List (abbreviated in this response but included in actual file) ============
+        // ============ Full Tools List (updated with Shipping Label + Resume Builder) ============
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'text', label: 'Text Tools' },
@@ -639,6 +649,7 @@
         ];
         const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
         const tools = [
+            // Text Tools
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'text' },
             { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', category: 'text' },
             { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count block format', category: 'text' },
@@ -698,6 +709,7 @@
             { name: 'Mention Extractor', link: '/mention-extractor', keywords: 'mention extract username @ social', category: 'text' },
             { name: 'Keyword Extractor', link: '/keyword-extractor', keywords: 'keyword extract important terms', category: 'text' },
             { name: 'Duplicate Line Finder', link: '/duplicate-line-finder', keywords: 'duplicate line find report', category: 'text' },
+
             // Developer Tools
             { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'developer' },
             { name: 'JSON Minifier', link: '/json-minifier', keywords: 'json minify compress', category: 'developer' },
@@ -751,6 +763,7 @@
             { name: 'HMAC Generator', link: '/hmac-generator', keywords: 'hmac hash generator', category: 'developer' },
             { name: 'Cron Expression Generator', link: '/cron-expression-generator', keywords: 'cron expression generator', category: 'developer' },
             { name: 'Cron Expression Tester', link: '/cron-expression-tester', keywords: 'cron expression tester', category: 'developer' },
+
             // Generators
             { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generator' },
             { name: 'PIN Generator', link: '/pin-generator', keywords: 'pin generator random', category: 'generator' },
@@ -765,6 +778,7 @@
             { name: 'WhatsApp Link Generator', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', category: 'generator' },
             { name: 'Business Name Generator', link: '/business-name-generator', keywords: 'business name generator', category: 'generator' },
             { name: 'Invoice Number Generator', link: '/invoice-number-generator', keywords: 'invoice number generator', category: 'generator' },
+
             // Image Tools
             { name: 'Image Compressor', link: '/image-compressor', keywords: 'image compressor reduce size', category: 'image' },
             { name: 'Image Resizer', link: '/image-resizer', keywords: 'image resize dimensions', category: 'image' },
@@ -785,6 +799,7 @@
             { name: 'Photo 200KB', link: '/photo-200kb', keywords: 'photo 200kb compress', category: 'image' },
             { name: 'Signature Resizer', link: '/signature-resizer', keywords: 'signature resize image document', category: 'image' },
             { name: 'Passport Size Photo Maker', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image', category: 'image' },
+
             // PDF Tools
             { name: 'JPG to PDF', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image', category: 'pdf' },
             { name: 'PNG to PDF', link: '/png-to-pdf', keywords: 'png pdf converter', category: 'pdf' },
@@ -800,15 +815,19 @@
             { name: 'PDF Text Extractor', link: '/pdf-text-extractor', keywords: 'pdf text extractor', category: 'pdf' },
             { name: 'PDF Lock', link: '/pdf-lock', keywords: 'pdf lock password protect', category: 'pdf' },
             { name: 'PDF Unlock', link: '/pdf-unlock', keywords: 'pdf unlock password remove', category: 'pdf' },
+
             // Business Tools
             { name: 'Invoice Generator', link: '/invoice-generator', keywords: 'invoice generator', category: 'business' },
             { name: 'Quotation Generator', link: '/quotation-generator', keywords: 'quotation generator', category: 'business' },
             { name: 'Receipt Generator', link: '/receipt-generator', keywords: 'receipt generator', category: 'business' },
             { name: 'Payslip Generator', link: '/payslip-generator', keywords: 'payslip generator', category: 'business' },
+            { name: 'Shipping Label Generator', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', category: 'business' },
+            { name: 'Resume Builder', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', category: 'business' },
             { name: 'GST Calculator', link: '/gst-calculator', keywords: 'gst calculator tax', category: 'business' },
             { name: 'Discount Calculator', link: '/discount-calculator', keywords: 'discount calculator sale', category: 'business' },
             { name: 'Profit Margin Calculator', link: '/profit-margin-calculator', keywords: 'profit margin calculator', category: 'business' },
             { name: 'Salary Calculator', link: '/salary-calculator', keywords: 'salary calculator', category: 'business' },
+
             // Finance Tools
             { name: 'EMI Calculator', link: '/emi-calculator', keywords: 'emi calculator loan', category: 'finance' },
             { name: 'Loan Calculator', link: '/loan-calculator', keywords: 'loan calculator', category: 'finance' },
@@ -931,7 +950,6 @@
             if((e.ctrlKey||e.metaKey)&&e.key==='k'){ e.preventDefault(); openFullSearch(); }
         });
 
-        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
         buildMegaMenu(); buildMobileToolsMenu(); buildSearchList();
         lucide.createIcons();
     </script>
