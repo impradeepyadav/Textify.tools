@@ -10,19 +10,16 @@
     <link rel="canonical" href="https://textify.tools/pace-converter">
     <link rel="alternate" hreflang="en-US" href="https://textify.tools/pace-converter">
     <meta name="theme-color" content="#ffffff">
-    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/pace-converter">
     <meta property="og:title" content="Pace Converter – Free Online Tool">
     <meta property="og:description" content="Convert between min/km, min/mile, km/h, mph, and more. Instant, private, free.">
     <meta property="og:site_name" content="Textify.tools">
     <meta property="og:image" content="https://textify.tools/og-image.png">
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pace Converter – Textify.tools">
     <meta name="twitter:description" content="Convert pace units instantly — free, private, and works offline.">
     <meta name="twitter:image" content="https://textify.tools/og-image.png">
-    <!-- Icons -->
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -32,7 +29,6 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/mstile-150x150.png">
 
-    <!-- Preconnect for critical third-party origins -->
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://pagead2.googlesyndication.com">
     <link rel="preconnect" href="https://unpkg.com">
@@ -40,10 +36,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- yandex verification -->
     <meta name="yandex-verification" content="6e105f6188a8c833" />
 
-    <!-- Inline script to prevent dark mode flash -->
     <script>
         (function() {
             var theme = localStorage.getItem('theme');
@@ -51,7 +45,6 @@
         })();
     </script>
 
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -60,10 +53,8 @@
         gtag('config', 'G-6VGXXT81MB');
     </script>
 
-    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5757459170037186" crossorigin="anonymous"></script>
 
-    <!-- Structured Data (SoftwareApplication + FAQ + Person + Breadcrumb) -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -104,30 +95,9 @@
                 {
                     "@type": "FAQPage",
                     "mainEntity": [
-                        {
-                            "@type": "Question",
-                            "name": "How do I use the pace converter?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Enter a value, select the unit you're converting from, select the unit you want to convert to, and the result appears instantly. Use the copy button to copy the result."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Is the pace converter free?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Yes, completely free. No signup, no hidden charges."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Is my data safe?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Absolutely. All calculations happen locally in your browser. Your input never leaves your device."
-                            }
-                        }
+                        { "@type": "Question", "name": "How do I use the pace converter?", "acceptedAnswer": { "@type": "Answer", "text": "Enter a value, select the unit you're converting from, select the unit you want to convert to, and the result appears instantly. Use the copy button to copy the result." } },
+                        { "@type": "Question", "name": "Is the pace converter free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free. No signup, no hidden charges." } },
+                        { "@type": "Question", "name": "Is my data safe?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All calculations happen locally in your browser. Your input never leaves your device." } }
                     ]
                 },
                 {
@@ -400,6 +370,7 @@
         .reference-table th, .reference-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); color: var(--text-light); }
         .reference-table th { background: var(--table-header); color: var(--text); font-weight: 600; }
 
+        /* ============ FOOTER (matches index page) ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -420,13 +391,14 @@
         .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
         @media (max-width: 768px) {
             footer { padding: 30px 16px 160px; }
-            .footer-middle { flex-direction: column; align-items: center; gap: 20px; }
-            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: center; }
-            .footer-right-columns { justify-content: center; gap: 20px; }
-            .footer-column { min-width: auto; text-align: center; }
+            .footer-middle { flex-direction: column; align-items: flex-start; gap: 28px; text-align: left; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
+            .footer-right-columns { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 22px; width: 100%; }
+            .footer-column { min-width: auto; text-align: left; width: 100%; }
             .footer-links a { display: block; }
         }
         @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
+
         @media (max-width: 768px) {
             .desktop-nav { display: none; }
             .theme-btn, .search-trigger { display: none; }
@@ -435,13 +407,14 @@
             .logo { font-size: 20px; }
             h1 { font-size: 28px; }
             main { padding: 20px 0; }
-            footer { padding: 30px 16px 160px; }
         }
         @media (min-width: 769px) {
             .hamburger-btn { display: none; }
             .mobile-sidebar-overlay { display: none !important; }
             .mobile-sidebar { display: none !important; }
         }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
 
     <div class="page-wrapper">
@@ -614,6 +587,7 @@
             </div>
         </main>
 
+        <!-- ============ FOOTER (updated to match index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -633,6 +607,8 @@
                                 <li><a href="/case-converter">Case Converter</a></li>
                                 <li><a href="/password-generator">Password Generator</a></li>
                                 <li><a href="/whatsapp-link-generator">WhatsApp Link Generator</a></li>
+                                <li><a href="/shipping-label-generator">Shipping Label Generator</a></li>
+                                <li><a href="/resume-builder">Resume Builder</a></li>
                                 <li><a href="/signature-resizer">Signature Resizer</a></li>
                                 <li><a href="/passport-size-photo-maker">Passport Size Photo Maker</a></li>
                                 <li><a href="/barcode-generator">Barcode Generator</a></li>
@@ -696,46 +672,24 @@
     <script>
         // ============ Pace Converter Logic ============
         function convertPace(value, fromUnit, toUnit) {
-            // Convert to meters per second (m/s) as base
             let mps;
             switch(fromUnit) {
-                case 'min_km':
-                    mps = 1000 / (value * 60);
-                    break;
-                case 'min_mile':
-                    mps = 1609.344 / (value * 60);
-                    break;
-                case 'kmh':
-                    mps = value / 3.6;
-                    break;
-                case 'mph':
-                    mps = value * 0.44704;
-                    break;
-                case 'ms':
-                    mps = value;
-                    break;
-                case 'sec_100m':
-                    mps = 100 / value;
-                    break;
-                default:
-                    return null;
+                case 'min_km': mps = 1000 / (value * 60); break;
+                case 'min_mile': mps = 1609.344 / (value * 60); break;
+                case 'kmh': mps = value / 3.6; break;
+                case 'mph': mps = value * 0.44704; break;
+                case 'ms': mps = value; break;
+                case 'sec_100m': mps = 100 / value; break;
+                default: return null;
             }
-            // Convert from m/s to target
             switch(toUnit) {
-                case 'min_km':
-                    return 1000 / (mps * 60);
-                case 'min_mile':
-                    return 1609.344 / (mps * 60);
-                case 'kmh':
-                    return mps * 3.6;
-                case 'mph':
-                    return mps / 0.44704;
-                case 'ms':
-                    return mps;
-                case 'sec_100m':
-                    return 100 / mps;
-                default:
-                    return null;
+                case 'min_km': return 1000 / (mps * 60);
+                case 'min_mile': return 1609.344 / (mps * 60);
+                case 'kmh': return mps * 3.6;
+                case 'mph': return mps / 0.44704;
+                case 'ms': return mps;
+                case 'sec_100m': return 100 / mps;
+                default: return null;
             }
         }
 
@@ -796,12 +750,9 @@
             window.toastTimer=setTimeout(()=>t.classList.remove('show'), dur);
         }
 
-        // Attach event listeners
         document.getElementById('valueInput').addEventListener('input', updateResult);
         document.getElementById('fromUnit').addEventListener('change', updateResult);
         document.getElementById('toUnit').addEventListener('change', updateResult);
-
-        // Initialize
         updateResult();
 
         // ============ FAQ Toggle ============
@@ -817,7 +768,7 @@
             }
         }
 
-        // ============ Full Tools List (consistent with home page) ============
+        // ============ Full Tools List (updated with Shipping Label + Resume Builder) ============
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'text', label: 'Text Tools' },
@@ -832,7 +783,6 @@
         const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
 
         const tools = [
-            // Text Tools
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'text' },
             { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', category: 'text' },
             { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count block format', category: 'text' },
@@ -892,8 +842,6 @@
             { name: 'Mention Extractor', link: '/mention-extractor', keywords: 'mention extract username @ social', category: 'text' },
             { name: 'Keyword Extractor', link: '/keyword-extractor', keywords: 'keyword extract important terms', category: 'text' },
             { name: 'Duplicate Line Finder', link: '/duplicate-line-finder', keywords: 'duplicate line find report', category: 'text' },
-
-            // Developer Tools
             { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'developer' },
             { name: 'JSON Minifier', link: '/json-minifier', keywords: 'json minify compress', category: 'developer' },
             { name: 'JSON Validator', link: '/json-validator', keywords: 'json validate check', category: 'developer' },
@@ -946,8 +894,6 @@
             { name: 'HMAC Generator', link: '/hmac-generator', keywords: 'hmac hash generator', category: 'developer' },
             { name: 'Cron Expression Generator', link: '/cron-expression-generator', keywords: 'cron expression generator', category: 'developer' },
             { name: 'Cron Expression Tester', link: '/cron-expression-tester', keywords: 'cron expression tester', category: 'developer' },
-
-            // Generators
             { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generator' },
             { name: 'PIN Generator', link: '/pin-generator', keywords: 'pin generator random', category: 'generator' },
             { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generator' },
@@ -961,8 +907,6 @@
             { name: 'WhatsApp Link Generator', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', category: 'generator' },
             { name: 'Business Name Generator', link: '/business-name-generator', keywords: 'business name generator', category: 'generator' },
             { name: 'Invoice Number Generator', link: '/invoice-number-generator', keywords: 'invoice number generator', category: 'generator' },
-
-            // Image Tools
             { name: 'Image Compressor', link: '/image-compressor', keywords: 'image compressor reduce size', category: 'image' },
             { name: 'Image Resizer', link: '/image-resizer', keywords: 'image resize dimensions', category: 'image' },
             { name: 'Image Cropper', link: '/image-cropper', keywords: 'image crop', category: 'image' },
@@ -982,8 +926,6 @@
             { name: 'Photo 200KB', link: '/photo-200kb', keywords: 'photo 200kb compress', category: 'image' },
             { name: 'Signature Resizer', link: '/signature-resizer', keywords: 'signature resize image document', category: 'image' },
             { name: 'Passport Size Photo Maker', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image', category: 'image' },
-
-            // PDF Tools
             { name: 'JPG to PDF', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image', category: 'pdf' },
             { name: 'PNG to PDF', link: '/png-to-pdf', keywords: 'png pdf converter', category: 'pdf' },
             { name: 'Images to PDF', link: '/images-to-pdf', keywords: 'images pdf converter combine', category: 'pdf' },
@@ -998,18 +940,16 @@
             { name: 'PDF Text Extractor', link: '/pdf-text-extractor', keywords: 'pdf text extractor', category: 'pdf' },
             { name: 'PDF Lock', link: '/pdf-lock', keywords: 'pdf lock password protect', category: 'pdf' },
             { name: 'PDF Unlock', link: '/pdf-unlock', keywords: 'pdf unlock password remove', category: 'pdf' },
-
-            // Business Tools
             { name: 'Invoice Generator', link: '/invoice-generator', keywords: 'invoice generator', category: 'business' },
             { name: 'Quotation Generator', link: '/quotation-generator', keywords: 'quotation generator', category: 'business' },
             { name: 'Receipt Generator', link: '/receipt-generator', keywords: 'receipt generator', category: 'business' },
             { name: 'Payslip Generator', link: '/payslip-generator', keywords: 'payslip generator', category: 'business' },
+            { name: 'Shipping Label Generator', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', category: 'business' },
+            { name: 'Resume Builder', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', category: 'business' },
             { name: 'GST Calculator', link: '/gst-calculator', keywords: 'gst calculator tax', category: 'business' },
             { name: 'Discount Calculator', link: '/discount-calculator', keywords: 'discount calculator sale', category: 'business' },
             { name: 'Profit Margin Calculator', link: '/profit-margin-calculator', keywords: 'profit margin calculator', category: 'business' },
             { name: 'Salary Calculator', link: '/salary-calculator', keywords: 'salary calculator', category: 'business' },
-
-            // Finance Tools
             { name: 'EMI Calculator', link: '/emi-calculator', keywords: 'emi calculator loan', category: 'finance' },
             { name: 'Loan Calculator', link: '/loan-calculator', keywords: 'loan calculator', category: 'finance' },
             { name: 'SIP Calculator', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment', category: 'finance' },
