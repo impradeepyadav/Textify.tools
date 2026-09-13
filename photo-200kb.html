@@ -342,6 +342,7 @@
         .error-message { color: var(--error-text); background: var(--error-bg); border: 1px solid var(--error-text); padding: 12px; border-radius: 8px; margin-top: 8px; font-size: 13px; display: none; }
         .error-message.visible { display: block; }
 
+        /* ============ FOOTER (matches index page) ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -362,10 +363,10 @@
         .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
         @media (max-width: 768px) {
             footer { padding: 30px 16px 160px; }
-            .footer-middle { flex-direction: column; align-items: center; gap: 20px; }
-            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: center; }
-            .footer-right-columns { justify-content: center; gap: 20px; }
-            .footer-column { min-width: auto; text-align: center; }
+            .footer-middle { flex-direction: column; align-items: flex-start; gap: 28px; text-align: left; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
+            .footer-right-columns { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 22px; width: 100%; }
+            .footer-column { min-width: auto; text-align: left; width: 100%; }
             .footer-links a { display: block; }
         }
         @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
@@ -377,13 +378,14 @@
             .logo { font-size: 20px; }
             h1 { font-size: 28px; }
             main { padding: 20px 0; }
-            footer { padding: 30px 16px 160px; }
         }
         @media (min-width: 769px) {
             .hamburger-btn { display: none; }
             .mobile-sidebar-overlay { display: none !important; }
             .mobile-sidebar { display: none !important; }
         }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
 
     <div class="page-wrapper">
@@ -423,7 +425,6 @@
                 <p class="subtitle">Compress any photo to exactly 200KB right in your browser. Perfect for online forms, applications, and document uploads that require a specific file size. No uploads to servers, no signup — just add your photo, get the compressed version, and download.</p>
 
                 <div class="tool-container">
-                    <!-- Drop zone -->
                     <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
                         <i data-lucide="upload-cloud" width="40" height="40"></i>
                         <p style="font-weight:600; margin-bottom:5px;">Click to upload or drag & drop a photo here</p>
@@ -432,7 +433,6 @@
                     </div>
                     <div class="error-message" id="error-message"></div>
 
-                    <!-- Preview area -->
                     <div class="preview-container" id="previewContainer" style="display:none;">
                         <div class="preview-images">
                             <div class="preview-box">
@@ -453,7 +453,6 @@
                     </div>
                 </div>
 
-                <!-- Additional Detail Sections -->
                 <div style="margin-bottom:40px;">
                     <h2>Why compress to 200KB?</h2>
                     <p>Many online forms, job applications, and government portals require photos to be under a specific size, often 200KB. This tool eliminates the guesswork by automatically adjusting the compression to hit exactly 200KB, ensuring your photo is accepted every time.</p>
@@ -545,6 +544,7 @@
             </div>
         </main>
 
+        <!-- ============ FOOTER (updated to match index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -564,6 +564,8 @@
                                 <li><a href="/case-converter">Case Converter</a></li>
                                 <li><a href="/password-generator">Password Generator</a></li>
                                 <li><a href="/whatsapp-link-generator">WhatsApp Link Generator</a></li>
+                                <li><a href="/shipping-label-generator">Shipping Label Generator</a></li>
+                                <li><a href="/resume-builder">Resume Builder</a></li>
                                 <li><a href="/signature-resizer">Signature Resizer</a></li>
                                 <li><a href="/passport-size-photo-maker">Passport Size Photo Maker</a></li>
                                 <li><a href="/barcode-generator">Barcode Generator</a></li>
@@ -574,7 +576,6 @@
                             <ul class="footer-links">
                                 <li><a href="/contact-us">Contact Us</a></li>
                                 <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
-                                <!-- BLOG LINK ADDED HERE -->
                                 <li><a href="/blog">Blog</a></li>
                             </ul>
                         </div>
@@ -664,21 +665,17 @@
             const ctx = canvas.getContext('2d');
             ctx.drawImage(img, 0, 0);
 
-            // Initial quality
             let quality = 0.9;
             let dataUrl = canvas.toDataURL('image/jpeg', quality);
             let size = getBase64Size(dataUrl);
 
-            // Adjust quality to approach target
             if (size > targetSize) {
-                // Decrease quality until under target
                 while (size > targetSize && quality > 0.1) {
                     quality -= 0.05;
                     dataUrl = canvas.toDataURL('image/jpeg', quality);
                     size = getBase64Size(dataUrl);
                 }
             } else {
-                // Increase quality if possible to get closer to target
                 while (size < targetSize && quality < 1.0) {
                     const nextQuality = quality + 0.05;
                     const nextDataUrl = canvas.toDataURL('image/jpeg', nextQuality);
@@ -748,7 +745,6 @@
             errorDiv.classList.remove('visible');
         }
 
-        // Drag & drop
         const dropZone = document.getElementById('dropZone');
         dropZone.addEventListener('dragover', (e) => {
             e.preventDefault();
@@ -786,7 +782,7 @@
             }
         }
 
-        // ============ Full Tools List (consistent with home page) ============
+        // ============ Full Tools List (updated with Shipping Label + Resume Builder) ============
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'text', label: 'Text Tools' },
@@ -973,6 +969,8 @@
             { name: 'Quotation Generator', link: '/quotation-generator', keywords: 'quotation generator', category: 'business' },
             { name: 'Receipt Generator', link: '/receipt-generator', keywords: 'receipt generator', category: 'business' },
             { name: 'Payslip Generator', link: '/payslip-generator', keywords: 'payslip generator', category: 'business' },
+            { name: 'Shipping Label Generator', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', category: 'business' },
+            { name: 'Resume Builder', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', category: 'business' },
             { name: 'GST Calculator', link: '/gst-calculator', keywords: 'gst calculator tax', category: 'business' },
             { name: 'Discount Calculator', link: '/discount-calculator', keywords: 'discount calculator sale', category: 'business' },
             { name: 'Profit Margin Calculator', link: '/profit-margin-calculator', keywords: 'profit margin calculator', category: 'business' },
