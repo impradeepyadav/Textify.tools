@@ -216,6 +216,7 @@
         @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
         h1 { font-size: 32px; font-weight: 800; margin-bottom: 10px; line-height: 1.3; text-align: left; }
         .subtitle { font-size: 16px; color: var(--text-light); line-height: 1.7; margin-bottom: 30px; text-align: left; word-wrap: break-word; }
+        h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
         .tool-container { display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
 
         /* Calculator card */
@@ -240,6 +241,13 @@
         .btn:hover { background: var(--hover); border-color: var(--primary); }
         .btn.primary { background: var(--primary); color: var(--bg); border: none; }
 
+        .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; border: none; width: 100%; text-align: left; font-family: inherit; }
+        .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
+
+        /* ============ FOOTER (matches index page) ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -259,15 +267,32 @@
         .footer-about-text a { color: var(--footer-link-color); text-decoration: none; }
         .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
         @media (max-width: 768px) {
-            footer { padding: 30px 16px 160px; } .footer-middle { flex-direction: column; align-items: center; gap: 20px; } .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: center; } .footer-right-columns { justify-content: center; gap: 20px; } .footer-column { min-width: auto; text-align: center; } .footer-links a { display: block; }
+            footer { padding: 30px 16px 160px; }
+            .footer-middle { flex-direction: column; align-items: flex-start; gap: 28px; text-align: left; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
+            .footer-right-columns { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 22px; width: 100%; }
+            .footer-column { min-width: auto; text-align: left; width: 100%; }
+            .footer-links a { display: block; }
         }
         @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
+
         @media (max-width: 768px) {
-            .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 0; } footer { padding: 30px 16px 160px; }
+            .desktop-nav { display: none; }
+            .theme-btn, .search-trigger { display: none; }
+            .hamburger-btn { display: flex; }
+            header { padding: 0 16px; }
+            .logo { font-size: 20px; }
+            h1 { font-size: 28px; }
+            h2 { font-size: 22px; }
+            main { padding: 20px 0; }
         }
         @media (min-width: 769px) {
-            .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; }
+            .hamburger-btn { display: none; }
+            .mobile-sidebar-overlay { display: none !important; }
+            .mobile-sidebar { display: none !important; }
         }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
 
     <div class="page-wrapper">
@@ -280,7 +305,9 @@
                             <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleToolsMenu()">Tools <i data-lucide="chevron-down"></i></button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
                         </div>
-                        <a href="privacy-policy">Privacy</a><a href="/blog">Blog</a><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
+                        <a href="privacy-policy">Privacy</a>
+                        <a href="/blog">Blog</a>
+                        <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme"><i data-lucide="sun" id="sunIcon" width="20" height="20"></i><i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i></button>
                     <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
@@ -299,7 +326,7 @@
                         <div class="input-grid">
                             <div class="input-group">
                                 <label for="currencySymbol">Currency Symbol</label>
-                                <select id="currencySymbol" onchange="calculateDiscount()">
+                                <select id="currencySymbol">
                                     <option value="$">$ (USD)</option>
                                     <option value="€">€ (EUR)</option>
                                     <option value="£">£ (GBP)</option>
@@ -309,48 +336,48 @@
                                     <option value="C$">C$ (CAD)</option>
                                     <option value="other">Other (custom)</option>
                                 </select>
-                                <input type="text" id="customCurrency" placeholder="Enter symbol" style="display:none; margin-top:5px;" oninput="calculateDiscount()">
+                                <input type="text" id="customCurrency" placeholder="Enter symbol" style="display:none; margin-top:5px;">
                             </div>
                             <div class="input-group">
                                 <label for="originalPrice">Original Price</label>
-                                <input type="number" id="originalPrice" min="0" value="100" step="0.01" oninput="calculateDiscount()">
+                                <input type="number" id="originalPrice" min="0" value="100" step="0.01">
                             </div>
                             <div class="input-group">
                                 <label for="discountType">Discount Type</label>
-                                <select id="discountType" onchange="toggleDiscountInput()">
+                                <select id="discountType">
                                     <option value="percent" selected>Percentage (%)</option>
                                     <option value="fixed">Fixed Amount</option>
                                 </select>
                             </div>
                             <div class="input-group" id="percentGroup">
                                 <label for="discountPercent">Discount Percentage (%)</label>
-                                <input type="number" id="discountPercent" min="0" max="100" value="10" step="0.01" oninput="calculateDiscount()">
+                                <input type="number" id="discountPercent" min="0" max="100" value="10" step="0.01">
                             </div>
                             <div class="input-group" id="fixedGroup" style="display:none;">
                                 <label for="discountFixed">Discount Amount</label>
-                                <input type="number" id="discountFixed" min="0" value="0" step="0.01" oninput="calculateDiscount()">
+                                <input type="number" id="discountFixed" min="0" value="0" step="0.01">
                             </div>
                         </div>
 
                         <div class="result-row">
                             <div class="result-box">
                                 <div class="label">Discount Amount</div>
-                                <div class="value discount-value" id="discountAmount">$0.00</div>
+                                <div class="value discount-value" id="discountAmount">$10.00</div>
                             </div>
                             <div class="result-box">
                                 <div class="label">Final Price</div>
-                                <div class="value final-value" id="finalPrice">$0.00</div>
+                                <div class="value final-value" id="finalPrice">$90.00</div>
                             </div>
                             <div class="result-box">
                                 <div class="label">You Save</div>
-                                <div class="value discount-value" id="savings">$0.00</div>
+                                <div class="value discount-value" id="savings">$10.00</div>
                             </div>
                         </div>
                         <button class="btn" onclick="resetDiscount()"><i data-lucide="refresh-cw" width="16" height="16"></i> Reset</button>
                     </div>
                 </div>
 
-                <!-- Additional content remains the same as before but with mention of international support -->
+                <!-- Additional Detail Sections -->
                 <div style="margin-bottom:40px;">
                     <h2>Why use this discount calculator?</h2>
                     <p>Whether you're shopping, running a business, or just checking a sale, calculating discounts is a common task. This tool simplifies the math so you can know exactly how much you'll pay and how much you'll save. Now with multi-currency support for global users.</p>
@@ -363,13 +390,110 @@
                     </ul>
                 </div>
 
-                <!-- Additional sections, FAQ, related tools, etc. are omitted for brevity but should be included in the actual file. This is a full fixed code with currency selector integrated. -->
-                <!-- The rest of the content (FAQ, steps, use cases, related tools) can be added here exactly as before. The JavaScript includes all tools list and shared functions. -->
+                <div style="margin-bottom:40px;">
+                    <h2>How to calculate a discount (step‑by‑step)</h2>
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; margin-top:20px;">
+                        <div style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px;">
+                            <h3 style="font-size:16px; margin-bottom:8px;">1. Enter original price</h3>
+                            <p style="font-size:14px; color:var(--text-light);">Type the full price of the item before any discount.</p>
+                        </div>
+                        <div style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px;">
+                            <h3 style="font-size:16px; margin-bottom:8px;">2. Choose discount type</h3>
+                            <p style="font-size:14px; color:var(--text-light);">Select percentage (%) or a fixed amount off.</p>
+                        </div>
+                        <div style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px;">
+                            <h3 style="font-size:16px; margin-bottom:8px;">3. See your savings</h3>
+                            <p style="font-size:14px; color:var(--text-light);">The discount amount and final price appear instantly as you type.</p>
+                        </div>
+                        <div style="background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px;">
+                            <h3 style="font-size:16px; margin-bottom:8px;">4. Reset anytime</h3>
+                            <p style="font-size:14px; color:var(--text-light);">Click Reset to start over with fresh default values.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:40px;">
+                    <h2>Example: 25% off a $200 item</h2>
+                    <div style="overflow-x:auto;">
+                        <table style="width:100%; border-collapse: collapse; margin-top:15px;">
+                            <thead>
+                                <tr style="background:var(--table-header);">
+                                    <th style="padding:12px; text-align:left; border:1px solid var(--line);">Input</th>
+                                    <th style="padding:12px; text-align:left; border:1px solid var(--line);">Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding:12px; border:1px solid var(--line);">Original price: $200, Discount: 25%</td>
+                                    <td style="padding:12px; border:1px solid var(--line);">Discount amount: $50.00 · Final price: $150.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:40px;">
+                    <h2>Common use cases</h2>
+                    <ul style="color:var(--text-light); padding-left:20px; line-height:1.8;">
+                        <li><strong>Shopping:</strong> Check the real price during a sale before buying.</li>
+                        <li><strong>Retail & e-commerce:</strong> Calculate markdowns for products quickly.</li>
+                        <li><strong>Freelancing:</strong> Apply a discount to your service quote.</li>
+                        <li><strong>Budgeting:</strong> Understand how much you saved after a discount.</li>
+                        <li><strong>Comparing deals:</strong> See which store offers a better final price.</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom:40px;">
+                    <h2>Pro tips</h2>
+                    <ul style="color:var(--text-light); padding-left:20px; line-height:1.8;">
+                        <li>Use the "Fixed amount" option when a store offers, say, "$15 off" instead of a percentage.</li>
+                        <li>Select "Other" in the currency dropdown to enter any custom symbol (e.g., R$ for Brazilian Real).</li>
+                        <li>Compare two deals by resetting the tool between calculations — no page reload needed.</li>
+                        <li>Pair with our <a href="/gst-calculator">GST Calculator</a> if you also need to add tax on top of the final price.</li>
+                    </ul>
+                </div>
+
+                <div style="margin-bottom:40px;">
+                    <h2>Frequently asked questions</h2>
+                    <div style="border:1px solid var(--line); border-radius:10px; overflow:hidden;">
+                        <div class="faq-item" style="border-bottom:1px solid var(--line);">
+                            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+                                How do I calculate a discount?
+                                <i data-lucide="chevron-down" width="16"></i>
+                            </button>
+                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Enter the original price and either a discount percentage or fixed amount. The tool will instantly show the discount amount and the final price after discount.</div>
+                        </div>
+                        <div class="faq-item" style="border-bottom:1px solid var(--line);">
+                            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+                                Is this tool free?
+                                <i data-lucide="chevron-down" width="16"></i>
+                            </button>
+                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Yes, 100% free. No hidden charges, no signup required.</div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+                                Is my data private?
+                                <i data-lucide="chevron-down" width="16"></i>
+                            </button>
+                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Absolutely. All calculations happen in your browser. Your data never leaves your device.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:40px;">
+                    <h2>Related tools you might like</h2>
+                    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;">
+                        <a href="/gst-calculator" style="padding:8px 16px; border-radius:20px; background:var(--hover); color:var(--text); text-decoration:none; font-weight:500; font-size:14px;">GST Calculator</a>
+                        <a href="/profit-margin-calculator" style="padding:8px 16px; border-radius:20px; background:var(--hover); color:var(--text); text-decoration:none; font-weight:500; font-size:14px;">Profit Margin Calculator</a>
+                        <a href="/salary-calculator" style="padding:8px 16px; border-radius:20px; background:var(--hover); color:var(--text); text-decoration:none; font-weight:500; font-size:14px;">Salary Calculator</a>
+                        <a href="/percentage-calculator" style="padding:8px 16px; border-radius:20px; background:var(--hover); color:var(--text); text-decoration:none; font-weight:500; font-size:14px;">Percentage Calculator</a>
+                    </div>
+                </div>
             </div>
         </main>
 
+        <!-- ============ FOOTER (matches index page) ============ -->
         <footer>
-            <!-- footer content same as other pages -->
             <div class="footer-container">
                 <div class="footer-middle">
                     <div class="footer-left-column">
@@ -388,6 +512,8 @@
                                 <li><a href="/case-converter">Case Converter</a></li>
                                 <li><a href="/password-generator">Password Generator</a></li>
                                 <li><a href="/whatsapp-link-generator">WhatsApp Link Generator</a></li>
+                                <li><a href="/shipping-label-generator">Shipping Label Generator</a></li>
+                                <li><a href="/resume-builder">Resume Builder</a></li>
                                 <li><a href="/signature-resizer">Signature Resizer</a></li>
                                 <li><a href="/passport-size-photo-maker">Passport Size Photo Maker</a></li>
                                 <li><a href="/barcode-generator">Barcode Generator</a></li>
@@ -415,7 +541,7 @@
         </footer>
     </div>
 
-    <!-- Mobile sidebar & search overlay same as other pages -->
+    <!-- Mobile sidebar -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
         <div class="mobile-sidebar-header">
@@ -434,6 +560,8 @@
             <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" style="display:none;"></i> Theme</button>
         </div>
     </div>
+
+    <!-- Search overlay -->
     <div class="search-overlay-full" id="searchOverlayFull">
         <div class="search-container">
             <div class="search-box">
@@ -501,10 +629,13 @@
             calculateDiscount();
         }
 
-        // Initialize
+        // Attach listeners
         document.getElementById('currencySymbol').addEventListener('change', toggleCustomCurrency);
-        toggleDiscountInput();
-        calculateDiscount();
+        document.getElementById('customCurrency').addEventListener('input', calculateDiscount);
+        document.getElementById('originalPrice').addEventListener('input', calculateDiscount);
+        document.getElementById('discountType').addEventListener('change', toggleDiscountInput);
+        document.getElementById('discountPercent').addEventListener('input', calculateDiscount);
+        document.getElementById('discountFixed').addEventListener('input', calculateDiscount);
 
         // ============ Toast ============
         let toastTimer;
@@ -529,13 +660,21 @@
             }
         }
 
-        // ============ Full Tools List (abbreviated but full list should be included) ============
+        // ============ Full Tools List (updated with Shipping Label + Resume Builder) ============
         const categories = [
-            { key: 'all', label: 'All Tools' }, { key: 'text', label: 'Text Tools' }, { key: 'developer', label: 'Developer' }, { key: 'generator', label: 'Generators' }, { key: 'image', label: 'Image' }, { key: 'pdf', label: 'PDF' }, { key: 'business', label: 'Business' }, { key: 'finance', label: 'Finance' }
+            { key: 'all', label: 'All Tools' },
+            { key: 'text', label: 'Text Tools' },
+            { key: 'developer', label: 'Developer' },
+            { key: 'generator', label: 'Generators' },
+            { key: 'image', label: 'Image' },
+            { key: 'pdf', label: 'PDF' },
+            { key: 'business', label: 'Business' },
+            { key: 'finance', label: 'Finance' }
         ];
         const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
+
         const tools = [
-            // ... (full tools list as in previous pages, not fully repeated here but required)
+            // Text Tools
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'text' },
             { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', category: 'text' },
             { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count block format', category: 'text' },
@@ -595,13 +734,196 @@
             { name: 'Mention Extractor', link: '/mention-extractor', keywords: 'mention extract username @ social', category: 'text' },
             { name: 'Keyword Extractor', link: '/keyword-extractor', keywords: 'keyword extract important terms', category: 'text' },
             { name: 'Duplicate Line Finder', link: '/duplicate-line-finder', keywords: 'duplicate line find report', category: 'text' },
+
             // Developer Tools
             { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'developer' },
-            // ... (truncated, but full list required in actual implementation)
+            { name: 'JSON Minifier', link: '/json-minifier', keywords: 'json minify compress', category: 'developer' },
+            { name: 'JSON Validator', link: '/json-validator', keywords: 'json validate check', category: 'developer' },
+            { name: 'XML Formatter', link: '/xml-formatter', keywords: 'xml format beautify indent', category: 'developer' },
+            { name: 'XML Minifier', link: '/xml-minifier', keywords: 'xml minify compress', category: 'developer' },
+            { name: 'HTML Formatter', link: '/html-formatter', keywords: 'html format beautify', category: 'developer' },
+            { name: 'HTML Minifier', link: '/html-minifier', keywords: 'html minify compress', category: 'developer' },
+            { name: 'CSS Formatter', link: '/css-formatter', keywords: 'css format beautify', category: 'developer' },
+            { name: 'CSS Minifier', link: '/css-minifier', keywords: 'css minify compress', category: 'developer' },
+            { name: 'JavaScript Formatter', link: '/javascript-formatter', keywords: 'javascript format beautify', category: 'developer' },
+            { name: 'JavaScript Minifier', link: '/javascript-minifier', keywords: 'javascript minify compress', category: 'developer' },
+            { name: 'SQL Formatter', link: '/sql-formatter', keywords: 'sql format query beautify', category: 'developer' },
+            { name: 'Text to Binary', link: '/text-to-binary', keywords: 'text binary convert', category: 'developer' },
+            { name: 'Binary to Text', link: '/binary-to-text', keywords: 'binary text convert', category: 'developer' },
+            { name: 'Text to Hex', link: '/text-to-hex', keywords: 'text hex convert', category: 'developer' },
+            { name: 'Hex to Text', link: '/hex-to-text', keywords: 'hex text convert', category: 'developer' },
+            { name: 'Text to ASCII', link: '/text-to-ascii', keywords: 'text ascii convert', category: 'developer' },
+            { name: 'ASCII to Text', link: '/ascii-to-text', keywords: 'ascii text convert', category: 'developer' },
+            { name: 'Morse Code Translator', link: '/morse-code-translator', keywords: 'morse code translator dots dashes', category: 'developer' },
+            { name: 'Braille Translator', link: '/braille-translator', keywords: 'braille translator blind', category: 'developer' },
+            { name: 'NATO Alphabet Generator', link: '/nato-alphabet-generator', keywords: 'nato phonetic alphabet', category: 'developer' },
+            { name: 'Text to CSV', link: '/text-to-csv', keywords: 'text csv convert comma separated', category: 'developer' },
+            { name: 'CSV to Text', link: '/csv-to-text', keywords: 'csv text convert', category: 'developer' },
+            { name: 'CSV to JSON', link: '/csv-to-json', keywords: 'csv json convert', category: 'developer' },
+            { name: 'JSON to CSV', link: '/json-to-csv', keywords: 'json csv convert', category: 'developer' },
+            { name: 'Markdown to HTML', link: '/markdown-to-html', keywords: 'markdown html convert', category: 'developer' },
+            { name: 'HTML to Markdown', link: '/html-to-markdown', keywords: 'html markdown convert', category: 'developer' },
+            { name: 'Markdown Table Generator', link: '/markdown-table-generator', keywords: 'markdown table generator', category: 'developer' },
+            { name: 'HTML Table Generator', link: '/html-table-generator', keywords: 'html table generator', category: 'developer' },
+            { name: 'Roman Numeral Converter', link: '/roman-numeral-converter', keywords: 'roman numeral converter', category: 'developer' },
+            { name: 'Number to Words', link: '/number-to-words', keywords: 'number to words converter', category: 'developer' },
+            { name: 'Words to Number', link: '/words-to-number', keywords: 'words to number converter', category: 'developer' },
+            { name: 'Timestamp Converter', link: '/timestamp-converter', keywords: 'timestamp unix converter date', category: 'developer' },
+            { name: 'Color Converter', link: '/color-converter', keywords: 'color converter hex rgb hsl', category: 'developer' },
+            { name: 'Base64 Encoder', link: '/base64-encoder', keywords: 'base64 encode', category: 'developer' },
+            { name: 'Base64 Decoder', link: '/base64-decoder', keywords: 'base64 decode', category: 'developer' },
+            { name: 'URL Encoder', link: '/url-encoder', keywords: 'url encode percent', category: 'developer' },
+            { name: 'URL Decoder', link: '/url-decoder', keywords: 'url decode percent', category: 'developer' },
+            { name: 'HTML Entity Encoder', link: '/html-entity-encoder', keywords: 'html entity encode', category: 'developer' },
+            { name: 'HTML Entity Decoder', link: '/html-entity-decoder', keywords: 'html entity decode', category: 'developer' },
+            { name: 'Regex Generator', link: '/regex-generator', keywords: 'regex generate pattern', category: 'developer' },
+            { name: 'Regex Escape Tool', link: '/regex-escape-tool', keywords: 'regex escape', category: 'developer' },
+            { name: 'JWT Decoder', link: '/jwt-decoder', keywords: 'jwt decode token header payload', category: 'developer' },
+            { name: 'UUID Generator', link: '/uuid-generator', keywords: 'uuid guid unique identifier random', category: 'developer' },
+            { name: 'UUID Validator', link: '/uuid-validator', keywords: 'uuid validate check', category: 'developer' },
+            { name: 'MD5 Generator', link: '/md5-generator', keywords: 'md5 hash generator', category: 'developer' },
+            { name: 'SHA-1 Generator', link: '/sha1-generator', keywords: 'sha1 hash generator', category: 'developer' },
+            { name: 'SHA-256 Generator', link: '/sha256-generator', keywords: 'sha256 hash generator', category: 'developer' },
+            { name: 'SHA-512 Generator', link: '/sha512-generator', keywords: 'sha512 hash generator', category: 'developer' },
+            { name: 'HMAC Generator', link: '/hmac-generator', keywords: 'hmac hash generator', category: 'developer' },
+            { name: 'Cron Expression Generator', link: '/cron-expression-generator', keywords: 'cron expression generator', category: 'developer' },
+            { name: 'Cron Expression Tester', link: '/cron-expression-tester', keywords: 'cron expression tester', category: 'developer' },
+
+            // Generators
+            { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generator' },
+            { name: 'PIN Generator', link: '/pin-generator', keywords: 'pin generator random', category: 'generator' },
+            { name: 'Random Number Generator', link: '/random-number-generator', keywords: 'random number range integer generator', category: 'generator' },
+            { name: 'Number Sequence Generator', link: '/number-sequence-generator', keywords: 'number sequence generator', category: 'generator' },
+            { name: 'Lorem Ipsum Generator', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text', category: 'generator' },
+            { name: 'Random Word Generator', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generator' },
+            { name: 'Random Text Generator', link: '/random-text-generator', keywords: 'random text generate string dummy', category: 'generator' },
+            { name: 'QR Code Generator', link: '/qr-code-generator', keywords: 'qr code generate text url image', category: 'generator' },
+            { name: 'Barcode Generator', link: '/barcode-generator', keywords: 'barcode generate code ean upc', category: 'generator' },
+            { name: 'UTM Builder', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing', category: 'generator' },
+            { name: 'WhatsApp Link Generator', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', category: 'generator' },
+            { name: 'Business Name Generator', link: '/business-name-generator', keywords: 'business name generator', category: 'generator' },
+            { name: 'Invoice Number Generator', link: '/invoice-number-generator', keywords: 'invoice number generator', category: 'generator' },
+
+            // Image Tools
+            { name: 'Image Compressor', link: '/image-compressor', keywords: 'image compressor reduce size', category: 'image' },
+            { name: 'Image Resizer', link: '/image-resizer', keywords: 'image resize dimensions', category: 'image' },
+            { name: 'Image Cropper', link: '/image-cropper', keywords: 'image crop', category: 'image' },
+            { name: 'Image Rotator', link: '/image-rotator', keywords: 'image rotate', category: 'image' },
+            { name: 'Image Flipper', link: '/image-flipper', keywords: 'image flip', category: 'image' },
+            { name: 'JPG to PNG', link: '/jpg-to-png', keywords: 'jpg png converter', category: 'image' },
+            { name: 'PNG to JPG', link: '/png-to-jpg', keywords: 'png jpg converter', category: 'image' },
+            { name: 'WebP to JPG', link: '/webp-to-jpg', keywords: 'webp jpg converter', category: 'image' },
+            { name: 'JPG to WebP', link: '/jpg-to-webp', keywords: 'jpg webp converter', category: 'image' },
+            { name: 'PNG to WebP', link: '/png-to-webp', keywords: 'png webp converter', category: 'image' },
+            { name: 'Image to Base64', link: '/image-to-base64', keywords: 'image base64 converter', category: 'image' },
+            { name: 'Base64 to Image', link: '/base64-to-image', keywords: 'base64 image converter', category: 'image' },
+            { name: 'Grayscale Image', link: '/grayscale-image', keywords: 'grayscale image', category: 'image' },
+            { name: 'Photo 20KB', link: '/photo-20kb', keywords: 'photo 20kb compress', category: 'image' },
+            { name: 'Photo 50KB', link: '/photo-50kb', keywords: 'photo 50kb compress', category: 'image' },
+            { name: 'Photo 100KB', link: '/photo-100kb', keywords: 'photo 100kb compress', category: 'image' },
+            { name: 'Photo 200KB', link: '/photo-200kb', keywords: 'photo 200kb compress', category: 'image' },
+            { name: 'Signature Resizer', link: '/signature-resizer', keywords: 'signature resize image document', category: 'image' },
+            { name: 'Passport Size Photo Maker', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image', category: 'image' },
+
+            // PDF Tools
+            { name: 'JPG to PDF', link: '/jpg-to-pdf', keywords: 'jpg pdf converter', category: 'pdf' },
+            { name: 'PNG to PDF', link: '/png-to-pdf', keywords: 'png pdf converter', category: 'pdf' },
+            { name: 'Images to PDF', link: '/images-to-pdf', keywords: 'images pdf converter combine', category: 'pdf' },
+            { name: 'PDF Page Counter', link: '/pdf-page-counter', keywords: 'pdf page counter', category: 'pdf' },
+            { name: 'PDF Metadata Viewer', link: '/pdf-metadata-viewer', keywords: 'pdf metadata viewer', category: 'pdf' },
+            { name: 'PDF to Images', link: '/pdf-to-images', keywords: 'pdf images converter', category: 'pdf' },
+            { name: 'PDF Merge', link: '/pdf-merge', keywords: 'pdf merge combine', category: 'pdf' },
+            { name: 'PDF Split', link: '/pdf-split', keywords: 'pdf split separate', category: 'pdf' },
+            { name: 'PDF Rotate', link: '/pdf-rotate', keywords: 'pdf rotate page', category: 'pdf' },
+            { name: 'PDF Page Extractor', link: '/pdf-page-extractor', keywords: 'pdf extract page', category: 'pdf' },
+            { name: 'PDF Compressor', link: '/pdf-compressor', keywords: 'pdf compress reduce', category: 'pdf' },
+            { name: 'PDF Text Extractor', link: '/pdf-text-extractor', keywords: 'pdf text extractor', category: 'pdf' },
+            { name: 'PDF Lock', link: '/pdf-lock', keywords: 'pdf lock password protect', category: 'pdf' },
+            { name: 'PDF Unlock', link: '/pdf-unlock', keywords: 'pdf unlock password remove', category: 'pdf' },
+
+            // Business Tools
+            { name: 'Invoice Generator', link: '/invoice-generator', keywords: 'invoice generator', category: 'business' },
+            { name: 'Quotation Generator', link: '/quotation-generator', keywords: 'quotation generator', category: 'business' },
+            { name: 'Receipt Generator', link: '/receipt-generator', keywords: 'receipt generator', category: 'business' },
+            { name: 'Payslip Generator', link: '/payslip-generator', keywords: 'payslip generator', category: 'business' },
+            { name: 'Shipping Label Generator', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', category: 'business' },
+            { name: 'Resume Builder', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', category: 'business' },
+            { name: 'GST Calculator', link: '/gst-calculator', keywords: 'gst calculator tax', category: 'business' },
+            { name: 'Discount Calculator', link: '/discount-calculator', keywords: 'discount calculator sale', category: 'business' },
+            { name: 'Profit Margin Calculator', link: '/profit-margin-calculator', keywords: 'profit margin calculator', category: 'business' },
+            { name: 'Salary Calculator', link: '/salary-calculator', keywords: 'salary calculator', category: 'business' },
+
+            // Finance Tools
+            { name: 'EMI Calculator', link: '/emi-calculator', keywords: 'emi calculator loan', category: 'finance' },
+            { name: 'Loan Calculator', link: '/loan-calculator', keywords: 'loan calculator', category: 'finance' },
+            { name: 'SIP Calculator', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment', category: 'finance' },
+            { name: 'Income Tax Calculator', link: '/income-tax-calculator', keywords: 'income tax calculator', category: 'finance' },
+            { name: 'Tax Calculator', link: '/tax-calculator', keywords: 'tax calculator', category: 'finance' },
+            { name: 'Tip Calculator', link: '/tip-calculator', keywords: 'tip calculator', category: 'finance' },
+            { name: 'GPA Calculator', link: '/gpa-calculator', keywords: 'gpa calculator student', category: 'finance' },
+            { name: 'CGPA Calculator', link: '/cgpa-calculator', keywords: 'cgpa calculator student', category: 'finance' },
+            { name: 'Percentage Calculator', link: '/percentage-calculator', keywords: 'percentage calculator', category: 'finance' },
+            { name: 'Grade Calculator', link: '/grade-calculator', keywords: 'grade calculator', category: 'finance' },
+            { name: 'Marks Percentage Calculator', link: '/marks-percentage-calculator', keywords: 'marks percentage calculator', category: 'finance' },
+            { name: 'Attendance Calculator', link: '/attendance-calculator', keywords: 'attendance calculator', category: 'finance' },
+            { name: 'Study Time Calculator', link: '/study-time-calculator', keywords: 'study time calculator', category: 'finance' },
+            { name: 'Exam Countdown', link: '/exam-countdown', keywords: 'exam countdown', category: 'finance' },
+            { name: 'Age Calculator', link: '/age-calculator', keywords: 'age calculator birth date', category: 'finance' },
+            { name: 'Scientific Calculator', link: '/scientific-calculator', keywords: 'scientific calculator math', category: 'finance' },
+            { name: 'Quadratic Equation Calculator', link: '/quadratic-equation-calculator', keywords: 'quadratic equation calculator', category: 'finance' },
+            { name: 'Matrix Calculator', link: '/matrix-calculator', keywords: 'matrix calculator', category: 'finance' },
+            { name: 'Probability Calculator', link: '/probability-calculator', keywords: 'probability calculator', category: 'finance' },
+            { name: 'Standard Deviation Calculator', link: '/standard-deviation-calculator', keywords: 'standard deviation calculator', category: 'finance' },
+            { name: 'Mean Median Mode Calculator', link: '/mean-median-mode-calculator', keywords: 'mean median mode calculator', category: 'finance' },
+            { name: 'Prime Number Checker', link: '/prime-number-checker', keywords: 'prime number check', category: 'finance' },
+            { name: 'Prime Number Generator', link: '/prime-number-generator', keywords: 'prime number generator', category: 'finance' },
+            { name: 'Factorial Calculator', link: '/factorial-calculator', keywords: 'factorial calculator', category: 'finance' },
+            { name: 'GCD Calculator', link: '/gcd-calculator', keywords: 'gcd calculator', category: 'finance' },
+            { name: 'LCM Calculator', link: '/lcm-calculator', keywords: 'lcm calculator', category: 'finance' },
+            { name: 'Binary Calculator', link: '/binary-calculator', keywords: 'binary calculator', category: 'finance' },
+            { name: 'Decimal to Binary', link: '/decimal-to-binary', keywords: 'decimal binary convert', category: 'finance' },
+            { name: 'Binary to Decimal', link: '/binary-to-decimal', keywords: 'binary decimal convert', category: 'finance' },
+            { name: 'Decimal to Hex', link: '/decimal-to-hex', keywords: 'decimal hex convert', category: 'finance' },
+            { name: 'Hex to Decimal', link: '/hex-to-decimal', keywords: 'hex decimal convert', category: 'finance' },
+            { name: 'Decimal to Octal', link: '/decimal-to-octal', keywords: 'decimal octal convert', category: 'finance' },
+            { name: 'Average Calculator', link: '/average-calculator', keywords: 'average calculator mean', category: 'finance' },
+            { name: 'Ratio Calculator', link: '/ratio-calculator', keywords: 'ratio calculator', category: 'finance' },
+            { name: 'Fraction Calculator', link: '/fraction-calculator', keywords: 'fraction calculator', category: 'finance' },
+            { name: 'Date Difference Calculator', link: '/date-difference-calculator', keywords: 'date difference days', category: 'finance' },
+            { name: 'Days Between Dates', link: '/days-between-dates', keywords: 'days between dates', category: 'finance' },
+            { name: 'Add Days to Date', link: '/add-days-to-date', keywords: 'add days date', category: 'finance' },
+            { name: 'Subtract Days from Date', link: '/subtract-days-from-date', keywords: 'subtract days date', category: 'finance' },
+            { name: 'Business Days Calculator', link: '/business-days-calculator', keywords: 'business days calculator', category: 'finance' },
+            { name: 'Date to Unix Timestamp', link: '/date-to-unix-timestamp', keywords: 'date unix timestamp', category: 'finance' },
+            { name: 'Unix Timestamp to Date', link: '/unix-timestamp-to-date', keywords: 'unix timestamp date', category: 'finance' },
+            { name: 'Time Duration Calculator', link: '/time-duration-calculator', keywords: 'time duration calculator', category: 'finance' },
+            { name: 'Countdown Calculator', link: '/countdown-calculator', keywords: 'countdown calculator', category: 'finance' },
+            { name: 'Week Number Calculator', link: '/week-number-calculator', keywords: 'week number calculator', category: 'finance' },
+            { name: 'Leap Year Checker', link: '/leap-year-checker', keywords: 'leap year checker', category: 'finance' },
+            { name: 'World Clock', link: '/world-clock', keywords: 'world clock time zones', category: 'finance' },
+            { name: 'Time Zone Converter', link: '/time-zone-converter', keywords: 'time zone converter', category: 'finance' },
+            { name: 'Length Converter', link: '/length-converter', keywords: 'length converter units', category: 'finance' },
+            { name: 'Weight Converter', link: '/weight-converter', keywords: 'weight converter units', category: 'finance' },
+            { name: 'Temperature Converter', link: '/temperature-converter', keywords: 'temperature converter celsius fahrenheit', category: 'finance' },
+            { name: 'Area Converter', link: '/area-converter', keywords: 'area converter units', category: 'finance' },
+            { name: 'Volume Converter', link: '/volume-converter', keywords: 'volume converter units', category: 'finance' },
+            { name: 'Speed Converter', link: '/speed-converter', keywords: 'speed converter units', category: 'finance' },
+            { name: 'Data Storage Converter', link: '/data-storage-converter', keywords: 'data storage converter units', category: 'finance' },
+            { name: 'Energy Converter', link: '/energy-converter', keywords: 'energy converter units', category: 'finance' },
+            { name: 'Pressure Converter', link: '/pressure-converter', keywords: 'pressure converter units', category: 'finance' },
+            { name: 'Power Converter', link: '/power-converter', keywords: 'power converter units', category: 'finance' },
+            { name: 'Frequency Converter', link: '/frequency-converter', keywords: 'frequency converter units', category: 'finance' },
+            { name: 'Angle Converter', link: '/angle-converter', keywords: 'angle converter units', category: 'finance' },
+            { name: 'Pace Converter', link: '/pace-converter', keywords: 'pace converter units', category: 'finance' },
+            { name: 'Fuel Economy Converter', link: '/fuel-economy-converter', keywords: 'fuel economy converter units', category: 'finance' }
         ];
 
-        function buildMegaMenu() { document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
-        function buildMobileToolsMenu() { document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join(''); }
+        function buildMegaMenu() {
+            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join('');
+        }
+        function buildMobileToolsMenu() {
+            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${t.name}</a>`).join('');
+        }
         function buildSearchList() {
             const list = document.getElementById('fullSearchResultsList');
             list.innerHTML = tools.map(t => `<a href="${t.link}" class="search-result-item" data-keywords="${t.keywords}">${t.name} <span class="result-tag">${categoryLabelMap[t.category] || t.category}</span></a>`).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
@@ -611,54 +933,125 @@
             const b=document.body, s=document.getElementById('sunIcon'), m=document.getElementById('moonIcon'),
                   ms=document.getElementById('mobileSunIcon'), mm=document.getElementById('mobileMoonIcon');
             if (b.classList.contains('dark-mode')) {
-                b.classList.remove('dark-mode'); s.style.display='block'; m.style.display='none'; if(ms){ms.style.display='block'; mm.style.display='none';} localStorage.setItem('theme','light'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
+                b.classList.remove('dark-mode');
+                s.style.display='block'; m.style.display='none';
+                if (ms){ms.style.display='block'; mm.style.display='none';}
+                localStorage.setItem('theme','light');
+                document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');
             } else {
-                b.classList.add('dark-mode'); s.style.display='none'; m.style.display='block'; if(ms){ms.style.display='none'; mm.style.display='block';} localStorage.setItem('theme','dark'); document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
+                b.classList.add('dark-mode');
+                s.style.display='none'; m.style.display='block';
+                if (ms){ms.style.display='none'; mm.style.display='block';}
+                localStorage.setItem('theme','dark');
+                document.querySelector('meta[name="theme-color"]').setAttribute('content','#0f172a');
             }
         }
         (function initIcons() {
-            const sun = document.getElementById('sunIcon'); const moon = document.getElementById('moonIcon'); const ms = document.getElementById('mobileSunIcon'); const mm = document.getElementById('mobileMoonIcon');
-            if (document.body.classList.contains('dark-mode')) { sun.style.display='none'; moon.style.display='block'; if(ms&&mm){ms.style.display='none'; mm.style.display='block';} }
-            else { sun.style.display='block'; moon.style.display='none'; if(ms&&mm){ms.style.display='block'; mm.style.display='none';} }
+            const sun = document.getElementById('sunIcon');
+            const moon = document.getElementById('moonIcon');
+            const ms = document.getElementById('mobileSunIcon');
+            const mm = document.getElementById('mobileMoonIcon');
+            if (document.body.classList.contains('dark-mode')) {
+                sun.style.display = 'none';
+                moon.style.display = 'block';
+                if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
+            } else {
+                sun.style.display = 'block';
+                moon.style.display = 'none';
+                if (ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
+            }
         })();
 
         function toggleToolsMenu() {
-            const container = document.getElementById('toolsMenuContainer'); const trigger = document.getElementById('toolsTrigger');
+            const container = document.getElementById('toolsMenuContainer');
+            const trigger = document.getElementById('toolsTrigger');
             const isOpen = container.classList.contains('open');
-            if (isOpen) { container.classList.remove('open'); trigger.setAttribute('aria-expanded','false'); }
-            else { container.classList.add('open'); trigger.setAttribute('aria-expanded','true'); const firstLink = container.querySelector('.tools-mega-menu a'); if(firstLink) firstLink.focus(); }
+            if (isOpen) {
+                container.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
+            } else {
+                container.classList.add('open');
+                trigger.setAttribute('aria-expanded', 'true');
+                const firstLink = container.querySelector('.tools-mega-menu a');
+                if (firstLink) firstLink.focus();
+            }
         }
         document.addEventListener('click', function(e) {
             const container = document.getElementById('toolsMenuContainer');
-            if (container && !container.contains(e.target) && container.classList.contains('open')) { container.classList.remove('open'); document.getElementById('toolsTrigger').setAttribute('aria-expanded','false'); }
+            if (container && !container.contains(e.target) && container.classList.contains('open')) {
+                container.classList.remove('open');
+                document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+            }
         });
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') { const container = document.getElementById('toolsMenuContainer'); if (container && container.classList.contains('open')) { container.classList.remove('open'); document.getElementById('toolsTrigger').setAttribute('aria-expanded','false'); document.getElementById('toolsTrigger').focus(); } }
+            if (e.key === 'Escape') {
+                const container = document.getElementById('toolsMenuContainer');
+                if (container && container.classList.contains('open')) {
+                    container.classList.remove('open');
+                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                    document.getElementById('toolsTrigger').focus();
+                }
+            }
         });
 
-        function openMobileSidebar(){ document.getElementById('mobileSidebar').classList.add('active'); document.getElementById('mobileSidebarOverlay').classList.add('active'); document.body.style.overflow='hidden'; }
-        function closeMobileSidebar(){ document.getElementById('mobileSidebar').classList.remove('active'); document.getElementById('mobileSidebarOverlay').classList.remove('active'); document.body.style.overflow=''; }
-        function toggleMobileTools(){ document.querySelector('.mobile-tools-toggle').classList.toggle('active'); document.getElementById('mobileToolsMenu').classList.toggle('active'); }
+        function openMobileSidebar(){
+            document.getElementById('mobileSidebar').classList.add('active');
+            document.getElementById('mobileSidebarOverlay').classList.add('active');
+            document.body.style.overflow='hidden';
+        }
+        function closeMobileSidebar(){
+            document.getElementById('mobileSidebar').classList.remove('active');
+            document.getElementById('mobileSidebarOverlay').classList.remove('active');
+            document.body.style.overflow='';
+        }
+        function toggleMobileTools(){
+            document.querySelector('.mobile-tools-toggle').classList.toggle('active');
+            document.getElementById('mobileToolsMenu').classList.toggle('active');
+        }
         document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l=>l.addEventListener('click', closeMobileSidebar));
 
-        function openFullSearch(){ document.getElementById('searchOverlayFull').classList.add('active'); document.body.style.overflow='hidden'; setTimeout(()=>document.getElementById('fullSearchInput').focus(),200); }
-        function closeFullSearch(){ document.getElementById('searchOverlayFull').classList.remove('active'); document.body.style.overflow=''; document.getElementById('fullSearchInput').value=''; filterFullSearch(); }
+        function openFullSearch(){
+            document.getElementById('searchOverlayFull').classList.add('active');
+            document.body.style.overflow='hidden';
+            setTimeout(()=>document.getElementById('fullSearchInput').focus(),200);
+        }
+        function closeFullSearch(){
+            document.getElementById('searchOverlayFull').classList.remove('active');
+            document.body.style.overflow='';
+            document.getElementById('fullSearchInput').value='';
+            filterFullSearch();
+        }
         function filterFullSearch(){
             const q=document.getElementById('fullSearchInput').value.toLowerCase().trim();
             const items=document.querySelectorAll('#fullSearchResultsList .search-result-item');
             const nr=document.getElementById('fullNoResult'), qs=document.getElementById('fullSearchQuery');
             let c=0;
-            items.forEach(i=>{ const kw=i.getAttribute('data-keywords')||'', t=i.textContent.toLowerCase(); if(q===''||kw.includes(q)||t.includes(q)){ i.classList.remove('hidden-item'); c++; } else i.classList.add('hidden-item'); });
+            items.forEach(i=>{
+                const kw=i.getAttribute('data-keywords')||'', t=i.textContent.toLowerCase();
+                if(q===''||kw.includes(q)||t.includes(q)){ i.classList.remove('hidden-item'); c++; }
+                else i.classList.add('hidden-item');
+            });
             if(c===0 && q!==''){ nr.classList.add('show'); qs.textContent=q; } else nr.classList.remove('show');
         }
         document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l=>l.addEventListener('click', closeFullSearch));
         document.addEventListener('keydown', e=>{
-            if(e.key==='Escape'){ closeFullSearch(); closeMobileSidebar(); }
-            if((e.ctrlKey||e.metaKey)&&e.key==='k'){ e.preventDefault(); openFullSearch(); }
+            if(e.key==='Escape'){
+                closeFullSearch();
+                closeMobileSidebar();
+            }
+            if((e.ctrlKey||e.metaKey)&&e.key==='k'){
+                e.preventDefault();
+                openFullSearch();
+            }
         });
 
+        // Initialize
         document.getElementById('dynamicYear').textContent = new Date().getFullYear();
-        buildMegaMenu(); buildMobileToolsMenu(); buildSearchList();
+        toggleDiscountInput();
+        calculateDiscount();
+        buildMegaMenu();
+        buildMobileToolsMenu();
+        buildSearchList();
         lucide.createIcons();
     </script>
 </body>
