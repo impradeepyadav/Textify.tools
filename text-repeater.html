@@ -268,6 +268,8 @@
         img, video, canvas, iframe, embed, object, svg { max-width: 100%; height: auto; }
         pre, code { white-space: pre-wrap; word-wrap: break-word; }
 
+        mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
+
         .page-wrapper {
             width: 100%; max-width: 100vw; margin: 0 auto;
             background: transparent; display: flex; flex-direction: column;
@@ -353,27 +355,75 @@
         .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
         .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
         .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
-        .search-overlay-full { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--overlay-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 300; display: flex; flex-direction: column; align-items: center; padding-top: 80px; opacity: 0; visibility: hidden; transition: 0.3s; }
+
+        /* ===== SEARCH OVERLAY — matches index page exactly ===== */
+        .search-overlay-full {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--overlay-bg);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            z-index: 300; display: flex; flex-direction: column; align-items: center;
+            padding-top: 60px; opacity: 0; visibility: hidden; transition: 0.3s;
+        }
         .search-overlay-full.active { opacity: 1; visibility: visible; }
-        .search-container { width: 90%; max-width: 550px; display: flex; flex-direction: column; max-height: 80vh; min-height: 0; }
-        .search-box { display: flex; align-items: center; gap: 10px; background: var(--bg); border-radius: 16px; padding: 8px 16px; border: 2px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 10px; flex-shrink: 0; }
-        .search-box input { flex: 1; border: none; background: transparent; font-size: 17px; color: var(--text); outline: none; font-family: inherit; padding: 10px 0; min-width: 0; }
-        .search-box .search-clear-btn { display: none; background: var(--hover); border: none; cursor: pointer; padding: 6px; border-radius: 50%; color: var(--text-light); align-items: center; justify-content: center; flex-shrink: 0; }
+        .search-container { width: 92%; max-width: 620px; display: flex; flex-direction: column; max-height: 88vh; min-height: 0; }
+        .search-box {
+            display: flex; align-items: center; gap: 10px; background: var(--bg);
+            border-radius: 16px; padding: 6px 10px 6px 16px;
+            border: 2px solid var(--line);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 12px; flex-shrink: 0;
+        }
+        .search-box input {
+            flex: 1; border: none; background: transparent; font-size: 17px;
+            color: var(--text); outline: none; font-family: inherit;
+            padding: 10px 0; min-width: 0;
+        }
+        .search-box .search-clear-btn {
+            display: none; background: var(--hover); border: none; cursor: pointer;
+            padding: 6px; border-radius: 50%; color: var(--text-light);
+            align-items: center; justify-content: center; flex-shrink: 0;
+        }
         .search-box .search-clear-btn.show { display: flex; }
+        .search-box .search-close-btn {
+            background: var(--hover); border: none; cursor: pointer; padding: 8px;
+            border-radius: 50%; color: var(--text); display: flex;
+            align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .search-box .search-close-btn:hover,
         .search-box .search-clear-btn:hover { background: var(--chip-hover); }
-        .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .search-box .search-close-btn:hover { background: var(--chip-hover); }
-        .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; flex: 1; min-height: 0; }
-        .search-results-list .search-result-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.15s; border-bottom: 1px solid var(--line); }
+
+        .search-results-list {
+            background: var(--bg); border-radius: 16px; border: 1px solid var(--line);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto;
+            flex: 1; min-height: 0;
+        }
+        .search-results-list .search-result-item {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 12px; padding: 12px 18px; text-decoration: none;
+            color: var(--text); font-weight: 500; font-size: 15px;
+            transition: 0.15s; border-bottom: 1px solid var(--line);
+        }
         .search-results-list .search-result-item:last-child { border-bottom: none; }
         .search-results-list .search-result-item:hover,
         .search-results-list .search-result-item.active { background: var(--hover); color: var(--primary); }
         .search-results-list .search-result-item.active { box-shadow: inset 3px 0 0 var(--primary); }
-        .search-results-list .search-result-item.hidden-item { display: none; }
-        .search-results-list .result-tag { font-size: 10px; background: var(--hover); padding: 3px 8px; border-radius: 12px; color: var(--text-light); text-transform: uppercase; font-weight: 600; flex-shrink: 0; margin-left: 10px; }
-        .search-no-result { text-align: center; padding: 25px; color: var(--text-light); font-size: 14px; display: none; }
+        .search-result-item .result-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+        .search-result-item .result-name { font-weight: 600; font-size: 15px; }
+        .search-result-item .result-desc {
+            font-size: 12px; color: var(--text-light); font-weight: 400;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+        .search-results-list .result-tag {
+            font-size: 10px; background: var(--hover); padding: 3px 8px;
+            border-radius: 12px; color: var(--text-light); text-transform: uppercase;
+            font-weight: 600; flex-shrink: 0; white-space: nowrap;
+        }
+        .search-no-result {
+            text-align: center; padding: 28px 20px; color: var(--text-light);
+            font-size: 14px; display: none; background: var(--bg);
+            border-radius: 16px; border: 1px solid var(--line); margin-top: 8px;
+        }
         .search-no-result.show { display: block; }
-        mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
 
         main {
             flex: 1; padding: 40px 0; width: 100%; max-width: 100vw;
@@ -462,7 +512,6 @@
         .btn-container-full { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
         .btn-container-full .btn { flex: 1 1 auto; min-width: fit-content; }
 
-        /* ============ FOOTER — matches index page exactly ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -499,6 +548,9 @@
             textarea { font-size: 14px; }
             .why-us-card { flex-direction: column; align-items: flex-start; }
             .search-overlay-full { padding-top: 24px; }
+            .search-container { width: 94%; }
+            .search-box input { font-size: 16px; }
+            .search-result-item .result-desc { max-width: 180px; }
         }
         @media (max-width: 500px) {
             .btn-container { flex-direction: column; }
@@ -753,7 +805,6 @@
             </div>
         </main>
 
-        <!-- ============ FOOTER — matches index page exactly ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -835,6 +886,7 @@
                 <button class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
+            <div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>
         </div>
     </div>
 
@@ -1117,29 +1169,32 @@
                 { name: 'Fuel Economy Converter', link: '/fuel-economy-converter', keywords: 'fuel economy converter units', category: 'calculator' }
             ];
 
+            // Precompute search haystack once
             tools.forEach(function(t) {
                 t._hay = (t.name + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
             });
 
+            function escHtml(s) {
+                return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+            }
+
+            // Highlight first occurrence of q inside text, wrapping it in <mark>
+            function highlight(text, q) {
+                const safe = escHtml(text);
+                if (!q) return safe;
+                const idx = text.toLowerCase().indexOf(q);
+                if (idx === -1) return safe;
+                return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
+            }
+
             function buildMegaMenu() {
                 const menu = document.getElementById('megaMenu');
-                if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
+                if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${escHtml(tool.name)}</a>`).join('');
             }
 
             function buildMobileToolsMenu() {
                 const menu = document.getElementById('mobileToolsMenu');
-                if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${tool.name}</a>`).join('');
-            }
-
-            function buildSearchList() {
-                const list = document.getElementById('fullSearchResultsList');
-                if (list) {
-                    list.innerHTML = tools.map(tool => `
-                        <a href="${tool.link}" class="search-result-item" data-keywords="${tool._hay}">
-                            ${tool.name} <span class="result-tag">${categoryLabelMap[tool.category] || tool.category}</span>
-                        </a>
-                    `).join('') + '<div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>';
-                }
+                if (menu) menu.innerHTML = tools.map(tool => `<a href="${tool.link}">${escHtml(tool.name)}</a>`).join('');
             }
 
             let toastTimer;
@@ -1299,25 +1354,47 @@
                 }
             })();
 
+            // Render search results — matches index page layout (two-line with description)
             window.filterFullSearch = function() {
                 const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
-                const items = document.querySelectorAll('#fullSearchResultsList .search-result-item');
-                const nr = document.getElementById('fullNoResult'), qs = document.getElementById('fullSearchQuery');
+                const list = document.getElementById('fullSearchResultsList');
+                const nr = document.getElementById('fullNoResult');
+                const qs = document.getElementById('fullSearchQuery');
                 const clearBtn = document.getElementById('searchClearBtn');
                 if (clearBtn) clearBtn.classList.toggle('show', q.length > 0);
-                let c = 0;
-                items.forEach(i => {
-                    const kw = i.getAttribute('data-keywords') || '', t = i.textContent.toLowerCase();
-                    if (q === '' || kw.includes(q) || t.includes(q)) { i.classList.remove('hidden-item'); c++; }
-                    else { i.classList.add('hidden-item'); }
-                });
-                if (c === 0 && q !== '') { if(nr) nr.classList.add('show'); if(qs) qs.textContent = q; }
-                else { if(nr) nr.classList.remove('show'); }
+
+                const matched = tools.filter(t => q === '' || t._hay.includes(q));
+
+                if (q) {
+                    matched.sort((a, b) => {
+                        const aN = a.name.toLowerCase().includes(q) ? 0 : 1;
+                        const bN = b.name.toLowerCase().includes(q) ? 0 : 1;
+                        return aN - bN;
+                    });
+                }
+
+                list.innerHTML = matched.map(tool => `
+                    <a href="${tool.link}" class="search-result-item">
+                        <span class="result-main">
+                            <span class="result-name">${highlight(tool.name, q)}</span>
+                            <span class="result-desc">${highlight(tool.keywords || '', q)}</span>
+                        </span>
+                        <span class="result-tag">${escHtml(categoryLabelMap[tool.category] || tool.category)}</span>
+                    </a>`).join('');
+
+                if (matched.length === 0 && q !== '') {
+                    nr.classList.add('show');
+                    if (qs) qs.textContent = q;
+                } else {
+                    nr.classList.remove('show');
+                }
+
+                list.querySelectorAll('.search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
                 searchState.activeIndex = -1;
             };
 
             window.handleSearchKey = function(e) {
-                const items = Array.from(document.querySelectorAll('#fullSearchResultsList .search-result-item:not(.hidden-item)'));
+                const items = Array.from(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
                 if (e.key === 'ArrowDown') {
                     e.preventDefault();
                     if (!items.length) return;
@@ -1348,8 +1425,6 @@
                 filterFullSearch();
                 input.focus();
             };
-
-            document.querySelectorAll('#fullSearchResultsList .search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
 
             (function setSearchPlaceholder() {
                 const input = document.getElementById('fullSearchInput');
@@ -1574,7 +1649,7 @@
 
             buildMegaMenu();
             buildMobileToolsMenu();
-            buildSearchList();
+            filterFullSearch();
             lucide.createIcons();
         });
     </script>
