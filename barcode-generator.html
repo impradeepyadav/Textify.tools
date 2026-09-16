@@ -281,19 +281,11 @@
             box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
             transition: background 0.3s;
         }
-        .gradient-bg {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%) !important;
-        }
         .action-buttons { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
         .error-msg { color: var(--error-text); background: var(--error-bg); border: 1px solid var(--error-text); padding: 10px 14px; border-radius: 8px; font-size: 14px; display: none; margin-top: 10px; }
         .error-msg.visible { display: block; }
 
-        /* Preview styles for gradient */
-        .gradient-preview {
-            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
-            border-radius: 12px;
-        }
-
+        /* ============ FOOTER (matches index page) ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -313,15 +305,22 @@
         .footer-about-text a { color: var(--footer-link-color); text-decoration: none; }
         .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
         @media (max-width: 768px) {
-            footer { padding: 30px 16px 160px; } .footer-middle { flex-direction: column; align-items: center; gap: 20px; } .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: center; } .footer-right-columns { justify-content: center; gap: 20px; } .footer-column { min-width: auto; text-align: center; } .footer-links a { display: block; }
+            footer { padding: 30px 16px 160px; }
+            .footer-middle { flex-direction: column; align-items: flex-start; gap: 28px; text-align: left; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
+            .footer-right-columns { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 22px; width: 100%; }
+            .footer-column { min-width: auto; text-align: left; width: 100%; }
+            .footer-links a { display: block; }
         }
         @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
         @media (max-width: 768px) {
-            .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 0; } footer { padding: 30px 16px 160px; } .barcode-layout { flex-direction: column; } .options-row .form-group { min-width: 100%; } .barcode-form, .barcode-preview { width: 100%; }
+            .desktop-nav { display: none; } .theme-btn, .search-trigger { display: none; } .hamburger-btn { display: flex; } header { padding: 0 16px; } .logo { font-size: 20px; } h1 { font-size: 28px; } main { padding: 20px 0; } .barcode-layout { flex-direction: column; } .options-row .form-group { min-width: 100%; } .barcode-form, .barcode-preview { width: 100%; }
         }
         @media (min-width: 769px) {
             .hamburger-btn { display: none; } .mobile-sidebar-overlay { display: none !important; } .mobile-sidebar { display: none !important; }
         }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
 
     <div class="page-wrapper">
@@ -526,6 +525,7 @@
             </div>
         </main>
 
+        <!-- ============ FOOTER (updated to match index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -545,6 +545,8 @@
                                 <li><a href="/case-converter">Case Converter</a></li>
                                 <li><a href="/password-generator">Password Generator</a></li>
                                 <li><a href="/whatsapp-link-generator">WhatsApp Link Generator</a></li>
+                                <li><a href="/shipping-label-generator">Shipping Label Generator</a></li>
+                                <li><a href="/resume-builder">Resume Builder</a></li>
                                 <li><a href="/signature-resizer">Signature Resizer</a></li>
                                 <li><a href="/passport-size-photo-maker">Passport Size Photo Maker</a></li>
                                 <li><a href="/barcode-generator">Barcode Generator</a></li>
@@ -604,7 +606,7 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // ============ Barcode Generator Core Logic (Enhanced) ============
+        // ============ Barcode Generator Core Logic ============
         let lastSvg = null;
 
         function setSample(value) {
@@ -625,19 +627,11 @@
             const currentValue = document.getElementById('barcodeValue').value;
             if (!currentValue) {
                 const samples = {
-                    'EAN13': '123456789012',
-                    'EAN8': '1234567',
-                    'EAN5': '12345',
-                    'EAN2': '12',
-                    'UPC': '12345678901',
-                    'CODE39': 'ABC-12345',
-                    'ITF14': '1234567890123',
-                    'pharmacode': '1234',
-                    'codabar': 'A12345B'
+                    'EAN13': '123456789012', 'EAN8': '1234567', 'EAN5': '12345', 'EAN2': '12',
+                    'UPC': '12345678901', 'CODE39': 'ABC-12345', 'ITF14': '1234567890123',
+                    'pharmacode': '1234', 'codabar': 'A12345B'
                 };
-                if (samples[format]) {
-                    document.getElementById('barcodeValue').value = samples[format];
-                }
+                if (samples[format]) document.getElementById('barcodeValue').value = samples[format];
             }
             generateBarcode();
         }
@@ -674,26 +668,16 @@
                 svg.id = 'barcodeSvg';
                 displayDiv.appendChild(svg);
 
-                const options = {
-                    format: format,
-                    width: width,
-                    height: height,
-                    displayValue: displayValue,
-                    lineColor: lineColor,
-                    background: bgColor,
-                    margin: margin,
-                    fontSize: fontSize,
-                    textAlign: textAlign,
-                    textMargin: textMargin
-                };
-
-                JsBarcode(svg, value, options);
+                JsBarcode(svg, value, {
+                    format: format, width: width, height: height,
+                    displayValue: displayValue, lineColor: lineColor, background: bgColor,
+                    margin: margin, fontSize: fontSize, textAlign: textAlign, textMargin: textMargin
+                });
 
                 if (rotation !== 0) {
                     svg.style.transform = `rotate(${rotation}deg)`;
                     svg.style.transformOrigin = 'center center';
                 }
-
                 lastSvg = svg;
             } catch (error) {
                 errorMsg.textContent = 'Invalid input for selected format. Please check the value or choose another format.';
@@ -704,26 +688,19 @@
         }
 
         function downloadBarcode(type) {
-            if (!lastSvg) {
-                showToast('Please generate a barcode first.');
-                return;
-            }
-
+            if (!lastSvg) { showToast('Please generate a barcode first.'); return; }
             const svgData = new XMLSerializer().serializeToString(lastSvg);
-
             if (type === 'svg') {
                 const blob = new Blob([svgData], { type: 'image/svg+xml' });
                 const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url; a.download = 'barcode.svg'; a.click();
+                const a = document.createElement('a'); a.href = url; a.download = 'barcode.svg'; a.click();
                 URL.revokeObjectURL(url);
                 showToast('SVG downloaded!');
             } else {
                 const canvas = document.createElement('canvas');
                 const img = new Image();
                 img.onload = function() {
-                    canvas.width = img.width;
-                    canvas.height = img.height;
+                    canvas.width = img.width; canvas.height = img.height;
                     const ctx = canvas.getContext('2d');
                     const bgColor = document.getElementById('bgColor').value;
                     ctx.fillStyle = bgColor;
@@ -731,10 +708,7 @@
                     ctx.drawImage(img, 0, 0);
                     const mimeType = type === 'png' ? 'image/png' : 'image/jpeg';
                     const dataUrl = canvas.toDataURL(mimeType, type === 'png' ? 1 : 0.95);
-                    const a = document.createElement('a');
-                    a.href = dataUrl;
-                    a.download = 'barcode.' + type;
-                    a.click();
+                    const a = document.createElement('a'); a.href = dataUrl; a.download = 'barcode.' + type; a.click();
                     showToast(type.toUpperCase() + ' downloaded!');
                 };
                 img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
@@ -742,27 +716,19 @@
         }
 
         function copyToClipboard() {
-            if (!lastSvg) {
-                showToast('Please generate a barcode first.');
-                return;
-            }
+            if (!lastSvg) { showToast('Please generate a barcode first.'); return; }
             const svgData = new XMLSerializer().serializeToString(lastSvg);
-            navigator.clipboard.writeText(svgData).then(() => {
-                showToast('SVG code copied to clipboard!');
-            }).catch(() => {
-                showToast('Failed to copy. Try downloading instead.');
-            });
+            navigator.clipboard.writeText(svgData).then(() => showToast('SVG code copied to clipboard!'))
+            .catch(() => showToast('Failed to copy. Try downloading instead.'));
         }
 
-        // Initialize
         generateBarcode();
 
         // ============ Toast ============
         let toastTimer;
         function showToast(msg, dur=3000) {
             const t=document.getElementById('toast');
-            t.textContent=msg;
-            t.classList.add('show');
+            t.textContent=msg; t.classList.add('show');
             clearTimeout(toastTimer);
             toastTimer=setTimeout(()=>t.classList.remove('show'), dur);
         }
@@ -780,7 +746,7 @@
             }
         }
 
-        // ============ Full Tools List ============
+        // ============ Full Tools List (updated with Shipping Label + Resume Builder) ============
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'text', label: 'Text Tools' },
@@ -793,6 +759,7 @@
         ];
         const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
         const tools = [
+            // Text Tools
             { name: 'Word Counter', link: '/word-counter', keywords: 'word count character counter letters', category: 'text' },
             { name: 'Sentence Counter', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', category: 'text' },
             { name: 'Paragraph Counter', link: '/paragraph-counter', keywords: 'paragraph count block format', category: 'text' },
@@ -852,6 +819,22 @@
             { name: 'Mention Extractor', link: '/mention-extractor', keywords: 'mention extract username @ social', category: 'text' },
             { name: 'Keyword Extractor', link: '/keyword-extractor', keywords: 'keyword extract important terms', category: 'text' },
             { name: 'Duplicate Line Finder', link: '/duplicate-line-finder', keywords: 'duplicate line find report', category: 'text' },
+            { name: 'Text Sorter', link: '/text-sorter', keywords: 'sort order alphabetically lines list', category: 'text' },
+            { name: 'Reverse Lines', link: '/reverse-lines', keywords: 'reverse lines order flip', category: 'text' },
+            { name: 'Shuffle Lines', link: '/shuffle-lines', keywords: 'shuffle lines randomize order', category: 'text' },
+            { name: 'Number Lines', link: '/number-lines', keywords: 'number lines add numbers ordered', category: 'text' },
+            { name: 'Remove Line Numbers', link: '/remove-line-numbers', keywords: 'remove line numbers strip', category: 'text' },
+            { name: 'Unique Lines Extractor', link: '/unique-lines-extractor', keywords: 'unique lines extract distinct', category: 'text' },
+            { name: 'Filter Lines', link: '/filter-lines', keywords: 'filter lines grep contain exclude', category: 'text' },
+            { name: 'Trim Lines', link: '/trim-lines', keywords: 'trim lines spaces leading trailing', category: 'text' },
+            { name: 'Join Lines', link: '/join-lines', keywords: 'join lines merge combine', category: 'text' },
+            { name: 'Split Lines', link: '/split-lines', keywords: 'split lines delimiter break', category: 'text' },
+            { name: 'Text Diff Checker', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', category: 'text' },
+            { name: 'Word Compare', link: '/word-compare', keywords: 'word compare diff text', category: 'text' },
+            { name: 'Line Compare', link: '/line-compare', keywords: 'line compare diff text', category: 'text' },
+            { name: 'Character Compare', link: '/character-compare', keywords: 'character compare diff detailed', category: 'text' },
+            { name: 'Similarity Checker', link: '/similarity-checker', keywords: 'similarity score comparison match', category: 'text' },
+
             // Developer Tools
             { name: 'JSON Formatter/Beautifier', link: '/json-formatter', keywords: 'json format beautify pretty print', category: 'developer' },
             { name: 'JSON Minifier', link: '/json-minifier', keywords: 'json minify compress', category: 'developer' },
@@ -905,6 +888,8 @@
             { name: 'HMAC Generator', link: '/hmac-generator', keywords: 'hmac hash generator', category: 'developer' },
             { name: 'Cron Expression Generator', link: '/cron-expression-generator', keywords: 'cron expression generator', category: 'developer' },
             { name: 'Cron Expression Tester', link: '/cron-expression-tester', keywords: 'cron expression tester', category: 'developer' },
+            { name: 'Slug Generator', link: '/slug-generator', keywords: 'slug url seo friendly permalink', category: 'developer' },
+
             // Generators
             { name: 'Password Generator', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generator' },
             { name: 'PIN Generator', link: '/pin-generator', keywords: 'pin generator random', category: 'generator' },
@@ -919,6 +904,7 @@
             { name: 'WhatsApp Link Generator', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', category: 'generator' },
             { name: 'Business Name Generator', link: '/business-name-generator', keywords: 'business name generator', category: 'generator' },
             { name: 'Invoice Number Generator', link: '/invoice-number-generator', keywords: 'invoice number generator', category: 'generator' },
+
             // Image Tools
             { name: 'Image Compressor', link: '/image-compressor', keywords: 'image compressor reduce size', category: 'image' },
             { name: 'Image Resizer', link: '/image-resizer', keywords: 'image resize dimensions', category: 'image' },
@@ -939,6 +925,7 @@
             { name: 'Photo 200KB', link: '/photo-200kb', keywords: 'photo 200kb compress', category: 'image' },
             { name: 'Signature Resizer', link: '/signature-resizer', keywords: 'signature resize image document', category: 'image' },
             { name: 'Passport Size Photo Maker', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image', category: 'image' },
+
             // PDF Tools
             { name: 'JPG to PDF', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image', category: 'pdf' },
             { name: 'PNG to PDF', link: '/png-to-pdf', keywords: 'png pdf converter', category: 'pdf' },
@@ -954,15 +941,19 @@
             { name: 'PDF Text Extractor', link: '/pdf-text-extractor', keywords: 'pdf text extractor', category: 'pdf' },
             { name: 'PDF Lock', link: '/pdf-lock', keywords: 'pdf lock password protect', category: 'pdf' },
             { name: 'PDF Unlock', link: '/pdf-unlock', keywords: 'pdf unlock password remove', category: 'pdf' },
+
             // Business Tools
             { name: 'Invoice Generator', link: '/invoice-generator', keywords: 'invoice generator', category: 'business' },
             { name: 'Quotation Generator', link: '/quotation-generator', keywords: 'quotation generator', category: 'business' },
             { name: 'Receipt Generator', link: '/receipt-generator', keywords: 'receipt generator', category: 'business' },
             { name: 'Payslip Generator', link: '/payslip-generator', keywords: 'payslip generator', category: 'business' },
+            { name: 'Shipping Label Generator', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', category: 'business' },
+            { name: 'Resume Builder', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', category: 'business' },
             { name: 'GST Calculator', link: '/gst-calculator', keywords: 'gst calculator tax', category: 'business' },
             { name: 'Discount Calculator', link: '/discount-calculator', keywords: 'discount calculator sale', category: 'business' },
             { name: 'Profit Margin Calculator', link: '/profit-margin-calculator', keywords: 'profit margin calculator', category: 'business' },
             { name: 'Salary Calculator', link: '/salary-calculator', keywords: 'salary calculator', category: 'business' },
+
             // Finance Tools
             { name: 'EMI Calculator', link: '/emi-calculator', keywords: 'emi calculator loan', category: 'finance' },
             { name: 'Loan Calculator', link: '/loan-calculator', keywords: 'loan calculator', category: 'finance' },
