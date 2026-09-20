@@ -341,7 +341,26 @@
         .hero-search .hero-clear.show { display: flex; }
         .hero-search kbd { font-family: inherit; font-size: 11px; font-weight: 600; color: var(--text-light); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 3px 7px; flex-shrink: 0; }
 
-        .category-filter-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start; margin-bottom: 26px; padding: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        /* FIX #1: base bar wraps on desktop; mobile uses horizontal scroll */
+        .category-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: flex-start;
+            margin-bottom: 26px;
+            padding: 0;
+        }
+        @media (max-width: 768px) {
+            .category-filter-bar {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                padding-bottom: 6px;
+            }
+            .category-filter-bar::-webkit-scrollbar { height: 6px; }
+            .category-filter-bar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+        }
         .cat-chip { padding: 9px 18px; border-radius: 24px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid var(--line); background: var(--chip-bg); color: var(--text-light); transition: all 0.2s; white-space: nowrap; font-family: inherit; user-select: none; flex-shrink: 0; }
         .cat-chip:hover { background: var(--chip-hover); border-color: var(--primary); color: var(--text); }
         .cat-chip.active { background: var(--chip-active-bg); color: var(--chip-active-text); border-color: var(--chip-active-bg); }
@@ -1373,8 +1392,11 @@
             input.focus();
         }
 
+        // FIX #3: use trimmed query consistently for user-facing messages
         function applyFilters() {
-            const q = filterState.query.toLowerCase().trim();
+            const rawQuery = filterState.query;
+            const q = rawQuery.toLowerCase().trim();
+            const displayQuery = rawQuery.trim();
             const cat = filterState.category;
             const isAll = cat === 'all';
             const hasQuery = q !== '';
@@ -1389,20 +1411,25 @@
                 if (show) visible++;
             }
 
+            // FIX #5: sensible fallback message when query is empty
             const empty = document.getElementById('noToolsFound');
             if (empty) {
                 const show = visible === 0;
                 empty.classList.toggle('show', show);
                 if (show) {
-                    empty.innerHTML = 'No tools match <strong>' + escHtml(filterState.query || '') + '</strong> in this category. Try a different search or <a href="/contact-us" style="color:var(--primary);font-weight:600;">suggest a tool</a>.';
+                    if (displayQuery) {
+                        empty.innerHTML = 'No tools match <strong>' + escHtml(displayQuery) + '</strong> in this category. Try a different search or <a href="/contact-us" style="color:var(--primary);font-weight:600;">suggest a tool</a>.';
+                    } else {
+                        empty.innerHTML = 'No tools found in this category. Try a different category or <a href="/contact-us" style="color:var(--primary);font-weight:600;">suggest a tool</a>.';
+                    }
                 }
             }
 
             const line = document.getElementById('resultsLine');
-            if (q !== '' || filterState.category !== 'all') {
+            if (hasQuery || cat !== 'all') {
                 line.textContent = visible + ' tool' + (visible === 1 ? '' : 's') + ' found'
-                    + (q ? ' for "' + filterState.query + '"' : '')
-                    + (filterState.category !== 'all' ? ' in ' + categoryLabelMap[filterState.category] : '');
+                    + (hasQuery ? ' for "' + displayQuery + '"' : '')
+                    + (cat !== 'all' ? ' in ' + categoryLabelMap[cat] : '');
                 line.classList.add('show');
             } else {
                 line.classList.remove('show');
@@ -1562,10 +1589,15 @@
                 if (searchIsOpen) document.getElementById('fullSearchInput').focus();
             }, 200);
         }
+        // FIX #2: cancel any pending search rebuild when closing the overlay
         function closeFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay.classList.contains('active')) return;
             searchIsOpen = false;
+            if (searchResultsRaf) {
+                cancelAnimationFrame(searchResultsRaf);
+                searchResultsRaf = 0;
+            }
             overlay.classList.remove('active');
             overlay.setAttribute('aria-hidden', 'true');
             document.getElementById('fullSearchInput').value = '';
@@ -1756,11 +1788,13 @@
             input.placeholder = 'Search all ' + tools.length + ' free tools…';
         }
 
+        // FIX #4: use closest() instead of parentElement for robustness
         function toggleFaq(btnEl) {
-            const item = btnEl.parentElement;
+            const item = btnEl.closest('.faq-item');
+            if (!item) return;
             const expanded = btnEl.getAttribute('aria-expanded') === 'true';
             item.classList.toggle('active');
-            btnEl.setAttribute('aria-expanded', !expanded);
+            btnEl.setAttribute('aria-expanded', String(!expanded));
             const icon = btnEl.querySelector('svg');
             if (icon) {
                 icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
