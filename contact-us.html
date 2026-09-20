@@ -34,9 +34,7 @@
   <!-- Preconnect -->
   <link rel="preconnect" href="https://www.googletagmanager.com">
   <link rel="preconnect" href="https://scripts.scriptwrapper.com">
-  <link rel="preconnect" href="https://unpkg.com" crossorigin>
-
-  <!-- Inter font -->
+  <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -65,6 +63,9 @@
 
   <!-- Mediavine (same as index page) -->
   <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@0.344.0" defer></script>
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -118,7 +119,6 @@
   </script>
 </head>
 <body>
-  <script src="https://unpkg.com/lucide@0.344.0"></script>
   <style>
     :root {
       --bg: #ffffff;
@@ -425,6 +425,8 @@
       header { padding: 0 60px; }
       h1 { font-size: 44px; }
     }
+    .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+    .toast.show { transform: translateX(-50%) translateY(0); }
   </style>
 
   <div class="page-wrapper">
@@ -647,20 +649,6 @@
       { name: 'Mention Extractor', desc: 'Pull out @usernames from text.', icon: 'at-sign', link: '/mention-extractor', keywords: 'mention extract username @ social twitter', color: '#0ea5e9', category: 'text' },
       { name: 'Keyword Extractor', desc: 'Extract the most important words and phrases.', icon: 'key', link: '/keyword-extractor', keywords: 'keyword extract important terms seo', color: '#0ea5e9', category: 'text' },
       { name: 'Duplicate Line Finder', desc: 'Show which lines appear more than once.', icon: 'search', link: '/duplicate-line-finder', keywords: 'duplicate line find report repeat', color: '#0ea5e9', category: 'text' },
-      { name: 'Text Sorter', desc: 'Sort lines alphabetically or numerically.', icon: 'arrow-up-down', link: '/text-sorter', keywords: 'sort order alphabetically lines list', color: '#10b981', category: 'text' },
-      { name: 'Reverse Lines', desc: 'Reverse the order of lines.', icon: 'arrow-down-up', link: '/reverse-lines', keywords: 'reverse lines order flip', color: '#10b981', category: 'text' },
-      { name: 'Shuffle Lines', desc: 'Randomly shuffle lines.', icon: 'shuffle', link: '/shuffle-lines', keywords: 'shuffle lines randomize order', color: '#10b981', category: 'text' },
-      { name: 'Number Lines', desc: 'Add numbers to each line.', icon: 'list-ordered', link: '/number-lines', keywords: 'number lines add numbers ordered', color: '#10b981', category: 'text' },
-      { name: 'Remove Line Numbers', desc: 'Remove numbering from lines.', icon: 'list-x', link: '/remove-line-numbers', keywords: 'remove line numbers strip', color: '#10b981', category: 'text' },
-      { name: 'Unique Lines Extractor', desc: 'Extract only unique lines.', icon: 'list-filter', link: '/unique-lines-extractor', keywords: 'unique lines extract distinct', color: '#10b981', category: 'text' },
-      { name: 'Filter Lines', desc: 'Filter lines by keyword.', icon: 'filter', link: '/filter-lines', keywords: 'filter lines grep contain exclude', color: '#10b981', category: 'text' },
-      { name: 'Trim Lines', desc: 'Trim whitespace from lines.', icon: 'scissors', link: '/trim-lines', keywords: 'trim lines spaces leading trailing', color: '#10b981', category: 'text' },
-      { name: 'Split Lines', desc: 'Split lines by delimiter.', icon: 'split', link: '/split-lines', keywords: 'split lines delimiter break', color: '#10b981', category: 'text' },
-      { name: 'Text Diff Checker', desc: 'Compare two texts side by side.', icon: 'git-compare', link: '/text-diff-checker', keywords: 'diff compare difference text comparison', color: '#6366f1', category: 'text' },
-      { name: 'Word Compare', desc: 'Word-level diff between two texts.', icon: 'git-compare', link: '/word-compare', keywords: 'word compare diff text', color: '#6366f1', category: 'text' },
-      { name: 'Line Compare', desc: 'Line-level diff between two texts.', icon: 'git-compare', link: '/line-compare', keywords: 'line compare diff text', color: '#6366f1', category: 'text' },
-      { name: 'Character Compare', desc: 'Character-level diff between two texts.', icon: 'git-compare', link: '/character-compare', keywords: 'character compare diff detailed', color: '#6366f1', category: 'text' },
-      { name: 'Similarity Checker', desc: 'Check similarity between two texts.', icon: 'git-compare', link: '/similarity-checker', keywords: 'similarity score comparison match', color: '#6366f1', category: 'text' },
 
       // Developer Tools
       { name: 'JSON Formatter/Beautifier', desc: 'Format messy JSON into readable, indented structure.', icon: 'braces', link: '/json-formatter', keywords: 'json format beautify pretty print indent api', color: '#f59e0b', category: 'developer' },
@@ -715,7 +703,6 @@
       { name: 'HMAC Generator', desc: 'Generate HMAC hash.', icon: 'shield', link: '/hmac-generator', keywords: 'hmac hash generator secret key', color: '#0ea5e9', category: 'developer' },
       { name: 'Cron Expression Generator', desc: 'Generate cron expressions.', icon: 'calendar', link: '/cron-expression-generator', keywords: 'cron expression generator schedule', color: '#0ea5e9', category: 'developer' },
       { name: 'Cron Expression Tester', desc: 'Test cron expressions.', icon: 'check', link: '/cron-expression-tester', keywords: 'cron expression tester schedule', color: '#0ea5e9', category: 'developer' },
-      { name: 'Slug Generator', desc: 'Generate URL-friendly slugs from text.', icon: 'link-2', link: '/slug-generator', keywords: 'slug url seo friendly permalink', color: '#0ea5e9', category: 'developer' },
 
       // Generators
       { name: 'Password Generator', desc: 'Generate strong random passwords.', icon: 'key', link: '/password-generator', keywords: 'password generator random strong secure', color: '#14b8a6', category: 'generator' },
