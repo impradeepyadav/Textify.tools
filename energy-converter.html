@@ -872,7 +872,6 @@
                 return;
             }
 
-            // Convert input to joules, then to target unit
             const joules = value * fromUnit.factor;
             const result = joules / toUnit.factor;
 
@@ -885,11 +884,9 @@
             if (!isFinite(n)) return '—';
             if (n === 0) return '0';
             const abs = Math.abs(n);
-            // Very small or very large numbers → scientific notation
             if (abs < 1e-4 || abs >= 1e12) {
                 return n.toExponential(6).replace(/\.?0+e/, 'e');
             }
-            // Otherwise, limit to a reasonable number of decimals
             let str = n.toFixed(6);
             str = str.replace(/\.?0+$/, '');
             if (str === '' || str === '-') str = '0';
