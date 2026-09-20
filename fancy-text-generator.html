@@ -90,6 +90,7 @@
             --sidebar-bg: #ffffff; --toast-bg: #1f2937; --toast-text: #ffffff;
             --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
             --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            --chip-hover: #e2e8f0;
             --mark-bg: #dbeafe; --mark-text: #1e3a8a;
         }
         html.dark-mode {
@@ -104,6 +105,7 @@
             --sidebar-bg: #0f172a; --toast-bg: #f1f5f9; --toast-text: #0f172a;
             --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
             --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            --chip-hover: #334155;
             --mark-bg: #1e3a8a; --mark-text: #dbeafe;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -175,7 +177,7 @@
         .search-box .search-clear-btn { display: none; background: var(--hover); border: none; cursor: pointer; padding: 6px; border-radius: 50%; color: var(--text-light); align-items: center; justify-content: center; flex-shrink: 0; }
         .search-box .search-clear-btn.show { display: flex; }
         .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .search-box .search-close-btn:hover, .search-box .search-clear-btn:hover { background: var(--hover); }
+        .search-box .search-close-btn:hover, .search-box .search-clear-btn:hover { background: var(--chip-hover); }
         .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; flex: 1; min-height: 0; }
         .search-results-list .search-result-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.15s; border-bottom: 1px solid var(--line); }
         .search-results-list .search-result-item:last-child { border-bottom: none; }
@@ -196,7 +198,7 @@
         h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
         h3 { font-size: 18px; font-weight: 600; margin: 20px 0 10px; }
         .section p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
-        .section ul { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; }
+        .section ul, .section ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; }
         .section li { margin-bottom: 10px; line-height: 1.7; }
         .section a { color: var(--footer-link-color); text-decoration: none; }
         .section a:hover { text-decoration: underline; }
@@ -213,7 +215,6 @@
         .btn.primary { background: var(--primary); color: var(--bg); border: none; }
         .btn.primary:hover { opacity: 0.9; }
 
-        /* Search filter for styles */
         .style-filter { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 16px; margin: 15px 0; }
         .style-filter input { flex: 1; border: none; background: transparent; outline: none; font-family: inherit; font-size: 15px; color: var(--text); padding: 8px 0; }
         .style-count { font-size: 13px; color: var(--text-light); font-weight: 500; white-space: nowrap; }
@@ -522,7 +523,7 @@
         function applyMarks(text, marks) { return [...text].map(c => (c === ' ' || c === '\n' || c === '\t') ? c : c + marks).join(''); }
         function addStyle(name, fn) { STYLES.push({ n: name, fn: fn }); }
 
-        // ===== 1. PURE UNICODE ALPHABETS (40) =====
+        // ===== 1. PURE UNICODE ALPHABETS =====
         const ALPHAS = [
             ['Bold', '𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙', '𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳', '𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗'],
             ['Italic', '𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍', '𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧', null],
@@ -570,62 +571,29 @@
             addStyle(name, t => applyMap(t, map));
         });
 
-        // ===== 2. SINGLE COMBINING MARKS (~45) =====
+        // ===== 2. SINGLE COMBINING MARKS =====
         const SINGLE_MARKS = [
-            ['Strikethrough', '\u0336'],
-            ['Underline', '\u0332'],
-            ['Overline', '\u0305'],
-            ['Double Underline', '\u0333'],
-            ['Slashed', '\u0338'],
-            ['Short Slash', '\u0337'],
-            ['Short Stroke', '\u0335'],
-            ['Tilde Overlay', '\u0334'],
-            ['Grave Accent', '\u0300'],
-            ['Acute Accent', '\u0301'],
-            ['Circumflex', '\u0302'],
-            ['Tilde Above', '\u0303'],
-            ['Macron', '\u0304'],
-            ['Breve', '\u0306'],
-            ['Dot Above', '\u0307'],
-            ['Diaeresis', '\u0308'],
-            ['Ring Above', '\u030A'],
-            ['Double Acute', '\u030B'],
-            ['Caron', '\u030C'],
-            ['Vertical Above', '\u030D'],
-            ['Double Vertical Above', '\u030E'],
-            ['Double Grave', '\u030F'],
-            ['Inverted Breve', '\u0311'],
-            ['Turned Comma Above', '\u0312'],
-            ['Comma Above', '\u0313'],
-            ['Reversed Comma Above', '\u0314'],
-            ['Horn', '\u031B'],
-            ['Dot Below', '\u0323'],
-            ['Diaeresis Below', '\u0324'],
-            ['Ring Below', '\u0325'],
-            ['Comma Below', '\u0326'],
-            ['Cedilla', '\u0327'],
-            ['Ogonek', '\u0328'],
-            ['Vertical Below', '\u0329'],
-            ['Bridge Below', '\u032A'],
-            ['Caron Below', '\u032C'],
-            ['Circumflex Below', '\u032D'],
-            ['Breve Below', '\u032E'],
-            ['Tilde Below', '\u0330'],
-            ['X Above', '\u033D'],
-            ['Double Overline', '\u033F'],
-            ['X Below', '\u0353'],
-            ['Left Arrow Above', '\u20D6'],
-            ['Right Arrow Above', '\u20D7'],
-            ['Double Arrow Above', '\u20E1'],
-            ['Dotted Line Below', '\u20E8'],
-            ['Triple Dots Above', '\u20DB'],
-            ['Four Dots Above', '\u20DC'],
-            ['Left Half Ring Below', '\u031C'],
-            ['Right Half Ring Below', '\u0339']
+            ['Strikethrough', '\u0336'], ['Underline', '\u0332'], ['Overline', '\u0305'],
+            ['Double Underline', '\u0333'], ['Slashed', '\u0338'], ['Short Slash', '\u0337'],
+            ['Short Stroke', '\u0335'], ['Tilde Overlay', '\u0334'], ['Grave Accent', '\u0300'],
+            ['Acute Accent', '\u0301'], ['Circumflex', '\u0302'], ['Tilde Above', '\u0303'],
+            ['Macron', '\u0304'], ['Breve', '\u0306'], ['Dot Above', '\u0307'],
+            ['Diaeresis', '\u0308'], ['Ring Above', '\u030A'], ['Double Acute', '\u030B'],
+            ['Caron', '\u030C'], ['Vertical Above', '\u030D'], ['Double Vertical Above', '\u030E'],
+            ['Double Grave', '\u030F'], ['Inverted Breve', '\u0311'], ['Turned Comma Above', '\u0312'],
+            ['Comma Above', '\u0313'], ['Reversed Comma Above', '\u0314'], ['Horn', '\u031B'],
+            ['Dot Below', '\u0323'], ['Diaeresis Below', '\u0324'], ['Ring Below', '\u0325'],
+            ['Comma Below', '\u0326'], ['Cedilla', '\u0327'], ['Ogonek', '\u0328'],
+            ['Vertical Below', '\u0329'], ['Bridge Below', '\u032A'], ['Caron Below', '\u032C'],
+            ['Circumflex Below', '\u032D'], ['Breve Below', '\u032E'], ['Tilde Below', '\u0330'],
+            ['X Above', '\u033D'], ['Double Overline', '\u033F'], ['X Below', '\u0353'],
+            ['Left Arrow Above', '\u20D6'], ['Right Arrow Above', '\u20D7'], ['Double Arrow Above', '\u20E1'],
+            ['Dotted Line Below', '\u20E8'], ['Triple Dots Above', '\u20DB'], ['Four Dots Above', '\u20DC'],
+            ['Left Half Ring Below', '\u031C'], ['Right Half Ring Below', '\u0339']
         ];
         SINGLE_MARKS.forEach(([name, m]) => addStyle(name, t => applyMark(t, m)));
 
-        // ===== 3. DOUBLE COMBINING MARKS (top pairs) =====
+        // ===== 3. DOUBLE COMBINING MARKS =====
         const TOP_DOUBLE = [
             ['Strikethrough', '\u0336'], ['Underline', '\u0332'], ['Overline', '\u0305'],
             ['Double Underline', '\u0333'], ['Slashed', '\u0338'], ['Tilde Overlay', '\u0334'],
@@ -647,62 +615,37 @@
             }
         }
 
-        // ===== 4. TRIPLE COMBINING MARKS (selected) =====
+        // ===== 4. TRIPLE COMBINING MARKS =====
         const TRIPLES = [
-            ['Strike-Under-Over', '\u0336\u0332\u0305'],
-            ['Strike-Slash-Under', '\u0336\u0338\u0332'],
-            ['Strike-Dots-Below', '\u0336\u0307\u0323'],
-            ['Under-Over-X', '\u0332\u0305\u033D'],
-            ['Ring-Dot-Tilde', '\u030A\u0307\u0303'],
-            ['Diaeresis-Macron-Acute', '\u0308\u0304\u0301'],
-            ['Grave-Acute-Circumflex', '\u0300\u0301\u0302'],
-            ['Breve-Caron-Cedilla', '\u0306\u030C\u0327'],
-            ['Strike-Under-Double', '\u0336\u0332\u0333'],
-            ['Slashed-Strike-Dot', '\u0338\u0336\u0307'],
-            ['Ring-Dot-Cedilla', '\u030A\u0307\u0327'],
-            ['Tilde-Macron-Breve', '\u0303\u0304\u0306'],
-            ['Circumflex-Diaeresis-Caron', '\u0302\u0308\u030C'],
-            ['Ogonek-Caron-Acute', '\u0328\u030C\u0301'],
-            ['Vertical-Dot-Cedilla', '\u030D\u0307\u0327'],
-            ['Strike-Dot-Above-Below', '\u0336\u0307\u0323'],
-            ['Double-Strike-Slash', '\u0336\u0336\u0338'],
-            ['Under-Over-Double-Under', '\u0332\u0305\u0333'],
-            ['X-Above-Dot-Below-X-Below', '\u033D\u0323\u0353'],
-            ['Arrows-Left-Right', '\u20D6\u20D7'],
-            ['Strike-Arrow-Left', '\u0336\u20D6'],
-            ['Strike-Arrow-Right', '\u0336\u20D7'],
-            ['Under-Arrow-Left', '\u0332\u20D6'],
-            ['Under-Arrow-Right', '\u0332\u20D7'],
-            ['Horn-Dot-Above-Below', '\u031B\u0307\u0323'],
-            ['Ring-Tilde-Acute', '\u030A\u0303\u0301'],
-            ['Diaeresis-Grave-Below', '\u0308\u0300\u0323'],
-            ['Macron-Acute-Cedilla', '\u0304\u0301\u0327'],
-            ['Caron-Breve-Ogonek', '\u030C\u0306\u0328'],
-            ['X-Above-X-Below-Vertical', '\u033D\u0353\u0329'],
-            ['Strike-Under-Arrow-Both', '\u0336\u0332\u20E1'],
-            ['Dots-Above-Triple-Cedilla', '\u20DB\u0327'],
-            ['Dots-Below-Triple-X', '\u20E8\u033D'],
-            ['Ring-Horn-Ogonek', '\u030A\u031B\u0328'],
-            ['Tilde-Above-Below-Diaeresis', '\u0303\u0330\u0308'],
-            ['Breve-Inverted-Below', '\u0306\u032E\u032F'],
-            ['Circumflex-Below-Above', '\u0302\u032D'],
-            ['Strike-Slash-X', '\u0336\u0338\u033D'],
-            ['Under-Slash-X', '\u0332\u0338\u033D'],
-            ['Over-Slash-X', '\u0305\u0338\u033D'],
-            ['Strike-Vertical-Above-Below', '\u0336\u030D\u0329'],
-            ['Dotted-Under-Over', '\u0323\u0332\u0305'],
-            ['Horn-Cedilla-Breve', '\u031B\u0327\u0306'],
-            ['Comma-Ogonek-Below', '\u0313\u0328\u0326'],
-            ['Double-Acute-Double-Grave', '\u030B\u030F'],
-            ['Caron-X-Above', '\u030C\u033D'],
-            ['Strike-Ring-Above', '\u0336\u030A'],
-            ['Under-Ring-Below', '\u0332\u0325'],
-            ['Over-Dot-Below', '\u0305\u0323'],
-            ['Strike-Over-Under-X', '\u0336\u0305\u0332\u033D']
+            ['Strike-Under-Over', '\u0336\u0332\u0305'], ['Strike-Slash-Under', '\u0336\u0338\u0332'],
+            ['Strike-Dots-Below', '\u0336\u0307\u0323'], ['Under-Over-X', '\u0332\u0305\u033D'],
+            ['Ring-Dot-Tilde', '\u030A\u0307\u0303'], ['Diaeresis-Macron-Acute', '\u0308\u0304\u0301'],
+            ['Grave-Acute-Circumflex', '\u0300\u0301\u0302'], ['Breve-Caron-Cedilla', '\u0306\u030C\u0327'],
+            ['Strike-Under-Double', '\u0336\u0332\u0333'], ['Slashed-Strike-Dot', '\u0338\u0336\u0307'],
+            ['Ring-Dot-Cedilla', '\u030A\u0307\u0327'], ['Tilde-Macron-Breve', '\u0303\u0304\u0306'],
+            ['Circumflex-Diaeresis-Caron', '\u0302\u0308\u030C'], ['Ogonek-Caron-Acute', '\u0328\u030C\u0301'],
+            ['Vertical-Dot-Cedilla', '\u030D\u0307\u0327'], ['Strike-Dot-Above-Below', '\u0336\u0307\u0323'],
+            ['Double-Strike-Slash', '\u0336\u0336\u0338'], ['Under-Over-Double-Under', '\u0332\u0305\u0333'],
+            ['X-Above-Dot-Below-X-Below', '\u033D\u0323\u0353'], ['Arrows-Left-Right', '\u20D6\u20D7'],
+            ['Strike-Arrow-Left', '\u0336\u20D6'], ['Strike-Arrow-Right', '\u0336\u20D7'],
+            ['Under-Arrow-Left', '\u0332\u20D6'], ['Under-Arrow-Right', '\u0332\u20D7'],
+            ['Horn-Dot-Above-Below', '\u031B\u0307\u0323'], ['Ring-Tilde-Acute', '\u030A\u0303\u0301'],
+            ['Diaeresis-Grave-Below', '\u0308\u0300\u0323'], ['Macron-Acute-Cedilla', '\u0304\u0301\u0327'],
+            ['Caron-Breve-Ogonek', '\u030C\u0306\u0328'], ['X-Above-X-Below-Vertical', '\u033D\u0353\u0329'],
+            ['Strike-Under-Arrow-Both', '\u0336\u0332\u20E1'], ['Dots-Above-Triple-Cedilla', '\u20DB\u0327'],
+            ['Dots-Below-Triple-X', '\u20E8\u033D'], ['Ring-Horn-Ogonek', '\u030A\u031B\u0328'],
+            ['Tilde-Above-Below-Diaeresis', '\u0303\u0330\u0308'], ['Breve-Inverted-Below', '\u0306\u032E\u032F'],
+            ['Circumflex-Below-Above', '\u0302\u032D'], ['Strike-Slash-X', '\u0336\u0338\u033D'],
+            ['Under-Slash-X', '\u0332\u0338\u033D'], ['Over-Slash-X', '\u0305\u0338\u033D'],
+            ['Strike-Vertical-Above-Below', '\u0336\u030D\u0329'], ['Dotted-Under-Over', '\u0323\u0332\u0305'],
+            ['Horn-Cedilla-Breve', '\u031B\u0327\u0306'], ['Comma-Ogonek-Below', '\u0313\u0328\u0326'],
+            ['Double-Acute-Double-Grave', '\u030B\u030F'], ['Caron-X-Above', '\u030C\u033D'],
+            ['Strike-Ring-Above', '\u0336\u030A'], ['Under-Ring-Below', '\u0332\u0325'],
+            ['Over-Dot-Below', '\u0305\u0323'], ['Strike-Over-Under-X', '\u0336\u0305\u0332\u033D']
         ];
         TRIPLES.forEach(([name, m]) => addStyle(name, t => applyMarks(t, m)));
 
-        // ===== 5. LEET CIPHERS (~30) =====
+        // ===== 5. LEET CIPHERS =====
         const LEET_MAPS = [
             ['Leet Basic', { 'a':'4','e':'3','i':'1','o':'0','s':'5','t':'7','A':'4','E':'3','I':'1','O':'0','S':'5','T':'7' }],
             ['Leet Alt', { 'a':'@','e':'3','i':'!','o':'0','s':'$','t':'+','A':'@','E':'3','I':'!','O':'0','S':'$','T':'+' }],
@@ -808,8 +751,6 @@
             const map = makeMap(u, l, null);
             addStyle(name, t => applyMap(t, map));
         });
-        ['🅐','🅑','🅒'].forEach(() => {});
-        // Add every letter separately to force 500
 
         // ===== 10. GLITCH / SPECIAL =====
         addStyle('Glitch Top', t => [...t].map(c => (c === ' ' || c === '\n') ? c : c + '\u030D\u030D').join(''));
@@ -833,56 +774,31 @@
 
         // ===== 11. ADDITIONAL COMBINING MIXES =====
         const EXTRA_COMBOS = [
-            ['Strike + Slash', '\u0336\u0338'],
-            ['Strike + Dot', '\u0336\u0307'],
-            ['Strike + Ring', '\u0336\u030A'],
-            ['Strike + Tilde', '\u0336\u0303'],
-            ['Strike + Hat', '\u0336\u0302'],
-            ['Under + Dot', '\u0332\u0307'],
-            ['Under + Ring', '\u0332\u030A'],
-            ['Under + Tilde', '\u0332\u0303'],
-            ['Over + Dot', '\u0305\u0307'],
-            ['Over + Ring', '\u0305\u030A'],
-            ['Over + Tilde', '\u0305\u0303'],
-            ['Dot + Under', '\u0307\u0323'],
-            ['Dot + Dot', '\u0307\u0307'],
-            ['Ring + Ring', '\u030A\u030A'],
-            ['Ring + Dot', '\u030A\u0307'],
-            ['Tilde + Dot', '\u0303\u0307'],
-            ['Tilde + Ring', '\u0303\u030A'],
-            ['Slash + Ring', '\u0338\u030A'],
-            ['Slash + Dot', '\u0338\u0307'],
-            ['Slash + Under', '\u0338\u0332'],
-            ['Slash + Over', '\u0338\u0305'],
-            ['Double-Strike', '\u0336\u0336'],
-            ['Double-Under', '\u0332\u0332'],
-            ['Double-Over', '\u0305\u0305'],
-            ['Hat + Dot', '\u0302\u0307'],
-            ['Hat + Ring', '\u0302\u030A'],
-            ['Hat + Tilde', '\u0302\u0303'],
-            ['Hat + Slash', '\u0302\u0338'],
-            ['Grave + Acute', '\u0300\u0301'],
-            ['Acute + Grave', '\u0301\u0300'],
-            ['Caron + Ring', '\u030C\u030A'],
-            ['Caron + Dot', '\u030C\u0307'],
-            ['Breve + Dot', '\u0306\u0307'],
-            ['Cedilla + Dot', '\u0327\u0307'],
-            ['Ogonek + Dot', '\u0328\u0307'],
-            ['Horn + Dot', '\u031B\u0307'],
-            ['Horn + Ring', '\u031B\u030A'],
-            ['X-Above + Dot', '\u033D\u0307'],
-            ['X-Above + Ring', '\u033D\u030A'],
-            ['X-Below + Dot', '\u0353\u0307'],
-            ['Comma-Above + Dot', '\u0313\u0307'],
-            ['Bridge-Above + Dot', '\u0346\u0307'],
-            ['Left-Arrow + Dot', '\u20D6\u0307'],
-            ['Right-Arrow + Dot', '\u20D7\u0307'],
-            ['Both-Arrows + Dot', '\u20E1\u0307'],
-            ['Strike + Left-Arrow', '\u0336\u20D6'],
-            ['Strike + Right-Arrow', '\u0336\u20D7'],
-            ['Under + Left-Arrow', '\u0332\u20D6'],
-            ['Under + Right-Arrow', '\u0332\u20D7'],
-            ['Tilde-Below + Dot', '\u0330\u0307']
+            ['Strike + Slash', '\u0336\u0338'], ['Strike + Dot', '\u0336\u0307'],
+            ['Strike + Ring', '\u0336\u030A'], ['Strike + Tilde', '\u0336\u0303'],
+            ['Strike + Hat', '\u0336\u0302'], ['Under + Dot', '\u0332\u0307'],
+            ['Under + Ring', '\u0332\u030A'], ['Under + Tilde', '\u0332\u0303'],
+            ['Over + Dot', '\u0305\u0307'], ['Over + Ring', '\u0305\u030A'],
+            ['Over + Tilde', '\u0305\u0303'], ['Dot + Under', '\u0307\u0323'],
+            ['Dot + Dot', '\u0307\u0307'], ['Ring + Ring', '\u030A\u030A'],
+            ['Ring + Dot', '\u030A\u0307'], ['Tilde + Dot', '\u0303\u0307'],
+            ['Tilde + Ring', '\u0303\u030A'], ['Slash + Ring', '\u0338\u030A'],
+            ['Slash + Dot', '\u0338\u0307'], ['Slash + Under', '\u0338\u0332'],
+            ['Slash + Over', '\u0338\u0305'], ['Double-Strike', '\u0336\u0336'],
+            ['Double-Under', '\u0332\u0332'], ['Double-Over', '\u0305\u0305'],
+            ['Hat + Dot', '\u0302\u0307'], ['Hat + Ring', '\u0302\u030A'],
+            ['Hat + Tilde', '\u0302\u0303'], ['Hat + Slash', '\u0302\u0338'],
+            ['Grave + Acute', '\u0300\u0301'], ['Acute + Grave', '\u0301\u0300'],
+            ['Caron + Ring', '\u030C\u030A'], ['Caron + Dot', '\u030C\u0307'],
+            ['Breve + Dot', '\u0306\u0307'], ['Cedilla + Dot', '\u0327\u0307'],
+            ['Ogonek + Dot', '\u0328\u0307'], ['Horn + Dot', '\u031B\u0307'],
+            ['Horn + Ring', '\u031B\u030A'], ['X-Above + Dot', '\u033D\u0307'],
+            ['X-Above + Ring', '\u033D\u030A'], ['X-Below + Dot', '\u0353\u0307'],
+            ['Comma-Above + Dot', '\u0313\u0307'], ['Bridge-Above + Dot', '\u0346\u0307'],
+            ['Left-Arrow + Dot', '\u20D6\u0307'], ['Right-Arrow + Dot', '\u20D7\u0307'],
+            ['Both-Arrows + Dot', '\u20E1\u0307'], ['Strike + Left-Arrow', '\u0336\u20D6'],
+            ['Strike + Right-Arrow', '\u0336\u20D7'], ['Under + Left-Arrow', '\u0332\u20D6'],
+            ['Under + Right-Arrow', '\u0332\u20D7'], ['Tilde-Below + Dot', '\u0330\u0307']
         ];
         EXTRA_COMBOS.forEach(([name, m]) => addStyle(name, t => applyMarks(t, m)));
 
@@ -931,7 +847,6 @@
         MISC_FNS.forEach(([name, fn]) => addStyle(name, fn));
 
         // ===== 13. FILL TO 500 =====
-        // Additional combining triple combos to reach 500
         const FILL_COMBOS = [
             '\u0336\u0336\u0336', '\u0332\u0332\u0332', '\u0305\u0305\u0305',
             '\u0338\u0338\u0338', '\u0334\u0334\u0334', '\u0307\u0307\u0307',
@@ -950,7 +865,6 @@
         ];
         FILL_COMBOS.forEach((m, i) => addStyle('Combo #' + (i+1), t => applyMarks(t, m)));
 
-        // Add more variations until 500
         while (STYLES.length < 500) {
             const idx = STYLES.length;
             const mark1 = ['\u0336','\u0332','\u0305','\u0338','\u0307','\u0323','\u030A','\u0303'][idx % 8];
@@ -959,7 +873,6 @@
             addStyle('Mix ' + (idx + 1), t => applyMarks(t, mark1 + mark2 + mark3));
         }
 
-        // Trim to exactly 500
         STYLES.length = Math.min(STYLES.length, 500);
 
         document.getElementById('styleTotalInfo').textContent = STYLES.length + ' styles ready';
@@ -1127,7 +1040,7 @@
         }
 
         // =========================================================
-        //  TOOLS LIST
+        //  FULL TOOLS LIST (exactly matches index page)
         // =========================================================
         const categories = [
             { key: 'all', label: 'All Tools' }, { key: 'text', label: 'Text Tools' }, { key: 'developer', label: 'Developer' }, { key: 'generator', label: 'Generators' }, { key: 'image', label: 'Image' }, { key: 'pdf', label: 'PDF' }, { key: 'business', label: 'Business' }, { key: 'calculator', label: 'Calculators & Converters' }, { key: 'finance', label: 'Finance' }
@@ -1301,8 +1214,8 @@
             { name: 'Quotation Generator', desc: 'Generate quotations.', icon: 'file-text', link: '/quotation-generator', keywords: 'quotation generator quote estimate', color: '#10b981', category: 'business' },
             { name: 'Receipt Generator', desc: 'Generate receipts.', icon: 'file-text', link: '/receipt-generator', keywords: 'receipt generator payment', color: '#10b981', category: 'business' },
             { name: 'Payslip Generator', desc: 'Generate payslips.', icon: 'file-text', link: '/payslip-generator', keywords: 'payslip generator salary payroll', color: '#10b981', category: 'business' },
-            { name: 'Shipping Label Generator', desc: 'Create printable shipping and courier labels with sender, receiver and tracking details.', icon: 'package', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', color: '#0ea5e9', category: 'business' },
-            { name: 'Resume Builder', desc: 'Build a clean, professional resume from your details and export it in seconds.', icon: 'file-text', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', color: '#8b5cf6', category: 'business' },
+            { name: 'Shipping Label Generator', desc: 'Create printable shipping and courier labels.', icon: 'package', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', color: '#0ea5e9', category: 'business' },
+            { name: 'Resume Builder', desc: 'Build a clean, professional resume.', icon: 'file-text', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', color: '#8b5cf6', category: 'business' },
             { name: 'GST Calculator', desc: 'Calculate GST amounts.', icon: 'percent', link: '/gst-calculator', keywords: 'gst calculator tax goods services', color: '#10b981', category: 'business' },
             { name: 'Discount Calculator', desc: 'Calculate discounts.', icon: 'percent', link: '/discount-calculator', keywords: 'discount calculator sale off price', color: '#10b981', category: 'business' },
             { name: 'Profit Margin Calculator', desc: 'Calculate profit margins.', icon: 'trending-up', link: '/profit-margin-calculator', keywords: 'profit margin calculator business', color: '#10b981', category: 'business' },
