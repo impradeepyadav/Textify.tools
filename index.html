@@ -311,7 +311,7 @@
         .search-box .search-clear-btn.show { display: flex; }
         .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .search-box .search-close-btn:hover, .search-box .search-clear-btn:hover { background: var(--chip-hover); }
-        .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; flex: 1; min-height: 0; }
+        .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; flex: 1; min-height: 0; contain: content; }
         .search-results-list .search-result-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.15s; border-bottom: 1px solid var(--line); }
         .search-results-list .search-result-item:last-child { border-bottom: none; }
         .search-results-list .search-result-item:hover,
@@ -352,7 +352,8 @@
         @media (max-width: 1200px) { .tools-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
         @media (max-width: 900px) { .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
         @media (max-width: 560px) { .tools-grid { grid-template-columns: 1fr; gap: 12px; } }
-        .tool-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; cursor: pointer; text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 12px; box-shadow: var(--card-shadow); }
+        .tool-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; cursor: pointer; text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 12px; box-shadow: var(--card-shadow);
+            content-visibility: auto; contain-intrinsic-size: auto 190px; }
         .tool-card.hidden-card { display: none; }
         .tool-card:hover { transform: translateY(-4px); box-shadow: var(--card-hover-shadow); border-color: var(--primary); }
         .tool-card .tool-icon { width: 48px; height: 48px; background: var(--hover); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
@@ -494,7 +495,7 @@
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
                         <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
                     </button>
                     <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
                     <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
@@ -1018,7 +1019,7 @@
         </div>
         <div class="mobile-sidebar-actions">
             <button onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
-            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" style="display:none;"></i> Theme</button>
+            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
         </div>
     </div>
 
@@ -1224,7 +1225,6 @@
             { name: 'Profit Margin Calculator', desc: 'Calculate profit margins.', icon: 'trending-up', link: '/profit-margin-calculator', keywords: 'profit margin calculator business', color: '#10b981', category: 'business' },
             { name: 'Salary Calculator', desc: 'Calculate salary.', icon: 'dollar-sign', link: '/salary-calculator', keywords: 'salary calculator income wage', color: '#10b981', category: 'business' },
 
-            /* ---------- Calculators & Converters (moved out of "finance") ---------- */
             { name: 'EMI Calculator', desc: 'Calculate loan EMI.', icon: 'calculator', link: '/emi-calculator', keywords: 'emi calculator loan equated monthly installment', color: '#f59e0b', category: 'finance' },
             { name: 'Loan Calculator', desc: 'Calculate loan details.', icon: 'calculator', link: '/loan-calculator', keywords: 'loan calculator interest', color: '#f59e0b', category: 'finance' },
             { name: 'SIP Calculator', desc: 'Calculate SIP returns.', icon: 'trending-up', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment returns', color: '#f59e0b', category: 'finance' },
@@ -1292,6 +1292,8 @@
 
         // Precompute search haystack once (avoid rebuilding on every keystroke)
         tools.forEach(function(t) {
+            t._nameLower = t.name.toLowerCase();
+            t._descLower = t.desc.toLowerCase();
             t._hay = (t.name + ' ' + t.desc + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
         });
 
@@ -1311,9 +1313,34 @@
 
         const filterState = { category: 'all', query: '' };
 
+        /* ---------- cached state (perf) ---------- */
+        let toolCardNodes = [];
+        let toolCardHay = [];
+        let filterRaf = 0;
+        let megaMenuBuilt = false;
+        let mobileMenuBuilt = false;
+        let searchResultsRaf = 0;
+        let searchIsOpen = false;
+        const MAX_SEARCH_RESULTS = 60;
+
+        function cacheToolCards() {
+            toolCardNodes = Array.prototype.slice.call(document.querySelectorAll('.tool-card'));
+            toolCardHay = toolCardNodes.map(function (c) { return c.dataset.search || ''; });
+        }
+
+        function scheduleApplyFilters() {
+            if (filterRaf) return;
+            filterRaf = requestAnimationFrame(function () {
+                filterRaf = 0;
+                applyFilters();
+            });
+        }
+
         function renderCategoryFilters() {
             const bar = document.getElementById('categoryFilterBar');
-            bar.innerHTML = categories.map(cat => `<button type="button" class="cat-chip ${cat.key === 'all' ? 'active' : ''}" data-cat="${escAttr(cat.key)}" onclick="filterByCategory('${escAttr(cat.key)}', this)" aria-pressed="${cat.key === 'all'}">${escHtml(cat.label)}</button>`).join('');
+            bar.innerHTML = categories.map(cat =>
+                `<button type="button" class="cat-chip${cat.key === 'all' ? ' active' : ''}" data-cat="${escAttr(cat.key)}" aria-pressed="${cat.key === 'all'}">${escHtml(cat.label)}</button>`
+            ).join('');
         }
 
         function filterByCategory(catKey, btnEl) {
@@ -1326,13 +1353,13 @@
                 btnEl.classList.add('active');
                 btnEl.setAttribute('aria-pressed', 'true');
             }
-            applyFilters();
+            scheduleApplyFilters();
         }
 
         function onHeroSearch(val) {
             filterState.query = val;
             document.getElementById('heroClearBtn').classList.toggle('show', val.length > 0);
-            applyFilters();
+            scheduleApplyFilters();
         }
 
         function clearHeroSearch() {
@@ -1346,15 +1373,19 @@
 
         function applyFilters() {
             const q = filterState.query.toLowerCase().trim();
+            const cat = filterState.category;
+            const isAll = cat === 'all';
+            const hasQuery = q !== '';
             let visible = 0;
-            document.querySelectorAll('.tool-card').forEach(card => {
-                const catOk = filterState.category === 'all' || card.dataset.category === filterState.category;
-                const hay = card.dataset.search || '';
-                const textOk = q === '' || hay.includes(q);
+
+            for (let i = 0; i < toolCardNodes.length; i++) {
+                const card = toolCardNodes[i];
+                const catOk = isAll || card.dataset.category === cat;
+                const textOk = !hasQuery || toolCardHay[i].indexOf(q) !== -1;
                 const show = catOk && textOk;
                 card.classList.toggle('hidden-card', !show);
                 if (show) visible++;
-            });
+            }
 
             const empty = document.getElementById('noToolsFound');
             if (empty) {
@@ -1387,9 +1418,13 @@
         }
 
         function buildMegaMenu() {
+            if (megaMenuBuilt) return;
+            megaMenuBuilt = true;
             document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
         function buildMobileToolsMenu() {
+            if (mobileMenuBuilt) return;
+            mobileMenuBuilt = true;
             document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
         function renderCategoryGrid() {
@@ -1411,51 +1446,66 @@
 
         const searchState = { activeIndex: -1 };
 
-        function filterFullSearch() {
-            const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
+        function buildSearchResults(q) {
             const list = document.getElementById('fullSearchResultsList');
             const nr = document.getElementById('fullNoResult');
-            const clearBtn = document.getElementById('searchClearBtn');
 
-            clearBtn.classList.toggle('show', q.length > 0);
-
-            const matched = tools
-                .map((t, idx) => ({ t: t, idx: idx, hay: t._hay }))
-                .filter(x => q === '' || x.hay.includes(q))
-                .map(x => {
+            let matched;
+            if (q === '') {
+                matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
+            } else {
+                matched = [];
+                for (let i = 0; i < tools.length; i++) {
+                    const t = tools[i];
+                    if (t._hay.indexOf(q) === -1) continue;
                     let score = 3;
-                    if (q) {
-                        const nm = x.t.name.toLowerCase();
-                        const ds = x.t.desc.toLowerCase();
-                        if (nm.startsWith(q)) score = 0;
-                        else if (nm.includes(q)) score = 1;
-                        else if (ds.includes(q)) score = 2;
-                    }
-                    return { t: x.t, idx: x.idx, score: score };
-                })
-                .sort((a, b) => {
-                    if (q === '') return a.idx - b.idx;
-                    if (a.score !== b.score) return a.score - b.score;
-                    return a.idx - b.idx;
+                    if (t._nameLower.startsWith(q)) score = 0;
+                    else if (t._nameLower.indexOf(q) !== -1) score = 1;
+                    else if (t._descLower.indexOf(q) !== -1) score = 2;
+                    matched.push({ t: t, idx: i, score: score });
+                }
+                matched.sort(function (a, b) {
+                    return a.score - b.score || a.idx - b.idx;
                 });
+            }
 
-            list.innerHTML = matched.map(x => `
-                <a href="${escAttr(x.t.link)}" class="search-result-item" data-name="${escAttr(x.t.name)}" data-desc="${escAttr(x.t.desc)}">
-                    <span class="result-main">
-                        <span class="result-name">${highlight(x.t.name, q)}</span>
-                        <span class="result-desc">${highlight(x.t.desc, q)}</span>
-                    </span>
-                    <span class="result-tag">${escHtml(categoryLabelMap[x.t.category] || x.t.category)}</span>
-                </a>`).join('');
-
+            const total = matched.length;
+            const limit = total > MAX_SEARCH_RESULTS ? MAX_SEARCH_RESULTS : total;
+            const parts = [];
+            for (let i = 0; i < limit; i++) {
+                const t = matched[i].t;
+                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
+                    '<span class="result-main">' +
+                    '<span class="result-name">' + highlight(t.name, q) + '</span>' +
+                    '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
+                    '</span>' +
+                    '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
+                    '</a>');
+            }
+            if (total > limit) {
+                parts.push('<div class="search-more">Showing ' + limit + ' of ' + total + ' tools — keep typing to narrow it down.</div>');
+            }
+            list.innerHTML = parts.join('');
             searchState.activeIndex = -1;
 
-            if (matched.length === 0 && q !== '') {
+            if (total === 0 && q !== '') {
                 nr.classList.add('show');
                 document.getElementById('fullSearchQuery').textContent = q;
             } else {
                 nr.classList.remove('show');
             }
+        }
+
+        function filterFullSearch() {
+            const input = document.getElementById('fullSearchInput');
+            const q = input.value.toLowerCase().trim();
+            document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
+            if (!searchIsOpen) return;
+            if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
+            searchResultsRaf = requestAnimationFrame(function () {
+                searchResultsRaf = 0;
+                buildSearchResults(q);
+            });
         }
 
         function handleSearchKey(e) {
@@ -1496,19 +1546,23 @@
         function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             lastFocusedBeforeSearch = document.activeElement;
+            searchIsOpen = true;
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
             filterFullSearch();
-            setTimeout(() => document.getElementById('fullSearchInput').focus(), 200);
+            setTimeout(() => {
+                if (searchIsOpen) document.getElementById('fullSearchInput').focus();
+            }, 200);
         }
         function closeFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay.classList.contains('active')) return;
+            searchIsOpen = false;
             overlay.classList.remove('active');
             overlay.setAttribute('aria-hidden', 'true');
             document.getElementById('fullSearchInput').value = '';
-            filterFullSearch();
+            document.getElementById('searchClearBtn').classList.remove('show');
             const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
             if (!sidebarOpen) document.body.style.overflow = '';
             if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
@@ -1533,40 +1587,14 @@
 
         function toggleTheme() {
             const root = document.documentElement;
-            const s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
-                ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
             if (root.classList.contains('dark-mode')) {
                 root.classList.remove('dark-mode');
-                if (s) s.style.display = 'block';
-                if (m) m.style.display = 'none';
-                if (ms) { ms.style.display = 'block'; mm.style.display = 'none'; }
                 try { localStorage.setItem('theme', 'light'); } catch (e) {}
                 setThemeColorMeta(false);
             } else {
                 root.classList.add('dark-mode');
-                if (s) s.style.display = 'none';
-                if (m) m.style.display = 'block';
-                if (ms) { ms.style.display = 'none'; mm.style.display = 'block'; }
                 try { localStorage.setItem('theme', 'dark'); } catch (e) {}
                 setThemeColorMeta(true);
-            }
-        }
-
-        function initThemeIcons() {
-            const root = document.documentElement;
-            const sun = document.getElementById('sunIcon');
-            const moon = document.getElementById('moonIcon');
-            const ms = document.getElementById('mobileSunIcon');
-            const mm = document.getElementById('mobileMoonIcon');
-            if (!sun || !moon) return;
-            if (root.classList.contains('dark-mode')) {
-                sun.style.display = 'none';
-                moon.style.display = 'block';
-                if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
-            } else {
-                sun.style.display = 'block';
-                moon.style.display = 'none';
-                if (ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
             }
         }
 
@@ -1578,6 +1606,7 @@
                 container.classList.remove('open');
                 trigger.setAttribute('aria-expanded', 'false');
             } else {
+                buildMegaMenu();
                 container.classList.add('open');
                 trigger.setAttribute('aria-expanded', 'true');
                 const firstLink = container.querySelector('.tools-mega-menu a');
@@ -1593,6 +1622,7 @@
         });
 
         function openMobileSidebar() {
+            buildMobileToolsMenu();
             const sb = document.getElementById('mobileSidebar');
             sb.classList.add('active');
             sb.setAttribute('aria-hidden', 'false');
@@ -1610,10 +1640,10 @@
             if (ov) ov.classList.remove('active');
             const hb = document.getElementById('hamburgerBtn');
             if (hb) hb.setAttribute('aria-expanded', 'false');
-            const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
-            if (!searchOpen) document.body.style.overflow = '';
+            if (!searchIsOpen) document.body.style.overflow = '';
         }
         function toggleMobileTools() {
+            buildMobileToolsMenu();
             const toggle = document.getElementById('mobileToolsToggle');
             const menu = document.getElementById('mobileToolsMenu');
             const isOpen = menu.classList.contains('active');
@@ -1622,16 +1652,21 @@
             if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
         }
 
+        let resizeRaf = 0;
         function initResizeHandler() {
             let lastWasDesktop = window.innerWidth > 768;
             window.addEventListener('resize', function() {
-                const isDesktop = window.innerWidth > 768;
-                if (isDesktop && !lastWasDesktop) {
-                    if (document.getElementById('mobileSidebar').classList.contains('active')) {
-                        closeMobileSidebar();
+                if (resizeRaf) return;
+                resizeRaf = requestAnimationFrame(function () {
+                    resizeRaf = 0;
+                    const isDesktop = window.innerWidth > 768;
+                    if (isDesktop && !lastWasDesktop) {
+                        if (document.getElementById('mobileSidebar').classList.contains('active')) {
+                            closeMobileSidebar();
+                        }
                     }
-                }
-                lastWasDesktop = isDesktop;
+                    lastWasDesktop = isDesktop;
+                });
             });
         }
 
@@ -1650,6 +1685,17 @@
                 });
             }
 
+            const filterBar = document.getElementById('categoryFilterBar');
+            if (filterBar) {
+                filterBar.addEventListener('click', function(e) {
+                    const btn = e.target.closest('.cat-chip');
+                    if (!btn) return;
+                    const catKey = btn.dataset.cat;
+                    if (!catKey) return;
+                    filterByCategory(catKey, btn);
+                });
+            }
+
             const sb = document.getElementById('mobileSidebar');
             if (sb) {
                 sb.addEventListener('click', (e) => {
@@ -1660,7 +1706,10 @@
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
             if (container && trigger) {
-                container.addEventListener('mouseenter', () => trigger.setAttribute('aria-expanded', 'true'));
+                container.addEventListener('mouseenter', () => {
+                    buildMegaMenu();
+                    trigger.setAttribute('aria-expanded', 'true');
+                });
                 container.addEventListener('mouseleave', () => {
                     if (!container.classList.contains('open')) trigger.setAttribute('aria-expanded', 'false');
                 });
@@ -1689,7 +1738,8 @@
         function setKbdHint() {
             const kbd = document.getElementById('heroKbdHint');
             if (!kbd) return;
-            const isMac = /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent || '');
+            const platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || navigator.userAgent || '';
+            const isMac = /Mac|iPhone|iPad|iPod/.test(platform);
             kbd.textContent = isMac ? '⌘ K' : 'Ctrl K';
         }
 
@@ -1716,15 +1766,13 @@
 
             renderCategoryFilters();
             renderToolCards();
-            buildMegaMenu();
-            buildMobileToolsMenu();
             renderCategoryGrid();
+            cacheToolCards();
 
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
                 window.lucide.createIcons();
             }
 
-            initThemeIcons();
             initDelegatedHandlers();
             initKeyboardShortcuts();
             initResizeHandler();
@@ -1732,7 +1780,6 @@
             setSearchPlaceholder();
 
             applyFilters();
-            filterFullSearch();
         }
 
         if (document.readyState === 'loading') {
