@@ -74,54 +74,11 @@
         {
             "@context": "https://schema.org",
             "@graph": [
-                {
-                    "@type": "WebSite",
-                    "@id": "https://textify.tools/#website",
-                    "url": "https://textify.tools/",
-                    "name": "Textify.tools",
-                    "description": "Free online text tools you can use right in your browser.",
-                    "publisher": { "@id": "https://textify.tools/#organization" }
-                },
-                {
-                    "@type": "Organization",
-                    "@id": "https://textify.tools/#organization",
-                    "name": "Textify.tools",
-                    "url": "https://textify.tools/",
-                    "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 },
-                    "sameAs": ["https://x.com/BuiltByPradeep"]
-                },
-                {
-                    "@type": "Person",
-                    "@id": "https://textify.tools/#author",
-                    "name": "Pradeep Yadav",
-                    "url": "https://textify.tools/about-us",
-                    "worksFor": { "@id": "https://textify.tools/#organization" }
-                },
-                {
-                    "@type": "SoftwareApplication",
-                    "name": "Email Extractor",
-                    "url": "https://textify.tools/email-extractor",
-                    "description": "Extract email addresses from any text instantly. Deduplicates automatically. Runs entirely in your browser — your data never leaves your device.",
-                    "applicationCategory": "WebApplication",
-                    "operatingSystem": "Web Browser",
-                    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-                    "author": { "@id": "https://textify.tools/#author" }
-                },
-                {
-                    "@type": "FAQPage",
-                    "mainEntity": [
-                        { "@type": "Question", "name": "Is the email extractor free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free. No signup, no hidden charges, no limits." } },
-                        { "@type": "Question", "name": "Does it remove duplicate emails?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, duplicate email addresses are automatically removed so you get a clean, unique list." } },
-                        { "@type": "Question", "name": "Is my data safe?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All extraction happens locally in your browser. Your text never leaves your device." } }
-                    ]
-                },
-                {
-                    "@type": "BreadcrumbList",
-                    "itemListElement": [
-                        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
-                        { "@type": "ListItem", "position": 2, "name": "Email Extractor", "item": "https://textify.tools/email-extractor" }
-                    ]
-                }
+                { "@type": "WebSite", "@id": "https://textify.tools/#website", "url": "https://textify.tools/", "name": "Textify.tools", "publisher": { "@id": "https://textify.tools/#organization" } },
+                { "@type": "Organization", "@id": "https://textify.tools/#organization", "name": "Textify.tools", "url": "https://textify.tools/", "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 }, "sameAs": ["https://x.com/BuiltByPradeep"] },
+                { "@type": "Person", "@id": "https://textify.tools/#author", "name": "Pradeep Yadav", "url": "https://textify.tools/about-us" },
+                { "@type": "SoftwareApplication", "name": "Email Extractor", "url": "https://textify.tools/email-extractor", "applicationCategory": "WebApplication", "operatingSystem": "Web Browser", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" } },
+                { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" }, { "@type": "ListItem", "position": 2, "name": "Email Extractor", "item": "https://textify.tools/email-extractor" } ] }
             ]
         }
     </script>
@@ -130,84 +87,40 @@
     <script src="https://unpkg.com/lucide@0.344.0"></script>
     <style>
         :root {
-            --bg: #ffffff;
-            --text: #0a0a0a;
-            --text-light: #525252;
-            --line: #e5e5e5;
-            --primary: #000000;
-            --hover: #f3f4f6;
-            --card: #fafafa;
-            --input-bg: #ffffff;
-            --input-border: #d4d4d4;
-            --footer-bg: #ffffff;
-            --footer-text: #333333;
-            --footer-heading: #000000;
-            --footer-link-color: #2563eb;
-            --footer-link-hover: #1d4ed8;
-            --footer-border: #e5e5e5;
-            --faq-bg: #fafafa;
-            --faq-active: #f3f4f6;
-            --table-header: #f3f4f6;
-            --table-hover: #fafafa;
-            --shadow: rgba(0,0,0,0.1);
-            --overlay-bg: rgba(0,0,0,0.5);
-            --success-bg: #f0fdf4;
-            --success-text: #166534;
-            --sidebar-bg: #ffffff;
-            --accent: #f8fafc;
-            --toast-bg: #1f2937;
-            --toast-text: #ffffff;
+            --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
+            --primary: #000000; --hover: #f3f4f6; --card: #fafafa;
+            --input-bg: #ffffff; --input-border: #d4d4d4;
+            --footer-text: #333333; --footer-heading: #000000;
+            --footer-link-color: #2563eb; --footer-link-hover: #1d4ed8; --footer-border: #e5e5e5;
+            --faq-bg: #fafafa; --faq-active: #f3f4f6;
+            --table-header: #f3f4f6; --table-hover: #fafafa;
+            --shadow: rgba(0,0,0,0.1); --overlay-bg: rgba(0,0,0,0.5);
+            --success-bg: #f0fdf4; --success-text: #166534;
+            --sidebar-bg: #ffffff; --toast-bg: #1f2937; --toast-text: #ffffff;
             --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
             --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            --chip-bg: #f1f5f9;
-            --chip-active-bg: #000;
-            --chip-active-text: #fff;
             --chip-hover: #e2e8f0;
-            --error-text: #dc2626;
-            --error-bg: #fef2f2;
+            --error-text: #dc2626; --error-bg: #fef2f2;
             --highlight: #0ea5e9;
-            --mark-bg: #dbeafe;
-            --mark-text: #1e3a8a;
+            --mark-bg: #dbeafe; --mark-text: #1e3a8a;
         }
         html.dark-mode {
-            --bg: #0f172a;
-            --text: #f1f5f9;
-            --text-light: #94a3b8;
-            --line: #1e293b;
-            --primary: #ffffff;
-            --hover: #1e293b;
-            --card: #1e293b;
-            --input-bg: #1e293b;
-            --input-border: #334155;
-            --footer-bg: #0f172a;
-            --footer-text: #e2e8f0;
-            --footer-heading: #ffffff;
-            --footer-link-color: #60a5fa;
-            --footer-link-hover: #ffffff;
-            --footer-border: #334155;
-            --faq-bg: #1e293b;
-            --faq-active: #334155;
-            --table-header: #1e293b;
-            --table-hover: #1e293b;
-            --shadow: rgba(0,0,0,0.5);
-            --overlay-bg: rgba(0,0,0,0.75);
-            --success-bg: #052e16;
-            --success-text: #86efac;
-            --sidebar-bg: #0f172a;
-            --accent: #1e293b;
-            --toast-bg: #f1f5f9;
-            --toast-text: #0f172a;
+            --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
+            --primary: #ffffff; --hover: #1e293b; --card: #1e293b;
+            --input-bg: #1e293b; --input-border: #334155;
+            --footer-text: #e2e8f0; --footer-heading: #ffffff;
+            --footer-link-color: #60a5fa; --footer-link-hover: #ffffff; --footer-border: #334155;
+            --faq-bg: #1e293b; --faq-active: #334155;
+            --table-header: #1e293b; --table-hover: #1e293b;
+            --shadow: rgba(0,0,0,0.5); --overlay-bg: rgba(0,0,0,0.75);
+            --success-bg: #052e16; --success-text: #86efac;
+            --sidebar-bg: #0f172a; --toast-bg: #f1f5f9; --toast-text: #0f172a;
             --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
             --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
-            --chip-bg: #1e293b;
-            --chip-active-bg: #f1f5f9;
-            --chip-active-text: #0f172a;
             --chip-hover: #334155;
-            --error-text: #fca5a5;
-            --error-bg: #450a0a;
+            --error-text: #fca5a5; --error-bg: #450a0a;
             --highlight: #38bdf8;
-            --mark-bg: #1e3a8a;
-            --mark-text: #dbeafe;
+            --mark-bg: #1e3a8a; --mark-text: #dbeafe;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -216,28 +129,19 @@
             background: var(--bg); color: var(--text); min-height: 100vh;
             transition: background 0.3s, color 0.3s; overflow-x: hidden;
         }
-        .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
+        .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* FIX: prevent sun/moon flash */
-        html.dark-mode #sunIcon,
-        html.dark-mode #mobileSunIcon { display: none !important; }
-        html.dark-mode #moonIcon,
-        html.dark-mode #mobileMoonIcon { display: block !important; }
-        html:not(.dark-mode) #moonIcon,
-        html:not(.dark-mode) #mobileMoonIcon { display: none !important; }
-        html:not(.dark-mode) #sunIcon,
-        html:not(.dark-mode) #mobileSunIcon { display: block !important; }
+        html.dark-mode #sunIcon, html.dark-mode #mobileSunIcon { display: none !important; }
+        html.dark-mode #moonIcon, html.dark-mode #mobileMoonIcon { display: block !important; }
+        html:not(.dark-mode) #moonIcon, html:not(.dark-mode) #mobileMoonIcon { display: none !important; }
+        html:not(.dark-mode) #sunIcon, html:not(.dark-mode) #mobileSunIcon { display: block !important; }
 
         img, video, canvas, iframe, embed, object, svg { max-width: 100%; height: auto; }
         table { max-width: 100%; }
         pre, code { white-space: pre-wrap; word-wrap: break-word; }
         mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
 
-        header {
-            border-bottom: 1px solid var(--line); display: flex; justify-content: center;
-            align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
-            background: transparent; width: 100%;
-        }
+        header { border-bottom: 1px solid var(--line); display: flex; justify-content: center; align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s; width: 100%; }
         .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
@@ -250,10 +154,8 @@
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
         .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
         .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 220px; max-width: min(90vw, 400px); max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
-        .tools-menu-container:hover .tools-mega-menu,
-        .tools-menu-container.open .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .tools-menu-container:hover .tools-trigger i,
-        .tools-menu-container.open .tools-trigger i { transform: rotate(180deg); }
+        .tools-menu-container:hover .tools-mega-menu, .tools-menu-container.open .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .tools-menu-container:hover .tools-trigger i, .tools-menu-container.open .tools-trigger i { transform: rotate(180deg); }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
@@ -268,6 +170,7 @@
         .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
         .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
+
         .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
         .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
         .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; max-width: 85vw; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; visibility: hidden; transition: left 0.35s cubic-bezier(0.4,0,0.2,1), visibility 0.35s; overflow-y: auto; }
@@ -462,7 +365,6 @@
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
-        /* ============ FOOTER ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -855,40 +757,33 @@
             }
 
             try {
-                // Extract emails
                 let emails = input.match(EMAIL_REGEX) || [];
-
-                // Extract phones if option is on
                 let phones = [];
                 if (showPhones) {
                     phones = input.match(PHONE_REGEX) || [];
                 }
 
-                // Deduplicate emails
                 if (deduplicate) {
                     emails = [...new Set(emails.map(e => e.toLowerCase()))];
                     phones = [...new Set(phones)];
                 }
 
-                // Sort
                 if (sortAlpha) {
                     emails.sort();
                     phones.sort();
                 }
 
-                // Build output
                 let outputLines = [];
                 if (emails.length > 0) {
                     outputLines.push(...emails);
                 }
                 if (showPhones && phones.length > 0) {
-                    if (outputLines.length > 0) outputLines.push(''); // blank line separator
+                    if (outputLines.length > 0) outputLines.push('');
                     outputLines.push(...phones);
                 }
 
                 output.value = outputLines.join('\n');
 
-                // Update stats
                 document.getElementById('emailCount').textContent = emails.length;
                 document.getElementById('phoneStat').style.display = showPhones ? 'flex' : 'none';
                 if (showPhones) document.getElementById('phoneCount').textContent = phones.length;
@@ -898,7 +793,6 @@
                     errorDiv.textContent = 'No email addresses found in the provided text.';
                     errorDiv.classList.add('visible');
                 }
-
             } catch (err) {
                 errorDiv.textContent = 'Error: ' + (err.message || 'Something went wrong.');
                 errorDiv.classList.add('visible');
@@ -963,17 +857,8 @@
 
         // ============ Tools & Categories (FULL list from index page) ============
         const categories = [
-            { key: 'all', label: 'All Tools' },
-            { key: 'text', label: 'Text Tools' },
-            { key: 'developer', label: 'Developer' },
-            { key: 'generator', label: 'Generators' },
-            { key: 'image', label: 'Image' },
-            { key: 'pdf', label: 'PDF' },
-            { key: 'business', label: 'Business' },
-            { key: 'calculator', label: 'Calculators & Converters' },
-            { key: 'finance', label: 'Finance' }
+            { key: 'all', label: 'All Tools' }, { key: 'text', label: 'Text Tools' }, { key: 'developer', label: 'Developer' }, { key: 'generator', label: 'Generators' }, { key: 'image', label: 'Image' }, { key: 'pdf', label: 'PDF' }, { key: 'business', label: 'Business' }, { key: 'calculator', label: 'Calculators & Converters' }, { key: 'finance', label: 'Finance' }
         ];
-
         const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
 
         const tools = [
@@ -1149,16 +1034,12 @@
             { name: 'Discount Calculator', desc: 'Calculate discounts.', icon: 'percent', link: '/discount-calculator', keywords: 'discount calculator sale off price', color: '#10b981', category: 'business' },
             { name: 'Profit Margin Calculator', desc: 'Calculate profit margins.', icon: 'trending-up', link: '/profit-margin-calculator', keywords: 'profit margin calculator business', color: '#10b981', category: 'business' },
             { name: 'Salary Calculator', desc: 'Calculate salary.', icon: 'dollar-sign', link: '/salary-calculator', keywords: 'salary calculator income wage', color: '#10b981', category: 'business' },
-
-            /* ---------- Finance ---------- */
             { name: 'EMI Calculator', desc: 'Calculate loan EMI.', icon: 'calculator', link: '/emi-calculator', keywords: 'emi calculator loan equated monthly installment', color: '#f59e0b', category: 'finance' },
             { name: 'Loan Calculator', desc: 'Calculate loan details.', icon: 'calculator', link: '/loan-calculator', keywords: 'loan calculator interest', color: '#f59e0b', category: 'finance' },
             { name: 'SIP Calculator', desc: 'Calculate SIP returns.', icon: 'trending-up', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment returns', color: '#f59e0b', category: 'finance' },
             { name: 'Income Tax Calculator', desc: 'Calculate income tax.', icon: 'percent', link: '/income-tax-calculator', keywords: 'income tax calculator slab', color: '#f59e0b', category: 'finance' },
             { name: 'Tax Calculator', desc: 'Calculate taxes.', icon: 'percent', link: '/tax-calculator', keywords: 'tax calculator', color: '#f59e0b', category: 'finance' },
             { name: 'Tip Calculator', desc: 'Calculate tips.', icon: 'dollar-sign', link: '/tip-calculator', keywords: 'tip calculator restaurant gratuity', color: '#f59e0b', category: 'finance' },
-
-            /* ---------- Calculators & Converters ---------- */
             { name: 'GPA Calculator', desc: 'Calculate GPA.', icon: 'graduation-cap', link: '/gpa-calculator', keywords: 'gpa calculator student grade point', color: '#8b5cf6', category: 'calculator' },
             { name: 'CGPA Calculator', desc: 'Calculate CGPA.', icon: 'graduation-cap', link: '/cgpa-calculator', keywords: 'cgpa calculator student grade', color: '#8b5cf6', category: 'calculator' },
             { name: 'Percentage Calculator', desc: 'Calculate percentages.', icon: 'percent', link: '/percentage-calculator', keywords: 'percentage calculator percent', color: '#8b5cf6', category: 'calculator' },
@@ -1217,7 +1098,6 @@
             { name: 'Fuel Economy Converter', desc: 'Convert fuel economy units.', icon: 'gauge', link: '/fuel-economy-converter', keywords: 'fuel economy converter units mileage', color: '#f59e0b', category: 'calculator' }
         ];
 
-        // Precompute haystack for fast search
         tools.forEach(function(t) {
             t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
         });
@@ -1234,7 +1114,6 @@
             return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
         }
 
-        // ============ Build shared components ============
         function buildMegaMenu() {
             document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join('');
         }
@@ -1242,7 +1121,6 @@
             document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join('');
         }
 
-        // ============ Theme ============
         function setThemeColorMeta(isDark) {
             const meta = document.querySelector('meta[name="theme-color"]');
             if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
@@ -1283,7 +1161,6 @@
             }
         })();
 
-        // ============ Tools Menu ============
         function toggleToolsMenu() {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
@@ -1306,7 +1183,6 @@
             }
         });
 
-        // ============ Mobile Sidebar ============
         function openMobileSidebar(){
             const sb = document.getElementById('mobileSidebar');
             sb.classList.add('active');
@@ -1337,7 +1213,6 @@
         }
         document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l=>l.addEventListener('click', closeMobileSidebar));
 
-        // Resize handler — force close mobile sidebar on desktop
         (function initResizeHandler() {
             let lastWasDesktop = window.innerWidth > 768;
             window.addEventListener('resize', function() {
@@ -1351,7 +1226,6 @@
             });
         })();
 
-        // ============ Search ============
         let lastFocusedBeforeSearch = null;
         const searchState = { activeIndex: -1 };
 
@@ -1462,7 +1336,6 @@
             input.focus();
         }
 
-        // Backdrop click
         (function initSearchBackdrop() {
             const overlay = document.getElementById('searchOverlayFull');
             if (overlay) {
@@ -1472,7 +1345,6 @@
             }
         })();
 
-        // Dynamic search placeholder
         (function setSearchPlaceholder() {
             const input = document.getElementById('fullSearchInput');
             if (!input) return;
@@ -1496,7 +1368,6 @@
             }
         });
 
-        // ============ Init ============
         document.getElementById('dynamicYear').textContent = new Date().getFullYear();
         buildMegaMenu();
         buildMobileToolsMenu();
