@@ -312,6 +312,8 @@
         .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .search-box .search-close-btn:hover, .search-box .search-clear-btn:hover { background: var(--chip-hover); }
         .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; flex: 1; min-height: 0; contain: content; }
+
+        /* No sticky header anymore — removed as requested */
         .search-results-list .search-result-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.15s; border-bottom: 1px solid var(--line); }
         .search-results-list .search-result-item:last-child { border-bottom: none; }
         .search-results-list .search-result-item:hover,
@@ -1321,7 +1323,6 @@
         let mobileMenuBuilt = false;
         let searchResultsRaf = 0;
         let searchIsOpen = false;
-        const MAX_SEARCH_RESULTS = 60;
 
         function cacheToolCards() {
             toolCardNodes = Array.prototype.slice.call(document.querySelectorAll('.tool-card'));
@@ -1446,12 +1447,16 @@
 
         const searchState = { activeIndex: -1 };
 
+        /* ===================================================================
+           SEARCH: empty query shows ALL tools, no sticky header anymore.
+           =================================================================== */
         function buildSearchResults(q) {
             const list = document.getElementById('fullSearchResultsList');
             const nr = document.getElementById('fullNoResult');
 
             let matched;
             if (q === '') {
+                // Show the complete catalogue, in original order
                 matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
             } else {
                 matched = [];
@@ -1470,9 +1475,11 @@
             }
 
             const total = matched.length;
-            const limit = total > MAX_SEARCH_RESULTS ? MAX_SEARCH_RESULTS : total;
             const parts = [];
-            for (let i = 0; i < limit; i++) {
+
+            // No header — removed as requested
+
+            for (let i = 0; i < total; i++) {
                 const t = matched[i].t;
                 parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
                     '<span class="result-main">' +
@@ -1482,9 +1489,7 @@
                     '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
                     '</a>');
             }
-            if (total > limit) {
-                parts.push('<div class="search-more">Showing ' + limit + ' of ' + total + ' tools — keep typing to narrow it down.</div>');
-            }
+
             list.innerHTML = parts.join('');
             searchState.activeIndex = -1;
 
@@ -1550,6 +1555,7 @@
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+            // Renders the FULL tool list immediately when the box is empty
             filterFullSearch();
             setTimeout(() => {
                 if (searchIsOpen) document.getElementById('fullSearchInput').focus();
@@ -1746,7 +1752,7 @@
         function setSearchPlaceholder() {
             const input = document.getElementById('fullSearchInput');
             if (!input) return;
-            input.placeholder = 'Type to search ' + tools.length + ' free tools…';
+            input.placeholder = 'Search all ' + tools.length + ' free tools…';
         }
 
         function toggleFaq(btnEl) {
