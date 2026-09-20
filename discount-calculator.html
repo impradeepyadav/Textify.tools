@@ -63,64 +63,31 @@
     <!-- Mediavine (same as index page) -->
     <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
 
+    <!-- Lucide icons -->
+    <script src="https://unpkg.com/lucide@0.344.0" defer></script>
+
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@graph": [
-                {
-                    "@type": "WebSite",
-                    "@id": "https://textify.tools/#website",
-                    "url": "https://textify.tools/",
-                    "name": "Textify.tools",
-                    "description": "Free online text tools you can use right in your browser. Word counter, JSON formatter, case converter, password generator and more — no signup, no server uploads, complete privacy.",
-                    "publisher": { "@id": "https://textify.tools/#organization" }
-                },
-                {
-                    "@type": "Organization",
-                    "@id": "https://textify.tools/#organization",
-                    "name": "Textify.tools",
-                    "url": "https://textify.tools/",
-                    "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 },
-                    "sameAs": ["https://x.com/BuiltByPradeep"]
-                },
-                {
-                    "@type": "Person",
-                    "@id": "https://textify.tools/#author",
-                    "name": "Pradeep Yadav",
-                    "url": "https://textify.tools/about-us",
-                    "worksFor": { "@id": "https://textify.tools/#organization" }
-                },
-                {
-                    "@type": "SoftwareApplication",
-                    "name": "Discount Calculator",
-                    "url": "https://textify.tools/discount-calculator",
-                    "description": "Calculate discount amount and final price using percentage or fixed amount discounts in any currency. All calculations happen locally in your browser. No signup, complete privacy.",
-                    "applicationCategory": "FinanceApplication",
-                    "operatingSystem": "Web Browser",
-                    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-                    "author": { "@id": "https://textify.tools/#author" }
-                },
-                {
-                    "@type": "FAQPage",
-                    "mainEntity": [
-                        { "@type": "Question", "name": "How do I calculate a discount?", "acceptedAnswer": { "@type": "Answer", "text": "Enter the original price and either a discount percentage or fixed amount. The tool will instantly show the discount amount and the final price after discount." } },
-                        { "@type": "Question", "name": "Is this tool free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, 100% free. No hidden charges, no signup required." } },
-                        { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All calculations happen in your browser. Your data never leaves your device." } }
-                    ]
-                },
-                {
-                    "@type": "BreadcrumbList",
-                    "itemListElement": [
-                        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
-                        { "@type": "ListItem", "position": 2, "name": "Discount Calculator", "item": "https://textify.tools/discount-calculator" }
-                    ]
-                }
+                { "@type": "WebSite", "@id": "https://textify.tools/#website", "url": "https://textify.tools/", "name": "Textify.tools", "description": "Free online text tools you can use right in your browser.", "publisher": { "@id": "https://textify.tools/#organization" } },
+                { "@type": "Organization", "@id": "https://textify.tools/#organization", "name": "Textify.tools", "url": "https://textify.tools/", "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 }, "sameAs": ["https://x.com/BuiltByPradeep"] },
+                { "@type": "Person", "@id": "https://textify.tools/#author", "name": "Pradeep Yadav", "url": "https://textify.tools/about-us", "worksFor": { "@id": "https://textify.tools/#organization" } },
+                { "@type": "SoftwareApplication", "name": "Discount Calculator", "url": "https://textify.tools/discount-calculator", "description": "Calculate discount amount and final price using percentage or fixed amount discounts in any currency.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web Browser", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }, "author": { "@id": "https://textify.tools/#author" } },
+                { "@type": "FAQPage", "mainEntity": [
+                    { "@type": "Question", "name": "How do I calculate a discount?", "acceptedAnswer": { "@type": "Answer", "text": "Enter the original price and either a discount percentage or fixed amount. The tool will instantly show the discount amount and the final price after discount." } },
+                    { "@type": "Question", "name": "Is this tool free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, 100% free. No hidden charges, no signup required." } },
+                    { "@type": "Question", "name": "Is my data private?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. All calculations happen in your browser. Your data never leaves your device." } }
+                ]},
+                { "@type": "BreadcrumbList", "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
+                    { "@type": "ListItem", "position": 2, "name": "Discount Calculator", "item": "https://textify.tools/discount-calculator" }
+                ]}
             ]
         }
     </script>
 </head>
 <body>
-    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <style>
         :root {
             --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5; --primary: #000000; --hover: #f3f4f6; --card: #fafafa; --input-bg: #ffffff; --input-border: #d4d4d4;
@@ -447,7 +414,6 @@
                     </div>
                 </div>
 
-                <!-- Additional Detail Sections -->
                 <div style="margin-bottom:40px;">
                     <h2>Why use this discount calculator?</h2>
                     <p>Whether you're shopping, running a business, or just checking a sale, calculating discounts is a common task. This tool simplifies the math so you can know exactly how much you'll pay and how much you'll save. Now with multi-currency support for global users.</p>
@@ -562,7 +528,6 @@
             </div>
         </main>
 
-        <!-- ============ FOOTER ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -613,7 +578,6 @@
         </footer>
     </div>
 
-    <!-- Mobile sidebar -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
         <div class="mobile-sidebar-header">
@@ -633,7 +597,6 @@
         </div>
     </div>
 
-    <!-- Search overlay -->
     <div class="search-overlay-full" id="searchOverlayFull" role="dialog" aria-modal="true" aria-label="Search tools" aria-hidden="true">
         <div class="search-container">
             <div class="search-box">
