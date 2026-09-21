@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Email Extractor - Free Online Tool | Textify.tools</title>
     <meta name="description" content="Extract email addresses from any text instantly. Paste, click, and get a clean, deduplicated list. Runs 100% in your browser — no signup, no uploads, completely private.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -84,7 +84,7 @@
     </script>
 </head>
 <body>
-    <script src="https://unpkg.com/lucide@0.344.0"></script>
+    <script src="https://unpkg.com/lucide@0.344.0" defer></script>
     <style>
         :root {
             --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
@@ -131,10 +131,15 @@
         }
         .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; min-height: 100vh; }
 
-        html.dark-mode #sunIcon, html.dark-mode #mobileSunIcon { display: none !important; }
-        html.dark-mode #moonIcon, html.dark-mode #mobileMoonIcon { display: block !important; }
-        html:not(.dark-mode) #moonIcon, html:not(.dark-mode) #mobileMoonIcon { display: none !important; }
-        html:not(.dark-mode) #sunIcon, html:not(.dark-mode) #mobileSunIcon { display: block !important; }
+        /* FIX: prevent sun/moon flash (matches index.html) */
+        html.dark-mode #sunIcon,
+        html.dark-mode #mobileSunIcon { display: none !important; }
+        html.dark-mode #moonIcon,
+        html.dark-mode #mobileMoonIcon { display: block !important; }
+        html:not(.dark-mode) #moonIcon,
+        html:not(.dark-mode) #mobileMoonIcon { display: none !important; }
+        html:not(.dark-mode) #sunIcon,
+        html:not(.dark-mode) #mobileSunIcon { display: block !important; }
 
         img, video, canvas, iframe, embed, object, svg { max-width: 100%; height: auto; }
         table { max-width: 100%; }
@@ -193,7 +198,7 @@
         .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
         .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
 
-        /* ===== SEARCH OVERLAY ===== */
+        /* ===== SEARCH OVERLAY — matches index page ===== */
         .search-overlay-full {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--overlay-bg);
@@ -232,7 +237,7 @@
         .search-results-list {
             background: var(--bg); border-radius: 16px; border: 1px solid var(--line);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto;
-            flex: 1; min-height: 0;
+            flex: 1; min-height: 0; contain: content;
         }
         .search-results-list .search-result-item {
             display: flex; align-items: center; justify-content: space-between;
@@ -365,6 +370,7 @@
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
+        /* ============ FOOTER (matches index page) ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -419,13 +425,13 @@
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="/favicon.ico" alt="Textify.Tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
+                    <img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
                     Textify.tools
                 </a>
                 <div class="header-right">
                     <div class="desktop-nav">
                         <div class="tools-menu-container" id="toolsMenuContainer">
-                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleToolsMenu()">
+                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu" onclick="toggleToolsMenu()">
                                 Tools <i data-lucide="chevron-down"></i>
                             </button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
@@ -436,10 +442,10 @@
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
                         <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
                     </button>
                     <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                    <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                    <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
                         <span class="menu-icon"><span></span><span></span></span>
                     </button>
                 </div>
@@ -585,42 +591,42 @@
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
                             Is this email extractor free?
-                            <i data-lucide="chevron-down" width="16" height="16"></i>
+                            <i data-lucide="chevron-down" width="16"></i>
                         </button>
                         <div class="faq-answer">Yes, completely free. No signup, no limits, no hidden charges. I keep the lights on with a few small, non‑intrusive ads.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
                             Does it remove duplicate emails?
-                            <i data-lucide="chevron-down" width="16" height="16"></i>
+                            <i data-lucide="chevron-down" width="16"></i>
                         </button>
                         <div class="faq-answer">Yes, duplicate email addresses are automatically removed so you get a clean, unique list. You can toggle this option on or off.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
                             Do you store my data?
-                            <i data-lucide="chevron-down" width="16" height="16"></i>
+                            <i data-lucide="chevron-down" width="16"></i>
                         </button>
                         <div class="faq-answer">Absolutely not. All extraction happens locally in your browser. Your text never leaves your device, and nothing is ever saved. You can even use the tool offline once the page loads.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
                             Can it extract phone numbers too?
-                            <i data-lucide="chevron-down" width="16" height="16"></i>
+                            <i data-lucide="chevron-down" width="16"></i>
                         </button>
                         <div class="faq-answer">Yes! Toggle the "Also extract phone numbers" option and the tool will pull out phone numbers alongside emails. It supports common formats like +1-555-123-4567, (555) 123-4567, and more.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
                             What about complex or unusual email formats?
-                            <i data-lucide="chevron-down" width="16" height="16"></i>
+                            <i data-lucide="chevron-down" width="16"></i>
                         </button>
                         <div class="faq-answer">The tool uses a well‑tested regular expression that covers the vast majority of real‑world emails. Very complex or non‑standard formats may occasionally be missed. For practical use cases, it works great.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
                             Is there a limit on how much text I can paste?
-                            <i data-lucide="chevron-down" width="16" height="16"></i>
+                            <i data-lucide="chevron-down" width="16"></i>
                         </button>
                         <div class="faq-answer">There's no hard limit, but for very large files (tens of thousands of lines), the browser may take a moment. If performance is an issue, paste your text in chunks.</div>
                     </div>
@@ -644,7 +650,7 @@
             </div>
         </main>
 
-        <!-- ============ FOOTER ============ -->
+        <!-- ============ FOOTER (matches index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -652,7 +658,7 @@
                         <p class="footer-credit">Created by: <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">Pradeep Yadav</a></p>
                         <p class="footer-copyright">Copyright © <span id="dynamicYear"></span></p>
                         <h3 class="footer-heading" style="margin-top:10px;">About</h3>
-                        <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking, no fuss. If you have a suggestion, feel free to <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">say hello</a>. Feedback is much appreciated!</p>
+                        <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking of what you type, no fuss. If you have a suggestion, feel free to <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">say hello</a>. Feedback is much appreciated!</p>
                     </div>
                     <div class="footer-right-columns">
                         <div class="footer-column">
@@ -676,6 +682,7 @@
                             <h3 class="footer-heading">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="/">Home</a></li>
+                                <li><a href="/about-us">About Us</a></li>
                                 <li><a href="/contact-us">Contact Us</a></li>
                                 <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
                                 <li><a href="/blog">Blog</a></li>
@@ -699,7 +706,7 @@
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
         <div class="mobile-sidebar-header">
-            <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.Tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
+            <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
         <div class="mobile-sidebar-nav">
@@ -711,7 +718,7 @@
         </div>
         <div class="mobile-sidebar-actions">
             <button onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
-            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" style="display:none;"></i> Theme</button>
+            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
         </div>
     </div>
 
@@ -732,7 +739,7 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // ============ Email Extractor Logic ============
+        // ============ Email Extractor Logic (unchanged) ============
         const EMAIL_REGEX = /[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}/g;
         const PHONE_REGEX = /(\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/g;
 
@@ -842,20 +849,21 @@
             toastTimer=setTimeout(()=>t.classList.remove('show'), dur);
         }
 
-        // ============ FAQ Toggle ============
+        // ============ FAQ Toggle (FIX: use closest()) ============
         function toggleFaq(btnEl){
-            const item = btnEl.parentElement;
+            const item = btnEl.closest('.faq-item');
+            if (!item) return;
             const expanded = btnEl.getAttribute('aria-expanded') === 'true';
             const answer = item.querySelector('.faq-answer');
-            if(answer){
+            if (answer) {
                 answer.style.display = expanded ? 'none' : 'block';
-                btnEl.setAttribute('aria-expanded', !expanded);
+                btnEl.setAttribute('aria-expanded', String(!expanded));
                 const icon = btnEl.querySelector('svg');
-                if(icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+                if (icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
             }
         }
 
-        // ============ Tools & Categories (FULL list from index page) ============
+        // ============ Tools & Categories ============
         const categories = [
             { key: 'all', label: 'All Tools' }, { key: 'text', label: 'Text Tools' }, { key: 'developer', label: 'Developer' }, { key: 'generator', label: 'Generators' }, { key: 'image', label: 'Image' }, { key: 'pdf', label: 'PDF' }, { key: 'business', label: 'Business' }, { key: 'calculator', label: 'Calculators & Converters' }, { key: 'finance', label: 'Finance' }
         ];
@@ -1098,14 +1106,19 @@
             { name: 'Fuel Economy Converter', desc: 'Convert fuel economy units.', icon: 'gauge', link: '/fuel-economy-converter', keywords: 'fuel economy converter units mileage', color: '#f59e0b', category: 'calculator' }
         ];
 
+        // Precompute haystack for fast search (matches index)
         tools.forEach(function(t) {
+            t._nameLower = t.name.toLowerCase();
+            t._descLower = (t.desc || '').toLowerCase();
             t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
         });
 
+        function escAttr(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
         function escHtml(s) {
             return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
-
         function highlight(text, q) {
             const safe = escHtml(text);
             if (!q) return safe;
@@ -1114,53 +1127,40 @@
             return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
         }
 
+        // ============ Build shared components ============
+        let megaMenuBuilt = false;
+        let mobileMenuBuilt = false;
+
         function buildMegaMenu() {
-            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join('');
+            if (megaMenuBuilt) return;
+            megaMenuBuilt = true;
+            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
         function buildMobileToolsMenu() {
-            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join('');
+            if (mobileMenuBuilt) return;
+            mobileMenuBuilt = true;
+            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
 
+        // ============ Theme (CSS handles icons — matches index) ============
         function setThemeColorMeta(isDark) {
             const meta = document.querySelector('meta[name="theme-color"]');
             if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
         }
-
         function toggleTheme() {
             const root = document.documentElement;
-            const s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon');
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
             if (root.classList.contains('dark-mode')) {
                 root.classList.remove('dark-mode');
-                if (s) s.style.display='block'; if (m) m.style.display='none';
-                if (ms) { ms.style.display='block'; mm.style.display='none'; }
                 try { localStorage.setItem('theme','light'); } catch(e){}
                 setThemeColorMeta(false);
             } else {
                 root.classList.add('dark-mode');
-                if (s) s.style.display='none'; if (m) m.style.display='block';
-                if (ms) { ms.style.display='none'; mm.style.display='block'; }
                 try { localStorage.setItem('theme','dark'); } catch(e){}
                 setThemeColorMeta(true);
             }
         }
 
-        (function initIcons() {
-            const root = document.documentElement;
-            const sun = document.getElementById('sunIcon');
-            const moon = document.getElementById('moonIcon');
-            const ms = document.getElementById('mobileSunIcon');
-            const mm = document.getElementById('mobileMoonIcon');
-            if (!sun || !moon) return;
-            if (root.classList.contains('dark-mode')) {
-                sun.style.display = 'none'; moon.style.display = 'block';
-                if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
-            } else {
-                sun.style.display = 'block'; moon.style.display = 'none';
-                if (ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
-            }
-        })();
-
+        // ============ Tools Menu ============
         function toggleToolsMenu() {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
@@ -1169,6 +1169,7 @@
                 container.classList.remove('open');
                 trigger.setAttribute('aria-expanded', 'false');
             } else {
+                buildMegaMenu();
                 container.classList.add('open');
                 trigger.setAttribute('aria-expanded', 'true');
                 const firstLink = container.querySelector('.tools-mega-menu a');
@@ -1183,7 +1184,9 @@
             }
         });
 
+        // ============ Mobile Sidebar ============
         function openMobileSidebar(){
+            buildMobileToolsMenu();
             const sb = document.getElementById('mobileSidebar');
             sb.classList.add('active');
             sb.setAttribute('aria-hidden', 'false');
@@ -1204,6 +1207,7 @@
             if (!searchOpen) document.body.style.overflow='';
         }
         function toggleMobileTools(){
+            buildMobileToolsMenu();
             const toggle = document.getElementById('mobileToolsToggle');
             const menu = document.getElementById('mobileToolsMenu');
             const isOpen = menu.classList.contains('active');
@@ -1213,38 +1217,48 @@
         }
         document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l=>l.addEventListener('click', closeMobileSidebar));
 
+        // Resize handler
         (function initResizeHandler() {
+            let resizeRaf = 0;
             let lastWasDesktop = window.innerWidth > 768;
             window.addEventListener('resize', function() {
-                const isDesktop = window.innerWidth > 768;
-                if (isDesktop && !lastWasDesktop) {
-                    if (document.getElementById('mobileSidebar').classList.contains('active')) {
-                        closeMobileSidebar();
+                if (resizeRaf) return;
+                resizeRaf = requestAnimationFrame(function () {
+                    resizeRaf = 0;
+                    const isDesktop = window.innerWidth > 768;
+                    if (isDesktop && !lastWasDesktop) {
+                        if (document.getElementById('mobileSidebar').classList.contains('active')) closeMobileSidebar();
                     }
-                }
-                lastWasDesktop = isDesktop;
+                    lastWasDesktop = isDesktop;
+                });
             });
         })();
 
+        // ============ Search (matches index) ============
         let lastFocusedBeforeSearch = null;
+        let searchResultsRaf = 0;
+        let searchIsOpen = false;
         const searchState = { activeIndex: -1 };
 
         function openFullSearch(){
             const overlay = document.getElementById('searchOverlayFull');
             lastFocusedBeforeSearch = document.activeElement;
+            searchIsOpen = true;
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow='hidden';
             filterFullSearch();
-            setTimeout(()=>document.getElementById('fullSearchInput').focus(),200);
+            setTimeout(()=>{ if (searchIsOpen) document.getElementById('fullSearchInput').focus(); },200);
         }
         function closeFullSearch(){
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay.classList.contains('active')) return;
+            searchIsOpen = false;
+            if (searchResultsRaf) { cancelAnimationFrame(searchResultsRaf); searchResultsRaf = 0; }
             overlay.classList.remove('active');
             overlay.setAttribute('aria-hidden', 'true');
             document.getElementById('fullSearchInput').value='';
-            filterFullSearch();
+            document.getElementById('searchClearBtn').classList.remove('show');
             const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
             if (!sidebarOpen) document.body.style.overflow='';
             if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
@@ -1253,54 +1267,64 @@
             lastFocusedBeforeSearch = null;
         }
 
-        function filterFullSearch(){
-            const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
+        function buildSearchResults(q) {
             const list = document.getElementById('fullSearchResultsList');
             const nr = document.getElementById('fullNoResult');
-            const qs = document.getElementById('fullSearchQuery');
-            const clearBtn = document.getElementById('searchClearBtn');
 
-            if (clearBtn) clearBtn.classList.toggle('show', q.length > 0);
-
-            const matched = tools
-                .map((t, idx) => ({ t: t, idx: idx, hay: t._hay }))
-                .filter(x => q === '' || x.hay.includes(q))
-                .map(x => {
+            let matched;
+            if (q === '') {
+                matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
+            } else {
+                matched = [];
+                for (let i = 0; i < tools.length; i++) {
+                    const t = tools[i];
+                    if (t._hay.indexOf(q) === -1) continue;
                     let score = 3;
-                    if (q) {
-                        const nm = x.t.name.toLowerCase();
-                        const ds = (x.t.desc || '').toLowerCase();
-                        if (nm.startsWith(q)) score = 0;
-                        else if (nm.includes(q)) score = 1;
-                        else if (ds.includes(q)) score = 2;
-                    }
-                    return { t: x.t, idx: x.idx, score: score };
-                })
-                .sort((a, b) => {
-                    if (q === '') return a.idx - b.idx;
-                    if (a.score !== b.score) return a.score - b.score;
-                    return a.idx - b.idx;
+                    if (t._nameLower.startsWith(q)) score = 0;
+                    else if (t._nameLower.indexOf(q) !== -1) score = 1;
+                    else if (t._descLower.indexOf(q) !== -1) score = 2;
+                    matched.push({ t: t, idx: i, score: score });
+                }
+                matched.sort(function (a, b) {
+                    return a.score - b.score || a.idx - b.idx;
                 });
+            }
 
-            list.innerHTML = matched.map(x => `
-                <a href="${x.t.link}" class="search-result-item">
-                    <span class="result-main">
-                        <span class="result-name">${highlight(x.t.name, q)}</span>
-                        <span class="result-desc">${highlight(x.t.desc || '', q)}</span>
-                    </span>
-                    <span class="result-tag">${escHtml(categoryLabelMap[x.t.category] || x.t.category)}</span>
-                </a>`).join('');
+            const total = matched.length;
+            const parts = [];
 
+            for (let i = 0; i < total; i++) {
+                const t = matched[i].t;
+                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
+                    '<span class="result-main">' +
+                    '<span class="result-name">' + highlight(t.name, q) + '</span>' +
+                    '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
+                    '</span>' +
+                    '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
+                    '</a>');
+            }
+
+            list.innerHTML = parts.join('');
             searchState.activeIndex = -1;
 
-            if (matched.length === 0 && q !== '') {
+            if (total === 0 && q !== '') {
                 nr.classList.add('show');
-                if (qs) qs.textContent = q;
+                document.getElementById('fullSearchQuery').textContent = q;
             } else {
                 nr.classList.remove('show');
             }
+        }
 
-            list.querySelectorAll('.search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
+        function filterFullSearch(){
+            const input = document.getElementById('fullSearchInput');
+            const q = input.value.toLowerCase().trim();
+            document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
+            if (!searchIsOpen) return;
+            if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
+            searchResultsRaf = requestAnimationFrame(function () {
+                searchResultsRaf = 0;
+                buildSearchResults(q);
+            });
         }
 
         function handleSearchKey(e){
@@ -1348,7 +1372,7 @@
         (function setSearchPlaceholder() {
             const input = document.getElementById('fullSearchInput');
             if (!input) return;
-            input.placeholder = 'Type to search ' + tools.length + ' free tools…';
+            input.placeholder = 'Search all ' + tools.length + ' free tools…';
         })();
 
         document.addEventListener('keydown', e => {
@@ -1368,12 +1392,23 @@
             }
         });
 
+        // ============ Init ============
         document.getElementById('dynamicYear').textContent = new Date().getFullYear();
         buildMegaMenu();
         buildMobileToolsMenu();
+        // Pre-render search results (hidden overlay)
+        searchIsOpen = true;
         filterFullSearch();
+        searchIsOpen = false;
+
         if (window.lucide && typeof window.lucide.createIcons === 'function') {
             window.lucide.createIcons();
+        } else {
+            window.addEventListener('load', function () {
+                if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                    window.lucide.createIcons();
+                }
+            });
         }
     </script>
 </body>
