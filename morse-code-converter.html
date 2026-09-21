@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
     <title>Morse Code Converter – Translate Text to Morse and Back | Textify.tools</title>
     <meta name="description" content="Free online Morse code converter. Translate text to Morse code and decode Morse back to text instantly. Fully private, client-side, no signup required.">
@@ -14,9 +14,12 @@
     <meta property="og:url" content="https://textify.tools/morse-code-converter">
     <meta property="og:title" content="Morse Code Converter – Translate Text to Morse and Back | Textify.tools">
     <meta property="og:description" content="Convert text to Morse code and decode Morse back to text. Works entirely in your browser – private, fast, and free.">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:site_name" content="Textify.tools">
+    <meta property="og:image" content="https://textify.tools/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Morse Code Converter – Translate Text to Morse and Back | Textify.tools">
     <meta name="twitter:description" content="Convert text to Morse code and decode Morse back to text. Works entirely in your browser – private, fast, and free.">
+    <meta name="twitter:image" content="https://textify.tools/og-image.png">
 
     <!-- Icons (full set) -->
     <link rel="shortcut icon" href="/favicon.ico">
@@ -147,7 +150,7 @@
     </script>
 </head>
 <body>
-    <script src="https://unpkg.com/lucide@0.344.0"></script>
+    <script src="https://unpkg.com/lucide@0.344.0" defer></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -236,7 +239,7 @@
         pre, code { white-space: pre-wrap; word-wrap: break-word; }
         mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
 
-        /* FIX: prevent sun/moon flash */
+        /* FIX: prevent sun/moon flash (matches index.html) */
         html.dark-mode #sunIcon,
         html.dark-mode #mobileSunIcon { display: none !important; }
         html.dark-mode #moonIcon,
@@ -359,7 +362,7 @@
         .search-results-list {
             background: var(--bg); border-radius: 16px; border: 1px solid var(--line);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto;
-            flex: 1; min-height: 0;
+            flex: 1; min-height: 0; contain: content;
         }
         .search-results-list .search-result-item {
             display: flex; align-items: center; justify-content: space-between;
@@ -500,7 +503,7 @@
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="/favicon.ico" alt="Textify.Tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
+                    <img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
                     Textify.tools
                 </a>
                 <div class="header-right">
@@ -517,7 +520,7 @@
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
                         <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
                     </button>
                     <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
                     <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
@@ -628,7 +631,7 @@
             </div>
         </main>
 
-        <!-- ============ FOOTER (updated to match index page) ============ -->
+        <!-- ============ FOOTER (matches index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -636,7 +639,7 @@
                         <p class="footer-credit">Created by: <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">Pradeep Yadav</a></p>
                         <p class="footer-copyright">Copyright © <span id="dynamicYear"></span></p>
                         <h3 class="footer-heading" style="margin-top:10px;">About</h3>
-                        <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking, no fuss. If you have a suggestion, feel free to <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">say hello</a>. Feedback is much appreciated!</p>
+                        <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking of what you type, no fuss. If you have a suggestion, feel free to <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">say hello</a>. Feedback is much appreciated!</p>
                     </div>
                     <div class="footer-right-columns">
                         <div class="footer-column">
@@ -660,6 +663,7 @@
                             <h3 class="footer-heading">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="/">Home</a></li>
+                                <li><a href="/about-us">About Us</a></li>
                                 <li><a href="/contact-us">Contact Us</a></li>
                                 <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
                                 <li><a href="/blog">Blog</a></li>
@@ -697,7 +701,7 @@
         </div>
         <div class="mobile-sidebar-actions">
             <button onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
-            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" style="display:none;"></i> Theme</button>
+            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
         </div>
     </div>
 
@@ -983,15 +987,19 @@
             { name: 'Fuel Economy Converter', desc: 'Convert fuel economy units.', icon: 'gauge', link: '/fuel-economy-converter', keywords: 'fuel economy converter units mileage', color: '#f59e0b', category: 'calculator' }
         ];
 
-        // Precompute haystack for fast search
+        // Precompute haystack for fast search (matches index)
         tools.forEach(function(t) {
+            t._nameLower = t.name.toLowerCase();
+            t._descLower = (t.desc || '').toLowerCase();
             t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
         });
 
+        function escAttr(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
         function escHtml(s) {
             return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
-
         function highlight(text, q) {
             const safe = escHtml(text);
             if (!q) return safe;
@@ -1000,55 +1008,53 @@
             return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
         }
 
-        function buildMegaMenu() { document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join(''); }
-        function buildMobileToolsMenu() { document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join(''); }
+        // ============ Build shared components ============
+        let megaMenuBuilt = false;
+        let mobileMenuBuilt = false;
 
+        function buildMegaMenu() {
+            if (megaMenuBuilt) return;
+            megaMenuBuilt = true;
+            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
+        }
+        function buildMobileToolsMenu() {
+            if (mobileMenuBuilt) return;
+            mobileMenuBuilt = true;
+            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
+        }
+
+        // ============ Toast ============
         let toastTimer;
-        window.showToast = function(msg, dur=3000) {
+        function showToast(msg, dur) {
+            dur = dur || 3000;
             const t = document.getElementById('toast');
-            t.textContent = msg; t.classList.add('show');
-            clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
-        };
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), dur);
+        }
 
+        // ============ Theme (CSS handles icons — matches index) ============
         function setThemeColorMeta(isDark) {
             const meta = document.querySelector('meta[name="theme-color"]');
             if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
         }
 
-        window.toggleTheme = function() {
+        function toggleTheme() {
             const root = document.documentElement;
-            const s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
-                  ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
             if (root.classList.contains('dark-mode')) {
                 root.classList.remove('dark-mode');
-                if (s) s.style.display='block'; if (m) m.style.display='none';
-                if (ms) { ms.style.display='block'; mm.style.display='none'; }
-                try { localStorage.setItem('theme','light'); } catch(e){}
+                try { localStorage.setItem('theme', 'light'); } catch (e) {}
                 setThemeColorMeta(false);
             } else {
                 root.classList.add('dark-mode');
-                if (s) s.style.display='none'; if (m) m.style.display='block';
-                if (ms) { ms.style.display='none'; mm.style.display='block'; }
-                try { localStorage.setItem('theme','dark'); } catch(e){}
+                try { localStorage.setItem('theme', 'dark'); } catch (e) {}
                 setThemeColorMeta(true);
             }
-        };
+        }
 
-        (function initIcons() {
-            const root = document.documentElement;
-            const sun = document.getElementById('sunIcon'), moon = document.getElementById('moonIcon');
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (!sun || !moon) return;
-            if (root.classList.contains('dark-mode')) {
-                sun.style.display = 'none'; moon.style.display = 'block';
-                if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
-            } else {
-                sun.style.display = 'block'; moon.style.display = 'none';
-                if (ms && mm) { ms.style.display='block'; mm.style.display='none'; }
-            }
-        })();
-
-        window.toggleToolsMenu = function() {
+        // ============ Tools Menu ============
+        function toggleToolsMenu() {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
             const isOpen = container.classList.contains('open');
@@ -1056,12 +1062,13 @@
                 container.classList.remove('open');
                 trigger.setAttribute('aria-expanded', 'false');
             } else {
+                buildMegaMenu();
                 container.classList.add('open');
                 trigger.setAttribute('aria-expanded', 'true');
                 const firstLink = container.querySelector('.tools-mega-menu a');
                 if (firstLink) firstLink.focus();
             }
-        };
+        }
         document.addEventListener('click', function(e) {
             const container = document.getElementById('toolsMenuContainer');
             if (container && !container.contains(e.target) && container.classList.contains('open')) {
@@ -1070,16 +1077,18 @@
             }
         });
 
-        function openMobileSidebar(){
+        // ============ Mobile Sidebar ============
+        function openMobileSidebar() {
+            buildMobileToolsMenu();
             const sb = document.getElementById('mobileSidebar');
             sb.classList.add('active');
             sb.setAttribute('aria-hidden', 'false');
             document.getElementById('mobileSidebarOverlay').classList.add('active');
             const hb = document.getElementById('hamburgerBtn');
             if (hb) hb.setAttribute('aria-expanded', 'true');
-            document.body.style.overflow='hidden';
+            document.body.style.overflow = 'hidden';
         }
-        function closeMobileSidebar(){
+        function closeMobileSidebar() {
             const sb = document.getElementById('mobileSidebar');
             if (!sb) return;
             sb.classList.remove('active');
@@ -1088,9 +1097,10 @@
             const hb = document.getElementById('hamburgerBtn');
             if (hb) hb.setAttribute('aria-expanded', 'false');
             const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
-            if (!searchOpen) document.body.style.overflow='';
+            if (!searchOpen) document.body.style.overflow = '';
         }
-        function toggleMobileTools(){
+        function toggleMobileTools() {
+            buildMobileToolsMenu();
             const toggle = document.getElementById('mobileToolsToggle');
             const menu = document.getElementById('mobileToolsMenu');
             const isOpen = menu.classList.contains('active');
@@ -1098,99 +1108,126 @@
             toggle.classList.toggle('active');
             if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
         }
-        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l=>l.addEventListener('click', closeMobileSidebar));
+        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
 
+        // Resize handler — force close mobile sidebar on desktop
         (function initResizeHandler() {
+            let resizeRaf = 0;
             let lastWasDesktop = window.innerWidth > 768;
             window.addEventListener('resize', function() {
-                const isDesktop = window.innerWidth > 768;
-                if (isDesktop && !lastWasDesktop) {
-                    if (document.getElementById('mobileSidebar').classList.contains('active')) {
-                        closeMobileSidebar();
+                if (resizeRaf) return;
+                resizeRaf = requestAnimationFrame(function () {
+                    resizeRaf = 0;
+                    const isDesktop = window.innerWidth > 768;
+                    if (isDesktop && !lastWasDesktop) {
+                        if (document.getElementById('mobileSidebar').classList.contains('active')) {
+                            closeMobileSidebar();
+                        }
                     }
-                }
-                lastWasDesktop = isDesktop;
+                    lastWasDesktop = isDesktop;
+                });
             });
         })();
 
+        // ============ Search (matches index) ============
         let lastFocusedBeforeSearch = null;
+        let searchResultsRaf = 0;
+        let searchIsOpen = false;
         const searchState = { activeIndex: -1 };
 
-        function openFullSearch(){
+        function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             lastFocusedBeforeSearch = document.activeElement;
+            searchIsOpen = true;
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow='hidden';
+            document.body.style.overflow = 'hidden';
             filterFullSearch();
-            setTimeout(()=>document.getElementById('fullSearchInput').focus(),200);
+            setTimeout(() => {
+                if (searchIsOpen) document.getElementById('fullSearchInput').focus();
+            }, 200);
         }
-        function closeFullSearch(){
+        function closeFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay.classList.contains('active')) return;
+            searchIsOpen = false;
+            if (searchResultsRaf) {
+                cancelAnimationFrame(searchResultsRaf);
+                searchResultsRaf = 0;
+            }
             overlay.classList.remove('active');
             overlay.setAttribute('aria-hidden', 'true');
-            document.getElementById('fullSearchInput').value='';
-            filterFullSearch();
+            document.getElementById('fullSearchInput').value = '';
+            document.getElementById('searchClearBtn').classList.remove('show');
             const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
-            if (!sidebarOpen) document.body.style.overflow='';
+            if (!sidebarOpen) document.body.style.overflow = '';
             if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
-                try { lastFocusedBeforeSearch.focus(); } catch(e) {}
+                try { lastFocusedBeforeSearch.focus(); } catch (e) {}
             }
             lastFocusedBeforeSearch = null;
         }
 
-        function filterFullSearch(){
-            const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
+        function buildSearchResults(q) {
             const list = document.getElementById('fullSearchResultsList');
             const nr = document.getElementById('fullNoResult');
-            const qs = document.getElementById('fullSearchQuery');
-            const clearBtn = document.getElementById('searchClearBtn');
 
-            if (clearBtn) clearBtn.classList.toggle('show', q.length > 0);
-
-            const matched = tools
-                .map((t, idx) => ({ t: t, idx: idx, hay: t._hay }))
-                .filter(x => q === '' || x.hay.includes(q))
-                .map(x => {
+            let matched;
+            if (q === '') {
+                matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
+            } else {
+                matched = [];
+                for (let i = 0; i < tools.length; i++) {
+                    const t = tools[i];
+                    if (t._hay.indexOf(q) === -1) continue;
                     let score = 3;
-                    if (q) {
-                        const nm = x.t.name.toLowerCase();
-                        const ds = (x.t.desc || '').toLowerCase();
-                        if (nm.startsWith(q)) score = 0;
-                        else if (nm.includes(q)) score = 1;
-                        else if (ds.includes(q)) score = 2;
-                    }
-                    return { t: x.t, idx: x.idx, score: score };
-                })
-                .sort((a, b) => {
-                    if (q === '') return a.idx - b.idx;
-                    if (a.score !== b.score) return a.score - b.score;
-                    return a.idx - b.idx;
+                    if (t._nameLower.startsWith(q)) score = 0;
+                    else if (t._nameLower.indexOf(q) !== -1) score = 1;
+                    else if (t._descLower.indexOf(q) !== -1) score = 2;
+                    matched.push({ t: t, idx: i, score: score });
+                }
+                matched.sort(function (a, b) {
+                    return a.score - b.score || a.idx - b.idx;
                 });
+            }
 
-            list.innerHTML = matched.map(x => `
-                <a href="${x.t.link}" class="search-result-item">
-                    <span class="result-main">
-                        <span class="result-name">${highlight(x.t.name, q)}</span>
-                        <span class="result-desc">${highlight(x.t.desc || '', q)}</span>
-                    </span>
-                    <span class="result-tag">${escHtml(categoryLabelMap[x.t.category] || x.t.category)}</span>
-                </a>`).join('');
+            const total = matched.length;
+            const parts = [];
 
+            for (let i = 0; i < total; i++) {
+                const t = matched[i].t;
+                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
+                    '<span class="result-main">' +
+                    '<span class="result-name">' + highlight(t.name, q) + '</span>' +
+                    '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
+                    '</span>' +
+                    '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
+                    '</a>');
+            }
+
+            list.innerHTML = parts.join('');
             searchState.activeIndex = -1;
 
-            if (matched.length === 0 && q !== '') {
+            if (total === 0 && q !== '') {
                 nr.classList.add('show');
-                if (qs) qs.textContent = q;
+                document.getElementById('fullSearchQuery').textContent = q;
             } else {
                 nr.classList.remove('show');
             }
-
-            list.querySelectorAll('.search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
         }
 
-        function handleSearchKey(e){
+        function filterFullSearch() {
+            const input = document.getElementById('fullSearchInput');
+            const q = input.value.toLowerCase().trim();
+            document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
+            if (!searchIsOpen) return;
+            if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
+            searchResultsRaf = requestAnimationFrame(function () {
+                searchResultsRaf = 0;
+                buildSearchResults(q);
+            });
+        }
+
+        function handleSearchKey(e) {
             const items = Array.from(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
             if (e.key === 'ArrowDown') {
                 e.preventDefault();
@@ -1223,6 +1260,7 @@
             input.focus();
         }
 
+        // Backdrop click
         (function initSearchBackdrop() {
             const overlay = document.getElementById('searchOverlayFull');
             if (overlay) {
@@ -1232,12 +1270,14 @@
             }
         })();
 
+        // Dynamic search placeholder
         (function setSearchPlaceholder() {
             const input = document.getElementById('fullSearchInput');
             if (!input) return;
-            input.placeholder = 'Type to search ' + tools.length + ' free tools…';
+            input.placeholder = 'Search all ' + tools.length + ' free tools…';
         })();
 
+        // Keyboard shortcuts
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') {
                 const container = document.getElementById('toolsMenuContainer');
@@ -1249,23 +1289,26 @@
                 closeFullSearch();
                 closeMobileSidebar();
             }
-            if ((e.ctrlKey||e.metaKey) && e.key.toLowerCase() === 'k') {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
                 openFullSearch();
             }
         });
 
-        window.toggleFaq = function(btnEl) {
-            const item = btnEl.parentElement;
+        // ============ FAQ Toggle (FIX: use closest() for robustness) ============
+        function toggleFaq(btnEl) {
+            const item = btnEl.closest('.faq-item');
+            if (!item) return;
             const expanded = btnEl.getAttribute('aria-expanded') === 'true';
             item.classList.toggle('active');
-            btnEl.setAttribute('aria-expanded', !expanded);
+            btnEl.setAttribute('aria-expanded', String(!expanded));
             const icon = btnEl.querySelector('svg');
             if (icon) {
                 icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
             }
-        };
+        }
 
+        // ============ Morse Code Logic ============
         const morseMap = {
             'A':'.-','B':'-...','C':'-.-.','D':'-..','E':'.','F':'..-.','G':'--.','H':'....',
             'I':'..','J':'.---','K':'-.-','L':'.-..','M':'--','N':'-.','O':'---','P':'.--.',
@@ -1278,7 +1321,7 @@
         };
         const reverseMorse = Object.fromEntries(Object.entries(morseMap).map(([k,v]) => [v, k]));
 
-        window.convertMorse = function() {
+        function convertMorse() {
             const input = document.getElementById('inputText').value.trim();
             if (!input) { showToast('Please enter text or Morse code.'); return; }
             const direction = document.getElementById('direction').value;
@@ -1294,29 +1337,29 @@
                 result = decodedWords.join(' ').toLowerCase();
             }
             document.getElementById('outputText').value = result;
-            document.getElementById('resultInfo').innerHTML = `<strong>Conversion complete</strong> &nbsp; | &nbsp; Direction: ${direction === 'encode' ? 'Text to Morse' : 'Morse to Text'}`;
+            document.getElementById('resultInfo').innerHTML = '<strong>Conversion complete</strong> &nbsp; | &nbsp; Direction: ' + (direction === 'encode' ? 'Text to Morse' : 'Morse to Text');
             document.getElementById('outputArea').style.display = 'block';
             document.getElementById('outputArea').scrollIntoView({behavior:'smooth'});
             showToast('Conversion completed!');
-        };
+        }
 
-        window.clearAll = function() {
+        function clearAll() {
             document.getElementById('inputText').value = '';
             document.getElementById('outputText').value = '';
             document.getElementById('outputArea').style.display = 'none';
             document.getElementById('direction').value = 'encode';
-        };
+        }
 
-        window.copyResult = async function() {
+        async function copyResult() {
             const textarea = document.getElementById('outputText');
             try {
                 if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(textarea.value);
                 else { textarea.focus(); textarea.select(); document.execCommand('copy'); }
                 showToast('Copied to clipboard!');
             } catch(err) { textarea.focus(); textarea.select(); alert('Please copy manually (Ctrl+C).'); }
-        };
+        }
 
-        window.downloadResult = function() {
+        function downloadResult() {
             const text = document.getElementById('outputText').value;
             if (!text) { showToast('Nothing to download'); return; }
             const blob = new Blob([text], {type:'text/plain;charset=utf-8'});
@@ -1324,14 +1367,25 @@
             const a = document.createElement('a'); a.href = url; a.download = 'morse-conversion.txt'; a.click();
             URL.revokeObjectURL(url);
             showToast('Downloaded as .txt');
-        };
+        }
 
+        // ============ Init ============
         document.getElementById('dynamicYear').textContent = new Date().getFullYear();
         buildMegaMenu();
         buildMobileToolsMenu();
+        // Pre-render search results (hidden overlay)
+        searchIsOpen = true;
         filterFullSearch();
+        searchIsOpen = false;
+
         if (window.lucide && typeof window.lucide.createIcons === 'function') {
             window.lucide.createIcons();
+        } else {
+            window.addEventListener('load', function () {
+                if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                    window.lucide.createIcons();
+                }
+            });
         }
     </script>
 </body>
