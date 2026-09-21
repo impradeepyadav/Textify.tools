@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Pressure Converter - Free Online Tool | Textify.tools</title>
     <meta name="description" content="Convert between pascal, kilopascal, megapascal, bar, psi, atmosphere, torr, mmHg, inHg, water column, and more. Free, private, no signup pressure converter.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -70,6 +70,8 @@
     <!-- Mediavine -->
     <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
 
+    <script src="https://unpkg.com/lucide@0.344.0" defer></script>
+
     <!-- Structured Data -->
     <script type="application/ld+json">
         {
@@ -126,9 +128,6 @@
             ]
         }
     </script>
-</head>
-<body>
-    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <style>
         :root {
             --bg: #ffffff;
@@ -221,7 +220,7 @@
         pre, code { white-space: pre-wrap; word-wrap: break-word; }
         mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
 
-        /* FIX: prevent sun/moon flash */
+        /* FIX: prevent sun/moon flash (class-based, matches index.html) */
         html.dark-mode #sunIcon,
         html.dark-mode #mobileSunIcon { display: none !important; }
         html.dark-mode #moonIcon,
@@ -310,7 +309,7 @@
         .search-box .search-clear-btn.show { display: flex; }
         .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .search-box .search-close-btn:hover, .search-box .search-clear-btn:hover { background: var(--chip-hover); }
-        .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; flex: 1; min-height: 0; }
+        .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; flex: 1; min-height: 0; contain: content; }
         .search-results-list .search-result-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.15s; border-bottom: 1px solid var(--line); }
         .search-results-list .search-result-item:last-child { border-bottom: none; }
         .search-results-list .search-result-item:hover,
@@ -349,7 +348,7 @@
         .reference-table th, .reference-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); color: var(--text-light); }
         .reference-table th { background: var(--table-header); color: var(--text); font-weight: 600; }
 
-        /* ============ FOOTER (matches index page) ============ */
+        /* ============ FOOTER — matches index page ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -399,18 +398,19 @@
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
-
+</head>
+<body>
     <div class="page-wrapper">
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="/favicon.ico" alt="Textify.Tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
+                    <img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
                     Textify.tools
                 </a>
                 <div class="header-right">
                     <div class="desktop-nav">
                         <div class="tools-menu-container" id="toolsMenuContainer">
-                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleToolsMenu()">
+                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu" onclick="toggleToolsMenu()">
                                 Tools <i data-lucide="chevron-down"></i>
                             </button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
@@ -421,10 +421,10 @@
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
                         <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
                     </button>
                     <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                    <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu">
+                    <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
                         <span class="menu-icon"><span></span><span></span></span>
                     </button>
                 </div>
@@ -460,7 +460,7 @@
                                     <option value="kgf_cm2">Kilogram-force per Square Centimeter (kgf/cm²)</option>
                                 </select>
                             </div>
-                            <button class="swap-btn" onclick="swapUnits()" title="Swap units"><i data-lucide="arrow-left-right" width="18" height="18"></i></button>
+                            <button class="swap-btn" onclick="swapUnits()" title="Swap units" aria-label="Swap units"><i data-lucide="arrow-left-right" width="18" height="18"></i></button>
                             <div class="field">
                                 <label for="toUnit">To</label>
                                 <select id="toUnit">
@@ -586,6 +586,7 @@
             </div>
         </main>
 
+        <!-- ============ FOOTER — matches index page ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -593,7 +594,7 @@
                         <p class="footer-credit">Created by: <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">Pradeep Yadav</a></p>
                         <p class="footer-copyright">Copyright © <span id="dynamicYear"></span></p>
                         <h3 class="footer-heading" style="margin-top:10px;">About</h3>
-                        <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking, no fuss. If you have a suggestion, feel free to <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">say hello</a>. Feedback is much appreciated!</p>
+                        <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking of what you type, no fuss. If you have a suggestion, feel free to <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">say hello</a>. Feedback is much appreciated!</p>
                     </div>
                     <div class="footer-right-columns">
                         <div class="footer-column">
@@ -617,6 +618,7 @@
                             <h3 class="footer-heading">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="/">Home</a></li>
+                                <li><a href="/about-us">About Us</a></li>
                                 <li><a href="/contact-us">Contact Us</a></li>
                                 <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
                                 <li><a href="/blog">Blog</a></li>
@@ -639,7 +641,7 @@
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
         <div class="mobile-sidebar-header">
-            <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.Tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
+            <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
         <div class="mobile-sidebar-nav">
@@ -651,7 +653,7 @@
         </div>
         <div class="mobile-sidebar-actions">
             <button onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
-            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" style="display:none;"></i> Theme</button>
+            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
         </div>
     </div>
 
@@ -754,6 +756,14 @@
             if (value === '—' || value === 'Invalid input') return;
             navigator.clipboard.writeText(value).then(() => {
                 showToast('Copied: ' + value);
+            }).catch(() => {
+                const textarea = document.createElement('textarea');
+                textarea.value = value;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast('Copied: ' + value);
             });
         }
 
@@ -771,14 +781,15 @@
         document.getElementById('toUnit').addEventListener('change', updateResult);
         updateResult();
 
-        // ============ FAQ Toggle ============
+        // ============ FAQ Toggle (fixed with closest) ============
         function toggleFaq(btnEl){
-            const item = btnEl.parentElement;
+            const item = btnEl.closest('.faq-item');
+            if (!item) return;
             const expanded = btnEl.getAttribute('aria-expanded') === 'true';
             const answer = item.querySelector('.faq-answer');
             if(answer){
                 answer.style.display = expanded ? 'none' : 'block';
-                btnEl.setAttribute('aria-expanded', !expanded);
+                btnEl.setAttribute('aria-expanded', String(!expanded));
                 const icon = btnEl.querySelector('svg');
                 if(icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
             }
@@ -799,7 +810,6 @@
         const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
 
         const tools = [
-            // TEXT
             { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', icon: 'hash', link: '/word-counter', keywords: 'word count character counter letters essay limit', color: '#8b5cf6', category: 'text' },
             { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', icon: 'type', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', color: '#8b5cf6', category: 'text' },
             { name: 'Paragraph Counter', desc: 'Quickly count paragraphs in your writing.', icon: 'align-left', link: '/paragraph-counter', keywords: 'paragraph count block format', color: '#8b5cf6', category: 'text' },
@@ -860,8 +870,6 @@
             { name: 'Mention Extractor', desc: 'Pull out @usernames from text.', icon: 'at-sign', link: '/mention-extractor', keywords: 'mention extract username @ social twitter', color: '#0ea5e9', category: 'text' },
             { name: 'Keyword Extractor', desc: 'Extract the most important words and phrases.', icon: 'key', link: '/keyword-extractor', keywords: 'keyword extract important terms seo', color: '#0ea5e9', category: 'text' },
             { name: 'Duplicate Line Finder', desc: 'Show which lines appear more than once.', icon: 'search', link: '/duplicate-line-finder', keywords: 'duplicate line find report repeat', color: '#0ea5e9', category: 'text' },
-
-            // DEVELOPER
             { name: 'JSON Formatter/Beautifier', desc: 'Format messy JSON into readable, indented structure.', icon: 'braces', link: '/json-formatter', keywords: 'json format beautify pretty print indent api', color: '#f59e0b', category: 'developer' },
             { name: 'JSON Minifier', desc: 'Minify JSON to remove unnecessary spaces.', icon: 'braces', link: '/json-minifier', keywords: 'json minify compress compact', color: '#f59e0b', category: 'developer' },
             { name: 'JSON Validator', desc: 'Validate JSON syntax.', icon: 'check-circle', link: '/json-validator', keywords: 'json validate check syntax error', color: '#f59e0b', category: 'developer' },
@@ -914,8 +922,6 @@
             { name: 'HMAC Generator', desc: 'Generate HMAC hash.', icon: 'shield', link: '/hmac-generator', keywords: 'hmac hash generator secret key', color: '#0ea5e9', category: 'developer' },
             { name: 'Cron Expression Generator', desc: 'Generate cron expressions.', icon: 'calendar', link: '/cron-expression-generator', keywords: 'cron expression generator schedule', color: '#0ea5e9', category: 'developer' },
             { name: 'Cron Expression Tester', desc: 'Test cron expressions.', icon: 'check', link: '/cron-expression-tester', keywords: 'cron expression tester schedule', color: '#0ea5e9', category: 'developer' },
-
-            // GENERATORS
             { name: 'Password Generator', desc: 'Generate strong random passwords.', icon: 'key', link: '/password-generator', keywords: 'password generator random strong secure', color: '#14b8a6', category: 'generator' },
             { name: 'PIN Generator', desc: 'Generate random PIN numbers.', icon: 'lock', link: '/pin-generator', keywords: 'pin generator random number', color: '#14b8a6', category: 'generator' },
             { name: 'Random Number Generator', desc: 'Generate random numbers within a custom range.', icon: 'dice-6', link: '/random-number-generator', keywords: 'random number range integer generator lottery', color: '#14b8a6', category: 'generator' },
@@ -929,8 +935,6 @@
             { name: 'WhatsApp Link Generator', desc: 'Create wa.me links from phone numbers and pre-filled messages.', icon: 'message-circle', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', color: '#25D366', category: 'generator' },
             { name: 'Business Name Generator', desc: 'Generate business name ideas.', icon: 'briefcase', link: '/business-name-generator', keywords: 'business name generator brand startup', color: '#14b8a6', category: 'generator' },
             { name: 'Invoice Number Generator', desc: 'Generate invoice numbers.', icon: 'file-text', link: '/invoice-number-generator', keywords: 'invoice number generator billing', color: '#14b8a6', category: 'generator' },
-
-            // IMAGE
             { name: 'Image Compressor', desc: 'Compress images in your browser.', icon: 'image', link: '/image-compressor', keywords: 'image compressor reduce size jpg png', color: '#ec4899', category: 'image' },
             { name: 'Image Resizer', desc: 'Resize images without losing quality.', icon: 'image', link: '/image-resizer', keywords: 'image resize dimensions scale', color: '#ec4899', category: 'image' },
             { name: 'Image Cropper', desc: 'Crop images easily.', icon: 'crop', link: '/image-cropper', keywords: 'image crop trim cut', color: '#ec4899', category: 'image' },
@@ -950,8 +954,6 @@
             { name: 'Photo 200KB', desc: 'Compress photo to 200KB.', icon: 'image', link: '/photo-200kb', keywords: 'photo 200kb compress resize upload form', color: '#ec4899', category: 'image' },
             { name: 'Signature Resizer', desc: 'Resize signatures for documents and forms.', icon: 'image', link: '/signature-resizer', keywords: 'signature resize image document form exam', color: '#ec4899', category: 'image' },
             { name: 'Passport Size Photo Maker', desc: 'Create passport size photos from any image.', icon: 'image', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image visa', color: '#ec4899', category: 'image' },
-
-            // PDF
             { name: 'JPG to PDF', desc: 'Convert JPG images to PDF.', icon: 'file', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image document', color: '#ef4444', category: 'pdf' },
             { name: 'PNG to PDF', desc: 'Convert PNG images to PDF.', icon: 'file', link: '/png-to-pdf', keywords: 'png pdf converter image document', color: '#ef4444', category: 'pdf' },
             { name: 'Images to PDF', desc: 'Combine multiple images into a PDF.', icon: 'file', link: '/images-to-pdf', keywords: 'images pdf converter combine merge', color: '#ef4444', category: 'pdf' },
@@ -970,8 +972,6 @@
             { name: 'PDF Text Extractor', desc: 'Extract text from PDF.', icon: 'file-text', link: '/pdf-text-extractor', keywords: 'pdf text extractor copy', color: '#ef4444', category: 'pdf' },
             { name: 'PDF Lock', desc: 'Add password protection to PDF.', icon: 'lock', link: '/pdf-lock', keywords: 'pdf lock password protect encrypt', color: '#ef4444', category: 'pdf' },
             { name: 'PDF Unlock', desc: 'Remove password from PDF.', icon: 'unlock', link: '/pdf-unlock', keywords: 'pdf unlock password remove decrypt', color: '#ef4444', category: 'pdf' },
-
-            // BUSINESS
             { name: 'Invoice Generator', desc: 'Generate invoices.', icon: 'file-text', link: '/invoice-generator', keywords: 'invoice generator bill billing', color: '#10b981', category: 'business' },
             { name: 'Quotation Generator', desc: 'Generate quotations.', icon: 'file-text', link: '/quotation-generator', keywords: 'quotation generator quote estimate', color: '#10b981', category: 'business' },
             { name: 'Receipt Generator', desc: 'Generate receipts.', icon: 'file-text', link: '/receipt-generator', keywords: 'receipt generator payment', color: '#10b981', category: 'business' },
@@ -982,16 +982,12 @@
             { name: 'Discount Calculator', desc: 'Calculate discounts.', icon: 'percent', link: '/discount-calculator', keywords: 'discount calculator sale off price', color: '#10b981', category: 'business' },
             { name: 'Profit Margin Calculator', desc: 'Calculate profit margins.', icon: 'trending-up', link: '/profit-margin-calculator', keywords: 'profit margin calculator business', color: '#10b981', category: 'business' },
             { name: 'Salary Calculator', desc: 'Calculate salary.', icon: 'dollar-sign', link: '/salary-calculator', keywords: 'salary calculator income wage', color: '#10b981', category: 'business' },
-
-            // FINANCE
             { name: 'EMI Calculator', desc: 'Calculate loan EMI.', icon: 'calculator', link: '/emi-calculator', keywords: 'emi calculator loan equated monthly installment', color: '#f59e0b', category: 'finance' },
             { name: 'Loan Calculator', desc: 'Calculate loan details.', icon: 'calculator', link: '/loan-calculator', keywords: 'loan calculator interest', color: '#f59e0b', category: 'finance' },
             { name: 'SIP Calculator', desc: 'Calculate SIP returns.', icon: 'trending-up', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment returns', color: '#f59e0b', category: 'finance' },
             { name: 'Income Tax Calculator', desc: 'Calculate income tax.', icon: 'percent', link: '/income-tax-calculator', keywords: 'income tax calculator slab', color: '#f59e0b', category: 'finance' },
             { name: 'Tax Calculator', desc: 'Calculate taxes.', icon: 'percent', link: '/tax-calculator', keywords: 'tax calculator', color: '#f59e0b', category: 'finance' },
             { name: 'Tip Calculator', desc: 'Calculate tips.', icon: 'dollar-sign', link: '/tip-calculator', keywords: 'tip calculator restaurant gratuity', color: '#f59e0b', category: 'finance' },
-
-            // CALCULATORS & CONVERTERS
             { name: 'GPA Calculator', desc: 'Calculate GPA.', icon: 'graduation-cap', link: '/gpa-calculator', keywords: 'gpa calculator student grade point', color: '#8b5cf6', category: 'calculator' },
             { name: 'CGPA Calculator', desc: 'Calculate CGPA.', icon: 'graduation-cap', link: '/cgpa-calculator', keywords: 'cgpa calculator student grade', color: '#8b5cf6', category: 'calculator' },
             { name: 'Percentage Calculator', desc: 'Calculate percentages.', icon: 'percent', link: '/percentage-calculator', keywords: 'percentage calculator percent', color: '#8b5cf6', category: 'calculator' },
@@ -1052,9 +1048,14 @@
 
         // Precompute haystack for fast search
         tools.forEach(function(t) {
+            t._nameLower = t.name.toLowerCase();
+            t._descLower = (t.desc || '').toLowerCase();
             t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
         });
 
+        function escAttr(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
         function escHtml(s) {
             return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
@@ -1066,11 +1067,19 @@
             return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
         }
 
+        // ============ Build shared components ============
+        let megaMenuBuilt = false;
+        let mobileMenuBuilt = false;
+
         function buildMegaMenu() {
-            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join('');
+            if (megaMenuBuilt) return;
+            megaMenuBuilt = true;
+            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
         function buildMobileToolsMenu() {
-            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join('');
+            if (mobileMenuBuilt) return;
+            mobileMenuBuilt = true;
+            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
 
         // ============ Theme ============
@@ -1080,35 +1089,16 @@
         }
         function toggleTheme() {
             const root = document.documentElement;
-            const s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon');
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
             if (root.classList.contains('dark-mode')) {
                 root.classList.remove('dark-mode');
-                if (s) s.style.display='block'; if (m) m.style.display='none';
-                if (ms) { ms.style.display='block'; mm.style.display='none'; }
                 try { localStorage.setItem('theme','light'); } catch(e){}
                 setThemeColorMeta(false);
             } else {
                 root.classList.add('dark-mode');
-                if (s) s.style.display='none'; if (m) m.style.display='block';
-                if (ms) { ms.style.display='none'; mm.style.display='block'; }
                 try { localStorage.setItem('theme','dark'); } catch(e){}
                 setThemeColorMeta(true);
             }
         }
-        (function initThemeIcons() {
-            const root = document.documentElement;
-            const sun = document.getElementById('sunIcon'), moon = document.getElementById('moonIcon');
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (!sun || !moon) return;
-            if (root.classList.contains('dark-mode')) {
-                sun.style.display='none'; moon.style.display='block';
-                if (ms && mm) { ms.style.display='none'; mm.style.display='block'; }
-            } else {
-                sun.style.display='block'; moon.style.display='none';
-                if (ms && mm) { ms.style.display='block'; mm.style.display='none'; }
-            }
-        })();
 
         // ============ Tools Menu ============
         function toggleToolsMenu() {
@@ -1119,6 +1109,7 @@
                 container.classList.remove('open');
                 trigger.setAttribute('aria-expanded','false');
             } else {
+                buildMegaMenu();
                 container.classList.add('open');
                 trigger.setAttribute('aria-expanded','true');
                 const firstLink = container.querySelector('.tools-mega-menu a');
@@ -1135,6 +1126,7 @@
 
         // ============ Mobile Sidebar ============
         function openMobileSidebar(){
+            buildMobileToolsMenu();
             const sb = document.getElementById('mobileSidebar');
             sb.classList.add('active');
             sb.setAttribute('aria-hidden', 'false');
@@ -1155,6 +1147,7 @@
             if (!searchOpen) document.body.style.overflow='';
         }
         function toggleMobileTools(){
+            buildMobileToolsMenu();
             const toggle = document.getElementById('mobileToolsToggle');
             const menu = document.getElementById('mobileToolsMenu');
             const isOpen = menu.classList.contains('active');
@@ -1165,38 +1158,53 @@
         document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l=>l.addEventListener('click', closeMobileSidebar));
 
         (function initResizeHandler() {
+            let resizeRaf = 0;
             let lastWasDesktop = window.innerWidth > 768;
             window.addEventListener('resize', function() {
-                const isDesktop = window.innerWidth > 768;
-                if (isDesktop && !lastWasDesktop) {
-                    if (document.getElementById('mobileSidebar').classList.contains('active')) {
-                        closeMobileSidebar();
+                if (resizeRaf) return;
+                resizeRaf = requestAnimationFrame(function () {
+                    resizeRaf = 0;
+                    const isDesktop = window.innerWidth > 768;
+                    if (isDesktop && !lastWasDesktop) {
+                        if (document.getElementById('mobileSidebar').classList.contains('active')) {
+                            closeMobileSidebar();
+                        }
                     }
-                }
-                lastWasDesktop = isDesktop;
+                    lastWasDesktop = isDesktop;
+                });
             });
         })();
 
-        // ============ Search ============
+        // ============ Search (matches index.html) ============
         let lastFocusedBeforeSearch = null;
+        let searchResultsRaf = 0;
+        let searchIsOpen = false;
         const searchState = { activeIndex: -1 };
 
         function openFullSearch(){
             const overlay = document.getElementById('searchOverlayFull');
             lastFocusedBeforeSearch = document.activeElement;
+            searchIsOpen = true;
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow='hidden';
             filterFullSearch();
-            setTimeout(()=>document.getElementById('fullSearchInput').focus(),200);
+            setTimeout(() => {
+                if (searchIsOpen) document.getElementById('fullSearchInput').focus();
+            }, 200);
         }
         function closeFullSearch(){
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay.classList.contains('active')) return;
+            searchIsOpen = false;
+            if (searchResultsRaf) {
+                cancelAnimationFrame(searchResultsRaf);
+                searchResultsRaf = 0;
+            }
             overlay.classList.remove('active');
             overlay.setAttribute('aria-hidden', 'true');
             document.getElementById('fullSearchInput').value='';
-            filterFullSearch();
+            document.getElementById('searchClearBtn').classList.remove('show');
             const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
             if (!sidebarOpen) document.body.style.overflow='';
             if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
@@ -1205,54 +1213,62 @@
             lastFocusedBeforeSearch = null;
         }
 
-        function filterFullSearch(){
-            const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
+        function buildSearchResults(q) {
             const list = document.getElementById('fullSearchResultsList');
             const nr = document.getElementById('fullNoResult');
-            const qs = document.getElementById('fullSearchQuery');
-            const clearBtn = document.getElementById('searchClearBtn');
 
-            if (clearBtn) clearBtn.classList.toggle('show', q.length > 0);
-
-            const matched = tools
-                .map((t, idx) => ({ t: t, idx: idx, hay: t._hay }))
-                .filter(x => q === '' || x.hay.includes(q))
-                .map(x => {
+            let matched;
+            if (q === '') {
+                matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
+            } else {
+                matched = [];
+                for (let i = 0; i < tools.length; i++) {
+                    const t = tools[i];
+                    if (t._hay.indexOf(q) === -1) continue;
                     let score = 3;
-                    if (q) {
-                        const nm = x.t.name.toLowerCase();
-                        const ds = (x.t.desc || '').toLowerCase();
-                        if (nm.startsWith(q)) score = 0;
-                        else if (nm.includes(q)) score = 1;
-                        else if (ds.includes(q)) score = 2;
-                    }
-                    return { t: x.t, idx: x.idx, score: score };
-                })
-                .sort((a, b) => {
-                    if (q === '') return a.idx - b.idx;
-                    if (a.score !== b.score) return a.score - b.score;
-                    return a.idx - b.idx;
+                    if (t._nameLower.startsWith(q)) score = 0;
+                    else if (t._nameLower.indexOf(q) !== -1) score = 1;
+                    else if (t._descLower.indexOf(q) !== -1) score = 2;
+                    matched.push({ t: t, idx: i, score: score });
+                }
+                matched.sort(function (a, b) {
+                    return a.score - b.score || a.idx - b.idx;
                 });
+            }
 
-            list.innerHTML = matched.map(x => `
-                <a href="${x.t.link}" class="search-result-item">
-                    <span class="result-main">
-                        <span class="result-name">${highlight(x.t.name, q)}</span>
-                        <span class="result-desc">${highlight(x.t.desc || '', q)}</span>
-                    </span>
-                    <span class="result-tag">${escHtml(categoryLabelMap[x.t.category] || x.t.category)}</span>
-                </a>`).join('');
-
+            const total = matched.length;
+            const parts = [];
+            for (let i = 0; i < total; i++) {
+                const t = matched[i].t;
+                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
+                    '<span class="result-main">' +
+                    '<span class="result-name">' + highlight(t.name, q) + '</span>' +
+                    '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
+                    '</span>' +
+                    '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
+                    '</a>');
+            }
+            list.innerHTML = parts.join('');
             searchState.activeIndex = -1;
 
-            if (matched.length === 0 && q !== '') {
+            if (total === 0 && q !== '') {
                 nr.classList.add('show');
-                if (qs) qs.textContent = q;
+                document.getElementById('fullSearchQuery').textContent = q;
             } else {
                 nr.classList.remove('show');
             }
+        }
 
-            list.querySelectorAll('.search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
+        function filterFullSearch(){
+            const input = document.getElementById('fullSearchInput');
+            const q = input.value.toLowerCase().trim();
+            document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
+            if (!searchIsOpen) return;
+            if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
+            searchResultsRaf = requestAnimationFrame(function () {
+                searchResultsRaf = 0;
+                buildSearchResults(q);
+            });
         }
 
         function handleSearchKey(e){
@@ -1300,7 +1316,7 @@
         (function setSearchPlaceholder() {
             const input = document.getElementById('fullSearchInput');
             if (!input) return;
-            input.placeholder = 'Type to search ' + tools.length + ' free tools…';
+            input.placeholder = 'Search all ' + tools.length + ' free tools…';
         })();
 
         document.addEventListener('keydown', e => {
@@ -1324,9 +1340,18 @@
         document.getElementById('dynamicYear').textContent = new Date().getFullYear();
         buildMegaMenu();
         buildMobileToolsMenu();
+        searchIsOpen = true;
         filterFullSearch();
+        searchIsOpen = false;
+
         if (window.lucide && typeof window.lucide.createIcons === 'function') {
             window.lucide.createIcons();
+        } else {
+            window.addEventListener('load', function () {
+                if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                    window.lucide.createIcons();
+                }
+            });
         }
     </script>
 </body>
