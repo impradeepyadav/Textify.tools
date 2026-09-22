@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
     
     <title>WhatsApp Link Generator - Free Click to Chat Link Tool | Textify.tools</title>
@@ -17,9 +17,12 @@
     <meta property="og:url" content="https://textify.tools/whatsapp-link-generator">
     <meta property="og:title" content="WhatsApp Link Generator – Free Click to Chat Link Tool">
     <meta property="og:description" content="Create WhatsApp click-to-chat links with pre-filled messages. Works with any phone number. Copy and share instantly.">
+    <meta property="og:site_name" content="Textify.tools">
+    <meta property="og:image" content="https://textify.tools/og-image.png">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="WhatsApp Link Generator – Textify.tools">
     <meta name="twitter:description" content="Create wa.me links with phone numbers and pre-filled messages. Fast, free, and private.">
+    <meta name="twitter:image" content="https://textify.tools/og-image.png">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -33,7 +36,6 @@
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://scripts.scriptwrapper.com">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -64,6 +66,8 @@
 
     <!-- Mediavine -->
     <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
+
+    <script src="https://unpkg.com/lucide@0.344.0" defer></script>
 
     <script type="application/ld+json">
     {
@@ -143,8 +147,7 @@
       ]
     }
     </script>
-</head>
-<body>
+
     <style>
         :root {
             --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5; --primary: #000000;
@@ -289,7 +292,7 @@
         .search-results-list {
             background: var(--bg); border-radius: 16px; border: 1px solid var(--line);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto;
-            flex: 1; min-height: 0;
+            flex: 1; min-height: 0; contain: content;
         }
         .search-results-list .search-result-item {
             display: flex; align-items: center; justify-content: space-between;
@@ -374,14 +377,6 @@
             font-size: 12px;
             color: var(--text-light);
             line-height: 1.5;
-        }
-        .wa-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        @media (max-width: 640px) {
-            .wa-row { grid-template-columns: 1fr; }
         }
 
         .wa-btn-row {
@@ -599,8 +594,10 @@
             .mobile-sidebar-overlay { display: none !important; }
             .mobile-sidebar { display: none !important; }
         }
+        @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
     </style>
-
+</head>
+<body>
     <div class="page-wrapper">
         <header>
             <div class="header-inner">
@@ -622,7 +619,7 @@
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
                         <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
                     </button>
                     <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
                     <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
@@ -695,13 +692,13 @@
 
                 <div class="section">
                     <h2>What Is a wa.me Link?</h2>
-                    <p>A <code>wa.me</code> link is a universal URL that opens WhatsApp with a specific chat ready to go. When someone clicks it, WhatsApp opens (on mobile or WhatsApp Web on desktop) with the chat window for that phone number already active. If you included a pre-filled message, it appears in the text field, ready to send.[reference:0]</p>
+                    <p>A <code>wa.me</code> link is a universal URL that opens WhatsApp with a specific chat ready to go. When someone clicks it, WhatsApp opens (on mobile or WhatsApp Web on desktop) with the chat window for that phone number already active. If you included a pre-filled message, it appears in the text field, ready to send.</p>
                     <p>The format follows this structure:</p>
                     <div class="tip-box">
                         <p><code>https://wa.me/&lt;phone_number&gt;?text=&lt;url_encoded_message&gt;</code></p>
                     </div>
-                    <p>For example: <code>https://wa.me/15551234567?text=Hi%21%20I%27d%20like%20to%20know%20more</code>[reference:1]</p>
-                    <p>If you only want a link with a message (no specific recipient), you can use <code>https://wa.me/?text=your_message</code> — this opens WhatsApp and lets the user choose who to send it to.[reference:2]</p>
+                    <p>For example: <code>https://wa.me/15551234567?text=Hi%21%20I%27d%20like%20to%20know%20more</code></p>
+                    <p>If you only want a link with a message (no specific recipient), you can use <code>https://wa.me/?text=your_message</code> — this opens WhatsApp and lets the user choose who to send it to.</p>
                 </div>
 
                 <div class="section">
@@ -820,6 +817,7 @@
             </div>
         </main>
 
+        <!-- ============ FOOTER (matches index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -851,6 +849,7 @@
                             <h3 class="footer-heading">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="/">Home</a></li>
+                                <li><a href="/about-us">About Us</a></li>
                                 <li><a href="/contact-us">Contact Us</a></li>
                                 <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
                                 <li><a href="/blog">Blog</a></li>
@@ -870,6 +869,7 @@
         </footer>
     </div>
 
+    <!-- Mobile sidebar -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
         <div class="mobile-sidebar-header">
@@ -885,10 +885,11 @@
         </div>
         <div class="mobile-sidebar-actions">
             <button onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
-            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" style="display:none;"></i> Theme</button>
+            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
         </div>
     </div>
 
+    <!-- Search overlay -->
     <div class="search-overlay-full" id="searchOverlayFull" role="dialog" aria-modal="true" aria-label="Search tools" aria-hidden="true">
         <div class="search-container">
             <div class="search-box">
@@ -904,8 +905,9 @@
 
     <div class="toast" id="toast"></div>
 
-    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <script>
+        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
+
         // ============ CATEGORIES & TOOLS (FULL list from index page) ============
         const categories = [
             { key: 'all', label: 'All Tools' },
@@ -1158,10 +1160,15 @@
         ];
 
         // Precompute haystack for fast search
-        tools.forEach(t => {
+        tools.forEach(function(t) {
+            t._nameLower = t.name.toLowerCase();
+            t._descLower = (t.desc || '').toLowerCase();
             t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
         });
 
+        function escAttr(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
         function escHtml(s) {
             return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
@@ -1173,69 +1180,77 @@
             return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
         }
 
-        // ============ COMMON HEADER/FOOTER SCRIPTS ============
-        function buildMegaMenu() { document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join(''); }
-        function buildMobileToolsMenu() { document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join(''); }
+        // ============ Build shared components ============
+        let megaMenuBuilt = false;
+        let mobileMenuBuilt = false;
 
+        function buildMegaMenu() {
+            if (megaMenuBuilt) return;
+            megaMenuBuilt = true;
+            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
+        }
+        function buildMobileToolsMenu() {
+            if (mobileMenuBuilt) return;
+            mobileMenuBuilt = true;
+            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
+        }
+
+        // ============ Toast ============
         let toastTimer;
-        window.showToast = function(msg, dur=3000) {
-            const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
-            clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
-        };
+        function showToast(msg, dur=3000) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), dur);
+        }
 
+        // ============ Theme (CSS-class based) ============
         function setThemeColorMeta(isDark) {
             const meta = document.querySelector('meta[name="theme-color"]');
             if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
         }
 
-        window.toggleTheme = function() {
-            const html = document.documentElement;
-            const s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
-                  ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (html.classList.contains('dark-mode')) {
-                html.classList.remove('dark-mode');
-                if (s) s.style.display='block'; if (m) m.style.display='none';
-                if(ms) { ms.style.display='block'; mm.style.display='none'; }
-                try { localStorage.setItem('theme','light'); } catch(e){}
+        function toggleTheme() {
+            const root = document.documentElement;
+            if (root.classList.contains('dark-mode')) {
+                root.classList.remove('dark-mode');
+                try { localStorage.setItem('theme', 'light'); } catch (e) {}
                 setThemeColorMeta(false);
             } else {
-                html.classList.add('dark-mode');
-                if (s) s.style.display='none'; if (m) m.style.display='block';
-                if(ms) { ms.style.display='none'; mm.style.display='block'; }
-                try { localStorage.setItem('theme','dark'); } catch(e){}
+                root.classList.add('dark-mode');
+                try { localStorage.setItem('theme', 'dark'); } catch (e) {}
                 setThemeColorMeta(true);
             }
-        };
+        }
 
-        (function initIcons() {
-            const root = document.documentElement;
-            const sun = document.getElementById('sunIcon'), moon = document.getElementById('moonIcon');
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (root.classList.contains('dark-mode')) {
-                if (sun) sun.style.display = 'none'; if (moon) moon.style.display = 'block';
-                if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
-            } else {
-                if (sun) sun.style.display = 'block'; if (moon) moon.style.display = 'none';
-                if (ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
-            }
-        })();
-
-        window.toggleToolsMenu = function() {
+        // ============ Tools Menu ============
+        function toggleToolsMenu() {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
             const isOpen = container.classList.contains('open');
-            if (isOpen) { container.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); }
-            else { container.classList.add('open'); trigger.setAttribute('aria-expanded', 'true'); const firstLink = container.querySelector('.tools-mega-menu a'); if (firstLink) firstLink.focus(); }
-        };
+            if (isOpen) {
+                container.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
+            } else {
+                buildMegaMenu();
+                container.classList.add('open');
+                trigger.setAttribute('aria-expanded', 'true');
+                const firstLink = container.querySelector('.tools-mega-menu a');
+                if (firstLink) firstLink.focus();
+            }
+        }
         document.addEventListener('click', function(e) {
             const container = document.getElementById('toolsMenuContainer');
             if (container && !container.contains(e.target) && container.classList.contains('open')) {
-                container.classList.remove('open'); 
+                container.classList.remove('open');
                 document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
             }
         });
 
-        window.openMobileSidebar = function() {
+        // ============ Mobile Sidebar ============
+        function openMobileSidebar() {
+            buildMobileToolsMenu();
             const sb = document.getElementById('mobileSidebar');
             sb.classList.add('active');
             sb.setAttribute('aria-hidden', 'false');
@@ -1243,8 +1258,8 @@
             const hb = document.getElementById('hamburgerBtn');
             if (hb) hb.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
-        };
-        window.closeMobileSidebar = function() {
+        }
+        function closeMobileSidebar() {
             const sb = document.getElementById('mobileSidebar');
             if (!sb) return;
             sb.classList.remove('active');
@@ -1254,104 +1269,136 @@
             if (hb) hb.setAttribute('aria-expanded', 'false');
             const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
             if (!searchOpen) document.body.style.overflow = '';
-        };
-        window.toggleMobileTools = function() {
+        }
+        function toggleMobileTools() {
+            buildMobileToolsMenu();
             const toggle = document.getElementById('mobileToolsToggle');
             const menu = document.getElementById('mobileToolsMenu');
             const isOpen = menu.classList.contains('active');
             menu.classList.toggle('active');
             toggle.classList.toggle('active');
             if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
-        };
+        }
         document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
 
+        // Resize handler — force close mobile sidebar on desktop
         (function initResizeHandler() {
+            let resizeRaf = 0;
             let lastWasDesktop = window.innerWidth > 768;
             window.addEventListener('resize', function() {
-                const isDesktop = window.innerWidth > 768;
-                if (isDesktop && !lastWasDesktop) {
-                    if (document.getElementById('mobileSidebar').classList.contains('active')) {
-                        closeMobileSidebar();
+                if (resizeRaf) return;
+                resizeRaf = requestAnimationFrame(function () {
+                    resizeRaf = 0;
+                    const isDesktop = window.innerWidth > 768;
+                    if (isDesktop && !lastWasDesktop) {
+                        if (document.getElementById('mobileSidebar').classList.contains('active')) {
+                            closeMobileSidebar();
+                        }
                     }
-                }
-                lastWasDesktop = isDesktop;
+                    lastWasDesktop = isDesktop;
+                });
             });
         })();
 
-        // ============ SEARCH ============
+        // ============ Search ============
         let lastFocusedBeforeSearch = null;
+        let searchResultsRaf = 0;
+        let searchIsOpen = false;
         const searchState = { activeIndex: -1 };
 
-        window.openFullSearch = function() {
+        function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             lastFocusedBeforeSearch = document.activeElement;
+            searchIsOpen = true;
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
             filterFullSearch();
-            setTimeout(() => document.getElementById('fullSearchInput').focus(), 200);
-        };
-        window.closeFullSearch = function() {
+            setTimeout(() => {
+                if (searchIsOpen) document.getElementById('fullSearchInput').focus();
+            }, 200);
+        }
+        function closeFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay.classList.contains('active')) return;
+            searchIsOpen = false;
+            if (searchResultsRaf) {
+                cancelAnimationFrame(searchResultsRaf);
+                searchResultsRaf = 0;
+            }
             overlay.classList.remove('active');
             overlay.setAttribute('aria-hidden', 'true');
             document.getElementById('fullSearchInput').value = '';
-            filterFullSearch();
+            document.getElementById('searchClearBtn').classList.remove('show');
             const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
             if (!sidebarOpen) document.body.style.overflow = '';
             if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
-                try { lastFocusedBeforeSearch.focus(); } catch(e) {}
+                try { lastFocusedBeforeSearch.focus(); } catch (e) {}
             }
             lastFocusedBeforeSearch = null;
-        };
+        }
 
-        window.filterFullSearch = function() {
-            const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
+        function buildSearchResults(q) {
             const list = document.getElementById('fullSearchResultsList');
-            const nr = document.getElementById('fullNoResult'), qs = document.getElementById('fullSearchQuery');
-            const clearBtn = document.getElementById('searchClearBtn');
-            if (clearBtn) clearBtn.classList.toggle('show', q.length > 0);
+            const nr = document.getElementById('fullNoResult');
 
-            const matched = tools
-                .map((t, idx) => ({ t: t, idx: idx, hay: t._hay }))
-                .filter(x => q === '' || x.hay.includes(q))
-                .map(x => {
+            let matched;
+            if (q === '') {
+                matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
+            } else {
+                matched = [];
+                for (let i = 0; i < tools.length; i++) {
+                    const t = tools[i];
+                    if (t._hay.indexOf(q) === -1) continue;
                     let score = 3;
-                    if (q) {
-                        const nm = x.t.name.toLowerCase();
-                        const ds = (x.t.desc || '').toLowerCase();
-                        if (nm.startsWith(q)) score = 0;
-                        else if (nm.includes(q)) score = 1;
-                        else if (ds.includes(q)) score = 2;
-                    }
-                    return { t: x.t, idx: x.idx, score: score };
-                })
-                .sort((a, b) => {
-                    if (q === '') return a.idx - b.idx;
-                    if (a.score !== b.score) return a.score - b.score;
-                    return a.idx - b.idx;
+                    if (t._nameLower.startsWith(q)) score = 0;
+                    else if (t._nameLower.indexOf(q) !== -1) score = 1;
+                    else if (t._descLower.indexOf(q) !== -1) score = 2;
+                    matched.push({ t: t, idx: i, score: score });
+                }
+                matched.sort(function (a, b) {
+                    return a.score - b.score || a.idx - b.idx;
                 });
+            }
 
-            list.innerHTML = matched.map(x => `
-                <a href="${x.t.link}" class="search-result-item">
-                    <span class="result-main">
-                        <span class="result-name">${highlight(x.t.name, q)}</span>
-                        <span class="result-desc">${highlight(x.t.desc || '', q)}</span>
-                    </span>
-                    <span class="result-tag">${escHtml(categoryLabelMap[x.t.category] || x.t.category)}</span>
-                </a>`).join('');
+            const total = matched.length;
+            const parts = [];
 
-            if (matched.length === 0 && q !== '') {
-                nr.classList.add('show');
-                if (qs) qs.textContent = q;
-            } else nr.classList.remove('show');
+            for (let i = 0; i < total; i++) {
+                const t = matched[i].t;
+                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
+                    '<span class="result-main">' +
+                    '<span class="result-name">' + highlight(t.name, q) + '</span>' +
+                    '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
+                    '</span>' +
+                    '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
+                    '</a>');
+            }
 
-            list.querySelectorAll('.search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
+            list.innerHTML = parts.join('');
             searchState.activeIndex = -1;
-        };
 
-        window.handleSearchKey = function(e) {
+            if (total === 0 && q !== '') {
+                nr.classList.add('show');
+                document.getElementById('fullSearchQuery').textContent = q;
+            } else {
+                nr.classList.remove('show');
+            }
+        }
+
+        function filterFullSearch() {
+            const input = document.getElementById('fullSearchInput');
+            const q = input.value.toLowerCase().trim();
+            document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
+            if (!searchIsOpen) return;
+            if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
+            searchResultsRaf = requestAnimationFrame(function () {
+                searchResultsRaf = 0;
+                buildSearchResults(q);
+            });
+        }
+
+        function handleSearchKey(e) {
             const items = Array.from(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
             if (e.key === 'ArrowDown') {
                 e.preventDefault();
@@ -1375,15 +1422,16 @@
                     window.location.href = items[0].getAttribute('href');
                 }
             }
-        };
+        }
 
-        window.clearSearchInput = function() {
+        function clearSearchInput() {
             const input = document.getElementById('fullSearchInput');
             input.value = '';
             filterFullSearch();
             input.focus();
-        };
+        }
 
+        // Backdrop click
         (function initSearchBackdrop() {
             const overlay = document.getElementById('searchOverlayFull');
             if (overlay) {
@@ -1393,39 +1441,52 @@
             }
         })();
 
+        // Dynamic search placeholder
         (function setSearchPlaceholder() {
             const input = document.getElementById('fullSearchInput');
             if (!input) return;
-            input.placeholder = 'Type to search ' + tools.length + ' free tools…';
+            input.placeholder = 'Search all ' + tools.length + ' free tools…';
         })();
 
+        // Keyboard shortcuts
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') {
                 const container = document.getElementById('toolsMenuContainer');
                 if (container && container.classList.contains('open')) {
-                    container.classList.remove('open'); 
+                    container.classList.remove('open');
                     document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
                     document.getElementById('toolsTrigger').focus();
                 }
                 closeFullSearch();
                 closeMobileSidebar();
             }
-            if ((e.ctrlKey||e.metaKey) && e.key === 'k') {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
                 openFullSearch();
             }
         });
 
+        // ============ FAQ (uses closest()) ============
+        function toggleFaq(btnEl) {
+            const item = btnEl.closest('.faq-item');
+            if (!item) return;
+            const expanded = btnEl.getAttribute('aria-expanded') === 'true';
+            item.classList.toggle('active');
+            btnEl.setAttribute('aria-expanded', String(!expanded));
+            const icon = btnEl.querySelector('svg');
+            if (icon) {
+                icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+        }
+
         // ============ WHATSAPP LINK GENERATOR LOGIC ============
         function validatePhone(input) {
-            // Strip non-digits for the hint
             const digits = input.value.replace(/\D/g, '');
             const hint = document.getElementById('phoneHint');
             if (digits.length === 0) {
                 hint.textContent = '';
                 return;
             }
-            // Check for leading zero (common mistake)
             if (digits.startsWith('0')) {
                 hint.innerHTML = ' ⚠️ Remove the leading zero — start with the country code instead.';
                 hint.style.color = '#ef4444';
@@ -1439,37 +1500,34 @@
         }
 
         // Live character count for message
-        document.addEventListener('DOMContentLoaded', function() {
+        (function initMsgCounter() {
             const msgInput = document.getElementById('waMessage');
+            if (!msgInput) return;
             msgInput.addEventListener('input', function() {
                 document.getElementById('msgCharCount').textContent = this.value.length;
             });
-        });
+        })();
 
-        window.generateWhatsAppLink = function() {
+        function generateWhatsAppLink() {
             const phoneInput = document.getElementById('waPhone');
             const msgInput = document.getElementById('waMessage');
             let phone = phoneInput.value.trim();
             const message = msgInput.value.trim();
 
-            // Strip non-digit characters from phone
             phone = phone.replace(/\D/g, '');
 
-            // Validation
             if (!phone && !message) {
                 showToast('Please enter a phone number or a message.');
                 phoneInput.focus();
                 return;
             }
 
-            // If phone provided but starts with 0, warn
             if (phone && phone.startsWith('0')) {
                 showToast('Phone number should not start with 0. Include the country code instead.');
                 phoneInput.focus();
                 return;
             }
 
-            // Build the wa.me URL
             let waUrl;
             const encodedMessage = message ? encodeURIComponent(message) : '';
 
@@ -1478,15 +1536,12 @@
             } else if (phone) {
                 waUrl = 'https://wa.me/' + phone;
             } else {
-                // Message only
                 waUrl = 'https://wa.me/?text=' + encodedMessage;
             }
 
-            // Display the result
             document.getElementById('waResultUrl').textContent = waUrl;
             document.getElementById('waResultBox').classList.add('visible');
 
-            // Show message preview if message provided
             if (message) {
                 document.getElementById('waChatBubble').textContent = message;
                 document.getElementById('waPreviewBox').style.display = 'block';
@@ -1495,9 +1550,9 @@
             }
 
             showToast('✅ WhatsApp link generated!');
-        };
+        }
 
-        window.copyWhatsAppLink = function() {
+        function copyWhatsAppLink() {
             const url = document.getElementById('waResultUrl').textContent;
             if (!url) { showToast('Generate a link first.'); return; }
 
@@ -1510,7 +1565,7 @@
             } else {
                 fallbackCopy(url);
             }
-        };
+        }
 
         function fallbackCopy(text) {
             const ta = document.createElement('textarea');
@@ -1524,13 +1579,13 @@
             document.body.removeChild(ta);
         }
 
-        window.openWhatsAppLink = function() {
+        function openWhatsAppLink() {
             const url = document.getElementById('waResultUrl').textContent;
             if (!url) { showToast('Generate a link first.'); return; }
             window.open(url, '_blank', 'noopener,noreferrer');
-        };
+        }
 
-        window.clearWhatsAppForm = function() {
+        function clearWhatsAppForm() {
             document.getElementById('waPhone').value = '';
             document.getElementById('waMessage').value = '';
             document.getElementById('msgCharCount').textContent = '0';
@@ -1539,19 +1594,27 @@
             document.getElementById('waPreviewBox').style.display = 'none';
             document.getElementById('waResultUrl').textContent = '';
             showToast('Form cleared');
-        };
+        }
 
-        window.toggleFaq = function(btnEl) {
-            const item = btnEl.parentElement;
-            const expanded = btnEl.getAttribute('aria-expanded') === 'true';
-            item.classList.toggle('active'); btnEl.setAttribute('aria-expanded', !expanded);
-            const icon = btnEl.querySelector('svg'); if (icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
-        };
+        // ============ Init ============
+        buildMegaMenu();
+        buildMobileToolsMenu();
+        // Pre-populate search results (hidden overlay) so it's ready when opened
+        searchIsOpen = true;
+        filterFullSearch();
+        searchIsOpen = false;
 
-        // Initialize all
-        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
-        buildMegaMenu(); buildMobileToolsMenu(); filterFullSearch(); lucide.createIcons();
-        setSearchPlaceholder();
+        // Guarded Lucide init — retry on window load if deferred script isn't ready
+        function initLucide() {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+                return true;
+            }
+            return false;
+        }
+        if (!initLucide()) {
+            window.addEventListener('load', initLucide);
+        }
     </script>
 </body>
 </html>
