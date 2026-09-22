@@ -2,24 +2,27 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
-    
+
     <title>Title Case Converter – Turn Any Text into a Perfect Title</title>
     <meta name="description" content="Convert text to title case instantly with our free online Title Case Converter. Perfect for headlines, blog posts, essays, and professional content.">
     <meta name="author" content="Pradeep Yadav">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="https://textify.tools/title-case-converter">
     <link rel="alternate" hreflang="en-US" href="https://textify.tools/title-case-converter">
-    
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/title-case-converter">
     <meta property="og:title" content="Title Case Converter – APA, Chicago, MLA & AP Styles">
     <meta property="og:description" content="Convert text to title case using APA, Chicago, MLA, or AP style. Perfect for headlines, paper titles, and blog posts. Instant, private, and free.">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:site_name" content="Textify.tools">
+    <meta property="og:image" content="https://textify.tools/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Title Case Converter – APA, Chicago, MLA & AP Styles">
     <meta name="twitter:description" content="Convert text to title case using APA, Chicago, MLA, or AP style. Perfect for headlines, paper titles, and blog posts. Instant, private, and free.">
-    
+    <meta name="twitter:image" content="https://textify.tools/og-image.png">
+
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -32,7 +35,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://scripts.scriptwrapper.com">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
@@ -64,6 +67,8 @@
     <!-- Mediavine -->
     <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
 
+    <script src="https://unpkg.com/lucide@0.344.0" defer></script>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -74,7 +79,7 @@
           "name": "Textify.tools",
           "url": "https://textify.tools/",
           "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 },
-          "sameAs": ["https://www.facebook.com/textifydottools", "https://www.instagram.com/textifydottools", "https://x.com/textifydottools"]
+          "sameAs": ["https://x.com/BuiltByPradeep"]
         },
         {
           "@type": "Person",
@@ -122,8 +127,7 @@
       ]
     }
     </script>
-</head>
-<body>
+
     <style>
         :root {
             --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5; --primary: #000000;
@@ -284,7 +288,7 @@
         .search-results-list {
             background: var(--bg); border-radius: 16px; border: 1px solid var(--line);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto;
-            flex: 1; min-height: 0;
+            flex: 1; min-height: 0; contain: content;
         }
         .search-results-list .search-result-item {
             display: flex; align-items: center; justify-content: space-between;
@@ -322,12 +326,7 @@
         .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.7; margin-bottom: 30px; text-align: left; word-wrap: break-word; }
 
         .textarea-wrapper { position: relative; margin-bottom: 10px; width: 100%; }
-        textarea {
-            width: 100%; min-height: 250px; padding: 16px; padding-bottom: 120px;
-            border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px;
-            background: var(--card); color: var(--text); resize: none; font-family: inherit;
-            transition: border-color 0.2s, box-shadow 0.2s; overflow-y: hidden; max-width: 100%;
-        }
+        textarea { width: 100%; min-height: 250px; padding: 16px; padding-bottom: 120px; border: 2px solid var(--input-border); border-radius: 14px; font-size: 16px; background: var(--card); color: var(--text); resize: none; font-family: inherit; transition: border-color 0.2s, box-shadow 0.2s; overflow-y: hidden; max-width: 100%; }
         textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,0,0,0.04); }
 
         .toolbar-btns {
@@ -390,10 +389,10 @@
         .custom-terms-modal-overlay.active { opacity: 1; visibility: visible; }
         .custom-terms-modal { background: var(--bg); border-radius: 16px; padding: 24px; width: 90%; max-width: 400px; box-shadow: 0 20px 40px var(--shadow); border: 1px solid var(--line); }
         .custom-terms-modal h3 { margin-bottom: 12px; color: var(--text); }
-        .custom-terms-modal textarea { width: 100%; height: 120px; padding: 10px; border: 1px solid var(--input-border); border-radius: 8px; font-size: 13px; background: var(--input-bg); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 12px; }
+        .custom-terms-modal textarea { width: 100%; height: 120px; padding: 10px; border: 1px solid var(--input-border); border-radius: 8px; font-size: 13px; background: var(--input-bg); color: var(--text); resize: vertical; font-family: inherit; margin-bottom: 12px; padding-bottom: 10px; min-height: 0; }
         .custom-terms-modal small { display: block; margin-bottom: 16px; color: var(--text-light); font-size: 12px; }
         .modal-actions { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
-        .modal-actions button { padding: 8px 16px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-size: 14px; }
+        .modal-actions button { padding: 8px 16px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-size: 14px; font-family: inherit; }
         .modal-actions .btn-close { background: var(--hover); color: var(--text); }
         .modal-actions .btn-save { background: var(--primary); color: var(--bg); }
         .modal-actions .btn-clear { background: #ef4444; color: #ffffff; margin-right: auto; }
@@ -493,18 +492,19 @@
             .mobile-sidebar { display: none !important; }
         }
     </style>
-
+</head>
+<body>
     <div class="page-wrapper">
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="/favicon.ico" alt="Textify.Tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
+                    <img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
                     Textify.tools
                 </a>
                 <div class="header-right">
                     <div class="desktop-nav">
                         <div class="tools-menu-container" id="toolsMenuContainer">
-                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleToolsMenu()">
+                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu" onclick="toggleToolsMenu()">
                                 Tools <i data-lucide="chevron-down"></i>
                             </button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
@@ -515,10 +515,10 @@
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
                         <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
                     </button>
                     <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                    <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                    <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
                         <span class="menu-icon"><span></span><span></span></span>
                     </button>
                 </div>
@@ -718,6 +718,7 @@
             </div>
         </main>
 
+        <!-- ============ FOOTER (matches index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -725,7 +726,7 @@
                         <p class="footer-credit">Created by: <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">Pradeep Yadav</a></p>
                         <p class="footer-copyright">Copyright © <span id="dynamicYear"></span></p>
                         <h3 class="footer-heading" style="margin-top:10px;">About</h3>
-                        <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking, no fuss. If you have a suggestion, feel free to <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">say hello</a>. Feedback is much appreciated!</p>
+                        <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking of what you type, no fuss. If you have a suggestion, feel free to <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">say hello</a>. Feedback is much appreciated!</p>
                     </div>
                     <div class="footer-right-columns">
                         <div class="footer-column">
@@ -749,6 +750,7 @@
                             <h3 class="footer-heading">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="/">Home</a></li>
+                                <li><a href="/about-us">About Us</a></li>
                                 <li><a href="/contact-us">Contact Us</a></li>
                                 <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
                                 <li><a href="/blog">Blog</a></li>
@@ -768,11 +770,12 @@
         </footer>
     </div>
 
+    <!-- Mobile sidebar -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo">
-                <img src="/favicon.ico" alt="Textify.Tools" class="logo-img" width="20" height="20" loading="lazy">
+                <img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy">
                 Textify.tools
             </a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
@@ -786,10 +789,11 @@
         </div>
         <div class="mobile-sidebar-actions">
             <button onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
-            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" style="display:none;"></i> Theme</button>
+            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
         </div>
     </div>
 
+    <!-- Search overlay -->
     <div class="search-overlay-full" id="searchOverlayFull" role="dialog" aria-modal="true" aria-label="Search tools" aria-hidden="true">
         <div class="search-container">
             <div class="search-box">
@@ -818,393 +822,390 @@
 
     <div class="toast" id="toast"></div>
 
-    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('dynamicYear').textContent = new Date().getFullYear();
+        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
 
-            // ============ Categories & Tools (FULL list from index page) ============
-            const categories = [
-                { key: 'all', label: 'All Tools' },
-                { key: 'text', label: 'Text Tools' },
-                { key: 'developer', label: 'Developer' },
-                { key: 'generator', label: 'Generators' },
-                { key: 'image', label: 'Image' },
-                { key: 'pdf', label: 'PDF' },
-                { key: 'business', label: 'Business' },
-                { key: 'calculator', label: 'Calculators & Converters' },
-                { key: 'finance', label: 'Finance' }
-            ];
-            const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
+        // ============ Categories & Tools (FULL list from index page) ============
+        const categories = [
+            { key: 'all', label: 'All Tools' },
+            { key: 'text', label: 'Text Tools' },
+            { key: 'developer', label: 'Developer' },
+            { key: 'generator', label: 'Generators' },
+            { key: 'image', label: 'Image' },
+            { key: 'pdf', label: 'PDF' },
+            { key: 'business', label: 'Business' },
+            { key: 'calculator', label: 'Calculators & Converters' },
+            { key: 'finance', label: 'Finance' }
+        ];
+        const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
 
-            const tools = [
-                { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', icon: 'hash', link: '/word-counter', keywords: 'word count character counter letters essay limit', color: '#8b5cf6', category: 'text' },
-                { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', icon: 'type', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', color: '#8b5cf6', category: 'text' },
-                { name: 'Paragraph Counter', desc: 'Quickly count paragraphs in your writing.', icon: 'align-left', link: '/paragraph-counter', keywords: 'paragraph count block format', color: '#8b5cf6', category: 'text' },
-                { name: 'Line Counter', desc: 'Count lines in text.', icon: 'list', link: '/line-counter', keywords: 'line count text lines rows', color: '#8b5cf6', category: 'text' },
-                { name: 'Reading Time Estimator', desc: 'Estimate how long it takes to read your text.', icon: 'clock', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute blog', color: '#0ea5e9', category: 'text' },
-                { name: 'Speaking Time Calculator', desc: 'Estimate how long it takes to speak your text aloud.', icon: 'mic', link: '/speaking-time-calculator', keywords: 'speaking time talk duration speech presentation', color: '#0ea5e9', category: 'text' },
-                { name: 'Keyword Counter', desc: 'Count occurrences of each keyword in your text.', icon: 'hash', link: '/keyword-counter', keywords: 'keyword frequency count word seo', color: '#0ea5e9', category: 'text' },
-                { name: 'Keyword Density Checker', desc: 'Analyze keyword density as a percentage.', icon: 'percent', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', color: '#0ea5e9', category: 'text' },
-                { name: 'Duplicate Word Finder', desc: 'Find and highlight duplicate words in your text.', icon: 'search', link: '/duplicate-word-finder', keywords: 'duplicate word find highlight repeat', color: '#0ea5e9', category: 'text' },
-                { name: 'Text Statistics', desc: 'Full summary: words, chars, sentences, readability, and more.', icon: 'bar-chart-2', link: '/text-statistics', keywords: 'text stats readability summary data analysis', color: '#0ea5e9', category: 'text' },
-                { name: 'Regex Tester', desc: 'Test regular expressions with match highlighting.', icon: 'search-code', link: '/regex-tester', keywords: 'regex regular expression test match pattern', color: '#0ea5e9', category: 'text' },
-                { name: 'Word Frequency Counter', desc: 'Count frequency of each word.', icon: 'bar-chart', link: '/word-frequency-counter', keywords: 'word frequency count repeat', color: '#0ea5e9', category: 'text' },
-                { name: 'Character Frequency Counter', desc: 'Count frequency of each character.', icon: 'pie-chart', link: '/character-frequency-counter', keywords: 'character frequency count letters', color: '#0ea5e9', category: 'text' },
-                { name: 'Password Strength Checker', desc: 'Check the strength of your password.', icon: 'shield', link: '/password-strength-checker', keywords: 'password strength check secure safety', color: '#0ea5e9', category: 'text' },
-                { name: 'Duplicate Line Remover', desc: 'Remove duplicate lines and keep only unique ones.', icon: 'list-filter', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe list', color: '#6366f1', category: 'text' },
-                { name: 'Whitespace Cleaner', desc: 'Remove extra spaces, tabs, and blank lines.', icon: 'sparkles', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', color: '#64748b', category: 'text' },
-                { name: 'Remove Extra Spaces', desc: 'Clean up unwanted spaces with one click.', icon: 'minus', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup double', color: '#64748b', category: 'text' },
-                { name: 'Remove Empty Lines', desc: 'Delete all blank lines instantly.', icon: 'scissors', link: '/remove-empty-lines', keywords: 'empty lines remove delete blank', color: '#64748b', category: 'text' },
-                { name: 'Remove Blank Characters', desc: 'Strip out invisible blank characters.', icon: 'eraser', link: '/remove-blank-characters', keywords: 'blank chars invisible characters remove zero width', color: '#64748b', category: 'text' },
-                { name: 'Remove Emojis', desc: 'Get rid of all emojis in one go.', icon: 'smile', link: '/remove-emojis', keywords: 'emoji remove strip smiley', color: '#64748b', category: 'text' },
-                { name: 'Remove Symbols', desc: 'Delete symbols and special characters.', icon: 'minus-circle', link: '/remove-symbols', keywords: 'symbols remove special characters clean', color: '#64748b', category: 'text' },
-                { name: 'Remove Punctuation', desc: 'Strip punctuation marks.', icon: 'type', link: '/remove-punctuation', keywords: 'punctuation remove comma period full stop', color: '#64748b', category: 'text' },
-                { name: 'Remove Numbers', desc: 'Delete all numeric digits.', icon: 'hash', link: '/remove-numbers', keywords: 'numbers remove digits numeric', color: '#64748b', category: 'text' },
-                { name: 'Remove HTML Tags', desc: 'Strip HTML/XML tags, leaving only text.', icon: 'code', link: '/remove-html-tags', keywords: 'html tags strip remove clean markup', color: '#64748b', category: 'text' },
-                { name: 'Remove Line Breaks', desc: 'Remove line breaks and join lines.', icon: 'minus', link: '/remove-line-breaks', keywords: 'line break remove join newline', color: '#64748b', category: 'text' },
-                { name: 'Text Cleaner', desc: 'All-in-one text cleaning.', icon: 'sparkles', link: '/text-cleaner', keywords: 'clean text sanitize format tidy', color: '#64748b', category: 'text' },
-                { name: 'Remove Duplicate Words', desc: 'Remove duplicate words from text.', icon: 'copy', link: '/remove-duplicate-words', keywords: 'duplicate words remove repeat', color: '#64748b', category: 'text' },
-                { name: 'Case Converter', desc: 'Convert to uppercase, lowercase, title case and more.', icon: 'type', link: '/case-converter', keywords: 'uppercase lowercase title case sentence change case', color: '#10b981', category: 'text' },
-                { name: 'Uppercase Converter', desc: 'Convert text to uppercase.', icon: 'arrow-up', link: '/uppercase-converter', keywords: 'uppercase converter caps capital letters', color: '#10b981', category: 'text' },
-                { name: 'Lowercase Converter', desc: 'Convert text to lowercase.', icon: 'arrow-down', link: '/lowercase-converter', keywords: 'lowercase converter small letters', color: '#10b981', category: 'text' },
-                { name: 'Title Case Converter', desc: 'Proper title case for headlines.', icon: 'heading', link: '/title-case-converter', keywords: 'title case headline capitalize proper apa mla', color: '#10b981', category: 'text' },
-                { name: 'Sentence Case Converter', desc: 'First letter of each sentence capitalized.', icon: 'type', link: '/sentence-case-converter', keywords: 'sentence case capitalize first letter', color: '#10b981', category: 'text' },
-                { name: 'Capitalize Words', desc: 'Capitalize first letter of each word.', icon: 'pen-tool', link: '/capitalize-words', keywords: 'capitalize first letter each word', color: '#10b981', category: 'text' },
-                { name: 'Toggle Case Converter', desc: 'Toggle case of every letter.', icon: 'toggle-left', link: '/toggle-case-converter', keywords: 'toggle case invert swap alternating', color: '#10b981', category: 'text' },
-                { name: 'Text Repeater', desc: 'Repeat text up to 100,000 times.', icon: 'repeat', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste spam', color: '#6366f1', category: 'text' },
-                { name: 'Text Finder & Replacer', desc: 'Find and replace words or phrases in bulk.', icon: 'search', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', color: '#ec4899', category: 'text' },
-                { name: 'Line Break Converter', desc: 'Convert line breaks between Windows, Unix, Mac.', icon: 'wrap-text', link: '/line-break-converter', keywords: 'line break crlf lf converter newline', color: '#10b981', category: 'text' },
-                { name: 'Text Indenter', desc: 'Add spaces or tabs at the beginning of each line.', icon: 'indent-increase', link: '/text-indenter', keywords: 'indent text tab spaces code', color: '#10b981', category: 'text' },
-                { name: 'Wrap Text', desc: 'Wrap long lines to a specified width.', icon: 'wrap-text', link: '/wrap-text', keywords: 'word wrap text line width column', color: '#10b981', category: 'text' },
-                { name: 'Unwrap Text', desc: 'Join broken lines into a single paragraph.', icon: 'unlink', link: '/unwrap-text', keywords: 'unwrap text join lines paragraph merge', color: '#10b981', category: 'text' },
-                { name: 'Join Lines', desc: 'Merge multiple lines into one single continuous line or paragraph.', icon: 'unlink', link: '/join-lines', keywords: 'join lines merge combine single line paragraph unwrap newline concatenate', color: '#10b981', category: 'text' },
-                { name: 'Text to Handwriting', desc: 'Convert typed text into realistic handwriting.', icon: 'pen-tool', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment notes', color: '#a855f7', category: 'text' },
-                { name: 'Bold Text Generator', desc: 'Bold Unicode text for social media bios.', icon: 'bold', link: '/bold-text-generator', keywords: 'bold unicode text style font bio', color: '#ec4899', category: 'text' },
-                { name: 'Italic Text Generator', desc: 'Italic Unicode text using math symbols.', icon: 'italic', link: '/italic-text-generator', keywords: 'italic unicode text style font', color: '#ec4899', category: 'text' },
-                { name: 'Strikethrough Generator', desc: 'Strikethrough Unicode text.', icon: 'strikethrough', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode', color: '#ec4899', category: 'text' },
-                { name: 'Fancy Text Generator', desc: 'Generate multiple fancy Unicode styles at once.', icon: 'sparkles', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic instagram', color: '#ec4899', category: 'text' },
-                { name: 'Upside Down Text', desc: 'Flip your text upside down.', icon: 'arrow-down-up', link: '/upside-down-text', keywords: 'upside down flip text reverse', color: '#ec4899', category: 'text' },
-                { name: 'Small Text Generator', desc: 'Generate small caps text.', icon: 'arrow-up', link: '/small-text-generator', keywords: 'small caps tiny text superscript', color: '#ec4899', category: 'text' },
-                { name: 'Zalgo Text Generator', desc: 'Create cursed zalgo text.', icon: 'ghost', link: '/zalgo-text-generator', keywords: 'zalgo cursed text generator creepy', color: '#ec4899', category: 'text' },
-                { name: 'Unicode Text Converter', desc: 'Convert text to Unicode variants.', icon: 'type', link: '/unicode-text-converter', keywords: 'unicode text converter encode', color: '#ec4899', category: 'text' },
-                { name: 'Email Extractor', desc: 'Extract all email addresses from text.', icon: 'at-sign', link: '/email-extractor', keywords: 'email extract find emails scrape address', color: '#0ea5e9', category: 'text' },
-                { name: 'URL Extractor', desc: 'Pull out all URLs from text.', icon: 'link', link: '/url-extractor', keywords: 'url extract link http https website', color: '#0ea5e9', category: 'text' },
-                { name: 'Phone Extractor', desc: 'Extract phone numbers using common formats.', icon: 'phone', link: '/phone-extractor', keywords: 'phone number extract landline mobile contact', color: '#0ea5e9', category: 'text' },
-                { name: 'Number Extractor', desc: 'Get every number (integer or decimal) from text.', icon: 'hash', link: '/number-extractor', keywords: 'number extract digits numeric decimal', color: '#0ea5e9', category: 'text' },
-                { name: 'Date Extractor', desc: 'Find and extract dates like 12/05/2025.', icon: 'calendar', link: '/date-extractor', keywords: 'date extract calendar find day month year', color: '#0ea5e9', category: 'text' },
-                { name: 'Domain Extractor', desc: 'Extract domain names from URLs or emails.', icon: 'globe', link: '/domain-extractor', keywords: 'domain name website extract host', color: '#0ea5e9', category: 'text' },
-                { name: 'Hashtag Extractor', desc: 'List all #hashtags from social media text.', icon: 'hash', link: '/hashtag-extractor', keywords: 'hashtag extract social media instagram twitter', color: '#0ea5e9', category: 'text' },
-                { name: 'Mention Extractor', desc: 'Pull out @usernames from text.', icon: 'at-sign', link: '/mention-extractor', keywords: 'mention extract username @ social twitter', color: '#0ea5e9', category: 'text' },
-                { name: 'Keyword Extractor', desc: 'Extract the most important words and phrases.', icon: 'key', link: '/keyword-extractor', keywords: 'keyword extract important terms seo', color: '#0ea5e9', category: 'text' },
-                { name: 'Duplicate Line Finder', desc: 'Show which lines appear more than once.', icon: 'search', link: '/duplicate-line-finder', keywords: 'duplicate line find report repeat', color: '#0ea5e9', category: 'text' },
-                { name: 'JSON Formatter/Beautifier', desc: 'Format messy JSON into readable, indented structure.', icon: 'braces', link: '/json-formatter', keywords: 'json format beautify pretty print indent api', color: '#f59e0b', category: 'developer' },
-                { name: 'JSON Minifier', desc: 'Minify JSON to remove unnecessary spaces.', icon: 'braces', link: '/json-minifier', keywords: 'json minify compress compact', color: '#f59e0b', category: 'developer' },
-                { name: 'JSON Validator', desc: 'Validate JSON syntax.', icon: 'check-circle', link: '/json-validator', keywords: 'json validate check syntax error', color: '#f59e0b', category: 'developer' },
-                { name: 'XML Formatter', desc: 'Beautify and indent XML data.', icon: 'file-code', link: '/xml-formatter', keywords: 'xml format beautify indent', color: '#f59e0b', category: 'developer' },
-                { name: 'XML Minifier', desc: 'Minify XML.', icon: 'file-code', link: '/xml-minifier', keywords: 'xml minify compress', color: '#f59e0b', category: 'developer' },
-                { name: 'HTML Formatter', desc: 'Format HTML code.', icon: 'code', link: '/html-formatter', keywords: 'html format beautify indent', color: '#f59e0b', category: 'developer' },
-                { name: 'HTML Minifier', desc: 'Minify HTML.', icon: 'code', link: '/html-minifier', keywords: 'html minify compress', color: '#f59e0b', category: 'developer' },
-                { name: 'CSS Formatter', desc: 'Format CSS code.', icon: 'code-2', link: '/css-formatter', keywords: 'css format beautify indent', color: '#f59e0b', category: 'developer' },
-                { name: 'CSS Minifier', desc: 'Minify CSS.', icon: 'code-2', link: '/css-minifier', keywords: 'css minify compress', color: '#f59e0b', category: 'developer' },
-                { name: 'JavaScript Formatter', desc: 'Format JavaScript code.', icon: 'code-2', link: '/javascript-formatter', keywords: 'javascript format beautify js', color: '#f59e0b', category: 'developer' },
-                { name: 'JavaScript Minifier', desc: 'Minify JavaScript.', icon: 'code-2', link: '/javascript-minifier', keywords: 'javascript minify compress js', color: '#f59e0b', category: 'developer' },
-                { name: 'SQL Formatter', desc: 'Format SQL queries.', icon: 'database', link: '/sql-formatter', keywords: 'sql format query beautify database', color: '#f59e0b', category: 'developer' },
-                { name: 'Text to Binary', desc: 'Convert text to binary.', icon: 'code', link: '/text-to-binary', keywords: 'text binary convert bits', color: '#f59e0b', category: 'developer' },
-                { name: 'Binary to Text', desc: 'Convert binary to text.', icon: 'code', link: '/binary-to-text', keywords: 'binary text convert bits', color: '#f59e0b', category: 'developer' },
-                { name: 'Text to Hex', desc: 'Convert text to hexadecimal.', icon: 'hexagon', link: '/text-to-hex', keywords: 'text hex convert hexadecimal', color: '#f59e0b', category: 'developer' },
-                { name: 'Hex to Text', desc: 'Convert hex to text.', icon: 'hexagon', link: '/hex-to-text', keywords: 'hex text convert hexadecimal', color: '#f59e0b', category: 'developer' },
-                { name: 'Text to ASCII', desc: 'Convert text to ASCII codes.', icon: 'keyboard', link: '/text-to-ascii', keywords: 'text ascii convert code', color: '#f59e0b', category: 'developer' },
-                { name: 'ASCII to Text', desc: 'Convert ASCII codes to text.', icon: 'keyboard', link: '/ascii-to-text', keywords: 'ascii text convert code', color: '#f59e0b', category: 'developer' },
-                { name: 'Morse Code Translator', desc: 'Convert text to Morse code and back.', icon: 'radio', link: '/morse-code-translator', keywords: 'morse code translator dots dashes', color: '#f59e0b', category: 'developer' },
-                { name: 'Braille Translator', desc: 'Convert text to Braille.', icon: 'eye-off', link: '/braille-translator', keywords: 'braille translator blind', color: '#f59e0b', category: 'developer' },
-                { name: 'NATO Alphabet Generator', desc: 'Convert text to NATO phonetic alphabet.', icon: 'volume-2', link: '/nato-alphabet-generator', keywords: 'nato phonetic alphabet alpha bravo', color: '#f59e0b', category: 'developer' },
-                { name: 'Text to CSV', desc: 'Convert text to CSV format.', icon: 'file-spreadsheet', link: '/text-to-csv', keywords: 'text csv convert comma separated excel', color: '#f59e0b', category: 'developer' },
-                { name: 'CSV to Text', desc: 'Convert CSV to text.', icon: 'file-spreadsheet', link: '/csv-to-text', keywords: 'csv text convert', color: '#f59e0b', category: 'developer' },
-                { name: 'CSV to JSON', desc: 'Convert CSV to JSON.', icon: 'file-spreadsheet', link: '/csv-to-json', keywords: 'csv json convert', color: '#f59e0b', category: 'developer' },
-                { name: 'JSON to CSV', desc: 'Convert JSON to CSV.', icon: 'file-spreadsheet', link: '/json-to-csv', keywords: 'json csv convert', color: '#f59e0b', category: 'developer' },
-                { name: 'Markdown to HTML', desc: 'Convert Markdown to HTML.', icon: 'file-code', link: '/markdown-to-html', keywords: 'markdown html convert md', color: '#f59e0b', category: 'developer' },
-                { name: 'HTML to Markdown', desc: 'Convert HTML to Markdown.', icon: 'file-code', link: '/html-to-markdown', keywords: 'html markdown convert md', color: '#f59e0b', category: 'developer' },
-                { name: 'Markdown Table Generator', desc: 'Generate Markdown tables.', icon: 'table', link: '/markdown-table-generator', keywords: 'markdown table generator md', color: '#f59e0b', category: 'developer' },
-                { name: 'HTML Table Generator', desc: 'Generate HTML tables.', icon: 'table', link: '/html-table-generator', keywords: 'html table generator', color: '#f59e0b', category: 'developer' },
-                { name: 'Roman Numeral Converter', desc: 'Convert numbers to Roman numerals.', icon: 'hash', link: '/roman-numeral-converter', keywords: 'roman numeral converter latin', color: '#f59e0b', category: 'developer' },
-                { name: 'Number to Words', desc: 'Convert numbers to English words.', icon: 'type', link: '/number-to-words', keywords: 'number to words converter cheque', color: '#f59e0b', category: 'developer' },
-                { name: 'Words to Number', desc: 'Convert English words to numbers.', icon: 'hash', link: '/words-to-number', keywords: 'words to number converter', color: '#f59e0b', category: 'developer' },
-                { name: 'Timestamp Converter', desc: 'Convert Unix timestamps to date and back.', icon: 'clock', link: '/timestamp-converter', keywords: 'timestamp unix converter date epoch', color: '#f59e0b', category: 'developer' },
-                { name: 'Color Converter', desc: 'Convert colors between HEX, RGB, HSL.', icon: 'palette', link: '/color-converter', keywords: 'color converter hex rgb hsl', color: '#f59e0b', category: 'developer' },
-                { name: 'Base64 Encoder', desc: 'Encode text to Base64.', icon: 'code', link: '/base64-encoder', keywords: 'base64 encode', color: '#f59e0b', category: 'developer' },
-                { name: 'Base64 Decoder', desc: 'Decode Base64 text.', icon: 'code', link: '/base64-decoder', keywords: 'base64 decode', color: '#f59e0b', category: 'developer' },
-                { name: 'URL Encoder', desc: 'Encode URLs.', icon: 'link', link: '/url-encoder', keywords: 'url encode percent uri', color: '#f59e0b', category: 'developer' },
-                { name: 'URL Decoder', desc: 'Decode URLs.', icon: 'link', link: '/url-decoder', keywords: 'url decode percent uri', color: '#f59e0b', category: 'developer' },
-                { name: 'HTML Entity Encoder', desc: 'Encode HTML entities.', icon: 'code', link: '/html-entity-encoder', keywords: 'html entity encode amp lt', color: '#f59e0b', category: 'developer' },
-                { name: 'HTML Entity Decoder', desc: 'Decode HTML entities.', icon: 'code', link: '/html-entity-decoder', keywords: 'html entity decode amp lt', color: '#f59e0b', category: 'developer' },
-                { name: 'Regex Generator', desc: 'Generate regex patterns from sample text.', icon: 'search-code', link: '/regex-generator', keywords: 'regex generate pattern regular expression', color: '#0ea5e9', category: 'developer' },
-                { name: 'Regex Escape Tool', desc: 'Escape special characters in regex.', icon: 'search-code', link: '/regex-escape-tool', keywords: 'regex escape special characters', color: '#0ea5e9', category: 'developer' },
-                { name: 'JWT Decoder', desc: 'Decode JWT tokens to view header and payload.', icon: 'lock', link: '/jwt-decoder', keywords: 'jwt decode token header payload auth', color: '#0ea5e9', category: 'developer' },
-                { name: 'UUID Generator', desc: 'Generate random UUID v4 identifiers.', icon: 'fingerprint', link: '/uuid-generator', keywords: 'uuid guid unique identifier random v4', color: '#0ea5e9', category: 'developer' },
-                { name: 'UUID Validator', desc: 'Check if a UUID is valid.', icon: 'check', link: '/uuid-validator', keywords: 'uuid validate check guid', color: '#0ea5e9', category: 'developer' },
-                { name: 'MD5 Generator', desc: 'Generate MD5 hash.', icon: 'hash', link: '/md5-generator', keywords: 'md5 hash generator checksum', color: '#0ea5e9', category: 'developer' },
-                { name: 'SHA-1 Generator', desc: 'Generate SHA-1 hash.', icon: 'hash', link: '/sha1-generator', keywords: 'sha1 hash generator checksum', color: '#0ea5e9', category: 'developer' },
-                { name: 'SHA-256 Generator', desc: 'Generate SHA-256 hash.', icon: 'hash', link: '/sha256-generator', keywords: 'sha256 hash generator checksum', color: '#0ea5e9', category: 'developer' },
-                { name: 'SHA-512 Generator', desc: 'Generate SHA-512 hash.', icon: 'hash', link: '/sha512-generator', keywords: 'sha512 hash generator checksum', color: '#0ea5e9', category: 'developer' },
-                { name: 'HMAC Generator', desc: 'Generate HMAC hash.', icon: 'shield', link: '/hmac-generator', keywords: 'hmac hash generator secret key', color: '#0ea5e9', category: 'developer' },
-                { name: 'Cron Expression Generator', desc: 'Generate cron expressions.', icon: 'calendar', link: '/cron-expression-generator', keywords: 'cron expression generator schedule', color: '#0ea5e9', category: 'developer' },
-                { name: 'Cron Expression Tester', desc: 'Test cron expressions.', icon: 'check', link: '/cron-expression-tester', keywords: 'cron expression tester schedule', color: '#0ea5e9', category: 'developer' },
-                { name: 'Password Generator', desc: 'Generate strong random passwords.', icon: 'key', link: '/password-generator', keywords: 'password generator random strong secure', color: '#14b8a6', category: 'generator' },
-                { name: 'PIN Generator', desc: 'Generate random PIN numbers.', icon: 'lock', link: '/pin-generator', keywords: 'pin generator random number', color: '#14b8a6', category: 'generator' },
-                { name: 'Random Number Generator', desc: 'Generate random numbers within a custom range.', icon: 'dice-6', link: '/random-number-generator', keywords: 'random number range integer generator lottery', color: '#14b8a6', category: 'generator' },
-                { name: 'Number Sequence Generator', desc: 'Generate arithmetic sequences.', icon: 'list', link: '/number-sequence-generator', keywords: 'number sequence generator series', color: '#14b8a6', category: 'generator' },
-                { name: 'Lorem Ipsum Generator', desc: 'Placeholder text for designs and mockups.', icon: 'file-text', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text design', color: '#14b8a6', category: 'generator' },
-                { name: 'Random Word Generator', desc: 'Generate random English words.', icon: 'book-open', link: '/random-word-generator', keywords: 'random word generator english vocabulary', color: '#14b8a6', category: 'generator' },
-                { name: 'Random Text Generator', desc: 'Generate random letters, numbers, and symbols.', icon: 'dice-6', link: '/random-text-generator', keywords: 'random text generate string dummy', color: '#14b8a6', category: 'generator' },
-                { name: 'QR Code Generator', desc: 'Convert any text or URL into a QR code image.', icon: 'qr-code', link: '/qr-code-generator', keywords: 'qr code generate text url image scan', color: '#14b8a6', category: 'generator' },
-                { name: 'Barcode Generator', desc: 'Generate barcodes from text or numbers.', icon: 'barcode', link: '/barcode-generator', keywords: 'barcode generate code ean upc product', color: '#8b5cf6', category: 'generator' },
-                { name: 'UTM Builder', desc: 'Add UTM parameters to URLs for campaign tracking.', icon: 'link', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing analytics', color: '#14b8a6', category: 'generator' },
-                { name: 'WhatsApp Link Generator', desc: 'Create wa.me links from phone numbers and pre-filled messages.', icon: 'message-circle', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', color: '#25D366', category: 'generator' },
-                { name: 'Business Name Generator', desc: 'Generate business name ideas.', icon: 'briefcase', link: '/business-name-generator', keywords: 'business name generator brand startup', color: '#14b8a6', category: 'generator' },
-                { name: 'Invoice Number Generator', desc: 'Generate invoice numbers.', icon: 'file-text', link: '/invoice-number-generator', keywords: 'invoice number generator billing', color: '#14b8a6', category: 'generator' },
-                { name: 'Image Compressor', desc: 'Compress images in your browser.', icon: 'image', link: '/image-compressor', keywords: 'image compressor reduce size jpg png', color: '#ec4899', category: 'image' },
-                { name: 'Image Resizer', desc: 'Resize images without losing quality.', icon: 'image', link: '/image-resizer', keywords: 'image resize dimensions scale', color: '#ec4899', category: 'image' },
-                { name: 'Image Cropper', desc: 'Crop images easily.', icon: 'crop', link: '/image-cropper', keywords: 'image crop trim cut', color: '#ec4899', category: 'image' },
-                { name: 'Image Rotator', desc: 'Rotate images by degrees.', icon: 'rotate-cw', link: '/image-rotator', keywords: 'image rotate turn degrees', color: '#ec4899', category: 'image' },
-                { name: 'Image Flipper', desc: 'Flip images horizontally or vertically.', icon: 'repeat', link: '/image-flipper', keywords: 'image flip mirror horizontal vertical', color: '#ec4899', category: 'image' },
-                { name: 'JPG to PNG', desc: 'Convert JPG images to PNG.', icon: 'image', link: '/jpg-to-png', keywords: 'jpg png converter image', color: '#ec4899', category: 'image' },
-                { name: 'PNG to JPG', desc: 'Convert PNG images to JPG.', icon: 'image', link: '/png-to-jpg', keywords: 'png jpg converter image', color: '#ec4899', category: 'image' },
-                { name: 'WebP to JPG', desc: 'Convert WebP images to JPG.', icon: 'image', link: '/webp-to-jpg', keywords: 'webp jpg converter image', color: '#ec4899', category: 'image' },
-                { name: 'JPG to WebP', desc: 'Convert JPG images to WebP.', icon: 'image', link: '/jpg-to-webp', keywords: 'jpg webp converter image', color: '#ec4899', category: 'image' },
-                { name: 'PNG to WebP', desc: 'Convert PNG images to WebP.', icon: 'image', link: '/png-to-webp', keywords: 'png webp converter image', color: '#ec4899', category: 'image' },
-                { name: 'Image to Base64', desc: 'Convert image to Base64 string.', icon: 'image', link: '/image-to-base64', keywords: 'image base64 converter encode', color: '#ec4899', category: 'image' },
-                { name: 'Base64 to Image', desc: 'Convert Base64 string to image.', icon: 'image', link: '/base64-to-image', keywords: 'base64 image converter decode', color: '#ec4899', category: 'image' },
-                { name: 'Grayscale Image', desc: 'Convert image to grayscale.', icon: 'image', link: '/grayscale-image', keywords: 'grayscale image black white filter', color: '#ec4899', category: 'image' },
-                { name: 'Photo 20KB', desc: 'Compress photo to 20KB.', icon: 'image', link: '/photo-20kb', keywords: 'photo 20kb compress resize upload form', color: '#ec4899', category: 'image' },
-                { name: 'Photo 50KB', desc: 'Compress photo to 50KB.', icon: 'image', link: '/photo-50kb', keywords: 'photo 50kb compress resize upload form', color: '#ec4899', category: 'image' },
-                { name: 'Photo 100KB', desc: 'Compress photo to 100KB.', icon: 'image', link: '/photo-100kb', keywords: 'photo 100kb compress resize upload form', color: '#ec4899', category: 'image' },
-                { name: 'Photo 200KB', desc: 'Compress photo to 200KB.', icon: 'image', link: '/photo-200kb', keywords: 'photo 200kb compress resize upload form', color: '#ec4899', category: 'image' },
-                { name: 'Signature Resizer', desc: 'Resize signatures for documents and forms.', icon: 'image', link: '/signature-resizer', keywords: 'signature resize image document form exam', color: '#ec4899', category: 'image' },
-                { name: 'Passport Size Photo Maker', desc: 'Create passport size photos from any image.', icon: 'image', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image visa', color: '#ec4899', category: 'image' },
-                { name: 'JPG to PDF', desc: 'Convert JPG images to PDF.', icon: 'file', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image document', color: '#ef4444', category: 'pdf' },
-                { name: 'PNG to PDF', desc: 'Convert PNG images to PDF.', icon: 'file', link: '/png-to-pdf', keywords: 'png pdf converter image document', color: '#ef4444', category: 'pdf' },
-                { name: 'Images to PDF', desc: 'Combine multiple images into a PDF.', icon: 'file', link: '/images-to-pdf', keywords: 'images pdf converter combine merge', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF Page Counter', desc: 'Count pages in a PDF file.', icon: 'file', link: '/pdf-page-counter', keywords: 'pdf page counter count pages', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF Metadata Viewer', desc: 'View PDF metadata.', icon: 'info', link: '/pdf-metadata-viewer', keywords: 'pdf metadata viewer info author', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF to Images', desc: 'Convert PDF pages to images.', icon: 'file', link: '/pdf-to-images', keywords: 'pdf images converter jpg png', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF Merge', desc: 'Merge multiple PDF files.', icon: 'git-merge', link: '/pdf-merge', keywords: 'pdf merge combine join files', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF Split', desc: 'Split a PDF into multiple files.', icon: 'git-branch', link: '/pdf-split', keywords: 'pdf split separate cut pages', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF Rotate', desc: 'Rotate PDF pages.', icon: 'rotate-cw', link: '/pdf-rotate', keywords: 'pdf rotate page turn', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF Page Extractor', desc: 'Extract specific pages from PDF.', icon: 'file', link: '/pdf-page-extractor', keywords: 'pdf extract page range', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF Compressor', desc: 'Compress PDF file size.', icon: 'file', link: '/pdf-compressor', keywords: 'pdf compress reduce size shrink smaller', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF to 50KB', desc: 'Compress a PDF down to roughly 50KB.', icon: 'file', link: '/pdf-50kb', keywords: 'pdf 50kb compress reduce size shrink small upload form limit', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF to 100KB', desc: 'Compress a PDF down to roughly 100KB.', icon: 'file', link: '/pdf-100kb', keywords: 'pdf 100kb compress reduce size shrink small upload form limit', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF to 200KB', desc: 'Compress a PDF down to roughly 200KB.', icon: 'file', link: '/pdf-200kb', keywords: 'pdf 200kb compress reduce size shrink small upload form limit', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF to 500KB', desc: 'Compress a PDF down to roughly 500KB.', icon: 'file', link: '/pdf-500kb', keywords: 'pdf 500kb compress reduce size shrink upload form limit', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF Text Extractor', desc: 'Extract text from PDF.', icon: 'file-text', link: '/pdf-text-extractor', keywords: 'pdf text extractor copy', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF Lock', desc: 'Add password protection to PDF.', icon: 'lock', link: '/pdf-lock', keywords: 'pdf lock password protect encrypt', color: '#ef4444', category: 'pdf' },
-                { name: 'PDF Unlock', desc: 'Remove password from PDF.', icon: 'unlock', link: '/pdf-unlock', keywords: 'pdf unlock password remove decrypt', color: '#ef4444', category: 'pdf' },
-                { name: 'Invoice Generator', desc: 'Generate invoices.', icon: 'file-text', link: '/invoice-generator', keywords: 'invoice generator bill billing', color: '#10b981', category: 'business' },
-                { name: 'Quotation Generator', desc: 'Generate quotations.', icon: 'file-text', link: '/quotation-generator', keywords: 'quotation generator quote estimate', color: '#10b981', category: 'business' },
-                { name: 'Receipt Generator', desc: 'Generate receipts.', icon: 'file-text', link: '/receipt-generator', keywords: 'receipt generator payment', color: '#10b981', category: 'business' },
-                { name: 'Payslip Generator', desc: 'Generate payslips.', icon: 'file-text', link: '/payslip-generator', keywords: 'payslip generator salary payroll', color: '#10b981', category: 'business' },
-                { name: 'Shipping Label Generator', desc: 'Create printable shipping and courier labels with sender, receiver and tracking details.', icon: 'package', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', color: '#0ea5e9', category: 'business' },
-                { name: 'Resume Builder', desc: 'Build a clean, professional resume from your details and export it in seconds.', icon: 'file-text', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', color: '#8b5cf6', category: 'business' },
-                { name: 'GST Calculator', desc: 'Calculate GST amounts.', icon: 'percent', link: '/gst-calculator', keywords: 'gst calculator tax goods services', color: '#10b981', category: 'business' },
-                { name: 'Discount Calculator', desc: 'Calculate discounts.', icon: 'percent', link: '/discount-calculator', keywords: 'discount calculator sale off price', color: '#10b981', category: 'business' },
-                { name: 'Profit Margin Calculator', desc: 'Calculate profit margins.', icon: 'trending-up', link: '/profit-margin-calculator', keywords: 'profit margin calculator business', color: '#10b981', category: 'business' },
-                { name: 'Salary Calculator', desc: 'Calculate salary.', icon: 'dollar-sign', link: '/salary-calculator', keywords: 'salary calculator income wage', color: '#10b981', category: 'business' },
-                { name: 'EMI Calculator', desc: 'Calculate loan EMI.', icon: 'calculator', link: '/emi-calculator', keywords: 'emi calculator loan equated monthly installment', color: '#f59e0b', category: 'finance' },
-                { name: 'Loan Calculator', desc: 'Calculate loan details.', icon: 'calculator', link: '/loan-calculator', keywords: 'loan calculator interest', color: '#f59e0b', category: 'finance' },
-                { name: 'SIP Calculator', desc: 'Calculate SIP returns.', icon: 'trending-up', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment returns', color: '#f59e0b', category: 'finance' },
-                { name: 'Income Tax Calculator', desc: 'Calculate income tax.', icon: 'percent', link: '/income-tax-calculator', keywords: 'income tax calculator slab', color: '#f59e0b', category: 'finance' },
-                { name: 'Tax Calculator', desc: 'Calculate taxes.', icon: 'percent', link: '/tax-calculator', keywords: 'tax calculator', color: '#f59e0b', category: 'finance' },
-                { name: 'Tip Calculator', desc: 'Calculate tips.', icon: 'dollar-sign', link: '/tip-calculator', keywords: 'tip calculator restaurant gratuity', color: '#f59e0b', category: 'finance' },
-                { name: 'GPA Calculator', desc: 'Calculate GPA.', icon: 'graduation-cap', link: '/gpa-calculator', keywords: 'gpa calculator student grade point', color: '#8b5cf6', category: 'calculator' },
-                { name: 'CGPA Calculator', desc: 'Calculate CGPA.', icon: 'graduation-cap', link: '/cgpa-calculator', keywords: 'cgpa calculator student grade', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Percentage Calculator', desc: 'Calculate percentages.', icon: 'percent', link: '/percentage-calculator', keywords: 'percentage calculator percent', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Grade Calculator', desc: 'Calculate grades.', icon: 'graduation-cap', link: '/grade-calculator', keywords: 'grade calculator student marks', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Marks Percentage Calculator', desc: 'Calculate marks percentage.', icon: 'percent', link: '/marks-percentage-calculator', keywords: 'marks percentage calculator exam', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Attendance Calculator', desc: 'Calculate attendance percentage.', icon: 'calendar', link: '/attendance-calculator', keywords: 'attendance calculator college percentage', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Study Time Calculator', desc: 'Calculate study time.', icon: 'clock', link: '/study-time-calculator', keywords: 'study time calculator planner', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Exam Countdown', desc: 'Countdown to exams.', icon: 'calendar', link: '/exam-countdown', keywords: 'exam countdown timer days', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Age Calculator', desc: 'Calculate age from date of birth.', icon: 'calendar', link: '/age-calculator', keywords: 'age calculator birth date dob', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Scientific Calculator', desc: 'Advanced scientific calculator.', icon: 'calculator', link: '/scientific-calculator', keywords: 'scientific calculator math trigonometry', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Quadratic Equation Calculator', desc: 'Solve quadratic equations.', icon: 'sigma', link: '/quadratic-equation-calculator', keywords: 'quadratic equation calculator roots', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Matrix Calculator', desc: 'Perform matrix operations.', icon: 'layout-grid', link: '/matrix-calculator', keywords: 'matrix calculator determinant multiply', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Probability Calculator', desc: 'Calculate probabilities.', icon: 'percent', link: '/probability-calculator', keywords: 'probability calculator chance', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Standard Deviation Calculator', desc: 'Calculate standard deviation.', icon: 'bar-chart-2', link: '/standard-deviation-calculator', keywords: 'standard deviation calculator statistics', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Mean Median Mode Calculator', desc: 'Calculate mean, median, mode.', icon: 'bar-chart-2', link: '/mean-median-mode-calculator', keywords: 'mean median mode calculator average statistics', color: '#8b5cf6', category: 'calculator' },
-                { name: 'Prime Number Checker', desc: 'Check if a number is prime.', icon: 'hash', link: '/prime-number-checker', keywords: 'prime number check', color: '#10b981', category: 'calculator' },
-                { name: 'Prime Number Generator', desc: 'Generate prime numbers.', icon: 'hash', link: '/prime-number-generator', keywords: 'prime number generator', color: '#10b981', category: 'calculator' },
-                { name: 'Factorial Calculator', desc: 'Calculate factorial of a number.', icon: 'hash', link: '/factorial-calculator', keywords: 'factorial calculator', color: '#10b981', category: 'calculator' },
-                { name: 'GCD Calculator', desc: 'Find greatest common divisor.', icon: 'hash', link: '/gcd-calculator', keywords: 'gcd calculator greatest common divisor hcf', color: '#10b981', category: 'calculator' },
-                { name: 'LCM Calculator', desc: 'Find least common multiple.', icon: 'hash', link: '/lcm-calculator', keywords: 'lcm calculator least common multiple', color: '#10b981', category: 'calculator' },
-                { name: 'Binary Calculator', desc: 'Perform binary calculations.', icon: 'code', link: '/binary-calculator', keywords: 'binary calculator bits', color: '#10b981', category: 'calculator' },
-                { name: 'Decimal to Binary', desc: 'Convert decimal to binary.', icon: 'code', link: '/decimal-to-binary', keywords: 'decimal binary convert', color: '#10b981', category: 'calculator' },
-                { name: 'Binary to Decimal', desc: 'Convert binary to decimal.', icon: 'code', link: '/binary-to-decimal', keywords: 'binary decimal convert', color: '#10b981', category: 'calculator' },
-                { name: 'Decimal to Hex', desc: 'Convert decimal to hex.', icon: 'hexagon', link: '/decimal-to-hex', keywords: 'decimal hex convert hexadecimal', color: '#10b981', category: 'calculator' },
-                { name: 'Hex to Decimal', desc: 'Convert hex to decimal.', icon: 'hexagon', link: '/hex-to-decimal', keywords: 'hex decimal convert hexadecimal', color: '#10b981', category: 'calculator' },
-                { name: 'Decimal to Octal', desc: 'Convert decimal to octal.', icon: 'hash', link: '/decimal-to-octal', keywords: 'decimal octal convert', color: '#10b981', category: 'calculator' },
-                { name: 'Average Calculator', desc: 'Calculate average of numbers.', icon: 'bar-chart-2', link: '/average-calculator', keywords: 'average calculator mean', color: '#10b981', category: 'calculator' },
-                { name: 'Ratio Calculator', desc: 'Calculate ratios.', icon: 'divide', link: '/ratio-calculator', keywords: 'ratio calculator proportion', color: '#10b981', category: 'calculator' },
-                { name: 'Fraction Calculator', desc: 'Calculate fractions.', icon: 'divide', link: '/fraction-calculator', keywords: 'fraction calculator numerator denominator', color: '#10b981', category: 'calculator' },
-                { name: 'Date Difference Calculator', desc: 'Calculate days between two dates.', icon: 'calendar', link: '/date-difference-calculator', keywords: 'date difference days between', color: '#0ea5e9', category: 'calculator' },
-                { name: 'Days Between Dates', desc: 'Find days between dates.', icon: 'calendar', link: '/days-between-dates', keywords: 'days between dates calculator', color: '#0ea5e9', category: 'calculator' },
-                { name: 'Add Days to Date', desc: 'Add days to a date.', icon: 'calendar', link: '/add-days-to-date', keywords: 'add days date calculator', color: '#0ea5e9', category: 'calculator' },
-                { name: 'Subtract Days from Date', desc: 'Subtract days from a date.', icon: 'calendar', link: '/subtract-days-from-date', keywords: 'subtract days date calculator', color: '#0ea5e9', category: 'calculator' },
-                { name: 'Business Days Calculator', desc: 'Calculate business days between dates.', icon: 'briefcase', link: '/business-days-calculator', keywords: 'business days calculator working days', color: '#0ea5e9', category: 'calculator' },
-                { name: 'Date to Unix Timestamp', desc: 'Convert date to Unix timestamp.', icon: 'clock', link: '/date-to-unix-timestamp', keywords: 'date unix timestamp epoch', color: '#0ea5e9', category: 'calculator' },
-                { name: 'Unix Timestamp to Date', desc: 'Convert Unix timestamp to date.', icon: 'clock', link: '/unix-timestamp-to-date', keywords: 'unix timestamp date epoch', color: '#0ea5e9', category: 'calculator' },
-                { name: 'Time Duration Calculator', desc: 'Calculate time duration between two times.', icon: 'clock', link: '/time-duration-calculator', keywords: 'time duration calculator hours minutes', color: '#0ea5e9', category: 'calculator' },
-                { name: 'Countdown Calculator', desc: 'Countdown to a future date.', icon: 'clock', link: '/countdown-calculator', keywords: 'countdown calculator timer', color: '#0ea5e9', category: 'calculator' },
-                { name: 'Week Number Calculator', desc: 'Find week number of a date.', icon: 'calendar', link: '/week-number-calculator', keywords: 'week number calculator iso', color: '#0ea5e9', category: 'calculator' },
-                { name: 'Leap Year Checker', desc: 'Check if a year is a leap year.', icon: 'calendar', link: '/leap-year-checker', keywords: 'leap year checker february', color: '#0ea5e9', category: 'calculator' },
-                { name: 'World Clock', desc: 'View current time in different time zones.', icon: 'globe', link: '/world-clock', keywords: 'world clock time zones current time', color: '#0ea5e9', category: 'calculator' },
-                { name: 'Time Zone Converter', desc: 'Convert time between time zones.', icon: 'globe', link: '/time-zone-converter', keywords: 'time zone converter utc gmt', color: '#0ea5e9', category: 'calculator' },
-                { name: 'Length Converter', desc: 'Convert length units.', icon: 'ruler', link: '/length-converter', keywords: 'length converter units meter feet inch', color: '#f59e0b', category: 'calculator' },
-                { name: 'Weight Converter', desc: 'Convert weight units.', icon: 'scale', link: '/weight-converter', keywords: 'weight converter units kg pound', color: '#f59e0b', category: 'calculator' },
-                { name: 'Temperature Converter', desc: 'Convert temperature units.', icon: 'thermometer', link: '/temperature-converter', keywords: 'temperature converter celsius fahrenheit kelvin', color: '#f59e0b', category: 'calculator' },
-                { name: 'Area Converter', desc: 'Convert area units.', icon: 'square', link: '/area-converter', keywords: 'area converter units square meter acre', color: '#f59e0b', category: 'calculator' },
-                { name: 'Volume Converter', desc: 'Convert volume units.', icon: 'box', link: '/volume-converter', keywords: 'volume converter units litre gallon', color: '#f59e0b', category: 'calculator' },
-                { name: 'Speed Converter', desc: 'Convert speed units.', icon: 'gauge', link: '/speed-converter', keywords: 'speed converter units kmph mph', color: '#f59e0b', category: 'calculator' },
-                { name: 'Data Storage Converter', desc: 'Convert data storage units.', icon: 'hard-drive', link: '/data-storage-converter', keywords: 'data storage converter units mb gb tb', color: '#f59e0b', category: 'calculator' },
-                { name: 'Energy Converter', desc: 'Convert energy units.', icon: 'zap', link: '/energy-converter', keywords: 'energy converter units joule calorie', color: '#f59e0b', category: 'calculator' },
-                { name: 'Pressure Converter', desc: 'Convert pressure units.', icon: 'gauge', link: '/pressure-converter', keywords: 'pressure converter units pascal bar', color: '#f59e0b', category: 'calculator' },
-                { name: 'Power Converter', desc: 'Convert power units.', icon: 'zap', link: '/power-converter', keywords: 'power converter units watt horsepower', color: '#f59e0b', category: 'calculator' },
-                { name: 'Frequency Converter', desc: 'Convert frequency units.', icon: 'activity', link: '/frequency-converter', keywords: 'frequency converter units hertz', color: '#f59e0b', category: 'calculator' },
-                { name: 'Angle Converter', desc: 'Convert angle units.', icon: 'rotate-cw', link: '/angle-converter', keywords: 'angle converter units degree radian', color: '#f59e0b', category: 'calculator' },
-                { name: 'Pace Converter', desc: 'Convert pace units.', icon: 'gauge', link: '/pace-converter', keywords: 'pace converter running units', color: '#f59e0b', category: 'calculator' },
-                { name: 'Fuel Economy Converter', desc: 'Convert fuel economy units.', icon: 'gauge', link: '/fuel-economy-converter', keywords: 'fuel economy converter units mileage', color: '#f59e0b', category: 'calculator' }
-            ];
+        const tools = [
+            { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', icon: 'hash', link: '/word-counter', keywords: 'word count character counter letters essay limit', color: '#8b5cf6', category: 'text' },
+            { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', icon: 'type', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', color: '#8b5cf6', category: 'text' },
+            { name: 'Paragraph Counter', desc: 'Quickly count paragraphs in your writing.', icon: 'align-left', link: '/paragraph-counter', keywords: 'paragraph count block format', color: '#8b5cf6', category: 'text' },
+            { name: 'Line Counter', desc: 'Count lines in text.', icon: 'list', link: '/line-counter', keywords: 'line count text lines rows', color: '#8b5cf6', category: 'text' },
+            { name: 'Reading Time Estimator', desc: 'Estimate how long it takes to read your text.', icon: 'clock', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute blog', color: '#0ea5e9', category: 'text' },
+            { name: 'Speaking Time Calculator', desc: 'Estimate how long it takes to speak your text aloud.', icon: 'mic', link: '/speaking-time-calculator', keywords: 'speaking time talk duration speech presentation', color: '#0ea5e9', category: 'text' },
+            { name: 'Keyword Counter', desc: 'Count occurrences of each keyword in your text.', icon: 'hash', link: '/keyword-counter', keywords: 'keyword frequency count word seo', color: '#0ea5e9', category: 'text' },
+            { name: 'Keyword Density Checker', desc: 'Analyze keyword density as a percentage.', icon: 'percent', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', color: '#0ea5e9', category: 'text' },
+            { name: 'Duplicate Word Finder', desc: 'Find and highlight duplicate words in your text.', icon: 'search', link: '/duplicate-word-finder', keywords: 'duplicate word find highlight repeat', color: '#0ea5e9', category: 'text' },
+            { name: 'Text Statistics', desc: 'Full summary: words, chars, sentences, readability, and more.', icon: 'bar-chart-2', link: '/text-statistics', keywords: 'text stats readability summary data analysis', color: '#0ea5e9', category: 'text' },
+            { name: 'Regex Tester', desc: 'Test regular expressions with match highlighting.', icon: 'search-code', link: '/regex-tester', keywords: 'regex regular expression test match pattern', color: '#0ea5e9', category: 'text' },
+            { name: 'Word Frequency Counter', desc: 'Count frequency of each word.', icon: 'bar-chart', link: '/word-frequency-counter', keywords: 'word frequency count repeat', color: '#0ea5e9', category: 'text' },
+            { name: 'Character Frequency Counter', desc: 'Count frequency of each character.', icon: 'pie-chart', link: '/character-frequency-counter', keywords: 'character frequency count letters', color: '#0ea5e9', category: 'text' },
+            { name: 'Password Strength Checker', desc: 'Check the strength of your password.', icon: 'shield', link: '/password-strength-checker', keywords: 'password strength check secure safety', color: '#0ea5e9', category: 'text' },
+            { name: 'Duplicate Line Remover', desc: 'Remove duplicate lines and keep only unique ones.', icon: 'list-filter', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe list', color: '#6366f1', category: 'text' },
+            { name: 'Whitespace Cleaner', desc: 'Remove extra spaces, tabs, and blank lines.', icon: 'sparkles', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', color: '#64748b', category: 'text' },
+            { name: 'Remove Extra Spaces', desc: 'Clean up unwanted spaces with one click.', icon: 'minus', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup double', color: '#64748b', category: 'text' },
+            { name: 'Remove Empty Lines', desc: 'Delete all blank lines instantly.', icon: 'scissors', link: '/remove-empty-lines', keywords: 'empty lines remove delete blank', color: '#64748b', category: 'text' },
+            { name: 'Remove Blank Characters', desc: 'Strip out invisible blank characters.', icon: 'eraser', link: '/remove-blank-characters', keywords: 'blank chars invisible characters remove zero width', color: '#64748b', category: 'text' },
+            { name: 'Remove Emojis', desc: 'Get rid of all emojis in one go.', icon: 'smile', link: '/remove-emojis', keywords: 'emoji remove strip smiley', color: '#64748b', category: 'text' },
+            { name: 'Remove Symbols', desc: 'Delete symbols and special characters.', icon: 'minus-circle', link: '/remove-symbols', keywords: 'symbols remove special characters clean', color: '#64748b', category: 'text' },
+            { name: 'Remove Punctuation', desc: 'Strip punctuation marks.', icon: 'type', link: '/remove-punctuation', keywords: 'punctuation remove comma period full stop', color: '#64748b', category: 'text' },
+            { name: 'Remove Numbers', desc: 'Delete all numeric digits.', icon: 'hash', link: '/remove-numbers', keywords: 'numbers remove digits numeric', color: '#64748b', category: 'text' },
+            { name: 'Remove HTML Tags', desc: 'Strip HTML/XML tags, leaving only text.', icon: 'code', link: '/remove-html-tags', keywords: 'html tags strip remove clean markup', color: '#64748b', category: 'text' },
+            { name: 'Remove Line Breaks', desc: 'Remove line breaks and join lines.', icon: 'minus', link: '/remove-line-breaks', keywords: 'line break remove join newline', color: '#64748b', category: 'text' },
+            { name: 'Text Cleaner', desc: 'All-in-one text cleaning.', icon: 'sparkles', link: '/text-cleaner', keywords: 'clean text sanitize format tidy', color: '#64748b', category: 'text' },
+            { name: 'Remove Duplicate Words', desc: 'Remove duplicate words from text.', icon: 'copy', link: '/remove-duplicate-words', keywords: 'duplicate words remove repeat', color: '#64748b', category: 'text' },
+            { name: 'Case Converter', desc: 'Convert to uppercase, lowercase, title case and more.', icon: 'type', link: '/case-converter', keywords: 'uppercase lowercase title case sentence change case', color: '#10b981', category: 'text' },
+            { name: 'Uppercase Converter', desc: 'Convert text to uppercase.', icon: 'arrow-up', link: '/uppercase-converter', keywords: 'uppercase converter caps capital letters', color: '#10b981', category: 'text' },
+            { name: 'Lowercase Converter', desc: 'Convert text to lowercase.', icon: 'arrow-down', link: '/lowercase-converter', keywords: 'lowercase converter small letters', color: '#10b981', category: 'text' },
+            { name: 'Title Case Converter', desc: 'Proper title case for headlines.', icon: 'heading', link: '/title-case-converter', keywords: 'title case headline capitalize proper apa mla', color: '#10b981', category: 'text' },
+            { name: 'Sentence Case Converter', desc: 'First letter of each sentence capitalized.', icon: 'type', link: '/sentence-case-converter', keywords: 'sentence case capitalize first letter', color: '#10b981', category: 'text' },
+            { name: 'Capitalize Words', desc: 'Capitalize first letter of each word.', icon: 'pen-tool', link: '/capitalize-words', keywords: 'capitalize first letter each word', color: '#10b981', category: 'text' },
+            { name: 'Toggle Case Converter', desc: 'Toggle case of every letter.', icon: 'toggle-left', link: '/toggle-case-converter', keywords: 'toggle case invert swap alternating', color: '#10b981', category: 'text' },
+            { name: 'Text Repeater', desc: 'Repeat text up to 100,000 times.', icon: 'repeat', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste spam', color: '#6366f1', category: 'text' },
+            { name: 'Text Finder & Replacer', desc: 'Find and replace words or phrases in bulk.', icon: 'search', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', color: '#ec4899', category: 'text' },
+            { name: 'Line Break Converter', desc: 'Convert line breaks between Windows, Unix, Mac.', icon: 'wrap-text', link: '/line-break-converter', keywords: 'line break crlf lf converter newline', color: '#10b981', category: 'text' },
+            { name: 'Text Indenter', desc: 'Add spaces or tabs at the beginning of each line.', icon: 'indent-increase', link: '/text-indenter', keywords: 'indent text tab spaces code', color: '#10b981', category: 'text' },
+            { name: 'Wrap Text', desc: 'Wrap long lines to a specified width.', icon: 'wrap-text', link: '/wrap-text', keywords: 'word wrap text line width column', color: '#10b981', category: 'text' },
+            { name: 'Unwrap Text', desc: 'Join broken lines into a single paragraph.', icon: 'unlink', link: '/unwrap-text', keywords: 'unwrap text join lines paragraph merge', color: '#10b981', category: 'text' },
+            { name: 'Join Lines', desc: 'Merge multiple lines into one single continuous line or paragraph.', icon: 'unlink', link: '/join-lines', keywords: 'join lines merge combine single line paragraph unwrap newline concatenate', color: '#10b981', category: 'text' },
+            { name: 'Text to Handwriting', desc: 'Convert typed text into realistic handwriting.', icon: 'pen-tool', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment notes', color: '#a855f7', category: 'text' },
+            { name: 'Bold Text Generator', desc: 'Bold Unicode text for social media bios.', icon: 'bold', link: '/bold-text-generator', keywords: 'bold unicode text style font bio', color: '#ec4899', category: 'text' },
+            { name: 'Italic Text Generator', desc: 'Italic Unicode text using math symbols.', icon: 'italic', link: '/italic-text-generator', keywords: 'italic unicode text style font', color: '#ec4899', category: 'text' },
+            { name: 'Strikethrough Generator', desc: 'Strikethrough Unicode text.', icon: 'strikethrough', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode', color: '#ec4899', category: 'text' },
+            { name: 'Fancy Text Generator', desc: 'Generate multiple fancy Unicode styles at once.', icon: 'sparkles', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic instagram', color: '#ec4899', category: 'text' },
+            { name: 'Upside Down Text', desc: 'Flip your text upside down.', icon: 'arrow-down-up', link: '/upside-down-text', keywords: 'upside down flip text reverse', color: '#ec4899', category: 'text' },
+            { name: 'Small Text Generator', desc: 'Generate small caps text.', icon: 'arrow-up', link: '/small-text-generator', keywords: 'small caps tiny text superscript', color: '#ec4899', category: 'text' },
+            { name: 'Zalgo Text Generator', desc: 'Create cursed zalgo text.', icon: 'ghost', link: '/zalgo-text-generator', keywords: 'zalgo cursed text generator creepy', color: '#ec4899', category: 'text' },
+            { name: 'Unicode Text Converter', desc: 'Convert text to Unicode variants.', icon: 'type', link: '/unicode-text-converter', keywords: 'unicode text converter encode', color: '#ec4899', category: 'text' },
+            { name: 'Email Extractor', desc: 'Extract all email addresses from text.', icon: 'at-sign', link: '/email-extractor', keywords: 'email extract find emails scrape address', color: '#0ea5e9', category: 'text' },
+            { name: 'URL Extractor', desc: 'Pull out all URLs from text.', icon: 'link', link: '/url-extractor', keywords: 'url extract link http https website', color: '#0ea5e9', category: 'text' },
+            { name: 'Phone Extractor', desc: 'Extract phone numbers using common formats.', icon: 'phone', link: '/phone-extractor', keywords: 'phone number extract landline mobile contact', color: '#0ea5e9', category: 'text' },
+            { name: 'Number Extractor', desc: 'Get every number (integer or decimal) from text.', icon: 'hash', link: '/number-extractor', keywords: 'number extract digits numeric decimal', color: '#0ea5e9', category: 'text' },
+            { name: 'Date Extractor', desc: 'Find and extract dates like 12/05/2025.', icon: 'calendar', link: '/date-extractor', keywords: 'date extract calendar find day month year', color: '#0ea5e9', category: 'text' },
+            { name: 'Domain Extractor', desc: 'Extract domain names from URLs or emails.', icon: 'globe', link: '/domain-extractor', keywords: 'domain name website extract host', color: '#0ea5e9', category: 'text' },
+            { name: 'Hashtag Extractor', desc: 'List all #hashtags from social media text.', icon: 'hash', link: '/hashtag-extractor', keywords: 'hashtag extract social media instagram twitter', color: '#0ea5e9', category: 'text' },
+            { name: 'Mention Extractor', desc: 'Pull out @usernames from text.', icon: 'at-sign', link: '/mention-extractor', keywords: 'mention extract username @ social twitter', color: '#0ea5e9', category: 'text' },
+            { name: 'Keyword Extractor', desc: 'Extract the most important words and phrases.', icon: 'key', link: '/keyword-extractor', keywords: 'keyword extract important terms seo', color: '#0ea5e9', category: 'text' },
+            { name: 'Duplicate Line Finder', desc: 'Show which lines appear more than once.', icon: 'search', link: '/duplicate-line-finder', keywords: 'duplicate line find report repeat', color: '#0ea5e9', category: 'text' },
+            { name: 'JSON Formatter/Beautifier', desc: 'Format messy JSON into readable, indented structure.', icon: 'braces', link: '/json-formatter', keywords: 'json format beautify pretty print indent api', color: '#f59e0b', category: 'developer' },
+            { name: 'JSON Minifier', desc: 'Minify JSON to remove unnecessary spaces.', icon: 'braces', link: '/json-minifier', keywords: 'json minify compress compact', color: '#f59e0b', category: 'developer' },
+            { name: 'JSON Validator', desc: 'Validate JSON syntax.', icon: 'check-circle', link: '/json-validator', keywords: 'json validate check syntax error', color: '#f59e0b', category: 'developer' },
+            { name: 'XML Formatter', desc: 'Beautify and indent XML data.', icon: 'file-code', link: '/xml-formatter', keywords: 'xml format beautify indent', color: '#f59e0b', category: 'developer' },
+            { name: 'XML Minifier', desc: 'Minify XML.', icon: 'file-code', link: '/xml-minifier', keywords: 'xml minify compress', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Formatter', desc: 'Format HTML code.', icon: 'code', link: '/html-formatter', keywords: 'html format beautify indent', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Minifier', desc: 'Minify HTML.', icon: 'code', link: '/html-minifier', keywords: 'html minify compress', color: '#f59e0b', category: 'developer' },
+            { name: 'CSS Formatter', desc: 'Format CSS code.', icon: 'code-2', link: '/css-formatter', keywords: 'css format beautify indent', color: '#f59e0b', category: 'developer' },
+            { name: 'CSS Minifier', desc: 'Minify CSS.', icon: 'code-2', link: '/css-minifier', keywords: 'css minify compress', color: '#f59e0b', category: 'developer' },
+            { name: 'JavaScript Formatter', desc: 'Format JavaScript code.', icon: 'code-2', link: '/javascript-formatter', keywords: 'javascript format beautify js', color: '#f59e0b', category: 'developer' },
+            { name: 'JavaScript Minifier', desc: 'Minify JavaScript.', icon: 'code-2', link: '/javascript-minifier', keywords: 'javascript minify compress js', color: '#f59e0b', category: 'developer' },
+            { name: 'SQL Formatter', desc: 'Format SQL queries.', icon: 'database', link: '/sql-formatter', keywords: 'sql format query beautify database', color: '#f59e0b', category: 'developer' },
+            { name: 'Text to Binary', desc: 'Convert text to binary.', icon: 'code', link: '/text-to-binary', keywords: 'text binary convert bits', color: '#f59e0b', category: 'developer' },
+            { name: 'Binary to Text', desc: 'Convert binary to text.', icon: 'code', link: '/binary-to-text', keywords: 'binary text convert bits', color: '#f59e0b', category: 'developer' },
+            { name: 'Text to Hex', desc: 'Convert text to hexadecimal.', icon: 'hexagon', link: '/text-to-hex', keywords: 'text hex convert hexadecimal', color: '#f59e0b', category: 'developer' },
+            { name: 'Hex to Text', desc: 'Convert hex to text.', icon: 'hexagon', link: '/hex-to-text', keywords: 'hex text convert hexadecimal', color: '#f59e0b', category: 'developer' },
+            { name: 'Text to ASCII', desc: 'Convert text to ASCII codes.', icon: 'keyboard', link: '/text-to-ascii', keywords: 'text ascii convert code', color: '#f59e0b', category: 'developer' },
+            { name: 'ASCII to Text', desc: 'Convert ASCII codes to text.', icon: 'keyboard', link: '/ascii-to-text', keywords: 'ascii text convert code', color: '#f59e0b', category: 'developer' },
+            { name: 'Morse Code Translator', desc: 'Convert text to Morse code and back.', icon: 'radio', link: '/morse-code-translator', keywords: 'morse code translator dots dashes', color: '#f59e0b', category: 'developer' },
+            { name: 'Braille Translator', desc: 'Convert text to Braille.', icon: 'eye-off', link: '/braille-translator', keywords: 'braille translator blind', color: '#f59e0b', category: 'developer' },
+            { name: 'NATO Alphabet Generator', desc: 'Convert text to NATO phonetic alphabet.', icon: 'volume-2', link: '/nato-alphabet-generator', keywords: 'nato phonetic alphabet alpha bravo', color: '#f59e0b', category: 'developer' },
+            { name: 'Text to CSV', desc: 'Convert text to CSV format.', icon: 'file-spreadsheet', link: '/text-to-csv', keywords: 'text csv convert comma separated excel', color: '#f59e0b', category: 'developer' },
+            { name: 'CSV to Text', desc: 'Convert CSV to text.', icon: 'file-spreadsheet', link: '/csv-to-text', keywords: 'csv text convert', color: '#f59e0b', category: 'developer' },
+            { name: 'CSV to JSON', desc: 'Convert CSV to JSON.', icon: 'file-spreadsheet', link: '/csv-to-json', keywords: 'csv json convert', color: '#f59e0b', category: 'developer' },
+            { name: 'JSON to CSV', desc: 'Convert JSON to CSV.', icon: 'file-spreadsheet', link: '/json-to-csv', keywords: 'json csv convert', color: '#f59e0b', category: 'developer' },
+            { name: 'Markdown to HTML', desc: 'Convert Markdown to HTML.', icon: 'file-code', link: '/markdown-to-html', keywords: 'markdown html convert md', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML to Markdown', desc: 'Convert HTML to Markdown.', icon: 'file-code', link: '/html-to-markdown', keywords: 'html markdown convert md', color: '#f59e0b', category: 'developer' },
+            { name: 'Markdown Table Generator', desc: 'Generate Markdown tables.', icon: 'table', link: '/markdown-table-generator', keywords: 'markdown table generator md', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Table Generator', desc: 'Generate HTML tables.', icon: 'table', link: '/html-table-generator', keywords: 'html table generator', color: '#f59e0b', category: 'developer' },
+            { name: 'Roman Numeral Converter', desc: 'Convert numbers to Roman numerals.', icon: 'hash', link: '/roman-numeral-converter', keywords: 'roman numeral converter latin', color: '#f59e0b', category: 'developer' },
+            { name: 'Number to Words', desc: 'Convert numbers to English words.', icon: 'type', link: '/number-to-words', keywords: 'number to words converter cheque', color: '#f59e0b', category: 'developer' },
+            { name: 'Words to Number', desc: 'Convert English words to numbers.', icon: 'hash', link: '/words-to-number', keywords: 'words to number converter', color: '#f59e0b', category: 'developer' },
+            { name: 'Timestamp Converter', desc: 'Convert Unix timestamps to date and back.', icon: 'clock', link: '/timestamp-converter', keywords: 'timestamp unix converter date epoch', color: '#f59e0b', category: 'developer' },
+            { name: 'Color Converter', desc: 'Convert colors between HEX, RGB, HSL.', icon: 'palette', link: '/color-converter', keywords: 'color converter hex rgb hsl', color: '#f59e0b', category: 'developer' },
+            { name: 'Base64 Encoder', desc: 'Encode text to Base64.', icon: 'code', link: '/base64-encoder', keywords: 'base64 encode', color: '#f59e0b', category: 'developer' },
+            { name: 'Base64 Decoder', desc: 'Decode Base64 text.', icon: 'code', link: '/base64-decoder', keywords: 'base64 decode', color: '#f59e0b', category: 'developer' },
+            { name: 'URL Encoder', desc: 'Encode URLs.', icon: 'link', link: '/url-encoder', keywords: 'url encode percent uri', color: '#f59e0b', category: 'developer' },
+            { name: 'URL Decoder', desc: 'Decode URLs.', icon: 'link', link: '/url-decoder', keywords: 'url decode percent uri', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Entity Encoder', desc: 'Encode HTML entities.', icon: 'code', link: '/html-entity-encoder', keywords: 'html entity encode amp lt', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Entity Decoder', desc: 'Decode HTML entities.', icon: 'code', link: '/html-entity-decoder', keywords: 'html entity decode amp lt', color: '#f59e0b', category: 'developer' },
+            { name: 'Regex Generator', desc: 'Generate regex patterns from sample text.', icon: 'search-code', link: '/regex-generator', keywords: 'regex generate pattern regular expression', color: '#0ea5e9', category: 'developer' },
+            { name: 'Regex Escape Tool', desc: 'Escape special characters in regex.', icon: 'search-code', link: '/regex-escape-tool', keywords: 'regex escape special characters', color: '#0ea5e9', category: 'developer' },
+            { name: 'JWT Decoder', desc: 'Decode JWT tokens to view header and payload.', icon: 'lock', link: '/jwt-decoder', keywords: 'jwt decode token header payload auth', color: '#0ea5e9', category: 'developer' },
+            { name: 'UUID Generator', desc: 'Generate random UUID v4 identifiers.', icon: 'fingerprint', link: '/uuid-generator', keywords: 'uuid guid unique identifier random v4', color: '#0ea5e9', category: 'developer' },
+            { name: 'UUID Validator', desc: 'Check if a UUID is valid.', icon: 'check', link: '/uuid-validator', keywords: 'uuid validate check guid', color: '#0ea5e9', category: 'developer' },
+            { name: 'MD5 Generator', desc: 'Generate MD5 hash.', icon: 'hash', link: '/md5-generator', keywords: 'md5 hash generator checksum', color: '#0ea5e9', category: 'developer' },
+            { name: 'SHA-1 Generator', desc: 'Generate SHA-1 hash.', icon: 'hash', link: '/sha1-generator', keywords: 'sha1 hash generator checksum', color: '#0ea5e9', category: 'developer' },
+            { name: 'SHA-256 Generator', desc: 'Generate SHA-256 hash.', icon: 'hash', link: '/sha256-generator', keywords: 'sha256 hash generator checksum', color: '#0ea5e9', category: 'developer' },
+            { name: 'SHA-512 Generator', desc: 'Generate SHA-512 hash.', icon: 'hash', link: '/sha512-generator', keywords: 'sha512 hash generator checksum', color: '#0ea5e9', category: 'developer' },
+            { name: 'HMAC Generator', desc: 'Generate HMAC hash.', icon: 'shield', link: '/hmac-generator', keywords: 'hmac hash generator secret key', color: '#0ea5e9', category: 'developer' },
+            { name: 'Cron Expression Generator', desc: 'Generate cron expressions.', icon: 'calendar', link: '/cron-expression-generator', keywords: 'cron expression generator schedule', color: '#0ea5e9', category: 'developer' },
+            { name: 'Cron Expression Tester', desc: 'Test cron expressions.', icon: 'check', link: '/cron-expression-tester', keywords: 'cron expression tester schedule', color: '#0ea5e9', category: 'developer' },
+            { name: 'Password Generator', desc: 'Generate strong random passwords.', icon: 'key', link: '/password-generator', keywords: 'password generator random strong secure', color: '#14b8a6', category: 'generator' },
+            { name: 'PIN Generator', desc: 'Generate random PIN numbers.', icon: 'lock', link: '/pin-generator', keywords: 'pin generator random number', color: '#14b8a6', category: 'generator' },
+            { name: 'Random Number Generator', desc: 'Generate random numbers within a custom range.', icon: 'dice-6', link: '/random-number-generator', keywords: 'random number range integer generator lottery', color: '#14b8a6', category: 'generator' },
+            { name: 'Number Sequence Generator', desc: 'Generate arithmetic sequences.', icon: 'list', link: '/number-sequence-generator', keywords: 'number sequence generator series', color: '#14b8a6', category: 'generator' },
+            { name: 'Lorem Ipsum Generator', desc: 'Placeholder text for designs and mockups.', icon: 'file-text', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text design', color: '#14b8a6', category: 'generator' },
+            { name: 'Random Word Generator', desc: 'Generate random English words.', icon: 'book-open', link: '/random-word-generator', keywords: 'random word generator english vocabulary', color: '#14b8a6', category: 'generator' },
+            { name: 'Random Text Generator', desc: 'Generate random letters, numbers, and symbols.', icon: 'dice-6', link: '/random-text-generator', keywords: 'random text generate string dummy', color: '#14b8a6', category: 'generator' },
+            { name: 'QR Code Generator', desc: 'Convert any text or URL into a QR code image.', icon: 'qr-code', link: '/qr-code-generator', keywords: 'qr code generate text url image scan', color: '#14b8a6', category: 'generator' },
+            { name: 'Barcode Generator', desc: 'Generate barcodes from text or numbers.', icon: 'barcode', link: '/barcode-generator', keywords: 'barcode generate code ean upc product', color: '#8b5cf6', category: 'generator' },
+            { name: 'UTM Builder', desc: 'Add UTM parameters to URLs for campaign tracking.', icon: 'link', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing analytics', color: '#14b8a6', category: 'generator' },
+            { name: 'WhatsApp Link Generator', desc: 'Create wa.me links from phone numbers and pre-filled messages.', icon: 'message-circle', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', color: '#25D366', category: 'generator' },
+            { name: 'Business Name Generator', desc: 'Generate business name ideas.', icon: 'briefcase', link: '/business-name-generator', keywords: 'business name generator brand startup', color: '#14b8a6', category: 'generator' },
+            { name: 'Invoice Number Generator', desc: 'Generate invoice numbers.', icon: 'file-text', link: '/invoice-number-generator', keywords: 'invoice number generator billing', color: '#14b8a6', category: 'generator' },
+            { name: 'Image Compressor', desc: 'Compress images in your browser.', icon: 'image', link: '/image-compressor', keywords: 'image compressor reduce size jpg png', color: '#ec4899', category: 'image' },
+            { name: 'Image Resizer', desc: 'Resize images without losing quality.', icon: 'image', link: '/image-resizer', keywords: 'image resize dimensions scale', color: '#ec4899', category: 'image' },
+            { name: 'Image Cropper', desc: 'Crop images easily.', icon: 'crop', link: '/image-cropper', keywords: 'image crop trim cut', color: '#ec4899', category: 'image' },
+            { name: 'Image Rotator', desc: 'Rotate images by degrees.', icon: 'rotate-cw', link: '/image-rotator', keywords: 'image rotate turn degrees', color: '#ec4899', category: 'image' },
+            { name: 'Image Flipper', desc: 'Flip images horizontally or vertically.', icon: 'repeat', link: '/image-flipper', keywords: 'image flip mirror horizontal vertical', color: '#ec4899', category: 'image' },
+            { name: 'JPG to PNG', desc: 'Convert JPG images to PNG.', icon: 'image', link: '/jpg-to-png', keywords: 'jpg png converter image', color: '#ec4899', category: 'image' },
+            { name: 'PNG to JPG', desc: 'Convert PNG images to JPG.', icon: 'image', link: '/png-to-jpg', keywords: 'png jpg converter image', color: '#ec4899', category: 'image' },
+            { name: 'WebP to JPG', desc: 'Convert WebP images to JPG.', icon: 'image', link: '/webp-to-jpg', keywords: 'webp jpg converter image', color: '#ec4899', category: 'image' },
+            { name: 'JPG to WebP', desc: 'Convert JPG images to WebP.', icon: 'image', link: '/jpg-to-webp', keywords: 'jpg webp converter image', color: '#ec4899', category: 'image' },
+            { name: 'PNG to WebP', desc: 'Convert PNG images to WebP.', icon: 'image', link: '/png-to-webp', keywords: 'png webp converter image', color: '#ec4899', category: 'image' },
+            { name: 'Image to Base64', desc: 'Convert image to Base64 string.', icon: 'image', link: '/image-to-base64', keywords: 'image base64 converter encode', color: '#ec4899', category: 'image' },
+            { name: 'Base64 to Image', desc: 'Convert Base64 string to image.', icon: 'image', link: '/base64-to-image', keywords: 'base64 image converter decode', color: '#ec4899', category: 'image' },
+            { name: 'Grayscale Image', desc: 'Convert image to grayscale.', icon: 'image', link: '/grayscale-image', keywords: 'grayscale image black white filter', color: '#ec4899', category: 'image' },
+            { name: 'Photo 20KB', desc: 'Compress photo to 20KB.', icon: 'image', link: '/photo-20kb', keywords: 'photo 20kb compress resize upload form', color: '#ec4899', category: 'image' },
+            { name: 'Photo 50KB', desc: 'Compress photo to 50KB.', icon: 'image', link: '/photo-50kb', keywords: 'photo 50kb compress resize upload form', color: '#ec4899', category: 'image' },
+            { name: 'Photo 100KB', desc: 'Compress photo to 100KB.', icon: 'image', link: '/photo-100kb', keywords: 'photo 100kb compress resize upload form', color: '#ec4899', category: 'image' },
+            { name: 'Photo 200KB', desc: 'Compress photo to 200KB.', icon: 'image', link: '/photo-200kb', keywords: 'photo 200kb compress resize upload form', color: '#ec4899', category: 'image' },
+            { name: 'Signature Resizer', desc: 'Resize signatures for documents and forms.', icon: 'image', link: '/signature-resizer', keywords: 'signature resize image document form exam', color: '#ec4899', category: 'image' },
+            { name: 'Passport Size Photo Maker', desc: 'Create passport size photos from any image.', icon: 'image', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image visa', color: '#ec4899', category: 'image' },
+            { name: 'JPG to PDF', desc: 'Convert JPG images to PDF.', icon: 'file', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image document', color: '#ef4444', category: 'pdf' },
+            { name: 'PNG to PDF', desc: 'Convert PNG images to PDF.', icon: 'file', link: '/png-to-pdf', keywords: 'png pdf converter image document', color: '#ef4444', category: 'pdf' },
+            { name: 'Images to PDF', desc: 'Combine multiple images into a PDF.', icon: 'file', link: '/images-to-pdf', keywords: 'images pdf converter combine merge', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Page Counter', desc: 'Count pages in a PDF file.', icon: 'file', link: '/pdf-page-counter', keywords: 'pdf page counter count pages', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Metadata Viewer', desc: 'View PDF metadata.', icon: 'info', link: '/pdf-metadata-viewer', keywords: 'pdf metadata viewer info author', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to Images', desc: 'Convert PDF pages to images.', icon: 'file', link: '/pdf-to-images', keywords: 'pdf images converter jpg png', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Merge', desc: 'Merge multiple PDF files.', icon: 'git-merge', link: '/pdf-merge', keywords: 'pdf merge combine join files', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Split', desc: 'Split a PDF into multiple files.', icon: 'git-branch', link: '/pdf-split', keywords: 'pdf split separate cut pages', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Rotate', desc: 'Rotate PDF pages.', icon: 'rotate-cw', link: '/pdf-rotate', keywords: 'pdf rotate page turn', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Page Extractor', desc: 'Extract specific pages from PDF.', icon: 'file', link: '/pdf-page-extractor', keywords: 'pdf extract page range', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Compressor', desc: 'Compress PDF file size.', icon: 'file', link: '/pdf-compressor', keywords: 'pdf compress reduce size shrink smaller', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to 50KB', desc: 'Compress a PDF down to roughly 50KB.', icon: 'file', link: '/pdf-50kb', keywords: 'pdf 50kb compress reduce size shrink small upload form limit', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to 100KB', desc: 'Compress a PDF down to roughly 100KB.', icon: 'file', link: '/pdf-100kb', keywords: 'pdf 100kb compress reduce size shrink small upload form limit', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to 200KB', desc: 'Compress a PDF down to roughly 200KB.', icon: 'file', link: '/pdf-200kb', keywords: 'pdf 200kb compress reduce size shrink small upload form limit', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to 500KB', desc: 'Compress a PDF down to roughly 500KB.', icon: 'file', link: '/pdf-500kb', keywords: 'pdf 500kb compress reduce size shrink upload form limit', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Text Extractor', desc: 'Extract text from PDF.', icon: 'file-text', link: '/pdf-text-extractor', keywords: 'pdf text extractor copy', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Lock', desc: 'Add password protection to PDF.', icon: 'lock', link: '/pdf-lock', keywords: 'pdf lock password protect encrypt', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Unlock', desc: 'Remove password from PDF.', icon: 'unlock', link: '/pdf-unlock', keywords: 'pdf unlock password remove decrypt', color: '#ef4444', category: 'pdf' },
+            { name: 'Invoice Generator', desc: 'Generate invoices.', icon: 'file-text', link: '/invoice-generator', keywords: 'invoice generator bill billing', color: '#10b981', category: 'business' },
+            { name: 'Quotation Generator', desc: 'Generate quotations.', icon: 'file-text', link: '/quotation-generator', keywords: 'quotation generator quote estimate', color: '#10b981', category: 'business' },
+            { name: 'Receipt Generator', desc: 'Generate receipts.', icon: 'file-text', link: '/receipt-generator', keywords: 'receipt generator payment', color: '#10b981', category: 'business' },
+            { name: 'Payslip Generator', desc: 'Generate payslips.', icon: 'file-text', link: '/payslip-generator', keywords: 'payslip generator salary payroll', color: '#10b981', category: 'business' },
+            { name: 'Shipping Label Generator', desc: 'Create printable shipping and courier labels with sender, receiver and tracking details.', icon: 'package', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', color: '#0ea5e9', category: 'business' },
+            { name: 'Resume Builder', desc: 'Build a clean, professional resume from your details and export it in seconds.', icon: 'file-text', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', color: '#8b5cf6', category: 'business' },
+            { name: 'GST Calculator', desc: 'Calculate GST amounts.', icon: 'percent', link: '/gst-calculator', keywords: 'gst calculator tax goods services', color: '#10b981', category: 'business' },
+            { name: 'Discount Calculator', desc: 'Calculate discounts.', icon: 'percent', link: '/discount-calculator', keywords: 'discount calculator sale off price', color: '#10b981', category: 'business' },
+            { name: 'Profit Margin Calculator', desc: 'Calculate profit margins.', icon: 'trending-up', link: '/profit-margin-calculator', keywords: 'profit margin calculator business', color: '#10b981', category: 'business' },
+            { name: 'Salary Calculator', desc: 'Calculate salary.', icon: 'dollar-sign', link: '/salary-calculator', keywords: 'salary calculator income wage', color: '#10b981', category: 'business' },
+            { name: 'EMI Calculator', desc: 'Calculate loan EMI.', icon: 'calculator', link: '/emi-calculator', keywords: 'emi calculator loan equated monthly installment', color: '#f59e0b', category: 'finance' },
+            { name: 'Loan Calculator', desc: 'Calculate loan details.', icon: 'calculator', link: '/loan-calculator', keywords: 'loan calculator interest', color: '#f59e0b', category: 'finance' },
+            { name: 'SIP Calculator', desc: 'Calculate SIP returns.', icon: 'trending-up', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment returns', color: '#f59e0b', category: 'finance' },
+            { name: 'Income Tax Calculator', desc: 'Calculate income tax.', icon: 'percent', link: '/income-tax-calculator', keywords: 'income tax calculator slab', color: '#f59e0b', category: 'finance' },
+            { name: 'Tax Calculator', desc: 'Calculate taxes.', icon: 'percent', link: '/tax-calculator', keywords: 'tax calculator', color: '#f59e0b', category: 'finance' },
+            { name: 'Tip Calculator', desc: 'Calculate tips.', icon: 'dollar-sign', link: '/tip-calculator', keywords: 'tip calculator restaurant gratuity', color: '#f59e0b', category: 'finance' },
+            { name: 'GPA Calculator', desc: 'Calculate GPA.', icon: 'graduation-cap', link: '/gpa-calculator', keywords: 'gpa calculator student grade point', color: '#8b5cf6', category: 'calculator' },
+            { name: 'CGPA Calculator', desc: 'Calculate CGPA.', icon: 'graduation-cap', link: '/cgpa-calculator', keywords: 'cgpa calculator student grade', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Percentage Calculator', desc: 'Calculate percentages.', icon: 'percent', link: '/percentage-calculator', keywords: 'percentage calculator percent', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Grade Calculator', desc: 'Calculate grades.', icon: 'graduation-cap', link: '/grade-calculator', keywords: 'grade calculator student marks', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Marks Percentage Calculator', desc: 'Calculate marks percentage.', icon: 'percent', link: '/marks-percentage-calculator', keywords: 'marks percentage calculator exam', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Attendance Calculator', desc: 'Calculate attendance percentage.', icon: 'calendar', link: '/attendance-calculator', keywords: 'attendance calculator college percentage', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Study Time Calculator', desc: 'Calculate study time.', icon: 'clock', link: '/study-time-calculator', keywords: 'study time calculator planner', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Exam Countdown', desc: 'Countdown to exams.', icon: 'calendar', link: '/exam-countdown', keywords: 'exam countdown timer days', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Age Calculator', desc: 'Calculate age from date of birth.', icon: 'calendar', link: '/age-calculator', keywords: 'age calculator birth date dob', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Scientific Calculator', desc: 'Advanced scientific calculator.', icon: 'calculator', link: '/scientific-calculator', keywords: 'scientific calculator math trigonometry', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Quadratic Equation Calculator', desc: 'Solve quadratic equations.', icon: 'sigma', link: '/quadratic-equation-calculator', keywords: 'quadratic equation calculator roots', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Matrix Calculator', desc: 'Perform matrix operations.', icon: 'layout-grid', link: '/matrix-calculator', keywords: 'matrix calculator determinant multiply', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Probability Calculator', desc: 'Calculate probabilities.', icon: 'percent', link: '/probability-calculator', keywords: 'probability calculator chance', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Standard Deviation Calculator', desc: 'Calculate standard deviation.', icon: 'bar-chart-2', link: '/standard-deviation-calculator', keywords: 'standard deviation calculator statistics', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Mean Median Mode Calculator', desc: 'Calculate mean, median, mode.', icon: 'bar-chart-2', link: '/mean-median-mode-calculator', keywords: 'mean median mode calculator average statistics', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Prime Number Checker', desc: 'Check if a number is prime.', icon: 'hash', link: '/prime-number-checker', keywords: 'prime number check', color: '#10b981', category: 'calculator' },
+            { name: 'Prime Number Generator', desc: 'Generate prime numbers.', icon: 'hash', link: '/prime-number-generator', keywords: 'prime number generator', color: '#10b981', category: 'calculator' },
+            { name: 'Factorial Calculator', desc: 'Calculate factorial of a number.', icon: 'hash', link: '/factorial-calculator', keywords: 'factorial calculator', color: '#10b981', category: 'calculator' },
+            { name: 'GCD Calculator', desc: 'Find greatest common divisor.', icon: 'hash', link: '/gcd-calculator', keywords: 'gcd calculator greatest common divisor hcf', color: '#10b981', category: 'calculator' },
+            { name: 'LCM Calculator', desc: 'Find least common multiple.', icon: 'hash', link: '/lcm-calculator', keywords: 'lcm calculator least common multiple', color: '#10b981', category: 'calculator' },
+            { name: 'Binary Calculator', desc: 'Perform binary calculations.', icon: 'code', link: '/binary-calculator', keywords: 'binary calculator bits', color: '#10b981', category: 'calculator' },
+            { name: 'Decimal to Binary', desc: 'Convert decimal to binary.', icon: 'code', link: '/decimal-to-binary', keywords: 'decimal binary convert', color: '#10b981', category: 'calculator' },
+            { name: 'Binary to Decimal', desc: 'Convert binary to decimal.', icon: 'code', link: '/binary-to-decimal', keywords: 'binary decimal convert', color: '#10b981', category: 'calculator' },
+            { name: 'Decimal to Hex', desc: 'Convert decimal to hex.', icon: 'hexagon', link: '/decimal-to-hex', keywords: 'decimal hex convert hexadecimal', color: '#10b981', category: 'calculator' },
+            { name: 'Hex to Decimal', desc: 'Convert hex to decimal.', icon: 'hexagon', link: '/hex-to-decimal', keywords: 'hex decimal convert hexadecimal', color: '#10b981', category: 'calculator' },
+            { name: 'Decimal to Octal', desc: 'Convert decimal to octal.', icon: 'hash', link: '/decimal-to-octal', keywords: 'decimal octal convert', color: '#10b981', category: 'calculator' },
+            { name: 'Average Calculator', desc: 'Calculate average of numbers.', icon: 'bar-chart-2', link: '/average-calculator', keywords: 'average calculator mean', color: '#10b981', category: 'calculator' },
+            { name: 'Ratio Calculator', desc: 'Calculate ratios.', icon: 'divide', link: '/ratio-calculator', keywords: 'ratio calculator proportion', color: '#10b981', category: 'calculator' },
+            { name: 'Fraction Calculator', desc: 'Calculate fractions.', icon: 'divide', link: '/fraction-calculator', keywords: 'fraction calculator numerator denominator', color: '#10b981', category: 'calculator' },
+            { name: 'Date Difference Calculator', desc: 'Calculate days between two dates.', icon: 'calendar', link: '/date-difference-calculator', keywords: 'date difference days between', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Days Between Dates', desc: 'Find days between dates.', icon: 'calendar', link: '/days-between-dates', keywords: 'days between dates calculator', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Add Days to Date', desc: 'Add days to a date.', icon: 'calendar', link: '/add-days-to-date', keywords: 'add days date calculator', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Subtract Days from Date', desc: 'Subtract days from a date.', icon: 'calendar', link: '/subtract-days-from-date', keywords: 'subtract days date calculator', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Business Days Calculator', desc: 'Calculate business days between dates.', icon: 'briefcase', link: '/business-days-calculator', keywords: 'business days calculator working days', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Date to Unix Timestamp', desc: 'Convert date to Unix timestamp.', icon: 'clock', link: '/date-to-unix-timestamp', keywords: 'date unix timestamp epoch', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Unix Timestamp to Date', desc: 'Convert Unix timestamp to date.', icon: 'clock', link: '/unix-timestamp-to-date', keywords: 'unix timestamp date epoch', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Time Duration Calculator', desc: 'Calculate time duration between two times.', icon: 'clock', link: '/time-duration-calculator', keywords: 'time duration calculator hours minutes', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Countdown Calculator', desc: 'Countdown to a future date.', icon: 'clock', link: '/countdown-calculator', keywords: 'countdown calculator timer', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Week Number Calculator', desc: 'Find week number of a date.', icon: 'calendar', link: '/week-number-calculator', keywords: 'week number calculator iso', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Leap Year Checker', desc: 'Check if a year is a leap year.', icon: 'calendar', link: '/leap-year-checker', keywords: 'leap year checker february', color: '#0ea5e9', category: 'calculator' },
+            { name: 'World Clock', desc: 'View current time in different time zones.', icon: 'globe', link: '/world-clock', keywords: 'world clock time zones current time', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Time Zone Converter', desc: 'Convert time between time zones.', icon: 'globe', link: '/time-zone-converter', keywords: 'time zone converter utc gmt', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Length Converter', desc: 'Convert length units.', icon: 'ruler', link: '/length-converter', keywords: 'length converter units meter feet inch', color: '#f59e0b', category: 'calculator' },
+            { name: 'Weight Converter', desc: 'Convert weight units.', icon: 'scale', link: '/weight-converter', keywords: 'weight converter units kg pound', color: '#f59e0b', category: 'calculator' },
+            { name: 'Temperature Converter', desc: 'Convert temperature units.', icon: 'thermometer', link: '/temperature-converter', keywords: 'temperature converter celsius fahrenheit kelvin', color: '#f59e0b', category: 'calculator' },
+            { name: 'Area Converter', desc: 'Convert area units.', icon: 'square', link: '/area-converter', keywords: 'area converter units square meter acre', color: '#f59e0b', category: 'calculator' },
+            { name: 'Volume Converter', desc: 'Convert volume units.', icon: 'box', link: '/volume-converter', keywords: 'volume converter units litre gallon', color: '#f59e0b', category: 'calculator' },
+            { name: 'Speed Converter', desc: 'Convert speed units.', icon: 'gauge', link: '/speed-converter', keywords: 'speed converter units kmph mph', color: '#f59e0b', category: 'calculator' },
+            { name: 'Data Storage Converter', desc: 'Convert data storage units.', icon: 'hard-drive', link: '/data-storage-converter', keywords: 'data storage converter units mb gb tb', color: '#f59e0b', category: 'calculator' },
+            { name: 'Energy Converter', desc: 'Convert energy units.', icon: 'zap', link: '/energy-converter', keywords: 'energy converter units joule calorie', color: '#f59e0b', category: 'calculator' },
+            { name: 'Pressure Converter', desc: 'Convert pressure units.', icon: 'gauge', link: '/pressure-converter', keywords: 'pressure converter units pascal bar', color: '#f59e0b', category: 'calculator' },
+            { name: 'Power Converter', desc: 'Convert power units.', icon: 'zap', link: '/power-converter', keywords: 'power converter units watt horsepower', color: '#f59e0b', category: 'calculator' },
+            { name: 'Frequency Converter', desc: 'Convert frequency units.', icon: 'activity', link: '/frequency-converter', keywords: 'frequency converter units hertz', color: '#f59e0b', category: 'calculator' },
+            { name: 'Angle Converter', desc: 'Convert angle units.', icon: 'rotate-cw', link: '/angle-converter', keywords: 'angle converter units degree radian', color: '#f59e0b', category: 'calculator' },
+            { name: 'Pace Converter', desc: 'Convert pace units.', icon: 'gauge', link: '/pace-converter', keywords: 'pace converter running units', color: '#f59e0b', category: 'calculator' },
+            { name: 'Fuel Economy Converter', desc: 'Convert fuel economy units.', icon: 'gauge', link: '/fuel-economy-converter', keywords: 'fuel economy converter units mileage', color: '#f59e0b', category: 'calculator' }
+        ];
 
-            // Precompute haystack for fast search
-            tools.forEach(t => {
-                t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
-            });
+        // Precompute search haystack once
+        tools.forEach(function(t) {
+            t._nameLower = t.name.toLowerCase();
+            t._descLower = (t.desc || '').toLowerCase();
+            t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
+        });
 
-            function escHtml(s) {
-                return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        function escAttr(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+        function escHtml(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+        function highlight(text, q) {
+            const safe = escHtml(text);
+            if (!q) return safe;
+            const idx = text.toLowerCase().indexOf(q);
+            if (idx === -1) return safe;
+            return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
+        }
+
+        // ============ Build shared components ============
+        let megaMenuBuilt = false;
+        let mobileMenuBuilt = false;
+
+        function buildMegaMenu() {
+            if (megaMenuBuilt) return;
+            megaMenuBuilt = true;
+            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
+        }
+        function buildMobileToolsMenu() {
+            if (mobileMenuBuilt) return;
+            mobileMenuBuilt = true;
+            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
+        }
+
+        // ============ Toast ============
+        let toastTimer;
+        function showToast(msg, dur=3000) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), dur);
+        }
+
+        // ============ Theme (CSS-class based) ============
+        function setThemeColorMeta(isDark) {
+            const meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
+        }
+
+        function toggleTheme() {
+            const root = document.documentElement;
+            if (root.classList.contains('dark-mode')) {
+                root.classList.remove('dark-mode');
+                try { localStorage.setItem('theme', 'light'); } catch (e) {}
+                setThemeColorMeta(false);
+            } else {
+                root.classList.add('dark-mode');
+                try { localStorage.setItem('theme', 'dark'); } catch (e) {}
+                setThemeColorMeta(true);
             }
-            function highlight(text, q) {
-                const safe = escHtml(text);
-                if (!q) return safe;
-                const idx = text.toLowerCase().indexOf(q);
-                if (idx === -1) return safe;
-                return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
+        }
+
+        // ============ Tools Menu ============
+        function toggleToolsMenu() {
+            const container = document.getElementById('toolsMenuContainer');
+            const trigger = document.getElementById('toolsTrigger');
+            const isOpen = container.classList.contains('open');
+            if (isOpen) {
+                container.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
+            } else {
+                buildMegaMenu();
+                container.classList.add('open');
+                trigger.setAttribute('aria-expanded', 'true');
+                const firstLink = container.querySelector('.tools-mega-menu a');
+                if (firstLink) firstLink.focus();
             }
-
-            function buildMegaMenu() {
-                document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join('');
+        }
+        document.addEventListener('click', function(e) {
+            const container = document.getElementById('toolsMenuContainer');
+            if (container && !container.contains(e.target) && container.classList.contains('open')) {
+                container.classList.remove('open');
+                document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
             }
-            function buildMobileToolsMenu() {
-                document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join('');
-            }
+        });
 
-            let toastTimer;
-            window.showToast = function(msg, dur=3000) {
-                const t = document.getElementById('toast');
-                t.textContent = msg; t.classList.add('show');
-                clearTimeout(toastTimer);
-                toastTimer = setTimeout(() => t.classList.remove('show'), dur);
-            };
+        // ============ Mobile Sidebar ============
+        function openMobileSidebar() {
+            buildMobileToolsMenu();
+            const sb = document.getElementById('mobileSidebar');
+            sb.classList.add('active');
+            sb.setAttribute('aria-hidden', 'false');
+            document.getElementById('mobileSidebarOverlay').classList.add('active');
+            const hb = document.getElementById('hamburgerBtn');
+            if (hb) hb.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileSidebar() {
+            const sb = document.getElementById('mobileSidebar');
+            if (!sb) return;
+            sb.classList.remove('active');
+            sb.setAttribute('aria-hidden', 'true');
+            document.getElementById('mobileSidebarOverlay').classList.remove('active');
+            const hb = document.getElementById('hamburgerBtn');
+            if (hb) hb.setAttribute('aria-expanded', 'false');
+            const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
+            if (!searchOpen) document.body.style.overflow = '';
+        }
+        function toggleMobileTools() {
+            buildMobileToolsMenu();
+            const toggle = document.getElementById('mobileToolsToggle');
+            const menu = document.getElementById('mobileToolsMenu');
+            const isOpen = menu.classList.contains('active');
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+            if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
+        }
+        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
 
-            window.toggleTheme = function() {
-                const root = document.documentElement;
-                const s = document.getElementById('sunIcon');
-                const m = document.getElementById('moonIcon');
-                const ms = document.getElementById('mobileSunIcon');
-                const mm = document.getElementById('mobileMoonIcon');
-                if (root.classList.contains('dark-mode')) {
-                    root.classList.remove('dark-mode');
-                    if(s) s.style.display='block'; if(m) m.style.display='none';
-                    if(ms) { ms.style.display='block'; mm.style.display='none'; }
-                    try { localStorage.setItem('theme','light'); } catch(e){}
-                    const meta = document.querySelector('meta[name="theme-color"]');
-                    if (meta) meta.setAttribute('content','#ffffff');
-                } else {
-                    root.classList.add('dark-mode');
-                    if(s) s.style.display='none'; if(m) m.style.display='block';
-                    if(ms) { ms.style.display='none'; mm.style.display='block'; }
-                    try { localStorage.setItem('theme','dark'); } catch(e){}
-                    const meta = document.querySelector('meta[name="theme-color"]');
-                    if (meta) meta.setAttribute('content','#0f172a');
-                }
-            };
-
-            (function initIcons() {
-                const root = document.documentElement;
-                const sun = document.getElementById('sunIcon');
-                const moon = document.getElementById('moonIcon');
-                const ms = document.getElementById('mobileSunIcon');
-                const mm = document.getElementById('mobileMoonIcon');
-                if (!sun || !moon) return;
-                if (root.classList.contains('dark-mode')) {
-                    sun.style.display = 'none'; moon.style.display = 'block';
-                    if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
-                } else {
-                    sun.style.display = 'block'; moon.style.display = 'none';
-                    if (ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
-                }
-            })();
-
-            window.toggleToolsMenu = function() {
-                const container = document.getElementById('toolsMenuContainer');
-                const trigger = document.getElementById('toolsTrigger');
-                const isOpen = container.classList.contains('open');
-                if (isOpen) {
-                    container.classList.remove('open');
-                    trigger.setAttribute('aria-expanded', 'false');
-                } else {
-                    container.classList.add('open');
-                    trigger.setAttribute('aria-expanded', 'true');
-                    const firstLink = container.querySelector('.tools-mega-menu a');
-                    if (firstLink) firstLink.focus();
-                }
-            };
-            document.addEventListener('click', function(e) {
-                const container = document.getElementById('toolsMenuContainer');
-                if (container && !container.contains(e.target) && container.classList.contains('open')) {
-                    container.classList.remove('open');
-                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
-                }
-            });
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    const container = document.getElementById('toolsMenuContainer');
-                    if (container && container.classList.contains('open')) {
-                        container.classList.remove('open');
-                        document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
-                        document.getElementById('toolsTrigger').focus();
-                    }
-                }
-            });
-
-            window.openMobileSidebar = function() {
-                const sb = document.getElementById('mobileSidebar');
-                sb.classList.add('active');
-                sb.setAttribute('aria-hidden', 'false');
-                document.getElementById('mobileSidebarOverlay').classList.add('active');
-                document.body.style.overflow = 'hidden';
-            };
-            window.closeMobileSidebar = function() {
-                const sb = document.getElementById('mobileSidebar');
-                if (!sb) return;
-                sb.classList.remove('active');
-                sb.setAttribute('aria-hidden', 'true');
-                document.getElementById('mobileSidebarOverlay').classList.remove('active');
-                const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
-                if (!searchOpen) document.body.style.overflow = '';
-            };
-            window.toggleMobileTools = function() {
-                const toggle = document.getElementById('mobileToolsToggle');
-                const menu = document.getElementById('mobileToolsMenu');
-                const isOpen = menu.classList.contains('active');
-                menu.classList.toggle('active');
-                toggle.classList.toggle('active');
-                if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
-            };
-            document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
-
-            (function initResizeHandler() {
-                let lastWasDesktop = window.innerWidth > 768;
-                window.addEventListener('resize', function() {
+        // Resize handler
+        (function initResizeHandler() {
+            let resizeRaf = 0;
+            let lastWasDesktop = window.innerWidth > 768;
+            window.addEventListener('resize', function() {
+                if (resizeRaf) return;
+                resizeRaf = requestAnimationFrame(function () {
+                    resizeRaf = 0;
                     const isDesktop = window.innerWidth > 768;
                     if (isDesktop && !lastWasDesktop) {
                         if (document.getElementById('mobileSidebar').classList.contains('active')) {
@@ -1213,444 +1214,488 @@
                     }
                     lastWasDesktop = isDesktop;
                 });
-            })();
-
-            let lastFocusedBeforeSearch = null;
-            const searchState = { activeIndex: -1 };
-
-            window.openFullSearch = function() {
-                const overlay = document.getElementById('searchOverlayFull');
-                lastFocusedBeforeSearch = document.activeElement;
-                overlay.classList.add('active');
-                overlay.setAttribute('aria-hidden', 'false');
-                document.body.style.overflow = 'hidden';
-                filterFullSearch();
-                setTimeout(() => document.getElementById('fullSearchInput').focus(), 200);
-            };
-            window.closeFullSearch = function() {
-                const overlay = document.getElementById('searchOverlayFull');
-                if (!overlay.classList.contains('active')) return;
-                overlay.classList.remove('active');
-                overlay.setAttribute('aria-hidden', 'true');
-                document.getElementById('fullSearchInput').value = '';
-                filterFullSearch();
-                const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
-                if (!sidebarOpen) document.body.style.overflow = '';
-                if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
-                    try { lastFocusedBeforeSearch.focus(); } catch(e) {}
-                }
-                lastFocusedBeforeSearch = null;
-            };
-
-            window.filterFullSearch = function() {
-                const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
-                const list = document.getElementById('fullSearchResultsList');
-                const nr = document.getElementById('fullNoResult');
-                const qs = document.getElementById('fullSearchQuery');
-                const clearBtn = document.getElementById('searchClearBtn');
-                if (clearBtn) clearBtn.classList.toggle('show', q.length > 0);
-
-                const matched = tools
-                    .map((t, idx) => ({ t: t, idx: idx, hay: t._hay }))
-                    .filter(x => q === '' || x.hay.includes(q))
-                    .map(x => {
-                        let score = 3;
-                        if (q) {
-                            const nm = x.t.name.toLowerCase();
-                            const ds = (x.t.desc || '').toLowerCase();
-                            if (nm.startsWith(q)) score = 0;
-                            else if (nm.includes(q)) score = 1;
-                            else if (ds.includes(q)) score = 2;
-                        }
-                        return { t: x.t, idx: x.idx, score: score };
-                    })
-                    .sort((a, b) => {
-                        if (q === '') return a.idx - b.idx;
-                        if (a.score !== b.score) return a.score - b.score;
-                        return a.idx - b.idx;
-                    });
-
-                list.innerHTML = matched.map(x => `
-                    <a href="${x.t.link}" class="search-result-item">
-                        <span class="result-main">
-                            <span class="result-name">${highlight(x.t.name, q)}</span>
-                            <span class="result-desc">${highlight(x.t.desc || '', q)}</span>
-                        </span>
-                        <span class="result-tag">${escHtml(categoryLabelMap[x.t.category] || x.t.category)}</span>
-                    </a>`).join('');
-
-                searchState.activeIndex = -1;
-
-                if (matched.length === 0 && q !== '') {
-                    nr.classList.add('show');
-                    if (qs) qs.textContent = q;
-                } else nr.classList.remove('show');
-
-                list.querySelectorAll('.search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
-            };
-
-            window.handleSearchKey = function(e) {
-                const items = Array.from(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
-                if (e.key === 'ArrowDown') {
-                    e.preventDefault();
-                    if (!items.length) return;
-                    searchState.activeIndex = (searchState.activeIndex + 1) % items.length;
-                    items.forEach(i => i.classList.remove('active'));
-                    items[searchState.activeIndex].classList.add('active');
-                    items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
-                } else if (e.key === 'ArrowUp') {
-                    e.preventDefault();
-                    if (!items.length) return;
-                    searchState.activeIndex = (searchState.activeIndex - 1 + items.length) % items.length;
-                    items.forEach(i => i.classList.remove('active'));
-                    items[searchState.activeIndex].classList.add('active');
-                    items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
-                } else if (e.key === 'Enter') {
-                    e.preventDefault();
-                    if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) {
-                        window.location.href = items[searchState.activeIndex].getAttribute('href');
-                    } else if (items.length === 1) {
-                        window.location.href = items[0].getAttribute('href');
-                    }
-                }
-            };
-
-            window.clearSearchInput = function() {
-                const input = document.getElementById('fullSearchInput');
-                input.value = '';
-                filterFullSearch();
-                input.focus();
-            };
-
-            (function initSearchBackdrop() {
-                const overlay = document.getElementById('searchOverlayFull');
-                if (overlay) {
-                    overlay.addEventListener('click', function(e) {
-                        if (e.target === overlay) closeFullSearch();
-                    });
-                }
-            })();
-
-            (function setSearchPlaceholder() {
-                const input = document.getElementById('fullSearchInput');
-                if (!input) return;
-                input.placeholder = 'Type to search ' + tools.length + ' free tools…';
-            })();
-
-            document.addEventListener('keydown', e => {
-                if (e.key === 'Escape') {
-                    const container = document.getElementById('toolsMenuContainer');
-                    if (container && container.classList.contains('open')) {
-                        container.classList.remove('open');
-                        document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
-                        document.getElementById('toolsTrigger').focus();
-                    }
-                    closeFullSearch();
-                    closeMobileSidebar();
-                }
-                if ((e.ctrlKey||e.metaKey) && e.key.toLowerCase() === 'k') {
-                    e.preventDefault();
-                    openFullSearch();
-                }
             });
+        })();
 
-            window.toggleFaq = function(btnEl) {
-                const item = btnEl.parentElement;
-                const expanded = btnEl.getAttribute('aria-expanded') === 'true';
-                item.classList.toggle('active');
-                btnEl.setAttribute('aria-expanded', !expanded);
-                const icon = btnEl.querySelector('svg');
-                if (icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
-            };
+        // ============ Search ============
+        let lastFocusedBeforeSearch = null;
+        let searchResultsRaf = 0;
+        let searchIsOpen = false;
+        const searchState = { activeIndex: -1 };
 
-            const downloadBtn = document.querySelector('.download-wrapper > button');
-            if (downloadBtn) {
-                downloadBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    document.getElementById('downloadDropdown').classList.toggle('active');
+        function openFullSearch() {
+            const overlay = document.getElementById('searchOverlayFull');
+            lastFocusedBeforeSearch = document.activeElement;
+            searchIsOpen = true;
+            overlay.classList.add('active');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            filterFullSearch();
+            setTimeout(() => {
+                if (searchIsOpen) document.getElementById('fullSearchInput').focus();
+            }, 200);
+        }
+        function closeFullSearch() {
+            const overlay = document.getElementById('searchOverlayFull');
+            if (!overlay.classList.contains('active')) return;
+            searchIsOpen = false;
+            if (searchResultsRaf) {
+                cancelAnimationFrame(searchResultsRaf);
+                searchResultsRaf = 0;
+            }
+            overlay.classList.remove('active');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.getElementById('fullSearchInput').value = '';
+            document.getElementById('searchClearBtn').classList.remove('show');
+            const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
+            if (!sidebarOpen) document.body.style.overflow = '';
+            if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
+                try { lastFocusedBeforeSearch.focus(); } catch (e) {}
+            }
+            lastFocusedBeforeSearch = null;
+        }
+
+        function buildSearchResults(q) {
+            const list = document.getElementById('fullSearchResultsList');
+            const nr = document.getElementById('fullNoResult');
+
+            let matched;
+            if (q === '') {
+                matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
+            } else {
+                matched = [];
+                for (let i = 0; i < tools.length; i++) {
+                    const t = tools[i];
+                    if (t._hay.indexOf(q) === -1) continue;
+                    let score = 3;
+                    if (t._nameLower.startsWith(q)) score = 0;
+                    else if (t._nameLower.indexOf(q) !== -1) score = 1;
+                    else if (t._descLower.indexOf(q) !== -1) score = 2;
+                    matched.push({ t: t, idx: i, score: score });
+                }
+                matched.sort(function (a, b) {
+                    return a.score - b.score || a.idx - b.idx;
                 });
             }
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.download-wrapper')) {
-                    document.getElementById('downloadDropdown').classList.remove('active');
-                }
-            });
 
-            window.downloadFile = function(type) {
-                const text = document.getElementById('inputText').value.trim();
-                if (!text) { showToast('Nothing to download'); return; }
+            const total = matched.length;
+            const parts = [];
+
+            for (let i = 0; i < total; i++) {
+                const t = matched[i].t;
+                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
+                    '<span class="result-main">' +
+                    '<span class="result-name">' + highlight(t.name, q) + '</span>' +
+                    '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
+                    '</span>' +
+                    '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
+                    '</a>');
+            }
+
+            list.innerHTML = parts.join('');
+            searchState.activeIndex = -1;
+
+            if (total === 0 && q !== '') {
+                nr.classList.add('show');
+                document.getElementById('fullSearchQuery').textContent = q;
+            } else {
+                nr.classList.remove('show');
+            }
+        }
+
+        function filterFullSearch() {
+            const input = document.getElementById('fullSearchInput');
+            const q = input.value.toLowerCase().trim();
+            document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
+            if (!searchIsOpen) return;
+            if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
+            searchResultsRaf = requestAnimationFrame(function () {
+                searchResultsRaf = 0;
+                buildSearchResults(q);
+            });
+        }
+
+        function handleSearchKey(e) {
+            const items = Array.from(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (!items.length) return;
+                searchState.activeIndex = (searchState.activeIndex + 1) % items.length;
+                items.forEach(i => i.classList.remove('active'));
+                items[searchState.activeIndex].classList.add('active');
+                items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (!items.length) return;
+                searchState.activeIndex = (searchState.activeIndex - 1 + items.length) % items.length;
+                items.forEach(i => i.classList.remove('active'));
+                items[searchState.activeIndex].classList.add('active');
+                items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) {
+                    window.location.href = items[searchState.activeIndex].getAttribute('href');
+                } else if (items.length === 1) {
+                    window.location.href = items[0].getAttribute('href');
+                }
+            }
+        }
+
+        function clearSearchInput() {
+            const input = document.getElementById('fullSearchInput');
+            input.value = '';
+            filterFullSearch();
+            input.focus();
+        }
+
+        // Backdrop click
+        (function initSearchBackdrop() {
+            const overlay = document.getElementById('searchOverlayFull');
+            if (overlay) {
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === overlay) closeFullSearch();
+                });
+            }
+        })();
+
+        // Dynamic search placeholder
+        (function setSearchPlaceholder() {
+            const input = document.getElementById('fullSearchInput');
+            if (!input) return;
+            input.placeholder = 'Search all ' + tools.length + ' free tools…';
+        })();
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                const container = document.getElementById('toolsMenuContainer');
+                if (container && container.classList.contains('open')) {
+                    container.classList.remove('open');
+                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                    document.getElementById('toolsTrigger').focus();
+                }
+                closeFullSearch();
+                closeMobileSidebar();
+            }
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                openFullSearch();
+            }
+        });
+
+        // FIX: use closest()
+        function toggleFaq(btnEl) {
+            const item = btnEl.closest('.faq-item');
+            if (!item) return;
+            const expanded = btnEl.getAttribute('aria-expanded') === 'true';
+            item.classList.toggle('active');
+            btnEl.setAttribute('aria-expanded', String(!expanded));
+            const icon = btnEl.querySelector('svg');
+            if (icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+
+        // ============ Title Case Converter core ============
+        const downloadBtn = document.querySelector('.download-wrapper > button');
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                document.getElementById('downloadDropdown').classList.toggle('active');
+            });
+        }
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.download-wrapper')) {
                 document.getElementById('downloadDropdown').classList.remove('active');
-                if (type === 'txt') {
-                    const blob = new Blob([text], {type: 'text/plain'});
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a'); a.href = url; a.download = 'title-case.txt'; a.click(); URL.revokeObjectURL(url);
-                    showToast('Downloaded as TXT');
-                } else if (type === 'doc') {
-                    const htmlContent = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Title Case</title></head><body><pre>${text}</pre></body></html>`;
-                    const blob = new Blob([htmlContent], {type: 'application/msword'});
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a'); a.href = url; a.download = 'title-case.doc'; a.click(); URL.revokeObjectURL(url);
-                    showToast('Downloaded as DOC');
-                } else if (type === 'pdf') {
-                    const w = window.open('', '_blank'); w.document.write(`<pre>${text}</pre>`); w.document.close(); w.focus(); w.print();
-                    showToast('Save as PDF in the print dialog');
-                }
-            };
-
-            const inputText = document.getElementById('inputText');
-
-            function autoResize() {
-                inputText.style.height = 'auto';
-                inputText.style.height = (inputText.scrollHeight) + 'px';
             }
-            inputText.addEventListener('input', autoResize);
+        });
 
-            function updateStats() {
-                const text = inputText.value;
-                const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-                const chars = text.length;
-                const lines = text ? text.split(/\n/).length : 0;
-                const sentences = text ? text.split(/[.!?]+/).filter(s => s.trim()).length : 0;
-                const readTime = words > 0 ? Math.ceil(words / 200) : 0;
-                document.getElementById('wordCount').textContent = words;
-                document.getElementById('charCount').textContent = chars;
-                document.getElementById('lineCount').textContent = lines;
-                document.getElementById('sentenceCount').textContent = sentences;
-                document.getElementById('readTime').textContent = readTime + ' min';
+        function downloadFile(type) {
+            const text = document.getElementById('inputText').value.trim();
+            if (!text) { showToast('Nothing to download'); return; }
+            document.getElementById('downloadDropdown').classList.remove('active');
+            if (type === 'txt') {
+                const blob = new Blob([text], {type: 'text/plain'});
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a'); a.href = url; a.download = 'title-case.txt'; a.click(); URL.revokeObjectURL(url);
+                showToast('Downloaded as TXT');
+            } else if (type === 'doc') {
+                const htmlContent = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Title Case</title></head><body><pre>${text}</pre></body></html>`;
+                const blob = new Blob([htmlContent], {type: 'application/msword'});
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a'); a.href = url; a.download = 'title-case.doc'; a.click(); URL.revokeObjectURL(url);
+                showToast('Downloaded as DOC');
+            } else if (type === 'pdf') {
+                const w = window.open('', '_blank'); w.document.write(`<pre>${text}</pre>`); w.document.close(); w.focus(); w.print();
+                showToast('Save as PDF in the print dialog');
             }
-            function updateScoreBadge() {
-                const text = inputText.value.trim();
-                const badge = document.getElementById('headlineScoreBadge');
-                if (!text) { badge.style.display = 'none'; return; }
-                badge.style.display = 'inline-block';
-                const words = text.split(/\s+/).length;
-                const powerWords = ['amazing','exclusive','secret','proven','powerful','free','new','instant','easy','ultimate','essential','remarkable','incredible','boost','master','transform','discover','unlock'];
-                const emotionalWords = ['love','hate','fear','happy','sad','angry','excited','surprise','shocking','inspire','motivate','heartbreaking','thrilling','outrageous'];
-                let score = 0;
-                if (words >= 5 && words <= 12) score += 30;
-                else if (words > 0 && words < 5) score += 10;
-                else score += 15;
-                const lowerText = text.toLowerCase();
-                powerWords.forEach(w => { if (lowerText.includes(w)) score += 10; });
-                emotionalWords.forEach(w => { if (lowerText.includes(w)) score += 10; });
-                score = Math.min(score, 100);
-                let colorClass = 'score-green';
-                if (score < 40) colorClass = 'score-red';
-                else if (score < 70) colorClass = 'score-orange';
-                badge.textContent = 'Score: ' + score + '/100';
-                badge.className = 'headline-score ' + colorClass;
-            }
-            inputText.addEventListener('input', () => { updateStats(); updateScoreBadge(); });
+        }
 
-            const customTermsInput = document.getElementById('modalCustomTermsInput');
-            const savedTerms = localStorage.getItem('textify_titlecase_custom_terms');
-            if (savedTerms) customTermsInput.value = savedTerms;
+        const inputText = document.getElementById('inputText');
 
-            window.openCustomTermsModal = function() {
-                document.getElementById('customTermsModalOverlay').classList.add('active');
-                document.body.style.overflow = 'hidden';
-                customTermsInput.focus();
-            };
-            window.closeCustomTermsModal = function() {
-                document.getElementById('customTermsModalOverlay').classList.remove('active');
-                document.body.style.overflow = '';
-            };
-            window.saveCustomTerms = function() {
-                localStorage.setItem('textify_titlecase_custom_terms', customTermsInput.value.trim());
-                closeCustomTermsModal();
-                applyTitleCase();
-                showToast('Custom terms saved');
-            };
-            window.clearCustomTerms = function() {
-                customTermsInput.value = '';
-                localStorage.removeItem('textify_titlecase_custom_terms');
-                applyTitleCase();
-                showToast('Custom terms cleared');
-            };
+        function autoResize() {
+            inputText.style.height = 'auto';
+            inputText.style.height = (inputText.scrollHeight) + 'px';
+        }
+        inputText.addEventListener('input', autoResize);
 
-            function getProtectedTerms() {
-                return customTermsInput.value.split('\n').map(s => s.trim()).filter(s => s);
-            }
+        function updateStats() {
+            const text = inputText.value;
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const chars = text.length;
+            const lines = text ? text.split(/\n/).length : 0;
+            const sentences = text ? text.split(/[.!?]+/).filter(s => s.trim()).length : 0;
+            const readTime = words > 0 ? Math.ceil(words / 200) : 0;
+            document.getElementById('wordCount').textContent = words;
+            document.getElementById('charCount').textContent = chars;
+            document.getElementById('lineCount').textContent = lines;
+            document.getElementById('sentenceCount').textContent = sentences;
+            document.getElementById('readTime').textContent = readTime + ' min';
+        }
+        function updateScoreBadge() {
+            const text = inputText.value.trim();
+            const badge = document.getElementById('headlineScoreBadge');
+            if (!text) { badge.style.display = 'none'; return; }
+            badge.style.display = 'inline-block';
+            const words = text.split(/\s+/).length;
+            const powerWords = ['amazing','exclusive','secret','proven','powerful','free','new','instant','easy','ultimate','essential','remarkable','incredible','boost','master','transform','discover','unlock'];
+            const emotionalWords = ['love','hate','fear','happy','sad','angry','excited','surprise','shocking','inspire','motivate','heartbreaking','thrilling','outrageous'];
+            let score = 0;
+            if (words >= 5 && words <= 12) score += 30;
+            else if (words > 0 && words < 5) score += 10;
+            else score += 15;
+            const lowerText = text.toLowerCase();
+            powerWords.forEach(w => { if (lowerText.includes(w)) score += 10; });
+            emotionalWords.forEach(w => { if (lowerText.includes(w)) score += 10; });
+            score = Math.min(score, 100);
+            let colorClass = 'score-green';
+            if (score < 40) colorClass = 'score-red';
+            else if (score < 70) colorClass = 'score-orange';
+            badge.textContent = 'Score: ' + score + '/100';
+            badge.className = 'headline-score ' + colorClass;
+        }
+        inputText.addEventListener('input', () => { updateStats(); updateScoreBadge(); });
 
-            function protectText(text, terms) {
-                if (!terms.length) return text;
-                let result = text;
-                terms.forEach(term => {
-                    const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                    const regex = new RegExp('\\b' + escaped + '\\b', 'gi');
-                    result = result.replace(regex, term);
-                });
-                return result;
-            }
+        const customTermsInput = document.getElementById('modalCustomTermsInput');
+        const savedTerms = localStorage.getItem('textify_titlecase_custom_terms');
+        if (savedTerms) customTermsInput.value = savedTerms;
 
-            const styleButtons = document.querySelectorAll('.style-btn');
-            const minorWords = /^(a|an|the|and|but|or|nor|for|so|yet|at|by|in|of|on|to|up|as|is|if|it|be|am|are|was|were|been|being|have|has|had|having|do|does|did|doing|will|would|shall|should|may|might|must|can|could|off|out|over|per|than|that|this|with|from|into|onto|upon|near|above|below|between|among|through|during|before|after|around|without|within|along|across|except|about|like|via|vs|versus)$/i;
-            const subordinatingConjunctions = /^(after|although|as|because|before|even if|even though|if|in order that|once|provided that|rather than|since|so that|than|that|though|unless|until|when|whenever|where|whereas|wherever|whether|while|why)$/i;
+        function openCustomTermsModal() {
+            document.getElementById('customTermsModalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            customTermsInput.focus();
+        }
+        function closeCustomTermsModal() {
+            document.getElementById('customTermsModalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        function saveCustomTerms() {
+            localStorage.setItem('textify_titlecase_custom_terms', customTermsInput.value.trim());
+            closeCustomTermsModal();
+            applyTitleCase();
+            showToast('Custom terms saved');
+        }
+        function clearCustomTerms() {
+            customTermsInput.value = '';
+            localStorage.removeItem('textify_titlecase_custom_terms');
+            applyTitleCase();
+            showToast('Custom terms cleared');
+        }
 
-            function titleCaseDefault(text) { return text.replace(/\w\S*/g, (word) => word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()); }
-            function titleCaseAPA(text) { return text.replace(/\w\S*/g, (word, index, words) => { if (index === 0 || index === words.length - 1) return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); if (subordinatingConjunctions.test(word)) return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); if (minorWords.test(word)) return word.toLowerCase(); return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); }); }
-            function titleCaseChicago(text) { return text.replace(/\w\S*/g, (word, index, words) => { if (index === 0 || index === words.length - 1) return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); if (minorWords.test(word)) return word.toLowerCase(); return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); }); }
-            function titleCaseMLA(text) { return titleCaseChicago(text); }
-            function titleCaseAP(text) { return text.replace(/\w\S*/g, (word, index, words) => { if (index === 0 || index === words.length - 1) return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); if (word.length >= 4) return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); if (minorWords.test(word)) return word.toLowerCase(); return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); }); }
+        function getProtectedTerms() {
+            return customTermsInput.value.split('\n').map(s => s.trim()).filter(s => s);
+        }
 
-            const titleConverters = { default: titleCaseDefault, apa: titleCaseAPA, chicago: titleCaseChicago, mla: titleCaseMLA, ap: titleCaseAP };
-
-            let originalText = '';
-            let isOriginalShown = false;
-            const toggleBtn = document.getElementById('toggleOrigBtn');
-            const toggleLabel = toggleBtn.querySelector('.icon-label');
-
-            function applyTitleCase() {
-                const activeBtn = document.querySelector('.style-btn.active');
-                if (!activeBtn) return;
-                const style = activeBtn.dataset.style;
-                const currentText = inputText.value;
-                if (!currentText.trim()) {
-                    originalText = '';
-                    isOriginalShown = false;
-                    toggleLabel.textContent = 'Orig';
-                    updateStats(); updateScoreBadge(); autoResize();
-                    return;
-                }
-                if (!isOriginalShown) { originalText = currentText; }
-                const converted = titleConverters[style](currentText);
-                const terms = getProtectedTerms();
-                inputText.value = protectText(converted, terms);
-                isOriginalShown = false;
-                toggleLabel.textContent = 'Orig';
-                updateStats(); updateScoreBadge(); autoResize();
-            }
-
-            styleButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    styleButtons.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    applyTitleCase();
-                });
+        function protectText(text, terms) {
+            if (!terms.length) return text;
+            let result = text;
+            terms.forEach(term => {
+                const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const regex = new RegExp('\\b' + escaped + '\\b', 'gi');
+                result = result.replace(regex, term);
             });
+            return result;
+        }
 
-            window.toggleOriginal = function() {
-                const activeBtn = document.querySelector('.style-btn.active');
-                if (!activeBtn) return;
-                if (isOriginalShown) {
-                    const style = activeBtn.dataset.style;
-                    const converted = titleConverters[style](originalText);
-                    const terms = getProtectedTerms();
-                    inputText.value = protectText(converted, terms);
-                    isOriginalShown = false;
-                    toggleLabel.textContent = 'Orig';
-                } else {
-                    if (!originalText.trim()) { showToast('No original text saved'); return; }
-                    inputText.value = originalText;
-                    isOriginalShown = true;
-                    toggleLabel.textContent = 'Conv';
-                }
-                updateStats(); updateScoreBadge(); autoResize();
-            };
+        const styleButtons = document.querySelectorAll('.style-btn');
+        const minorWords = /^(a|an|the|and|but|or|nor|for|so|yet|at|by|in|of|on|to|up|as|is|if|it|be|am|are|was|were|been|being|have|has|had|having|do|does|did|doing|will|would|shall|should|may|might|must|can|could|off|out|over|per|than|that|this|with|from|into|onto|upon|near|above|below|between|among|through|during|before|after|around|without|within|along|across|except|about|like|via|vs|versus)$/i;
+        const subordinatingConjunctions = /^(after|although|as|because|before|even if|even though|if|in order that|once|provided that|rather than|since|so that|than|that|though|unless|until|when|whenever|where|whereas|wherever|whether|while|why)$/i;
 
-            window.applyQuickCase = function(type) {
-                const text = inputText.value;
-                if (!text.trim()) return;
-                originalText = text;
-                switch(type) {
-                    case 'upper': inputText.value = text.toUpperCase(); break;
-                    case 'lower': inputText.value = text.toLowerCase(); break;
-                    case 'sentence': inputText.value = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase(); break;
-                    case 'capitalized': inputText.value = text.charAt(0).toUpperCase() + text.slice(1); break;
-                    case 'toggle': inputText.value = text.split('').map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join(''); break;
-                }
-                isOriginalShown = false;
-                toggleLabel.textContent = 'Orig';
-                updateStats(); updateScoreBadge(); autoResize();
-            };
+        function titleCaseDefault(text) { return text.replace(/\w\S*/g, (word) => word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()); }
+        function titleCaseAPA(text) { return text.replace(/\w\S*/g, (word, index, words) => { if (index === 0 || index === words.length - 1) return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); if (subordinatingConjunctions.test(word)) return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); if (minorWords.test(word)) return word.toLowerCase(); return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); }); }
+        function titleCaseChicago(text) { return text.replace(/\w\S*/g, (word, index, words) => { if (index === 0 || index === words.length - 1) return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); if (minorWords.test(word)) return word.toLowerCase(); return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); }); }
+        function titleCaseMLA(text) { return titleCaseChicago(text); }
+        function titleCaseAP(text) { return text.replace(/\w\S*/g, (word, index, words) => { if (index === 0 || index === words.length - 1) return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); if (word.length >= 4) return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); if (minorWords.test(word)) return word.toLowerCase(); return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase(); }); }
 
-            window.applyProgCase = function(type) {
-                const text = inputText.value.trim();
-                if (!text) return;
-                originalText = text;
-                let result = text;
-                switch(type) {
-                    case 'camel': result = text.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => index === 0 ? word.toLowerCase() : word.toUpperCase()).replace(/\s+/g, ''); break;
-                    case 'pascal': result = text.replace(/(?:^\w|[A-Z]|\b\w)/g, word => word.toUpperCase()).replace(/\s+/g, ''); break;
-                    case 'snake': result = text.toLowerCase().replace(/\s+/g, '_'); break;
-                    case 'kebab': result = text.toLowerCase().replace(/\s+/g, '-'); break;
-                    case 'constant': result = text.toUpperCase().replace(/\s+/g, '_'); break;
-                }
-                inputText.value = result;
-                isOriginalShown = false;
-                toggleLabel.textContent = 'Orig';
-                updateStats(); updateScoreBadge(); autoResize();
-            };
+        const titleConverters = { default: titleCaseDefault, apa: titleCaseAPA, chicago: titleCaseChicago, mla: titleCaseMLA, ap: titleCaseAP };
 
-            inputText.addEventListener('input', function() {
-                if (!isOriginalShown) { originalText = inputText.value; }
-            });
+        let originalText = '';
+        let isOriginalShown = false;
+        const toggleBtn = document.getElementById('toggleOrigBtn');
+        const toggleLabel = toggleBtn.querySelector('.icon-label');
 
-            setInterval(() => {
-                const activeStyle = document.querySelector('.style-btn.active')?.dataset.style || 'default';
-                const text = inputText.value;
-                localStorage.setItem('titlecase_session', JSON.stringify({ text: text, style: activeStyle }));
-            }, 2000);
-
-            const savedSession = localStorage.getItem('titlecase_session');
-            if (savedSession) {
-                try {
-                    const session = JSON.parse(savedSession);
-                    if (session.text) { inputText.value = session.text; originalText = session.text; }
-                    if (session.style) {
-                        styleButtons.forEach(b => {
-                            b.classList.remove('active');
-                            if (b.dataset.style === session.style) { b.classList.add('active'); }
-                        });
-                    }
-                    updateStats(); updateScoreBadge(); autoResize();
-                } catch(e) {}
-            }
-
-            window.clearText = function() {
-                inputText.value = '';
+        function applyTitleCase() {
+            const activeBtn = document.querySelector('.style-btn.active');
+            if (!activeBtn) return;
+            const style = activeBtn.dataset.style;
+            const currentText = inputText.value;
+            if (!currentText.trim()) {
                 originalText = '';
                 isOriginalShown = false;
                 toggleLabel.textContent = 'Orig';
                 updateStats(); updateScoreBadge(); autoResize();
-                showToast('Text cleared');
-            };
+                return;
+            }
+            if (!isOriginalShown) { originalText = currentText; }
+            const converted = titleConverters[style](currentText);
+            const terms = getProtectedTerms();
+            inputText.value = protectText(converted, terms);
+            isOriginalShown = false;
+            toggleLabel.textContent = 'Orig';
+            updateStats(); updateScoreBadge(); autoResize();
+        }
 
-            window.copyResult = async function() {
-                const text = inputText.value.trim();
-                if (!text) { showToast('Nothing to copy'); return; }
-                try { await navigator.clipboard.writeText(text); showToast('Copied!'); }
-                catch (err) { showToast('Copy failed – select and copy manually'); }
-            };
+        styleButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                styleButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                applyTitleCase();
+            });
+        });
 
-            window.pasteText = async function() {
-                try {
-                    const text = await navigator.clipboard.readText();
-                    if (text) {
-                        inputText.value = text;
-                        originalText = text;
-                        isOriginalShown = false;
-                        toggleLabel.textContent = 'Orig';
-                        updateStats(); updateScoreBadge(); autoResize();
-                        showToast('Text pasted');
-                    } else { showToast('Clipboard is empty'); }
-                } catch (err) { showToast('Could not paste automatically. Use Ctrl+V'); }
-            };
+        function toggleOriginal() {
+            const activeBtn = document.querySelector('.style-btn.active');
+            if (!activeBtn) return;
+            if (isOriginalShown) {
+                const style = activeBtn.dataset.style;
+                const converted = titleConverters[style](originalText);
+                const terms = getProtectedTerms();
+                inputText.value = protectText(converted, terms);
+                isOriginalShown = false;
+                toggleLabel.textContent = 'Orig';
+            } else {
+                if (!originalText.trim()) { showToast('No original text saved'); return; }
+                inputText.value = originalText;
+                isOriginalShown = true;
+                toggleLabel.textContent = 'Conv';
+            }
+            updateStats(); updateScoreBadge(); autoResize();
+        }
 
-            window.undoText = function() { inputText.focus(); document.execCommand('undo'); updateStats(); updateScoreBadge(); autoResize(); showToast('Undo'); };
-            window.redoText = function() { inputText.focus(); document.execCommand('redo'); updateStats(); updateScoreBadge(); autoResize(); showToast('Redo'); };
-            window.selectAllInput = function() { inputText.focus(); inputText.select(); showToast('Text selected'); };
+        function applyQuickCase(type) {
+            const text = inputText.value;
+            if (!text.trim()) return;
+            originalText = text;
+            switch(type) {
+                case 'upper': inputText.value = text.toUpperCase(); break;
+                case 'lower': inputText.value = text.toLowerCase(); break;
+                case 'sentence': inputText.value = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase(); break;
+                case 'capitalized': inputText.value = text.charAt(0).toUpperCase() + text.slice(1); break;
+                case 'toggle': inputText.value = text.split('').map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join(''); break;
+            }
+            isOriginalShown = false;
+            toggleLabel.textContent = 'Orig';
+            updateStats(); updateScoreBadge(); autoResize();
+        }
 
-            buildMegaMenu();
-            buildMobileToolsMenu();
-            filterFullSearch();
+        function applyProgCase(type) {
+            const text = inputText.value.trim();
+            if (!text) return;
+            originalText = text;
+            let result = text;
+            switch(type) {
+                case 'camel': result = text.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => index === 0 ? word.toLowerCase() : word.toUpperCase()).replace(/\s+/g, ''); break;
+                case 'pascal': result = text.replace(/(?:^\w|[A-Z]|\b\w)/g, word => word.toUpperCase()).replace(/\s+/g, ''); break;
+                case 'snake': result = text.toLowerCase().replace(/\s+/g, '_'); break;
+                case 'kebab': result = text.toLowerCase().replace(/\s+/g, '-'); break;
+                case 'constant': result = text.toUpperCase().replace(/\s+/g, '_'); break;
+            }
+            inputText.value = result;
+            isOriginalShown = false;
+            toggleLabel.textContent = 'Orig';
+            updateStats(); updateScoreBadge(); autoResize();
+        }
+
+        inputText.addEventListener('input', function() {
+            if (!isOriginalShown) { originalText = inputText.value; }
+        });
+
+        setInterval(() => {
+            const activeStyle = document.querySelector('.style-btn.active')?.dataset.style || 'default';
+            const text = inputText.value;
+            try { localStorage.setItem('titlecase_session', JSON.stringify({ text: text, style: activeStyle })); } catch(e) {}
+        }, 2000);
+
+        const savedSession = localStorage.getItem('titlecase_session');
+        if (savedSession) {
+            try {
+                const session = JSON.parse(savedSession);
+                if (session.text) { inputText.value = session.text; originalText = session.text; }
+                if (session.style) {
+                    styleButtons.forEach(b => {
+                        b.classList.remove('active');
+                        if (b.dataset.style === session.style) { b.classList.add('active'); }
+                    });
+                }
+                updateStats(); updateScoreBadge(); autoResize();
+            } catch(e) {}
+        }
+
+        function clearText() {
+            inputText.value = '';
+            originalText = '';
+            isOriginalShown = false;
+            toggleLabel.textContent = 'Orig';
+            updateStats(); updateScoreBadge(); autoResize();
+            showToast('Text cleared');
+        }
+
+        async function copyResult() {
+            const text = inputText.value.trim();
+            if (!text) { showToast('Nothing to copy'); return; }
+            try { await navigator.clipboard.writeText(text); showToast('Copied!'); }
+            catch (err) { showToast('Copy failed – select and copy manually'); }
+        }
+
+        async function pasteText() {
+            try {
+                const text = await navigator.clipboard.readText();
+                if (text) {
+                    inputText.value = text;
+                    originalText = text;
+                    isOriginalShown = false;
+                    toggleLabel.textContent = 'Orig';
+                    updateStats(); updateScoreBadge(); autoResize();
+                    showToast('Text pasted');
+                } else { showToast('Clipboard is empty'); }
+            } catch (err) { showToast('Could not paste automatically. Use Ctrl+V'); }
+        }
+
+        function undoText() { inputText.focus(); document.execCommand('undo'); updateStats(); updateScoreBadge(); autoResize(); showToast('Undo'); }
+        function redoText() { inputText.focus(); document.execCommand('redo'); updateStats(); updateScoreBadge(); autoResize(); showToast('Redo'); }
+        function selectAllInput() { inputText.focus(); inputText.select(); showToast('Text selected'); }
+
+        // ============ Init ============
+        buildMegaMenu();
+        buildMobileToolsMenu();
+        // Pre-populate search results (hidden overlay)
+        searchIsOpen = true;
+        filterFullSearch();
+        searchIsOpen = false;
+
+        // Guarded Lucide init
+        function initLucide() {
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
                 window.lucide.createIcons();
+                return true;
             }
-            updateStats();
-            updateScoreBadge();
-            autoResize();
-        });
+            return false;
+        }
+        if (!initLucide()) {
+            window.addEventListener('load', initLucide);
+        }
+
+        updateStats();
+        updateScoreBadge();
+        autoResize();
     </script>
 </body>
 </html>
