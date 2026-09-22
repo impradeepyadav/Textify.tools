@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Remove Numbers - Free Online Tool | Textify.tools</title>
     <meta name="description" content="Strip all digits (0-9) from your text instantly, or remove entire numbers including decimals and commas. Free, private, and no signup needed.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -63,6 +63,8 @@
     <!-- Mediavine -->
     <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
 
+    <script src="https://unpkg.com/lucide@0.344.0" defer></script>
+
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -109,9 +111,7 @@
             ]
         }
     </script>
-</head>
-<body>
-    <script src="https://unpkg.com/lucide@0.344.0"></script>
+
     <style>
         :root {
             --bg: #ffffff;
@@ -211,6 +211,7 @@
             font-weight: 700;
         }
 
+        /* FIX: prevent sun/moon flash before JS runs */
         html.dark-mode #sunIcon,
         html.dark-mode #mobileSunIcon { display: none !important; }
         html.dark-mode #moonIcon,
@@ -316,7 +317,7 @@
         .search-results-list {
             background: var(--bg); border-radius: 16px; border: 1px solid var(--line);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto;
-            flex: 1; min-height: 0;
+            flex: 1; min-height: 0; contain: content;
         }
         .search-results-list .search-result-item {
             display: flex; align-items: center; justify-content: space-between;
@@ -368,6 +369,13 @@
         .btn.primary { background: var(--primary); color: var(--bg); border: none; }
         .btn.primary:hover { opacity: 0.9; }
 
+        /* ============ FAQ (matches index page) ============ */
+        .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; border: none; width: 100%; text-align: left; }
+        .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
+
         /* ============ FOOTER (matches index page) ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
@@ -418,18 +426,19 @@
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
-
+</head>
+<body>
     <div class="page-wrapper">
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="/favicon.ico" alt="Textify.Tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
+                    <img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
                     Textify.tools
                 </a>
                 <div class="header-right">
                     <div class="desktop-nav">
                         <div class="tools-menu-container" id="toolsMenuContainer">
-                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleToolsMenu()">
+                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu" onclick="toggleToolsMenu()">
                                 Tools <i data-lucide="chevron-down"></i>
                             </button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
@@ -440,10 +449,10 @@
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
                         <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
                     </button>
                     <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
-                    <button class="hamburger-btn" onclick="openMobileSidebar()" aria-label="Menu">
+                    <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
                         <span class="menu-icon"><span></span><span></span></span>
                     </button>
                 </div>
@@ -562,28 +571,26 @@
 
                 <div style="margin-bottom:40px;">
                     <h2>Frequently asked questions</h2>
-                    <div style="border:1px solid var(--line); border-radius:10px; overflow:hidden;">
-                        <div class="faq-item" style="border-bottom:1px solid var(--line);">
-                            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-                                Is this tool free?
-                                <i data-lucide="chevron-down" width="16"></i>
-                            </button>
-                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">100% free. No premium plans, no credit card. A few small ads keep the lights on without interfering with your work.</div>
-                        </div>
-                        <div class="faq-item" style="border-bottom:1px solid var(--line);">
-                            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-                                What counts as a "whole number"?
-                                <i data-lucide="chevron-down" width="16"></i>
-                            </button>
-                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">In full‑number mode, any sequence of digits that may include one decimal point and/or commas (as thousand separators) is considered a number. For example, "1,200", "12.5", and "3" all count.</div>
-                        </div>
-                        <div class="faq-item">
-                            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-                                Do you store my text?
-                                <i data-lucide="chevron-down" width="16"></i>
-                            </button>
-                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Never. Everything stays in your browser. I can't see your text, and it disappears when you close the page.</div>
-                        </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                            Is this tool free?
+                            <i data-lucide="chevron-down" width="16"></i>
+                        </button>
+                        <div class="faq-answer">100% free. No premium plans, no credit card. A few small ads keep the lights on without interfering with your work.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                            What counts as a "whole number"?
+                            <i data-lucide="chevron-down" width="16"></i>
+                        </button>
+                        <div class="faq-answer">In full‑number mode, any sequence of digits that may include one decimal point and/or commas (as thousand separators) is considered a number. For example, "1,200", "12.5", and "3" all count.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                            Do you store my text?
+                            <i data-lucide="chevron-down" width="16"></i>
+                        </button>
+                        <div class="faq-answer">Never. Everything stays in your browser. I can't see your text, and it disappears when you close the page.</div>
                     </div>
                 </div>
 
@@ -599,6 +606,7 @@
             </div>
         </main>
 
+        <!-- ============ FOOTER (matches index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -630,6 +638,7 @@
                             <h3 class="footer-heading">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="/">Home</a></li>
+                                <li><a href="/about-us">About Us</a></li>
                                 <li><a href="/contact-us">Contact Us</a></li>
                                 <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
                                 <li><a href="/blog">Blog</a></li>
@@ -649,10 +658,11 @@
         </footer>
     </div>
 
+    <!-- Mobile sidebar -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
         <div class="mobile-sidebar-header">
-            <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.Tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
+            <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
         <div class="mobile-sidebar-nav">
@@ -664,10 +674,11 @@
         </div>
         <div class="mobile-sidebar-actions">
             <button onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
-            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" style="display:none;"></i> Theme</button>
+            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
         </div>
     </div>
 
+    <!-- Search overlay -->
     <div class="search-overlay-full" id="searchOverlayFull" role="dialog" aria-modal="true" aria-label="Search tools" aria-hidden="true">
         <div class="search-container">
             <div class="search-box">
@@ -680,6 +691,7 @@
             <div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>
         </div>
     </div>
+
     <div class="toast" id="toast"></div>
 
     <script>
@@ -721,8 +733,12 @@
                 return;
             }
             output.select();
-            document.execCommand('copy');
-            showToast('Text copied to clipboard!');
+            try {
+                document.execCommand('copy');
+                showToast('Text copied to clipboard!');
+            } catch (e) {
+                showToast('Copy failed. Please copy manually.');
+            }
         }
 
         function downloadText() {
@@ -748,22 +764,23 @@
 
         let toastTimer;
         function showToast(msg, dur=3000) {
-            const t=document.getElementById('toast');
-            t.textContent=msg;
+            const t = document.getElementById('toast');
+            t.textContent = msg;
             t.classList.add('show');
             clearTimeout(toastTimer);
-            toastTimer=setTimeout(()=>t.classList.remove('show'), dur);
+            toastTimer = setTimeout(() => t.classList.remove('show'), dur);
         }
 
-        function toggleFaq(btnEl){
-            const item = btnEl.parentElement;
+        // FIX: use closest() instead of parentElement
+        function toggleFaq(btnEl) {
+            const item = btnEl.closest('.faq-item');
+            if (!item) return;
             const expanded = btnEl.getAttribute('aria-expanded') === 'true';
-            const answer = item.querySelector('.faq-answer');
-            if(answer){
-                answer.style.display = expanded ? 'none' : 'block';
-                btnEl.setAttribute('aria-expanded', !expanded);
-                const icon = btnEl.querySelector('svg');
-                if(icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+            item.classList.toggle('active');
+            btnEl.setAttribute('aria-expanded', String(!expanded));
+            const icon = btnEl.querySelector('svg');
+            if (icon) {
+                icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
             }
         }
 
@@ -1018,10 +1035,16 @@
             { name: 'Fuel Economy Converter', desc: 'Convert fuel economy units.', icon: 'gauge', link: '/fuel-economy-converter', keywords: 'fuel economy converter units mileage', color: '#f59e0b', category: 'calculator' }
         ];
 
-        tools.forEach(t => {
+        // Precompute search haystack once
+        tools.forEach(function(t) {
+            t._nameLower = t.name.toLowerCase();
+            t._descLower = (t.desc || '').toLowerCase();
             t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
         });
 
+        function escAttr(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
         function escHtml(s) {
             return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
@@ -1033,13 +1056,22 @@
             return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
         }
 
+        // ============ Build shared components ============
+        let megaMenuBuilt = false;
+        let mobileMenuBuilt = false;
+
         function buildMegaMenu() {
-            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join('');
+            if (megaMenuBuilt) return;
+            megaMenuBuilt = true;
+            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
         function buildMobileToolsMenu() {
-            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join('');
+            if (mobileMenuBuilt) return;
+            mobileMenuBuilt = true;
+            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
 
+        // ============ Theme (CSS-class based, no inline styles) ============
         function setThemeColorMeta(isDark) {
             const meta = document.querySelector('meta[name="theme-color"]');
             if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
@@ -1047,37 +1079,18 @@
 
         function toggleTheme() {
             const root = document.documentElement;
-            const s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon');
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
             if (root.classList.contains('dark-mode')) {
                 root.classList.remove('dark-mode');
-                if (s) s.style.display='block'; if (m) m.style.display='none';
-                if (ms) { ms.style.display='block'; mm.style.display='none'; }
-                try { localStorage.setItem('theme','light'); } catch(e){}
+                try { localStorage.setItem('theme', 'light'); } catch (e) {}
                 setThemeColorMeta(false);
             } else {
                 root.classList.add('dark-mode');
-                if (s) s.style.display='none'; if (m) m.style.display='block';
-                if (ms) { ms.style.display='none'; mm.style.display='block'; }
-                try { localStorage.setItem('theme','dark'); } catch(e){}
+                try { localStorage.setItem('theme', 'dark'); } catch (e) {}
                 setThemeColorMeta(true);
             }
         }
 
-        (function initIcons() {
-            const root = document.documentElement;
-            const sun = document.getElementById('sunIcon'), moon = document.getElementById('moonIcon');
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (!sun || !moon) return;
-            if (root.classList.contains('dark-mode')) {
-                sun.style.display = 'none'; moon.style.display = 'block';
-                if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
-            } else {
-                sun.style.display = 'block'; moon.style.display = 'none';
-                if (ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
-            }
-        })();
-
+        // ============ Tools Menu ============
         function toggleToolsMenu() {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
@@ -1086,6 +1099,7 @@
                 container.classList.remove('open');
                 trigger.setAttribute('aria-expanded', 'false');
             } else {
+                buildMegaMenu();
                 container.classList.add('open');
                 trigger.setAttribute('aria-expanded', 'true');
                 const firstLink = container.querySelector('.tools-mega-menu a');
@@ -1100,23 +1114,30 @@
             }
         });
 
-        function openMobileSidebar(){
+        // ============ Mobile Sidebar ============
+        function openMobileSidebar() {
+            buildMobileToolsMenu();
             const sb = document.getElementById('mobileSidebar');
             sb.classList.add('active');
             sb.setAttribute('aria-hidden', 'false');
             document.getElementById('mobileSidebarOverlay').classList.add('active');
-            document.body.style.overflow='hidden';
+            const hb = document.getElementById('hamburgerBtn');
+            if (hb) hb.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
         }
-        function closeMobileSidebar(){
+        function closeMobileSidebar() {
             const sb = document.getElementById('mobileSidebar');
             if (!sb) return;
             sb.classList.remove('active');
             sb.setAttribute('aria-hidden', 'true');
             document.getElementById('mobileSidebarOverlay').classList.remove('active');
+            const hb = document.getElementById('hamburgerBtn');
+            if (hb) hb.setAttribute('aria-expanded', 'false');
             const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
-            if (!searchOpen) document.body.style.overflow='';
+            if (!searchOpen) document.body.style.overflow = '';
         }
-        function toggleMobileTools(){
+        function toggleMobileTools() {
+            buildMobileToolsMenu();
             const toggle = document.getElementById('mobileToolsToggle');
             const menu = document.getElementById('mobileToolsMenu');
             const isOpen = menu.classList.contains('active');
@@ -1124,97 +1145,127 @@
             toggle.classList.toggle('active');
             if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
         }
-        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l=>l.addEventListener('click', closeMobileSidebar));
+        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
 
+        // Resize handler — force close mobile sidebar on desktop
         (function initResizeHandler() {
+            let resizeRaf = 0;
             let lastWasDesktop = window.innerWidth > 768;
             window.addEventListener('resize', function() {
-                const isDesktop = window.innerWidth > 768;
-                if (isDesktop && !lastWasDesktop) {
-                    if (document.getElementById('mobileSidebar').classList.contains('active')) {
-                        closeMobileSidebar();
+                if (resizeRaf) return;
+                resizeRaf = requestAnimationFrame(function () {
+                    resizeRaf = 0;
+                    const isDesktop = window.innerWidth > 768;
+                    if (isDesktop && !lastWasDesktop) {
+                        if (document.getElementById('mobileSidebar').classList.contains('active')) {
+                            closeMobileSidebar();
+                        }
                     }
-                }
-                lastWasDesktop = isDesktop;
+                    lastWasDesktop = isDesktop;
+                });
             });
         })();
 
+        // ============ Search ============
         let lastFocusedBeforeSearch = null;
+        let searchResultsRaf = 0;
+        let searchIsOpen = false;
         const searchState = { activeIndex: -1 };
 
-        function openFullSearch(){
+        function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             lastFocusedBeforeSearch = document.activeElement;
+            searchIsOpen = true;
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow='hidden';
+            document.body.style.overflow = 'hidden';
             filterFullSearch();
-            setTimeout(()=>document.getElementById('fullSearchInput').focus(),200);
+            setTimeout(() => {
+                if (searchIsOpen) document.getElementById('fullSearchInput').focus();
+            }, 200);
         }
-        function closeFullSearch(){
+        function closeFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay.classList.contains('active')) return;
+            searchIsOpen = false;
+            if (searchResultsRaf) {
+                cancelAnimationFrame(searchResultsRaf);
+                searchResultsRaf = 0;
+            }
             overlay.classList.remove('active');
             overlay.setAttribute('aria-hidden', 'true');
-            document.getElementById('fullSearchInput').value='';
-            filterFullSearch();
+            document.getElementById('fullSearchInput').value = '';
+            document.getElementById('searchClearBtn').classList.remove('show');
             const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
-            if (!sidebarOpen) document.body.style.overflow='';
+            if (!sidebarOpen) document.body.style.overflow = '';
             if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
-                try { lastFocusedBeforeSearch.focus(); } catch(e) {}
+                try { lastFocusedBeforeSearch.focus(); } catch (e) {}
             }
             lastFocusedBeforeSearch = null;
         }
 
-        function filterFullSearch(){
-            const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
+        function buildSearchResults(q) {
             const list = document.getElementById('fullSearchResultsList');
             const nr = document.getElementById('fullNoResult');
-            const qs = document.getElementById('fullSearchQuery');
-            const clearBtn = document.getElementById('searchClearBtn');
-            if (clearBtn) clearBtn.classList.toggle('show', q.length > 0);
 
-            const matched = tools
-                .map((t, idx) => ({ t: t, idx: idx, hay: t._hay }))
-                .filter(x => q === '' || x.hay.includes(q))
-                .map(x => {
+            let matched;
+            if (q === '') {
+                matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
+            } else {
+                matched = [];
+                for (let i = 0; i < tools.length; i++) {
+                    const t = tools[i];
+                    if (t._hay.indexOf(q) === -1) continue;
                     let score = 3;
-                    if (q) {
-                        const nm = x.t.name.toLowerCase();
-                        const ds = (x.t.desc || '').toLowerCase();
-                        if (nm.startsWith(q)) score = 0;
-                        else if (nm.includes(q)) score = 1;
-                        else if (ds.includes(q)) score = 2;
-                    }
-                    return { t: x.t, idx: x.idx, score: score };
-                })
-                .sort((a, b) => {
-                    if (q === '') return a.idx - b.idx;
-                    if (a.score !== b.score) return a.score - b.score;
-                    return a.idx - b.idx;
+                    if (t._nameLower.startsWith(q)) score = 0;
+                    else if (t._nameLower.indexOf(q) !== -1) score = 1;
+                    else if (t._descLower.indexOf(q) !== -1) score = 2;
+                    matched.push({ t: t, idx: i, score: score });
+                }
+                matched.sort(function (a, b) {
+                    return a.score - b.score || a.idx - b.idx;
                 });
+            }
 
-            list.innerHTML = matched.map(x => `
-                <a href="${x.t.link}" class="search-result-item">
-                    <span class="result-main">
-                        <span class="result-name">${highlight(x.t.name, q)}</span>
-                        <span class="result-desc">${highlight(x.t.desc || '', q)}</span>
-                    </span>
-                    <span class="result-tag">${escHtml(categoryLabelMap[x.t.category] || x.t.category)}</span>
-                </a>`).join('');
+            const total = matched.length;
+            const parts = [];
 
+            for (let i = 0; i < total; i++) {
+                const t = matched[i].t;
+                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
+                    '<span class="result-main">' +
+                    '<span class="result-name">' + highlight(t.name, q) + '</span>' +
+                    '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
+                    '</span>' +
+                    '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
+                    '</a>');
+            }
+
+            list.innerHTML = parts.join('');
             searchState.activeIndex = -1;
 
-            if (matched.length === 0 && q !== '') {
+            if (total === 0 && q !== '') {
                 nr.classList.add('show');
-                if (qs) qs.textContent = q;
-            } else nr.classList.remove('show');
-
-            list.querySelectorAll('.search-result-item').forEach(l=>l.addEventListener('click', closeFullSearch));
+                document.getElementById('fullSearchQuery').textContent = q;
+            } else {
+                nr.classList.remove('show');
+            }
         }
 
-        function handleSearchKey(e){
-            const items=Array.from(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
+        function filterFullSearch() {
+            const input = document.getElementById('fullSearchInput');
+            const q = input.value.toLowerCase().trim();
+            document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
+            if (!searchIsOpen) return;
+            if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
+            searchResultsRaf = requestAnimationFrame(function () {
+                searchResultsRaf = 0;
+                buildSearchResults(q);
+            });
+        }
+
+        function handleSearchKey(e) {
+            const items = Array.from(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
             if (e.key === 'ArrowDown') {
                 e.preventDefault();
                 if (!items.length) return;
@@ -1246,6 +1297,7 @@
             input.focus();
         }
 
+        // Backdrop click
         (function initSearchBackdrop() {
             const overlay = document.getElementById('searchOverlayFull');
             if (overlay) {
@@ -1255,12 +1307,14 @@
             }
         })();
 
+        // Dynamic search placeholder
         (function setSearchPlaceholder() {
             const input = document.getElementById('fullSearchInput');
             if (!input) return;
-            input.placeholder = 'Type to search ' + tools.length + ' free tools…';
+            input.placeholder = 'Search all ' + tools.length + ' free tools…';
         })();
 
+        // Keyboard shortcuts
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') {
                 const container = document.getElementById('toolsMenuContainer');
@@ -1272,17 +1326,31 @@
                 closeFullSearch();
                 closeMobileSidebar();
             }
-            if ((e.ctrlKey||e.metaKey) && e.key === 'k') {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
                 openFullSearch();
             }
         });
 
-        // Initialize shared components
+        // ============ Init ============
         buildMegaMenu();
         buildMobileToolsMenu();
+        // Pre-populate search results (hidden overlay) so it's ready when opened
+        searchIsOpen = true;
         filterFullSearch();
-        lucide.createIcons();
+        searchIsOpen = false;
+
+        // Guarded Lucide init — retry on window load if deferred script isn't ready
+        function initLucide() {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+                return true;
+            }
+            return false;
+        }
+        if (!initLucide()) {
+            window.addEventListener('load', initLucide);
+        }
     </script>
 </body>
 </html>
