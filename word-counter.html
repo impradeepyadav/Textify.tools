@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="theme-color" content="#ffffff">
     
     <title>Online Word Counter Tool — Just Paste and Count Free</title>
@@ -17,9 +17,12 @@
     <meta property="og:url" content="https://textify.tools/word-counter">
     <meta property="og:title" content="Free Word Counter – Count Words, Characters & Sentences Instantly">
     <meta property="og:description" content="Live word count, character count, sentences, paragraphs, reading time, and more. Works offline, no account needed.">
+    <meta property="og:site_name" content="Textify.tools">
+    <meta property="og:image" content="https://textify.tools/og-image.png">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Word Counter – Count Words, Characters & Sentences Instantly">
     <meta name="twitter:description" content="Live word count, character count, sentences, paragraphs, reading time, and more.">
+    <meta name="twitter:image" content="https://textify.tools/og-image.png">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -33,7 +36,6 @@
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://scripts.scriptwrapper.com">
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -64,6 +66,10 @@
 
     <!-- Mediavine -->
     <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
+
+    <script src="https://unpkg.com/docx@7.8.2/build/index.umd.js" defer></script>
+    <script src="https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+    <script src="https://unpkg.com/lucide@0.344.0" defer></script>
 
     <script type="application/ld+json">
     {
@@ -121,8 +127,7 @@
       ]
     }
     </script>
-</head>
-<body>
+
     <style>
         :root {
             --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5; --primary: #000000;
@@ -263,7 +268,7 @@
         .search-results-list {
             background: var(--bg); border-radius: 16px; border: 1px solid var(--line);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto;
-            flex: 1; min-height: 0;
+            flex: 1; min-height: 0; contain: content;
         }
         .search-results-list .search-result-item {
             display: flex; align-items: center; justify-content: space-between;
@@ -518,7 +523,8 @@
             main { padding: 50px 0; } header { padding: 0 60px; } footer { padding: 50px 60px 260px; } h1 { font-size: 44px; }
         }
     </style>
-
+</head>
+<body>
     <div class="page-wrapper">
         <header>
             <div class="header-inner">
@@ -540,7 +546,7 @@
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
                         <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
                     </button>
                     <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
                     <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
@@ -820,6 +826,7 @@
             </div>
         </main>
 
+        <!-- ============ FOOTER (matches index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -851,6 +858,7 @@
                             <h3 class="footer-heading">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="/">Home</a></li>
+                                <li><a href="/about-us">About Us</a></li>
                                 <li><a href="/contact-us">Contact Us</a></li>
                                 <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
                                 <li><a href="/blog">Blog</a></li>
@@ -885,7 +893,7 @@
         </div>
         <div class="mobile-sidebar-actions">
             <button onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
-            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" style="display:none;"></i> Theme</button>
+            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
         </div>
     </div>
 
@@ -904,10 +912,9 @@
 
     <div class="toast" id="toast"></div>
 
-    <script src="https://unpkg.com/docx@7.8.2/build/index.umd.js"></script>
-    <script src="https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-    <script src="https://unpkg.com/lucide@0.344.0"></script>
     <script>
+        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
+
         // ============ CATEGORIES & TOOLS (FULL list from index page) ============
         const categories = [
             { key: 'all', label: 'All Tools' },
@@ -1160,10 +1167,15 @@
         ];
 
         // Precompute haystack for fast search
-        tools.forEach(t => {
+        tools.forEach(function(t) {
+            t._nameLower = t.name.toLowerCase();
+            t._descLower = (t.desc || '').toLowerCase();
             t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
         });
 
+        function escAttr(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
         function escHtml(s) {
             return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
@@ -1175,75 +1187,77 @@
             return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
         }
 
-        // ============ COMMON HEADER/FOOTER SCRIPTS ============
-        function buildMegaMenu() { document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join(''); }
-        function buildMobileToolsMenu() { document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join(''); }
+        // ============ Build shared components ============
+        let megaMenuBuilt = false;
+        let mobileMenuBuilt = false;
 
+        function buildMegaMenu() {
+            if (megaMenuBuilt) return;
+            megaMenuBuilt = true;
+            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
+        }
+        function buildMobileToolsMenu() {
+            if (mobileMenuBuilt) return;
+            mobileMenuBuilt = true;
+            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
+        }
+
+        // ============ Toast ============
         let toastTimer;
-        window.showToast = function(msg, dur=3000) {
-            const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
-            clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
-        };
+        function showToast(msg, dur=3000) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), dur);
+        }
 
+        // ============ Theme (CSS-class based) ============
         function setThemeColorMeta(isDark) {
             const meta = document.querySelector('meta[name="theme-color"]');
             if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
         }
 
-        window.toggleTheme = function() {
-            const html = document.documentElement;
-            const s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon'),
-                  ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (html.classList.contains('dark-mode')) {
-                html.classList.remove('dark-mode');
-                if (s) s.style.display='block'; if (m) m.style.display='none';
-                if(ms) { ms.style.display='block'; mm.style.display='none'; }
-                try { localStorage.setItem('theme','light'); } catch(e){}
+        function toggleTheme() {
+            const root = document.documentElement;
+            if (root.classList.contains('dark-mode')) {
+                root.classList.remove('dark-mode');
+                try { localStorage.setItem('theme', 'light'); } catch (e) {}
                 setThemeColorMeta(false);
             } else {
-                html.classList.add('dark-mode');
-                if (s) s.style.display='none'; if (m) m.style.display='block';
-                if(ms) { ms.style.display='none'; mm.style.display='block'; }
-                try { localStorage.setItem('theme','dark'); } catch(e){}
+                root.classList.add('dark-mode');
+                try { localStorage.setItem('theme', 'dark'); } catch (e) {}
                 setThemeColorMeta(true);
             }
-        };
+        }
 
-        (function initIcons() {
-            const root = document.documentElement;
-            const sun = document.getElementById('sunIcon'), moon = document.getElementById('moonIcon');
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
-            if (root.classList.contains('dark-mode')) {
-                if (sun) sun.style.display = 'none'; if (moon) moon.style.display = 'block';
-                if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
-            } else {
-                if (sun) sun.style.display = 'block'; if (moon) moon.style.display = 'none';
-                if (ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
-            }
-        })();
-
-        window.toggleToolsMenu = function() {
+        // ============ Tools Menu ============
+        function toggleToolsMenu() {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
             const isOpen = container.classList.contains('open');
-            if (isOpen) { container.classList.remove('open'); trigger.setAttribute('aria-expanded', 'false'); }
-            else { container.classList.add('open'); trigger.setAttribute('aria-expanded', 'true'); const firstLink = container.querySelector('.tools-mega-menu a'); if (firstLink) firstLink.focus(); }
-        };
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.dropdown-wrapper')) { 
-                document.querySelectorAll('.dropdown-wrapper.open').forEach(el => {
-                    el.classList.remove('open');
-                    el.style.zIndex = '11';
-                }); 
+            if (isOpen) {
+                container.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
+            } else {
+                buildMegaMenu();
+                container.classList.add('open');
+                trigger.setAttribute('aria-expanded', 'true');
+                const firstLink = container.querySelector('.tools-mega-menu a');
+                if (firstLink) firstLink.focus();
             }
+        }
+        document.addEventListener('click', function(e) {
             const container = document.getElementById('toolsMenuContainer');
             if (container && !container.contains(e.target) && container.classList.contains('open')) {
-                container.classList.remove('open'); 
+                container.classList.remove('open');
                 document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
             }
         });
 
-        window.openMobileSidebar = function() {
+        // ============ Mobile Sidebar ============
+        function openMobileSidebar() {
+            buildMobileToolsMenu();
             const sb = document.getElementById('mobileSidebar');
             sb.classList.add('active');
             sb.setAttribute('aria-hidden', 'false');
@@ -1251,8 +1265,8 @@
             const hb = document.getElementById('hamburgerBtn');
             if (hb) hb.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
-        };
-        window.closeMobileSidebar = function() {
+        }
+        function closeMobileSidebar() {
             const sb = document.getElementById('mobileSidebar');
             if (!sb) return;
             sb.classList.remove('active');
@@ -1262,105 +1276,136 @@
             if (hb) hb.setAttribute('aria-expanded', 'false');
             const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
             if (!searchOpen) document.body.style.overflow = '';
-        };
-        window.toggleMobileTools = function() {
+        }
+        function toggleMobileTools() {
+            buildMobileToolsMenu();
             const toggle = document.getElementById('mobileToolsToggle');
             const menu = document.getElementById('mobileToolsMenu');
             const isOpen = menu.classList.contains('active');
             menu.classList.toggle('active');
             toggle.classList.toggle('active');
             if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
-        };
+        }
         document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
 
-        // Resize handler — force-close mobile sidebar on desktop widths
+        // Resize handler — force close mobile sidebar on desktop
         (function initResizeHandler() {
+            let resizeRaf = 0;
             let lastWasDesktop = window.innerWidth > 768;
             window.addEventListener('resize', function() {
-                const isDesktop = window.innerWidth > 768;
-                if (isDesktop && !lastWasDesktop) {
-                    if (document.getElementById('mobileSidebar').classList.contains('active')) {
-                        closeMobileSidebar();
+                if (resizeRaf) return;
+                resizeRaf = requestAnimationFrame(function () {
+                    resizeRaf = 0;
+                    const isDesktop = window.innerWidth > 768;
+                    if (isDesktop && !lastWasDesktop) {
+                        if (document.getElementById('mobileSidebar').classList.contains('active')) {
+                            closeMobileSidebar();
+                        }
                     }
-                }
-                lastWasDesktop = isDesktop;
+                    lastWasDesktop = isDesktop;
+                });
             });
         })();
 
-        // ============ SEARCH ============
+        // ============ Search ============
         let lastFocusedBeforeSearch = null;
+        let searchResultsRaf = 0;
+        let searchIsOpen = false;
         const searchState = { activeIndex: -1 };
 
-        window.openFullSearch = function() {
+        function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             lastFocusedBeforeSearch = document.activeElement;
+            searchIsOpen = true;
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
             filterFullSearch();
-            setTimeout(() => document.getElementById('fullSearchInput').focus(), 200);
-        };
-        window.closeFullSearch = function() {
+            setTimeout(() => {
+                if (searchIsOpen) document.getElementById('fullSearchInput').focus();
+            }, 200);
+        }
+        function closeFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay.classList.contains('active')) return;
+            searchIsOpen = false;
+            if (searchResultsRaf) {
+                cancelAnimationFrame(searchResultsRaf);
+                searchResultsRaf = 0;
+            }
             overlay.classList.remove('active');
             overlay.setAttribute('aria-hidden', 'true');
             document.getElementById('fullSearchInput').value = '';
-            filterFullSearch();
+            document.getElementById('searchClearBtn').classList.remove('show');
             const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
             if (!sidebarOpen) document.body.style.overflow = '';
             if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
-                try { lastFocusedBeforeSearch.focus(); } catch(e) {}
+                try { lastFocusedBeforeSearch.focus(); } catch (e) {}
             }
             lastFocusedBeforeSearch = null;
-        };
+        }
 
-        window.filterFullSearch = function() {
-            const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
+        function buildSearchResults(q) {
             const list = document.getElementById('fullSearchResultsList');
-            const nr = document.getElementById('fullNoResult'), qs = document.getElementById('fullSearchQuery');
-            const clearBtn = document.getElementById('searchClearBtn');
-            if (clearBtn) clearBtn.classList.toggle('show', q.length > 0);
+            const nr = document.getElementById('fullNoResult');
 
-            const matched = tools
-                .map((t, idx) => ({ t: t, idx: idx, hay: t._hay }))
-                .filter(x => q === '' || x.hay.includes(q))
-                .map(x => {
+            let matched;
+            if (q === '') {
+                matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
+            } else {
+                matched = [];
+                for (let i = 0; i < tools.length; i++) {
+                    const t = tools[i];
+                    if (t._hay.indexOf(q) === -1) continue;
                     let score = 3;
-                    if (q) {
-                        const nm = x.t.name.toLowerCase();
-                        const ds = (x.t.desc || '').toLowerCase();
-                        if (nm.startsWith(q)) score = 0;
-                        else if (nm.includes(q)) score = 1;
-                        else if (ds.includes(q)) score = 2;
-                    }
-                    return { t: x.t, idx: x.idx, score: score };
-                })
-                .sort((a, b) => {
-                    if (q === '') return a.idx - b.idx;
-                    if (a.score !== b.score) return a.score - b.score;
-                    return a.idx - b.idx;
+                    if (t._nameLower.startsWith(q)) score = 0;
+                    else if (t._nameLower.indexOf(q) !== -1) score = 1;
+                    else if (t._descLower.indexOf(q) !== -1) score = 2;
+                    matched.push({ t: t, idx: i, score: score });
+                }
+                matched.sort(function (a, b) {
+                    return a.score - b.score || a.idx - b.idx;
                 });
+            }
 
-            list.innerHTML = matched.map(x => `
-                <a href="${x.t.link}" class="search-result-item">
-                    <span class="result-main">
-                        <span class="result-name">${highlight(x.t.name, q)}</span>
-                        <span class="result-desc">${highlight(x.t.desc || '', q)}</span>
-                    </span>
-                    <span class="result-tag">${escHtml(categoryLabelMap[x.t.category] || x.t.category)}</span>
-                </a>`).join('');
+            const total = matched.length;
+            const parts = [];
 
-            if (matched.length === 0 && q !== '') {
-                nr.classList.add('show');
-                if (qs) qs.textContent = q;
-            } else nr.classList.remove('show');
+            for (let i = 0; i < total; i++) {
+                const t = matched[i].t;
+                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
+                    '<span class="result-main">' +
+                    '<span class="result-name">' + highlight(t.name, q) + '</span>' +
+                    '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
+                    '</span>' +
+                    '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
+                    '</a>');
+            }
 
-            list.querySelectorAll('.search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
+            list.innerHTML = parts.join('');
             searchState.activeIndex = -1;
-        };
 
-        window.handleSearchKey = function(e) {
+            if (total === 0 && q !== '') {
+                nr.classList.add('show');
+                document.getElementById('fullSearchQuery').textContent = q;
+            } else {
+                nr.classList.remove('show');
+            }
+        }
+
+        function filterFullSearch() {
+            const input = document.getElementById('fullSearchInput');
+            const q = input.value.toLowerCase().trim();
+            document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
+            if (!searchIsOpen) return;
+            if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
+            searchResultsRaf = requestAnimationFrame(function () {
+                searchResultsRaf = 0;
+                buildSearchResults(q);
+            });
+        }
+
+        function handleSearchKey(e) {
             const items = Array.from(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
             if (e.key === 'ArrowDown') {
                 e.preventDefault();
@@ -1384,15 +1429,16 @@
                     window.location.href = items[0].getAttribute('href');
                 }
             }
-        };
+        }
 
-        window.clearSearchInput = function() {
+        function clearSearchInput() {
             const input = document.getElementById('fullSearchInput');
             input.value = '';
             filterFullSearch();
             input.focus();
-        };
+        }
 
+        // Backdrop click
         (function initSearchBackdrop() {
             const overlay = document.getElementById('searchOverlayFull');
             if (overlay) {
@@ -1402,12 +1448,14 @@
             }
         })();
 
+        // Dynamic search placeholder
         (function setSearchPlaceholder() {
             const input = document.getElementById('fullSearchInput');
             if (!input) return;
-            input.placeholder = 'Type to search ' + tools.length + ' free tools…';
+            input.placeholder = 'Search all ' + tools.length + ' free tools…';
         })();
 
+        // Keyboard shortcuts
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') {
                 document.querySelectorAll('.dropdown-wrapper.open').forEach(el => {
@@ -1416,18 +1464,31 @@
                 });
                 const container = document.getElementById('toolsMenuContainer');
                 if (container && container.classList.contains('open')) {
-                    container.classList.remove('open'); 
+                    container.classList.remove('open');
                     document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
                     document.getElementById('toolsTrigger').focus();
                 }
                 closeFullSearch();
                 closeMobileSidebar();
             }
-            if ((e.ctrlKey||e.metaKey) && e.key === 'k') {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
                 openFullSearch();
             }
         });
+
+        // ============ FAQ (uses closest()) ============
+        function toggleFaq(btnEl) {
+            const item = btnEl.closest('.faq-item');
+            if (!item) return;
+            const expanded = btnEl.getAttribute('aria-expanded') === 'true';
+            item.classList.toggle('active');
+            btnEl.setAttribute('aria-expanded', String(!expanded));
+            const icon = btnEl.querySelector('svg');
+            if (icon) {
+                icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+        }
 
         // ============ WORD COUNTER SPECIFIC LOGIC ============
         let undoStack = [], undoIndex = -1, MAX_STACK = 50, isUndoRedoOperation = false;
@@ -1440,22 +1501,23 @@
             updateUndoRedoButtons();
         }
         function updateUndoRedoButtons() {
-            document.getElementById('undoBtn').disabled = undoIndex <= 0;
-            document.getElementById('redoBtn').disabled = undoIndex >= undoStack.length - 1;
+            const u = document.getElementById('undoBtn'), r = document.getElementById('redoBtn');
+            if (u) u.disabled = undoIndex <= 0;
+            if (r) r.disabled = undoIndex >= undoStack.length - 1;
         }
-        window.undo = function() {
+        function undo() {
             if (undoIndex <= 0) return;
             isUndoRedoOperation = true; undoIndex--;
             const ta = document.getElementById('inputText'); ta.value = undoStack[undoIndex];
             updateStats(); autoResizeTextarea(); updateUndoRedoButtons(); isUndoRedoOperation = false;
-        };
-        window.redo = function() {
+        }
+        function redo() {
             if (undoIndex >= undoStack.length - 1) return;
             isUndoRedoOperation = true; undoIndex++;
             const ta = document.getElementById('inputText'); ta.value = undoStack[undoIndex];
             updateStats(); autoResizeTextarea(); updateUndoRedoButtons(); isUndoRedoOperation = false;
-        };
-        window.saveState = function() { pushState(document.getElementById('inputText').value); };
+        }
+        function saveState() { pushState(document.getElementById('inputText').value); }
 
         function countSyllables(word) {
             word = word.toLowerCase().replace(/[^a-z]/g, ''); if (word.length <= 3) return 1;
@@ -1474,19 +1536,19 @@
 
         function loadHistory() { try { return JSON.parse(localStorage.getItem('textify_wordcounter_history') || '[]'); } catch(e) { return []; } }
         function saveHistory(history) { localStorage.setItem('textify_wordcounter_history', JSON.stringify(history.slice(-20))); }
-        window.saveToHistory = function() {
+        function saveToHistory() {
             const text = document.getElementById('inputText').value.trim();
             if (!text) { showToast('Nothing to save!'); return; }
             const history = loadHistory(); history.push({ text, timestamp: Date.now() }); saveHistory(history); renderHistory(); showToast('Saved to history ✓');
-        };
-        window.clearHistory = function() { localStorage.removeItem('textify_wordcounter_history'); renderHistory(); showToast('History cleared'); };
-        window.loadHistoryItem = function(text) {
+        }
+        function clearHistory() { localStorage.removeItem('textify_wordcounter_history'); renderHistory(); showToast('History cleared'); }
+        function loadHistoryItem(text) {
             const textarea = document.getElementById('inputText'); textarea.value = text;
             updateStats(); autoResizeTextarea(); pushState(text); showToast('Loaded text from history');
-        };
-        window.deleteHistoryItem = function(index) {
+        }
+        function deleteHistoryItem(index) {
             const history = loadHistory(); history.splice(index, 1); saveHistory(history); renderHistory(); showToast('Deleted');
-        };
+        }
         function renderHistory() {
             const container = document.getElementById('historyList');
             const history = loadHistory();
@@ -1499,10 +1561,10 @@
                     <span class="history-item-actions"><button onclick="event.stopPropagation(); deleteHistoryItem(${idx})"><i data-lucide="trash-2" width="14"></i></button></span>
                 </div>`;
             }).join('');
-            lucide.createIcons();
+            if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
         }
 
-        window.toggleExtractPanel = function() { const panel = document.getElementById('extractPanel'); panel.classList.toggle('active'); if (panel.classList.contains('active')) updateExtractPanel(); };
+        function toggleExtractPanel() { const panel = document.getElementById('extractPanel'); panel.classList.toggle('active'); if (panel.classList.contains('active')) updateExtractPanel(); }
         function updateExtractPanel() {
             const text = document.getElementById('inputText').value;
             const urls = text.match(/https?:\/\/[^\s/$.?#].[^\s]*/gi) || [];
@@ -1516,7 +1578,7 @@
             html += '</div>'; container.innerHTML = html;
         }
 
-        window.copyAllStats = function() {
+        function copyAllStats() {
             const text = document.getElementById('inputText').value; if (!text.trim()) { showToast('Nothing to copy'); return; }
             const items = document.querySelectorAll('#statsList li');
             let report = '--- Textify Word Counter Stats ---\n\n';
@@ -1528,9 +1590,9 @@
             report += '\n--- Text ---\n' + text.substring(0, 500) + (text.length > 500 ? '...' : '');
             if (navigator.clipboard) { navigator.clipboard.writeText(report).then(() => showToast('Stats copied to clipboard ✓')); }
             else { const ta = document.createElement('textarea'); ta.value = report; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast('Stats copied ✓'); }
-        };
+        }
 
-        window.applyCase = function(type) {
+        function applyCase(type) {
             const textarea = document.getElementById('inputText'); const text = textarea.value; if (!text.trim()) return;
             let newText = text;
             switch(type) { case 'upper': newText = text.toUpperCase(); break; case 'lower': newText = text.toLowerCase(); break; case 'title': newText = text.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()); break; case 'sentence': newText = text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase()); break; }
@@ -1538,15 +1600,15 @@
             document.getElementById('caseDropdown').classList.remove('open');
             document.getElementById('caseDropdown').style.zIndex = '11';
             showToast(`Text converted to ${type} case ✓`);
-        };
+        }
 
-        window.exportAs = function(format) {
+        function exportAs(format) {
             const text = document.getElementById('inputText').value; if (!text.trim()) { showToast('Nothing to export!'); return; }
             const filename = `word-counter-${Date.now()}`; 
             document.getElementById('exportDropdown').classList.remove('open');
             document.getElementById('exportDropdown').style.zIndex = '11';
             switch(format) { case 'txt': downloadBlob(text, filename + '.txt', 'text/plain'); break; case 'docx': exportDocx(text, filename); break; case 'pdf': exportPdf(text, filename); break; }
-        };
+        }
         function downloadBlob(content, filename, mimeType) { const blob = new Blob([content], { type: mimeType }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = filename; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); showToast(`Exported as ${filename} ✓`); }
         function exportDocx(text, filename) {
             if (typeof docx === 'undefined') { showToast('DOCX library not loaded. Please reload.'); return; }
@@ -1561,7 +1623,7 @@
             doc.setFont('Helvetica'); doc.setFontSize(12); const lines = doc.splitTextToSize(text, maxLineWidth); doc.text(lines, margin, 20); doc.save(filename + '.pdf'); showToast(`Exported as ${filename}.pdf ✓`);
         }
 
-        window.autoResizeTextarea = function() { const ta = document.getElementById('inputText'); ta.style.height = 'auto'; ta.style.height = Math.max(280, ta.scrollHeight) + 'px'; };
+        function autoResizeTextarea() { const ta = document.getElementById('inputText'); ta.style.height = 'auto'; ta.style.height = Math.max(280, ta.scrollHeight) + 'px'; }
 
         function updateKeywordDensity(words, wordCount) {
             const tbody = document.getElementById('keywordDensityBody');
@@ -1573,7 +1635,7 @@
             tbody.innerHTML = sorted.map(([kw, cnt]) => { const density = ((cnt/wordCount)*100).toFixed(1); return `<tr><td>${escHtml(kw)}</td><td>${cnt}</td><td>${density}%</td></tr>`; }).join('');
         }
 
-        window.updateStats = function() {
+        function updateStats() {
             const text = document.getElementById('inputText').value, statsList = document.getElementById('statsList');
             const words = text.trim() ? text.trim().split(/\s+/).filter(w => w.length > 0) : [];
             const wordCount = words.length, charCount = text.length;
@@ -1595,7 +1657,8 @@
             const avgWordLength = wordCount ? (charNoSpaces / wordCount).toFixed(1) : '0';
             let totalSyllables = 0; words.forEach(w => { totalSyllables += countSyllables(w); });
             const { ease, grade } = calcReadability(wordCount, sentenceCount, totalSyllables);
-            const wpm = parseInt(document.getElementById('speakingWPM')?.value) || 150;
+            const wpmEl = document.getElementById('speakingWPM');
+            const wpm = wpmEl ? (parseInt(wpmEl.value) || 150) : 150;
             const speakingTime = Math.max(1, Math.ceil(wordCount / wpm));
             let longestWord = '', longestLen = 0; words.forEach(w => { if (w.length > longestLen) { longestLen = w.length; longestWord = w; } });
             const longestDisplay = longestWord ? `${longestWord.substring(0,30)} (${longestLen} chars)` : '-';
@@ -1624,27 +1687,37 @@
             statsList.innerHTML = html;
             if (document.getElementById('extractPanel').classList.contains('active')) updateExtractPanel();
             statsList.classList.add('pulse'); setTimeout(() => statsList.classList.remove('pulse'), 200);
-        };
+        }
 
-        window.clearText = function() { const ta = document.getElementById('inputText'); ta.value = ''; updateStats(); autoResizeTextarea(); pushState(''); showToast('Text cleared'); };
-        window.copyText = async function() {
+        function clearText() { const ta = document.getElementById('inputText'); ta.value = ''; updateStats(); autoResizeTextarea(); pushState(''); showToast('Text cleared'); }
+        function copyText() {
             const textarea = document.getElementById('inputText');
-            try { if (navigator.clipboard && navigator.clipboard.writeText) { await navigator.clipboard.writeText(textarea.value); } else { textarea.focus(); textarea.select(); document.execCommand('copy'); } showToast('Text copied to clipboard!'); }
-            catch (err) { textarea.focus(); textarea.select(); alert("Please press Ctrl+C (Cmd+C on Mac) to copy the text."); }
-        };
-        window.pasteFromClipboard = async function() {
-            try { const clipboardText = await navigator.clipboard.readText(); if (clipboardText) { const ta = document.getElementById('inputText'); ta.value += clipboardText; updateStats(); autoResizeTextarea(); pushState(ta.value); showToast('Pasted from clipboard ✓'); } else { showToast('Clipboard is empty'); } }
-            catch (err) { showToast('Could not paste automatically – please use Ctrl+V'); }
-        };
+            const doCopy = () => { showToast('Text copied to clipboard!'); };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textarea.value).then(doCopy).catch(() => {
+                    textarea.focus(); textarea.select();
+                    try { document.execCommand('copy'); doCopy(); }
+                    catch (e) { alert("Please press Ctrl+C (Cmd+C on Mac) to copy the text."); }
+                });
+            } else {
+                textarea.focus(); textarea.select();
+                try { document.execCommand('copy'); doCopy(); }
+                catch (e) { alert("Please press Ctrl+C (Cmd+C on Mac) to copy the text."); }
+            }
+        }
+        function pasteFromClipboard() {
+            if (!navigator.clipboard || !navigator.clipboard.readText) { showToast('Could not paste automatically – please use Ctrl+V'); return; }
+            navigator.clipboard.readText().then(clipboardText => {
+                if (clipboardText) {
+                    const ta = document.getElementById('inputText');
+                    ta.value += clipboardText;
+                    updateStats(); autoResizeTextarea(); pushState(ta.value);
+                    showToast('Pasted from clipboard ✓');
+                } else { showToast('Clipboard is empty'); }
+            }).catch(() => { showToast('Could not paste automatically – please use Ctrl+V'); });
+        }
 
-        window.toggleFaq = function(btnEl) {
-            const item = btnEl.parentElement;
-            const expanded = btnEl.getAttribute('aria-expanded') === 'true';
-            item.classList.toggle('active'); btnEl.setAttribute('aria-expanded', !expanded);
-            const icon = btnEl.querySelector('svg'); if (icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
-        };
-
-        window.toggleDropdown = function(id) {
+        function toggleDropdown(id) {
             const wrapper = document.getElementById(id); 
             if (!wrapper) return;
             const isOpen = wrapper.classList.contains('open');
@@ -1671,14 +1744,50 @@
                 wrapper.classList.remove('open');
                 wrapper.style.zIndex = '11';
             }
-        };
+        }
 
-        // Initialize all
-        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
-        buildMegaMenu(); buildMobileToolsMenu(); renderHistory(); filterFullSearch(); lucide.createIcons();
-        updateStats(); autoResizeTextarea(); pushState('');
-        const style = document.createElement('style'); style.textContent = `@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.01); } 100% { transform: scale(1); } } #statsList.pulse { animation: pulse 0.2s ease; }`;
-        document.head.appendChild(style);
+        // Close dropdowns on outside click
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown-wrapper')) {
+                document.querySelectorAll('.dropdown-wrapper.open').forEach(el => {
+                    el.classList.remove('open');
+                    el.style.zIndex = '11';
+                });
+            }
+        });
+
+        // ============ Init ============
+        buildMegaMenu();
+        buildMobileToolsMenu();
+        // Pre-populate search results (hidden overlay) so it's ready when opened
+        searchIsOpen = true;
+        filterFullSearch();
+        searchIsOpen = false;
+
+        // Guarded Lucide init — retry on window load if deferred script isn't ready
+        function initLucide() {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+                return true;
+            }
+            return false;
+        }
+        if (!initLucide()) {
+            window.addEventListener('load', initLucide);
+        }
+
+        // Initialize word counter
+        renderHistory();
+        updateStats();
+        autoResizeTextarea();
+        pushState('');
+
+        // Inject pulse animation
+        (function() {
+            const style = document.createElement('style');
+            style.textContent = `@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.01); } 100% { transform: scale(1); } } #statsList.pulse { animation: pulse 0.2s ease; }`;
+            document.head.appendChild(style);
+        })();
     </script>
 </body>
 </html>
