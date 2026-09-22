@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>XML Formatter / Beautifier - Free Online Tool | Textify.tools</title>
     <meta name="description" content="Format messy XML into readable, indented structure instantly. Customize indentation, add XML declaration, and sort attributes. Free, private, and no signup needed.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -36,16 +36,12 @@
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://scripts.scriptwrapper.com">
     <link rel="preconnect" href="https://unpkg.com">
-
-    <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- yandex verification -->
     <meta name="yandex-verification" content="6e105f6188a8c833" />
 
-    <!-- Inline script to prevent dark mode flash -->
     <script>
         (function() {
             var stored = null;
@@ -72,6 +68,8 @@
     <!-- Mediavine -->
     <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
 
+    <script src="https://unpkg.com/lucide@0.344.0" defer></script>
+
     <!-- Structured Data -->
     <script type="application/ld+json">
         {
@@ -90,12 +88,7 @@
                     "@id": "https://textify.tools/#organization",
                     "name": "Textify.tools",
                     "url": "https://textify.tools/",
-                    "logo": {
-                        "@type": "ImageObject",
-                        "url": "https://textify.tools/apple-touch-icon.png",
-                        "width": 180,
-                        "height": 180
-                    },
+                    "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 },
                     "sameAs": ["https://x.com/BuiltByPradeep"]
                 },
                 {
@@ -118,55 +111,16 @@
                 {
                     "@type": "FAQPage",
                     "mainEntity": [
-                        {
-                            "@type": "Question",
-                            "name": "What does the XML formatter do?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "It takes messy, minified, or poorly indented XML and turns it into clean, human-readable XML with proper indentation. You can set the indentation level and choose to add an XML declaration."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Can I sort attributes alphabetically?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Yes, there is an option to sort attributes in each element alphabetically. This is helpful for comparing XML files or ensuring consistent attribute order."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Is my XML data safe?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Absolutely. Everything runs in your browser – your XML never leaves your device. We have no server that can see or store it."
-                            }
-                        }
+                        { "@type": "Question", "name": "What does the XML formatter do?", "acceptedAnswer": { "@type": "Answer", "text": "It takes messy, minified, or poorly indented XML and turns it into clean, human-readable XML with proper indentation. You can set the indentation level and choose to add an XML declaration." } },
+                        { "@type": "Question", "name": "Can I sort attributes alphabetically?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, there is an option to sort attributes in each element alphabetically. This is helpful for comparing XML files or ensuring consistent attribute order." } },
+                        { "@type": "Question", "name": "Is my XML data safe?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Everything runs in your browser – your XML never leaves your device. We have no server that can see or store it." } }
                     ]
                 },
-                {
-                    "@type": "BreadcrumbList",
-                    "itemListElement": [
-                        {
-                            "@type": "ListItem",
-                            "position": 1,
-                            "name": "Home",
-                            "item": "https://textify.tools/"
-                        },
-                        {
-                            "@type": "ListItem",
-                            "position": 2,
-                            "name": "XML Formatter",
-                            "item": "https://textify.tools/xml-formatter"
-                        }
-                    ]
-                }
+                { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" }, { "@type": "ListItem", "position": 2, "name": "XML Formatter", "item": "https://textify.tools/xml-formatter" } ] }
             ]
         }
     </script>
-</head>
-<body>
-    <script src="https://unpkg.com/lucide@0.344.0"></script>
+
     <style>
         :root {
             --bg: #ffffff;
@@ -283,30 +237,14 @@
         .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
         .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
         .tools-menu-container { position: relative; }
-        .tools-trigger {
-            display: flex; align-items: center; gap: 4px; cursor: pointer;
-            padding: 6px 8px; border-radius: 6px; color: var(--text-light);
-            font-weight: 500; font-size: 14px; transition: 0.2s;
-            background: none; border: none; font-family: inherit;
-        }
+        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; background: none; border: none; font-family: inherit; }
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
         .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
-        .tools-mega-menu {
-            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
-            background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
-            padding: 12px 8px; min-width: 220px; max-width: min(90vw, 400px); max-height: 70vh; overflow-y: auto;
-            box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden;
-            transition: 0.25s; z-index: 50;
-        }
+        .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 220px; max-width: min(90vw, 400px); max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
         .tools-menu-container:hover .tools-mega-menu,
-        .tools-menu-container.open .tools-mega-menu {
-            opacity: 1; visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
+        .tools-menu-container.open .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
         .tools-menu-container:hover .tools-trigger i,
-        .tools-menu-container.open .tools-trigger i {
-            transform: rotate(180deg);
-        }
+        .tools-menu-container.open .tools-trigger i { transform: rotate(180deg); }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
@@ -382,7 +320,7 @@
         .search-results-list {
             background: var(--bg); border-radius: 16px; border: 1px solid var(--line);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto;
-            flex: 1; min-height: 0;
+            flex: 1; min-height: 0; contain: content;
         }
         .search-results-list .search-result-item {
             display: flex; align-items: center; justify-content: space-between;
@@ -434,6 +372,13 @@
         .btn:hover { background: var(--hover); border-color: var(--primary); }
         .btn.primary { background: var(--primary); color: var(--bg); border: none; }
         .btn.primary:hover { opacity: 0.9; }
+
+        /* ============ FAQ (matches index page) ============ */
+        .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; border: none; width: 100%; text-align: left; font-family: inherit; }
+        .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
 
         /* ============ FOOTER (matches index page) ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
@@ -496,12 +441,13 @@
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
         .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
-
+</head>
+<body>
     <div class="page-wrapper">
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="/favicon.ico" alt="Textify.Tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
+                    <img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
                     Textify.tools
                 </a>
                 <div class="header-right">
@@ -518,7 +464,7 @@
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
                         <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                        <i data-lucide="moon" id="moonIcon" width="20" height="20" style="display:none;"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
                     </button>
                     <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
                     <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
@@ -657,28 +603,26 @@
 
                 <div style="margin-bottom:40px;">
                     <h2>Frequently asked questions</h2>
-                    <div style="border:1px solid var(--line); border-radius:10px; overflow:hidden;">
-                        <div class="faq-item" style="border-bottom:1px solid var(--line);">
-                            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-                                Is this tool really free?
-                                <i data-lucide="chevron-down" width="16"></i>
-                            </button>
-                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Absolutely. No paid plans, no hidden fees. I keep the lights on with a few small, non‑intrusive ads.</div>
-                        </div>
-                        <div class="faq-item" style="border-bottom:1px solid var(--line);">
-                            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-                                What if my XML is invalid?
-                                <i data-lucide="chevron-down" width="16"></i>
-                            </button>
-                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">The tool will display a specific error message right below the input box, pointing to the line and column where the parser tripped. Fix the syntax, and the formatting will update.</div>
-                        </div>
-                        <div class="faq-item">
-                            <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false" style="width:100%; background:var(--faq-bg); padding:16px; font-weight:600; text-align:left; border:none; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-                                Do you store my XML data?
-                                <i data-lucide="chevron-down" width="16"></i>
-                            </button>
-                            <div class="faq-answer" style="display:none; padding:16px; color:var(--text-light); border-top:1px solid var(--line);">Never. All processing happens inside your browser. Your XML doesn't leave your device. I can't see it, and I never store it.</div>
-                        </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                            Is this tool really free?
+                            <i data-lucide="chevron-down" width="16"></i>
+                        </button>
+                        <div class="faq-answer">Absolutely. No paid plans, no hidden fees. I keep the lights on with a few small, non‑intrusive ads.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                            What if my XML is invalid?
+                            <i data-lucide="chevron-down" width="16"></i>
+                        </button>
+                        <div class="faq-answer">The tool will display a specific error message right below the input box, pointing to the line and column where the parser tripped. Fix the syntax, and the formatting will update.</div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                            Do you store my XML data?
+                            <i data-lucide="chevron-down" width="16"></i>
+                        </button>
+                        <div class="faq-answer">Never. All processing happens inside your browser. Your XML doesn't leave your device. I can't see it, and I never store it.</div>
                     </div>
                 </div>
 
@@ -694,6 +638,7 @@
             </div>
         </main>
 
+        <!-- ============ FOOTER (matches index page) ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -725,6 +670,7 @@
                             <h3 class="footer-heading">Quick Links</h3>
                             <ul class="footer-links">
                                 <li><a href="/">Home</a></li>
+                                <li><a href="/about-us">About Us</a></li>
                                 <li><a href="/contact-us">Contact Us</a></li>
                                 <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
                                 <li><a href="/blog">Blog</a></li>
@@ -748,7 +694,7 @@
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
         <div class="mobile-sidebar-header">
-            <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.Tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
+            <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
         <div class="mobile-sidebar-nav">
@@ -760,7 +706,7 @@
         </div>
         <div class="mobile-sidebar-actions">
             <button onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
-            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" style="display:none;"></i> Theme</button>
+            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
         </div>
     </div>
 
@@ -781,6 +727,8 @@
     <div class="toast" id="toast"></div>
 
     <script>
+        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
+
         // ============ XML Formatter Core ============
         let debounceTimer;
         function autoFormatXml() {
@@ -875,12 +823,22 @@
             return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         }
 
-        function copyToClipboard() {
+        async function copyToClipboard() {
             const output = document.getElementById('output-xml');
             if (!output.value) { showToast('Nothing to copy yet.'); return; }
-            output.select();
-            document.execCommand('copy');
-            showToast('XML copied to clipboard!');
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(output.value);
+                } else {
+                    output.select();
+                    document.execCommand('copy');
+                }
+                showToast('XML copied to clipboard!');
+            } catch (e) {
+                output.select();
+                try { document.execCommand('copy'); showToast('XML copied to clipboard!'); }
+                catch (err) { showToast('Copy failed. Please copy manually.'); }
+            }
         }
 
         function downloadXml() {
@@ -891,7 +849,9 @@
             const a = document.createElement('a');
             a.href = url;
             a.download = 'textify-xml-formatted.xml';
+            document.body.appendChild(a);
             a.click();
+            document.body.removeChild(a);
             URL.revokeObjectURL(url);
         }
 
@@ -908,27 +868,14 @@
         // ============ Toast ============
         let toastTimer;
         function showToast(msg, dur=3000) {
-            const t=document.getElementById('toast');
-            t.textContent=msg;
+            const t = document.getElementById('toast');
+            t.textContent = msg;
             t.classList.add('show');
             clearTimeout(toastTimer);
-            toastTimer=setTimeout(()=>t.classList.remove('show'), dur);
+            toastTimer = setTimeout(() => t.classList.remove('show'), dur);
         }
 
-        // ============ FAQ Toggle ============
-        function toggleFaq(btnEl){
-            const item = btnEl.parentElement;
-            const expanded = btnEl.getAttribute('aria-expanded') === 'true';
-            const answer = item.querySelector('.faq-answer');
-            if(answer){
-                answer.style.display = expanded ? 'none' : 'block';
-                btnEl.setAttribute('aria-expanded', !expanded);
-                const icon = btnEl.querySelector('svg');
-                if(icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
-            }
-        }
-
-        // ============ Tools & Categories (FULL list from index page) ============
+        // ============ Categories & Tools (FULL list from index page) ============
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'text', label: 'Text Tools' },
@@ -940,7 +887,6 @@
             { key: 'calculator', label: 'Calculators & Converters' },
             { key: 'finance', label: 'Finance' }
         ];
-
         const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
 
         const tools = [
@@ -1116,16 +1062,12 @@
             { name: 'Discount Calculator', desc: 'Calculate discounts.', icon: 'percent', link: '/discount-calculator', keywords: 'discount calculator sale off price', color: '#10b981', category: 'business' },
             { name: 'Profit Margin Calculator', desc: 'Calculate profit margins.', icon: 'trending-up', link: '/profit-margin-calculator', keywords: 'profit margin calculator business', color: '#10b981', category: 'business' },
             { name: 'Salary Calculator', desc: 'Calculate salary.', icon: 'dollar-sign', link: '/salary-calculator', keywords: 'salary calculator income wage', color: '#10b981', category: 'business' },
-
-            /* ---------- Finance ---------- */
             { name: 'EMI Calculator', desc: 'Calculate loan EMI.', icon: 'calculator', link: '/emi-calculator', keywords: 'emi calculator loan equated monthly installment', color: '#f59e0b', category: 'finance' },
             { name: 'Loan Calculator', desc: 'Calculate loan details.', icon: 'calculator', link: '/loan-calculator', keywords: 'loan calculator interest', color: '#f59e0b', category: 'finance' },
             { name: 'SIP Calculator', desc: 'Calculate SIP returns.', icon: 'trending-up', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment returns', color: '#f59e0b', category: 'finance' },
             { name: 'Income Tax Calculator', desc: 'Calculate income tax.', icon: 'percent', link: '/income-tax-calculator', keywords: 'income tax calculator slab', color: '#f59e0b', category: 'finance' },
             { name: 'Tax Calculator', desc: 'Calculate taxes.', icon: 'percent', link: '/tax-calculator', keywords: 'tax calculator', color: '#f59e0b', category: 'finance' },
             { name: 'Tip Calculator', desc: 'Calculate tips.', icon: 'dollar-sign', link: '/tip-calculator', keywords: 'tip calculator restaurant gratuity', color: '#f59e0b', category: 'finance' },
-
-            /* ---------- Calculators & Converters ---------- */
             { name: 'GPA Calculator', desc: 'Calculate GPA.', icon: 'graduation-cap', link: '/gpa-calculator', keywords: 'gpa calculator student grade point', color: '#8b5cf6', category: 'calculator' },
             { name: 'CGPA Calculator', desc: 'Calculate CGPA.', icon: 'graduation-cap', link: '/cgpa-calculator', keywords: 'cgpa calculator student grade', color: '#8b5cf6', category: 'calculator' },
             { name: 'Percentage Calculator', desc: 'Calculate percentages.', icon: 'percent', link: '/percentage-calculator', keywords: 'percentage calculator percent', color: '#8b5cf6', category: 'calculator' },
@@ -1185,14 +1127,18 @@
         ];
 
         // Precompute haystack for fast search
-        tools.forEach(t => {
+        tools.forEach(function(t) {
+            t._nameLower = t.name.toLowerCase();
+            t._descLower = (t.desc || '').toLowerCase();
             t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
         });
 
+        function escAttr(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
         function escHtml(s) {
             return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
-
         function highlight(text, q) {
             const safe = escHtml(text);
             if (!q) return safe;
@@ -1202,14 +1148,21 @@
         }
 
         // ============ Build shared components ============
+        let megaMenuBuilt = false;
+        let mobileMenuBuilt = false;
+
         function buildMegaMenu() {
-            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join('');
+            if (megaMenuBuilt) return;
+            megaMenuBuilt = true;
+            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
         function buildMobileToolsMenu() {
-            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${t.link}">${escHtml(t.name)}</a>`).join('');
+            if (mobileMenuBuilt) return;
+            mobileMenuBuilt = true;
+            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
 
-        // ============ Theme ============
+        // ============ Theme (CSS-class based) ============
         function setThemeColorMeta(isDark) {
             const meta = document.querySelector('meta[name="theme-color"]');
             if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
@@ -1217,38 +1170,16 @@
 
         function toggleTheme() {
             const root = document.documentElement;
-            const s = document.getElementById('sunIcon'), m = document.getElementById('moonIcon');
-            const ms = document.getElementById('mobileSunIcon'), mm = document.getElementById('mobileMoonIcon');
             if (root.classList.contains('dark-mode')) {
                 root.classList.remove('dark-mode');
-                if (s) s.style.display='block'; if (m) m.style.display='none';
-                if (ms) { ms.style.display='block'; mm.style.display='none'; }
-                try { localStorage.setItem('theme','light'); } catch(e){}
+                try { localStorage.setItem('theme', 'light'); } catch (e) {}
                 setThemeColorMeta(false);
             } else {
                 root.classList.add('dark-mode');
-                if (s) s.style.display='none'; if (m) m.style.display='block';
-                if (ms) { ms.style.display='none'; mm.style.display='block'; }
-                try { localStorage.setItem('theme','dark'); } catch(e){}
+                try { localStorage.setItem('theme', 'dark'); } catch (e) {}
                 setThemeColorMeta(true);
             }
         }
-
-        (function initIcons() {
-            const root = document.documentElement;
-            const sun = document.getElementById('sunIcon');
-            const moon = document.getElementById('moonIcon');
-            const ms = document.getElementById('mobileSunIcon');
-            const mm = document.getElementById('mobileMoonIcon');
-            if (!sun || !moon) return;
-            if (root.classList.contains('dark-mode')) {
-                sun.style.display = 'none'; moon.style.display = 'block';
-                if (ms && mm) { ms.style.display = 'none'; mm.style.display = 'block'; }
-            } else {
-                sun.style.display = 'block'; moon.style.display = 'none';
-                if (ms && mm) { ms.style.display = 'block'; mm.style.display = 'none'; }
-            }
-        })();
 
         // ============ Tools Menu ============
         function toggleToolsMenu() {
@@ -1259,6 +1190,7 @@
                 container.classList.remove('open');
                 trigger.setAttribute('aria-expanded', 'false');
             } else {
+                buildMegaMenu();
                 container.classList.add('open');
                 trigger.setAttribute('aria-expanded', 'true');
                 const firstLink = container.querySelector('.tools-mega-menu a');
@@ -1274,16 +1206,17 @@
         });
 
         // ============ Mobile Sidebar ============
-        function openMobileSidebar(){
+        function openMobileSidebar() {
+            buildMobileToolsMenu();
             const sb = document.getElementById('mobileSidebar');
             sb.classList.add('active');
             sb.setAttribute('aria-hidden', 'false');
             document.getElementById('mobileSidebarOverlay').classList.add('active');
             const hb = document.getElementById('hamburgerBtn');
             if (hb) hb.setAttribute('aria-expanded', 'true');
-            document.body.style.overflow='hidden';
+            document.body.style.overflow = 'hidden';
         }
-        function closeMobileSidebar(){
+        function closeMobileSidebar() {
             const sb = document.getElementById('mobileSidebar');
             if (!sb) return;
             sb.classList.remove('active');
@@ -1292,9 +1225,10 @@
             const hb = document.getElementById('hamburgerBtn');
             if (hb) hb.setAttribute('aria-expanded', 'false');
             const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
-            if (!searchOpen) document.body.style.overflow='';
+            if (!searchOpen) document.body.style.overflow = '';
         }
-        function toggleMobileTools(){
+        function toggleMobileTools() {
+            buildMobileToolsMenu();
             const toggle = document.getElementById('mobileToolsToggle');
             const menu = document.getElementById('mobileToolsMenu');
             const isOpen = menu.classList.contains('active');
@@ -1302,101 +1236,126 @@
             toggle.classList.toggle('active');
             if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
         }
-        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l=>l.addEventListener('click', closeMobileSidebar));
+        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(l => l.addEventListener('click', closeMobileSidebar));
 
         // Resize handler — force close mobile sidebar on desktop
         (function initResizeHandler() {
+            let resizeRaf = 0;
             let lastWasDesktop = window.innerWidth > 768;
             window.addEventListener('resize', function() {
-                const isDesktop = window.innerWidth > 768;
-                if (isDesktop && !lastWasDesktop) {
-                    if (document.getElementById('mobileSidebar').classList.contains('active')) {
-                        closeMobileSidebar();
+                if (resizeRaf) return;
+                resizeRaf = requestAnimationFrame(function () {
+                    resizeRaf = 0;
+                    const isDesktop = window.innerWidth > 768;
+                    if (isDesktop && !lastWasDesktop) {
+                        if (document.getElementById('mobileSidebar').classList.contains('active')) {
+                            closeMobileSidebar();
+                        }
                     }
-                }
-                lastWasDesktop = isDesktop;
+                    lastWasDesktop = isDesktop;
+                });
             });
         })();
 
         // ============ Search ============
         let lastFocusedBeforeSearch = null;
+        let searchResultsRaf = 0;
+        let searchIsOpen = false;
         const searchState = { activeIndex: -1 };
 
-        function openFullSearch(){
+        function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             lastFocusedBeforeSearch = document.activeElement;
+            searchIsOpen = true;
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow='hidden';
+            document.body.style.overflow = 'hidden';
             filterFullSearch();
-            setTimeout(()=>document.getElementById('fullSearchInput').focus(),200);
+            setTimeout(() => {
+                if (searchIsOpen) document.getElementById('fullSearchInput').focus();
+            }, 200);
         }
-        function closeFullSearch(){
+        function closeFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay.classList.contains('active')) return;
+            searchIsOpen = false;
+            if (searchResultsRaf) {
+                cancelAnimationFrame(searchResultsRaf);
+                searchResultsRaf = 0;
+            }
             overlay.classList.remove('active');
             overlay.setAttribute('aria-hidden', 'true');
-            document.getElementById('fullSearchInput').value='';
-            filterFullSearch();
+            document.getElementById('fullSearchInput').value = '';
+            document.getElementById('searchClearBtn').classList.remove('show');
             const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
-            if (!sidebarOpen) document.body.style.overflow='';
+            if (!sidebarOpen) document.body.style.overflow = '';
             if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
-                try { lastFocusedBeforeSearch.focus(); } catch(e) {}
+                try { lastFocusedBeforeSearch.focus(); } catch (e) {}
             }
             lastFocusedBeforeSearch = null;
         }
 
-        function filterFullSearch(){
-            const q = document.getElementById('fullSearchInput').value.toLowerCase().trim();
+        function buildSearchResults(q) {
             const list = document.getElementById('fullSearchResultsList');
             const nr = document.getElementById('fullNoResult');
-            const qs = document.getElementById('fullSearchQuery');
-            const clearBtn = document.getElementById('searchClearBtn');
 
-            if (clearBtn) clearBtn.classList.toggle('show', q.length > 0);
-
-            const matched = tools
-                .map((t, idx) => ({ t: t, idx: idx, hay: t._hay }))
-                .filter(x => q === '' || x.hay.includes(q))
-                .map(x => {
+            let matched;
+            if (q === '') {
+                matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
+            } else {
+                matched = [];
+                for (let i = 0; i < tools.length; i++) {
+                    const t = tools[i];
+                    if (t._hay.indexOf(q) === -1) continue;
                     let score = 3;
-                    if (q) {
-                        const nm = x.t.name.toLowerCase();
-                        const ds = (x.t.desc || '').toLowerCase();
-                        if (nm.startsWith(q)) score = 0;
-                        else if (nm.includes(q)) score = 1;
-                        else if (ds.includes(q)) score = 2;
-                    }
-                    return { t: x.t, idx: x.idx, score: score };
-                })
-                .sort((a, b) => {
-                    if (q === '') return a.idx - b.idx;
-                    if (a.score !== b.score) return a.score - b.score;
-                    return a.idx - b.idx;
+                    if (t._nameLower.startsWith(q)) score = 0;
+                    else if (t._nameLower.indexOf(q) !== -1) score = 1;
+                    else if (t._descLower.indexOf(q) !== -1) score = 2;
+                    matched.push({ t: t, idx: i, score: score });
+                }
+                matched.sort(function (a, b) {
+                    return a.score - b.score || a.idx - b.idx;
                 });
+            }
 
-            list.innerHTML = matched.map(x => `
-                <a href="${x.t.link}" class="search-result-item">
-                    <span class="result-main">
-                        <span class="result-name">${highlight(x.t.name, q)}</span>
-                        <span class="result-desc">${highlight(x.t.desc || '', q)}</span>
-                    </span>
-                    <span class="result-tag">${escHtml(categoryLabelMap[x.t.category] || x.t.category)}</span>
-                </a>`).join('');
+            const total = matched.length;
+            const parts = [];
 
+            for (let i = 0; i < total; i++) {
+                const t = matched[i].t;
+                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
+                    '<span class="result-main">' +
+                    '<span class="result-name">' + highlight(t.name, q) + '</span>' +
+                    '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
+                    '</span>' +
+                    '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
+                    '</a>');
+            }
+
+            list.innerHTML = parts.join('');
             searchState.activeIndex = -1;
 
-            if (matched.length === 0 && q !== '') {
+            if (total === 0 && q !== '') {
                 nr.classList.add('show');
-                if (qs) qs.textContent = q;
+                document.getElementById('fullSearchQuery').textContent = q;
             } else {
                 nr.classList.remove('show');
             }
-
-            list.querySelectorAll('.search-result-item').forEach(l => l.addEventListener('click', closeFullSearch));
         }
 
-        function handleSearchKey(e){
+        function filterFullSearch() {
+            const input = document.getElementById('fullSearchInput');
+            const q = input.value.toLowerCase().trim();
+            document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
+            if (!searchIsOpen) return;
+            if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
+            searchResultsRaf = requestAnimationFrame(function () {
+                searchResultsRaf = 0;
+                buildSearchResults(q);
+            });
+        }
+
+        function handleSearchKey(e) {
             const items = Array.from(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
             if (e.key === 'ArrowDown') {
                 e.preventDefault();
@@ -1443,9 +1402,10 @@
         (function setSearchPlaceholder() {
             const input = document.getElementById('fullSearchInput');
             if (!input) return;
-            input.placeholder = 'Type to search ' + tools.length + ' free tools…';
+            input.placeholder = 'Search all ' + tools.length + ' free tools…';
         })();
 
+        // Keyboard shortcuts
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') {
                 const container = document.getElementById('toolsMenuContainer');
@@ -1457,19 +1417,43 @@
                 closeFullSearch();
                 closeMobileSidebar();
             }
-            if ((e.ctrlKey||e.metaKey) && e.key === 'k') {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
                 openFullSearch();
             }
         });
 
+        // ============ FAQ (uses closest()) ============
+        function toggleFaq(btnEl) {
+            const item = btnEl.closest('.faq-item');
+            if (!item) return;
+            const expanded = btnEl.getAttribute('aria-expanded') === 'true';
+            item.classList.toggle('active');
+            btnEl.setAttribute('aria-expanded', String(!expanded));
+            const icon = btnEl.querySelector('svg');
+            if (icon) {
+                icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+        }
+
         // ============ Init ============
-        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
         buildMegaMenu();
         buildMobileToolsMenu();
+        // Pre-populate search results (hidden overlay) so it's ready when opened
+        searchIsOpen = true;
         filterFullSearch();
-        if (window.lucide && typeof window.lucide.createIcons === 'function') {
-            window.lucide.createIcons();
+        searchIsOpen = false;
+
+        // Guarded Lucide init — retry on window load if deferred script isn't ready
+        function initLucide() {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+                return true;
+            }
+            return false;
+        }
+        if (!initLucide()) {
+            window.addEventListener('load', initLucide);
         }
     </script>
 </body>
