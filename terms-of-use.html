@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Terms of Use - Textify.tools</title>
-    <meta name="description" content="Read the terms of use for Textify.tools. Understand your rights and responsibilities when using our free text tools.">
+    <meta name="description" content="Read the terms of use for Textify.tools. Simple, plain-English rules for using our free browser-based tools. Questions? contact@textify.tools">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Pradeep Yadav">
     <link rel="canonical" href="https://textify.tools/terms-of-use">
@@ -93,6 +93,7 @@
                     "@id": "https://textify.tools/#organization",
                     "name": "Textify.tools",
                     "url": "https://textify.tools/",
+                    "email": "contact@textify.tools",
                     "logo": {
                         "@type": "ImageObject",
                         "url": "https://textify.tools/apple-touch-icon.png",
@@ -205,11 +206,12 @@
             --mark-text: #dbeafe;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
+        html { scroll-behavior: smooth; overflow-x: hidden; overflow-x: clip; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg); color: var(--text); min-height: 100vh;
-            transition: background 0.3s, color 0.3s; overflow-x: hidden;
+            transition: background 0.3s, color 0.3s; overflow-x: hidden; overflow-x: clip;
+            -webkit-text-size-adjust: 100%;
         }
         .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
 
@@ -219,10 +221,13 @@
         }
         table {
             max-width: 100%;
+            width: 100%;
+            border-collapse: collapse;
         }
         pre, code {
             white-space: pre-wrap;
             word-wrap: break-word;
+            word-break: break-word;
         }
         mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
 
@@ -258,7 +263,8 @@
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
         .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
         .tools-mega-menu {
-            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+            position: absolute; top: 100%; right: 0; left: auto;
+            transform: translateY(8px);
             background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
             padding: 12px 8px; min-width: 220px; max-width: min(90vw, 400px); max-height: 70vh; overflow-y: auto;
             box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden;
@@ -267,7 +273,7 @@
         .tools-menu-container:hover .tools-mega-menu,
         .tools-menu-container.open .tools-mega-menu {
             opacity: 1; visibility: visible;
-            transform: translateX(-50%) translateY(0);
+            transform: translateY(0);
         }
         .tools-menu-container:hover .tools-trigger i,
         .tools-menu-container.open .tools-trigger i {
@@ -379,15 +385,24 @@
         .search-no-result.show { display: block; }
 
         main { flex: 1; padding: 40px 0; width: 100%; max-width: 100%; background: transparent; }
-        .content-container { width: 100%; padding: 0 40px; }
+        .content-container { width: 100%; max-width: 100%; padding: 0 40px; min-width: 0; }
+        .content-container > * { max-width: 100%; }
         @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
         h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; text-align: left; }
         h2 { font-size: 22px; font-weight: 700; margin-top: 30px; margin-bottom: 12px; }
         h3 { font-size: 18px; font-weight: 600; margin-top: 20px; margin-bottom: 8px; }
         p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
-        ul { padding-left: 22px; color: var(--text-light); margin-bottom: 15px; }
+        ul { padding-left: 22px; color: var(--text-light); margin-bottom: 15px; max-width: 100%; }
         li { margin-bottom: 8px; line-height: 1.7; }
         a { color: var(--footer-link-color); }
+
+        /* ===== TEXT WRAPPING / OVERFLOW FIX ===== */
+        h1, h2, h3, p, li, a, code, strong, span, td, th, div {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+        }
+        .content-container a[href^="http"] { overflow-wrap: anywhere; }
 
         /* ============ FOOTER (matches index page) ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
@@ -475,47 +490,63 @@
         <main>
             <div class="content-container">
                 <h1>Terms of Use</h1>
-                <p><strong>Last updated:</strong> July 11, 2026</p>
-                <p>Welcome to Textify.tools. By accessing or using this website, you agree to comply with and be bound by the following terms and conditions. If you do not agree with any part of these terms, please do not use our site.</p>
+                <p><strong>Last updated:</strong> September 23, 2026</p>
 
-                <h2>1. Acceptance of Terms</h2>
-                <p>These Terms of Use constitute a legally binding agreement between you and Textify.tools. Your use of any of our text tools, pages, or content indicates your acceptance of these terms.</p>
+                <p>Hi, I'm Pradeep. I run Textify.tools. These are the rules for using the site. I've kept them short and in plain English so you don't need a law degree to read them.</p>
 
-                <h2>2. Description of Service</h2>
-                <p>Textify.tools provides free, browser‑based text manipulation tools. All processing is performed locally on your device; we do not store, transmit, or have access to any text you enter into the tools. We offer no warranties regarding the accuracy or fitness for any particular purpose of these tools.</p>
+                <p>By using Textify.tools, you agree to these terms. If you don't agree, please don't use the site. Questions? Email me at <a href="mailto:contact@textify.tools">contact@textify.tools</a>.</p>
 
-                <h2>3. User Obligations</h2>
-                <p>You agree not to use Textify.tools in any way that:</p>
+                <h2>1. What this site is</h2>
+                <p>Textify.tools is a collection of free browser-based tools — word counters, formatters, converters, image tools, PDF tools, and more. All tools run locally in your browser using JavaScript and, where needed, WebAssembly. Your files and text are not uploaded to my servers.</p>
+                <p>There's no signup, no account, and no cost. The site is supported by ads (through Mediavine).</p>
+
+                <h2>2. Using the site</h2>
+                <p>You can use Textify.tools for personal or commercial work. But please don't:</p>
                 <ul>
-                    <li>Violates any applicable law or regulation.</li>
-                    <li>Attempts to disrupt, overload, or impair the site or its infrastructure.</li>
-                    <li>Uploads, pastes, or processes illegal, harmful, or malicious content (though we cannot see it, we expect responsible use).</li>
-                    <li>Impersonates another person or entity.</li>
+                    <li>Break the law or use the tools for anything illegal.</li>
+                    <li>Try to overload, hack, or disrupt the site or its servers.</li>
+                    <li>Use bots or scrapers to hammer the site in a way that hurts other users.</li>
+                    <li>Pretend to be someone else, or misrepresent your affiliation with anyone.</li>
+                    <li>Process content that's illegal, harmful, or violates someone else's rights. I can't see your files, but I expect responsible use.</li>
                 </ul>
+                <p>If you violate these rules, I may block your access.</p>
 
-                <h2>4. Intellectual Property</h2>
-                <p>The Textify.tools name, logo, site design, and original code are the intellectual property of Textify.tools. You may not copy, modify, distribute, or reproduce any part of the site without prior written permission. The output generated by the tools belongs to you; we claim no ownership over your text.</p>
+                <h2>3. Your content stays yours</h2>
+                <p>Anything you type, paste, or upload into the tools belongs to you. I claim no ownership over your text, images, PDFs, or any output you create. Since everything runs in your browser, I never even see it.</p>
+                <p>You're responsible for making sure you have the right to process whatever content you put into the tools.</p>
 
-                <h2>5. Disclaimer of Warranties</h2>
-                <p>The site and all tools are provided "as is" and "as available" without any warranties, express or implied. We do not guarantee that the tools will be error‑free, uninterrupted, or suitable for your specific needs. You use the site at your own risk.</p>
+                <h2>4. What belongs to me</h2>
+                <p>The Textify.tools name, logo, site design, original code, and written content are mine. Please don't copy, republish, or rebrand them without asking first. If you want to link to the site or share it, go right ahead — that's always welcome.</p>
 
-                <h2>6. Limitation of Liability</h2>
-                <p>To the fullest extent permitted by law, Textify.tools shall not be liable for any direct, indirect, incidental, consequential, or special damages arising from the use or inability to use the site, even if we have been advised of the possibility of such damages. Because all tool processing is local, we bear no responsibility for any data loss or corruption.</p>
+                <h2>5. No warranties</h2>
+                <p>The site and all tools are provided "as is" and "as available." I don't promise that:</p>
+                <ul>
+                    <li>The tools will always work perfectly or be error-free.</li>
+                    <li>The results will be accurate or fit your specific needs.</li>
+                    <li>The site will be available 100% of the time (servers go down, things break).</li>
+                </ul>
+                <p>You use the site at your own risk. Always keep your own backups of important files.</p>
 
-                <h2>7. Third‑Party Links and Services</h2>
-                <p>The site may contain links to third‑party websites and services, including advertisements served by Google AdSense. We are not responsible for the content, privacy practices, or terms of those third parties. We encourage you to read their policies before interacting with them.</p>
+                <h2>6. Limits on my liability</h2>
+                <p>To the fullest extent allowed by law, I'm not liable for any direct, indirect, incidental, or consequential damages that come from using — or being unable to use — the site. This includes data loss, lost profits, or any other losses, even if I've been told such damage is possible.</p>
+                <p>Because all processing happens in your browser, I have no way to recover any file or text you lose. Please back up your work.</p>
 
-                <h2>8. Indemnification</h2>
-                <p>You agree to indemnify and hold harmless Textify.tools from any claims, losses, liabilities, or expenses (including legal fees) arising from your use of the site or violation of these terms.</p>
+                <h2>7. Ads and third-party services</h2>
+                <p>I show ads through Mediavine to cover hosting and development costs. Mediavine and its partners may collect data as described in their own privacy policies. For visitors in the EEA, UK, Switzerland, and some US states, a consent banner appears first — no tracking cookies for ads get set until you agree.</p>
+                <p>I also use Google Analytics to understand site traffic. The site links to other websites sometimes. I'm not responsible for what those sites do — check their terms and privacy policies before using them.</p>
 
-                <h2>9. Changes to These Terms</h2>
-                <p>We reserve the right to modify these Terms of Use at any time. The latest version will always be available on this page, and the "Last updated" date will reflect the most recent changes. Continued use of the site after any modification constitutes acceptance of the new terms.</p>
+                <h2>8. If you cause a problem</h2>
+                <p>If your use of the site causes someone to make a claim against me (for example, because you processed content you didn't have the right to use), you agree to cover any resulting losses, costs, or legal fees. Basically: don't use my site to do things that get me sued.</p>
 
-                <h2>10. Governing Law</h2>
-                <p>These terms shall be governed by and interpreted in accordance with the laws of India, without regard to conflict of law principles.</p>
+                <h2>9. Changes to these terms</h2>
+                <p>I may update these terms from time to time. When I do, I'll change the "Last updated" date at the top of this page. If the changes are significant, I'll add a note on the homepage. Continued use of the site after a change means you accept the new terms.</p>
 
-                <h2>11. Contact Information</h2>
-                <p>If you have any questions about these Terms of Use, please contact us through our <a href="/contact-us">Contact page</a>.</p>
+                <h2>10. Governing law</h2>
+                <p>These terms are governed by the laws of India, where I'm based. If there's a dispute, it will be handled under Indian law.</p>
+
+                <h2>11. Contact</h2>
+                <p>If you have questions about these terms, email me at <a href="mailto:contact@textify.tools">contact@textify.tools</a> or use the <a href="/contact-us">contact page</a>.</p>
+                <p>Thanks for using the tools.</p>
             </div>
         </main>
 
