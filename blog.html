@@ -214,18 +214,18 @@
 
         header {
             border-bottom: 1px solid var(--line); display: flex; justify-content: center;
-            align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
+            align-items: center; padding: 0 clamp(16px, 4vw, 40px); height: 64px; transition: border-color 0.3s;
             background: transparent; width: 100%;
         }
-        .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
+        .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; min-width: 0; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; flex-shrink: 0; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
-        .header-right { display: flex; align-items: center; gap: 12px; }
+        .header-right { display: flex; align-items: center; gap: 12px; min-width: 0; }
         .desktop-nav { display: flex; gap: 15px; align-items: center; }
-        .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
+        .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; white-space: nowrap; }
         .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
         .tools-menu-container { position: relative; }
-        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; background: none; border: none; font-family: inherit; }
+        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; background: none; border: none; font-family: inherit; white-space: nowrap; }
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
         .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
         .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 220px; max-width: min(90vw, 400px); max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
@@ -238,11 +238,11 @@
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
         .tools-mega-menu::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
 
-        .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
+        .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; flex-shrink: 0; }
         .theme-btn:hover { background: var(--hover); }
         .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
         .search-trigger:hover { border-color: var(--primary); color: var(--primary); }
-        .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; }
+        .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; flex-shrink: 0; }
         .hamburger-btn:hover { background: var(--hover); }
         .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
         .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
@@ -299,16 +299,16 @@
         .search-no-result.show { display: block; }
 
         main { flex: 1; padding: 40px 0; width: 100%; max-width: 100%; background: transparent; }
-        .content-container { width: 100%; padding: 0 40px; }
-        @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
+        .content-container { width: 100%; padding: 0 clamp(16px, 4vw, 40px); }
+        @media (max-width: 768px) { .content-container { padding: 0 clamp(12px, 3vw, 16px); } main { padding: 20px 0; } }
 
-        /* ===== BLOG HERO ===== */
+        /* ===== BLOG HERO (full width like index) ===== */
         .blog-hero { margin-bottom: 40px; }
         .blog-hero h1 { font-size: 38px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; }
-        .blog-hero p { font-size: 18px; color: var(--text-light); line-height: 1.7; max-width: 720px; margin-bottom: 22px; }
+        .blog-hero p { font-size: 18px; color: var(--text-light); line-height: 1.7; max-width: 100%; margin-bottom: 22px; }
 
-        /* ===== HERO SEARCH ===== */
-        .hero-search { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px 10px 4px 16px; max-width: 640px; margin: 0 0 26px; transition: border-color 0.2s, box-shadow 0.2s; }
+        /* ===== HERO SEARCH (full width like index) ===== */
+        .hero-search { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px 10px 4px 16px; max-width: 100%; margin: 0 0 26px; transition: border-color 0.2s, box-shadow 0.2s; }
         .hero-search:focus-within { border-color: var(--primary); box-shadow: 0 0 0 4px var(--hover); }
         .hero-search > i { color: var(--text-light); flex-shrink: 0; }
         .hero-search input { flex: 1; border: none; background: transparent; outline: none; font-family: inherit; font-size: 15px; color: var(--text); padding: 12px 0; min-width: 0; }
@@ -335,6 +335,10 @@
             display: flex; align-items: center; justify-content: center;
             color: var(--text-light); font-size: 14px; font-weight: 600;
         }
+        .blog-card-img {
+            width: 100%; aspect-ratio: 16/9; object-fit: contain;
+            display: block; background: var(--hover);
+        }
         .blog-card-body { padding: 20px; display: flex; flex-direction: column; flex: 1; gap: 10px; }
         .blog-card-meta { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-light); font-weight: 500; flex-wrap: wrap; }
         .blog-card-cat { background: var(--hover); padding: 3px 10px; border-radius: 12px; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -353,17 +357,27 @@
         }
         .featured-post:hover { box-shadow: var(--card-hover-shadow); border-color: var(--primary); }
         .featured-post-img {
+            position: relative;
             width: 100%; height: 100%; min-height: 280px;
-            background: linear-gradient(135deg, var(--hover) 0%, var(--card) 100%);
+            background: var(--card);
             display: flex; align-items: center; justify-content: center;
             color: var(--text-light); font-size: 15px; font-weight: 600;
+            overflow: hidden;
+        }
+        .featured-post-img img {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            background: var(--card);
         }
         .featured-post-body { padding: 32px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
         .featured-post-body h2 { font-size: 26px; font-weight: 800; line-height: 1.3; margin: 0; }
         .featured-post-body p { font-size: 15px; color: var(--text-light); line-height: 1.7; margin: 0; }
         @media (max-width: 768px) {
             .featured-post { grid-template-columns: 1fr; }
-            .featured-post-img { min-height: 200px; }
+            .featured-post-img { min-height: 200px; aspect-ratio: 16/9; }
             .featured-post-body { padding: 22px; }
             .featured-post-body h2 { font-size: 22px; }
         }
@@ -390,8 +404,146 @@
         .page-btn.active { background: var(--primary); color: var(--bg); border-color: var(--primary); cursor: default; }
         .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
+        /* ===== BLOG EXTRAS (below pagination) ===== */
+        .blog-extras { margin: 10px 0 40px; }
+        .extras-grid { display: grid; grid-template-columns: 1.1fr 1.1fr 1fr; gap: 20px; }
+        .extras-card {
+            background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+            padding: 22px; transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .extras-card:hover { border-color: var(--primary); box-shadow: var(--card-hover-shadow); }
+        .extras-card h3 { font-size: 16px; margin: 0 0 14px; font-weight: 700; }
+        .extras-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+        .extras-chip {
+            padding: 7px 13px; border-radius: 20px; border: 1px solid var(--line);
+            background: var(--bg); color: var(--text-light);
+            font-size: 12px; font-weight: 600; cursor: pointer;
+            font-family: inherit; transition: 0.2s;
+        }
+        .extras-chip:hover { background: var(--hover); color: var(--text); border-color: var(--primary); }
+        .extras-list { list-style: none; padding: 0; margin: 0; }
+        .extras-list li { margin-bottom: 2px; }
+        .extras-list a {
+            color: var(--text); text-decoration: none; font-size: 14px;
+            line-height: 1.5; display: block; padding: 5px 0; transition: 0.2s;
+        }
+        .extras-list a::before { content: "→ "; color: var(--text-light); transition: 0.2s; }
+        .extras-list a:hover { color: var(--footer-link-color); }
+        .extras-list a:hover::before { color: var(--footer-link-color); }
+        .extras-card p { color: var(--text-light); font-size: 14px; line-height: 1.6; margin: 0 0 12px; }
+        .extras-link { color: var(--footer-link-color); font-weight: 600; font-size: 14px; text-decoration: none; display: inline-block; }
+        .extras-link:hover { color: var(--footer-link-hover); }
+        @media (max-width: 1000px) {
+            .extras-grid { grid-template-columns: 1fr 1fr; }
+            .extras-card:last-child { grid-column: 1 / -1; }
+        }
+        @media (max-width: 600px) {
+            .extras-grid { grid-template-columns: 1fr; }
+            .extras-card:last-child { grid-column: auto; }
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .blog-faq { margin: 10px 0 40px; }
+        .blog-faq h2 { font-size: 24px; font-weight: 800; margin-bottom: 8px; }
+        .blog-faq > p { color: var(--text-light); font-size: 15px; line-height: 1.7; margin-bottom: 20px; max-width: 720px; }
+        .faq-list { display: grid; gap: 10px; }
+        .faq-item {
+            background: var(--card); border: 1px solid var(--line);
+            border-radius: 12px; overflow: hidden;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .faq-item:hover { border-color: var(--primary); }
+        .faq-item summary {
+            cursor: pointer; padding: 16px 20px;
+            font-weight: 600; font-size: 15px; line-height: 1.5;
+            list-style: none; display: flex; justify-content: space-between;
+            align-items: center; gap: 16px; user-select: none;
+            color: var(--text);
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: "+"; font-size: 22px; line-height: 1; font-weight: 400;
+            color: var(--text-light); flex-shrink: 0;
+            transition: transform 0.25s ease;
+        }
+        .faq-item[open] { background: var(--faq-active); }
+        .faq-item[open] summary::after { content: "−"; }
+        .faq-item .faq-answer {
+            padding: 0 20px 18px; color: var(--text-light);
+            font-size: 14px; line-height: 1.7;
+        }
+
+        /* ===== POPULAR TOOLS STRIP ===== */
+        .tools-strip { margin: 10px 0 40px; }
+        .tools-strip h2 { font-size: 24px; font-weight: 800; margin-bottom: 8px; }
+        .tools-strip > p { color: var(--text-light); font-size: 15px; line-height: 1.7; margin-bottom: 20px; max-width: 720px; }
+        .tools-strip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .tool-strip-card {
+            display: flex; align-items: center; gap: 10px;
+            background: var(--card); border: 1px solid var(--line);
+            border-radius: 12px; padding: 14px 16px;
+            text-decoration: none; color: var(--text);
+            font-size: 14px; font-weight: 600;
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+            min-width: 0;
+        }
+        .tool-strip-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--card-hover-shadow);
+        }
+        .tool-strip-card .ts-icon {
+            width: 34px; height: 34px; border-radius: 9px;
+            background: var(--hover); color: var(--text);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .tool-strip-card .ts-icon svg,
+        .tool-strip-card .ts-icon i { width: 16px; height: 16px; }
+        .tool-strip-card .ts-name {
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+        @media (max-width: 900px) { .tools-strip-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .tools-strip-grid { grid-template-columns: 1fr; } }
+
+        /* ===== BLOG CTA ===== */
+        .blog-cta {
+            background: linear-gradient(135deg, var(--card) 0%, var(--hover) 100%);
+            border: 1px solid var(--line); border-radius: 16px;
+            padding: 36px 28px; margin: 10px 0 40px; text-align: center;
+            transition: border-color 0.2s;
+        }
+        .blog-cta:hover { border-color: var(--primary); }
+        .blog-cta h2 { font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+        .blog-cta p {
+            color: var(--text-light); font-size: 15px; line-height: 1.7;
+            max-width: 580px; margin: 0 auto 22px;
+        }
+        .blog-cta-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .blog-cta-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 12px 22px; border-radius: 10px;
+            font-weight: 600; font-size: 14px;
+            text-decoration: none; transition: 0.2s;
+            font-family: inherit; cursor: pointer;
+            border: 1px solid var(--line);
+            background: var(--bg); color: var(--text);
+        }
+        .blog-cta-btn:hover { border-color: var(--primary); }
+        .blog-cta-btn.primary {
+            background: var(--primary); color: var(--bg);
+            border-color: var(--primary);
+        }
+        .blog-cta-btn.primary:hover { opacity: 0.88; }
+        .blog-cta-btn svg,
+        .blog-cta-btn i { width: 16px; height: 16px; }
+        @media (max-width: 500px) {
+            .blog-cta { padding: 26px 20px; }
+            .blog-cta-btn { width: 100%; justify-content: center; }
+        }
+
         /* ===== FOOTER ===== */
-        footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
+        footer { border-top: 1px solid var(--footer-border); padding: 40px clamp(16px, 4vw, 40px) 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
         .footer-left-column { flex: 0 0 380px; max-width: 380px; }
@@ -410,7 +562,7 @@
         .footer-about-text a { color: var(--footer-link-color); text-decoration: none; }
         .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
         @media (max-width: 768px) {
-            footer { padding: 30px 16px 160px; }
+            footer { padding: 30px clamp(12px, 3vw, 16px) 160px; }
             .footer-middle { flex-direction: column; align-items: flex-start; gap: 28px; text-align: left; }
             .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
             .footer-right-columns { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 22px; width: 100%; }
@@ -423,7 +575,7 @@
             .desktop-nav { display: none; }
             .theme-btn, .search-trigger { display: none; }
             .hamburger-btn { display: flex; }
-            header { padding: 0 16px; }
+            header { padding: 0 clamp(12px, 3vw, 16px); }
             .logo { font-size: 20px; }
             .blog-hero h1 { font-size: 28px; }
             .blog-hero p { font-size: 16px; }
@@ -478,12 +630,12 @@
         <main>
             <div class="content-container">
 
-                <!-- BLOG HERO -->
+                <!-- BLOG HERO (full width) -->
                 <div class="blog-hero">
                     <h1>Textify Blog</h1>
-                    <p>Practical guides, tool tutorials, and productivity tips for anyone who works with text. No fluff — just the stuff that actually helps you get things done faster.</p>
+                    <p>Practical guides, tool tutorials, and productivity tips for anyone who works with text. No fluff — just the stuff that actually helps you get things done faster. From cleaning messy text and formatting JSON to writing better and shipping faster, every article here is written to save you time and give you a workflow you can actually use.</p>
 
-                    <!-- BLOG SEARCH BAR -->
+                    <!-- BLOG SEARCH BAR (full width) -->
                     <div class="hero-search">
                         <i data-lucide="search" width="18" height="18"></i>
                         <input type="text" id="blogSearchInput" placeholder="Search articles… try &quot;JSON&quot;, &quot;PDF&quot;, &quot;password&quot;" oninput="onBlogSearch(this.value)" autocomplete="off" aria-label="Search blog articles">
@@ -494,7 +646,17 @@
 
                 <!-- FEATURED POST -->
                 <a href="/blog/how-to-clean-messy-text-before-publishing" class="featured-post" id="featuredPost">
-                    <div class="featured-post-img">Featured Article</div>
+                    <div class="featured-post-img">
+                        <img
+                            src="https://www.textify.tools/images/how-to-clean-messt-text-before-publishing-step-by-step.png"
+                            alt="How to Clean Messy Text Before Publishing (Step-by-Step)"
+                            width="1200"
+                            height="675"
+                            loading="eager"
+                            fetchpriority="high"
+                            decoding="async"
+                            onerror="this.style.display='none'; this.parentNode.textContent='Featured Article';">
+                    </div>
                     <div class="featured-post-body">
                         <div class="blog-card-meta">
                             <span class="blog-card-cat">Text Cleaning</span>
@@ -504,7 +666,7 @@
                         </div>
                         <h2>How to Clean Messy Text Before Publishing (Step-by-Step)</h2>
                         <p>Copied text from a PDF or web page? It's probably full of hidden characters, broken lines, and double spaces. Here's a repeatable workflow to fix it in under two minutes.</p>
-                        <span class="blog-card-readmore">Read article →</span>
+                        <span class="blog-card-readmore">Read more →</span>
                     </div>
                 </a>
 
@@ -522,6 +684,117 @@
 
                 <!-- PAGINATION -->
                 <div class="pagination" id="blogPagination"></div>
+
+                <!-- BLOG EXTRAS (below pagination) -->
+                <section class="blog-extras" aria-label="More from Textify Blog">
+                    <div class="extras-grid">
+                        <div class="extras-card">
+                            <h3>Browse by topic</h3>
+                            <div class="extras-chips" id="extrasChips"></div>
+                        </div>
+                        <div class="extras-card">
+                            <h3>Popular guides</h3>
+                            <ul class="extras-list">
+                                <li><a href="/blog/how-to-clean-messy-text-before-publishing">How to clean messy text before publishing</a></li>
+                                <li><a href="/blog/json-formatter-common-mistakes-beginners-guide">JSON Formatter: 5 common mistakes</a></li>
+                                <li><a href="/blog/word-counter-vs-character-counter-guide">Word counter vs character counter</a></li>
+                                <li><a href="/blog/how-to-compress-pdf-to-100kb-online">Compress a PDF to 100KB</a></li>
+                                <li><a href="/blog/how-to-create-strong-passwords-you-can-remember">Strong passwords you'll actually remember</a></li>
+                            </ul>
+                        </div>
+                        <div class="extras-card">
+                            <h3>About this blog</h3>
+                            <p>Short, practical reads for writers, developers, and students. No fluff, no paywalls — just workflows you can copy today.</p>
+                            <a href="/about-us" class="extras-link">Learn more →</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== FAQ SECTION ===== -->
+                <section class="blog-faq" aria-label="Frequently asked questions">
+                    <h2>Frequently asked questions</h2>
+                    <p>Quick answers to the questions we get most often about the blog and the tools behind it.</p>
+                    <div class="faq-list">
+                        <details class="faq-item">
+                            <summary>Are all Textify tools really free to use?</summary>
+                            <div class="faq-answer">Yes. Every tool on Textify.tools is free, with no signup, no hidden limits, and no watermark. You can use them as often as you want, for personal or commercial work.</div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Do you store or track what I type into the tools?</summary>
+                            <div class="faq-answer">No. Most tools run entirely in your browser, which means your text never leaves your device. We don't log input, and we don't sell data. The only analytics we keep are anonymous page views to see which tools are actually useful.</div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Can I use these tools on my phone or tablet?</summary>
+                            <div class="faq-answer">Absolutely. The entire site is responsive and works on phones, tablets, laptops, and desktops. File-based tools like PDF Merge and Image Resizer also work on mobile browsers.</div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Which tool should I start with for cleaning messy text?</summary>
+                            <div class="faq-answer">Start with the Text Cleaner for an all-in-one pass. If you know exactly what's wrong, use the specific ones: Remove Extra Spaces, Remove Empty Lines, Remove Line Breaks, or Remove Blank Characters. There's a step-by-step walkthrough in our <a href="/blog/how-to-clean-messy-text-before-publishing">featured guide</a>.</div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>Do you have an API, or do I need an account?</summary>
+                            <div class="faq-answer">No account is needed for anything. There's no public API at the moment — every tool is meant to be used directly in the browser. If you need a specific integration, get in touch and we'll see what's possible.</div>
+                        </details>
+                        <details class="faq-item">
+                            <summary>How often do you publish new guides?</summary>
+                            <div class="faq-answer">Roughly every one to two weeks. Guides are written based on what readers actually ask for, so if there's a workflow you'd like covered, feel free to send a suggestion.</div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- ===== POPULAR TOOLS STRIP ===== -->
+                <section class="tools-strip" aria-label="Popular tools">
+                    <h2>Popular tools from the blog</h2>
+                    <p>The tools most readers open right after finishing an article. One click, no signup.</p>
+                    <div class="tools-strip-grid">
+                        <a href="/word-counter" class="tool-strip-card">
+                            <span class="ts-icon"><i data-lucide="hash"></i></span>
+                            <span class="ts-name">Word Counter</span>
+                        </a>
+                        <a href="/json-formatter" class="tool-strip-card">
+                            <span class="ts-icon"><i data-lucide="braces"></i></span>
+                            <span class="ts-name">JSON Formatter</span>
+                        </a>
+                        <a href="/case-converter" class="tool-strip-card">
+                            <span class="ts-icon"><i data-lucide="type"></i></span>
+                            <span class="ts-name">Case Converter</span>
+                        </a>
+                        <a href="/pdf-merge" class="tool-strip-card">
+                            <span class="ts-icon"><i data-lucide="git-merge"></i></span>
+                            <span class="ts-name">PDF Merge</span>
+                        </a>
+                        <a href="/password-generator" class="tool-strip-card">
+                            <span class="ts-icon"><i data-lucide="key"></i></span>
+                            <span class="ts-name">Password Generator</span>
+                        </a>
+                        <a href="/qr-code-generator" class="tool-strip-card">
+                            <span class="ts-icon"><i data-lucide="qr-code"></i></span>
+                            <span class="ts-name">QR Code Generator</span>
+                        </a>
+                        <a href="/image-compressor" class="tool-strip-card">
+                            <span class="ts-icon"><i data-lucide="image"></i></span>
+                            <span class="ts-name">Image Compressor</span>
+                        </a>
+                        <a href="/text-to-handwriting" class="tool-strip-card">
+                            <span class="ts-icon"><i data-lucide="pen-tool"></i></span>
+                            <span class="ts-name">Text to Handwriting</span>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- ===== BLOG CTA ===== -->
+                <section class="blog-cta" aria-label="Suggest a topic or support">
+                    <h2>Have a tool idea or a workflow we should cover?</h2>
+                    <p>Every guide here is written because someone actually needed it. If there's a topic, tool, or workflow you'd like us to explain next, send a quick note — we read every message.</p>
+                    <div class="blog-cta-actions">
+                        <a href="/contact-us" class="blog-cta-btn primary">
+                            <i data-lucide="message-square"></i> Suggest a topic
+                        </a>
+                        <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer" class="blog-cta-btn">
+                            <i data-lucide="coffee"></i> Support the project
+                        </a>
+                    </div>
+                </section>
 
             </div>
         </main>
@@ -617,7 +890,14 @@
     <script>
         document.getElementById('dynamicYear').textContent = new Date().getFullYear();
 
-        // ============ BLOG POSTS (SEO-optimized URLs) ============
+        // ============ Scroll restoration setup ============
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        const BLOG_STATE_KEY = 'textify_blog_state_v1';
+        const PAGINATION_ANCHOR_OFFSET = 90;
+
+        // ============ BLOG POSTS ============
         const blogPosts = [
             {
                 title: 'How to Clean Messy Text Before Publishing (Step-by-Step)',
@@ -627,7 +907,8 @@
                 date: '2026-09-12',
                 dateDisplay: 'Sep 12, 2026',
                 readTime: '7 min read',
-                featured: true
+                featured: true,
+                image: 'https://www.textify.tools/images/how-to-clean-messt-text-before-publishing-step-by-step.png'
             },
             {
                 title: 'JSON Formatter: 5 Mistakes Beginners Make (and How to Fix Them)',
@@ -636,7 +917,8 @@
                 category: 'Developer',
                 date: '2026-09-08',
                 dateDisplay: 'Sep 8, 2026',
-                readTime: '5 min read'
+                readTime: '5 min read',
+                image: 'https://www.textify.tools/images/json-formatter-5-common-mistakes-beginners.png'
             },
             {
                 title: 'Word Counter vs. Character Counter: Which One Do You Actually Need?',
@@ -645,7 +927,8 @@
                 category: 'Writing',
                 date: '2026-09-03',
                 dateDisplay: 'Sep 3, 2026',
-                readTime: '4 min read'
+                readTime: '4 min read',
+                image: 'https://www.textify.tools/images/word-counter-vs-character-counter.png'
             },
             {
                 title: 'How to Remove Duplicate Lines from a List (Without Excel)',
@@ -745,6 +1028,7 @@
         let currentCategory = 'all';
         let currentPage = 1;
         let blogSearchQuery = '';
+        let pendingScrollY = 0;
 
         function escHtml(s) {
             return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
@@ -753,7 +1037,34 @@
             return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }
 
-        // Precompute search haystack for blog posts
+        // ============ Blog state save/restore ============
+        function saveBlogState() {
+            try {
+                var st = {
+                    scrollY: window.scrollY || window.pageYOffset || 0,
+                    category: currentCategory,
+                    page: currentPage,
+                    query: blogSearchQuery,
+                    queryRaw: (document.getElementById('blogSearchInput') || {}).value || '',
+                    ts: Date.now()
+                };
+                sessionStorage.setItem(BLOG_STATE_KEY, JSON.stringify(st));
+            } catch (e) {}
+        }
+
+        function loadBlogState() {
+            try {
+                var s = sessionStorage.getItem(BLOG_STATE_KEY);
+                if (!s) return null;
+                var st = JSON.parse(s);
+                if (st && st.ts && (Date.now() - st.ts) > 30 * 60 * 1000) {
+                    sessionStorage.removeItem(BLOG_STATE_KEY);
+                    return null;
+                }
+                return st;
+            } catch (e) { return null; }
+        }
+
         blogPosts.forEach(function(p) {
             p._hay = (p.title + ' ' + p.excerpt + ' ' + p.category).toLowerCase();
         });
@@ -761,8 +1072,18 @@
         function renderBlogCategories() {
             const bar = document.getElementById('blogCategoryBar');
             bar.innerHTML = blogCategories.map(cat =>
-                `<button type="button" class="cat-chip${cat.key === 'all' ? ' active' : ''}" data-cat="${escAttr(cat.key)}">${escHtml(cat.label)}</button>`
+                `<button type="button" class="cat-chip${cat.key === currentCategory ? ' active' : ''}" data-cat="${escAttr(cat.key)}">${escHtml(cat.label)}</button>`
             ).join('');
+        }
+
+        // Render topic chips in the extras card (excludes 'all')
+        function renderExtrasChips() {
+            const wrap = document.getElementById('extrasChips');
+            if (!wrap) return;
+            wrap.innerHTML = blogCategories
+                .filter(c => c.key !== 'all')
+                .map(c => `<button type="button" class="extras-chip" data-cat="${escAttr(c.key)}">${escHtml(c.label)}</button>`)
+                .join('');
         }
 
         function getFilteredPosts() {
@@ -783,6 +1104,7 @@
             blogSearchQuery = val.toLowerCase().trim();
             document.getElementById('blogClearBtn').classList.toggle('show', val.length > 0);
             currentPage = 1;
+            saveBlogState();
             if (blogSearchRaf) cancelAnimationFrame(blogSearchRaf);
             blogSearchRaf = requestAnimationFrame(function() {
                 blogSearchRaf = 0;
@@ -796,6 +1118,7 @@
             blogSearchQuery = '';
             document.getElementById('blogClearBtn').classList.remove('show');
             currentPage = 1;
+            saveBlogState();
             renderBlogGrid();
             input.focus();
         }
@@ -813,11 +1136,9 @@
             const start = (currentPage - 1) * POSTS_PER_PAGE;
             const pagePosts = filtered.slice(start, start + POSTS_PER_PAGE);
 
-            // Hide featured post when searching or filtering
             const isFiltering = blogSearchQuery !== '' || currentCategory !== 'all';
             featuredPost.style.display = isFiltering ? 'none' : '';
 
-            // Results line
             if (isFiltering) {
                 let msg = filtered.length + ' article' + (filtered.length === 1 ? '' : 's') + ' found';
                 if (blogSearchQuery) msg += ' for "' + blogSearchQuery + '"';
@@ -836,9 +1157,13 @@
             }
             noResult.classList.remove('show');
 
-            grid.innerHTML = pagePosts.map(p => `
+            grid.innerHTML = pagePosts.map(p => {
+                const media = p.image
+                    ? `<img class="blog-card-img" src="${escAttr(p.image)}" alt="${escAttr(p.title)}" width="640" height="360" loading="lazy" decoding="async" onerror="this.outerHTML='&lt;div class=\\'blog-card-img-fallback\\'&gt;${escAttr(p.category)}&lt;/div&gt;'">`
+                    : `<div class="blog-card-img-fallback">${escHtml(p.category)}</div>`;
+                return `
                 <a href="/blog/${escAttr(p.slug)}" class="blog-card">
-                    <div class="blog-card-img-fallback">${escHtml(p.category)}</div>
+                    ${media}
                     <div class="blog-card-body">
                         <div class="blog-card-meta">
                             <span class="blog-card-cat">${escHtml(p.category)}</span>
@@ -848,9 +1173,10 @@
                         </div>
                         <h3>${escHtml(p.title)}</h3>
                         <p>${escHtml(p.excerpt)}</p>
-                        <span class="blog-card-readmore">Read article →</span>
+                        <span class="blog-card-readmore">Read more →</span>
                     </div>
-                </a>`).join('');
+                </a>`;
+            }).join('');
 
             renderPagination(filtered.length, totalPages);
         }
@@ -868,20 +1194,37 @@
             pag.innerHTML = html;
         }
 
+        // Pagination: scroll only to the top of the results area (not page top)
         function goToPage(page) {
             const filtered = getFilteredPosts();
             const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE));
             if (page < 1 || page > totalPages) return;
+
             currentPage = page;
             renderBlogGrid();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            const anchor = document.getElementById('blogCategoryBar');
+            if (anchor) {
+                const anchorTop = anchor.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0);
+                const targetY = Math.max(0, anchorTop - PAGINATION_ANCHOR_OFFSET);
+                const currentY = window.scrollY || window.pageYOffset || 0;
+
+                if (currentY > targetY + 4) {
+                    window.scrollTo({ top: targetY, behavior: 'smooth' });
+                }
+            }
+
+            saveBlogState();
         }
 
         function filterBlogCategory(catKey, btnEl) {
             currentCategory = catKey;
             currentPage = 1;
-            document.querySelectorAll('#blogCategoryBar .cat-chip').forEach(c => c.classList.remove('active'));
-            if (btnEl) btnEl.classList.add('active');
+            // Sync the main category bar's active state
+            document.querySelectorAll('#blogCategoryBar .cat-chip').forEach(c => {
+                c.classList.toggle('active', c.dataset.cat === catKey);
+            });
+            saveBlogState();
             renderBlogGrid();
         }
 
@@ -1414,7 +1757,6 @@
             input.placeholder = 'Search all ' + tools.length + ' free tools…';
         })();
 
-        // Kbd hint for blog search
         (function setBlogKbdHint() {
             const kbd = document.getElementById('blogKbdHint');
             if (!kbd) return;
@@ -1440,25 +1782,95 @@
             }
         });
 
+        // ============ Save state on scroll (rAF-throttled) ============
+        let scrollSaveRaf = 0;
+        window.addEventListener('scroll', function() {
+            if (scrollSaveRaf) return;
+            scrollSaveRaf = requestAnimationFrame(function() {
+                scrollSaveRaf = 0;
+                saveBlogState();
+            });
+        }, { passive: true });
+
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a.blog-card, a#featuredPost');
+            if (link) {
+                saveBlogState();
+            }
+        }, true);
+
+        window.addEventListener('pagehide', saveBlogState);
+        window.addEventListener('beforeunload', saveBlogState);
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) saveBlogState();
+        });
+
         // ============ Init ============
-        renderBlogCategories();
-        renderBlogGrid();
+        (function initBlogListing() {
+            const saved = loadBlogState();
+            if (saved) {
+                if (saved.category && blogCategories.some(c => c.key === saved.category)) {
+                    currentCategory = saved.category;
+                }
+                if (saved.page && saved.page > 0) {
+                    currentPage = saved.page;
+                }
+                if (saved.query) {
+                    blogSearchQuery = saved.query;
+                }
+                const input = document.getElementById('blogSearchInput');
+                if (input && saved.queryRaw) {
+                    input.value = saved.queryRaw;
+                }
+                const clearBtn = document.getElementById('blogClearBtn');
+                if (clearBtn) {
+                    clearBtn.classList.toggle('show', (saved.queryRaw || '').length > 0);
+                }
+                pendingScrollY = saved.scrollY || 0;
+            }
+
+            renderBlogCategories();
+            renderExtrasChips();
+            renderBlogGrid();
+
+            if (pendingScrollY > 0) {
+                requestAnimationFrame(function() {
+                    requestAnimationFrame(function() {
+                        window.scrollTo(0, pendingScrollY);
+                        setTimeout(function() {
+                            window.scrollTo(0, pendingScrollY);
+                        }, 60);
+                    });
+                });
+            }
+        })();
+
         buildMegaMenu();
         buildMobileToolsMenu();
 
-        // Pre-populate search results (hidden overlay)
         searchIsOpen = true;
         filterFullSearch();
         searchIsOpen = false;
 
-        // Blog category click delegation
+        // Category bar clicks
         document.getElementById('blogCategoryBar').addEventListener('click', function(e) {
             const btn = e.target.closest('.cat-chip');
             if (!btn) return;
             filterBlogCategory(btn.dataset.cat, btn);
         });
 
-        // Lucide init with fallback
+        // Extras topic chips — filter and scroll to the top of the listing
+        document.getElementById('extrasChips').addEventListener('click', function(e) {
+            const btn = e.target.closest('.extras-chip');
+            if (!btn) return;
+            filterBlogCategory(btn.dataset.cat);
+            const anchor = document.getElementById('blogCategoryBar');
+            if (anchor) {
+                const anchorTop = anchor.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0);
+                window.scrollTo({ top: Math.max(0, anchorTop - PAGINATION_ANCHOR_OFFSET), behavior: 'smooth' });
+            }
+        });
+
         function initLucide() {
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
                 window.lucide.createIcons();
