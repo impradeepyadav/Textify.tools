@@ -209,7 +209,6 @@
         pre, code { white-space: pre-wrap; word-wrap: break-word; word-break: break-word; }
         mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
 
-        /* FIX: prevent sun/moon flash (class-based, matches index.html) */
         html.dark-mode #sunIcon,
         html.dark-mode #mobileSunIcon { display: none !important; }
         html.dark-mode #moonIcon,
@@ -293,7 +292,6 @@
         .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
         .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
 
-        /* ===== SEARCH OVERLAY — matches index page ===== */
         .search-overlay-full {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--overlay-bg);
@@ -340,7 +338,6 @@
         li { margin-bottom: 8px; line-height: 1.7; }
         a { color: var(--footer-link-color); }
 
-        /* ===== TEXT WRAPPING / OVERFLOW FIX ===== */
         h1, h2, h3, p, li, a, code, strong, span, td, th, div {
             overflow-wrap: break-word;
             word-wrap: break-word;
@@ -348,7 +345,6 @@
         }
         .content-container a[href^="http"] { overflow-wrap: anywhere; }
 
-        /* ============ FOOTER — matches index page ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -508,7 +504,6 @@
             </div>
         </main>
 
-        <!-- ============ FOOTER — matches index page ============ -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -595,7 +590,6 @@
     <div class="toast" id="toast"></div>
 
     <script>
-        // ============ Toast ============
         let toastTimer;
         function showToast(msg, dur=3000) {
             const t = document.getElementById('toast');
@@ -603,7 +597,6 @@
             clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
         }
 
-        // ============ Tools & Categories ============
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'text', label: 'Text Tools' },
