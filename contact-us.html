@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="theme-color" content="#ffffff">
   <title>Contact Support - Textify.tools</title>
-  <meta name="description" content="Get in touch with Textify Tools support. Free online text repeater and other text utilities. Fast, secure, and privacy-friendly.">
+  <meta name="description" content="Get in touch with Textify.tools support. Questions, suggestions, or bug reports? Email contact@textify.tools — we usually reply within 24 hours on weekdays.">
   <meta name="author" content="Pradeep Yadav">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://textify.tools/contact-us">
@@ -77,6 +77,7 @@
         "@id": "https://textify.tools/#organization",
         "name": "Textify.tools",
         "url": "https://textify.tools/",
+        "email": "contact@textify.tools",
         "logo": {
           "@type": "ImageObject",
           "url": "https://textify.tools/apple-touch-icon.png",
@@ -86,18 +87,18 @@
         "sameAs": [
           "https://www.facebook.com/textifydottools",
           "https://www.instagram.com/textifydottools",
-          "https://x.com/textifydottools"
+          "https://x.com/BuiltByPradeep"
         ]
       },
       {
-        "@type": "WebPage",
+        "@type": "ContactPage",
         "@id": "https://textify.tools/contact-us/#webpage",
         "url": "https://textify.tools/contact-us",
         "name": "Contact Support – Textify.tools",
-        "description": "Get in touch with Textify Tools support for questions, suggestions, or bug reports.",
+        "description": "Get in touch with Textify.tools support for questions, suggestions, or bug reports.",
         "isPartOf": { "@id": "https://textify.tools/#website" },
         "datePublished": "2024-01-01",
-        "dateModified": "2025-06-15",
+        "dateModified": "2026-09-23",
         "publisher": { "@id": "https://textify.tools/#organization" }
       },
       {
@@ -195,12 +196,13 @@
       --mark-text: #dbeafe;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
+    html { scroll-behavior: smooth; overflow-x: hidden; overflow-x: clip; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg); color: var(--text); min-height: 100vh;
       transition: background 0.3s, color 0.3s;
-      overflow-x: hidden; width: 100%; max-width: 100vw;
+      overflow-x: hidden; overflow-x: clip;
+      -webkit-text-size-adjust: 100%;
     }
 
     /* FIX: prevent sun/moon flash (matches index.html) */
@@ -214,17 +216,18 @@
     html:not(.dark-mode) #mobileSunIcon { display: block !important; }
 
     img, video, canvas, iframe, embed, object, svg { max-width: 100%; height: auto; }
-    pre, code { white-space: pre-wrap; word-wrap: break-word; }
+    table { max-width: 100%; width: 100%; border-collapse: collapse; }
+    pre, code { white-space: pre-wrap; word-wrap: break-word; word-break: break-word; }
     mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
 
     .page-wrapper {
-      width: 100%; max-width: 100vw; margin: 0 auto; background: transparent;
-      display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden;
+      width: 100%; max-width: 100%; margin: 0 auto; background: transparent;
+      display: flex; flex-direction: column; min-height: 100vh;
     }
     header {
       border-bottom: 1px solid var(--line); display: flex; justify-content: center;
       align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
-      background: transparent; width: 100%; max-width: 100vw;
+      background: transparent; width: 100%;
     }
     .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
@@ -243,7 +246,8 @@
     .tools-trigger:hover { color: var(--primary); background: var(--hover); }
     .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
     .tools-mega-menu {
-      position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+      position: absolute; top: 100%; right: 0; left: auto;
+      transform: translateY(8px);
       background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
       padding: 12px 8px; min-width: 220px; max-width: min(90vw, 400px); max-height: 70vh; overflow-y: auto;
       box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden;
@@ -252,7 +256,7 @@
     .tools-menu-container:hover .tools-mega-menu,
     .tools-menu-container.open .tools-mega-menu {
       opacity: 1; visibility: visible;
-      transform: translateX(-50%) translateY(0);
+      transform: translateY(0);
     }
     .tools-menu-container:hover .tools-trigger i,
     .tools-menu-container.open .tools-trigger i {
@@ -269,7 +273,7 @@
     .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; }
     .hamburger-btn:hover { background: var(--hover); }
     .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
-    .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; }
+    .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
     .hamburger-btn .menu-icon span:first-child { width: 16px; }
     .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
     .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
@@ -362,18 +366,29 @@
     }
     .search-no-result.show { display: block; }
 
-    main { flex: 1; padding: 40px 40px; width: 100%; max-width: 100vw; background: transparent; overflow-x: hidden; }
-    .content-container { width: 100%; margin: 0 auto; }
-    h1 { font-size: 34px; font-weight: 800; margin-bottom: 10px; line-height: 1.2; word-wrap: break-word; }
-    h3 { font-size: 22px; font-weight: 700; margin: 30px 0 12px; word-wrap: break-word; }
-    p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; word-wrap: break-word; }
-    ul { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; }
-    li { margin-bottom: 10px; line-height: 1.7; }
-    a { color: var(--primary); text-decoration: none; word-wrap: break-word; }
-    a:hover { text-decoration: underline; }
+    main { flex: 1; padding: 40px 0; width: 100%; max-width: 100%; background: transparent; }
+    .content-container { width: 100%; max-width: 100%; padding: 0 40px; min-width: 0; }
+    .content-container > * { max-width: 100%; }
+
+    h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; text-align: left; }
+    h2 { font-size: 22px; font-weight: 700; margin-top: 30px; margin-bottom: 12px; }
+    h3 { font-size: 18px; font-weight: 600; margin-top: 20px; margin-bottom: 8px; }
+    p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
+    ul { padding-left: 22px; color: var(--text-light); margin-bottom: 15px; max-width: 100%; }
+    li { margin-bottom: 8px; line-height: 1.7; }
+    a { color: var(--footer-link-color); }
+
+    /* ===== TEXT WRAPPING / OVERFLOW FIX ===== */
+    h1, h2, h3, p, li, a, code, strong, span, td, th, div {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+    .content-container a[href^="http"] { overflow-wrap: anywhere; }
+    .content-container a[href^="mailto"] { overflow-wrap: anywhere; word-break: break-all; }
 
     /* ============ FOOTER (matches index page) ============ */
-    footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; max-width: 100vw; overflow-x: hidden; }
+    footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
     .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
     .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
     .footer-left-column { flex: 0 0 380px; max-width: 380px; }
@@ -408,7 +423,8 @@
       header { padding: 0 16px; }
       .logo { font-size: 20px; }
       h1 { font-size: 28px; }
-      main { padding: 20px 16px; }
+      main { padding: 20px 0; }
+      .content-container { padding: 0 16px; }
       .search-overlay-full { padding-top: 24px; }
       .search-container { width: 94%; }
       .search-box input { font-size: 16px; }
@@ -421,8 +437,9 @@
       .mobile-sidebar { display: none !important; }
     }
     @media (min-width: 1800px) {
-      main { padding: 50px 60px; }
+      main { padding: 50px 0; }
       header { padding: 0 60px; }
+      .content-container { padding: 0 60px; }
       h1 { font-size: 44px; }
     }
     .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
@@ -463,27 +480,46 @@
     <main>
       <div class="content-container">
         <h1>Contact Support</h1>
-        <p>If you have any questions about our tools, suggestions for new features, or want to report a bug, we're here to help. Please reach out using the information below, and we'll get back to you as soon as possible.</p>
+        <p><strong>Last updated:</strong> September 23, 2026</p>
 
-        <h3>Email Us</h3>
-        <p><strong>Email Support:</strong> <a href="mailto:contact@textify.tools" style="color:var(--primary); text-decoration:underline;">contact@textify.tools</a></p>
+        <p>Hi, I'm Pradeep. I run Textify.tools. If you have a question, a suggestion, or you found a bug, I'd love to hear from you. Just drop me an email and I'll get back to you.</p>
 
-        <h3>Response Time</h3>
-        <p>We aim to respond to all emails within <strong>24 hours</strong> during weekdays. Weekend queries may take slightly longer, but we never leave a message unanswered.</p>
+        <h2>Email me directly</h2>
+        <p>The fastest way to reach me is email:</p>
+        <p><strong>Email:</strong> <a href="mailto:contact@textify.tools">contact@textify.tools</a></p>
+        <p>I read every message myself. No bots, no ticket system, no runaround.</p>
 
-        <h3>Feedback &amp; Feature Requests</h3>
-        <p>We love hearing from our users! If you have an idea for a new tool, a suggestion for improvement, or even just a typo to report, don't hesitate to write. Many of our tools were built based on user feedback.</p>
+        <h2>Response time</h2>
+        <p>I try to reply to all emails within <strong>24 hours on weekdays</strong>. On weekends it might take a bit longer, but I never leave a message unanswered.</p>
 
-        <h3>Frequently Asked Questions</h3>
-        <p>Before contacting us, you might find an answer in the FAQ below:</p>
+        <h2>What to write about</h2>
         <ul>
-          <li><strong>Is Textify really free?</strong> Yes, all our tools are 100% free. No premium plans, no hidden fees.</li>
-          <li><strong>Do you store my text?</strong> No. Everything runs client-side in your browser. We never see your data.</li>
-          <li><strong>Can I suggest a new tool?</strong> Absolutely! Email us your idea and we'll consider it for a future update.</li>
-          <li><strong>I found a bug. How do I report it?</strong> Send an email to contact@textify.tools with a brief description and, if possible, a screenshot. We'll fix it quickly.</li>
+          <li><strong>Bug reports</strong> — if a tool isn't working right, tell me which tool and what happened. A screenshot helps a lot.</li>
+          <li><strong>Feature requests</strong> — got an idea for a new tool or an improvement? Send it over. Several tools on this site were built because a user asked.</li>
+          <li><strong>Typos and small issues</strong> — yes, please. Even a missing comma matters.</li>
+          <li><strong>General feedback</strong> — what you like, what you don't, what's confusing. All of it is useful.</li>
+          <li><strong>Business or partnership inquiries</strong> — email me with details and I'll take a look.</li>
         </ul>
 
-        <p>We're a small team dedicated to making the best free text tools. Thank you for using Textify.tools!</p>
+        <h2>Quick answers to common questions</h2>
+        <p>Before you write, you might find your answer here:</p>
+        <ul>
+          <li><strong>Is Textify really free?</strong> Yes. Every tool on the site is 100% free. No premium plans, no hidden fees, no signup.</li>
+          <li><strong>Do you store my text or files?</strong> No. Everything runs in your browser. Your text, images, and PDFs never leave your device. I can't see them and I don't store them.</li>
+          <li><strong>Do I need an account?</strong> Nope. Just open the site and start using the tools.</li>
+          <li><strong>Can I suggest a new tool?</strong> Absolutely. Email me the idea and I'll consider it for a future update.</li>
+          <li><strong>I found a bug. How do I report it?</strong> Email <a href="mailto:contact@textify.tools">contact@textify.tools</a> with the tool name, what you did, and what went wrong. A screenshot helps but isn't required.</li>
+          <li><strong>Can I use the tools for commercial work?</strong> Yes. Use them for personal or business tasks. See the <a href="/terms-of-use">Terms of Use</a> for details.</li>
+          <li><strong>Why do you show ads?</strong> Ads through Mediavine cover hosting and development costs so I can keep the tools free. See the <a href="/privacy-policy">Privacy Policy</a> for how ad data is handled.</li>
+        </ul>
+
+        <h2>Privacy note</h2>
+        <p>When you email me, I get whatever you send — your name, email address, and message. I use it only to reply and for my own records. I don't share it, sell it, or use it for anything else. See the <a href="/privacy-policy">Privacy Policy</a> for full details on how your data is handled across the site.</p>
+
+        <h2>Other places to find me</h2>
+        <p>If you'd rather reach out on social, you can find me on X (Twitter): <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">@BuiltByPradeep</a>. I'm most active there.</p>
+
+        <p>Thanks for using Textify.tools. Your feedback makes it better.</p>
       </div>
     </main>
 
