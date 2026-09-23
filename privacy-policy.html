@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Privacy Policy - Textify.tools</title>
-    <meta name="description" content="Textify.tools Privacy Policy – Learn how we protect your data. No account needed, all processing happens in your browser, and we never store your text.">
+    <meta name="description" content="Textify.tools Privacy Policy – What happens to your data when you use the site. Short version: everything runs in your browser. Contact: contact@textify.tools">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Pradeep Yadav">
     <link rel="canonical" href="https://textify.tools/privacy-policy">
@@ -92,6 +92,7 @@
                     "@id": "https://textify.tools/#organization",
                     "name": "Textify.tools",
                     "url": "https://textify.tools/",
+                    "email": "contact@textify.tools",
                     "logo": {
                         "@type": "ImageObject",
                         "url": "https://textify.tools/apple-touch-icon.png",
@@ -195,16 +196,17 @@
             --mark-text: #dbeafe;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
+        html { scroll-behavior: smooth; overflow-x: hidden; overflow-x: clip; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg); color: var(--text); min-height: 100vh;
-            transition: background 0.3s, color 0.3s; overflow-x: hidden;
+            transition: background 0.3s, color 0.3s; overflow-x: hidden; overflow-x: clip;
+            -webkit-text-size-adjust: 100%;
         }
         .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
         img, video, canvas, iframe, embed, object, svg { max-width: 100%; height: auto; }
-        table { max-width: 100%; }
-        pre, code { white-space: pre-wrap; word-wrap: break-word; }
+        table { max-width: 100%; width: 100%; border-collapse: collapse; }
+        pre, code { white-space: pre-wrap; word-wrap: break-word; word-break: break-word; }
         mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
 
         /* FIX: prevent sun/moon flash (class-based, matches index.html) */
@@ -239,7 +241,8 @@
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
         .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
         .tools-mega-menu {
-            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+            position: absolute; top: 100%; right: 0; left: auto;
+            transform: translateY(8px);
             background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
             padding: 12px 8px; min-width: 220px; max-width: min(90vw, 400px); max-height: 70vh; overflow-y: auto;
             box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden;
@@ -248,7 +251,7 @@
         .tools-menu-container:hover .tools-mega-menu,
         .tools-menu-container.open .tools-mega-menu {
             opacity: 1; visibility: visible;
-            transform: translateX(-50%) translateY(0);
+            transform: translateY(0);
         }
         .tools-menu-container:hover .tools-trigger i,
         .tools-menu-container.open .tools-trigger i {
@@ -326,15 +329,24 @@
         .search-no-result.show { display: block; }
 
         main { flex: 1; padding: 40px 0; width: 100%; max-width: 100%; background: transparent; }
-        .content-container { width: 100%; padding: 0 40px; }
+        .content-container { width: 100%; max-width: 100%; padding: 0 40px; min-width: 0; }
+        .content-container > * { max-width: 100%; }
         @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
         h1 { font-size: 32px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; text-align: left; }
         h2 { font-size: 22px; font-weight: 700; margin-top: 30px; margin-bottom: 12px; }
         h3 { font-size: 18px; font-weight: 600; margin-top: 20px; margin-bottom: 8px; }
         p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
-        ul { padding-left: 22px; color: var(--text-light); margin-bottom: 15px; }
+        ul { padding-left: 22px; color: var(--text-light); margin-bottom: 15px; max-width: 100%; }
         li { margin-bottom: 8px; line-height: 1.7; }
         a { color: var(--footer-link-color); }
+
+        /* ===== TEXT WRAPPING / OVERFLOW FIX ===== */
+        h1, h2, h3, p, li, a, code, strong, span, td, th, div {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+        }
+        .content-container a[href^="http"] { overflow-wrap: anywhere; }
 
         /* ============ FOOTER — matches index page ============ */
         footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
@@ -422,54 +434,77 @@
         <main>
             <div class="content-container">
                 <h1>Privacy Policy</h1>
-                <p><strong>Last updated:</strong> July 11, 2026</p>
-                <p>At Textify.tools, your privacy is fundamental to how we build and run our tools. This policy explains how we handle any information that may be collected when you visit our website.</p>
+                <p><strong>Last updated:</strong> September 23, 2026</p>
 
-                <h2>1. Information We Do NOT Collect</h2>
-                <p>All of our text tools run entirely in your browser using JavaScript. That means:</p>
+                <p>Hi, I'm Pradeep. I run Textify.tools. This page explains what happens to your data when you use the site. Short version: not much, because almost everything runs inside your browser.</p>
+
+                <p>If you have questions, email me at <a href="mailto:contact@textify.tools">contact@textify.tools</a>.</p>
+
+                <h2>What I don't collect</h2>
+                <p>All the tools on this site — text, image, PDF, whatever — run locally in your browser. That means:</p>
                 <ul>
-                    <li><strong>No text data leaves your device.</strong> We never see, store, or log the text you paste into any tool.</li>
-                    <li><strong>No account or registration.</strong> You don't need to sign up, and we don't ask for an email or password.</li>
-                    <li><strong>No personal information.</strong> We don't collect names, email addresses, or any identifiable data.</li>
+                    <li><strong>Your text never leaves your device.</strong> I can't see it, store it, or log it.</li>
+                    <li><strong>Your images and PDFs never leave your device either.</strong> Tools like Image Compressor, Image Resizer, PDF Merge, PDF Split, and PDF Compressor all work in your browser using JavaScript. Nothing gets uploaded to my server.</li>
+                    <li><strong>No account needed.</strong> No email, no password, no signup.</li>
+                    <li><strong>No personal info collected.</strong> The only time I get your email is if you email me first.</li>
                 </ul>
-                <p>If you close the browser tab, everything vanishes. There's simply nothing on our servers that could be linked to you or your content.</p>
+                <p>Close the tab and it's gone. There's nothing on my server linked to you.</p>
+                <p>Just so it's clear: right now, <strong>no tool on this site does server-side processing of your files.</strong> If that ever changes for a future tool, I'll say so clearly on that tool's page before you use it.</p>
 
-                <h2>2. Anonymous Usage Data</h2>
-                <p>We use <strong>Google Analytics</strong> (GA4) to understand how visitors interact with the site — which pages are visited, how long people stay, and what browsers they use. Google Analytics collects completely anonymous data such as:</p>
+                <h2>What I do collect</h2>
+                <p>If you email me, I get whatever you send — your name, email address, and message. I keep it only as long as needed to reply and for my own records.</p>
+                <p>Like most websites, some data gets collected automatically when you visit: IP address, browser type, device type, pages you viewed, time spent, and referring URL. This comes from Google Analytics and Mediavine (my ad partner). It's used to understand traffic and show ads. It does <strong>not</strong> include anything you type into the tools.</p>
+
+                <h2>Cookies</h2>
+                <p>Only a few cookies are used here:</p>
                 <ul>
-                    <li>Page views and navigation paths</li>
-                    <li>Device type (desktop/mobile/tablet)</li>
-                    <li>Browser and operating system</li>
-                    <li>Approximate geographic region (country level)</li>
+                    <li>One for your theme choice (dark or light). It just stores "dark" or "light."</li>
+                    <li>Google Analytics cookies for anonymous stats.</li>
+                    <li>Mediavine and its partners use cookies for ads.</li>
                 </ul>
-                <p>This information helps us improve the site and fix bugs. It never includes any text you type or any personal identifiers. You can learn more about Google's data practices at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</p>
+                <p>You can turn off cookies in your browser settings. The tools will still work fine.</p>
 
-                <h2>3. Cookies</h2>
-                <p>We use a minimal number of cookies:</p>
+                <h2>Ads and Mediavine</h2>
+                <p>I show ads through Mediavine to cover hosting and development costs. Mediavine and its partners may collect data to show relevant ads and measure performance.</p>
+                <p>For visitors in the EEA, UK, Switzerland, and some US states, Mediavine's consent tool asks for your permission first. <strong>No tracking cookies for ads get set until you agree.</strong> You can change your choice anytime through the consent banner or the "Privacy Settings" link.</p>
+                <p>More details: <a href="https://www.mediavine.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Mediavine's Privacy Policy</a>.</p>
+
+                <h2>Why I collect this stuff</h2>
                 <ul>
-                    <li><strong>Preference cookie:</strong> A small cookie named <code>theme</code> is stored in your browser to remember whether you prefer dark mode or light mode. This cookie contains only the text "dark" or "light" and no other information.</li>
-                    <li><strong>Analytics cookies:</strong> Google Analytics may set cookies to distinguish unique users anonymously. We do not control these cookies; they are governed by Google's privacy policies.</li>
+                    <li>To keep the site running</li>
+                    <li>To see what's working and fix what's broken</li>
+                    <li>To show ads</li>
+                    <li>To reply if you email me</li>
+                    <li>To follow the law if required</li>
                 </ul>
-                <p>You can disable cookies in your browser settings at any time. Our tools will still work perfectly without them.</p>
 
-                <h2>4. Third‑Party Services</h2>
-                <h3>Mediavine</h3>
-                <p>We display advertisements through Mediavine to help cover hosting and development costs. Mediavine and its partners may use cookies and similar technologies to serve ads that may be relevant to your interests. You can learn more about Mediavine's data practices and how to opt out by visiting <a href="https://www.mediavine.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Mediavine's Privacy Policy</a>.</p>
+                <h2>Your rights</h2>
+                <p>Depending on where you live, you may have rights over your data — access, correction, deletion, objection, portability, withdrawing consent, and more. This covers GDPR (Europe), UK GDPR, Swiss FADP, CCPA/CPRA (California), and similar laws in other US states, Canada, Brazil, India, Australia, and elsewhere.</p>
+                <p>To use any of these rights, email <a href="mailto:contact@textify.tools">contact@textify.tools</a>. Tell me what you need. I may ask you to verify it's really you. I'll respond as fast as I can and within whatever deadline the law requires.</p>
+                <p>I don't sell your personal info for money. But under some US state laws, sharing data for targeted ads counts as a "sale" or "share." You can opt out using the consent banner or by emailing me.</p>
 
-                <h3>Unpkg CDN</h3>
-                <p>We load the Lucide icon library from <code>unpkg.com</code>. When your browser fetches this file, unpkg may log standard request information (IP address, user agent). We do not share any data with unpkg beyond what is necessary to serve the icons.</p>
+                <h2>Data transfers</h2>
+                <p>My service providers (Google, Mediavine, hosting) may process data in the US and other countries. Where needed, they use standard legal safeguards like Standard Contractual Clauses.</p>
 
-                <h2>5. Data Security</h2>
-                <p>Because we don't collect or store any of your text, there's nothing to secure from our end. All tool processing is local to your device. However, like any website, we use HTTPS to protect the communication between your browser and our server (but again, no text data is transmitted).</p>
+                <h2>How long I keep things</h2>
+                <p>Analytics data follows Google's retention settings. Emails I keep for as long as needed. Cookies expire on their own schedule.</p>
 
-                <h2>6. Children's Privacy</h2>
-                <p>Textify.tools does not knowingly collect any personal information from children under the age of 13. If we become aware that a child has provided us with personal data (which is nearly impossible given our design), we would delete it immediately.</p>
+                <h2>Kids</h2>
+                <p>This site isn't for kids under 13 (or 16 in some places). I don't knowingly collect anything from them. If you think a child sent me info, email me and I'll delete it.</p>
 
-                <h2>7. Changes to This Policy</h2>
-                <p>We may update this Privacy Policy from time to time. When we do, we'll revise the "Last updated" date at the top of the page. If the changes are significant, we'll add a notice on the homepage for a reasonable period. Your continued use of the site after any change means you accept the updated policy.</p>
+                <h2>Security</h2>
+                <p>I use HTTPS. Since your files stay in your browser, there's nothing on my end to leak. No system is 100% secure, but there's very little to secure here.</p>
 
-                <h2>8. Contact Us</h2>
-                <p>If you have questions about this Privacy Policy or how your data is handled, please reach out through our <a href="/contact-us">Contact page</a>. We'll get back to you as soon as possible.</p>
+                <h2>Links to other sites</h2>
+                <p>If I link out, I'm not responsible for what those sites do. Check their policies.</p>
+
+                <h2>Changes</h2>
+                <p>If I update this page, I'll change the date at the top. Big changes I'll mention on the homepage. Keep using the site and that means you're okay with the update.</p>
+
+                <h2>Contact</h2>
+                <p>Email: <a href="mailto:contact@textify.tools">contact@textify.tools</a><br>
+                Or use the contact page: <a href="/contact-us">textify.tools/contact-us</a></p>
+                <p>Thanks for using the tools.</p>
             </div>
         </main>
 
@@ -568,7 +603,7 @@
             clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), dur);
         }
 
-        // ============ Tools & Categories (FULL list from index page) ============
+        // ============ Tools & Categories ============
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'text', label: 'Text Tools' },
@@ -819,7 +854,6 @@
             { name: 'Fuel Economy Converter', desc: 'Convert fuel economy units.', icon: 'gauge', link: '/fuel-economy-converter', keywords: 'fuel economy converter units mileage', color: '#f59e0b', category: 'calculator' }
         ];
 
-        // Precompute haystack for fast search
         tools.forEach(function(t) {
             t._nameLower = t.name.toLowerCase();
             t._descLower = (t.desc || '').toLowerCase();
@@ -840,7 +874,6 @@
             return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
         }
 
-        // ============ Build shared components ============
         let megaMenuBuilt = false;
         let mobileMenuBuilt = false;
 
@@ -855,7 +888,6 @@
             document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
 
-        // ============ Theme ============
         function setThemeColorMeta(isDark) {
             const meta = document.querySelector('meta[name="theme-color"]');
             if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
@@ -873,7 +905,6 @@
             }
         }
 
-        // ============ Tools Menu ============
         function toggleToolsMenu() {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
@@ -897,7 +928,6 @@
             }
         });
 
-        // ============ Mobile Sidebar ============
         function openMobileSidebar(){
             buildMobileToolsMenu();
             const sb = document.getElementById('mobileSidebar');
@@ -948,7 +978,6 @@
             });
         })();
 
-        // ============ Search (matches index.html) ============
         let lastFocusedBeforeSearch = null;
         let searchResultsRaf = 0;
         let searchIsOpen = false;
@@ -1109,7 +1138,6 @@
             }
         });
 
-        // ============ Init ============
         document.getElementById('dynamicYear').textContent = new Date().getFullYear();
         buildMegaMenu();
         buildMobileToolsMenu();
