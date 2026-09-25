@@ -302,12 +302,10 @@
         .content-container { width: 100%; padding: 0 clamp(16px, 4vw, 40px); }
         @media (max-width: 768px) { .content-container { padding: 0 clamp(12px, 3vw, 16px); } main { padding: 20px 0; } }
 
-        /* ===== BLOG HERO (full width like index) ===== */
         .blog-hero { margin-bottom: 40px; }
         .blog-hero h1 { font-size: 38px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; }
         .blog-hero p { font-size: 18px; color: var(--text-light); line-height: 1.7; max-width: 100%; margin-bottom: 22px; }
 
-        /* ===== HERO SEARCH (full width like index) ===== */
         .hero-search { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px 10px 4px 16px; max-width: 100%; margin: 0 0 26px; transition: border-color 0.2s, box-shadow 0.2s; }
         .hero-search:focus-within { border-color: var(--primary); box-shadow: 0 0 0 4px var(--hover); }
         .hero-search > i { color: var(--text-light); flex-shrink: 0; }
@@ -316,7 +314,6 @@
         .hero-search .hero-clear.show { display: flex; }
         .hero-search kbd { font-family: inherit; font-size: 11px; font-weight: 600; color: var(--text-light); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 3px 7px; flex-shrink: 0; }
 
-        /* ===== BLOG GRID ===== */
         .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 50px; }
         @media (max-width: 1100px) { .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
         @media (max-width: 700px) { .blog-grid { grid-template-columns: 1fr; gap: 16px; } }
@@ -330,7 +327,6 @@
         }
         .blog-card:hover { transform: translateY(-4px); box-shadow: var(--card-hover-shadow); border-color: var(--primary); }
 
-        /* Image wrapper — padded, soft gradient so contained images look intentional */
         .blog-card-img-wrap {
             width: 100%;
             aspect-ratio: 16/9;
@@ -365,7 +361,6 @@
         .blog-card-readmore { font-size: 13px; font-weight: 600; color: var(--footer-link-color); display: inline-flex; align-items: center; gap: 4px; margin-top: 4px; }
         .blog-card:hover .blog-card-readmore { color: var(--footer-link-hover); }
 
-        /* ===== FEATURED POST ===== */
         .featured-post {
             display: grid; grid-template-columns: 1.2fr 1fr; gap: 0;
             background: var(--card); border: 1px solid var(--line); border-radius: 16px;
@@ -406,7 +401,6 @@
             .featured-post-body h2 { font-size: 22px; }
         }
 
-        /* ===== CATEGORY FILTER BAR ===== */
         .category-filter-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start; margin-bottom: 30px; padding: 0; }
         @media (max-width: 768px) {
             .category-filter-bar { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; padding-bottom: 6px; }
@@ -417,18 +411,15 @@
         .cat-chip:hover { background: var(--chip-hover); border-color: var(--primary); color: var(--text); }
         .cat-chip.active { background: var(--chip-active-bg); color: var(--chip-active-text); border-color: var(--chip-active-bg); }
 
-        /* ===== RESULTS LINE ===== */
         .results-line { font-size: 13px; color: var(--text-light); font-weight: 500; margin-bottom: 16px; display: none; }
         .results-line.show { display: block; }
 
-        /* ===== PAGINATION ===== */
         .pagination { display: flex; justify-content: center; gap: 8px; margin: 40px 0 20px; flex-wrap: wrap; }
         .page-btn { padding: 10px 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--text); font-weight: 600; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; min-width: 42px; }
         .page-btn:hover { background: var(--hover); border-color: var(--primary); }
         .page-btn.active { background: var(--primary); color: var(--bg); border-color: var(--primary); cursor: default; }
         .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-        /* ===== BLOG EXTRAS (below pagination) ===== */
         .blog-extras { margin: 10px 0 40px; }
         .extras-grid { display: grid; grid-template-columns: 1.1fr 1.1fr 1fr; gap: 20px; }
         .extras-card {
@@ -466,7 +457,6 @@
             .extras-card:last-child { grid-column: auto; }
         }
 
-        /* ===== FAQ SECTION ===== */
         .blog-faq { margin: 10px 0 40px; }
         .blog-faq h2 { font-size: 24px; font-weight: 800; margin-bottom: 8px; }
         .blog-faq > p { color: var(--text-light); font-size: 15px; line-height: 1.7; margin-bottom: 20px; max-width: 720px; }
@@ -497,7 +487,6 @@
             font-size: 14px; line-height: 1.7;
         }
 
-        /* ===== POPULAR TOOLS STRIP ===== */
         .tools-strip { margin: 10px 0 40px; }
         .tools-strip h2 { font-size: 24px; font-weight: 800; margin-bottom: 8px; }
         .tools-strip > p { color: var(--text-light); font-size: 15px; line-height: 1.7; margin-bottom: 20px; max-width: 720px; }
@@ -530,7 +519,6 @@
         @media (max-width: 900px) { .tools-strip-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 500px) { .tools-strip-grid { grid-template-columns: 1fr; } }
 
-        /* ===== BLOG CTA ===== */
         .blog-cta {
             background: linear-gradient(135deg, var(--card) 0%, var(--hover) 100%);
             border: 1px solid var(--line); border-radius: 16px;
@@ -566,7 +554,6 @@
             .blog-cta-btn { width: 100%; justify-content: center; }
         }
 
-        /* ===== FOOTER ===== */
         footer { border-top: 1px solid var(--footer-border); padding: 40px clamp(16px, 4vw, 40px) 220px; background: transparent; width: 100%; }
         .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
         .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
@@ -653,13 +640,9 @@
 
         <main>
             <div class="content-container">
-
-                <!-- BLOG HERO (full width) -->
                 <div class="blog-hero">
                     <h1>Textify Blog</h1>
                     <p>Practical guides, tool tutorials, and productivity tips for anyone who works with text. No fluff — just the stuff that actually helps you get things done faster. From cleaning messy text and formatting JSON to writing better and shipping faster, every article here is written to save you time and give you a workflow you can actually use.</p>
-
-                    <!-- BLOG SEARCH BAR (full width) -->
                     <div class="hero-search">
                         <i data-lucide="search" width="18" height="18"></i>
                         <input type="text" id="blogSearchInput" placeholder="Search articles… try &quot;JSON&quot;, &quot;PDF&quot;, &quot;password&quot;" oninput="onBlogSearch(this.value)" autocomplete="off" aria-label="Search blog articles">
@@ -668,11 +651,10 @@
                     </div>
                 </div>
 
-                <!-- FEATURED POST -->
                 <a href="/blog/how-to-clean-messy-text-before-publishing" class="featured-post" id="featuredPost">
                     <div class="featured-post-img">
                         <img
-                            src="https://www.textify.tools/images/how-to-clean-messt-text-before-publishing-step-by-step.png"
+                            src="/images/how-to-clean-messy-text-before-publishing.png"
                             alt="How to Clean Messy Text Before Publishing (Step-by-Step)"
                             width="1200"
                             height="675"
@@ -694,22 +676,12 @@
                     </div>
                 </a>
 
-                <!-- CATEGORY FILTER -->
                 <div class="category-filter-bar" id="blogCategoryBar"></div>
-
-                <!-- RESULTS LINE -->
                 <div class="results-line" id="blogResultsLine"></div>
-
-                <!-- BLOG GRID -->
                 <div class="blog-grid" id="blogGrid"></div>
-
-                <!-- NO POSTS MESSAGE -->
                 <div class="search-no-result" id="blogNoResult" style="max-width:600px;margin:0 auto 40px;">No articles found. Try a different search or category.</div>
-
-                <!-- PAGINATION -->
                 <div class="pagination" id="blogPagination"></div>
 
-                <!-- BLOG EXTRAS (below pagination) -->
                 <section class="blog-extras" aria-label="More from Textify Blog">
                     <div class="extras-grid">
                         <div class="extras-card">
@@ -734,7 +706,6 @@
                     </div>
                 </section>
 
-                <!-- ===== FAQ SECTION ===== -->
                 <section class="blog-faq" aria-label="Frequently asked questions">
                     <h2>Frequently asked questions</h2>
                     <p>Quick answers to the questions we get most often about the blog and the tools behind it.</p>
@@ -766,7 +737,6 @@
                     </div>
                 </section>
 
-                <!-- ===== POPULAR TOOLS STRIP ===== -->
                 <section class="tools-strip" aria-label="Popular tools">
                     <h2>Popular tools from the blog</h2>
                     <p>The tools most readers open right after finishing an article. One click, no signup.</p>
@@ -806,7 +776,6 @@
                     </div>
                 </section>
 
-                <!-- ===== BLOG CTA ===== -->
                 <section class="blog-cta" aria-label="Suggest a topic or support">
                     <h2>Have a tool idea or a workflow we should cover?</h2>
                     <p>Every guide here is written because someone actually needed it. If there's a topic, tool, or workflow you'd like us to explain next, send a quick note — we read every message.</p>
@@ -823,7 +792,6 @@
             </div>
         </main>
 
-        <!-- FOOTER -->
         <footer>
             <div class="footer-container">
                 <div class="footer-middle">
@@ -875,7 +843,6 @@
         </footer>
     </div>
 
-    <!-- Mobile sidebar -->
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
         <div class="mobile-sidebar-header">
@@ -895,7 +862,6 @@
         </div>
     </div>
 
-    <!-- Search overlay -->
     <div class="search-overlay-full" id="searchOverlayFull" role="dialog" aria-modal="true" aria-label="Search tools" aria-hidden="true">
         <div class="search-container">
             <div class="search-box">
@@ -914,127 +880,25 @@
     <script>
         document.getElementById('dynamicYear').textContent = new Date().getFullYear();
 
-        // ============ Scroll restoration setup ============
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
         const BLOG_STATE_KEY = 'textify_blog_state_v1';
         const PAGINATION_ANCHOR_OFFSET = 90;
 
-        // ============ BLOG POSTS ============
         const blogPosts = [
-            {
-                title: 'How to Clean Messy Text Before Publishing (Step-by-Step)',
-                slug: 'how-to-clean-messy-text-before-publishing',
-                excerpt: 'Copied text from a PDF or web page? It\'s probably full of hidden characters, broken lines, and double spaces. Here\'s a repeatable workflow to fix it in under two minutes.',
-                category: 'Text Cleaning',
-                date: '2026-09-12',
-                dateDisplay: 'Sep 12, 2026',
-                readTime: '7 min read',
-                featured: true,
-                image: 'https://www.textify.tools/images/how-to-clean-messt-text-before-publishing-step-by-step.png'
-            },
-            {
-                title: 'JSON Formatter: 5 Mistakes Beginners Make (and How to Fix Them)',
-                slug: 'json-formatter-common-mistakes-beginners-guide',
-                excerpt: 'Trailing commas, unquoted keys, and single quotes are the usual suspects. Here\'s how to spot them fast and fix them faster with the JSON Formatter.',
-                category: 'Developer',
-                date: '2026-09-08',
-                dateDisplay: 'Sep 8, 2026',
-                readTime: '5 min read',
-                image: 'https://www.textify.tools/images/json-formatter-5-common-mistakes-beginners.png'
-            },
-            {
-                title: 'Word Counter vs. Character Counter: Which One Do You Actually Need?',
-                slug: 'word-counter-vs-character-counter-guide',
-                excerpt: 'Essays care about words. Tweets and meta descriptions care about characters. Here\'s when to use each — and why the difference matters.',
-                category: 'Writing',
-                date: '2026-09-03',
-                dateDisplay: 'Sep 3, 2026',
-                readTime: '4 min read',
-                image: 'https://www.textify.tools/images/word-counter-vs-character-counter.png'
-            },
-            {
-                title: 'How to Remove Duplicate Lines from a List (Without Excel)',
-                slug: 'how-to-remove-duplicate-lines-without-excel',
-                excerpt: 'Got a list with repeats? You don\'t need a spreadsheet. The Duplicate Line Remover keeps unique entries and drops the rest in one click.',
-                category: 'Text Cleaning',
-                date: '2026-08-28',
-                dateDisplay: 'Aug 28, 2026',
-                readTime: '4 min read'
-            },
-            {
-                title: 'Case Converter Guide: When to Use Title Case, Sentence Case, and UPPERCASE',
-                slug: 'case-converter-title-sentence-uppercase-guide',
-                excerpt: 'Headings, body text, and acronyms all follow different rules. This guide walks through the most common capitalization styles and when to use each.',
-                category: 'Writing',
-                date: '2026-08-22',
-                dateDisplay: 'Aug 22, 2026',
-                readTime: '6 min read'
-            },
-            {
-                title: 'How to Compress a PDF to 100KB for Upload Forms',
-                slug: 'how-to-compress-pdf-to-100kb-online',
-                excerpt: 'Government portals and job applications often reject files over 100KB. Here\'s how to shrink your PDF without losing readability.',
-                category: 'PDF & Files',
-                date: '2026-08-18',
-                dateDisplay: 'Aug 18, 2026',
-                readTime: '5 min read'
-            },
-            {
-                title: 'Password Generator: How to Create Strong Passwords You Can Actually Remember',
-                slug: 'how-to-create-strong-passwords-you-can-remember',
-                excerpt: 'Random passwords are secure but forgettable. Here\'s a practical approach to generating strong passwords and storing them safely.',
-                category: 'Privacy & Security',
-                date: '2026-08-12',
-                dateDisplay: 'Aug 12, 2026',
-                readTime: '6 min read'
-            },
-            {
-                title: 'Reading Time Estimator: Why It Matters for Blog Posts and Speeches',
-                slug: 'reading-time-estimator-for-blogs-and-speeches',
-                excerpt: 'Readers skim. Speech-givers panic. Knowing the reading time of your text helps you set expectations and keep your audience engaged.',
-                category: 'Writing',
-                date: '2026-08-05',
-                dateDisplay: 'Aug 5, 2026',
-                readTime: '4 min read'
-            },
-            {
-                title: 'How to Extract Emails from a Messy Text File',
-                slug: 'how-to-extract-emails-from-text-file',
-                excerpt: 'Got a wall of text with email addresses buried inside? The Email Extractor pulls them all out — no regex required.',
-                category: 'Text Cleaning',
-                date: '2026-07-28',
-                dateDisplay: 'Jul 28, 2026',
-                readTime: '3 min read'
-            },
-            {
-                title: 'What Is a JWT and How Do You Decode One?',
-                slug: 'what-is-jwt-token-and-how-to-decode-it',
-                excerpt: 'JSON Web Tokens are everywhere in modern auth. Here\'s a plain-English explanation of what they contain and how to inspect them safely.',
-                category: 'Developer',
-                date: '2026-07-20',
-                dateDisplay: 'Jul 20, 2026',
-                readTime: '7 min read'
-            },
-            {
-                title: 'Shipping Label Generator: How Small Sellers Can Print Labels at Home',
-                slug: 'shipping-label-generator-guide-for-small-sellers',
-                excerpt: 'No need for a design tool or a dedicated label printer. Generate a clean, printable shipping label in your browser and tape it on.',
-                category: 'Business',
-                date: '2026-07-14',
-                dateDisplay: 'Jul 14, 2026',
-                readTime: '5 min read'
-            },
-            {
-                title: 'QR Code Generator: 7 Clever Ways to Use QR Codes (Beyond Links)',
-                slug: 'creative-qr-code-uses-beyond-links',
-                excerpt: 'QR codes can do more than open a URL. Here are practical ways to use them for menus, packaging, business cards, and event check-ins.',
-                category: 'Generators',
-                date: '2026-07-06',
-                dateDisplay: 'Jul 6, 2026',
-                readTime: '5 min read'
-            }
+            { title: 'How to Clean Messy Text Before Publishing (Step-by-Step)', slug: 'how-to-clean-messy-text-before-publishing', excerpt: 'Copied text from a PDF or web page? It\'s probably full of hidden characters, broken lines, and double spaces. Here\'s a repeatable workflow to fix it in under two minutes.', category: 'Text Cleaning', date: '2026-09-12', dateDisplay: 'Sep 12, 2026', readTime: '7 min read', featured: true, image: '/images/how-to-clean-messy-text-before-publishing.png' },
+            { title: 'JSON Formatter: 5 Mistakes Beginners Make (and How to Fix Them)', slug: 'json-formatter-common-mistakes-beginners-guide', excerpt: 'Trailing commas, unquoted keys, and single quotes are the usual suspects. Here\'s how to spot them fast and fix them faster with the JSON Formatter.', category: 'Developer', date: '2026-09-08', dateDisplay: 'Sep 8, 2026', readTime: '5 min read', image: '/images/json-formatter-common-mistakes-beginners-guide.png' },
+            { title: 'Word Counter vs. Character Counter: Which One Do You Actually Need?', slug: 'word-counter-vs-character-counter-guide', excerpt: 'Essays care about words. Tweets and meta descriptions care about characters. Here\'s when to use each — and why the difference matters.', category: 'Writing', date: '2026-09-03', dateDisplay: 'Sep 3, 2026', readTime: '4 min read', image: '/images/word-counter-vs-character-counter-guide.png' },
+            { title: 'How to Remove Duplicate Lines from a List (Without Excel)', slug: 'how-to-remove-duplicate-lines-without-excel', excerpt: 'Got a list with repeats? You don\'t need a spreadsheet. The Duplicate Line Remover keeps unique entries and drops the rest in one click.', category: 'Text Cleaning', date: '2026-08-28', dateDisplay: 'Aug 28, 2026', readTime: '4 min read', image: '/images/how-to-remove-duplicate-lines-without-excel.png' },
+            { title: 'Case Converter Guide: When to Use Title Case, Sentence Case, and UPPERCASE', slug: 'case-converter-title-sentence-uppercase-guide', excerpt: 'Headings, body text, and acronyms all follow different rules. This guide walks through the most common capitalization styles and when to use each.', category: 'Writing', date: '2026-08-22', dateDisplay: 'Aug 22, 2026', readTime: '6 min read', image: '/images/case-converter-title-sentence-uppercase-guide.png' },
+            { title: 'How to Compress a PDF to 100KB for Upload Forms', slug: 'how-to-compress-pdf-to-100kb-online', excerpt: 'Government portals and job applications often reject files over 100KB. Here\'s how to shrink your PDF without losing readability.', category: 'PDF & Files', date: '2026-08-18', dateDisplay: 'Aug 18, 2026', readTime: '5 min read', image: '/images/how-to-compress-pdf-to-100kb-online.png' },
+            { title: 'Password Generator: How to Create Strong Passwords You Can Actually Remember', slug: 'how-to-create-strong-passwords-you-can-remember', excerpt: 'Random passwords are secure but forgettable. Here\'s a practical approach to generating strong passwords and storing them safely.', category: 'Privacy & Security', date: '2026-08-12', dateDisplay: 'Aug 12, 2026', readTime: '6 min read', image: '/images/how-to-create-strong-passwords-you-can-remember.png' },
+            { title: 'Reading Time Estimator: Why It Matters for Blog Posts and Speeches', slug: 'reading-time-estimator-for-blogs-and-speeches', excerpt: 'Readers skim. Speech-givers panic. Knowing the reading time of your text helps you set expectations and keep your audience engaged.', category: 'Writing', date: '2026-08-05', dateDisplay: 'Aug 5, 2026', readTime: '4 min read', image: '/images/reading-time-estimator-for-blogs-and-speeches.png' },
+            { title: 'How to Extract Emails from a Messy Text File', slug: 'how-to-extract-emails-from-text-file', excerpt: 'Got a wall of text with email addresses buried inside? The Email Extractor pulls them all out — no regex required.', category: 'Text Cleaning', date: '2026-07-28', dateDisplay: 'Jul 28, 2026', readTime: '3 min read', image: '/images/how-to-extract-emails-from-text-file.png' },
+            { title: 'What Is a JWT and How Do You Decode One?', slug: 'what-is-jwt-token-and-how-to-decode-it', excerpt: 'JSON Web Tokens are everywhere in modern auth. Here\'s a plain-English explanation of what they contain and how to inspect them safely.', category: 'Developer', date: '2026-07-20', dateDisplay: 'Jul 20, 2026', readTime: '7 min read', image: '/images/what-is-jwt-token-and-how-to-decode-it.png' },
+            { title: 'Shipping Label Generator: How Small Sellers Can Print Labels at Home', slug: 'shipping-label-generator-guide-for-small-sellers', excerpt: 'No need for a design tool or a dedicated label printer. Generate a clean, printable shipping label in your browser and tape it on.', category: 'Business', date: '2026-07-14', dateDisplay: 'Jul 14, 2026', readTime: '5 min read', image: '/images/shipping-label-generator-guide-for-small-sellers.png' },
+            { title: 'QR Code Generator: 7 Clever Ways to Use QR Codes (Beyond Links)', slug: 'creative-qr-code-uses-beyond-links', excerpt: 'QR codes can do more than open a URL. Here are practical ways to use them for menus, packaging, business cards, and event check-ins.', category: 'Generators', date: '2026-07-06', dateDisplay: 'Jul 6, 2026', readTime: '5 min read', image: '/images/creative-qr-code-uses-beyond-links.png' }
         ];
 
         const blogCategories = [
@@ -1054,74 +918,43 @@
         let blogSearchQuery = '';
         let pendingScrollY = 0;
 
-        function escHtml(s) {
-            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-        }
-        function escAttr(s) {
-            return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        }
+        function escHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
+        function escAttr(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
-        // ============ Blog state save/restore ============
         function saveBlogState() {
             try {
-                var st = {
-                    scrollY: window.scrollY || window.pageYOffset || 0,
-                    category: currentCategory,
-                    page: currentPage,
-                    query: blogSearchQuery,
-                    queryRaw: (document.getElementById('blogSearchInput') || {}).value || '',
-                    ts: Date.now()
-                };
+                var st = { scrollY: window.scrollY || window.pageYOffset || 0, category: currentCategory, page: currentPage, query: blogSearchQuery, queryRaw: (document.getElementById('blogSearchInput') || {}).value || '', ts: Date.now() };
                 sessionStorage.setItem(BLOG_STATE_KEY, JSON.stringify(st));
             } catch (e) {}
         }
-
         function loadBlogState() {
             try {
                 var s = sessionStorage.getItem(BLOG_STATE_KEY);
                 if (!s) return null;
                 var st = JSON.parse(s);
-                if (st && st.ts && (Date.now() - st.ts) > 30 * 60 * 1000) {
-                    sessionStorage.removeItem(BLOG_STATE_KEY);
-                    return null;
-                }
+                if (st && st.ts && (Date.now() - st.ts) > 30 * 60 * 1000) { sessionStorage.removeItem(BLOG_STATE_KEY); return null; }
                 return st;
             } catch (e) { return null; }
         }
 
-        blogPosts.forEach(function(p) {
-            p._hay = (p.title + ' ' + p.excerpt + ' ' + p.category).toLowerCase();
-        });
+        blogPosts.forEach(function(p) { p._hay = (p.title + ' ' + p.excerpt + ' ' + p.category).toLowerCase(); });
 
         function renderBlogCategories() {
             const bar = document.getElementById('blogCategoryBar');
-            bar.innerHTML = blogCategories.map(cat =>
-                `<button type="button" class="cat-chip${cat.key === currentCategory ? ' active' : ''}" data-cat="${escAttr(cat.key)}">${escHtml(cat.label)}</button>`
-            ).join('');
+            bar.innerHTML = blogCategories.map(cat => `<button type="button" class="cat-chip${cat.key === currentCategory ? ' active' : ''}" data-cat="${escAttr(cat.key)}">${escHtml(cat.label)}</button>`).join('');
         }
-
         function renderExtrasChips() {
             const wrap = document.getElementById('extrasChips');
             if (!wrap) return;
-            wrap.innerHTML = blogCategories
-                .filter(c => c.key !== 'all')
-                .map(c => `<button type="button" class="extras-chip" data-cat="${escAttr(c.key)}">${escHtml(c.label)}</button>`)
-                .join('');
+            wrap.innerHTML = blogCategories.filter(c => c.key !== 'all').map(c => `<button type="button" class="extras-chip" data-cat="${escAttr(c.key)}">${escHtml(c.label)}</button>`).join('');
         }
-
         function getFilteredPosts() {
             let posts = blogPosts;
-            if (currentCategory !== 'all') {
-                posts = posts.filter(p => p.category === currentCategory);
-            }
-            if (blogSearchQuery) {
-                const q = blogSearchQuery;
-                posts = posts.filter(p => p._hay.indexOf(q) !== -1);
-            }
+            if (currentCategory !== 'all') posts = posts.filter(p => p.category === currentCategory);
+            if (blogSearchQuery) { const q = blogSearchQuery; posts = posts.filter(p => p._hay.indexOf(q) !== -1); }
             return posts;
         }
 
-        // ============ Blog Hero Search ============
         let blogSearchRaf = 0;
         function onBlogSearch(val) {
             blogSearchQuery = val.toLowerCase().trim();
@@ -1129,12 +962,8 @@
             currentPage = 1;
             saveBlogState();
             if (blogSearchRaf) cancelAnimationFrame(blogSearchRaf);
-            blogSearchRaf = requestAnimationFrame(function() {
-                blogSearchRaf = 0;
-                renderBlogGrid();
-            });
+            blogSearchRaf = requestAnimationFrame(function() { blogSearchRaf = 0; renderBlogGrid(); });
         }
-
         function clearBlogSearch() {
             const input = document.getElementById('blogSearchInput');
             input.value = '';
@@ -1153,25 +982,18 @@
             const featuredPost = document.getElementById('featuredPost');
             const filtered = getFilteredPosts();
             const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE));
-
             if (currentPage > totalPages) currentPage = totalPages;
-
             const start = (currentPage - 1) * POSTS_PER_PAGE;
             const pagePosts = filtered.slice(start, start + POSTS_PER_PAGE);
-
             const isFiltering = blogSearchQuery !== '' || currentCategory !== 'all';
             featuredPost.style.display = isFiltering ? 'none' : '';
-
             if (isFiltering) {
                 let msg = filtered.length + ' article' + (filtered.length === 1 ? '' : 's') + ' found';
                 if (blogSearchQuery) msg += ' for "' + blogSearchQuery + '"';
                 if (currentCategory !== 'all') msg += ' in ' + currentCategory;
                 resultsLine.textContent = msg;
                 resultsLine.classList.add('show');
-            } else {
-                resultsLine.classList.remove('show');
-            }
-
+            } else { resultsLine.classList.remove('show'); }
             if (pagePosts.length === 0) {
                 grid.innerHTML = '';
                 noResult.classList.add('show');
@@ -1179,73 +1001,42 @@
                 return;
             }
             noResult.classList.remove('show');
-
             grid.innerHTML = pagePosts.map(p => {
                 const media = p.image
                     ? `<div class="blog-card-img-wrap"><img class="blog-card-img" src="${escAttr(p.image)}" alt="${escAttr(p.title)}" width="640" height="360" loading="lazy" decoding="async" onerror="this.outerHTML='&lt;div class=\\'blog-card-img-fallback\\'&gt;${escAttr(p.category)}&lt;/div&gt;'"></div>`
                     : `<div class="blog-card-img-wrap"><div class="blog-card-img-fallback">${escHtml(p.category)}</div></div>`;
-                return `
-                <a href="/blog/${escAttr(p.slug)}" class="blog-card">
-                    ${media}
-                    <div class="blog-card-body">
-                        <div class="blog-card-meta">
-                            <span class="blog-card-cat">${escHtml(p.category)}</span>
-                            <span>${escHtml(p.dateDisplay)}</span>
-                            <span>•</span>
-                            <span>${escHtml(p.readTime)}</span>
-                        </div>
-                        <h3>${escHtml(p.title)}</h3>
-                        <p>${escHtml(p.excerpt)}</p>
-                        <span class="blog-card-readmore">Read more →</span>
-                    </div>
-                </a>`;
+                return `<a href="/blog/${escAttr(p.slug)}" class="blog-card">${media}<div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">${escHtml(p.category)}</span><span>${escHtml(p.dateDisplay)}</span><span>•</span><span>${escHtml(p.readTime)}</span></div><h3>${escHtml(p.title)}</h3><p>${escHtml(p.excerpt)}</p><span class="blog-card-readmore">Read more →</span></div></a>`;
             }).join('');
-
             renderPagination(filtered.length, totalPages);
         }
-
         function renderPagination(totalItems, totalPages) {
             const pag = document.getElementById('blogPagination');
             if (totalPages <= 1) { pag.innerHTML = ''; return; }
-
             let html = '';
             html += `<button class="page-btn" ${currentPage === 1 ? 'disabled' : ''} onclick="goToPage(${currentPage - 1})">← Prev</button>`;
-            for (let i = 1; i <= totalPages; i++) {
-                html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
-            }
+            for (let i = 1; i <= totalPages; i++) html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
             html += `<button class="page-btn" ${currentPage === totalPages ? 'disabled' : ''} onclick="goToPage(${currentPage + 1})">Next →</button>`;
             pag.innerHTML = html;
         }
-
-        // Pagination: scroll only to the top of the results area (not page top)
         function goToPage(page) {
             const filtered = getFilteredPosts();
             const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE));
             if (page < 1 || page > totalPages) return;
-
             currentPage = page;
             renderBlogGrid();
-
             const anchor = document.getElementById('blogCategoryBar');
             if (anchor) {
                 const anchorTop = anchor.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0);
                 const targetY = Math.max(0, anchorTop - PAGINATION_ANCHOR_OFFSET);
                 const currentY = window.scrollY || window.pageYOffset || 0;
-
-                if (currentY > targetY + 4) {
-                    window.scrollTo({ top: targetY, behavior: 'smooth' });
-                }
+                if (currentY > targetY + 4) window.scrollTo({ top: targetY, behavior: 'smooth' });
             }
-
             saveBlogState();
         }
-
         function filterBlogCategory(catKey, btnEl) {
             currentCategory = catKey;
             currentPage = 1;
-            document.querySelectorAll('#blogCategoryBar .cat-chip').forEach(c => {
-                c.classList.toggle('active', c.dataset.cat === catKey);
-            });
+            document.querySelectorAll('#blogCategoryBar .cat-chip').forEach(c => { c.classList.toggle('active', c.dataset.cat === catKey); });
             saveBlogState();
             renderBlogGrid();
         }
@@ -1259,7 +1050,6 @@
             toastTimer = setTimeout(() => t.classList.remove('show'), dur);
         }
 
-        // ============ Categories & Tools (for header search) ============
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'text', label: 'Text Tools' },
@@ -1524,10 +1314,8 @@
             return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
         }
 
-        // ============ Build shared components ============
         let megaMenuBuilt = false;
         let mobileMenuBuilt = false;
-
         function buildMegaMenu() {
             if (megaMenuBuilt) return;
             megaMenuBuilt = true;
@@ -1539,12 +1327,10 @@
             document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
 
-        // ============ Theme ============
         function setThemeColorMeta(isDark) {
             const meta = document.querySelector('meta[name="theme-color"]');
             if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
         }
-
         function toggleTheme() {
             const root = document.documentElement;
             if (root.classList.contains('dark-mode')) {
@@ -1558,7 +1344,6 @@
             }
         }
 
-        // ============ Tools Menu ============
         function toggleToolsMenu() {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
@@ -1582,7 +1367,6 @@
             }
         });
 
-        // ============ Mobile Sidebar ============
         function openMobileSidebar() {
             buildMobileToolsMenu();
             const sb = document.getElementById('mobileSidebar');
@@ -1624,16 +1408,13 @@
                     resizeRaf = 0;
                     const isDesktop = window.innerWidth > 768;
                     if (isDesktop && !lastWasDesktop) {
-                        if (document.getElementById('mobileSidebar').classList.contains('active')) {
-                            closeMobileSidebar();
-                        }
+                        if (document.getElementById('mobileSidebar').classList.contains('active')) closeMobileSidebar();
                     }
                     lastWasDesktop = isDesktop;
                 });
             });
         })();
 
-        // ============ Search overlay (tools) ============
         let lastFocusedBeforeSearch = null;
         let searchResultsRaf = 0;
         let searchIsOpen = false;
@@ -1647,38 +1428,28 @@
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
             filterFullSearch();
-            setTimeout(() => {
-                if (searchIsOpen) document.getElementById('fullSearchInput').focus();
-            }, 200);
+            setTimeout(() => { if (searchIsOpen) document.getElementById('fullSearchInput').focus(); }, 200);
         }
         function closeFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay.classList.contains('active')) return;
             searchIsOpen = false;
-            if (searchResultsRaf) {
-                cancelAnimationFrame(searchResultsRaf);
-                searchResultsRaf = 0;
-            }
+            if (searchResultsRaf) { cancelAnimationFrame(searchResultsRaf); searchResultsRaf = 0; }
             overlay.classList.remove('active');
             overlay.setAttribute('aria-hidden', 'true');
             document.getElementById('fullSearchInput').value = '';
             document.getElementById('searchClearBtn').classList.remove('show');
             const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
             if (!sidebarOpen) document.body.style.overflow = '';
-            if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
-                try { lastFocusedBeforeSearch.focus(); } catch (e) {}
-            }
+            if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) { try { lastFocusedBeforeSearch.focus(); } catch (e) {} }
             lastFocusedBeforeSearch = null;
         }
-
         function buildSearchResults(q) {
             const list = document.getElementById('fullSearchResultsList');
             const nr = document.getElementById('fullNoResult');
-
             let matched;
-            if (q === '') {
-                matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
-            } else {
+            if (q === '') { matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; }); }
+            else {
                 matched = [];
                 for (let i = 0; i < tools.length; i++) {
                     const t = tools[i];
@@ -1689,48 +1460,29 @@
                     else if (t._descLower.indexOf(q) !== -1) score = 2;
                     matched.push({ t: t, idx: i, score: score });
                 }
-                matched.sort(function (a, b) {
-                    return a.score - b.score || a.idx - b.idx;
-                });
+                matched.sort(function (a, b) { return a.score - b.score || a.idx - b.idx; });
             }
-
             const total = matched.length;
             const parts = [];
-
             for (let i = 0; i < total; i++) {
                 const t = matched[i].t;
-                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
-                    '<span class="result-main">' +
-                    '<span class="result-name">' + highlight(t.name, q) + '</span>' +
-                    '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
-                    '</span>' +
-                    '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
-                    '</a>');
+                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item"><span class="result-main"><span class="result-name">' + highlight(t.name, q) + '</span><span class="result-desc">' + highlight(t.desc, q) + '</span></span><span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span></a>');
             }
-
             list.innerHTML = parts.join('');
             searchState.activeIndex = -1;
-
             if (total === 0 && q !== '') {
                 nr.classList.add('show');
                 document.getElementById('fullSearchQuery').textContent = q;
-            } else {
-                nr.classList.remove('show');
-            }
+            } else { nr.classList.remove('show'); }
         }
-
         function filterFullSearch() {
             const input = document.getElementById('fullSearchInput');
             const q = input.value.toLowerCase().trim();
             document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
             if (!searchIsOpen) return;
             if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
-            searchResultsRaf = requestAnimationFrame(function () {
-                searchResultsRaf = 0;
-                buildSearchResults(q);
-            });
+            searchResultsRaf = requestAnimationFrame(function () { searchResultsRaf = 0; buildSearchResults(q); });
         }
-
         function handleSearchKey(e) {
             const items = Array.from(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
             if (e.key === 'ArrowDown') {
@@ -1749,36 +1501,25 @@
                 items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
             } else if (e.key === 'Enter') {
                 e.preventDefault();
-                if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) {
-                    window.location.href = items[searchState.activeIndex].getAttribute('href');
-                } else if (items.length === 1) {
-                    window.location.href = items[0].getAttribute('href');
-                }
+                if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) window.location.href = items[searchState.activeIndex].getAttribute('href');
+                else if (items.length === 1) window.location.href = items[0].getAttribute('href');
             }
         }
-
         function clearSearchInput() {
             const input = document.getElementById('fullSearchInput');
             input.value = '';
             filterFullSearch();
             input.focus();
         }
-
         (function initSearchBackdrop() {
             const overlay = document.getElementById('searchOverlayFull');
-            if (overlay) {
-                overlay.addEventListener('click', function(e) {
-                    if (e.target === overlay) closeFullSearch();
-                });
-            }
+            if (overlay) overlay.addEventListener('click', function(e) { if (e.target === overlay) closeFullSearch(); });
         })();
-
         (function setSearchPlaceholder() {
             const input = document.getElementById('fullSearchInput');
             if (!input) return;
             input.placeholder = 'Search all ' + tools.length + ' free tools…';
         })();
-
         (function setBlogKbdHint() {
             const kbd = document.getElementById('blogKbdHint');
             if (!kbd) return;
@@ -1786,7 +1527,6 @@
             const isMac = /Mac|iPhone|iPad|iPod/.test(platform);
             kbd.textContent = isMac ? '⌘ K' : 'Ctrl K';
         })();
-
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') {
                 const container = document.getElementById('toolsMenuContainer');
@@ -1804,64 +1544,39 @@
             }
         });
 
-        // ============ Save state on scroll (rAF-throttled) ============
         let scrollSaveRaf = 0;
         window.addEventListener('scroll', function() {
             if (scrollSaveRaf) return;
-            scrollSaveRaf = requestAnimationFrame(function() {
-                scrollSaveRaf = 0;
-                saveBlogState();
-            });
+            scrollSaveRaf = requestAnimationFrame(function() { scrollSaveRaf = 0; saveBlogState(); });
         }, { passive: true });
-
         document.addEventListener('click', function(e) {
             const link = e.target.closest('a.blog-card, a#featuredPost');
-            if (link) {
-                saveBlogState();
-            }
+            if (link) saveBlogState();
         }, true);
-
         window.addEventListener('pagehide', saveBlogState);
         window.addEventListener('beforeunload', saveBlogState);
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) saveBlogState();
-        });
+        document.addEventListener('visibilitychange', function() { if (document.hidden) saveBlogState(); });
 
-        // ============ Init ============
         (function initBlogListing() {
             const saved = loadBlogState();
             if (saved) {
-                if (saved.category && blogCategories.some(c => c.key === saved.category)) {
-                    currentCategory = saved.category;
-                }
-                if (saved.page && saved.page > 0) {
-                    currentPage = saved.page;
-                }
-                if (saved.query) {
-                    blogSearchQuery = saved.query;
-                }
+                if (saved.category && blogCategories.some(c => c.key === saved.category)) currentCategory = saved.category;
+                if (saved.page && saved.page > 0) currentPage = saved.page;
+                if (saved.query) blogSearchQuery = saved.query;
                 const input = document.getElementById('blogSearchInput');
-                if (input && saved.queryRaw) {
-                    input.value = saved.queryRaw;
-                }
+                if (input && saved.queryRaw) input.value = saved.queryRaw;
                 const clearBtn = document.getElementById('blogClearBtn');
-                if (clearBtn) {
-                    clearBtn.classList.toggle('show', (saved.queryRaw || '').length > 0);
-                }
+                if (clearBtn) clearBtn.classList.toggle('show', (saved.queryRaw || '').length > 0);
                 pendingScrollY = saved.scrollY || 0;
             }
-
             renderBlogCategories();
             renderExtrasChips();
             renderBlogGrid();
-
             if (pendingScrollY > 0) {
                 requestAnimationFrame(function() {
                     requestAnimationFrame(function() {
                         window.scrollTo(0, pendingScrollY);
-                        setTimeout(function() {
-                            window.scrollTo(0, pendingScrollY);
-                        }, 60);
+                        setTimeout(function() { window.scrollTo(0, pendingScrollY); }, 60);
                     });
                 });
             }
@@ -1869,19 +1584,15 @@
 
         buildMegaMenu();
         buildMobileToolsMenu();
-
         searchIsOpen = true;
         filterFullSearch();
         searchIsOpen = false;
 
-        // Category bar clicks
         document.getElementById('blogCategoryBar').addEventListener('click', function(e) {
             const btn = e.target.closest('.cat-chip');
             if (!btn) return;
             filterBlogCategory(btn.dataset.cat, btn);
         });
-
-        // Extras topic chips — filter and scroll to the top of the listing
         document.getElementById('extrasChips').addEventListener('click', function(e) {
             const btn = e.target.closest('.extras-chip');
             if (!btn) return;
@@ -1892,17 +1603,11 @@
                 window.scrollTo({ top: Math.max(0, anchorTop - PAGINATION_ANCHOR_OFFSET), behavior: 'smooth' });
             }
         });
-
         function initLucide() {
-            if (window.lucide && typeof window.lucide.createIcons === 'function') {
-                window.lucide.createIcons();
-                return true;
-            }
+            if (window.lucide && typeof window.lucide.createIcons === 'function') { window.lucide.createIcons(); return true; }
             return false;
         }
-        if (!initLucide()) {
-            window.addEventListener('load', initLucide);
-        }
+        if (!initLucide()) window.addEventListener('load', initLucide);
     </script>
 </body>
 </html>
