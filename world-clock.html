@@ -1,0 +1,2504 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>World Clock - Live Time in Any City, Time Zone Converter | Textify.tools</title>
+    <meta name="description" content="See the current time anywhere in the world. Add cities, compare time zones, and convert times instantly. Free, no signup, works for every timezone globally.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="Pradeep Yadav">
+    <link rel="canonical" href="https://textify.tools/world-clock">
+    <link rel="alternate" hreflang="x-default" href="https://textify.tools/world-clock">
+    <link rel="alternate" hreflang="en-US" href="https://textify.tools/world-clock">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://textify.tools/world-clock">
+    <meta property="og:title" content="World Clock – Live Time in Any City, Time Zone Converter | Textify.tools">
+    <meta property="og:description" content="See the current time anywhere in the world. Add cities, compare time zones, and convert times instantly. Free, no signup, works for every timezone globally.">
+    <meta property="og:site_name" content="Textify.tools">
+    <meta property="og:image" content="https://textify.tools/og-image.png">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="World Clock – Live Time in Any City, Time Zone Converter | Textify.tools">
+    <meta name="twitter:description" content="See the current time anywhere in the world. Add cities, compare time zones, and convert times instantly. Free, no signup, works for every timezone globally.">
+    <meta name="twitter:image" content="https://textify.tools/og-image.png">
+    <!-- Icons -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://scripts.scriptwrapper.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <meta name="yandex-verification" content="6e105f6188a8c833" />
+
+    <!-- Inline script to prevent dark mode flash -->
+    <script>
+        (function() {
+            var stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (e) {}
+            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var isDark = stored === 'dark' || (!stored && prefersDark);
+            if (isDark) {
+                document.documentElement.classList.add('dark-mode');
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta) meta.setAttribute('content', '#0f172a');
+            }
+        })();
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-6VGXXT81MB');
+    </script>
+
+    <!-- Mediavine -->
+    <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
+
+    <!-- Lucide icons -->
+    <script src="https://unpkg.com/lucide@0.344.0" defer></script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebSite",
+                    "@id": "https://textify.tools/#website",
+                    "url": "https://textify.tools/",
+                    "name": "Textify.tools",
+                    "description": "Free online text tools you can use right in your browser.",
+                    "publisher": { "@id": "https://textify.tools/#organization" }
+                },
+                {
+                    "@type": "Organization",
+                    "@id": "https://textify.tools/#organization",
+                    "name": "Textify.tools",
+                    "url": "https://textify.tools/",
+                    "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 },
+                    "sameAs": ["https://x.com/BuiltByPradeep"]
+                },
+                {
+                    "@type": "Person",
+                    "@id": "https://textify.tools/#author",
+                    "name": "Pradeep Yadav",
+                    "url": "https://textify.tools/about-us",
+                    "worksFor": { "@id": "https://textify.tools/#organization" }
+                },
+                {
+                    "@type": "WebApplication",
+                    "@id": "https://textify.tools/world-clock/#app",
+                    "name": "World Clock",
+                    "url": "https://textify.tools/world-clock",
+                    "description": "See the current time anywhere in the world. Add cities, compare time zones, and convert times instantly. Free, no signup, works for every timezone globally.",
+                    "applicationCategory": "UtilityApplication",
+                    "operatingSystem": "Web Browser",
+                    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+                    "featureList": "Live world clocks, Time zone converter, Add multiple cities, Day/night indicator, 12/24 hour format, UTC offset display, DST auto-adjustment, Save preferences"
+                },
+                {
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": "How does this world clock work?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "This world clock uses your browser's built-in Internationalization API to calculate the current time in any timezone. It automatically handles daylight saving time (DST) adjustments, so you always see the correct local time without any manual calculation." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Is this world clock accurate?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The clock relies on your device's system time and the IANA timezone database built into your browser. It automatically adjusts for daylight saving time and timezone rule changes." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Does it work for every timezone in the world?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. It supports all IANA timezones, covering every country and major city globally." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Can I add multiple cities?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can add as many cities as you want. Each one shows a live-updating clock with the local time, date, UTC offset, and a day/night indicator." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Does the world clock handle daylight saving time automatically?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The clock automatically adjusts for daylight saving time (DST) based on the current rules for each timezone." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Is my data safe?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Everything runs in your browser. The cities you add and any preferences you set are stored locally on your device using localStorage." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Can I use this world clock on my phone?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool is fully responsive and works on phones, tablets, and desktops." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Does this tool work offline?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once the page loads, the world clock keeps running even without an internet connection." }
+                        }
+                    ]
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
+                        { "@type": "ListItem", "position": 2, "name": "World Clock", "item": "https://textify.tools/world-clock" }
+                    ]
+                }
+            ]
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #0a0a0a;
+            --text-light: #525252;
+            --line: #e5e5e5;
+            --primary: #000000;
+            --hover: #f3f4f6;
+            --card: #fafafa;
+            --input-bg: #ffffff;
+            --input-border: #d4d4d4;
+            --footer-text: #333333;
+            --footer-heading: #000000;
+            --footer-link-color: #2563eb;
+            --footer-link-hover: #1d4ed8;
+            --footer-border: #e5e5e5;
+            --faq-bg: #fafafa;
+            --faq-active: #f3f4f6;
+            --shadow: rgba(0,0,0,0.1);
+            --overlay-bg: rgba(0,0,0,0.5);
+            --sidebar-bg: #ffffff;
+            --accent: #f8fafc;
+            --toast-bg: #000000;
+            --toast-text: #ffffff;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            --chip-hover: #e2e8f0;
+            --mark-bg: #dbeafe;
+            --mark-text: #1e3a8a;
+            --tool-accent: #000000;
+            --tool-accent-light: rgba(0, 0, 0, 0.06);
+            --night-bg: #1e293b;
+            --night-text: #94a3b8;
+            --day-bg: #fef3c7;
+            --day-text: #92400e;
+        }
+        html.dark-mode {
+            --bg: #0f172a;
+            --text: #f1f5f9;
+            --text-light: #94a3b8;
+            --line: #1e293b;
+            --primary: #ffffff;
+            --hover: #1e293b;
+            --card: #1e293b;
+            --input-bg: #1e293b;
+            --input-border: #334155;
+            --footer-text: #e2e8f0;
+            --footer-heading: #ffffff;
+            --footer-link-color: #60a5fa;
+            --footer-link-hover: #ffffff;
+            --footer-border: #334155;
+            --faq-bg: #1e293b;
+            --faq-active: #334155;
+            --shadow: rgba(0,0,0,0.5);
+            --overlay-bg: rgba(0,0,0,0.75);
+            --sidebar-bg: #0f172a;
+            --accent: #1e293b;
+            --toast-bg: #f1f5f9;
+            --toast-text: #0f172a;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            --chip-hover: #334155;
+            --mark-bg: #1e3a8a;
+            --mark-text: #dbeafe;
+            --tool-accent: #ffffff;
+            --tool-accent-light: rgba(255, 255, 255, 0.08);
+            --night-bg: #1e293b;
+            --night-text: #94a3b8;
+            --day-bg: #422006;
+            --day-text: #fde68a;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg); color: var(--text); min-height: 100vh;
+            transition: background 0.3s, color 0.3s; overflow-x: hidden;
+        }
+        .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
+
+        /* prevent sun/moon flash */
+        html.dark-mode #sunIcon,
+        html.dark-mode #mobileSunIcon { display: none !important; }
+        html.dark-mode #moonIcon,
+        html.dark-mode #mobileMoonIcon { display: block !important; }
+        html:not(.dark-mode) #moonIcon,
+        html:not(.dark-mode) #mobileMoonIcon { display: none !important; }
+        html:not(.dark-mode) #sunIcon,
+        html:not(.dark-mode) #mobileSunIcon { display: block !important; }
+
+        img, video, canvas, iframe, embed, object, svg { max-width: 100%; height: auto; }
+        table { max-width: 100%; }
+        pre, code { white-space: pre-wrap; word-wrap: break-word; }
+        mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
+
+        /* ===== HEADER ===== */
+        header {
+            border-bottom: 1px solid var(--line); display: flex; justify-content: center;
+            align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
+            background: transparent; width: 100%;
+        }
+        .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
+        .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
+        .header-right { display: flex; align-items: center; gap: 12px; }
+        .desktop-nav { display: flex; gap: 15px; align-items: center; }
+        .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
+        .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
+        .tools-menu-container { position: relative; }
+        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; background: none; border: none; font-family: inherit; }
+        .tools-trigger:hover { color: var(--primary); background: var(--hover); }
+        .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
+        .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 220px; max-width: min(90vw, 400px); max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
+        .tools-menu-container:hover .tools-mega-menu,
+        .tools-menu-container.open .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .tools-menu-container:hover .tools-trigger i,
+        .tools-menu-container.open .tools-trigger i { transform: rotate(180deg); }
+        .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+        .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
+        .tools-mega-menu::-webkit-scrollbar { width: 6px; }
+        .tools-mega-menu::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
+
+        .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
+        .theme-btn:hover { background: var(--hover); }
+        .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
+        .search-trigger:hover { border-color: var(--primary); color: var(--primary); }
+        .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; }
+        .hamburger-btn:hover { background: var(--hover); }
+        .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
+        .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
+        .hamburger-btn .menu-icon span:first-child { width: 16px; }
+        .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
+        .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
+        .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; max-width: 85vw; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; visibility: hidden; transition: left 0.35s cubic-bezier(0.4,0,0.2,1), visibility 0.35s; overflow-y: auto; }
+        .mobile-sidebar.active { left: 0; visibility: visible; }
+        .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+        .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
+        .mobile-sidebar-logo .logo-img { width: 20px; height: 20px; }
+        .mobile-sidebar-close { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
+        .mobile-sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+        .mobile-sidebar-nav a { display: block; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; }
+        .mobile-sidebar-nav a:hover { background: var(--hover); color: var(--primary); }
+        .mobile-tools-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 10px; background: none; border: none; cursor: pointer; color: var(--text); font-weight: 500; font-size: 15px; font-family: inherit; transition: 0.2s; }
+        .mobile-tools-toggle:hover { background: var(--hover); color: var(--primary); }
+        .mobile-tools-toggle i { width: 16px; height: 16px; transition: transform 0.3s; }
+        .mobile-tools-toggle.active i { transform: rotate(180deg); }
+        .mobile-tools-menu { display: none; flex-direction: column; padding-left: 16px; gap: 2px; margin-bottom: 6px; }
+        .mobile-tools-menu.active { display: flex; }
+        .mobile-tools-menu a { font-size: 14px; padding: 10px 14px; color: var(--text-light); }
+        .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+        .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
+        .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* ===== SEARCH OVERLAY ===== */
+        .search-overlay-full {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--overlay-bg);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            z-index: 300; display: flex; flex-direction: column; align-items: center;
+            padding-top: 60px; opacity: 0; visibility: hidden; transition: 0.3s;
+        }
+        .search-overlay-full.active { opacity: 1; visibility: visible; }
+        .search-container { width: 92%; max-width: 620px; display: flex; flex-direction: column; max-height: 88vh; min-height: 0; }
+        .search-box {
+            display: flex; align-items: center; gap: 10px; background: var(--bg);
+            border-radius: 16px; padding: 6px 10px 6px 16px;
+            border: 2px solid var(--line);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 12px; flex-shrink: 0;
+        }
+        .search-box input {
+            flex: 1; border: none; background: transparent; font-size: 17px;
+            color: var(--text); outline: none; font-family: inherit;
+            padding: 10px 0; min-width: 0;
+        }
+        .search-box .search-clear-btn {
+            display: none; background: var(--hover); border: none; cursor: pointer;
+            padding: 6px; border-radius: 50%; color: var(--text-light);
+            align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .search-box .search-clear-btn.show { display: flex; }
+        .search-box .search-close-btn {
+            background: var(--hover); border: none; cursor: pointer; padding: 8px;
+            border-radius: 50%; color: var(--text); display: flex;
+            align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .search-box .search-close-btn:hover,
+        .search-box .search-clear-btn:hover { background: var(--chip-hover); }
+
+        .search-results-list {
+            background: var(--bg); border-radius: 16px; border: 1px solid var(--line);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto;
+            flex: 1; min-height: 0; contain: content;
+        }
+        .search-results-list .search-result-item {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 12px; padding: 12px 18px; text-decoration: none;
+            color: var(--text); font-weight: 500; font-size: 15px;
+            transition: 0.15s; border-bottom: 1px solid var(--line);
+        }
+        .search-results-list .search-result-item:last-child { border-bottom: none; }
+        .search-results-list .search-result-item:hover,
+        .search-results-list .search-result-item.active { background: var(--hover); color: var(--primary); }
+        .search-results-list .search-result-item.active { box-shadow: inset 3px 0 0 var(--primary); }
+        .search-result-item .result-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+        .search-result-item .result-name { font-weight: 600; font-size: 15px; }
+        .search-result-item .result-desc {
+            font-size: 12px; color: var(--text-light); font-weight: 400;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+        .search-results-list .result-tag {
+            font-size: 10px; background: var(--hover); padding: 3px 8px;
+            border-radius: 12px; color: var(--text-light); text-transform: uppercase;
+            font-weight: 600; flex-shrink: 0; white-space: nowrap;
+        }
+        .search-no-result {
+            text-align: center; padding: 28px 20px; color: var(--text-light);
+            font-size: 14px; display: none; background: var(--bg);
+            border-radius: 16px; border: 1px solid var(--line); margin-top: 8px;
+        }
+        .search-no-result.show { display: block; }
+
+        /* ===== MAIN ===== */
+        main { flex: 1; padding: 40px 0; width: 100%; max-width: 100%; background: transparent; }
+        .content-container {
+            width: 100%; max-width: 100%; padding: 0 40px; margin: 0 auto;
+        }
+        @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
+        @media (min-width: 1800px) { .content-container { padding: 0 60px; } main { padding: 50px 0; } }
+
+        /* ===== TOOL HERO ===== */
+        .tool-hero { text-align: left; margin-bottom: 30px; }
+        .tool-hero h1 { font-size: 38px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; }
+        .tool-hero .subtitle {
+            font-size: 18px; color: var(--text-light); line-height: 1.7;
+            max-width: 100%; word-wrap: break-word;
+        }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 28px; } }
+        @media (min-width: 1800px) { .tool-hero h1 { font-size: 44px; } }
+
+        /* ===== LOCAL TIME BANNER (BLACK) ===== */
+        .local-banner {
+            background: #000000;
+            border-radius: 16px; padding: 28px 32px; margin-bottom: 26px;
+            color: #ffffff; display: flex; flex-wrap: wrap;
+            align-items: center; justify-content: space-between; gap: 20px;
+        }
+        html.dark-mode .local-banner {
+            background: #1e293b;
+            border: 1px solid var(--line);
+        }
+        @media (max-width: 768px) { .local-banner { padding: 22px 20px; } }
+        .local-banner .lb-left { display: flex; flex-direction: column; gap: 4px; }
+        .local-banner .lb-label {
+            font-size: 12px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; opacity: 0.7;
+        }
+        .local-banner .lb-time-row {
+            display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+        }
+        .local-banner .lb-time {
+            font-size: 44px; font-weight: 800; line-height: 1.1;
+            font-variant-numeric: tabular-nums;
+        }
+        /* AM/PM toggle inside banner */
+        .lb-format-toggle {
+            display: flex; border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 8px; overflow: hidden; flex-shrink: 0;
+        }
+        .lb-format-toggle button {
+            padding: 7px 14px; border: none; background: transparent;
+            color: rgba(255,255,255,0.75); font-family: inherit; font-size: 12px;
+            font-weight: 700; cursor: pointer; transition: 0.2s;
+            letter-spacing: 0.3px;
+        }
+        .lb-format-toggle button:hover {
+            background: rgba(255,255,255,0.1);
+            color: #ffffff;
+        }
+        .lb-format-toggle button.active {
+            background: #ffffff; color: #000000;
+        }
+        html.dark-mode .lb-format-toggle button.active {
+            background: var(--text); color: var(--bg);
+        }
+        .local-banner .lb-date { font-size: 15px; opacity: 0.75; }
+        .local-banner .lb-right { text-align: right; }
+        .local-banner .lb-tz {
+            font-size: 14px; font-weight: 600; margin-bottom: 4px;
+        }
+        .local-banner .lb-offset { font-size: 13px; opacity: 0.75; }
+        @media (max-width: 560px) {
+            .local-banner .lb-time { font-size: 34px; }
+            .local-banner .lb-right { text-align: left; width: 100%; }
+        }
+
+        /* ===== TOOLBAR ===== */
+        .clock-toolbar {
+            display: flex; flex-wrap: wrap; gap: 12px;
+            align-items: center; margin-bottom: 20px;
+        }
+        .clock-search-wrap {
+            position: relative; flex: 1; min-width: 240px;
+        }
+        .clock-search-wrap > i,
+        .clock-search-wrap > svg {
+            position: absolute; left: 14px; top: 50%;
+            transform: translateY(-50%); color: var(--text-light);
+            width: 16px; height: 16px; pointer-events: none;
+            z-index: 1;
+        }
+        .clock-search {
+            width: 100%; padding: 12px 14px 12px 42px;
+            border-radius: 10px; border: 1px solid var(--input-border);
+            background: var(--input-bg); color: var(--text);
+            font-family: inherit; font-size: 15px; outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .clock-search:focus {
+            border-color: var(--tool-accent);
+            box-shadow: 0 0 0 3px var(--tool-accent-light);
+        }
+
+        /* Search dropdown */
+        .city-dropdown {
+            position: absolute; top: 100%; left: 0; right: 0;
+            background: var(--bg); border: 1px solid var(--line);
+            border-radius: 12px; box-shadow: 0 16px 40px var(--shadow);
+            max-height: 320px; overflow-y: auto; z-index: 40;
+            margin-top: 6px; display: none;
+        }
+        .city-dropdown.active { display: block; }
+        .city-option {
+            padding: 11px 16px; cursor: pointer; transition: 0.15s;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 12px; border-bottom: 1px solid var(--line);
+        }
+        .city-option:last-child { border-bottom: none; }
+        .city-option:hover, .city-option.highlighted { background: var(--hover); }
+        .city-option .co-name { font-weight: 600; font-size: 14px; }
+        .city-option .co-country { font-size: 12px; color: var(--text-light); }
+        .city-option .co-time {
+            font-size: 13px; font-weight: 600; color: var(--tool-accent);
+            font-variant-numeric: tabular-nums; flex-shrink: 0;
+        }
+        .city-dropdown-empty {
+            padding: 20px; text-align: center; color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* ===== CLOCK GRID ===== */
+        .clock-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 16px; margin-bottom: 50px;
+        }
+        @media (max-width: 1200px) { .clock-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 640px) { .clock-grid { grid-template-columns: 1fr; } }
+        @media (min-width: 1800px) { .clock-grid { grid-template-columns: repeat(4, 1fr); } }
+
+        .clock-card {
+            background: var(--card); border: 1px solid var(--line);
+            border-radius: 14px; padding: 20px; transition: 0.2s;
+            box-shadow: var(--card-shadow); position: relative;
+        }
+        .clock-card:hover {
+            border-color: var(--tool-accent);
+            transform: translateY(-2px);
+            box-shadow: var(--card-hover-shadow);
+        }
+        .clock-card .cc-header {
+            display: flex; align-items: flex-start;
+            justify-content: space-between; gap: 10px; margin-bottom: 14px;
+        }
+        .clock-card .cc-city {
+            font-size: 17px; font-weight: 700; line-height: 1.3;
+        }
+        .clock-card .cc-country {
+            font-size: 12px; color: var(--text-light); margin-top: 2px;
+        }
+        .clock-card .cc-remove {
+            background: none; border: none; cursor: pointer;
+            padding: 6px; border-radius: 6px; color: var(--text-light);
+            display: flex; align-items: center; flex-shrink: 0;
+            transition: 0.2s;
+        }
+        .clock-card .cc-remove:hover {
+            background: #fee2e2; color: #dc2626;
+        }
+        html.dark-mode .clock-card .cc-remove:hover {
+            background: #450a0a; color: #fca5a5;
+        }
+        .clock-card .cc-time {
+            font-size: 32px; font-weight: 800; line-height: 1.1;
+            font-variant-numeric: tabular-nums; margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+        .clock-card .cc-date {
+            font-size: 13px; color: var(--text-light); margin-bottom: 12px;
+        }
+        .clock-card .cc-footer {
+            display: flex; align-items: center;
+            justify-content: space-between; gap: 8px;
+            padding-top: 12px; border-top: 1px solid var(--line);
+        }
+        .clock-card .cc-badge {
+            display: inline-flex; align-items: center; gap: 5px;
+            font-size: 11px; font-weight: 600; padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .clock-card .cc-badge i { width: 12px; height: 12px; }
+        .cc-badge.day { background: var(--day-bg); color: var(--day-text); }
+        .cc-badge.night { background: var(--night-bg); color: var(--night-text); }
+        .clock-card .cc-diff {
+            font-size: 12px; font-weight: 600; color: var(--text-light);
+            font-variant-numeric: tabular-nums;
+        }
+        .clock-card .cc-offset {
+            font-size: 11px; color: var(--text-light); margin-top: 2px;
+        }
+
+        .empty-clocks {
+            grid-column: 1 / -1; text-align: center; padding: 60px 20px;
+            border: 2px dashed var(--line); border-radius: 14px;
+            color: var(--text-light);
+        }
+        .empty-clocks i { width: 44px; height: 44px; opacity: 0.4; margin-bottom: 12px; }
+        .empty-clocks p { font-size: 15px; line-height: 1.6; }
+
+        /* ===== CONVERTER ===== */
+        .converter-panel {
+            background: var(--card); border: 1px solid var(--line);
+            border-radius: 16px; padding: 24px; margin-bottom: 50px;
+            box-shadow: var(--card-shadow);
+        }
+        @media (max-width: 768px) { .converter-panel { padding: 18px; } }
+        .converter-panel h2 {
+            font-size: 18px; font-weight: 700; margin-bottom: 18px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .converter-panel h2 i { width: 20px; height: 20px; color: var(--tool-accent); }
+        .converter-grid {
+            display: grid; grid-template-columns: 1fr auto 1fr;
+            gap: 16px; align-items: end;
+        }
+        @media (max-width: 768px) {
+            .converter-grid { grid-template-columns: 1fr; }
+            .converter-swap { justify-self: center; }
+        }
+        .converter-field label {
+            display: block; font-size: 12px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            color: var(--text-light); margin-bottom: 6px;
+        }
+        .converter-field select,
+        .converter-field input {
+            width: 100%; padding: 11px 14px; border-radius: 10px;
+            border: 1px solid var(--input-border); background: var(--input-bg);
+            color: var(--text); font-family: inherit; font-size: 14px;
+            outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .converter-field select:focus,
+        .converter-field input:focus {
+            border-color: var(--tool-accent);
+            box-shadow: 0 0 0 3px var(--tool-accent-light);
+        }
+        .converter-swap {
+            width: 44px; height: 44px; border-radius: 50%;
+            border: 1px solid var(--line); background: var(--bg);
+            color: var(--tool-accent); cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: 0.2s; flex-shrink: 0;
+        }
+        .converter-swap:hover {
+            border-color: var(--tool-accent);
+            background: var(--tool-accent-light);
+        }
+        .converter-result {
+            margin-top: 20px; padding: 18px 20px;
+            background: var(--bg); border: 1px solid var(--line);
+            border-radius: 12px; text-align: center;
+        }
+        .converter-result .cr-label {
+            font-size: 12px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.5px; color: var(--text-light); margin-bottom: 6px;
+        }
+        .converter-result .cr-value {
+            font-size: 30px; font-weight: 800; color: var(--tool-accent);
+            font-variant-numeric: tabular-nums;
+        }
+        .converter-result .cr-detail {
+            font-size: 13px; color: var(--text-light); margin-top: 6px;
+        }
+
+        /* Toast */
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; max-width: 90vw; overflow: hidden; text-overflow: ellipsis; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        /* ===== CONTENT SECTIONS ===== */
+        .content-section { margin-bottom: 50px; width: 100%; max-width: 100%; }
+        .content-section h2 {
+            font-size: 28px; font-weight: 700; margin-bottom: 20px;
+            padding-bottom: 10px; border-bottom: 2px solid var(--hover);
+        }
+        @media (max-width: 768px) { .content-section h2 { font-size: 22px; } }
+        @media (min-width: 1800px) { .content-section h2 { font-size: 30px; } }
+        .content-section h3 { font-size: 20px; font-weight: 700; margin: 25px 0 12px; }
+        .content-section p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
+        .content-section ul, .content-section ol { padding-left: 22px; color: var(--text-light); margin-bottom: 20px; }
+        .content-section li { margin-bottom: 10px; line-height: 1.7; }
+        .content-section a { color: var(--footer-link-color); text-decoration: none; }
+        .content-section a:hover { text-decoration: underline; }
+        .content-section code {
+            background: var(--hover); padding: 2px 6px; border-radius: 4px;
+            font-size: 14px; font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+        }
+
+        .feature-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 18px; margin-top: 24px; width: 100%;
+        }
+        @media (max-width: 900px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .feature-grid { grid-template-columns: 1fr; } }
+        @media (min-width: 1800px) { .feature-grid { gap: 24px; } }
+        .feature-card {
+            background: var(--accent); border: 1px solid var(--line);
+            border-radius: 12px; padding: 20px;
+        }
+        .feature-card h4 {
+            font-size: 16px; font-weight: 700; margin-bottom: 8px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .feature-card h4 i { width: 18px; height: 18px; color: var(--tool-accent); }
+        .feature-card p { font-size: 14px; color: var(--text-light); margin: 0; line-height: 1.6; }
+
+        /* Table */
+        .table-wrapper {
+            overflow-x: auto; margin: 25px 0;
+            border: 1px solid var(--line); border-radius: 10px; width: 100%;
+        }
+        .info-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        .info-table th, .info-table td {
+            padding: 14px 16px; text-align: left;
+            border-bottom: 1px solid var(--line); color: var(--text-light);
+            font-size: 14px; line-height: 1.6;
+        }
+        .info-table th {
+            background: var(--faq-bg); font-weight: 700;
+            color: var(--text); font-size: 13px;
+            text-transform: uppercase; letter-spacing: 0.3px;
+        }
+        .info-table tr:last-child td { border-bottom: none; }
+        .info-table tr:hover { background: var(--hover); }
+        .info-table td strong { color: var(--text); }
+
+        /* FAQ */
+        .faq-item { margin-bottom: 14px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .faq-question {
+            background: var(--faq-bg); padding: 16px 18px; font-weight: 600;
+            cursor: pointer; display: flex; justify-content: space-between;
+            align-items: center; color: var(--text); font-size: 15px;
+            border: none; width: 100%; text-align: left; font-family: inherit;
+            gap: 12px;
+        }
+        .faq-question i { width: 16px; height: 16px; transition: transform 0.3s; flex-shrink: 0; }
+        .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
+        .faq-answer {
+            padding: 16px 18px; display: none; color: var(--text-light);
+            line-height: 1.7; border-top: 1px solid var(--line);
+        }
+        .faq-item.active .faq-answer { display: block; }
+
+        /* ===== FOOTER ===== */
+        footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
+        .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
+        .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
+        .footer-left-column { flex: 0 0 380px; max-width: 380px; }
+        .footer-right-columns { display: flex; flex: 1; gap: 30px; justify-content: flex-end; flex-wrap: wrap; }
+        .footer-column { min-width: 160px; }
+        .footer-heading { font-size: 16px; font-weight: 700; color: var(--footer-heading); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links a { color: var(--footer-link-color); text-decoration: none; font-size: 14px; transition: color 0.2s, transform 0.2s; display: inline-block; }
+        .footer-links a:hover { color: var(--footer-link-hover); transform: translateX(4px); }
+        .footer-credit { font-size: 16px; font-weight: 700; color: var(--footer-heading); margin-bottom: 4px; }
+        .footer-credit a { color: var(--footer-link-color); text-decoration: none; }
+        .footer-credit a:hover { color: var(--footer-link-hover); text-decoration: underline; }
+        .footer-copyright { font-size: 14px; color: var(--footer-text); margin-bottom: 15px; }
+        .footer-about-text { font-size: 15px; color: var(--footer-text); line-height: 1.7; }
+        .footer-about-text a { color: var(--footer-link-color); text-decoration: none; }
+        .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
+        @media (max-width: 768px) {
+            footer { padding: 30px 16px 160px; }
+            .footer-middle { flex-direction: column; align-items: flex-start; gap: 28px; text-align: left; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
+            .footer-right-columns { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 22px; width: 100%; }
+            .footer-column { min-width: auto; text-align: left; width: 100%; }
+            .footer-links a { display: block; }
+        }
+        @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
+
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; }
+            .theme-btn, .search-trigger { display: none; }
+            .hamburger-btn { display: flex; }
+            header { padding: 0 16px; }
+            .logo { font-size: 20px; }
+            .tool-hero h1 { font-size: 26px; }
+            .tool-hero .subtitle { font-size: 15px; }
+            main { padding: 20px 0; }
+            .search-overlay-full { padding-top: 24px; }
+            .search-container { width: 94%; }
+            .search-box input { font-size: 16px; }
+            .search-result-item .result-desc { max-width: 180px; }
+            .content-section h2 { font-size: 22px; }
+        }
+        @media (min-width: 769px) {
+            .hamburger-btn { display: none; }
+            .mobile-sidebar-overlay { display: none !important; }
+            .mobile-sidebar { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
+                    Textify.tools
+                </a>
+                <div class="header-right">
+                    <div class="desktop-nav">
+                        <div class="tools-menu-container" id="toolsMenuContainer">
+                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu" onclick="toggleToolsMenu()">
+                                Tools <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="tools-mega-menu" id="megaMenu"></div>
+                        </div>
+                        <a href="/privacy-policy">Privacy</a>
+                        <a href="/blog">Blog</a>
+                        <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
+                    </div>
+                    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
+                    </button>
+                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
+                        <span class="menu-icon"><span></span><span></span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="content-container">
+
+                <!-- Tool Hero -->
+                <div class="tool-hero">
+                    <h1>World Clock</h1>
+                    <p class="subtitle">See the current time anywhere in the world. Add cities, compare time zones, and convert times instantly. Free, no signup, works for every timezone globally — with automatic daylight saving adjustments.</p>
+                </div>
+
+                <!-- Local Time Banner (with AM/PM toggle) -->
+                <div class="local-banner" id="localBanner">
+                    <div class="lb-left">
+                        <div class="lb-label">Your local time</div>
+                        <div class="lb-time-row">
+                            <div class="lb-time" id="localTime">--:--:--</div>
+                            <div class="lb-format-toggle" id="bannerFormatToggle" role="group" aria-label="Time format">
+                                <button type="button" data-format="12" class="active">12h</button>
+                                <button type="button" data-format="24">24h</button>
+                            </div>
+                        </div>
+                        <div class="lb-date" id="localDate">—</div>
+                    </div>
+                    <div class="lb-right">
+                        <div class="lb-tz" id="localTz">—</div>
+                        <div class="lb-offset" id="localOffset">—</div>
+                    </div>
+                </div>
+
+                <!-- Toolbar (search only, format toggle moved to banner) -->
+                <div class="clock-toolbar">
+                    <div class="clock-search-wrap">
+                        <i data-lucide="search"></i>
+                        <input type="text" class="clock-search" id="citySearch" placeholder="Search city... (e.g. Tokyo, London, New York)" autocomplete="off" aria-label="Search cities">
+                        <div class="city-dropdown" id="cityDropdown"></div>
+                    </div>
+                </div>
+
+                <!-- Clock Grid -->
+                <div class="clock-grid" id="clockGrid"></div>
+
+                <!-- Converter -->
+                <div class="converter-panel">
+                    <h2><i data-lucide="arrow-right-left"></i> Time Zone Converter</h2>
+                    <div class="converter-grid">
+                        <div class="converter-field">
+                            <label for="fromTz">From timezone</label>
+                            <select id="fromTz"></select>
+                        </div>
+                        <button type="button" class="converter-swap" id="swapTz" aria-label="Swap timezones">
+                            <i data-lucide="arrow-left-right" width="18" height="18"></i>
+                        </button>
+                        <div class="converter-field">
+                            <label for="toTz">To timezone</label>
+                            <select id="toTz"></select>
+                        </div>
+                    </div>
+                    <div class="converter-field" style="margin-top:16px;">
+                        <label for="convertTime">Time to convert (24-hour format)</label>
+                        <input type="time" id="convertTime" value="12:00">
+                    </div>
+                    <div class="converter-result">
+                        <div class="cr-label">Converted time</div>
+                        <div class="cr-value" id="convertedValue">—</div>
+                        <div class="cr-detail" id="convertedDetail"></div>
+                    </div>
+                </div>
+
+                <!-- Content: What is this tool -->
+                <div class="content-section">
+                    <h2>What does this World Clock do?</h2>
+                    <p>This free online world clock shows the current local time in any city or timezone around the world. Whether you're coordinating with remote teammates, planning an international call, or just curious what time it is in Tokyo right now, this tool gives you an accurate, live-updating answer — instantly.</p>
+                    <p>Unlike tools that rely on fixed offsets (which break twice a year when daylight saving time changes), this clock uses the <strong>IANA timezone database</strong> built into your browser. That means it automatically handles daylight saving time, historical timezone changes, and future rule updates. When a country changes its DST rules, your clock stays correct.</p>
+                    <p>You can add as many cities as you want, search through thousands of locations, switch between 12-hour and 24-hour formats, and even convert a specific time from one timezone to another. Everything runs locally in your browser — no data is sent to a server.</p>
+                </div>
+
+                <!-- Content: How to use -->
+                <div class="content-section">
+                    <h2>How to use the World Clock</h2>
+                    <ol>
+                        <li><strong>See your local time</strong> at the top of the page. It updates every second and shows your current timezone and UTC offset. Use the 12h / 24h toggle right next to the time to switch between AM/PM and 24-hour formats.</li>
+                        <li><strong>Add cities</strong> by typing a city name into the search bar. As you type, matching cities appear with their current local time. Click one to add it to your clock grid.</li>
+                        <li><strong>Compare times</strong> side by side. Each clock card shows the city name, current time, date, UTC offset, and a day/night indicator.</li>
+                        <li><strong>Convert times</strong> using the timezone converter below the clocks. Pick a source timezone, a target timezone, and a time — the converted result appears instantly.</li>
+                        <li><strong>Remove a city</strong> by clicking the × on any clock card. Your saved cities are kept in your browser's local storage, so they're still there when you come back.</li>
+                    </ol>
+                </div>
+
+                <!-- Content: Features -->
+                <div class="content-section">
+                    <h2>Why use this World Clock?</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4><i data-lucide="globe"></i> Every timezone covered</h4>
+                            <p>Supports all IANA timezones — every country, every major city, and every DST rule. Search from a database of hundreds of cities worldwide.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i data-lucide="clock"></i> Live, second-by-second updates</h4>
+                            <p>Every clock ticks in real time. No manual refresh needed — the times update automatically every second.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i data-lucide="sun-moon"></i> Day / night indicator</h4>
+                            <p>Each clock shows whether it's daytime or nighttime in that city, so you know at a glance whether it's a reasonable hour to call.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i data-lucide="repeat"></i> Automatic DST handling</h4>
+                            <p>Daylight saving time is applied automatically based on the current rules for each timezone. No manual adjustments, no off-by-one-hour errors.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i data-lucide="save"></i> Remembers your cities</h4>
+                            <p>Your selected cities and format preference are saved in your browser. Close the tab and come back later — everything's still there.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i data-lucide="shield-check"></i> 100% private</h4>
+                            <p>Everything runs in your browser. No server, no logs, no tracking. Your data never leaves your device.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content: Comparison -->
+                <div class="content-section">
+                    <h2>Fixed offsets vs. IANA timezones: why it matters</h2>
+                    <p>Most broken world clocks have the same root cause: someone stored a fixed number of hours. "New York is 5 hours behind London" is true for part of the year — but false for the rest, because the two places change their clocks on different dates. During those weeks, any clock using a fixed offset is confidently wrong.</p>
+                    <p>This tool solves that problem by naming the place instead of the difference. Timezones have canonical IANA names like <code>America/New_York</code> or <code>Asia/Tokyo</code>, and those names carry all the rules with them — including historical changes, current offsets, and future DST transitions. When a government changes its timezone rules, the IANA database is updated, and your browser picks up the change automatically.</p>
+
+                    <div class="table-wrapper">
+                        <table class="info-table">
+                            <thead>
+                                <tr>
+                                    <th>Approach</th>
+                                    <th>Handles DST?</th>
+                                    <th>Survives rule changes?</th>
+                                    <th>Works for all cities?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Fixed offset</strong> (e.g. "UTC+5:30")</td>
+                                    <td>No — breaks twice a year</td>
+                                    <td>No — needs manual updates</td>
+                                    <td>Partially</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>IANA timezone</strong> (e.g. <code>Asia/Kolkata</code>)</td>
+                                    <td>Yes — automatic</td>
+                                    <td>Yes — browser updates</td>
+                                    <td>Yes — every location</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>This world clock</strong></td>
+                                    <td>Yes — automatic</td>
+                                    <td>Yes — browser updates</td>
+                                    <td>Yes — every location</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>If you're building your own time-related features, the practical takeaway is: never store or calculate offsets yourself. Let the browser format the current moment for a named zone. This is built into every modern browser, it's free, and it's the single decision that separates a clock that works from one that will embarrass you in March.</p>
+                </div>
+
+                <!-- Content: Use cases -->
+                <div class="content-section">
+                    <h2>Who uses a world clock?</h2>
+                    <h3>Remote teams and distributed companies</h3>
+                    <ul>
+                        <li>Check whether a teammate in another country is likely awake before sending a message</li>
+                        <li>Plan meetings that work across multiple timezones without doing the arithmetic yourself</li>
+                        <li>See at a glance whether a client's office is open</li>
+                    </ul>
+                    <h3>Travelers and digital nomads</h3>
+                    <ul>
+                        <li>Keep track of your home timezone while abroad</li>
+                        <li>Know when to call family without waking them up</li>
+                        <li>Check connecting flight departure times in local time</li>
+                    </ul>
+                    <h3>Business and customer support</h3>
+                    <ul>
+                        <li>Show customers your support hours in their local time</li>
+                        <li>Coordinate with international suppliers and partners</li>
+                        <li>Schedule webinars and calls for global audiences</li>
+                    </ul>
+                    <h3>Students and researchers</h3>
+                    <ul>
+                        <li>Follow live events (conferences, launches, streams) happening in other countries</li>
+                        <li>Collaborate with classmates or colleagues across the world</li>
+                        <li>Understand historical timestamps in academic papers and data</li>
+                    </ul>
+                </div>
+
+                <!-- Content: Abbreviations -->
+                <div class="content-section">
+                    <h2>Common timezone abbreviations</h2>
+                    <p>Timezone abbreviations are convenient but often ambiguous — for example, "CST" can mean Central Standard Time (US), China Standard Time, or Cuba Standard Time. That's why this tool shows the full city name and the UTC offset alongside the abbreviation.</p>
+
+                    <div class="table-wrapper">
+                        <table class="info-table">
+                            <thead>
+                                <tr>
+                                    <th>Abbreviation</th>
+                                    <th>Full name</th>
+                                    <th>Typical offset</th>
+                                    <th>Example city</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>UTC</strong></td><td>Coordinated Universal Time</td><td>UTC+0</td><td>London (winter)</td></tr>
+                                <tr><td><strong>GMT</strong></td><td>Greenwich Mean Time</td><td>UTC+0</td><td>London (winter)</td></tr>
+                                <tr><td><strong>EST</strong></td><td>Eastern Standard Time</td><td>UTC−5</td><td>New York (winter)</td></tr>
+                                <tr><td><strong>EDT</strong></td><td>Eastern Daylight Time</td><td>UTC−4</td><td>New York (summer)</td></tr>
+                                <tr><td><strong>PST</strong></td><td>Pacific Standard Time</td><td>UTC−8</td><td>Los Angeles (winter)</td></tr>
+                                <tr><td><strong>PDT</strong></td><td>Pacific Daylight Time</td><td>UTC−7</td><td>Los Angeles (summer)</td></tr>
+                                <tr><td><strong>CET</strong></td><td>Central European Time</td><td>UTC+1</td><td>Paris (winter)</td></tr>
+                                <tr><td><strong>CEST</strong></td><td>Central European Summer Time</td><td>UTC+2</td><td>Paris (summer)</td></tr>
+                                <tr><td><strong>IST</strong></td><td>India Standard Time</td><td>UTC+5:30</td><td>Mumbai, Delhi</td></tr>
+                                <tr><td><strong>JST</strong></td><td>Japan Standard Time</td><td>UTC+9</td><td>Tokyo</td></tr>
+                                <tr><td><strong>AEST</strong></td><td>Australian Eastern Standard Time</td><td>UTC+10</td><td>Sydney (winter)</td></tr>
+                                <tr><td><strong>AEDT</strong></td><td>Australian Eastern Daylight Time</td><td>UTC+11</td><td>Sydney (summer)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>For the most reliable results, always prefer the IANA timezone name over the abbreviation. This tool uses IANA names internally, which is why it handles DST correctly and never confuses "CST" in Chicago with "CST" in Shanghai.</p>
+                </div>
+
+                <!-- FAQ -->
+                <div class="content-section">
+                    <h2>Frequently asked questions</h2>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            How does this world clock work?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">This world clock uses your browser's built-in Internationalization API to calculate the current time in any timezone. It automatically handles daylight saving time (DST) adjustments, so you always see the correct local time without any manual calculation.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Is this world clock accurate?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Yes. The clock relies on your device's system time and the IANA timezone database built into your browser. It automatically adjusts for daylight saving time and timezone rule changes. For the most accurate results, make sure your device's clock is synced with a network time server.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Does it work for every timezone in the world?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Yes. It supports all IANA timezones, covering every country and major city globally. You can search for any city and add it to your personal clock list.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Can I add multiple cities?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Yes. You can add as many cities as you want. Each one shows a live-updating clock with the local time, date, UTC offset, and a day/night indicator.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Does the world clock handle daylight saving time automatically?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Yes. The clock automatically adjusts for daylight saving time (DST) based on the current rules for each timezone. You don't need to do anything — it just works.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Can I switch between 12-hour and 24-hour format?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Yes. Use the 12h / 24h toggle right next to your local time in the banner at the top. Your preference is saved automatically and applies to every clock on the page.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Is my data safe?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Absolutely. Everything runs in your browser. The cities you add and any preferences you set are stored locally on your device using localStorage. Nothing is sent to a server.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Can I use this world clock on my phone?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Yes. The tool is fully responsive and works on phones, tablets, and desktops. You can even add it to your home screen for quick access.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Does this tool work offline?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Yes. Once the page loads, the world clock keeps running even without an internet connection. The timezone calculations happen entirely on your device.</div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- ============ FOOTER ============ -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-middle">
+                    <div class="footer-left-column">
+                        <p class="footer-credit">Created by: <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">Pradeep Yadav</a></p>
+                        <p class="footer-copyright">Copyright © <span id="dynamicYear"></span></p>
+                        <h3 class="footer-heading" style="margin-top:10px;">About</h3>
+                        <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking of what you type, no fuss. If you have a suggestion, feel free to <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">say hello</a>. Feedback is much appreciated!</p>
+                    </div>
+                    <div class="footer-right-columns">
+                        <div class="footer-column">
+                            <h3 class="footer-heading">Popular Tools</h3>
+                            <ul class="footer-links">
+                                <li><a href="/word-counter">Word Counter</a></li>
+                                <li><a href="/json-formatter">JSON Formatter</a></li>
+                                <li><a href="/case-converter">Case Converter</a></li>
+                                <li><a href="/password-generator">Password Generator</a></li>
+                                <li><a href="/text-to-handwriting">Text to Handwriting</a></li>
+                                <li><a href="/image-resizer">Image Resizer</a></li>
+                                <li><a href="/qr-code-generator">QR Code Generator</a></li>
+                                <li><a href="/image-compressor">Image Compressor</a></li>
+                                <li><a href="/pdf-merge">PDF Merge</a></li>
+                                <li><a href="/resume-builder">Resume Builder</a></li>
+                                <li><a href="/whatsapp-link-generator">WhatsApp Link</a></li>
+                                <li><a href="/signature-resizer">Signature Resizer</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h3 class="footer-heading">Quick Links</h3>
+                            <ul class="footer-links">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/about-us">About Us</a></li>
+                                <li><a href="/contact-us">Contact Us</a></li>
+                                <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
+                                <li><a href="/blog">Blog</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h3 class="footer-heading">Legal Pages</h3>
+                            <ul class="footer-links">
+                                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                <li><a href="/terms-of-use">Terms of Use</a></li>
+                                <li><a href="/disclaimer">Disclaimer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Mobile sidebar -->
+    <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <div class="mobile-sidebar-header">
+            <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
+            <button type="button" class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
+        </div>
+        <div class="mobile-sidebar-nav">
+            <button type="button" class="mobile-tools-toggle" id="mobileToolsToggle" onclick="toggleMobileTools()" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <i data-lucide="chevron-down"></i></button>
+            <div class="mobile-tools-menu" id="mobileToolsMenu"></div>
+            <a href="/privacy-policy">Privacy</a>
+            <a href="/blog">Blog</a>
+            <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
+        </div>
+        <div class="mobile-sidebar-actions">
+            <button type="button" onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
+            <button type="button" onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
+        </div>
+    </div>
+
+    <!-- Search overlay -->
+    <div class="search-overlay-full" id="searchOverlayFull" role="dialog" aria-modal="true" aria-label="Search tools" aria-hidden="true">
+        <div class="search-container">
+            <div class="search-box">
+                <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
+                <input type="text" id="fullSearchInput" placeholder="Type to search free tools…" oninput="filterFullSearch()" onkeydown="handleSearchKey(event)" autocomplete="off" aria-label="Search all tools">
+                <button type="button" class="search-clear-btn" id="searchClearBtn" onclick="clearSearchInput()" aria-label="Clear search"><i data-lucide="x" width="16" height="16"></i></button>
+                <button type="button" class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
+            </div>
+            <div class="search-results-list" id="fullSearchResultsList"></div>
+            <div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ============ Categories ============
+        const categories = [
+            { key: 'all', label: 'All Tools' },
+            { key: 'text', label: 'Text Tools' },
+            { key: 'developer', label: 'Developer' },
+            { key: 'generator', label: 'Generators' },
+            { key: 'image', label: 'Image' },
+            { key: 'pdf', label: 'PDF' },
+            { key: 'business', label: 'Business' },
+            { key: 'calculator', label: 'Calculators & Converters' },
+            { key: 'finance', label: 'Finance' }
+        ];
+
+        const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
+
+        // ============ Tools ============
+        const tools = [
+            { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', icon: 'hash', link: '/word-counter', keywords: 'word count character counter letters essay limit', color: '#8b5cf6', category: 'text' },
+            { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', icon: 'type', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', color: '#8b5cf6', category: 'text' },
+            { name: 'Paragraph Counter', desc: 'Quickly count paragraphs in your writing.', icon: 'align-left', link: '/paragraph-counter', keywords: 'paragraph count block format', color: '#8b5cf6', category: 'text' },
+            { name: 'Line Counter', desc: 'Count lines in text.', icon: 'list', link: '/line-counter', keywords: 'line count text lines rows', color: '#8b5cf6', category: 'text' },
+            { name: 'Reading Time Estimator', desc: 'Estimate how long it takes to read your text.', icon: 'clock', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute blog', color: '#0ea5e9', category: 'text' },
+            { name: 'Speaking Time Calculator', desc: 'Estimate how long it takes to speak your text aloud.', icon: 'mic', link: '/speaking-time-calculator', keywords: 'speaking time talk duration speech presentation', color: '#0ea5e9', category: 'text' },
+            { name: 'Keyword Counter', desc: 'Count occurrences of each keyword in your text.', icon: 'hash', link: '/keyword-counter', keywords: 'keyword frequency count word seo', color: '#0ea5e9', category: 'text' },
+            { name: 'Keyword Density Checker', desc: 'Analyze keyword density as a percentage.', icon: 'percent', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', color: '#0ea5e9', category: 'text' },
+            { name: 'Duplicate Word Finder', desc: 'Find and highlight duplicate words in your text.', icon: 'search', link: '/duplicate-word-finder', keywords: 'duplicate word find highlight repeat', color: '#0ea5e9', category: 'text' },
+            { name: 'Text Statistics', desc: 'Full summary: words, chars, sentences, readability, and more.', icon: 'bar-chart-2', link: '/text-statistics', keywords: 'text stats readability summary data analysis', color: '#0ea5e9', category: 'text' },
+            { name: 'Regex Tester', desc: 'Test regular expressions with match highlighting.', icon: 'search-code', link: '/regex-tester', keywords: 'regex regular expression test match pattern', color: '#0ea5e9', category: 'text' },
+            { name: 'Word Frequency Counter', desc: 'Count frequency of each word.', icon: 'bar-chart', link: '/word-frequency-counter', keywords: 'word frequency count repeat', color: '#0ea5e9', category: 'text' },
+            { name: 'Character Frequency Counter', desc: 'Count frequency of each character.', icon: 'pie-chart', link: '/character-frequency-counter', keywords: 'character frequency count letters', color: '#0ea5e9', category: 'text' },
+            { name: 'Password Strength Checker', desc: 'Check the strength of your password.', icon: 'shield', link: '/password-strength-checker', keywords: 'password strength check secure safety', color: '#0ea5e9', category: 'text' },
+            { name: 'Duplicate Line Remover', desc: 'Remove duplicate lines and keep only unique ones.', icon: 'list-filter', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe list', color: '#6366f1', category: 'text' },
+            { name: 'Whitespace Cleaner', desc: 'Remove extra spaces, tabs, and blank lines.', icon: 'sparkles', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', color: '#64748b', category: 'text' },
+            { name: 'Remove Extra Spaces', desc: 'Clean up unwanted spaces with one click.', icon: 'minus', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup double', color: '#64748b', category: 'text' },
+            { name: 'Remove Empty Lines', desc: 'Delete all blank lines instantly.', icon: 'scissors', link: '/remove-empty-lines', keywords: 'empty lines remove delete blank', color: '#64748b', category: 'text' },
+            { name: 'Remove Blank Characters', desc: 'Strip out invisible blank characters.', icon: 'eraser', link: '/remove-blank-characters', keywords: 'blank chars invisible characters remove zero width', color: '#64748b', category: 'text' },
+            { name: 'Remove Emojis', desc: 'Get rid of all emojis in one go.', icon: 'smile', link: '/remove-emojis', keywords: 'emoji remove strip smiley', color: '#64748b', category: 'text' },
+            { name: 'Remove Symbols', desc: 'Delete symbols and special characters.', icon: 'minus-circle', link: '/remove-symbols', keywords: 'symbols remove special characters clean', color: '#64748b', category: 'text' },
+            { name: 'Remove Punctuation', desc: 'Strip punctuation marks.', icon: 'type', link: '/remove-punctuation', keywords: 'punctuation remove comma period full stop', color: '#64748b', category: 'text' },
+            { name: 'Remove Numbers', desc: 'Delete all numeric digits.', icon: 'hash', link: '/remove-numbers', keywords: 'numbers remove digits numeric', color: '#64748b', category: 'text' },
+            { name: 'Remove HTML Tags', desc: 'Strip HTML/XML tags, leaving only text.', icon: 'code', link: '/remove-html-tags', keywords: 'html tags strip remove clean markup', color: '#64748b', category: 'text' },
+            { name: 'Remove Line Breaks', desc: 'Remove line breaks and join lines.', icon: 'minus', link: '/remove-line-breaks', keywords: 'line break remove join newline', color: '#64748b', category: 'text' },
+            { name: 'Text Cleaner', desc: 'All-in-one text cleaning.', icon: 'sparkles', link: '/text-cleaner', keywords: 'clean text sanitize format tidy', color: '#64748b', category: 'text' },
+            { name: 'Remove Duplicate Words', desc: 'Remove duplicate words from text.', icon: 'copy', link: '/remove-duplicate-words', keywords: 'duplicate words remove repeat', color: '#64748b', category: 'text' },
+            { name: 'Case Converter', desc: 'Convert to uppercase, lowercase, title case and more.', icon: 'type', link: '/case-converter', keywords: 'uppercase lowercase title case sentence change case', color: '#10b981', category: 'text' },
+            { name: 'Uppercase Converter', desc: 'Convert text to uppercase.', icon: 'arrow-up', link: '/uppercase-converter', keywords: 'uppercase converter caps capital letters', color: '#10b981', category: 'text' },
+            { name: 'Lowercase Converter', desc: 'Convert text to lowercase.', icon: 'arrow-down', link: '/lowercase-converter', keywords: 'lowercase converter small letters', color: '#10b981', category: 'text' },
+            { name: 'Title Case Converter', desc: 'Proper title case for headlines.', icon: 'heading', link: '/title-case-converter', keywords: 'title case headline capitalize proper apa mla', color: '#10b981', category: 'text' },
+            { name: 'Sentence Case Converter', desc: 'First letter of each sentence capitalized.', icon: 'type', link: '/sentence-case-converter', keywords: 'sentence case capitalize first letter', color: '#10b981', category: 'text' },
+            { name: 'Capitalize Words', desc: 'Capitalize first letter of each word.', icon: 'pen-tool', link: '/capitalize-words', keywords: 'capitalize first letter each word', color: '#10b981', category: 'text' },
+            { name: 'Toggle Case Converter', desc: 'Toggle case of every letter.', icon: 'toggle-left', link: '/toggle-case-converter', keywords: 'toggle case invert swap alternating', color: '#10b981', category: 'text' },
+            { name: 'Text Repeater', desc: 'Repeat text up to 100,000 times.', icon: 'repeat', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste spam', color: '#6366f1', category: 'text' },
+            { name: 'Text Finder & Replacer', desc: 'Find and replace words or phrases in bulk.', icon: 'search', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', color: '#ec4899', category: 'text' },
+            { name: 'Line Break Converter', desc: 'Convert line breaks between Windows, Unix, Mac.', icon: 'wrap-text', link: '/line-break-converter', keywords: 'line break crlf lf converter newline', color: '#10b981', category: 'text' },
+            { name: 'Text Indenter', desc: 'Add spaces or tabs at the beginning of each line.', icon: 'indent-increase', link: '/text-indenter', keywords: 'indent text tab spaces code', color: '#10b981', category: 'text' },
+            { name: 'Wrap Text', desc: 'Wrap long lines to a specified width.', icon: 'wrap-text', link: '/wrap-text', keywords: 'word wrap text line width column', color: '#10b981', category: 'text' },
+            { name: 'Unwrap Text', desc: 'Join broken lines into a single paragraph.', icon: 'unlink', link: '/unwrap-text', keywords: 'unwrap text join lines paragraph merge', color: '#10b981', category: 'text' },
+            { name: 'Join Lines', desc: 'Merge multiple lines into one single continuous line or paragraph.', icon: 'unlink', link: '/join-lines', keywords: 'join lines merge combine single line paragraph unwrap newline concatenate', color: '#10b981', category: 'text' },
+            { name: 'Text to Handwriting', desc: 'Convert typed text into realistic handwriting.', icon: 'pen-tool', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment notes', color: '#a855f7', category: 'text' },
+            { name: 'Bold Text Generator', desc: 'Bold Unicode text for social media bios.', icon: 'bold', link: '/bold-text-generator', keywords: 'bold unicode text style font bio', color: '#ec4899', category: 'text' },
+            { name: 'Italic Text Generator', desc: 'Italic Unicode text using math symbols.', icon: 'italic', link: '/italic-text-generator', keywords: 'italic unicode text style font', color: '#ec4899', category: 'text' },
+            { name: 'Strikethrough Generator', desc: 'Strikethrough Unicode text.', icon: 'strikethrough', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode', color: '#ec4899', category: 'text' },
+            { name: 'Fancy Text Generator', desc: 'Generate multiple fancy Unicode styles at once.', icon: 'sparkles', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic instagram', color: '#ec4899', category: 'text' },
+            { name: 'Upside Down Text', desc: 'Flip your text upside down.', icon: 'arrow-down-up', link: '/upside-down-text', keywords: 'upside down flip text reverse', color: '#ec4899', category: 'text' },
+            { name: 'Small Text Generator', desc: 'Generate small caps text.', icon: 'arrow-up', link: '/small-text-generator', keywords: 'small caps tiny text superscript', color: '#ec4899', category: 'text' },
+            { name: 'Zalgo Text Generator', desc: 'Create cursed zalgo text.', icon: 'ghost', link: '/zalgo-text-generator', keywords: 'zalgo cursed text generator creepy', color: '#ec4899', category: 'text' },
+            { name: 'Unicode Text Converter', desc: 'Convert text to Unicode variants.', icon: 'type', link: '/unicode-text-converter', keywords: 'unicode text converter encode', color: '#ec4899', category: 'text' },
+            { name: 'Email Extractor', desc: 'Extract all email addresses from text.', icon: 'at-sign', link: '/email-extractor', keywords: 'email extract find emails scrape address', color: '#0ea5e9', category: 'text' },
+            { name: 'URL Extractor', desc: 'Pull out all URLs from text.', icon: 'link', link: '/url-extractor', keywords: 'url extract link http https website', color: '#0ea5e9', category: 'text' },
+            { name: 'Phone Extractor', desc: 'Extract phone numbers using common formats.', icon: 'phone', link: '/phone-extractor', keywords: 'phone number extract landline mobile contact', color: '#0ea5e9', category: 'text' },
+            { name: 'Number Extractor', desc: 'Get every number (integer or decimal) from text.', icon: 'hash', link: '/number-extractor', keywords: 'number extract digits numeric decimal', color: '#0ea5e9', category: 'text' },
+            { name: 'Date Extractor', desc: 'Find and extract dates like 12/05/2025.', icon: 'calendar', link: '/date-extractor', keywords: 'date extract calendar find day month year', color: '#0ea5e9', category: 'text' },
+            { name: 'Domain Extractor', desc: 'Extract domain names from URLs or emails.', icon: 'globe', link: '/domain-extractor', keywords: 'domain name website extract host', color: '#0ea5e9', category: 'text' },
+            { name: 'Hashtag Extractor', desc: 'List all #hashtags from social media text.', icon: 'hash', link: '/hashtag-extractor', keywords: 'hashtag extract social media instagram twitter', color: '#0ea5e9', category: 'text' },
+            { name: 'Mention Extractor', desc: 'Pull out @usernames from text.', icon: 'at-sign', link: '/mention-extractor', keywords: 'mention extract username @ social twitter', color: '#0ea5e9', category: 'text' },
+            { name: 'Keyword Extractor', desc: 'Extract the most important words and phrases.', icon: 'key', link: '/keyword-extractor', keywords: 'keyword extract important terms seo', color: '#0ea5e9', category: 'text' },
+            { name: 'Duplicate Line Finder', desc: 'Show which lines appear more than once.', icon: 'search', link: '/duplicate-line-finder', keywords: 'duplicate line find report repeat', color: '#0ea5e9', category: 'text' },
+            { name: 'JSON Formatter/Beautifier', desc: 'Format messy JSON into readable, indented structure.', icon: 'braces', link: '/json-formatter', keywords: 'json format beautify pretty print indent api', color: '#f59e0b', category: 'developer' },
+            { name: 'JSON Minifier', desc: 'Minify JSON to remove unnecessary spaces.', icon: 'braces', link: '/json-minifier', keywords: 'json minify compress compact', color: '#f59e0b', category: 'developer' },
+            { name: 'JSON Validator', desc: 'Validate JSON syntax.', icon: 'check-circle', link: '/json-validator', keywords: 'json validate check syntax error', color: '#f59e0b', category: 'developer' },
+            { name: 'XML Formatter', desc: 'Beautify and indent XML data.', icon: 'file-code', link: '/xml-formatter', keywords: 'xml format beautify indent', color: '#f59e0b', category: 'developer' },
+            { name: 'XML Minifier', desc: 'Minify XML.', icon: 'file-code', link: '/xml-minifier', keywords: 'xml minify compress', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Formatter', desc: 'Format HTML code.', icon: 'code', link: '/html-formatter', keywords: 'html format beautify indent', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Minifier', desc: 'Minify HTML.', icon: 'code', link: '/html-minifier', keywords: 'html minify compress', color: '#f59e0b', category: 'developer' },
+            { name: 'CSS Formatter', desc: 'Format CSS code.', icon: 'code-2', link: '/css-formatter', keywords: 'css format beautify indent', color: '#f59e0b', category: 'developer' },
+            { name: 'CSS Minifier', desc: 'Minify CSS.', icon: 'code-2', link: '/css-minifier', keywords: 'css minify compress', color: '#f59e0b', category: 'developer' },
+            { name: 'JavaScript Formatter', desc: 'Format JavaScript code.', icon: 'code-2', link: '/javascript-formatter', keywords: 'javascript format beautify js', color: '#f59e0b', category: 'developer' },
+            { name: 'JavaScript Minifier', desc: 'Minify JavaScript.', icon: 'code-2', link: '/javascript-minifier', keywords: 'javascript minify compress js', color: '#f59e0b', category: 'developer' },
+            { name: 'SQL Formatter', desc: 'Format SQL queries.', icon: 'database', link: '/sql-formatter', keywords: 'sql format query beautify database', color: '#f59e0b', category: 'developer' },
+            { name: 'Text to Binary', desc: 'Convert text to binary.', icon: 'code', link: '/text-to-binary', keywords: 'text binary convert bits', color: '#f59e0b', category: 'developer' },
+            { name: 'Binary to Text', desc: 'Convert binary to text.', icon: 'code', link: '/binary-to-text', keywords: 'binary text convert bits', color: '#f59e0b', category: 'developer' },
+            { name: 'Text to Hex', desc: 'Convert text to hexadecimal.', icon: 'hexagon', link: '/text-to-hex', keywords: 'text hex convert hexadecimal', color: '#f59e0b', category: 'developer' },
+            { name: 'Hex to Text', desc: 'Convert hex to text.', icon: 'hexagon', link: '/hex-to-text', keywords: 'hex text convert hexadecimal', color: '#f59e0b', category: 'developer' },
+            { name: 'Text to ASCII', desc: 'Convert text to ASCII codes.', icon: 'keyboard', link: '/text-to-ascii', keywords: 'text ascii convert code', color: '#f59e0b', category: 'developer' },
+            { name: 'ASCII to Text', desc: 'Convert ASCII codes to text.', icon: 'keyboard', link: '/ascii-to-text', keywords: 'ascii text convert code', color: '#f59e0b', category: 'developer' },
+            { name: 'Morse Code Translator', desc: 'Convert text to Morse code and back.', icon: 'radio', link: '/morse-code-translator', keywords: 'morse code translator dots dashes', color: '#f59e0b', category: 'developer' },
+            { name: 'Braille Translator', desc: 'Convert text to Braille.', icon: 'eye-off', link: '/braille-translator', keywords: 'braille translator blind', color: '#f59e0b', category: 'developer' },
+            { name: 'NATO Alphabet Generator', desc: 'Convert text to NATO phonetic alphabet.', icon: 'volume-2', link: '/nato-alphabet-generator', keywords: 'nato phonetic alphabet alpha bravo', color: '#f59e0b', category: 'developer' },
+            { name: 'Text to CSV', desc: 'Convert text to CSV format.', icon: 'file-spreadsheet', link: '/text-to-csv', keywords: 'text csv convert comma separated excel', color: '#f59e0b', category: 'developer' },
+            { name: 'CSV to Text', desc: 'Convert CSV to text.', icon: 'file-spreadsheet', link: '/csv-to-text', keywords: 'csv text convert', color: '#f59e0b', category: 'developer' },
+            { name: 'CSV to JSON', desc: 'Convert CSV to JSON.', icon: 'file-spreadsheet', link: '/csv-to-json', keywords: 'csv json convert', color: '#f59e0b', category: 'developer' },
+            { name: 'JSON to CSV', desc: 'Convert JSON to CSV.', icon: 'file-spreadsheet', link: '/json-to-csv', keywords: 'json csv convert', color: '#f59e0b', category: 'developer' },
+            { name: 'Markdown to HTML', desc: 'Convert Markdown to HTML.', icon: 'file-code', link: '/markdown-to-html', keywords: 'markdown html convert md', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML to Markdown', desc: 'Convert HTML to Markdown.', icon: 'file-code', link: '/html-to-markdown', keywords: 'html markdown convert md', color: '#f59e0b', category: 'developer' },
+            { name: 'Markdown Table Generator', desc: 'Generate Markdown tables.', icon: 'table', link: '/markdown-table-generator', keywords: 'markdown table generator md', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Table Generator', desc: 'Generate HTML tables.', icon: 'table', link: '/html-table-generator', keywords: 'html table generator', color: '#f59e0b', category: 'developer' },
+            { name: 'Roman Numeral Converter', desc: 'Convert numbers to Roman numerals.', icon: 'hash', link: '/roman-numeral-converter', keywords: 'roman numeral converter latin', color: '#f59e0b', category: 'developer' },
+            { name: 'Number to Words', desc: 'Convert numbers to English words.', icon: 'type', link: '/number-to-words', keywords: 'number to words converter cheque', color: '#f59e0b', category: 'developer' },
+            { name: 'Words to Number', desc: 'Convert English words to numbers.', icon: 'hash', link: '/words-to-number', keywords: 'words to number converter', color: '#f59e0b', category: 'developer' },
+            { name: 'Timestamp Converter', desc: 'Convert Unix timestamps to date and back.', icon: 'clock', link: '/timestamp-converter', keywords: 'timestamp unix converter date epoch', color: '#f59e0b', category: 'developer' },
+            { name: 'Color Converter', desc: 'Convert colors between HEX, RGB, HSL.', icon: 'palette', link: '/color-converter', keywords: 'color converter hex rgb hsl', color: '#f59e0b', category: 'developer' },
+            { name: 'Base64 Encoder', desc: 'Encode text to Base64.', icon: 'code', link: '/base64-encoder', keywords: 'base64 encode', color: '#f59e0b', category: 'developer' },
+            { name: 'Base64 Decoder', desc: 'Decode Base64 text.', icon: 'code', link: '/base64-decoder', keywords: 'base64 decode', color: '#f59e0b', category: 'developer' },
+            { name: 'URL Encoder', desc: 'Encode URLs.', icon: 'link', link: '/url-encoder', keywords: 'url encode percent uri', color: '#f59e0b', category: 'developer' },
+            { name: 'URL Decoder', desc: 'Decode URLs.', icon: 'link', link: '/url-decoder', keywords: 'url decode percent uri', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Entity Encoder', desc: 'Encode HTML entities.', icon: 'code', link: '/html-entity-encoder', keywords: 'html entity encode amp lt', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Entity Decoder', desc: 'Decode HTML entities.', icon: 'code', link: '/html-entity-decoder', keywords: 'html entity decode amp lt', color: '#f59e0b', category: 'developer' },
+            { name: 'Regex Generator', desc: 'Generate regex patterns from sample text.', icon: 'search-code', link: '/regex-generator', keywords: 'regex generate pattern regular expression', color: '#0ea5e9', category: 'developer' },
+            { name: 'Regex Escape Tool', desc: 'Escape special characters in regex.', icon: 'search-code', link: '/regex-escape-tool', keywords: 'regex escape special characters', color: '#0ea5e9', category: 'developer' },
+            { name: 'JWT Decoder', desc: 'Decode JWT tokens to view header and payload.', icon: 'lock', link: '/jwt-decoder', keywords: 'jwt decode token header payload auth', color: '#0ea5e9', category: 'developer' },
+            { name: 'UUID Generator', desc: 'Generate random UUID v4 identifiers.', icon: 'fingerprint', link: '/uuid-generator', keywords: 'uuid guid unique identifier random v4', color: '#0ea5e9', category: 'developer' },
+            { name: 'UUID Validator', desc: 'Check if a UUID is valid.', icon: 'check', link: '/uuid-validator', keywords: 'uuid validate check guid', color: '#0ea5e9', category: 'developer' },
+            { name: 'MD5 Generator', desc: 'Generate MD5 hash.', icon: 'hash', link: '/md5-generator', keywords: 'md5 hash generator checksum', color: '#0ea5e9', category: 'developer' },
+            { name: 'SHA-1 Generator', desc: 'Generate SHA-1 hash.', icon: 'hash', link: '/sha1-generator', keywords: 'sha1 hash generator checksum', color: '#0ea5e9', category: 'developer' },
+            { name: 'SHA-256 Generator', desc: 'Generate SHA-256 hash.', icon: 'hash', link: '/sha256-generator', keywords: 'sha256 hash generator checksum', color: '#0ea5e9', category: 'developer' },
+            { name: 'SHA-512 Generator', desc: 'Generate SHA-512 hash.', icon: 'hash', link: '/sha512-generator', keywords: 'sha512 hash generator checksum', color: '#0ea5e9', category: 'developer' },
+            { name: 'HMAC Generator', desc: 'Generate HMAC hash.', icon: 'shield', link: '/hmac-generator', keywords: 'hmac hash generator secret key', color: '#0ea5e9', category: 'developer' },
+            { name: 'Cron Expression Generator', desc: 'Generate cron expressions.', icon: 'calendar', link: '/cron-expression-generator', keywords: 'cron expression generator schedule', color: '#0ea5e9', category: 'developer' },
+            { name: 'Cron Expression Tester', desc: 'Test cron expressions.', icon: 'check', link: '/cron-expression-tester', keywords: 'cron expression tester schedule', color: '#0ea5e9', category: 'developer' },
+            { name: 'Password Generator', desc: 'Generate strong random passwords.', icon: 'key', link: '/password-generator', keywords: 'password generator random strong secure', color: '#14b8a6', category: 'generator' },
+            { name: 'PIN Generator', desc: 'Generate random PIN numbers.', icon: 'lock', link: '/pin-generator', keywords: 'pin generator random number', color: '#14b8a6', category: 'generator' },
+            { name: 'Random Number Generator', desc: 'Generate random numbers within a custom range.', icon: 'dice-6', link: '/random-number-generator', keywords: 'random number range integer generator lottery', color: '#14b8a6', category: 'generator' },
+            { name: 'Number Sequence Generator', desc: 'Generate arithmetic sequences.', icon: 'list', link: '/number-sequence-generator', keywords: 'number sequence generator series', color: '#14b8a6', category: 'generator' },
+            { name: 'Lorem Ipsum Generator', desc: 'Placeholder text for designs and mockups.', icon: 'file-text', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text design', color: '#14b8a6', category: 'generator' },
+            { name: 'Random Word Generator', desc: 'Generate random English words.', icon: 'book-open', link: '/random-word-generator', keywords: 'random word generator english vocabulary', color: '#14b8a6', category: 'generator' },
+            { name: 'Random Text Generator', desc: 'Generate random letters, numbers, and symbols.', icon: 'dice-6', link: '/random-text-generator', keywords: 'random text generate string dummy', color: '#14b8a6', category: 'generator' },
+            { name: 'QR Code Generator', desc: 'Convert any text or URL into a QR code image.', icon: 'qr-code', link: '/qr-code-generator', keywords: 'qr code generate text url image scan', color: '#14b8a6', category: 'generator' },
+            { name: 'Barcode Generator', desc: 'Generate barcodes from text or numbers.', icon: 'barcode', link: '/barcode-generator', keywords: 'barcode generate code ean upc product', color: '#8b5cf6', category: 'generator' },
+            { name: 'UTM Builder', desc: 'Add UTM parameters to URLs for campaign tracking.', icon: 'link', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing analytics', color: '#14b8a6', category: 'generator' },
+            { name: 'WhatsApp Link Generator', desc: 'Create wa.me links from phone numbers and pre-filled messages.', icon: 'message-circle', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', color: '#25D366', category: 'generator' },
+            { name: 'Business Name Generator', desc: 'Generate business name ideas.', icon: 'briefcase', link: '/business-name-generator', keywords: 'business name generator brand startup', color: '#14b8a6', category: 'generator' },
+            { name: 'Invoice Number Generator', desc: 'Generate invoice numbers.', icon: 'file-text', link: '/invoice-number-generator', keywords: 'invoice number generator billing', color: '#14b8a6', category: 'generator' },
+            { name: 'Image Compressor', desc: 'Compress images in your browser.', icon: 'image', link: '/image-compressor', keywords: 'image compressor reduce size jpg png', color: '#ec4899', category: 'image' },
+            { name: 'Image Resizer', desc: 'Resize images without losing quality.', icon: 'image', link: '/image-resizer', keywords: 'image resize dimensions scale', color: '#ec4899', category: 'image' },
+            { name: 'Image Cropper', desc: 'Crop images easily.', icon: 'crop', link: '/image-cropper', keywords: 'image crop trim cut', color: '#ec4899', category: 'image' },
+            { name: 'Image Rotator', desc: 'Rotate images by degrees.', icon: 'rotate-cw', link: '/image-rotator', keywords: 'image rotate turn degrees', color: '#ec4899', category: 'image' },
+            { name: 'Image Flipper', desc: 'Flip images horizontally or vertically.', icon: 'repeat', link: '/image-flipper', keywords: 'image flip mirror horizontal vertical', color: '#ec4899', category: 'image' },
+            { name: 'JPG to PNG', desc: 'Convert JPG images to PNG.', icon: 'image', link: '/jpg-to-png', keywords: 'jpg png converter image', color: '#ec4899', category: 'image' },
+            { name: 'PNG to JPG', desc: 'Convert PNG images to JPG.', icon: 'image', link: '/png-to-jpg', keywords: 'png jpg converter image', color: '#ec4899', category: 'image' },
+            { name: 'WebP to JPG', desc: 'Convert WebP images to JPG.', icon: 'image', link: '/webp-to-jpg', keywords: 'webp jpg converter image', color: '#ec4899', category: 'image' },
+            { name: 'JPG to WebP', desc: 'Convert JPG images to WebP.', icon: 'image', link: '/jpg-to-webp', keywords: 'jpg webp converter image', color: '#ec4899', category: 'image' },
+            { name: 'PNG to WebP', desc: 'Convert PNG images to WebP.', icon: 'image', link: '/png-to-webp', keywords: 'png webp converter image', color: '#ec4899', category: 'image' },
+            { name: 'Image to Base64', desc: 'Convert image to Base64 string.', icon: 'image', link: '/image-to-base64', keywords: 'image base64 converter encode', color: '#ec4899', category: 'image' },
+            { name: 'Base64 to Image', desc: 'Convert Base64 string to image.', icon: 'image', link: '/base64-to-image', keywords: 'base64 image converter decode', color: '#ec4899', category: 'image' },
+            { name: 'Grayscale Image', desc: 'Convert image to grayscale.', icon: 'image', link: '/grayscale-image', keywords: 'grayscale image black white filter', color: '#ec4899', category: 'image' },
+            { name: 'Photo 20KB', desc: 'Compress photo to 20KB.', icon: 'image', link: '/photo-20kb', keywords: 'photo 20kb compress resize upload form', color: '#ec4899', category: 'image' },
+            { name: 'Photo 50KB', desc: 'Compress photo to 50KB.', icon: 'image', link: '/photo-50kb', keywords: 'photo 50kb compress resize upload form', color: '#ec4899', category: 'image' },
+            { name: 'Photo 100KB', desc: 'Compress photo to 100KB.', icon: 'image', link: '/photo-100kb', keywords: 'photo 100kb compress resize upload form', color: '#ec4899', category: 'image' },
+            { name: 'Photo 200KB', desc: 'Compress photo to 200KB.', icon: 'image', link: '/photo-200kb', keywords: 'photo 200kb compress resize upload form', color: '#ec4899', category: 'image' },
+            { name: 'Signature Resizer', desc: 'Resize signatures for documents and forms.', icon: 'image', link: '/signature-resizer', keywords: 'signature resize image document form exam', color: '#ec4899', category: 'image' },
+            { name: 'Passport Size Photo Maker', desc: 'Create passport size photos from any image.', icon: 'image', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image visa', color: '#ec4899', category: 'image' },
+            { name: 'JPG to PDF', desc: 'Convert JPG images to PDF.', icon: 'file', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image document', color: '#ef4444', category: 'pdf' },
+            { name: 'PNG to PDF', desc: 'Convert PNG images to PDF.', icon: 'file', link: '/png-to-pdf', keywords: 'png pdf converter image document', color: '#ef4444', category: 'pdf' },
+            { name: 'Images to PDF', desc: 'Combine multiple images into a PDF.', icon: 'file', link: '/images-to-pdf', keywords: 'images pdf converter combine merge', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Page Counter', desc: 'Count pages in a PDF file.', icon: 'file', link: '/pdf-page-counter', keywords: 'pdf page counter count pages', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Metadata Viewer', desc: 'View PDF metadata.', icon: 'info', link: '/pdf-metadata-viewer', keywords: 'pdf metadata viewer info author', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to Images', desc: 'Convert PDF pages to images.', icon: 'file', link: '/pdf-to-images', keywords: 'pdf images converter jpg png', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Merge', desc: 'Merge multiple PDF files.', icon: 'git-merge', link: '/pdf-merge', keywords: 'pdf merge combine join files', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Split', desc: 'Split a PDF into multiple files.', icon: 'git-branch', link: '/pdf-split', keywords: 'pdf split separate cut pages', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Rotate', desc: 'Rotate PDF pages.', icon: 'rotate-cw', link: '/pdf-rotate', keywords: 'pdf rotate page turn', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Page Extractor', desc: 'Extract specific pages from PDF.', icon: 'file', link: '/pdf-page-extractor', keywords: 'pdf extract page range', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Compressor', desc: 'Compress PDF file size.', icon: 'file', link: '/pdf-compressor', keywords: 'pdf compress reduce size shrink smaller', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to 50KB', desc: 'Compress a PDF down to roughly 50KB.', icon: 'file', link: '/pdf-50kb', keywords: 'pdf 50kb compress reduce size shrink small upload form limit', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to 100KB', desc: 'Compress a PDF down to roughly 100KB.', icon: 'file', link: '/pdf-100kb', keywords: 'pdf 100kb compress reduce size shrink small upload form limit', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to 200KB', desc: 'Compress a PDF down to roughly 200KB.', icon: 'file', link: '/pdf-200kb', keywords: 'pdf 200kb compress reduce size shrink small upload form limit', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to 500KB', desc: 'Compress a PDF down to roughly 500KB.', icon: 'file', link: '/pdf-500kb', keywords: 'pdf 500kb compress reduce size shrink upload form limit', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Text Extractor', desc: 'Extract text from PDF.', icon: 'file-text', link: '/pdf-text-extractor', keywords: 'pdf text extractor copy', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Lock', desc: 'Add password protection to PDF.', icon: 'lock', link: '/pdf-lock', keywords: 'pdf lock password protect encrypt', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Unlock', desc: 'Remove password from PDF.', icon: 'unlock', link: '/pdf-unlock', keywords: 'pdf unlock password remove decrypt', color: '#ef4444', category: 'pdf' },
+            { name: 'Invoice Generator', desc: 'Generate invoices.', icon: 'file-text', link: '/invoice-generator', keywords: 'invoice generator bill billing', color: '#10b981', category: 'business' },
+            { name: 'Quotation Generator', desc: 'Generate quotations.', icon: 'file-text', link: '/quotation-generator', keywords: 'quotation generator quote estimate', color: '#10b981', category: 'business' },
+            { name: 'Receipt Generator', desc: 'Generate receipts.', icon: 'file-text', link: '/receipt-generator', keywords: 'receipt generator payment', color: '#10b981', category: 'business' },
+            { name: 'Payslip Generator', desc: 'Generate payslips.', icon: 'file-text', link: '/payslip-generator', keywords: 'payslip generator salary payroll', color: '#10b981', category: 'business' },
+            { name: 'Shipping Label Generator', desc: 'Create printable shipping and courier labels with sender, receiver and tracking details.', icon: 'package', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', color: '#0ea5e9', category: 'business' },
+            { name: 'Resume Builder', desc: 'Build a clean, professional resume from your details and export it in seconds.', icon: 'file-text', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', color: '#8b5cf6', category: 'business' },
+            { name: 'GST Calculator', desc: 'Calculate GST amounts.', icon: 'percent', link: '/gst-calculator', keywords: 'gst calculator tax goods services', color: '#10b981', category: 'business' },
+            { name: 'Discount Calculator', desc: 'Calculate discounts.', icon: 'percent', link: '/discount-calculator', keywords: 'discount calculator sale off price', color: '#10b981', category: 'business' },
+            { name: 'Profit Margin Calculator', desc: 'Calculate profit margins.', icon: 'trending-up', link: '/profit-margin-calculator', keywords: 'profit margin calculator business', color: '#10b981', category: 'business' },
+            { name: 'Salary Calculator', desc: 'Calculate salary.', icon: 'dollar-sign', link: '/salary-calculator', keywords: 'salary calculator income wage', color: '#10b981', category: 'business' },
+            { name: 'EMI Calculator', desc: 'Calculate loan EMI.', icon: 'calculator', link: '/emi-calculator', keywords: 'emi calculator loan equated monthly installment', color: '#f59e0b', category: 'finance' },
+            { name: 'Loan Calculator', desc: 'Calculate loan details.', icon: 'calculator', link: '/loan-calculator', keywords: 'loan calculator interest', color: '#f59e0b', category: 'finance' },
+            { name: 'SIP Calculator', desc: 'Calculate SIP returns.', icon: 'trending-up', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment returns', color: '#f59e0b', category: 'finance' },
+            { name: 'Income Tax Calculator', desc: 'Calculate income tax.', icon: 'percent', link: '/income-tax-calculator', keywords: 'income tax calculator slab', color: '#f59e0b', category: 'finance' },
+            { name: 'Tax Calculator', desc: 'Calculate taxes.', icon: 'percent', link: '/tax-calculator', keywords: 'tax calculator', color: '#f59e0b', category: 'finance' },
+            { name: 'Tip Calculator', desc: 'Calculate tips.', icon: 'dollar-sign', link: '/tip-calculator', keywords: 'tip calculator restaurant gratuity', color: '#f59e0b', category: 'finance' },
+            { name: 'GPA Calculator', desc: 'Calculate GPA.', icon: 'graduation-cap', link: '/gpa-calculator', keywords: 'gpa calculator student grade point', color: '#8b5cf6', category: 'calculator' },
+            { name: 'CGPA Calculator', desc: 'Calculate CGPA.', icon: 'graduation-cap', link: '/cgpa-calculator', keywords: 'cgpa calculator student grade', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Percentage Calculator', desc: 'Calculate percentages.', icon: 'percent', link: '/percentage-calculator', keywords: 'percentage calculator percent', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Grade Calculator', desc: 'Calculate grades.', icon: 'graduation-cap', link: '/grade-calculator', keywords: 'grade calculator student marks', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Marks Percentage Calculator', desc: 'Calculate marks percentage.', icon: 'percent', link: '/marks-percentage-calculator', keywords: 'marks percentage calculator exam', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Attendance Calculator', desc: 'Calculate attendance percentage.', icon: 'calendar', link: '/attendance-calculator', keywords: 'attendance calculator college percentage', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Study Time Calculator', desc: 'Calculate study time.', icon: 'clock', link: '/study-time-calculator', keywords: 'study time calculator planner', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Exam Countdown', desc: 'Countdown to exams.', icon: 'calendar', link: '/exam-countdown', keywords: 'exam countdown timer days', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Age Calculator', desc: 'Calculate age from date of birth.', icon: 'calendar', link: '/age-calculator', keywords: 'age calculator birth date dob', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Scientific Calculator', desc: 'Advanced scientific calculator.', icon: 'calculator', link: '/scientific-calculator', keywords: 'scientific calculator math trigonometry', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Quadratic Equation Calculator', desc: 'Solve quadratic equations.', icon: 'sigma', link: '/quadratic-equation-calculator', keywords: 'quadratic equation calculator roots', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Matrix Calculator', desc: 'Perform matrix operations.', icon: 'layout-grid', link: '/matrix-calculator', keywords: 'matrix calculator determinant multiply', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Probability Calculator', desc: 'Calculate probabilities.', icon: 'percent', link: '/probability-calculator', keywords: 'probability calculator chance', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Standard Deviation Calculator', desc: 'Calculate standard deviation.', icon: 'bar-chart-2', link: '/standard-deviation-calculator', keywords: 'standard deviation calculator statistics', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Mean Median Mode Calculator', desc: 'Calculate mean, median, and mode instantly.', icon: 'bar-chart-2', link: '/mean-median-mode-calculator', keywords: 'mean median mode average calculator statistics central tendency', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Prime Number Checker', desc: 'Check if a number is prime.', icon: 'hash', link: '/prime-number-checker', keywords: 'prime number check', color: '#10b981', category: 'calculator' },
+            { name: 'Prime Number Generator', desc: 'Generate prime numbers.', icon: 'hash', link: '/prime-number-generator', keywords: 'prime number generator', color: '#10b981', category: 'calculator' },
+            { name: 'Factorial Calculator', desc: 'Calculate factorial of a number.', icon: 'hash', link: '/factorial-calculator', keywords: 'factorial calculator', color: '#10b981', category: 'calculator' },
+            { name: 'GCD Calculator', desc: 'Find greatest common divisor.', icon: 'hash', link: '/gcd-calculator', keywords: 'gcd calculator greatest common divisor hcf', color: '#10b981', category: 'calculator' },
+            { name: 'LCM Calculator', desc: 'Find least common multiple.', icon: 'hash', link: '/lcm-calculator', keywords: 'lcm calculator least common multiple', color: '#10b981', category: 'calculator' },
+            { name: 'Binary Calculator', desc: 'Perform binary calculations.', icon: 'code', link: '/binary-calculator', keywords: 'binary calculator bits', color: '#10b981', category: 'calculator' },
+            { name: 'Decimal to Binary', desc: 'Convert decimal to binary.', icon: 'code', link: '/decimal-to-binary', keywords: 'decimal binary convert', color: '#10b981', category: 'calculator' },
+            { name: 'Binary to Decimal', desc: 'Convert binary to decimal.', icon: 'code', link: '/binary-to-decimal', keywords: 'binary decimal convert', color: '#10b981', category: 'calculator' },
+            { name: 'Decimal to Hex', desc: 'Convert decimal to hex.', icon: 'hexagon', link: '/decimal-to-hex', keywords: 'decimal hex convert hexadecimal', color: '#10b981', category: 'calculator' },
+            { name: 'Hex to Decimal', desc: 'Convert hex to decimal.', icon: 'hexagon', link: '/hex-to-decimal', keywords: 'hex decimal convert hexadecimal', color: '#10b981', category: 'calculator' },
+            { name: 'Decimal to Octal', desc: 'Convert decimal to octal.', icon: 'hash', link: '/decimal-to-octal', keywords: 'decimal octal convert', color: '#10b981', category: 'calculator' },
+            { name: 'Average Calculator', desc: 'Calculate average of numbers.', icon: 'bar-chart-2', link: '/average-calculator', keywords: 'average calculator mean', color: '#10b981', category: 'calculator' },
+            { name: 'Ratio Calculator', desc: 'Calculate ratios.', icon: 'divide', link: '/ratio-calculator', keywords: 'ratio calculator proportion', color: '#10b981', category: 'calculator' },
+            { name: 'Fraction Calculator', desc: 'Calculate fractions.', icon: 'divide', link: '/fraction-calculator', keywords: 'fraction calculator numerator denominator', color: '#10b981', category: 'calculator' },
+            { name: 'Date Difference Calculator', desc: 'Calculate days between two dates.', icon: 'calendar', link: '/date-difference-calculator', keywords: 'date difference days between', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Days Between Dates', desc: 'Find days between dates.', icon: 'calendar', link: '/days-between-dates', keywords: 'days between dates calculator', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Add Days to Date', desc: 'Add days to a date.', icon: 'calendar', link: '/add-days-to-date', keywords: 'add days date calculator', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Subtract Days from Date', desc: 'Subtract days from a date.', icon: 'calendar', link: '/subtract-days-from-date', keywords: 'subtract days date calculator', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Business Days Calculator', desc: 'Calculate business days between dates.', icon: 'briefcase', link: '/business-days-calculator', keywords: 'business days calculator working days', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Date to Unix Timestamp', desc: 'Convert date to Unix timestamp.', icon: 'clock', link: '/date-to-unix-timestamp', keywords: 'date unix timestamp epoch', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Unix Timestamp to Date', desc: 'Convert Unix timestamp to date.', icon: 'clock', link: '/unix-timestamp-to-date', keywords: 'unix timestamp date epoch', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Time Duration Calculator', desc: 'Calculate time duration between two times.', icon: 'clock', link: '/time-duration-calculator', keywords: 'time duration calculator hours minutes', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Countdown Calculator', desc: 'Countdown to a future date.', icon: 'clock', link: '/countdown-calculator', keywords: 'countdown calculator timer', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Week Number Calculator', desc: 'Find week number of a date.', icon: 'calendar', link: '/week-number-calculator', keywords: 'week number calculator iso', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Leap Year Checker', desc: 'Check if a year is a leap year.', icon: 'calendar', link: '/leap-year-checker', keywords: 'leap year checker february', color: '#0ea5e9', category: 'calculator' },
+            { name: 'World Clock', desc: 'See live time in any city with timezone converter.', icon: 'globe', link: '/world-clock', keywords: 'world clock time zones live time timezone converter global clock', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Time Zone Converter', desc: 'Convert time between time zones.', icon: 'globe', link: '/time-zone-converter', keywords: 'time zone converter utc gmt', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Length Converter', desc: 'Convert length units.', icon: 'ruler', link: '/length-converter', keywords: 'length converter units meter feet inch', color: '#f59e0b', category: 'calculator' },
+            { name: 'Weight Converter', desc: 'Convert weight units.', icon: 'scale', link: '/weight-converter', keywords: 'weight converter units kg pound', color: '#f59e0b', category: 'calculator' },
+            { name: 'Temperature Converter', desc: 'Convert temperature units.', icon: 'thermometer', link: '/temperature-converter', keywords: 'temperature converter celsius fahrenheit kelvin', color: '#f59e0b', category: 'calculator' },
+            { name: 'Area Converter', desc: 'Convert area units.', icon: 'square', link: '/area-converter', keywords: 'area converter units square meter acre', color: '#f59e0b', category: 'calculator' },
+            { name: 'Volume Converter', desc: 'Convert volume units.', icon: 'box', link: '/volume-converter', keywords: 'volume converter units litre gallon', color: '#f59e0b', category: 'calculator' },
+            { name: 'Speed Converter', desc: 'Convert speed units.', icon: 'gauge', link: '/speed-converter', keywords: 'speed converter units kmph mph', color: '#f59e0b', category: 'calculator' },
+            { name: 'Data Storage Converter', desc: 'Convert data storage units.', icon: 'hard-drive', link: '/data-storage-converter', keywords: 'data storage converter units mb gb tb', color: '#f59e0b', category: 'calculator' },
+            { name: 'Energy Converter', desc: 'Convert energy units.', icon: 'zap', link: '/energy-converter', keywords: 'energy converter units joule calorie', color: '#f59e0b', category: 'calculator' },
+            { name: 'Pressure Converter', desc: 'Convert pressure units.', icon: 'gauge', link: '/pressure-converter', keywords: 'pressure converter units pascal bar', color: '#f59e0b', category: 'calculator' },
+            { name: 'Power Converter', desc: 'Convert power units.', icon: 'zap', link: '/power-converter', keywords: 'power converter units watt horsepower', color: '#f59e0b', category: 'calculator' },
+            { name: 'Frequency Converter', desc: 'Convert frequency units.', icon: 'activity', link: '/frequency-converter', keywords: 'frequency converter units hertz', color: '#f59e0b', category: 'calculator' },
+            { name: 'Angle Converter', desc: 'Convert angle units.', icon: 'rotate-cw', link: '/angle-converter', keywords: 'angle converter units degree radian', color: '#f59e0b', category: 'calculator' },
+            { name: 'Pace Converter', desc: 'Convert pace units.', icon: 'gauge', link: '/pace-converter', keywords: 'pace converter running units', color: '#f59e0b', category: 'calculator' },
+            { name: 'Fuel Economy Converter', desc: 'Convert fuel economy units.', icon: 'gauge', link: '/fuel-economy-converter', keywords: 'fuel economy converter units mileage', color: '#f59e0b', category: 'calculator' }
+        ];
+
+        tools.forEach(function(t) {
+            t._nameLower = t.name.toLowerCase();
+            t._descLower = (t.desc || '').toLowerCase();
+            t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
+        });
+
+        // ============ Helpers ============
+        function escAttr(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+        function escHtml(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+        function highlight(text, q) {
+            const safe = escHtml(text);
+            if (!q) return safe;
+            const idx = text.toLowerCase().indexOf(q);
+            if (idx === -1) return safe;
+            return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
+        }
+
+        // ============ Build shared components ============
+        let megaMenuBuilt = false;
+        let mobileMenuBuilt = false;
+
+        function buildMegaMenu() {
+            if (megaMenuBuilt) return;
+            megaMenuBuilt = true;
+            document.getElementById('megaMenu').innerHTML = tools.map(t => '<a href="' + escAttr(t.link) + '">' + escHtml(t.name) + '</a>').join('');
+        }
+        function buildMobileToolsMenu() {
+            if (mobileMenuBuilt) return;
+            mobileMenuBuilt = true;
+            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => '<a href="' + escAttr(t.link) + '">' + escHtml(t.name) + '</a>').join('');
+        }
+
+        // ============ Toast ============
+        let toastTimer;
+        function showToast(msg, dur) {
+            dur = dur || 2200;
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(function() { t.classList.remove('show'); }, dur);
+        }
+
+        // ============ Theme ============
+        function setThemeColorMeta(isDark) {
+            const meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
+        }
+
+        function toggleTheme() {
+            const root = document.documentElement;
+            if (root.classList.contains('dark-mode')) {
+                root.classList.remove('dark-mode');
+                try { localStorage.setItem('theme', 'light'); } catch (e) {}
+                setThemeColorMeta(false);
+            } else {
+                root.classList.add('dark-mode');
+                try { localStorage.setItem('theme', 'dark'); } catch (e) {}
+                setThemeColorMeta(true);
+            }
+        }
+
+        // ============ Tools Menu ============
+        function toggleToolsMenu() {
+            const container = document.getElementById('toolsMenuContainer');
+            const trigger = document.getElementById('toolsTrigger');
+            const isOpen = container.classList.contains('open');
+            if (isOpen) {
+                container.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
+            } else {
+                buildMegaMenu();
+                container.classList.add('open');
+                trigger.setAttribute('aria-expanded', 'true');
+                const firstLink = container.querySelector('.tools-mega-menu a');
+                if (firstLink) firstLink.focus();
+            }
+        }
+        document.addEventListener('click', function(e) {
+            const container = document.getElementById('toolsMenuContainer');
+            if (container && !container.contains(e.target) && container.classList.contains('open')) {
+                container.classList.remove('open');
+                document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // ============ Mobile Sidebar ============
+        function openMobileSidebar() {
+            buildMobileToolsMenu();
+            const sb = document.getElementById('mobileSidebar');
+            sb.classList.add('active');
+            sb.setAttribute('aria-hidden', 'false');
+            document.getElementById('mobileSidebarOverlay').classList.add('active');
+            const hb = document.getElementById('hamburgerBtn');
+            if (hb) hb.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileSidebar() {
+            const sb = document.getElementById('mobileSidebar');
+            if (!sb) return;
+            sb.classList.remove('active');
+            sb.setAttribute('aria-hidden', 'true');
+            document.getElementById('mobileSidebarOverlay').classList.remove('active');
+            const hb = document.getElementById('hamburgerBtn');
+            if (hb) hb.setAttribute('aria-expanded', 'false');
+            const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
+            if (!searchOpen) document.body.style.overflow = '';
+        }
+        function toggleMobileTools() {
+            buildMobileToolsMenu();
+            const toggle = document.getElementById('mobileToolsToggle');
+            const menu = document.getElementById('mobileToolsMenu');
+            const isOpen = menu.classList.contains('active');
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+            if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
+        }
+        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(function(l) {
+            l.addEventListener('click', closeMobileSidebar);
+        });
+
+        (function initResizeHandler() {
+            let resizeRaf = 0;
+            let lastWasDesktop = window.innerWidth > 768;
+            window.addEventListener('resize', function() {
+                if (resizeRaf) return;
+                resizeRaf = requestAnimationFrame(function () {
+                    resizeRaf = 0;
+                    const isDesktop = window.innerWidth > 768;
+                    if (isDesktop && !lastWasDesktop) {
+                        if (document.getElementById('mobileSidebar').classList.contains('active')) {
+                            closeMobileSidebar();
+                        }
+                    }
+                    lastWasDesktop = isDesktop;
+                });
+            });
+        })();
+
+        // ============ Search ============
+        let lastFocusedBeforeSearch = null;
+        let searchResultsRaf = 0;
+        let searchIsOpen = false;
+        const searchState = { activeIndex: -1 };
+
+        function openFullSearch() {
+            const overlay = document.getElementById('searchOverlayFull');
+            lastFocusedBeforeSearch = document.activeElement;
+            searchIsOpen = true;
+            overlay.classList.add('active');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            filterFullSearch();
+            setTimeout(function() {
+                if (searchIsOpen) document.getElementById('fullSearchInput').focus();
+            }, 200);
+        }
+        function closeFullSearch() {
+            const overlay = document.getElementById('searchOverlayFull');
+            if (!overlay.classList.contains('active')) return;
+            searchIsOpen = false;
+            if (searchResultsRaf) {
+                cancelAnimationFrame(searchResultsRaf);
+                searchResultsRaf = 0;
+            }
+            overlay.classList.remove('active');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.getElementById('fullSearchInput').value = '';
+            document.getElementById('searchClearBtn').classList.remove('show');
+            const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
+            if (!sidebarOpen) document.body.style.overflow = '';
+            if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
+                try { lastFocusedBeforeSearch.focus(); } catch (e) {}
+            }
+            lastFocusedBeforeSearch = null;
+        }
+
+        function buildSearchResults(q) {
+            const list = document.getElementById('fullSearchResultsList');
+            const nr = document.getElementById('fullNoResult');
+
+            let matched;
+            if (q === '') {
+                matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
+            } else {
+                matched = [];
+                for (let i = 0; i < tools.length; i++) {
+                    const t = tools[i];
+                    if (t._hay.indexOf(q) === -1) continue;
+                    let score = 3;
+                    if (t._nameLower.startsWith(q)) score = 0;
+                    else if (t._nameLower.indexOf(q) !== -1) score = 1;
+                    else if (t._descLower.indexOf(q) !== -1) score = 2;
+                    matched.push({ t: t, idx: i, score: score });
+                }
+                matched.sort(function (a, b) {
+                    return a.score - b.score || a.idx - b.idx;
+                });
+            }
+
+            const total = matched.length;
+            const parts = [];
+
+            for (let i = 0; i < total; i++) {
+                const t = matched[i].t;
+                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
+                    '<span class="result-main">' +
+                    '<span class="result-name">' + highlight(t.name, q) + '</span>' +
+                    '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
+                    '</span>' +
+                    '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
+                    '</a>');
+            }
+
+            list.innerHTML = parts.join('');
+            searchState.activeIndex = -1;
+
+            if (total === 0 && q !== '') {
+                nr.classList.add('show');
+                document.getElementById('fullSearchQuery').textContent = q;
+            } else {
+                nr.classList.remove('show');
+            }
+        }
+
+        function filterFullSearch() {
+            const input = document.getElementById('fullSearchInput');
+            const q = input.value.toLowerCase().trim();
+            document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
+            if (!searchIsOpen) return;
+            if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
+            searchResultsRaf = requestAnimationFrame(function () {
+                searchResultsRaf = 0;
+                buildSearchResults(q);
+            });
+        }
+
+        function handleSearchKey(e) {
+            const items = Array.prototype.slice.call(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (!items.length) return;
+                searchState.activeIndex = (searchState.activeIndex + 1) % items.length;
+                items.forEach(function(i) { i.classList.remove('active'); });
+                items[searchState.activeIndex].classList.add('active');
+                items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (!items.length) return;
+                searchState.activeIndex = (searchState.activeIndex - 1 + items.length) % items.length;
+                items.forEach(function(i) { i.classList.remove('active'); });
+                items[searchState.activeIndex].classList.add('active');
+                items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) {
+                    window.location.href = items[searchState.activeIndex].getAttribute('href');
+                } else if (items.length === 1) {
+                    window.location.href = items[0].getAttribute('href');
+                }
+            }
+        }
+
+        function clearSearchInput() {
+            const input = document.getElementById('fullSearchInput');
+            input.value = '';
+            filterFullSearch();
+            input.focus();
+        }
+
+        (function initSearchBackdrop() {
+            const overlay = document.getElementById('searchOverlayFull');
+            if (overlay) {
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === overlay) closeFullSearch();
+                });
+            }
+        })();
+
+        (function setSearchPlaceholder() {
+            const input = document.getElementById('fullSearchInput');
+            if (!input) return;
+            input.placeholder = 'Search all ' + tools.length + ' free tools…';
+        })();
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const container = document.getElementById('toolsMenuContainer');
+                if (container && container.classList.contains('open')) {
+                    container.classList.remove('open');
+                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                    document.getElementById('toolsTrigger').focus();
+                }
+                closeFullSearch();
+                closeMobileSidebar();
+            }
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                openFullSearch();
+            }
+        });
+
+        function toggleFaq(btnEl) {
+            const item = btnEl.closest('.faq-item');
+            if (!item) return;
+            const expanded = btnEl.getAttribute('aria-expanded') === 'true';
+            item.classList.toggle('active');
+            btnEl.setAttribute('aria-expanded', String(!expanded));
+            const icon = btnEl.querySelector('svg');
+            if (icon) {
+                icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+        }
+
+        // ============================================================
+        //  WORLD CLOCK TOOL LOGIC
+        // ============================================================
+
+        const CITY_DB = [
+            { city: 'New York', country: 'United States', tz: 'America/New_York' },
+            { city: 'Los Angeles', country: 'United States', tz: 'America/Los_Angeles' },
+            { city: 'Chicago', country: 'United States', tz: 'America/Chicago' },
+            { city: 'Houston', country: 'United States', tz: 'America/Chicago' },
+            { city: 'Phoenix', country: 'United States', tz: 'America/Phoenix' },
+            { city: 'Denver', country: 'United States', tz: 'America/Denver' },
+            { city: 'Seattle', country: 'United States', tz: 'America/Los_Angeles' },
+            { city: 'San Francisco', country: 'United States', tz: 'America/Los_Angeles' },
+            { city: 'Miami', country: 'United States', tz: 'America/New_York' },
+            { city: 'Boston', country: 'United States', tz: 'America/New_York' },
+            { city: 'Atlanta', country: 'United States', tz: 'America/New_York' },
+            { city: 'Dallas', country: 'United States', tz: 'America/Chicago' },
+            { city: 'Toronto', country: 'Canada', tz: 'America/Toronto' },
+            { city: 'Vancouver', country: 'Canada', tz: 'America/Vancouver' },
+            { city: 'Montreal', country: 'Canada', tz: 'America/Toronto' },
+            { city: 'Mexico City', country: 'Mexico', tz: 'America/Mexico_City' },
+            { city: 'São Paulo', country: 'Brazil', tz: 'America/Sao_Paulo' },
+            { city: 'Buenos Aires', country: 'Argentina', tz: 'America/Argentina/Buenos_Aires' },
+            { city: 'Lima', country: 'Peru', tz: 'America/Lima' },
+            { city: 'Bogotá', country: 'Colombia', tz: 'America/Bogota' },
+            { city: 'Santiago', country: 'Chile', tz: 'America/Santiago' },
+            { city: 'London', country: 'United Kingdom', tz: 'Europe/London' },
+            { city: 'Dublin', country: 'Ireland', tz: 'Europe/Dublin' },
+            { city: 'Paris', country: 'France', tz: 'Europe/Paris' },
+            { city: 'Berlin', country: 'Germany', tz: 'Europe/Berlin' },
+            { city: 'Madrid', country: 'Spain', tz: 'Europe/Madrid' },
+            { city: 'Barcelona', country: 'Spain', tz: 'Europe/Madrid' },
+            { city: 'Rome', country: 'Italy', tz: 'Europe/Rome' },
+            { city: 'Amsterdam', country: 'Netherlands', tz: 'Europe/Amsterdam' },
+            { city: 'Brussels', country: 'Belgium', tz: 'Europe/Brussels' },
+            { city: 'Vienna', country: 'Austria', tz: 'Europe/Vienna' },
+            { city: 'Zurich', country: 'Switzerland', tz: 'Europe/Zurich' },
+            { city: 'Stockholm', country: 'Sweden', tz: 'Europe/Stockholm' },
+            { city: 'Oslo', country: 'Norway', tz: 'Europe/Oslo' },
+            { city: 'Copenhagen', country: 'Denmark', tz: 'Europe/Copenhagen' },
+            { city: 'Helsinki', country: 'Finland', tz: 'Europe/Helsinki' },
+            { city: 'Warsaw', country: 'Poland', tz: 'Europe/Warsaw' },
+            { city: 'Prague', country: 'Czech Republic', tz: 'Europe/Prague' },
+            { city: 'Budapest', country: 'Hungary', tz: 'Europe/Budapest' },
+            { city: 'Athens', country: 'Greece', tz: 'Europe/Athens' },
+            { city: 'Istanbul', country: 'Turkey', tz: 'Europe/Istanbul' },
+            { city: 'Moscow', country: 'Russia', tz: 'Europe/Moscow' },
+            { city: 'Kyiv', country: 'Ukraine', tz: 'Europe/Kyiv' },
+            { city: 'Lisbon', country: 'Portugal', tz: 'Europe/Lisbon' },
+            { city: 'Cairo', country: 'Egypt', tz: 'Africa/Cairo' },
+            { city: 'Lagos', country: 'Nigeria', tz: 'Africa/Lagos' },
+            { city: 'Nairobi', country: 'Kenya', tz: 'Africa/Nairobi' },
+            { city: 'Johannesburg', country: 'South Africa', tz: 'Africa/Johannesburg' },
+            { city: 'Cape Town', country: 'South Africa', tz: 'Africa/Johannesburg' },
+            { city: 'Casablanca', country: 'Morocco', tz: 'Africa/Casablanca' },
+            { city: 'Accra', country: 'Ghana', tz: 'Africa/Accra' },
+            { city: 'Addis Ababa', country: 'Ethiopia', tz: 'Africa/Addis_Ababa' },
+            { city: 'Dubai', country: 'United Arab Emirates', tz: 'Asia/Dubai' },
+            { city: 'Abu Dhabi', country: 'United Arab Emirates', tz: 'Asia/Dubai' },
+            { city: 'Riyadh', country: 'Saudi Arabia', tz: 'Asia/Riyadh' },
+            { city: 'Doha', country: 'Qatar', tz: 'Asia/Qatar' },
+            { city: 'Kuwait City', country: 'Kuwait', tz: 'Asia/Kuwait' },
+            { city: 'Tehran', country: 'Iran', tz: 'Asia/Tehran' },
+            { city: 'Baghdad', country: 'Iraq', tz: 'Asia/Baghdad' },
+            { city: 'Jerusalem', country: 'Israel', tz: 'Asia/Jerusalem' },
+            { city: 'Beirut', country: 'Lebanon', tz: 'Asia/Beirut' },
+            { city: 'Karachi', country: 'Pakistan', tz: 'Asia/Karachi' },
+            { city: 'Lahore', country: 'Pakistan', tz: 'Asia/Karachi' },
+            { city: 'Mumbai', country: 'India', tz: 'Asia/Kolkata' },
+            { city: 'Delhi', country: 'India', tz: 'Asia/Kolkata' },
+            { city: 'Bangalore', country: 'India', tz: 'Asia/Kolkata' },
+            { city: 'Chennai', country: 'India', tz: 'Asia/Kolkata' },
+            { city: 'Kolkata', country: 'India', tz: 'Asia/Kolkata' },
+            { city: 'Hyderabad', country: 'India', tz: 'Asia/Kolkata' },
+            { city: 'Dhaka', country: 'Bangladesh', tz: 'Asia/Dhaka' },
+            { city: 'Kathmandu', country: 'Nepal', tz: 'Asia/Kathmandu' },
+            { city: 'Colombo', country: 'Sri Lanka', tz: 'Asia/Colombo' },
+            { city: 'Bangkok', country: 'Thailand', tz: 'Asia/Bangkok' },
+            { city: 'Jakarta', country: 'Indonesia', tz: 'Asia/Jakarta' },
+            { city: 'Singapore', country: 'Singapore', tz: 'Asia/Singapore' },
+            { city: 'Kuala Lumpur', country: 'Malaysia', tz: 'Asia/Kuala_Lumpur' },
+            { city: 'Manila', country: 'Philippines', tz: 'Asia/Manila' },
+            { city: 'Ho Chi Minh City', country: 'Vietnam', tz: 'Asia/Ho_Chi_Minh' },
+            { city: 'Hanoi', country: 'Vietnam', tz: 'Asia/Ho_Chi_Minh' },
+            { city: 'Hong Kong', country: 'Hong Kong', tz: 'Asia/Hong_Kong' },
+            { city: 'Shanghai', country: 'China', tz: 'Asia/Shanghai' },
+            { city: 'Beijing', country: 'China', tz: 'Asia/Shanghai' },
+            { city: 'Shenzhen', country: 'China', tz: 'Asia/Shanghai' },
+            { city: 'Taipei', country: 'Taiwan', tz: 'Asia/Taipei' },
+            { city: 'Seoul', country: 'South Korea', tz: 'Asia/Seoul' },
+            { city: 'Tokyo', country: 'Japan', tz: 'Asia/Tokyo' },
+            { city: 'Osaka', country: 'Japan', tz: 'Asia/Tokyo' },
+            { city: 'Sydney', country: 'Australia', tz: 'Australia/Sydney' },
+            { city: 'Melbourne', country: 'Australia', tz: 'Australia/Melbourne' },
+            { city: 'Brisbane', country: 'Australia', tz: 'Australia/Brisbane' },
+            { city: 'Perth', country: 'Australia', tz: 'Australia/Perth' },
+            { city: 'Auckland', country: 'New Zealand', tz: 'Pacific/Auckland' },
+            { city: 'Wellington', country: 'New Zealand', tz: 'Pacific/Auckland' },
+            { city: 'Honolulu', country: 'United States', tz: 'Pacific/Honolulu' },
+            { city: 'Anchorage', country: 'United States', tz: 'America/Anchorage' },
+            { city: 'Reykjavik', country: 'Iceland', tz: 'Atlantic/Reykjavik' },
+            { city: 'Edinburgh', country: 'United Kingdom', tz: 'Europe/London' },
+            { city: 'Manchester', country: 'United Kingdom', tz: 'Europe/London' },
+            { city: 'Frankfurt', country: 'Germany', tz: 'Europe/Berlin' },
+            { city: 'Munich', country: 'Germany', tz: 'Europe/Berlin' },
+            { city: 'Milan', country: 'Italy', tz: 'Europe/Rome' },
+            { city: 'Bucharest', country: 'Romania', tz: 'Europe/Bucharest' },
+            { city: 'Sofia', country: 'Bulgaria', tz: 'Europe/Sofia' },
+            { city: 'Belgrade', country: 'Serbia', tz: 'Europe/Belgrade' },
+            { city: 'Zagreb', country: 'Croatia', tz: 'Europe/Zagreb' },
+            { city: 'Luxembourg', country: 'Luxembourg', tz: 'Europe/Luxembourg' },
+            { city: 'Monaco', country: 'Monaco', tz: 'Europe/Monaco' },
+            { city: 'Valletta', country: 'Malta', tz: 'Europe/Malta' },
+            { city: 'Nicosia', country: 'Cyprus', tz: 'Asia/Nicosia' },
+            { city: 'Tbilisi', country: 'Georgia', tz: 'Asia/Tbilisi' },
+            { city: 'Yerevan', country: 'Armenia', tz: 'Asia/Yerevan' },
+            { city: 'Baku', country: 'Azerbaijan', tz: 'Asia/Baku' },
+            { city: 'Tashkent', country: 'Uzbekistan', tz: 'Asia/Tashkent' },
+            { city: 'Almaty', country: 'Kazakhstan', tz: 'Asia/Almaty' },
+            { city: 'Ulaanbaatar', country: 'Mongolia', tz: 'Asia/Ulaanbaatar' },
+            { city: 'Yangon', country: 'Myanmar', tz: 'Asia/Yangon' },
+            { city: 'Phnom Penh', country: 'Cambodia', tz: 'Asia/Phnom_Penh' },
+            { city: 'Vientiane', country: 'Laos', tz: 'Asia/Vientiane' },
+            { city: 'Bandar Seri Begawan', country: 'Brunei', tz: 'Asia/Brunei' },
+            { city: 'Dili', country: 'East Timor', tz: 'Asia/Dili' },
+            { city: 'Port Moresby', country: 'Papua New Guinea', tz: 'Pacific/Port_Moresby' },
+            { city: 'Suva', country: 'Fiji', tz: 'Pacific/Fiji' },
+            { city: 'Apia', country: 'Samoa', tz: 'Pacific/Apia' },
+            { city: 'Nuku\'alofa', country: 'Tonga', tz: 'Pacific/Tongatapu' },
+            { city: 'Pago Pago', country: 'American Samoa', tz: 'Pacific/Pago_Pago' },
+            { city: 'Guam', country: 'Guam', tz: 'Pacific/Guam' },
+            { city: 'Kiritimati', country: 'Kiribati', tz: 'Pacific/Kiritimati' },
+            { city: 'Adak', country: 'United States', tz: 'America/Adak' },
+            { city: 'St. John\'s', country: 'Canada', tz: 'America/St_Johns' },
+            { city: 'Halifax', country: 'Canada', tz: 'America/Halifax' },
+            { city: 'Winnipeg', country: 'Canada', tz: 'America/Winnipeg' },
+            { city: 'Regina', country: 'Canada', tz: 'America/Regina' },
+            { city: 'Edmonton', country: 'Canada', tz: 'America/Edmonton' },
+            { city: 'Whitehorse', country: 'Canada', tz: 'America/Whitehorse' },
+            { city: 'Panama City', country: 'Panama', tz: 'America/Panama' },
+            { city: 'San José', country: 'Costa Rica', tz: 'America/Costa_Rica' },
+            { city: 'Guatemala City', country: 'Guatemala', tz: 'America/Guatemala' },
+            { city: 'Havana', country: 'Cuba', tz: 'America/Havana' },
+            { city: 'Kingston', country: 'Jamaica', tz: 'America/Jamaica' },
+            { city: 'Santo Domingo', country: 'Dominican Republic', tz: 'America/Santo_Domingo' },
+            { city: 'San Juan', country: 'Puerto Rico', tz: 'America/Puerto_Rico' },
+            { city: 'Caracas', country: 'Venezuela', tz: 'America/Caracas' },
+            { city: 'Quito', country: 'Ecuador', tz: 'America/Guayaquil' },
+            { city: 'La Paz', country: 'Bolivia', tz: 'America/La_Paz' },
+            { city: 'Asunción', country: 'Paraguay', tz: 'America/Asuncion' },
+            { city: 'Montevideo', country: 'Uruguay', tz: 'America/Montevideo' },
+            { city: 'Brasília', country: 'Brazil', tz: 'America/Sao_Paulo' },
+            { city: 'Rio de Janeiro', country: 'Brazil', tz: 'America/Sao_Paulo' },
+            { city: 'Salvador', country: 'Brazil', tz: 'America/Bahia' },
+            { city: 'Fortaleza', country: 'Brazil', tz: 'America/Fortaleza' },
+            { city: 'Manaus', country: 'Brazil', tz: 'America/Manaus' },
+            { city: 'Paramaribo', country: 'Suriname', tz: 'America/Paramaribo' },
+            { city: 'Cayenne', country: 'French Guiana', tz: 'America/Cayenne' },
+            { city: 'Nuuk', country: 'Greenland', tz: 'America/Nuuk' },
+            { city: 'Tórshavn', country: 'Faroe Islands', tz: 'Atlantic/Faroe' },
+            { city: 'Stanley', country: 'Falkland Islands', tz: 'Atlantic/Stanley' },
+            { city: 'South Georgia', country: 'South Georgia', tz: 'Atlantic/South_Georgia' },
+            { city: 'Ponta Delgada', country: 'Portugal', tz: 'Atlantic/Azores' },
+            { city: 'Funchal', country: 'Portugal', tz: 'Atlantic/Madeira' },
+            { city: 'Canary Islands', country: 'Spain', tz: 'Atlantic/Canary' },
+            { city: 'Praia', country: 'Cape Verde', tz: 'Atlantic/Cape_Verde' },
+            { city: 'Bissau', country: 'Guinea-Bissau', tz: 'Africa/Bissau' },
+            { city: 'Monrovia', country: 'Liberia', tz: 'Africa/Monrovia' },
+            { city: 'Freetown', country: 'Sierra Leone', tz: 'Africa/Freetown' },
+            { city: 'Bamako', country: 'Mali', tz: 'Africa/Bamako' },
+            { city: 'Ouagadougou', country: 'Burkina Faso', tz: 'Africa/Ouagadougou' },
+            { city: 'Niamey', country: 'Niger', tz: 'Africa/Niamey' },
+            { city: 'N\'Djamena', country: 'Chad', tz: 'Africa/Ndjamena' },
+            { city: 'Khartoum', country: 'Sudan', tz: 'Africa/Khartoum' },
+            { city: 'Juba', country: 'South Sudan', tz: 'Africa/Juba' },
+            { city: 'Kampala', country: 'Uganda', tz: 'Africa/Kampala' },
+            { city: 'Kigali', country: 'Rwanda', tz: 'Africa/Kigali' },
+            { city: 'Bujumbura', country: 'Burundi', tz: 'Africa/Bujumbura' },
+            { city: 'Dar es Salaam', country: 'Tanzania', tz: 'Africa/Dar_es_Salaam' },
+            { city: 'Lusaka', country: 'Zambia', tz: 'Africa/Lusaka' },
+            { city: 'Harare', country: 'Zimbabwe', tz: 'Africa/Harare' },
+            { city: 'Gaborone', country: 'Botswana', tz: 'Africa/Gaborone' },
+            { city: 'Windhoek', country: 'Namibia', tz: 'Africa/Windhoek' },
+            { city: 'Maputo', country: 'Mozambique', tz: 'Africa/Maputo' },
+            { city: 'Antananarivo', country: 'Madagascar', tz: 'Indian/Antananarivo' },
+            { city: 'Port Louis', country: 'Mauritius', tz: 'Indian/Mauritius' },
+            { city: 'Victoria', country: 'Seychelles', tz: 'Indian/Mahe' },
+            { city: 'Malé', country: 'Maldives', tz: 'Indian/Maldives' },
+            { city: 'Kabul', country: 'Afghanistan', tz: 'Asia/Kabul' },
+            { city: 'Ashgabat', country: 'Turkmenistan', tz: 'Asia/Ashgabat' },
+            { city: 'Dushanbe', country: 'Tajikistan', tz: 'Asia/Dushanbe' },
+            { city: 'Bishkek', country: 'Kyrgyzstan', tz: 'Asia/Bishkek' },
+            { city: 'Thimphu', country: 'Bhutan', tz: 'Asia/Thimphu' },
+            { city: 'Naypyidaw', country: 'Myanmar', tz: 'Asia/Yangon' },
+            { city: 'Nassau', country: 'Bahamas', tz: 'America/Nassau' },
+            { city: 'Bridgetown', country: 'Barbados', tz: 'America/Barbados' },
+            { city: 'Port of Spain', country: 'Trinidad and Tobago', tz: 'America/Port_of_Spain' },
+            { city: 'St. George\'s', country: 'Grenada', tz: 'America/Grenada' },
+            { city: 'Castries', country: 'Saint Lucia', tz: 'America/St_Lucia' },
+            { city: 'Kingstown', country: 'Saint Vincent', tz: 'America/St_Vincent' },
+            { city: 'Roseau', country: 'Dominica', tz: 'America/Dominica' },
+            { city: 'St. John\'s', country: 'Antigua and Barbuda', tz: 'America/Antigua' },
+            { city: 'Basseterre', country: 'Saint Kitts', tz: 'America/St_Kitts' },
+            { city: 'Belmopan', country: 'Belize', tz: 'America/Belize' },
+            { city: 'Tegucigalpa', country: 'Honduras', tz: 'America/Tegucigalpa' },
+            { city: 'Managua', country: 'Nicaragua', tz: 'America/Managua' },
+            { city: 'San Salvador', country: 'El Salvador', tz: 'America/El_Salvador' }
+        ];
+
+        const seen = new Set();
+        const UNIQUE_CITIES = CITY_DB.filter(function(c) {
+            const key = c.city + '|' + c.country;
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+        });
+
+        let selectedCities = [];
+        let is24h = false;
+        let clockTimer = null;
+        let searchHighlightIndex = -1;
+        let searchResults = [];
+
+        const STORAGE_KEY_CITIES = 'textify_world_clock_cities';
+        const STORAGE_KEY_FORMAT = 'textify_world_clock_format';
+
+        function saveCities() {
+            try { localStorage.setItem(STORAGE_KEY_CITIES, JSON.stringify(selectedCities)); } catch (e) {}
+        }
+        function loadCities() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY_CITIES);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (Array.isArray(parsed)) {
+                        selectedCities = parsed.filter(function(c) { return c && c.city && c.tz; });
+                    }
+                }
+            } catch (e) {}
+        }
+        function saveFormat() {
+            try { localStorage.setItem(STORAGE_KEY_FORMAT, is24h ? '24' : '12'); } catch (e) {}
+        }
+        function loadFormat() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY_FORMAT);
+                if (raw === '24') is24h = true;
+                else if (raw === '12') is24h = false;
+            } catch (e) {}
+        }
+
+        function getLocalTimezone() {
+            try { return Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) { return 'UTC'; }
+        }
+
+        function formatTime(date, tz, force24) {
+            const use24 = (force24 !== undefined) ? force24 : is24h;
+            try {
+                return new Intl.DateTimeFormat('en-US', {
+                    timeZone: tz, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: !use24
+                }).format(date);
+            } catch (e) { return '--:--:--'; }
+        }
+
+        function formatTimeShort(date, tz, force24) {
+            const use24 = (force24 !== undefined) ? force24 : is24h;
+            try {
+                return new Intl.DateTimeFormat('en-US', {
+                    timeZone: tz, hour: '2-digit', minute: '2-digit', hour12: !use24
+                }).format(date);
+            } catch (e) { return '--:--'; }
+        }
+
+        function formatDate(date, tz) {
+            try {
+                return new Intl.DateTimeFormat('en-US', {
+                    timeZone: tz, weekday: 'short', month: 'short', day: 'numeric', year: 'numeric'
+                }).format(date);
+            } catch (e) { return '—'; }
+        }
+
+        function getOffsetString(tz) {
+            try {
+                const parts = new Intl.DateTimeFormat('en-US', { timeZone: tz, timeZoneName: 'shortOffset' }).formatToParts(new Date());
+                const offsetPart = parts.find(function(p) { return p.type === 'timeZoneName'; });
+                return offsetPart ? offsetPart.value : '—';
+            } catch (e) { return '—'; }
+        }
+
+        function getTimezoneAbbr(tz) {
+            try {
+                const parts = new Intl.DateTimeFormat('en-US', { timeZone: tz, timeZoneName: 'short' }).formatToParts(new Date());
+                const abbrPart = parts.find(function(p) { return p.type === 'timeZoneName'; });
+                return abbrPart ? abbrPart.value : '';
+            } catch (e) { return ''; }
+        }
+
+        function getHourInTz(date, tz) {
+            try {
+                const parts = new Intl.DateTimeFormat('en-US', { timeZone: tz, hour: 'numeric', hour12: false }).formatToParts(date);
+                const hourPart = parts.find(function(p) { return p.type === 'hour'; });
+                if (hourPart) {
+                    let h = parseInt(hourPart.value, 10);
+                    if (h === 24) h = 0;
+                    return h;
+                }
+                return 12;
+            } catch (e) { return 12; }
+        }
+
+        function isDaytime(tz) {
+            const h = getHourInTz(new Date(), tz);
+            return h >= 6 && h < 18;
+        }
+
+        function getTimeDiffString(tz) {
+            try {
+                const localTz = getLocalTimezone();
+                function getOffsetMinutes(zone) {
+                    const parts = new Intl.DateTimeFormat('en-US', { timeZone: zone, timeZoneName: 'shortOffset' }).formatToParts(new Date());
+                    const offsetPart = parts.find(function(p) { return p.type === 'timeZoneName'; });
+                    if (!offsetPart) return 0;
+                    const m = offsetPart.value.match(/GMT([+-])(\d{1,2})(?::(\d{2}))?/);
+                    if (!m) return 0;
+                    const sign = m[1] === '+' ? 1 : -1;
+                    const hours = parseInt(m[2], 10);
+                    const minutes = m[3] ? parseInt(m[3], 10) : 0;
+                    return sign * (hours * 60 + minutes);
+                }
+                const diffMin = getOffsetMinutes(tz) - getOffsetMinutes(localTz);
+                if (diffMin === 0) return 'Same as local';
+                const sign = diffMin > 0 ? '+' : '−';
+                const absMin = Math.abs(diffMin);
+                const h = Math.floor(absMin / 60);
+                const m = absMin % 60;
+                if (m === 0) return sign + h + 'h from local';
+                return sign + h + 'h ' + m + 'm from local';
+            } catch (e) { return ''; }
+        }
+
+        // ---------- FIXED: no more hardcoded `false` ----------
+        function updateLocalBanner() {
+            const now = new Date();
+            const localTz = getLocalTimezone();
+            document.getElementById('localTime').textContent = formatTime(now, localTz);
+            document.getElementById('localDate').textContent = formatDate(now, localTz);
+            document.getElementById('localTz').textContent = localTz.replace(/_/g, ' ');
+            document.getElementById('localOffset').textContent = getOffsetString(localTz) + ' · ' + getTimezoneAbbr(localTz);
+        }
+
+        function renderClocks() {
+            const grid = document.getElementById('clockGrid');
+            if (selectedCities.length === 0) {
+                grid.innerHTML = '<div class="empty-clocks">' +
+                    '<i data-lucide="globe"></i>' +
+                    '<p>No cities added yet. Search for a city above to add a live clock.</p>' +
+                    '</div>';
+                if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                    window.lucide.createIcons();
+                }
+                return;
+            }
+
+            const now = new Date();
+            let html = '';
+            for (let i = 0; i < selectedCities.length; i++) {
+                const c = selectedCities[i];
+                const time = formatTime(now, c.tz);
+                const date = formatDate(now, c.tz);
+                const offset = getOffsetString(c.tz);
+                const abbr = getTimezoneAbbr(c.tz);
+                const daytime = isDaytime(c.tz);
+                const diff = getTimeDiffString(c.tz);
+                const badgeClass = daytime ? 'day' : 'night';
+                const badgeIcon = daytime ? 'sun' : 'moon';
+                const badgeText = daytime ? 'Daytime' : 'Night';
+
+                html += '<div class="clock-card" data-tz="' + escAttr(c.tz) + '">' +
+                    '<div class="cc-header">' +
+                        '<div>' +
+                            '<div class="cc-city">' + escHtml(c.city) + '</div>' +
+                            '<div class="cc-country">' + escHtml(c.country) + '</div>' +
+                        '</div>' +
+                        '<button type="button" class="cc-remove" onclick="removeCity(\'' + escAttr(c.tz) + '\', \'' + escAttr(c.city) + '\')" aria-label="Remove ' + escAttr(c.city) + '">' +
+                            '<i data-lucide="x" width="16" height="16"></i>' +
+                        '</button>' +
+                    '</div>' +
+                    '<div class="cc-time">' + escHtml(time) + '</div>' +
+                    '<div class="cc-date">' + escHtml(date) + '</div>' +
+                    '<div class="cc-footer">' +
+                        '<span class="cc-badge ' + badgeClass + '">' +
+                            '<i data-lucide="' + badgeIcon + '" width="12" height="12"></i> ' + badgeText +
+                        '</span>' +
+                        '<div style="text-align:right;">' +
+                            '<div class="cc-diff">' + escHtml(diff) + '</div>' +
+                            '<div class="cc-offset">' + escHtml(offset) + (abbr ? ' · ' + escHtml(abbr) : '') + '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+            }
+            grid.innerHTML = html;
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
+        }
+
+        // ---------- FIXED: no more hardcoded `false` ----------
+        function updateAllClocks() {
+            const now = new Date();
+            const localTz = getLocalTimezone();
+            document.getElementById('localTime').textContent = formatTime(now, localTz);
+            document.getElementById('localDate').textContent = formatDate(now, localTz);
+
+            const cards = document.querySelectorAll('.clock-card');
+            cards.forEach(function(card) {
+                const tz = card.getAttribute('data-tz');
+                if (!tz) return;
+                const timeEl = card.querySelector('.cc-time');
+                const dateEl = card.querySelector('.cc-date');
+                const badgeEl = card.querySelector('.cc-badge');
+                const diffEl = card.querySelector('.cc-diff');
+                const offsetEl = card.querySelector('.cc-offset');
+                if (timeEl) timeEl.textContent = formatTime(now, tz);
+                if (dateEl) dateEl.textContent = formatDate(now, tz);
+                if (badgeEl) {
+                    const daytime = isDaytime(tz);
+                    badgeEl.className = 'cc-badge ' + (daytime ? 'day' : 'night');
+                    badgeEl.innerHTML = '<i data-lucide="' + (daytime ? 'sun' : 'moon') + '" width="12" height="12"></i> ' + (daytime ? 'Daytime' : 'Night');
+                }
+                if (diffEl) diffEl.textContent = getTimeDiffString(tz);
+                if (offsetEl) {
+                    const abbr = getTimezoneAbbr(tz);
+                    offsetEl.textContent = getOffsetString(tz) + (abbr ? ' · ' + abbr : '');
+                }
+            });
+        }
+
+        function addCity(cityObj) {
+            if (!cityObj || !cityObj.tz) return;
+            const exists = selectedCities.some(function(c) { return c.tz === cityObj.tz && c.city === cityObj.city; });
+            if (exists) {
+                showToast(cityObj.city + ' is already in your list.');
+                return;
+            }
+            selectedCities.push({ city: cityObj.city, country: cityObj.country, tz: cityObj.tz });
+            saveCities();
+            renderClocks();
+            showToast('Added ' + cityObj.city + ' to your world clock.');
+        }
+
+        function removeCity(tz, city) {
+            selectedCities = selectedCities.filter(function(c) {
+                return !(c.tz === tz && c.city === city);
+            });
+            saveCities();
+            renderClocks();
+            showToast('Removed ' + city + '.');
+        }
+        window.removeCity = removeCity;
+
+        function searchCities(query) {
+            const q = query.toLowerCase().trim();
+            if (!q) return [];
+            const results = [];
+            for (let i = 0; i < UNIQUE_CITIES.length; i++) {
+                const c = UNIQUE_CITIES[i];
+                const hay = (c.city + ' ' + c.country + ' ' + c.tz).toLowerCase();
+                if (hay.indexOf(q) !== -1) {
+                    let score = 2;
+                    if (c.city.toLowerCase().startsWith(q)) score = 0;
+                    else if (c.city.toLowerCase().indexOf(q) !== -1) score = 1;
+                    results.push({ city: c, score: score });
+                }
+            }
+            results.sort(function(a, b) {
+                if (a.score !== b.score) return a.score - b.score;
+                return a.city.city.localeCompare(b.city.city);
+            });
+            return results.map(function(r) { return r.city; });
+        }
+
+        function renderSearchDropdown(query) {
+            const dropdown = document.getElementById('cityDropdown');
+            searchResults = searchCities(query);
+            searchHighlightIndex = -1;
+
+            if (!query.trim()) {
+                dropdown.classList.remove('active');
+                dropdown.innerHTML = '';
+                return;
+            }
+
+            if (searchResults.length === 0) {
+                dropdown.innerHTML = '<div class="city-dropdown-empty">No cities found for "' + escHtml(query) + '"</div>';
+                dropdown.classList.add('active');
+                return;
+            }
+
+            const now = new Date();
+            let html = '';
+            const limit = Math.min(searchResults.length, 12);
+            for (let i = 0; i < limit; i++) {
+                const c = searchResults[i];
+                const time = formatTimeShort(now, c.tz);
+                html += '<div class="city-option" data-index="' + i + '" onclick="selectSearchResult(' + i + ')">' +
+                    '<div>' +
+                        '<div class="co-name">' + escHtml(c.city) + '</div>' +
+                        '<div class="co-country">' + escHtml(c.country) + ' · ' + escHtml(c.tz.replace(/_/g, ' ')) + '</div>' +
+                    '</div>' +
+                    '<div class="co-time">' + escHtml(time) + '</div>' +
+                '</div>';
+            }
+            dropdown.innerHTML = html;
+            dropdown.classList.add('active');
+        }
+
+        function selectSearchResult(index) {
+            if (index < 0 || index >= searchResults.length) return;
+            const c = searchResults[index];
+            addCity(c);
+            document.getElementById('citySearch').value = '';
+            document.getElementById('cityDropdown').classList.remove('active');
+        }
+        window.selectSearchResult = selectSearchResult;
+
+        function populateConverterSelects() {
+            const fromSel = document.getElementById('fromTz');
+            const toSel = document.getElementById('toTz');
+            const localTz = getLocalTimezone();
+
+            const tzSet = {};
+            for (let i = 0; i < UNIQUE_CITIES.length; i++) {
+                tzSet[UNIQUE_CITIES[i].tz] = true;
+            }
+            tzSet[localTz] = true;
+            tzSet['UTC'] = true;
+
+            const tzList = Object.keys(tzSet).sort();
+
+            let options = '';
+            for (let i = 0; i < tzList.length; i++) {
+                const tz = tzList[i];
+                const label = tz.replace(/_/g, ' ');
+                const offset = getOffsetString(tz);
+                options += '<option value="' + escAttr(tz) + '">' + escHtml(label) + ' (' + escHtml(offset) + ')</option>';
+            }
+            fromSel.innerHTML = options;
+            toSel.innerHTML = options;
+            fromSel.value = localTz;
+            if (tzSet['Europe/London']) toSel.value = 'Europe/London';
+            else if (tzList.length > 1) toSel.value = tzList[1];
+        }
+
+        function updateConverter() {
+            const fromTz = document.getElementById('fromTz').value;
+            const toTz = document.getElementById('toTz').value;
+            const timeInput = document.getElementById('convertTime').value || '12:00';
+            const parts = timeInput.split(':');
+            const hh = parseInt(parts[0], 10) || 0;
+            const mm = parseInt(parts[1], 10) || 0;
+
+            const now = new Date();
+            try {
+                const nowParts = new Intl.DateTimeFormat('en-US', {
+                    timeZone: fromTz, year: 'numeric', month: '2-digit', day: '2-digit'
+                }).formatToParts(now);
+                const y = nowParts.find(function(p) { return p.type === 'year'; }).value;
+                const mo = nowParts.find(function(p) { return p.type === 'month'; }).value;
+                const d = nowParts.find(function(p) { return p.type === 'day'; }).value;
+
+                const guess = new Date(y + '-' + mo + '-' + d + 'T' + String(hh).padStart(2, '0') + ':' + String(mm).padStart(2, '0') + ':00');
+
+                function getOffsetMinutes(zone, date) {
+                    try {
+                        const parts = new Intl.DateTimeFormat('en-US', { timeZone: zone, timeZoneName: 'shortOffset' }).formatToParts(date);
+                        const offsetPart = parts.find(function(p) { return p.type === 'timeZoneName'; });
+                        if (!offsetPart) return 0;
+                        const m = offsetPart.value.match(/GMT([+-])(\d{1,2})(?::(\d{2}))?/);
+                        if (!m) return 0;
+                        const sign = m[1] === '+' ? 1 : -1;
+                        const hours = parseInt(m[2], 10);
+                        const minutes = m[3] ? parseInt(m[3], 10) : 0;
+                        return sign * (hours * 60 + minutes);
+                    } catch (e) { return 0; }
+                }
+
+                const srcOffset = getOffsetMinutes(fromTz, guess);
+                const utcMs = guess.getTime() - srcOffset * 60000;
+                const targetDate = new Date(utcMs);
+                const targetTime = formatTime(targetDate, toTz);
+                const targetDateStr = formatDate(targetDate, toTz);
+                const targetOffset = getOffsetString(toTz);
+                const targetAbbr = getTimezoneAbbr(toTz);
+
+                document.getElementById('convertedValue').textContent = targetTime;
+                document.getElementById('convertedDetail').textContent = targetDateStr + ' · ' + targetOffset + (targetAbbr ? ' · ' + targetAbbr : '');
+            } catch (e) {
+                document.getElementById('convertedValue').textContent = '—';
+                document.getElementById('convertedDetail').textContent = 'Could not convert time.';
+            }
+        }
+
+        // ---------- Format toggle (in banner) ----------
+        function initFormatToggle() {
+            const toggle = document.getElementById('bannerFormatToggle');
+            const buttons = toggle.querySelectorAll('button');
+            buttons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    const fmt = this.getAttribute('data-format');
+                    is24h = (fmt === '24');
+                    buttons.forEach(function(b) { b.classList.remove('active'); });
+                    this.classList.add('active');
+                    saveFormat();
+                    // Re-render everything with the new format
+                    updateLocalBanner();
+                    renderClocks();
+                    updateConverter();
+                });
+            });
+            // Sync initial active state
+            buttons.forEach(function(b) {
+                const fmt = b.getAttribute('data-format');
+                if ((fmt === '24' && is24h) || (fmt === '12' && !is24h)) {
+                    b.classList.add('active');
+                } else {
+                    b.classList.remove('active');
+                }
+            });
+        }
+
+        function initCitySearch() {
+            const input = document.getElementById('citySearch');
+            const dropdown = document.getElementById('cityDropdown');
+
+            input.addEventListener('input', function() {
+                renderSearchDropdown(this.value);
+            });
+
+            input.addEventListener('keydown', function(e) {
+                const options = dropdown.querySelectorAll('.city-option');
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (options.length === 0) return;
+                    searchHighlightIndex = (searchHighlightIndex + 1) % options.length;
+                    options.forEach(function(o) { o.classList.remove('highlighted'); });
+                    options[searchHighlightIndex].classList.add('highlighted');
+                    options[searchHighlightIndex].scrollIntoView({ block: 'nearest' });
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    if (options.length === 0) return;
+                    searchHighlightIndex = (searchHighlightIndex - 1 + options.length) % options.length;
+                    options.forEach(function(o) { o.classList.remove('highlighted'); });
+                    options[searchHighlightIndex].classList.add('highlighted');
+                    options[searchHighlightIndex].scrollIntoView({ block: 'nearest' });
+                } else if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (searchHighlightIndex >= 0 && searchResults[searchHighlightIndex]) {
+                        selectSearchResult(searchHighlightIndex);
+                    } else if (searchResults.length > 0) {
+                        selectSearchResult(0);
+                    }
+                } else if (e.key === 'Escape') {
+                    dropdown.classList.remove('active');
+                    input.blur();
+                }
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+
+            input.addEventListener('focus', function() {
+                if (this.value.trim()) renderSearchDropdown(this.value);
+            });
+        }
+
+        // ---------- Init ----------
+        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
+        buildMegaMenu();
+        buildMobileToolsMenu();
+
+        loadFormat();
+        loadCities();
+        updateLocalBanner();
+        renderClocks();
+        populateConverterSelects();
+        initFormatToggle();
+        initCitySearch();
+
+        document.getElementById('fromTz').addEventListener('change', updateConverter);
+        document.getElementById('toTz').addEventListener('change', updateConverter);
+        document.getElementById('convertTime').addEventListener('input', updateConverter);
+        document.getElementById('swapTz').addEventListener('click', function() {
+            const fromSel = document.getElementById('fromTz');
+            const toSel = document.getElementById('toTz');
+            const tmp = fromSel.value;
+            fromSel.value = toSel.value;
+            toSel.value = tmp;
+            updateConverter();
+        });
+
+        updateConverter();
+
+        clockTimer = setInterval(updateAllClocks, 1000);
+
+        function initLucide() {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
+        }
+        initLucide();
+        window.addEventListener('load', initLucide);
+    </script>
+</body>
+</html>
