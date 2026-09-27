@@ -733,8 +733,6 @@
                     </ul>
                 </div>
 
-                <!-- ============ CONTENT EXPANSION FOR MORE AD SLOTS ============ -->
-
                 <div class="section">
                     <h2>The complete Textify.tools workflow: from messy text to final output</h2>
                     <p>Most people don't just use one tool and leave. They come with a messy chunk of text — a half-broken JSON response, a copied PDF paragraph, a list with duplicates, or a draft full of extra spaces — and they chain a few tools together until the output is clean. This section walks through the exact flow that works for almost any text problem.</p>
@@ -948,8 +946,6 @@
                         </table>
                     </div>
                 </div>
-
-                <!-- ============ END CONTENT EXPANSION ============ -->
 
                 <div class="section">
                     <h2>Questions? Here's what people usually ask.</h2>
@@ -1313,7 +1309,6 @@
             { name: 'Fuel Economy Converter', desc: 'Convert fuel economy units.', icon: 'gauge', link: '/fuel-economy-converter', keywords: 'fuel economy converter units mileage', color: '#f59e0b', category: 'calculator' }
         ];
 
-        // Precompute search haystack once (avoid rebuilding on every keystroke)
         tools.forEach(function(t) {
             t._nameLower = t.name.toLowerCase();
             t._descLower = t.desc.toLowerCase();
@@ -1336,7 +1331,6 @@
 
         const filterState = { category: 'all', query: '' };
 
-        /* ---------- cached state (perf) ---------- */
         let toolCardNodes = [];
         let toolCardHay = [];
         let filterRaf = 0;
@@ -1346,10 +1340,8 @@
         let searchIsOpen = false;
 
         /* ===================================================================
-           GLOBAL HELPER: open every internal/HTTP link in a new tab.
-           The original tab keeps its scroll position, filter state,
-           search query, and theme — pressing back in the new tab
-           returns the user exactly where they started.
+           GLOBAL: force all links to open in new tab.
+           Original tab keeps its state (filters, scroll, search, theme).
            =================================================================== */
         function openAllLinksInNewTab(scope) {
             var root = scope || document;
@@ -1358,12 +1350,10 @@
                 var a = links[i];
                 var href = a.getAttribute('href');
                 if (!href) continue;
-                // Skip anchors, JS, mailto, tel
                 if (href.charAt(0) === '#' ||
                     href.indexOf('javascript:') === 0 ||
                     href.indexOf('mailto:') === 0 ||
                     href.indexOf('tel:') === 0) continue;
-                // Force new tab
                 if (a.getAttribute('target') !== '_blank') {
                     a.setAttribute('target', '_blank');
                 }
@@ -1588,7 +1578,7 @@
                     targetHref = items[0].getAttribute('href');
                 }
                 if (targetHref) {
-                    // Open in a new tab so the original tab keeps its state
+                    // Open in new tab so original page keeps its state
                     window.open(targetHref, '_blank', 'noopener,noreferrer');
                 }
             }
@@ -1844,7 +1834,7 @@
             setKbdHint();
             setSearchPlaceholder();
 
-            // Apply new-tab behavior to ALL links currently in the DOM
+            // Force all existing links in the DOM to open in a new tab
             openAllLinksInNewTab();
 
             applyFilters();
