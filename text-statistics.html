@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Text Statistics - Word Count, Readability & Text Analysis | Textify.tools</title>
+    <meta name="description" content="Analyze any text instantly. Get word count, character count, sentences, paragraphs, reading time, speaking time, readability scores, keyword density and more. Free, no signup.">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="Pradeep Yadav">
+    <link rel="canonical" href="https://textify.tools/text-statistics">
+    <link rel="alternate" hreflang="x-default" href="https://textify.tools/text-statistics">
+    <link rel="alternate" hreflang="en-US" href="https://textify.tools/text-statistics">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://textify.tools/text-statistics">
+    <meta property="og:title" content="Text Statistics – Word Count, Readability & Text Analysis | Textify.tools">
+    <meta property="og:description" content="Analyze any text instantly. Get word count, character count, sentences, paragraphs, reading time, speaking time, readability scores, keyword density and more. Free, no signup.">
+    <meta property="og:site_name" content="Textify.tools">
+    <meta property="og:image" content="https://textify.tools/og-image.png">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Text Statistics – Word Count, Readability & Text Analysis | Textify.tools">
+    <meta name="twitter:description" content="Analyze any text instantly. Get word count, character count, sentences, paragraphs, reading time, speaking time, readability scores, keyword density and more. Free, no signup.">
+    <meta name="twitter:image" content="https://textify.tools/og-image.png">
+    <!-- Icons -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/mstile-150x150.png">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://scripts.scriptwrapper.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <meta name="yandex-verification" content="6e105f6188a8c833" />
+
+    <!-- Inline script to prevent dark mode flash -->
+    <script>
+        (function() {
+            var stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (e) {}
+            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var isDark = stored === 'dark' || (!stored && prefersDark);
+            if (isDark) {
+                document.documentElement.classList.add('dark-mode');
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta) meta.setAttribute('content', '#0f172a');
+            }
+        })();
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-6VGXXT81MB');
+    </script>
+
+    <!-- Mediavine -->
+    <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
+
+    <!-- Lucide icons -->
+    <script src="https://unpkg.com/lucide@0.344.0" defer></script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebSite",
+                    "@id": "https://textify.tools/#website",
+                    "url": "https://textify.tools/",
+                    "name": "Textify.tools",
+                    "description": "Free online text tools you can use right in your browser.",
+                    "publisher": { "@id": "https://textify.tools/#organization" }
+                },
+                {
+                    "@type": "Organization",
+                    "@id": "https://textify.tools/#organization",
+                    "name": "Textify.tools",
+                    "url": "https://textify.tools/",
+                    "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 },
+                    "sameAs": ["https://x.com/BuiltByPradeep"]
+                },
+                {
+                    "@type": "Person",
+                    "@id": "https://textify.tools/#author",
+                    "name": "Pradeep Yadav",
+                    "url": "https://textify.tools/about-us",
+                    "worksFor": { "@id": "https://textify.tools/#organization" }
+                },
+                {
+                    "@type": "WebApplication",
+                    "@id": "https://textify.tools/text-statistics/#app",
+                    "name": "Text Statistics",
+                    "url": "https://textify.tools/text-statistics",
+                    "description": "Analyze any text instantly. Get word count, character count, sentences, paragraphs, reading time, speaking time, readability scores, keyword density and more. Free, no signup.",
+                    "applicationCategory": "UtilityApplication",
+                    "operatingSystem": "Web Browser",
+                    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+                    "featureList": "Word count, Character count, Sentence count, Paragraph count, Reading time, Speaking time, Readability scores, Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog Index, Keyword density, Text analysis"
+                },
+                {
+                    "@type": "FAQPage",
+                    "mainEntity": [
+                        {
+                            "@type": "Question",
+                            "name": "What is text statistics?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Text statistics is the process of analyzing a body of text to extract quantitative metrics such as word count, character count, sentence count, paragraph count, average word length, reading time, speaking time, and readability scores. These metrics help writers, editors, students, and marketers understand the structure, complexity, and readability of their content." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "What is the Flesch Reading Ease score?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "The Flesch Reading Ease score is a readability test that rates text on a 0–100 scale. Higher scores indicate easier reading. A score of 60–70 is considered standard, 70–80 is fairly easy, and 90–100 is very easy. The formula uses average sentence length and average syllables per word." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "What is the Flesch-Kincaid Grade Level?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "The Flesch-Kincaid Grade Level estimates the U.S. school grade level required to understand a text. For example, a score of 8 means an eighth-grader can read it. It uses average sentence length and average syllables per word." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "What is the Gunning Fog Index?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "The Gunning Fog Index estimates the years of formal education required to understand a text. It considers average sentence length and the percentage of complex words (words with three or more syllables). A lower score means easier reading." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "How is reading time calculated?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Reading time is estimated by dividing the total word count by the average adult reading speed, typically 200–250 words per minute. This tool uses 225 words per minute for reading time and 150 words per minute for speaking time." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Is my text safe?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Everything runs in your browser. The text you enter never leaves your device — no server, no logs, no tracking." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Can I use this on my phone?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool is fully responsive and works on phones, tablets, and desktops." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Does it work offline?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once the page loads, the text statistics tool keeps working even without an internet connection." }
+                        }
+                    ]
+                },
+                {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
+                        { "@type": "ListItem", "position": 2, "name": "Text Statistics", "item": "https://textify.tools/text-statistics" }
+                    ]
+                }
+            ]
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #0a0a0a;
+            --text-light: #525252;
+            --line: #e5e5e5;
+            --primary: #000000;
+            --hover: #f3f4f6;
+            --card: #fafafa;
+            --input-bg: #ffffff;
+            --input-border: #d4d4d4;
+            --footer-text: #333333;
+            --footer-heading: #000000;
+            --footer-link-color: #2563eb;
+            --footer-link-hover: #1d4ed8;
+            --footer-border: #e5e5e5;
+            --faq-bg: #fafafa;
+            --faq-active: #f3f4f6;
+            --shadow: rgba(0,0,0,0.1);
+            --overlay-bg: rgba(0,0,0,0.5);
+            --sidebar-bg: #ffffff;
+            --accent: #f8fafc;
+            --toast-bg: #000000;
+            --toast-text: #ffffff;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            --chip-hover: #e2e8f0;
+            --mark-bg: #dbeafe;
+            --mark-text: #1e3a8a;
+            --tool-accent: #000000;
+            --tool-accent-light: rgba(0, 0, 0, 0.06);
+            --success: #16a34a;
+            --warning: #d97706;
+            --danger: #dc2626;
+        }
+        html.dark-mode {
+            --bg: #0f172a;
+            --text: #f1f5f9;
+            --text-light: #94a3b8;
+            --line: #1e293b;
+            --primary: #ffffff;
+            --hover: #1e293b;
+            --card: #1e293b;
+            --input-bg: #1e293b;
+            --input-border: #334155;
+            --footer-text: #e2e8f0;
+            --footer-heading: #ffffff;
+            --footer-link-color: #60a5fa;
+            --footer-link-hover: #ffffff;
+            --footer-border: #334155;
+            --faq-bg: #1e293b;
+            --faq-active: #334155;
+            --shadow: rgba(0,0,0,0.5);
+            --overlay-bg: rgba(0,0,0,0.75);
+            --sidebar-bg: #0f172a;
+            --accent: #1e293b;
+            --toast-bg: #f1f5f9;
+            --toast-text: #0f172a;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            --chip-hover: #334155;
+            --mark-bg: #1e3a8a;
+            --mark-text: #dbeafe;
+            --tool-accent: #ffffff;
+            --tool-accent-light: rgba(255, 255, 255, 0.08);
+            --success: #4ade80;
+            --warning: #fbbf24;
+            --danger: #f87171;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg); color: var(--text); min-height: 100vh;
+            transition: background 0.3s, color 0.3s; overflow-x: hidden;
+        }
+        .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
+
+        /* prevent sun/moon flash */
+        html.dark-mode #sunIcon,
+        html.dark-mode #mobileSunIcon { display: none !important; }
+        html.dark-mode #moonIcon,
+        html.dark-mode #mobileMoonIcon { display: block !important; }
+        html:not(.dark-mode) #moonIcon,
+        html:not(.dark-mode) #mobileMoonIcon { display: none !important; }
+        html:not(.dark-mode) #sunIcon,
+        html:not(.dark-mode) #mobileSunIcon { display: block !important; }
+
+        img, video, canvas, iframe, embed, object, svg { max-width: 100%; height: auto; }
+        table { max-width: 100%; }
+        pre, code { white-space: pre-wrap; word-wrap: break-word; }
+        mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
+
+        /* ===== HEADER ===== */
+        header {
+            border-bottom: 1px solid var(--line); display: flex; justify-content: center;
+            align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
+            background: transparent; width: 100%;
+        }
+        .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
+        .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
+        .header-right { display: flex; align-items: center; gap: 12px; }
+        .desktop-nav { display: flex; gap: 15px; align-items: center; }
+        .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
+        .desktop-nav a:hover { color: var(--primary); background: var(--hover); }
+        .tools-menu-container { position: relative; }
+        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; background: none; border: none; font-family: inherit; }
+        .tools-trigger:hover { color: var(--primary); background: var(--hover); }
+        .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
+        .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 220px; max-width: min(90vw, 400px); max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
+        .tools-menu-container:hover .tools-mega-menu,
+        .tools-menu-container.open .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .tools-menu-container:hover .tools-trigger i,
+        .tools-menu-container.open .tools-trigger i { transform: rotate(180deg); }
+        .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+        .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
+        .tools-mega-menu::-webkit-scrollbar { width: 6px; }
+        .tools-mega-menu::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
+
+        .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
+        .theme-btn:hover { background: var(--hover); }
+        .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
+        .search-trigger:hover { border-color: var(--primary); color: var(--primary); }
+        .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; }
+        .hamburger-btn:hover { background: var(--hover); }
+        .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
+        .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
+        .hamburger-btn .menu-icon span:first-child { width: 16px; }
+        .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
+        .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
+        .mobile-sidebar { position: fixed; top: 0; left: -300px; width: 280px; max-width: 85vw; height: 100vh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; visibility: hidden; transition: left 0.35s cubic-bezier(0.4,0,0.2,1), visibility 0.35s; overflow-y: auto; }
+        .mobile-sidebar.active { left: 0; visibility: visible; }
+        .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+        .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
+        .mobile-sidebar-logo .logo-img { width: 20px; height: 20px; }
+        .mobile-sidebar-close { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
+        .mobile-sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
+        .mobile-sidebar-nav a { display: block; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; }
+        .mobile-sidebar-nav a:hover { background: var(--hover); color: var(--primary); }
+        .mobile-tools-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 10px; background: none; border: none; cursor: pointer; color: var(--text); font-weight: 500; font-size: 15px; font-family: inherit; transition: 0.2s; }
+        .mobile-tools-toggle:hover { background: var(--hover); color: var(--primary); }
+        .mobile-tools-toggle i { width: 16px; height: 16px; transition: transform 0.3s; }
+        .mobile-tools-toggle.active i { transform: rotate(180deg); }
+        .mobile-tools-menu { display: none; flex-direction: column; padding-left: 16px; gap: 2px; margin-bottom: 6px; }
+        .mobile-tools-menu.active { display: flex; }
+        .mobile-tools-menu a { font-size: 14px; padding: 10px 14px; color: var(--text-light); }
+        .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+        .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
+        .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
+
+        /* ===== SEARCH OVERLAY ===== */
+        .search-overlay-full {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--overlay-bg);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            z-index: 300; display: flex; flex-direction: column; align-items: center;
+            padding-top: 60px; opacity: 0; visibility: hidden; transition: 0.3s;
+        }
+        .search-overlay-full.active { opacity: 1; visibility: visible; }
+        .search-container { width: 92%; max-width: 620px; display: flex; flex-direction: column; max-height: 88vh; min-height: 0; }
+        .search-box {
+            display: flex; align-items: center; gap: 10px; background: var(--bg);
+            border-radius: 16px; padding: 6px 10px 6px 16px;
+            border: 2px solid var(--line);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 12px; flex-shrink: 0;
+        }
+        .search-box input {
+            flex: 1; border: none; background: transparent; font-size: 17px;
+            color: var(--text); outline: none; font-family: inherit;
+            padding: 10px 0; min-width: 0;
+        }
+        .search-box .search-clear-btn {
+            display: none; background: var(--hover); border: none; cursor: pointer;
+            padding: 6px; border-radius: 50%; color: var(--text-light);
+            align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .search-box .search-clear-btn.show { display: flex; }
+        .search-box .search-close-btn {
+            background: var(--hover); border: none; cursor: pointer; padding: 8px;
+            border-radius: 50%; color: var(--text); display: flex;
+            align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .search-box .search-close-btn:hover,
+        .search-box .search-clear-btn:hover { background: var(--chip-hover); }
+
+        .search-results-list {
+            background: var(--bg); border-radius: 16px; border: 1px solid var(--line);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto;
+            flex: 1; min-height: 0; contain: content;
+        }
+        .search-results-list .search-result-item {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 12px; padding: 12px 18px; text-decoration: none;
+            color: var(--text); font-weight: 500; font-size: 15px;
+            transition: 0.15s; border-bottom: 1px solid var(--line);
+        }
+        .search-results-list .search-result-item:last-child { border-bottom: none; }
+        .search-results-list .search-result-item:hover,
+        .search-results-list .search-result-item.active { background: var(--hover); color: var(--primary); }
+        .search-results-list .search-result-item.active { box-shadow: inset 3px 0 0 var(--primary); }
+        .search-result-item .result-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+        .search-result-item .result-name { font-weight: 600; font-size: 15px; }
+        .search-result-item .result-desc {
+            font-size: 12px; color: var(--text-light); font-weight: 400;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+        .search-results-list .result-tag {
+            font-size: 10px; background: var(--hover); padding: 3px 8px;
+            border-radius: 12px; color: var(--text-light); text-transform: uppercase;
+            font-weight: 600; flex-shrink: 0; white-space: nowrap;
+        }
+        .search-no-result {
+            text-align: center; padding: 28px 20px; color: var(--text-light);
+            font-size: 14px; display: none; background: var(--bg);
+            border-radius: 16px; border: 1px solid var(--line); margin-top: 8px;
+        }
+        .search-no-result.show { display: block; }
+
+        /* ===== MAIN ===== */
+        main { flex: 1; padding: 40px 0; width: 100%; max-width: 100%; background: transparent; }
+        .content-container {
+            width: 100%; max-width: 100%; padding: 0 40px; margin: 0 auto;
+        }
+        @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
+        @media (min-width: 1800px) { .content-container { padding: 0 60px; } main { padding: 50px 0; } }
+
+        /* ===== TOOL HERO ===== */
+        .tool-hero { text-align: left; margin-bottom: 30px; }
+        .tool-hero h1 { font-size: 38px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; }
+        .tool-hero .subtitle {
+            font-size: 18px; color: var(--text-light); line-height: 1.7;
+            max-width: 100%; word-wrap: break-word;
+        }
+        @media (max-width: 768px) { .tool-hero h1 { font-size: 28px; } }
+        @media (min-width: 1800px) { .tool-hero h1 { font-size: 44px; } }
+
+        /* ===== TOOL LAYOUT ===== */
+        .tool-layout {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+            margin-bottom: 60px; align-items: start; width: 100%;
+        }
+        @media (max-width: 1400px) { .tool-layout { gap: 16px; } }
+        @media (max-width: 900px) { .tool-layout { grid-template-columns: 1fr; gap: 14px; } }
+        @media (min-width: 1800px) { .tool-layout { gap: 24px; } }
+
+        .tool-panel {
+            background: var(--card); border: 1px solid var(--line);
+            border-radius: 16px; padding: 24px; box-shadow: var(--card-shadow); width: 100%;
+        }
+        @media (max-width: 768px) { .tool-panel { padding: 18px; } }
+        @media (min-width: 1800px) { .tool-panel { padding: 28px; } }
+        .tool-panel h2 {
+            font-size: 16px; font-weight: 700; margin-bottom: 16px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .tool-panel h2 i { width: 18px; height: 18px; color: var(--tool-accent); }
+
+        /* Input area */
+        .input-group { margin-bottom: 16px; }
+        .input-group label {
+            display: block; font-size: 13px; font-weight: 600;
+            color: var(--text-light); margin-bottom: 6px;
+        }
+        .input-group textarea {
+            width: 100%; padding: 14px; border-radius: 10px;
+            border: 1px solid var(--input-border); background: var(--input-bg);
+            color: var(--text); font-family: inherit; font-size: 15px;
+            outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+            min-height: 220px; resize: vertical; line-height: 1.6;
+        }
+        .input-group textarea:focus {
+            border-color: var(--tool-accent);
+            box-shadow: 0 0 0 3px var(--tool-accent-light);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 8px; padding: 12px 22px; border-radius: 10px;
+            font-weight: 600; font-size: 14px; font-family: inherit;
+            cursor: pointer; transition: all 0.2s; border: none;
+            text-decoration: none; white-space: nowrap;
+        }
+        .btn-primary {
+            background: var(--tool-accent); color: var(--bg);
+            width: 100%; margin-bottom: 10px;
+        }
+        .btn-primary:hover { filter: brightness(0.9); transform: translateY(-1px); }
+        html.dark-mode .btn-primary { color: var(--bg); }
+        html.dark-mode .btn-primary:hover { filter: brightness(1.15); }
+        .btn-outline {
+            background: var(--bg); color: var(--text);
+            border: 1px solid var(--line);
+        }
+        .btn-outline:hover { border-color: var(--tool-accent); color: var(--tool-accent); }
+        .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        /* Stats panel */
+        .stats-panel {
+            display: flex; flex-direction: column; gap: 12px;
+            max-height: 80vh; overflow-y: auto; padding-right: 4px;
+        }
+        .stats-panel::-webkit-scrollbar { width: 6px; }
+        .stats-panel::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+
+        .stats-section {
+            background: var(--card); border: 1px solid var(--line);
+            border-radius: 12px; overflow: hidden;
+        }
+        .stats-section-header {
+            padding: 12px 16px; font-size: 12px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            color: var(--text-light); background: var(--faq-bg);
+            border-bottom: 1px solid var(--line);
+            display: flex; align-items: center; gap: 6px;
+        }
+        .stats-section-header i { width: 14px; height: 14px; color: var(--tool-accent); }
+        .stats-section-body { padding: 4px 0; }
+
+        .stat-row {
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 12px; padding: 9px 16px; transition: background 0.15s;
+            border-bottom: 1px solid var(--line);
+        }
+        .stat-row:last-child { border-bottom: none; }
+        .stat-row:hover { background: var(--hover); }
+        .stat-label {
+            font-size: 13px; color: var(--text-light); font-weight: 500;
+            flex: 1; min-width: 0;
+        }
+        .stat-label small {
+            display: block; font-size: 11px; font-weight: 400;
+            color: var(--text-light); opacity: 0.7; margin-top: 1px;
+        }
+        .stat-value {
+            font-size: 15px; font-weight: 700; color: var(--text);
+            font-variant-numeric: tabular-nums; text-align: right;
+            flex-shrink: 0;
+        }
+        .stat-value.accent { color: var(--tool-accent); }
+        .stat-value.success { color: var(--success); }
+        .stat-value.warning { color: var(--warning); }
+        .stat-value.danger { color: var(--danger); }
+
+        /* Highlight stats */
+        .stat-cards {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 10px; margin-bottom: 12px;
+        }
+        .stat-card {
+            background: var(--bg); border: 1px solid var(--line);
+            border-radius: 10px; padding: 14px; text-align: center;
+            transition: border-color 0.2s;
+        }
+        .stat-card:hover { border-color: var(--tool-accent); }
+        .stat-card .sc-value {
+            font-size: 26px; font-weight: 800; color: var(--tool-accent);
+            line-height: 1.1; font-variant-numeric: tabular-nums;
+        }
+        .stat-card .sc-label {
+            font-size: 11px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.4px; color: var(--text-light); margin-top: 4px;
+        }
+
+        /* Readability meter */
+        .readability-meter {
+            padding: 14px 16px;
+        }
+        .readability-meter .rm-bar {
+            height: 8px; border-radius: 4px; background: var(--hover);
+            margin: 10px 0 6px; overflow: hidden; position: relative;
+        }
+        .readability-meter .rm-fill {
+            height: 100%; border-radius: 4px; transition: width 0.4s ease, background 0.4s;
+        }
+        .readability-meter .rm-labels {
+            display: flex; justify-content: space-between;
+            font-size: 10px; color: var(--text-light); font-weight: 600;
+        }
+        .readability-meter .rm-score {
+            font-size: 24px; font-weight: 800; line-height: 1;
+        }
+        .readability-meter .rm-desc {
+            font-size: 12px; color: var(--text-light); margin-top: 4px;
+        }
+
+        /* Keyword list */
+        .keyword-list { padding: 4px 0; }
+        .keyword-item {
+            display: flex; align-items: center; gap: 10px;
+            padding: 7px 16px; border-bottom: 1px solid var(--line);
+        }
+        .keyword-item:last-child { border-bottom: none; }
+        .keyword-word {
+            font-size: 13px; font-weight: 600; color: var(--text);
+            flex: 1; min-width: 0; overflow: hidden;
+            text-overflow: ellipsis; white-space: nowrap;
+        }
+        .keyword-bar-wrap {
+            flex: 0 0 80px; height: 6px; background: var(--hover);
+            border-radius: 3px; overflow: hidden;
+        }
+        .keyword-bar {
+            height: 100%; background: var(--tool-accent);
+            border-radius: 3px; transition: width 0.3s;
+        }
+        .keyword-count {
+            font-size: 12px; font-weight: 700; color: var(--text-light);
+            flex-shrink: 0; min-width: 32px; text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Empty state */
+        .stats-empty {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; gap: 12px; color: var(--text-light);
+            text-align: center; padding: 60px 20px;
+            background: var(--card); border: 2px dashed var(--line);
+            border-radius: 16px;
+        }
+        .stats-empty i { width: 44px; height: 44px; opacity: 0.4; }
+        .stats-empty p { font-size: 14px; max-width: 280px; line-height: 1.6; }
+
+        /* Toast */
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; max-width: 90vw; overflow: hidden; text-overflow: ellipsis; }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        /* ===== CONTENT SECTIONS ===== */
+        .content-section { margin-bottom: 50px; width: 100%; max-width: 100%; }
+        .content-section h2 {
+            font-size: 28px; font-weight: 700; margin-bottom: 20px;
+            padding-bottom: 10px; border-bottom: 2px solid var(--hover);
+        }
+        @media (max-width: 768px) { .content-section h2 { font-size: 22px; } }
+        @media (min-width: 1800px) { .content-section h2 { font-size: 30px; } }
+        .content-section h3 { font-size: 20px; font-weight: 700; margin: 25px 0 12px; }
+        .content-section p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
+        .content-section ul, .content-section ol { padding-left: 22px; color: var(--text-light); margin-bottom: 20px; }
+        .content-section li { margin-bottom: 10px; line-height: 1.7; }
+        .content-section a { color: var(--footer-link-color); text-decoration: none; }
+        .content-section a:hover { text-decoration: underline; }
+        .content-section code {
+            background: var(--hover); padding: 2px 6px; border-radius: 4px;
+            font-size: 14px; font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+        }
+
+        .feature-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 18px; margin-top: 24px; width: 100%;
+        }
+        @media (max-width: 900px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .feature-grid { grid-template-columns: 1fr; } }
+        @media (min-width: 1800px) { .feature-grid { gap: 24px; } }
+        .feature-card {
+            background: var(--accent); border: 1px solid var(--line);
+            border-radius: 12px; padding: 20px;
+        }
+        .feature-card h4 {
+            font-size: 16px; font-weight: 700; margin-bottom: 8px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .feature-card h4 i { width: 18px; height: 18px; color: var(--tool-accent); }
+        .feature-card p { font-size: 14px; color: var(--text-light); margin: 0; line-height: 1.6; }
+
+        /* Formula box */
+        .formula-box {
+            background: var(--bg); border: 1px solid var(--line);
+            border-radius: 12px; padding: 18px 20px; margin: 16px 0;
+            font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+            font-size: 15px; line-height: 1.8; color: var(--text);
+            overflow-x: auto;
+        }
+        .formula-box .formula-label {
+            font-family: 'Inter', sans-serif; font-size: 11px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+            color: var(--tool-accent); margin-bottom: 6px;
+        }
+
+        /* Table */
+        .table-wrapper {
+            overflow-x: auto; margin: 25px 0;
+            border: 1px solid var(--line); border-radius: 10px; width: 100%;
+        }
+        .info-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        .info-table th, .info-table td {
+            padding: 14px 16px; text-align: left;
+            border-bottom: 1px solid var(--line); color: var(--text-light);
+            font-size: 14px; line-height: 1.6;
+        }
+        .info-table th {
+            background: var(--faq-bg); font-weight: 700;
+            color: var(--text); font-size: 13px;
+            text-transform: uppercase; letter-spacing: 0.3px;
+        }
+        .info-table tr:last-child td { border-bottom: none; }
+        .info-table tr:hover { background: var(--hover); }
+        .info-table td strong { color: var(--text); }
+
+        /* FAQ */
+        .faq-item { margin-bottom: 14px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .faq-question {
+            background: var(--faq-bg); padding: 16px 18px; font-weight: 600;
+            cursor: pointer; display: flex; justify-content: space-between;
+            align-items: center; color: var(--text); font-size: 15px;
+            border: none; width: 100%; text-align: left; font-family: inherit;
+            gap: 12px;
+        }
+        .faq-question i { width: 16px; height: 16px; transition: transform 0.3s; flex-shrink: 0; }
+        .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
+        .faq-answer {
+            padding: 16px 18px; display: none; color: var(--text-light);
+            line-height: 1.7; border-top: 1px solid var(--line);
+        }
+        .faq-item.active .faq-answer { display: block; }
+
+        /* ===== FOOTER ===== */
+        footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; background: transparent; width: 100%; }
+        .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
+        .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
+        .footer-left-column { flex: 0 0 380px; max-width: 380px; }
+        .footer-right-columns { display: flex; flex: 1; gap: 30px; justify-content: flex-end; flex-wrap: wrap; }
+        .footer-column { min-width: 160px; }
+        .footer-heading { font-size: 16px; font-weight: 700; color: var(--footer-heading); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links a { color: var(--footer-link-color); text-decoration: none; font-size: 14px; transition: color 0.2s, transform 0.2s; display: inline-block; }
+        .footer-links a:hover { color: var(--footer-link-hover); transform: translateX(4px); }
+        .footer-credit { font-size: 16px; font-weight: 700; color: var(--footer-heading); margin-bottom: 4px; }
+        .footer-credit a { color: var(--footer-link-color); text-decoration: none; }
+        .footer-credit a:hover { color: var(--footer-link-hover); text-decoration: underline; }
+        .footer-copyright { font-size: 14px; color: var(--footer-text); margin-bottom: 15px; }
+        .footer-about-text { font-size: 15px; color: var(--footer-text); line-height: 1.7; }
+        .footer-about-text a { color: var(--footer-link-color); text-decoration: none; }
+        .footer-about-text a:hover { color: var(--footer-link-hover); text-decoration: underline; }
+        @media (max-width: 768px) {
+            footer { padding: 30px 16px 160px; }
+            .footer-middle { flex-direction: column; align-items: flex-start; gap: 28px; text-align: left; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
+            .footer-right-columns { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 22px; width: 100%; }
+            .footer-column { min-width: auto; text-align: left; width: 100%; }
+            .footer-links a { display: block; }
+        }
+        @media (min-width: 1800px) { footer { padding: 60px 60px 260px; } }
+
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; }
+            .theme-btn, .search-trigger { display: none; }
+            .hamburger-btn { display: flex; }
+            header { padding: 0 16px; }
+            .logo { font-size: 20px; }
+            .tool-hero h1 { font-size: 26px; }
+            .tool-hero .subtitle { font-size: 15px; }
+            main { padding: 20px 0; }
+            .search-overlay-full { padding-top: 24px; }
+            .search-container { width: 94%; }
+            .search-box input { font-size: 16px; }
+            .search-result-item .result-desc { max-width: 180px; }
+            .content-section h2 { font-size: 22px; }
+            .stat-cards { grid-template-columns: 1fr 1fr; }
+        }
+        @media (min-width: 769px) {
+            .hamburger-btn { display: none; }
+            .mobile-sidebar-overlay { display: none !important; }
+            .mobile-sidebar { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
+                    Textify.tools
+                </a>
+                <div class="header-right">
+                    <div class="desktop-nav">
+                        <div class="tools-menu-container" id="toolsMenuContainer">
+                            <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu" onclick="toggleToolsMenu()">
+                                Tools <i data-lucide="chevron-down"></i>
+                            </button>
+                            <div class="tools-mega-menu" id="megaMenu"></div>
+                        </div>
+                        <a href="/privacy-policy">Privacy</a>
+                        <a href="/blog">Blog</a>
+                        <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
+                    </div>
+                    <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
+                    </button>
+                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
+                        <span class="menu-icon"><span></span><span></span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="content-container">
+
+                <!-- Tool Hero -->
+                <div class="tool-hero">
+                    <h1>Text Statistics</h1>
+                    <p class="subtitle">Paste or type any text to instantly get a full statistical breakdown — word count, character count, sentences, paragraphs, reading time, speaking time, readability scores, keyword density and more. Free, private, and runs entirely in your browser.</p>
+                </div>
+
+                <!-- Tool Layout -->
+                <div class="tool-layout">
+                    <!-- Input Panel -->
+                    <div class="tool-panel">
+                        <h2><i data-lucide="file-text"></i> Your Text</h2>
+
+                        <div class="input-group">
+                            <label for="textInput">Paste or type your text below. Statistics update live as you type.</label>
+                            <textarea id="textInput" placeholder="Paste your text here... The statistics on the right will update automatically as you type." autocomplete="off" spellcheck="false"></textarea>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" id="clearBtn">
+                            <i data-lucide="trash-2" width="18" height="18"></i> Clear Text
+                        </button>
+
+                        <div class="btn-row">
+                            <button type="button" class="btn btn-outline" id="exampleBtn" style="flex:1;">
+                                <i data-lucide="sparkles" width="16" height="16"></i> Try Example
+                            </button>
+                            <button type="button" class="btn btn-outline" id="copyStatsBtn" style="flex:1;">
+                                <i data-lucide="copy" width="16" height="16"></i> Copy Stats
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Stats Panel -->
+                    <div class="tool-panel">
+                        <h2><i data-lucide="bar-chart-3"></i> Statistics</h2>
+
+                        <div class="stats-panel" id="statsPanel">
+                            <!-- Empty state -->
+                            <div class="stats-empty" id="statsEmpty">
+                                <i data-lucide="bar-chart-3"></i>
+                                <p>Start typing or paste text on the left. Your full statistics will appear here — instantly, as you type.</p>
+                            </div>
+
+                            <!-- Content (hidden until text entered) -->
+                            <div id="statsContent" style="display:none;">
+                                <!-- Highlight cards -->
+                                <div class="stat-cards">
+                                    <div class="stat-card">
+                                        <div class="sc-value" id="cardWords">0</div>
+                                        <div class="sc-label">Words</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="sc-value" id="cardChars">0</div>
+                                        <div class="sc-label">Characters</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="sc-value" id="cardSentences">0</div>
+                                        <div class="sc-label">Sentences</div>
+                                    </div>
+                                    <div class="stat-card">
+                                        <div class="sc-value" id="cardParagraphs">0</div>
+                                        <div class="sc-label">Paragraphs</div>
+                                    </div>
+                                </div>
+
+                                <!-- Counts -->
+                                <div class="stats-section">
+                                    <div class="stats-section-header"><i data-lucide="hash"></i> Counts</div>
+                                    <div class="stats-section-body">
+                                        <div class="stat-row"><span class="stat-label">Words</span><span class="stat-value" id="statWords">0</span></div>
+                                        <div class="stat-row"><span class="stat-label">Characters (with spaces)</span><span class="stat-value" id="statCharsWithSpaces">0</span></div>
+                                        <div class="stat-row"><span class="stat-label">Characters (without spaces)</span><span class="stat-value" id="statCharsWithoutSpaces">0</span></div>
+                                        <div class="stat-row"><span class="stat-label">Letters</span><span class="stat-value" id="statLetters">0</span></div>
+                                        <div class="stat-row"><span class="stat-label">Digits</span><span class="stat-value" id="statDigits">0</span></div>
+                                        <div class="stat-row"><span class="stat-label">Sentences</span><span class="stat-value" id="statSentences">0</span></div>
+                                        <div class="stat-row"><span class="stat-label">Paragraphs</span><span class="stat-value" id="statParagraphs">0</span></div>
+                                        <div class="stat-row"><span class="stat-label">Lines</span><span class="stat-value" id="statLines">0</span></div>
+                                    </div>
+                                </div>
+
+                                <!-- Averages -->
+                                <div class="stats-section">
+                                    <div class="stats-section-header"><i data-lucide="divide"></i> Averages</div>
+                                    <div class="stats-section-body">
+                                        <div class="stat-row"><span class="stat-label">Average word length</span><span class="stat-value" id="statAvgWordLength">0</span></div>
+                                        <div class="stat-row"><span class="stat-label">Average sentence length (words)</span><span class="stat-value" id="statAvgSentenceLength">0</span></div>
+                                        <div class="stat-row"><span class="stat-label">Average paragraph length (words)</span><span class="stat-value" id="statAvgParaLength">0</span></div>
+                                        <div class="stat-row"><span class="stat-label">Longest word</span><span class="stat-value" id="statLongestWord">—</span></div>
+                                        <div class="stat-row"><span class="stat-label">Syllables (estimated)</span><span class="stat-value" id="statSyllables">0</span></div>
+                                    </div>
+                                </div>
+
+                                <!-- Time -->
+                                <div class="stats-section">
+                                    <div class="stats-section-header"><i data-lucide="clock"></i> Estimated Time</div>
+                                    <div class="stats-section-body">
+                                        <div class="stat-row"><span class="stat-label">Reading time <small>at 225 words per minute</small></span><span class="stat-value accent" id="statReadingTime">0 min</span></div>
+                                        <div class="stat-row"><span class="stat-label">Speaking time <small>at 150 words per minute</small></span><span class="stat-value accent" id="statSpeakingTime">0 min</span></div>
+                                    </div>
+                                </div>
+
+                                <!-- Readability -->
+                                <div class="stats-section">
+                                    <div class="stats-section-header"><i data-lucide="book-open"></i> Readability</div>
+                                    <div class="stats-section-body">
+                                        <div class="readability-meter">
+                                            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                                                <span class="stat-label">Flesch Reading Ease</span>
+                                                <span class="rm-score" id="fleschScore" style="color:var(--tool-accent);">0</span>
+                                            </div>
+                                            <div class="rm-bar">
+                                                <div class="rm-fill" id="fleschFill" style="width:0%;background:var(--tool-accent);"></div>
+                                            </div>
+                                            <div class="rm-labels">
+                                                <span>Very Hard</span><span>Standard</span><span>Very Easy</span>
+                                            </div>
+                                            <div class="rm-desc" id="fleschDesc">—</div>
+                                        </div>
+                                        <div class="stat-row"><span class="stat-label">Flesch-Kincaid Grade Level</span><span class="stat-value" id="fkGrade">0</span></div>
+                                        <div class="stat-row"><span class="stat-label">Gunning Fog Index</span><span class="stat-value" id="gunningFog">0</span></div>
+                                        <div class="stat-row"><span class="stat-label">Automated Readability Index</span><span class="stat-value" id="ariScore">0</span></div>
+                                        <div class="stat-row"><span class="stat-label">Complex words <small>(3+ syllables)</small></span><span class="stat-value" id="statComplexWords">0</span></div>
+                                    </div>
+                                </div>
+
+                                <!-- Top keywords -->
+                                <div class="stats-section">
+                                    <div class="stats-section-header"><i data-lucide="key"></i> Top Keywords</div>
+                                    <div class="keyword-list" id="keywordList">
+                                        <div class="keyword-item" style="justify-content:center;color:var(--text-light);font-size:13px;padding:16px;">Not enough text yet.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content: What is this tool -->
+                <div class="content-section">
+                    <h2>What does this Text Statistics tool do?</h2>
+                    <p>This free online text statistics tool analyzes any body of text and gives you a complete numerical breakdown — instantly. Paste an essay, a blog post, a report, a speech, or a social media caption, and the tool calculates dozens of metrics covering length, structure, readability, and word usage.</p>
+                    <p>The metrics fall into five main categories: <strong>counts</strong> (words, characters, sentences, paragraphs, lines), <strong>averages</strong> (average word length, average sentence length, syllables), <strong>time estimates</strong> (reading time, speaking time), <strong>readability scores</strong> (Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog Index, Automated Readability Index), and <strong>keyword frequency</strong> (top words used in the text).</p>
+                    <p>Everything runs locally in your browser — the text you enter never leaves your device. No signup, no server uploads, no limits. The statistics update live as you type, so you can see the impact of every edit in real time.</p>
+                </div>
+
+                <!-- Content: How to use -->
+                <div class="content-section">
+                    <h2>How to use the Text Statistics tool</h2>
+                    <ol>
+                        <li><strong>Paste or type your text</strong> into the input box on the left. You can paste from any source — a document, a website, an email, or just start typing.</li>
+                        <li><strong>Watch the statistics update instantly</strong> in the panel on the right. There's no "calculate" button — every metric recalculates as you type or paste.</li>
+                        <li><strong>Review the four highlight cards</strong> at the top for the most important numbers: words, characters, sentences, and paragraphs.</li>
+                        <li><strong>Scroll through the detailed sections</strong> for counts, averages, time estimates, readability scores, and your top keywords.</li>
+                        <li><strong>Copy the stats</strong> with the "Copy Stats" button if you want to save or share the analysis. The "Clear Text" button resets everything.</li>
+                    </ol>
+                    <p>That's it. No signup, no email, no waiting — just paste and read.</p>
+                </div>
+
+                <!-- Content: Features -->
+                <div class="content-section">
+                    <h2>Why use this Text Statistics tool?</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4><i data-lucide="zap"></i> Live, instant updates</h4>
+                            <p>Every metric recalculates as you type. No button to click, no page reload — the numbers just update in real time.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i data-lucide="book-open"></i> Four readability scores</h4>
+                            <p>Flesch Reading Ease, Flesch-Kincaid Grade Level, Gunning Fog Index, and Automated Readability Index — all in one place.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i data-lucide="clock"></i> Reading & speaking time</h4>
+                            <p>See how long your text takes to read silently (225 WPM) and to speak aloud (150 WPM). Perfect for speeches and presentations.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i data-lucide="key"></i> Keyword frequency</h4>
+                            <p>The top keywords in your text, ranked by frequency, with a visual bar so you can see the distribution at a glance.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i data-lucide="shield-check"></i> 100% private</h4>
+                            <p>Everything runs in your browser. Your text never leaves your device — no server, no logs, no tracking.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i data-lucide="wifi-off"></i> Works offline</h4>
+                            <p>Once the page loads, the tool keeps working even without an internet connection. Perfect for flights or offline writing.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content: Readability formulas -->
+                <div class="content-section">
+                    <h2>Readability formulas explained</h2>
+                    <p>Readability scores estimate how easy or difficult a text is to read. They're widely used by educators, publishers, and content marketers to match text to the right audience. This tool calculates four of the most well-known formulas.</p>
+
+                    <div class="formula-box">
+                        <div class="formula-label">Flesch Reading Ease (0–100, higher = easier)</div>
+                        206.835 − (1.015 × average sentence length) − (84.6 × average syllables per word)
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-label">Flesch-Kincaid Grade Level (U.S. school grade)</div>
+                        0.39 × (total words ÷ total sentences) + 11.8 × (total syllables ÷ total words) − 15.59
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-label">Gunning Fog Index (years of education)</div>
+                        0.4 × [(words ÷ sentences) + 100 × (complex words ÷ words)]
+                    </div>
+
+                    <div class="formula-box">
+                        <div class="formula-label">Automated Readability Index (U.S. grade level)</div>
+                        4.71 × (characters ÷ words) + 0.5 × (words ÷ sentences) − 21.43
+                    </div>
+
+                    <h3>How to interpret the scores</h3>
+                    <ul>
+                        <li><strong>Flesch Reading Ease:</strong> 90–100 = very easy (5th grade), 60–70 = standard (8th–9th grade), 30–50 = difficult (college level), 0–30 = very difficult (graduate level).</li>
+                        <li><strong>Flesch-Kincaid Grade Level:</strong> A score of 8 means an eighth-grader can understand it. Most web content targets grades 6–9.</li>
+                        <li><strong>Gunning Fog Index:</strong> A score of 12 means a high-school senior can read it. Business writing typically targets 10–12; technical writing is often 14+.</li>
+                        <li><strong>Automated Readability Index:</strong> Similar to Flesch-Kincaid — it returns a U.S. grade level. Lower is easier.</li>
+                    </ul>
+                </div>
+
+                <!-- Content: Use cases -->
+                <div class="content-section">
+                    <h2>Who uses text statistics?</h2>
+                    <h3>Writers and bloggers</h3>
+                    <ul>
+                        <li>Check word count against editorial guidelines</li>
+                        <li>Estimate reading time before publishing (especially for SEO meta descriptions)</li>
+                        <li>Monitor readability to ensure content matches the target audience</li>
+                        <li>Spot overused words with the keyword frequency list</li>
+                    </ul>
+                    <h3>Students and academics</h3>
+                    <ul>
+                        <li>Hit exact word counts for essays and assignments</li>
+                        <li>Check the grade level of research papers and theses</li>
+                        <li>Estimate how long a presentation script will take to deliver</li>
+                        <li>Analyse the structure of source material</li>
+                    </ul>
+                    <h3>Marketers and SEO professionals</h3>
+                    <ul>
+                        <li>Check keyword density to avoid over-optimisation</li>
+                        <li>Estimate reading time for blog posts and landing pages</li>
+                        <li>Ensure ad copy and meta descriptions hit length targets</li>
+                        <li>Compare readability across competitor content</li>
+                    </ul>
+                    <h3>Editors and proofreaders</h3>
+                    <ul>
+                        <li>Verify word counts after edits</li>
+                        <li>Check readability changes between drafts</li>
+                        <li>Identify repeated words and phrases</li>
+                        <li>Confirm paragraph and sentence structure</li>
+                    </ul>
+                </div>
+
+                <!-- Content: Reading time -->
+                <div class="content-section">
+                    <h2>How reading time and speaking time are calculated</h2>
+                    <p>Reading time is estimated using the average adult silent reading speed of <strong>225 words per minute</strong>. Speaking time uses a slower rate of <strong>150 words per minute</strong>, which is typical for clear, measured speech.</p>
+                    <p>These are estimates, not guarantees. Actual reading speed varies with text complexity, reader familiarity with the topic, and device. Speaking speed varies with delivery style, pauses, and audience. But for most practical purposes — blog posts, speeches, presentations, scripts — these estimates are accurate within a reasonable margin.</p>
+
+                    <div class="table-wrapper">
+                        <table class="info-table">
+                            <thead>
+                                <tr>
+                                    <th>Text length</th>
+                                    <th>Reading time (~225 WPM)</th>
+                                    <th>Speaking time (~150 WPM)</th>
+                                    <th>Typical use</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>250 words</td><td>~1 min</td><td>~1.5 min</td><td>Short blog intro, email</td></tr>
+                                <tr><td>500 words</td><td>~2 min</td><td>~3.5 min</td><td>Short blog post</td></tr>
+                                <tr><td>1,000 words</td><td>~4.5 min</td><td>~6.5 min</td><td>Standard blog post</td></tr>
+                                <tr><td>1,500 words</td><td>~6.5 min</td><td>~10 min</td><td>Long-form article</td></tr>
+                                <tr><td>2,000 words</td><td>~9 min</td><td>~13 min</td><td>In-depth guide</td></tr>
+                                <tr><td>3,000 words</td><td>~13 min</td><td>~20 min</td><td>White paper, essay</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="content-section">
+                    <h2>Frequently asked questions</h2>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            What is text statistics?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Text statistics is the process of analysing a body of text to extract quantitative metrics such as word count, character count, sentence count, paragraph count, average word length, reading time, speaking time, and readability scores. These metrics help writers, editors, students, and marketers understand the structure, complexity, and readability of their content.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            What is the Flesch Reading Ease score?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">The Flesch Reading Ease score is a readability test that rates text on a 0–100 scale. Higher scores indicate easier reading. A score of 60–70 is considered standard, 70–80 is fairly easy, and 90–100 is very easy. The formula uses average sentence length and average syllables per word.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            What is the Flesch-Kincaid Grade Level?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">The Flesch-Kincaid Grade Level estimates the U.S. school grade level required to understand a text. For example, a score of 8 means an eighth-grader can read it. It uses average sentence length and average syllables per word.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            What is the Gunning Fog Index?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">The Gunning Fog Index estimates the years of formal education required to understand a text. It considers average sentence length and the percentage of complex words (words with three or more syllables). A lower score means easier reading.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            How is reading time calculated?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Reading time is estimated by dividing the total word count by the average adult reading speed, typically 200–250 words per minute. This tool uses 225 words per minute for reading time and 150 words per minute for speaking time.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            How are syllables estimated?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Syllables are estimated using a rule-based algorithm that counts vowel groups and adjusts for common English patterns (silent e, diphthongs, etc.). It's accurate enough for readability scoring and time estimates, though no automated syllable counter is perfect for every English word.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Is my text safe?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Absolutely. Everything runs in your browser. The text you enter never leaves your device — no server processing, no logging, and no data storage. Close the tab and it's gone.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Can I use this on my phone?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Yes. The tool is fully responsive and works on phones, tablets, and desktops. You can even add it to your home screen for quick access.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Does it work offline?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">Yes. Once the page loads, the text statistics tool keeps working even without an internet connection. All calculations happen on your device.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            What counts as a word?
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">A word is any sequence of characters separated by whitespace or punctuation. Numbers, hyphenated words (e.g. "well-known"), and contractions (e.g. "don't") are counted as single words. This matches the convention used by most word processors.</div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- ============ FOOTER ============ -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-middle">
+                    <div class="footer-left-column">
+                        <p class="footer-credit">Created by: <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">Pradeep Yadav</a></p>
+                        <p class="footer-copyright">Copyright © <span id="dynamicYear"></span></p>
+                        <h3 class="footer-heading" style="margin-top:10px;">About</h3>
+                        <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking of what you type, no fuss. If you have a suggestion, feel free to <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">say hello</a>. Feedback is much appreciated!</p>
+                    </div>
+                    <div class="footer-right-columns">
+                        <div class="footer-column">
+                            <h3 class="footer-heading">Popular Tools</h3>
+                            <ul class="footer-links">
+                                <li><a href="/word-counter">Word Counter</a></li>
+                                <li><a href="/json-formatter">JSON Formatter</a></li>
+                                <li><a href="/case-converter">Case Converter</a></li>
+                                <li><a href="/password-generator">Password Generator</a></li>
+                                <li><a href="/text-to-handwriting">Text to Handwriting</a></li>
+                                <li><a href="/image-resizer">Image Resizer</a></li>
+                                <li><a href="/qr-code-generator">QR Code Generator</a></li>
+                                <li><a href="/image-compressor">Image Compressor</a></li>
+                                <li><a href="/pdf-merge">PDF Merge</a></li>
+                                <li><a href="/resume-builder">Resume Builder</a></li>
+                                <li><a href="/whatsapp-link-generator">WhatsApp Link</a></li>
+                                <li><a href="/signature-resizer">Signature Resizer</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h3 class="footer-heading">Quick Links</h3>
+                            <ul class="footer-links">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/about-us">About Us</a></li>
+                                <li><a href="/contact-us">Contact Us</a></li>
+                                <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
+                                <li><a href="/blog">Blog</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column">
+                            <h3 class="footer-heading">Legal Pages</h3>
+                            <ul class="footer-links">
+                                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                <li><a href="/terms-of-use">Terms of Use</a></li>
+                                <li><a href="/disclaimer">Disclaimer</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Mobile sidebar -->
+    <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
+    <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
+        <div class="mobile-sidebar-header">
+            <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
+            <button type="button" class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
+        </div>
+        <div class="mobile-sidebar-nav">
+            <button type="button" class="mobile-tools-toggle" id="mobileToolsToggle" onclick="toggleMobileTools()" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <i data-lucide="chevron-down"></i></button>
+            <div class="mobile-tools-menu" id="mobileToolsMenu"></div>
+            <a href="/privacy-policy">Privacy</a>
+            <a href="/blog">Blog</a>
+            <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
+        </div>
+        <div class="mobile-sidebar-actions">
+            <button type="button" onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
+            <button type="button" onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
+        </div>
+    </div>
+
+    <!-- Search overlay -->
+    <div class="search-overlay-full" id="searchOverlayFull" role="dialog" aria-modal="true" aria-label="Search tools" aria-hidden="true">
+        <div class="search-container">
+            <div class="search-box">
+                <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
+                <input type="text" id="fullSearchInput" placeholder="Type to search free tools…" oninput="filterFullSearch()" onkeydown="handleSearchKey(event)" autocomplete="off" aria-label="Search all tools">
+                <button type="button" class="search-clear-btn" id="searchClearBtn" onclick="clearSearchInput()" aria-label="Clear search"><i data-lucide="x" width="16" height="16"></i></button>
+                <button type="button" class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
+            </div>
+            <div class="search-results-list" id="fullSearchResultsList"></div>
+            <div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ============ Categories ============
+        const categories = [
+            { key: 'all', label: 'All Tools' },
+            { key: 'text', label: 'Text Tools' },
+            { key: 'developer', label: 'Developer' },
+            { key: 'generator', label: 'Generators' },
+            { key: 'image', label: 'Image' },
+            { key: 'pdf', label: 'PDF' },
+            { key: 'business', label: 'Business' },
+            { key: 'calculator', label: 'Calculators & Converters' },
+            { key: 'finance', label: 'Finance' }
+        ];
+
+        const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
+
+        // ============ Tools ============
+        const tools = [
+            { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', icon: 'hash', link: '/word-counter', keywords: 'word count character counter letters essay limit', color: '#8b5cf6', category: 'text' },
+            { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', icon: 'type', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', color: '#8b5cf6', category: 'text' },
+            { name: 'Paragraph Counter', desc: 'Quickly count paragraphs in your writing.', icon: 'align-left', link: '/paragraph-counter', keywords: 'paragraph count block format', color: '#8b5cf6', category: 'text' },
+            { name: 'Line Counter', desc: 'Count lines in text.', icon: 'list', link: '/line-counter', keywords: 'line count text lines rows', color: '#8b5cf6', category: 'text' },
+            { name: 'Reading Time Estimator', desc: 'Estimate how long it takes to read your text.', icon: 'clock', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute blog', color: '#0ea5e9', category: 'text' },
+            { name: 'Speaking Time Calculator', desc: 'Estimate how long it takes to speak your text aloud.', icon: 'mic', link: '/speaking-time-calculator', keywords: 'speaking time talk duration speech presentation', color: '#0ea5e9', category: 'text' },
+            { name: 'Keyword Counter', desc: 'Count occurrences of each keyword in your text.', icon: 'hash', link: '/keyword-counter', keywords: 'keyword frequency count word seo', color: '#0ea5e9', category: 'text' },
+            { name: 'Keyword Density Checker', desc: 'Analyze keyword density as a percentage.', icon: 'percent', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', color: '#0ea5e9', category: 'text' },
+            { name: 'Duplicate Word Finder', desc: 'Find and highlight duplicate words in your text.', icon: 'search', link: '/duplicate-word-finder', keywords: 'duplicate word find highlight repeat', color: '#0ea5e9', category: 'text' },
+            { name: 'Text Statistics', desc: 'Full summary: words, chars, sentences, readability, and more.', icon: 'bar-chart-2', link: '/text-statistics', keywords: 'text stats readability summary data analysis', color: '#0ea5e9', category: 'text' },
+            { name: 'Regex Tester', desc: 'Test regular expressions with match highlighting.', icon: 'search-code', link: '/regex-tester', keywords: 'regex regular expression test match pattern', color: '#0ea5e9', category: 'text' },
+            { name: 'Word Frequency Counter', desc: 'Count frequency of each word.', icon: 'bar-chart', link: '/word-frequency-counter', keywords: 'word frequency count repeat', color: '#0ea5e9', category: 'text' },
+            { name: 'Character Frequency Counter', desc: 'Count frequency of each character.', icon: 'pie-chart', link: '/character-frequency-counter', keywords: 'character frequency count letters', color: '#0ea5e9', category: 'text' },
+            { name: 'Password Strength Checker', desc: 'Check the strength of your password.', icon: 'shield', link: '/password-strength-checker', keywords: 'password strength check secure safety', color: '#0ea5e9', category: 'text' },
+            { name: 'Duplicate Line Remover', desc: 'Remove duplicate lines and keep only unique ones.', icon: 'list-filter', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe list', color: '#6366f1', category: 'text' },
+            { name: 'Whitespace Cleaner', desc: 'Remove extra spaces, tabs, and blank lines.', icon: 'sparkles', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', color: '#64748b', category: 'text' },
+            { name: 'Remove Extra Spaces', desc: 'Clean up unwanted spaces with one click.', icon: 'minus', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup double', color: '#64748b', category: 'text' },
+            { name: 'Remove Empty Lines', desc: 'Delete all blank lines instantly.', icon: 'scissors', link: '/remove-empty-lines', keywords: 'empty lines remove delete blank', color: '#64748b', category: 'text' },
+            { name: 'Remove Blank Characters', desc: 'Strip out invisible blank characters.', icon: 'eraser', link: '/remove-blank-characters', keywords: 'blank chars invisible characters remove zero width', color: '#64748b', category: 'text' },
+            { name: 'Remove Emojis', desc: 'Get rid of all emojis in one go.', icon: 'smile', link: '/remove-emojis', keywords: 'emoji remove strip smiley', color: '#64748b', category: 'text' },
+            { name: 'Remove Symbols', desc: 'Delete symbols and special characters.', icon: 'minus-circle', link: '/remove-symbols', keywords: 'symbols remove special characters clean', color: '#64748b', category: 'text' },
+            { name: 'Remove Punctuation', desc: 'Strip punctuation marks.', icon: 'type', link: '/remove-punctuation', keywords: 'punctuation remove comma period full stop', color: '#64748b', category: 'text' },
+            { name: 'Remove Numbers', desc: 'Delete all numeric digits.', icon: 'hash', link: '/remove-numbers', keywords: 'numbers remove digits numeric', color: '#64748b', category: 'text' },
+            { name: 'Remove HTML Tags', desc: 'Strip HTML/XML tags, leaving only text.', icon: 'code', link: '/remove-html-tags', keywords: 'html tags strip remove clean markup', color: '#64748b', category: 'text' },
+            { name: 'Remove Line Breaks', desc: 'Remove line breaks and join lines.', icon: 'minus', link: '/remove-line-breaks', keywords: 'line break remove join newline', color: '#64748b', category: 'text' },
+            { name: 'Text Cleaner', desc: 'All-in-one text cleaning.', icon: 'sparkles', link: '/text-cleaner', keywords: 'clean text sanitize format tidy', color: '#64748b', category: 'text' },
+            { name: 'Remove Duplicate Words', desc: 'Remove duplicate words from text.', icon: 'copy', link: '/remove-duplicate-words', keywords: 'duplicate words remove repeat', color: '#64748b', category: 'text' },
+            { name: 'Case Converter', desc: 'Convert to uppercase, lowercase, title case and more.', icon: 'type', link: '/case-converter', keywords: 'uppercase lowercase title case sentence change case', color: '#10b981', category: 'text' },
+            { name: 'Uppercase Converter', desc: 'Convert text to uppercase.', icon: 'arrow-up', link: '/uppercase-converter', keywords: 'uppercase converter caps capital letters', color: '#10b981', category: 'text' },
+            { name: 'Lowercase Converter', desc: 'Convert text to lowercase.', icon: 'arrow-down', link: '/lowercase-converter', keywords: 'lowercase converter small letters', color: '#10b981', category: 'text' },
+            { name: 'Title Case Converter', desc: 'Proper title case for headlines.', icon: 'heading', link: '/title-case-converter', keywords: 'title case headline capitalize proper apa mla', color: '#10b981', category: 'text' },
+            { name: 'Sentence Case Converter', desc: 'First letter of each sentence capitalized.', icon: 'type', link: '/sentence-case-converter', keywords: 'sentence case capitalize first letter', color: '#10b981', category: 'text' },
+            { name: 'Capitalize Words', desc: 'Capitalize first letter of each word.', icon: 'pen-tool', link: '/capitalize-words', keywords: 'capitalize first letter each word', color: '#10b981', category: 'text' },
+            { name: 'Toggle Case Converter', desc: 'Toggle case of every letter.', icon: 'toggle-left', link: '/toggle-case-converter', keywords: 'toggle case invert swap alternating', color: '#10b981', category: 'text' },
+            { name: 'Text Repeater', desc: 'Repeat text up to 100,000 times.', icon: 'repeat', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste spam', color: '#6366f1', category: 'text' },
+            { name: 'Text Finder & Replacer', desc: 'Find and replace words or phrases in bulk.', icon: 'search', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', color: '#ec4899', category: 'text' },
+            { name: 'Line Break Converter', desc: 'Convert line breaks between Windows, Unix, Mac.', icon: 'wrap-text', link: '/line-break-converter', keywords: 'line break crlf lf converter newline', color: '#10b981', category: 'text' },
+            { name: 'Text Indenter', desc: 'Add spaces or tabs at the beginning of each line.', icon: 'indent-increase', link: '/text-indenter', keywords: 'indent text tab spaces code', color: '#10b981', category: 'text' },
+            { name: 'Wrap Text', desc: 'Wrap long lines to a specified width.', icon: 'wrap-text', link: '/wrap-text', keywords: 'word wrap text line width column', color: '#10b981', category: 'text' },
+            { name: 'Unwrap Text', desc: 'Join broken lines into a single paragraph.', icon: 'unlink', link: '/unwrap-text', keywords: 'unwrap text join lines paragraph merge', color: '#10b981', category: 'text' },
+            { name: 'Join Lines', desc: 'Merge multiple lines into one single continuous line or paragraph.', icon: 'unlink', link: '/join-lines', keywords: 'join lines merge combine single line paragraph unwrap newline concatenate', color: '#10b981', category: 'text' },
+            { name: 'Text to Handwriting', desc: 'Convert typed text into realistic handwriting.', icon: 'pen-tool', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment notes', color: '#a855f7', category: 'text' },
+            { name: 'Bold Text Generator', desc: 'Bold Unicode text for social media bios.', icon: 'bold', link: '/bold-text-generator', keywords: 'bold unicode text style font bio', color: '#ec4899', category: 'text' },
+            { name: 'Italic Text Generator', desc: 'Italic Unicode text using math symbols.', icon: 'italic', link: '/italic-text-generator', keywords: 'italic unicode text style font', color: '#ec4899', category: 'text' },
+            { name: 'Strikethrough Generator', desc: 'Strikethrough Unicode text.', icon: 'strikethrough', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode', color: '#ec4899', category: 'text' },
+            { name: 'Fancy Text Generator', desc: 'Generate multiple fancy Unicode styles at once.', icon: 'sparkles', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic instagram', color: '#ec4899', category: 'text' },
+            { name: 'Upside Down Text', desc: 'Flip your text upside down.', icon: 'arrow-down-up', link: '/upside-down-text', keywords: 'upside down flip text reverse', color: '#ec4899', category: 'text' },
+            { name: 'Small Text Generator', desc: 'Generate small caps text.', icon: 'arrow-up', link: '/small-text-generator', keywords: 'small caps tiny text superscript', color: '#ec4899', category: 'text' },
+            { name: 'Zalgo Text Generator', desc: 'Create cursed zalgo text.', icon: 'ghost', link: '/zalgo-text-generator', keywords: 'zalgo cursed text generator creepy', color: '#ec4899', category: 'text' },
+            { name: 'Unicode Text Converter', desc: 'Convert text to Unicode variants.', icon: 'type', link: '/unicode-text-converter', keywords: 'unicode text converter encode', color: '#ec4899', category: 'text' },
+            { name: 'Email Extractor', desc: 'Extract all email addresses from text.', icon: 'at-sign', link: '/email-extractor', keywords: 'email extract find emails scrape address', color: '#0ea5e9', category: 'text' },
+            { name: 'URL Extractor', desc: 'Pull out all URLs from text.', icon: 'link', link: '/url-extractor', keywords: 'url extract link http https website', color: '#0ea5e9', category: 'text' },
+            { name: 'Phone Extractor', desc: 'Extract phone numbers using common formats.', icon: 'phone', link: '/phone-extractor', keywords: 'phone number extract landline mobile contact', color: '#0ea5e9', category: 'text' },
+            { name: 'Number Extractor', desc: 'Get every number (integer or decimal) from text.', icon: 'hash', link: '/number-extractor', keywords: 'number extract digits numeric decimal', color: '#0ea5e9', category: 'text' },
+            { name: 'Date Extractor', desc: 'Find and extract dates like 12/05/2025.', icon: 'calendar', link: '/date-extractor', keywords: 'date extract calendar find day month year', color: '#0ea5e9', category: 'text' },
+            { name: 'Domain Extractor', desc: 'Extract domain names from URLs or emails.', icon: 'globe', link: '/domain-extractor', keywords: 'domain name website extract host', color: '#0ea5e9', category: 'text' },
+            { name: 'Hashtag Extractor', desc: 'List all #hashtags from social media text.', icon: 'hash', link: '/hashtag-extractor', keywords: 'hashtag extract social media instagram twitter', color: '#0ea5e9', category: 'text' },
+            { name: 'Mention Extractor', desc: 'Pull out @usernames from text.', icon: 'at-sign', link: '/mention-extractor', keywords: 'mention extract username @ social twitter', color: '#0ea5e9', category: 'text' },
+            { name: 'Keyword Extractor', desc: 'Extract the most important words and phrases.', icon: 'key', link: '/keyword-extractor', keywords: 'keyword extract important terms seo', color: '#0ea5e9', category: 'text' },
+            { name: 'Duplicate Line Finder', desc: 'Show which lines appear more than once.', icon: 'search', link: '/duplicate-line-finder', keywords: 'duplicate line find report repeat', color: '#0ea5e9', category: 'text' },
+            { name: 'JSON Formatter/Beautifier', desc: 'Format messy JSON into readable, indented structure.', icon: 'braces', link: '/json-formatter', keywords: 'json format beautify pretty print indent api', color: '#f59e0b', category: 'developer' },
+            { name: 'JSON Minifier', desc: 'Minify JSON to remove unnecessary spaces.', icon: 'braces', link: '/json-minifier', keywords: 'json minify compress compact', color: '#f59e0b', category: 'developer' },
+            { name: 'JSON Validator', desc: 'Validate JSON syntax.', icon: 'check-circle', link: '/json-validator', keywords: 'json validate check syntax error', color: '#f59e0b', category: 'developer' },
+            { name: 'XML Formatter', desc: 'Beautify and indent XML data.', icon: 'file-code', link: '/xml-formatter', keywords: 'xml format beautify indent', color: '#f59e0b', category: 'developer' },
+            { name: 'XML Minifier', desc: 'Minify XML.', icon: 'file-code', link: '/xml-minifier', keywords: 'xml minify compress', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Formatter', desc: 'Format HTML code.', icon: 'code', link: '/html-formatter', keywords: 'html format beautify indent', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Minifier', desc: 'Minify HTML.', icon: 'code', link: '/html-minifier', keywords: 'html minify compress', color: '#f59e0b', category: 'developer' },
+            { name: 'CSS Formatter', desc: 'Format CSS code.', icon: 'code-2', link: '/css-formatter', keywords: 'css format beautify indent', color: '#f59e0b', category: 'developer' },
+            { name: 'CSS Minifier', desc: 'Minify CSS.', icon: 'code-2', link: '/css-minifier', keywords: 'css minify compress', color: '#f59e0b', category: 'developer' },
+            { name: 'JavaScript Formatter', desc: 'Format JavaScript code.', icon: 'code-2', link: '/javascript-formatter', keywords: 'javascript format beautify js', color: '#f59e0b', category: 'developer' },
+            { name: 'JavaScript Minifier', desc: 'Minify JavaScript.', icon: 'code-2', link: '/javascript-minifier', keywords: 'javascript minify compress js', color: '#f59e0b', category: 'developer' },
+            { name: 'SQL Formatter', desc: 'Format SQL queries.', icon: 'database', link: '/sql-formatter', keywords: 'sql format query beautify database', color: '#f59e0b', category: 'developer' },
+            { name: 'Text to Binary', desc: 'Convert text to binary.', icon: 'code', link: '/text-to-binary', keywords: 'text binary convert bits', color: '#f59e0b', category: 'developer' },
+            { name: 'Binary to Text', desc: 'Convert binary to text.', icon: 'code', link: '/binary-to-text', keywords: 'binary text convert bits', color: '#f59e0b', category: 'developer' },
+            { name: 'Text to Hex', desc: 'Convert text to hexadecimal.', icon: 'hexagon', link: '/text-to-hex', keywords: 'text hex convert hexadecimal', color: '#f59e0b', category: 'developer' },
+            { name: 'Hex to Text', desc: 'Convert hex to text.', icon: 'hexagon', link: '/hex-to-text', keywords: 'hex text convert hexadecimal', color: '#f59e0b', category: 'developer' },
+            { name: 'Text to ASCII', desc: 'Convert text to ASCII codes.', icon: 'keyboard', link: '/text-to-ascii', keywords: 'text ascii convert code', color: '#f59e0b', category: 'developer' },
+            { name: 'ASCII to Text', desc: 'Convert ASCII codes to text.', icon: 'keyboard', link: '/ascii-to-text', keywords: 'ascii text convert code', color: '#f59e0b', category: 'developer' },
+            { name: 'Morse Code Translator', desc: 'Convert text to Morse code and back.', icon: 'radio', link: '/morse-code-translator', keywords: 'morse code translator dots dashes', color: '#f59e0b', category: 'developer' },
+            { name: 'Braille Translator', desc: 'Convert text to Braille.', icon: 'eye-off', link: '/braille-translator', keywords: 'braille translator blind', color: '#f59e0b', category: 'developer' },
+            { name: 'NATO Alphabet Generator', desc: 'Convert text to NATO phonetic alphabet.', icon: 'volume-2', link: '/nato-alphabet-generator', keywords: 'nato phonetic alphabet alpha bravo', color: '#f59e0b', category: 'developer' },
+            { name: 'Text to CSV', desc: 'Convert text to CSV format.', icon: 'file-spreadsheet', link: '/text-to-csv', keywords: 'text csv convert comma separated excel', color: '#f59e0b', category: 'developer' },
+            { name: 'CSV to Text', desc: 'Convert CSV to text.', icon: 'file-spreadsheet', link: '/csv-to-text', keywords: 'csv text convert', color: '#f59e0b', category: 'developer' },
+            { name: 'CSV to JSON', desc: 'Convert CSV to JSON.', icon: 'file-spreadsheet', link: '/csv-to-json', keywords: 'csv json convert', color: '#f59e0b', category: 'developer' },
+            { name: 'JSON to CSV', desc: 'Convert JSON to CSV.', icon: 'file-spreadsheet', link: '/json-to-csv', keywords: 'json csv convert', color: '#f59e0b', category: 'developer' },
+            { name: 'Markdown to HTML', desc: 'Convert Markdown to HTML.', icon: 'file-code', link: '/markdown-to-html', keywords: 'markdown html convert md', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML to Markdown', desc: 'Convert HTML to Markdown.', icon: 'file-code', link: '/html-to-markdown', keywords: 'html markdown convert md', color: '#f59e0b', category: 'developer' },
+            { name: 'Markdown Table Generator', desc: 'Generate Markdown tables.', icon: 'table', link: '/markdown-table-generator', keywords: 'markdown table generator md', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Table Generator', desc: 'Generate HTML tables.', icon: 'table', link: '/html-table-generator', keywords: 'html table generator', color: '#f59e0b', category: 'developer' },
+            { name: 'Roman Numeral Converter', desc: 'Convert numbers to Roman numerals.', icon: 'hash', link: '/roman-numeral-converter', keywords: 'roman numeral converter latin', color: '#f59e0b', category: 'developer' },
+            { name: 'Number to Words', desc: 'Convert numbers to English words.', icon: 'type', link: '/number-to-words', keywords: 'number to words converter cheque', color: '#f59e0b', category: 'developer' },
+            { name: 'Words to Number', desc: 'Convert English words to numbers.', icon: 'hash', link: '/words-to-number', keywords: 'words to number converter', color: '#f59e0b', category: 'developer' },
+            { name: 'Timestamp Converter', desc: 'Convert Unix timestamps to date and back.', icon: 'clock', link: '/timestamp-converter', keywords: 'timestamp unix converter date epoch', color: '#f59e0b', category: 'developer' },
+            { name: 'Color Converter', desc: 'Convert colors between HEX, RGB, HSL.', icon: 'palette', link: '/color-converter', keywords: 'color converter hex rgb hsl', color: '#f59e0b', category: 'developer' },
+            { name: 'Base64 Encoder', desc: 'Encode text to Base64.', icon: 'code', link: '/base64-encoder', keywords: 'base64 encode', color: '#f59e0b', category: 'developer' },
+            { name: 'Base64 Decoder', desc: 'Decode Base64 text.', icon: 'code', link: '/base64-decoder', keywords: 'base64 decode', color: '#f59e0b', category: 'developer' },
+            { name: 'URL Encoder', desc: 'Encode URLs.', icon: 'link', link: '/url-encoder', keywords: 'url encode percent uri', color: '#f59e0b', category: 'developer' },
+            { name: 'URL Decoder', desc: 'Decode URLs.', icon: 'link', link: '/url-decoder', keywords: 'url decode percent uri', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Entity Encoder', desc: 'Encode HTML entities.', icon: 'code', link: '/html-entity-encoder', keywords: 'html entity encode amp lt', color: '#f59e0b', category: 'developer' },
+            { name: 'HTML Entity Decoder', desc: 'Decode HTML entities.', icon: 'code', link: '/html-entity-decoder', keywords: 'html entity decode amp lt', color: '#f59e0b', category: 'developer' },
+            { name: 'Regex Generator', desc: 'Generate regex patterns from sample text.', icon: 'search-code', link: '/regex-generator', keywords: 'regex generate pattern regular expression', color: '#0ea5e9', category: 'developer' },
+            { name: 'Regex Escape Tool', desc: 'Escape special characters in regex.', icon: 'search-code', link: '/regex-escape-tool', keywords: 'regex escape special characters', color: '#0ea5e9', category: 'developer' },
+            { name: 'JWT Decoder', desc: 'Decode JWT tokens to view header and payload.', icon: 'lock', link: '/jwt-decoder', keywords: 'jwt decode token header payload auth', color: '#0ea5e9', category: 'developer' },
+            { name: 'UUID Generator', desc: 'Generate random UUID v4 identifiers.', icon: 'fingerprint', link: '/uuid-generator', keywords: 'uuid guid unique identifier random v4', color: '#0ea5e9', category: 'developer' },
+            { name: 'UUID Validator', desc: 'Check if a UUID is valid.', icon: 'check', link: '/uuid-validator', keywords: 'uuid validate check guid', color: '#0ea5e9', category: 'developer' },
+            { name: 'MD5 Generator', desc: 'Generate MD5 hash.', icon: 'hash', link: '/md5-generator', keywords: 'md5 hash generator checksum', color: '#0ea5e9', category: 'developer' },
+            { name: 'SHA-1 Generator', desc: 'Generate SHA-1 hash.', icon: 'hash', link: '/sha1-generator', keywords: 'sha1 hash generator checksum', color: '#0ea5e9', category: 'developer' },
+            { name: 'SHA-256 Generator', desc: 'Generate SHA-256 hash.', icon: 'hash', link: '/sha256-generator', keywords: 'sha256 hash generator checksum', color: '#0ea5e9', category: 'developer' },
+            { name: 'SHA-512 Generator', desc: 'Generate SHA-512 hash.', icon: 'hash', link: '/sha512-generator', keywords: 'sha512 hash generator checksum', color: '#0ea5e9', category: 'developer' },
+            { name: 'HMAC Generator', desc: 'Generate HMAC hash.', icon: 'shield', link: '/hmac-generator', keywords: 'hmac hash generator secret key', color: '#0ea5e9', category: 'developer' },
+            { name: 'Cron Expression Generator', desc: 'Generate cron expressions.', icon: 'calendar', link: '/cron-expression-generator', keywords: 'cron expression generator schedule', color: '#0ea5e9', category: 'developer' },
+            { name: 'Cron Expression Tester', desc: 'Test cron expressions.', icon: 'check', link: '/cron-expression-tester', keywords: 'cron expression tester schedule', color: '#0ea5e9', category: 'developer' },
+            { name: 'Password Generator', desc: 'Generate strong random passwords.', icon: 'key', link: '/password-generator', keywords: 'password generator random strong secure', color: '#14b8a6', category: 'generator' },
+            { name: 'PIN Generator', desc: 'Generate random PIN numbers.', icon: 'lock', link: '/pin-generator', keywords: 'pin generator random number', color: '#14b8a6', category: 'generator' },
+            { name: 'Random Number Generator', desc: 'Generate random numbers within a custom range.', icon: 'dice-6', link: '/random-number-generator', keywords: 'random number range integer generator lottery', color: '#14b8a6', category: 'generator' },
+            { name: 'Number Sequence Generator', desc: 'Generate arithmetic sequences.', icon: 'list', link: '/number-sequence-generator', keywords: 'number sequence generator series', color: '#14b8a6', category: 'generator' },
+            { name: 'Lorem Ipsum Generator', desc: 'Placeholder text for designs and mockups.', icon: 'file-text', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text design', color: '#14b8a6', category: 'generator' },
+            { name: 'Random Word Generator', desc: 'Generate random English words.', icon: 'book-open', link: '/random-word-generator', keywords: 'random word generator english vocabulary', color: '#14b8a6', category: 'generator' },
+            { name: 'Random Text Generator', desc: 'Generate random letters, numbers, and symbols.', icon: 'dice-6', link: '/random-text-generator', keywords: 'random text generate string dummy', color: '#14b8a6', category: 'generator' },
+            { name: 'QR Code Generator', desc: 'Convert any text or URL into a QR code image.', icon: 'qr-code', link: '/qr-code-generator', keywords: 'qr code generate text url image scan', color: '#14b8a6', category: 'generator' },
+            { name: 'Barcode Generator', desc: 'Generate barcodes from text or numbers.', icon: 'barcode', link: '/barcode-generator', keywords: 'barcode generate code ean upc product', color: '#8b5cf6', category: 'generator' },
+            { name: 'UTM Builder', desc: 'Add UTM parameters to URLs for campaign tracking.', icon: 'link', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing analytics', color: '#14b8a6', category: 'generator' },
+            { name: 'WhatsApp Link Generator', desc: 'Create wa.me links from phone numbers and pre-filled messages.', icon: 'message-circle', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', color: '#25D366', category: 'generator' },
+            { name: 'Business Name Generator', desc: 'Generate business name ideas.', icon: 'briefcase', link: '/business-name-generator', keywords: 'business name generator brand startup', color: '#14b8a6', category: 'generator' },
+            { name: 'Invoice Number Generator', desc: 'Generate invoice numbers.', icon: 'file-text', link: '/invoice-number-generator', keywords: 'invoice number generator billing', color: '#14b8a6', category: 'generator' },
+            { name: 'Image Compressor', desc: 'Compress images in your browser.', icon: 'image', link: '/image-compressor', keywords: 'image compressor reduce size jpg png', color: '#ec4899', category: 'image' },
+            { name: 'Image Resizer', desc: 'Resize images without losing quality.', icon: 'image', link: '/image-resizer', keywords: 'image resize dimensions scale', color: '#ec4899', category: 'image' },
+            { name: 'Image Cropper', desc: 'Crop images easily.', icon: 'crop', link: '/image-cropper', keywords: 'image crop trim cut', color: '#ec4899', category: 'image' },
+            { name: 'Image Rotator', desc: 'Rotate images by degrees.', icon: 'rotate-cw', link: '/image-rotator', keywords: 'image rotate turn degrees', color: '#ec4899', category: 'image' },
+            { name: 'Image Flipper', desc: 'Flip images horizontally or vertically.', icon: 'repeat', link: '/image-flipper', keywords: 'image flip mirror horizontal vertical', color: '#ec4899', category: 'image' },
+            { name: 'JPG to PNG', desc: 'Convert JPG images to PNG.', icon: 'image', link: '/jpg-to-png', keywords: 'jpg png converter image', color: '#ec4899', category: 'image' },
+            { name: 'PNG to JPG', desc: 'Convert PNG images to JPG.', icon: 'image', link: '/png-to-jpg', keywords: 'png jpg converter image', color: '#ec4899', category: 'image' },
+            { name: 'WebP to JPG', desc: 'Convert WebP images to JPG.', icon: 'image', link: '/webp-to-jpg', keywords: 'webp jpg converter image', color: '#ec4899', category: 'image' },
+            { name: 'JPG to WebP', desc: 'Convert JPG images to WebP.', icon: 'image', link: '/jpg-to-webp', keywords: 'jpg webp converter image', color: '#ec4899', category: 'image' },
+            { name: 'PNG to WebP', desc: 'Convert PNG images to WebP.', icon: 'image', link: '/png-to-webp', keywords: 'png webp converter image', color: '#ec4899', category: 'image' },
+            { name: 'Image to Base64', desc: 'Convert image to Base64 string.', icon: 'image', link: '/image-to-base64', keywords: 'image base64 converter encode', color: '#ec4899', category: 'image' },
+            { name: 'Base64 to Image', desc: 'Convert Base64 string to image.', icon: 'image', link: '/base64-to-image', keywords: 'base64 image converter decode', color: '#ec4899', category: 'image' },
+            { name: 'Grayscale Image', desc: 'Convert image to grayscale.', icon: 'image', link: '/grayscale-image', keywords: 'grayscale image black white filter', color: '#ec4899', category: 'image' },
+            { name: 'Photo 20KB', desc: 'Compress photo to 20KB.', icon: 'image', link: '/photo-20kb', keywords: 'photo 20kb compress resize upload form', color: '#ec4899', category: 'image' },
+            { name: 'Photo 50KB', desc: 'Compress photo to 50KB.', icon: 'image', link: '/photo-50kb', keywords: 'photo 50kb compress resize upload form', color: '#ec4899', category: 'image' },
+            { name: 'Photo 100KB', desc: 'Compress photo to 100KB.', icon: 'image', link: '/photo-100kb', keywords: 'photo 100kb compress resize upload form', color: '#ec4899', category: 'image' },
+            { name: 'Photo 200KB', desc: 'Compress photo to 200KB.', icon: 'image', link: '/photo-200kb', keywords: 'photo 200kb compress resize upload form', color: '#ec4899', category: 'image' },
+            { name: 'Signature Resizer', desc: 'Resize signatures for documents and forms.', icon: 'image', link: '/signature-resizer', keywords: 'signature resize image document form exam', color: '#ec4899', category: 'image' },
+            { name: 'Passport Size Photo Maker', desc: 'Create passport size photos from any image.', icon: 'image', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image visa', color: '#ec4899', category: 'image' },
+            { name: 'JPG to PDF', desc: 'Convert JPG images to PDF.', icon: 'file', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image document', color: '#ef4444', category: 'pdf' },
+            { name: 'PNG to PDF', desc: 'Convert PNG images to PDF.', icon: 'file', link: '/png-to-pdf', keywords: 'png pdf converter image document', color: '#ef4444', category: 'pdf' },
+            { name: 'Images to PDF', desc: 'Combine multiple images into a PDF.', icon: 'file', link: '/images-to-pdf', keywords: 'images pdf converter combine merge', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Page Counter', desc: 'Count pages in a PDF file.', icon: 'file', link: '/pdf-page-counter', keywords: 'pdf page counter count pages', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Metadata Viewer', desc: 'View PDF metadata.', icon: 'info', link: '/pdf-metadata-viewer', keywords: 'pdf metadata viewer info author', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to Images', desc: 'Convert PDF pages to images.', icon: 'file', link: '/pdf-to-images', keywords: 'pdf images converter jpg png', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Merge', desc: 'Merge multiple PDF files.', icon: 'git-merge', link: '/pdf-merge', keywords: 'pdf merge combine join files', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Split', desc: 'Split a PDF into multiple files.', icon: 'git-branch', link: '/pdf-split', keywords: 'pdf split separate cut pages', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Rotate', desc: 'Rotate PDF pages.', icon: 'rotate-cw', link: '/pdf-rotate', keywords: 'pdf rotate page turn', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Page Extractor', desc: 'Extract specific pages from PDF.', icon: 'file', link: '/pdf-page-extractor', keywords: 'pdf extract page range', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Compressor', desc: 'Compress PDF file size.', icon: 'file', link: '/pdf-compressor', keywords: 'pdf compress reduce size shrink smaller', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to 50KB', desc: 'Compress a PDF down to roughly 50KB.', icon: 'file', link: '/pdf-50kb', keywords: 'pdf 50kb compress reduce size shrink small upload form limit', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to 100KB', desc: 'Compress a PDF down to roughly 100KB.', icon: 'file', link: '/pdf-100kb', keywords: 'pdf 100kb compress reduce size shrink small upload form limit', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to 200KB', desc: 'Compress a PDF down to roughly 200KB.', icon: 'file', link: '/pdf-200kb', keywords: 'pdf 200kb compress reduce size shrink small upload form limit', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF to 500KB', desc: 'Compress a PDF down to roughly 500KB.', icon: 'file', link: '/pdf-500kb', keywords: 'pdf 500kb compress reduce size shrink upload form limit', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Text Extractor', desc: 'Extract text from PDF.', icon: 'file-text', link: '/pdf-text-extractor', keywords: 'pdf text extractor copy', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Lock', desc: 'Add password protection to PDF.', icon: 'lock', link: '/pdf-lock', keywords: 'pdf lock password protect encrypt', color: '#ef4444', category: 'pdf' },
+            { name: 'PDF Unlock', desc: 'Remove password from PDF.', icon: 'unlock', link: '/pdf-unlock', keywords: 'pdf unlock password remove decrypt', color: '#ef4444', category: 'pdf' },
+            { name: 'Invoice Generator', desc: 'Generate invoices.', icon: 'file-text', link: '/invoice-generator', keywords: 'invoice generator bill billing', color: '#10b981', category: 'business' },
+            { name: 'Quotation Generator', desc: 'Generate quotations.', icon: 'file-text', link: '/quotation-generator', keywords: 'quotation generator quote estimate', color: '#10b981', category: 'business' },
+            { name: 'Receipt Generator', desc: 'Generate receipts.', icon: 'file-text', link: '/receipt-generator', keywords: 'receipt generator payment', color: '#10b981', category: 'business' },
+            { name: 'Payslip Generator', desc: 'Generate payslips.', icon: 'file-text', link: '/payslip-generator', keywords: 'payslip generator salary payroll', color: '#10b981', category: 'business' },
+            { name: 'Shipping Label Generator', desc: 'Create printable shipping and courier labels with sender, receiver and tracking details.', icon: 'package', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', color: '#0ea5e9', category: 'business' },
+            { name: 'Resume Builder', desc: 'Build a clean, professional resume from your details and export it in seconds.', icon: 'file-text', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', color: '#8b5cf6', category: 'business' },
+            { name: 'GST Calculator', desc: 'Calculate GST amounts.', icon: 'percent', link: '/gst-calculator', keywords: 'gst calculator tax goods services', color: '#10b981', category: 'business' },
+            { name: 'Discount Calculator', desc: 'Calculate discounts.', icon: 'percent', link: '/discount-calculator', keywords: 'discount calculator sale off price', color: '#10b981', category: 'business' },
+            { name: 'Profit Margin Calculator', desc: 'Calculate profit margins.', icon: 'trending-up', link: '/profit-margin-calculator', keywords: 'profit margin calculator business', color: '#10b981', category: 'business' },
+            { name: 'Salary Calculator', desc: 'Calculate salary.', icon: 'dollar-sign', link: '/salary-calculator', keywords: 'salary calculator income wage', color: '#10b981', category: 'business' },
+            { name: 'EMI Calculator', desc: 'Calculate loan EMI.', icon: 'calculator', link: '/emi-calculator', keywords: 'emi calculator loan equated monthly installment', color: '#f59e0b', category: 'finance' },
+            { name: 'Loan Calculator', desc: 'Calculate loan details.', icon: 'calculator', link: '/loan-calculator', keywords: 'loan calculator interest', color: '#f59e0b', category: 'finance' },
+            { name: 'SIP Calculator', desc: 'Calculate SIP returns.', icon: 'trending-up', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment returns', color: '#f59e0b', category: 'finance' },
+            { name: 'Income Tax Calculator', desc: 'Calculate income tax.', icon: 'percent', link: '/income-tax-calculator', keywords: 'income tax calculator slab', color: '#f59e0b', category: 'finance' },
+            { name: 'Tax Calculator', desc: 'Calculate taxes.', icon: 'percent', link: '/tax-calculator', keywords: 'tax calculator', color: '#f59e0b', category: 'finance' },
+            { name: 'Tip Calculator', desc: 'Calculate tips.', icon: 'dollar-sign', link: '/tip-calculator', keywords: 'tip calculator restaurant gratuity', color: '#f59e0b', category: 'finance' },
+            { name: 'GPA Calculator', desc: 'Calculate GPA.', icon: 'graduation-cap', link: '/gpa-calculator', keywords: 'gpa calculator student grade point', color: '#8b5cf6', category: 'calculator' },
+            { name: 'CGPA Calculator', desc: 'Calculate CGPA.', icon: 'graduation-cap', link: '/cgpa-calculator', keywords: 'cgpa calculator student grade', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Percentage Calculator', desc: 'Calculate percentages.', icon: 'percent', link: '/percentage-calculator', keywords: 'percentage calculator percent', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Grade Calculator', desc: 'Calculate grades.', icon: 'graduation-cap', link: '/grade-calculator', keywords: 'grade calculator student marks', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Marks Percentage Calculator', desc: 'Calculate marks percentage.', icon: 'percent', link: '/marks-percentage-calculator', keywords: 'marks percentage calculator exam', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Attendance Calculator', desc: 'Calculate attendance percentage.', icon: 'calendar', link: '/attendance-calculator', keywords: 'attendance calculator college percentage', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Study Time Calculator', desc: 'Calculate study time.', icon: 'clock', link: '/study-time-calculator', keywords: 'study time calculator planner', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Exam Countdown', desc: 'Countdown to exams.', icon: 'calendar', link: '/exam-countdown', keywords: 'exam countdown timer days', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Age Calculator', desc: 'Calculate age from date of birth.', icon: 'calendar', link: '/age-calculator', keywords: 'age calculator birth date dob', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Scientific Calculator', desc: 'Advanced scientific calculator.', icon: 'calculator', link: '/scientific-calculator', keywords: 'scientific calculator math trigonometry', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Quadratic Equation Calculator', desc: 'Solve quadratic equations.', icon: 'sigma', link: '/quadratic-equation-calculator', keywords: 'quadratic equation calculator roots', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Matrix Calculator', desc: 'Perform matrix operations.', icon: 'layout-grid', link: '/matrix-calculator', keywords: 'matrix calculator determinant multiply', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Probability Calculator', desc: 'Calculate probabilities.', icon: 'percent', link: '/probability-calculator', keywords: 'probability calculator chance', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Standard Deviation Calculator', desc: 'Calculate standard deviation.', icon: 'bar-chart-2', link: '/standard-deviation-calculator', keywords: 'standard deviation calculator statistics', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Mean Median Mode Calculator', desc: 'Calculate mean, median, and mode instantly.', icon: 'bar-chart-2', link: '/mean-median-mode-calculator', keywords: 'mean median mode average calculator statistics central tendency', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Prime Number Checker', desc: 'Check if a number is prime.', icon: 'hash', link: '/prime-number-checker', keywords: 'prime number check', color: '#10b981', category: 'calculator' },
+            { name: 'Prime Number Generator', desc: 'Generate prime numbers.', icon: 'hash', link: '/prime-number-generator', keywords: 'prime number generator', color: '#10b981', category: 'calculator' },
+            { name: 'Factorial Calculator', desc: 'Calculate factorial of a number.', icon: 'hash', link: '/factorial-calculator', keywords: 'factorial calculator', color: '#10b981', category: 'calculator' },
+            { name: 'GCD Calculator', desc: 'Find greatest common divisor.', icon: 'hash', link: '/gcd-calculator', keywords: 'gcd calculator greatest common divisor hcf', color: '#10b981', category: 'calculator' },
+            { name: 'LCM Calculator', desc: 'Find least common multiple.', icon: 'hash', link: '/lcm-calculator', keywords: 'lcm calculator least common multiple', color: '#10b981', category: 'calculator' },
+            { name: 'Binary Calculator', desc: 'Perform binary calculations.', icon: 'code', link: '/binary-calculator', keywords: 'binary calculator bits', color: '#10b981', category: 'calculator' },
+            { name: 'Decimal to Binary', desc: 'Convert decimal to binary.', icon: 'code', link: '/decimal-to-binary', keywords: 'decimal binary convert', color: '#10b981', category: 'calculator' },
+            { name: 'Binary to Decimal', desc: 'Convert binary to decimal.', icon: 'code', link: '/binary-to-decimal', keywords: 'binary decimal convert', color: '#10b981', category: 'calculator' },
+            { name: 'Decimal to Hex', desc: 'Convert decimal to hex.', icon: 'hexagon', link: '/decimal-to-hex', keywords: 'decimal hex convert hexadecimal', color: '#10b981', category: 'calculator' },
+            { name: 'Hex to Decimal', desc: 'Convert hex to decimal.', icon: 'hexagon', link: '/hex-to-decimal', keywords: 'hex decimal convert hexadecimal', color: '#10b981', category: 'calculator' },
+            { name: 'Decimal to Octal', desc: 'Convert decimal to octal.', icon: 'hash', link: '/decimal-to-octal', keywords: 'decimal octal convert', color: '#10b981', category: 'calculator' },
+            { name: 'Average Calculator', desc: 'Calculate average of numbers.', icon: 'bar-chart-2', link: '/average-calculator', keywords: 'average calculator mean', color: '#10b981', category: 'calculator' },
+            { name: 'Ratio Calculator', desc: 'Calculate ratios.', icon: 'divide', link: '/ratio-calculator', keywords: 'ratio calculator proportion', color: '#10b981', category: 'calculator' },
+            { name: 'Fraction Calculator', desc: 'Calculate fractions.', icon: 'divide', link: '/fraction-calculator', keywords: 'fraction calculator numerator denominator', color: '#10b981', category: 'calculator' },
+            { name: 'Date Difference Calculator', desc: 'Calculate days between two dates.', icon: 'calendar', link: '/date-difference-calculator', keywords: 'date difference days between', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Days Between Dates', desc: 'Find days between dates.', icon: 'calendar', link: '/days-between-dates', keywords: 'days between dates calculator', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Add Days to Date', desc: 'Add days to a date.', icon: 'calendar', link: '/add-days-to-date', keywords: 'add days date calculator', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Subtract Days from Date', desc: 'Subtract days from a date.', icon: 'calendar', link: '/subtract-days-from-date', keywords: 'subtract days date calculator', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Business Days Calculator', desc: 'Calculate business days between dates.', icon: 'briefcase', link: '/business-days-calculator', keywords: 'business days calculator working days', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Date to Unix Timestamp', desc: 'Convert date to Unix timestamp.', icon: 'clock', link: '/date-to-unix-timestamp', keywords: 'date unix timestamp epoch', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Unix Timestamp to Date', desc: 'Convert Unix timestamp to date.', icon: 'clock', link: '/unix-timestamp-to-date', keywords: 'unix timestamp date epoch', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Time Duration Calculator', desc: 'Calculate time duration between two times.', icon: 'clock', link: '/time-duration-calculator', keywords: 'time duration calculator hours minutes', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Countdown Calculator', desc: 'Countdown to a future date.', icon: 'clock', link: '/countdown-calculator', keywords: 'countdown calculator timer', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Week Number Calculator', desc: 'Find week number of a date.', icon: 'calendar', link: '/week-number-calculator', keywords: 'week number calculator iso', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Leap Year Checker', desc: 'Check if a year is a leap year.', icon: 'calendar', link: '/leap-year-checker', keywords: 'leap year checker february', color: '#0ea5e9', category: 'calculator' },
+            { name: 'World Clock', desc: 'See live time in any city with timezone converter.', icon: 'globe', link: '/world-clock', keywords: 'world clock time zones live time timezone converter global clock', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Time Zone Converter', desc: 'Convert time between any two time zones.', icon: 'globe', link: '/time-zone-converter', keywords: 'time zone converter timezone conversion utc gmt dst', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Length Converter', desc: 'Convert length units.', icon: 'ruler', link: '/length-converter', keywords: 'length converter units meter feet inch', color: '#f59e0b', category: 'calculator' },
+            { name: 'Weight Converter', desc: 'Convert weight units.', icon: 'scale', link: '/weight-converter', keywords: 'weight converter units kg pound', color: '#f59e0b', category: 'calculator' },
+            { name: 'Temperature Converter', desc: 'Convert temperature units.', icon: 'thermometer', link: '/temperature-converter', keywords: 'temperature converter celsius fahrenheit kelvin', color: '#f59e0b', category: 'calculator' },
+            { name: 'Area Converter', desc: 'Convert area units.', icon: 'square', link: '/area-converter', keywords: 'area converter units square meter acre', color: '#f59e0b', category: 'calculator' },
+            { name: 'Volume Converter', desc: 'Convert volume units.', icon: 'box', link: '/volume-converter', keywords: 'volume converter units litre gallon', color: '#f59e0b', category: 'calculator' },
+            { name: 'Speed Converter', desc: 'Convert speed units.', icon: 'gauge', link: '/speed-converter', keywords: 'speed converter units kmph mph', color: '#f59e0b', category: 'calculator' },
+            { name: 'Data Storage Converter', desc: 'Convert data storage units.', icon: 'hard-drive', link: '/data-storage-converter', keywords: 'data storage converter units mb gb tb', color: '#f59e0b', category: 'calculator' },
+            { name: 'Energy Converter', desc: 'Convert energy units.', icon: 'zap', link: '/energy-converter', keywords: 'energy converter units joule calorie', color: '#f59e0b', category: 'calculator' },
+            { name: 'Pressure Converter', desc: 'Convert pressure units.', icon: 'gauge', link: '/pressure-converter', keywords: 'pressure converter units pascal bar', color: '#f59e0b', category: 'calculator' },
+            { name: 'Power Converter', desc: 'Convert power units.', icon: 'zap', link: '/power-converter', keywords: 'power converter units watt horsepower', color: '#f59e0b', category: 'calculator' },
+            { name: 'Frequency Converter', desc: 'Convert frequency units.', icon: 'activity', link: '/frequency-converter', keywords: 'frequency converter units hertz', color: '#f59e0b', category: 'calculator' },
+            { name: 'Angle Converter', desc: 'Convert angle units.', icon: 'rotate-cw', link: '/angle-converter', keywords: 'angle converter units degree radian', color: '#f59e0b', category: 'calculator' },
+            { name: 'Pace Converter', desc: 'Convert pace units.', icon: 'gauge', link: '/pace-converter', keywords: 'pace converter running units', color: '#f59e0b', category: 'calculator' },
+            { name: 'Fuel Economy Converter', desc: 'Convert fuel economy units.', icon: 'gauge', link: '/fuel-economy-converter', keywords: 'fuel economy converter units mileage', color: '#f59e0b', category: 'calculator' }
+        ];
+
+        // Precompute search haystacks
+        tools.forEach(function(t) {
+            t._nameLower = t.name.toLowerCase();
+            t._descLower = (t.desc || '').toLowerCase();
+            t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
+        });
+
+        // ============ Helpers ============
+        function escAttr(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+        function escHtml(s) {
+            return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+        function highlight(text, q) {
+            const safe = escHtml(text);
+            if (!q) return safe;
+            const idx = text.toLowerCase().indexOf(q);
+            if (idx === -1) return safe;
+            return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
+        }
+
+        // ============ Build shared components ============
+        let megaMenuBuilt = false;
+        let mobileMenuBuilt = false;
+
+        function buildMegaMenu() {
+            if (megaMenuBuilt) return;
+            megaMenuBuilt = true;
+            document.getElementById('megaMenu').innerHTML = tools.map(t => '<a href="' + escAttr(t.link) + '">' + escHtml(t.name) + '</a>').join('');
+        }
+        function buildMobileToolsMenu() {
+            if (mobileMenuBuilt) return;
+            mobileMenuBuilt = true;
+            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => '<a href="' + escAttr(t.link) + '">' + escHtml(t.name) + '</a>').join('');
+        }
+
+        // ============ Toast ============
+        let toastTimer;
+        function showToast(msg, dur) {
+            dur = dur || 2200;
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(function() { t.classList.remove('show'); }, dur);
+        }
+
+        // ============ Theme ============
+        function setThemeColorMeta(isDark) {
+            const meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
+        }
+
+        function toggleTheme() {
+            const root = document.documentElement;
+            if (root.classList.contains('dark-mode')) {
+                root.classList.remove('dark-mode');
+                try { localStorage.setItem('theme', 'light'); } catch (e) {}
+                setThemeColorMeta(false);
+            } else {
+                root.classList.add('dark-mode');
+                try { localStorage.setItem('theme', 'dark'); } catch (e) {}
+                setThemeColorMeta(true);
+            }
+        }
+
+        // ============ Tools Menu ============
+        function toggleToolsMenu() {
+            const container = document.getElementById('toolsMenuContainer');
+            const trigger = document.getElementById('toolsTrigger');
+            const isOpen = container.classList.contains('open');
+            if (isOpen) {
+                container.classList.remove('open');
+                trigger.setAttribute('aria-expanded', 'false');
+            } else {
+                buildMegaMenu();
+                container.classList.add('open');
+                trigger.setAttribute('aria-expanded', 'true');
+                const firstLink = container.querySelector('.tools-mega-menu a');
+                if (firstLink) firstLink.focus();
+            }
+        }
+        document.addEventListener('click', function(e) {
+            const container = document.getElementById('toolsMenuContainer');
+            if (container && !container.contains(e.target) && container.classList.contains('open')) {
+                container.classList.remove('open');
+                document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // ============ Mobile Sidebar ============
+        function openMobileSidebar() {
+            buildMobileToolsMenu();
+            const sb = document.getElementById('mobileSidebar');
+            sb.classList.add('active');
+            sb.setAttribute('aria-hidden', 'false');
+            document.getElementById('mobileSidebarOverlay').classList.add('active');
+            const hb = document.getElementById('hamburgerBtn');
+            if (hb) hb.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileSidebar() {
+            const sb = document.getElementById('mobileSidebar');
+            if (!sb) return;
+            sb.classList.remove('active');
+            sb.setAttribute('aria-hidden', 'true');
+            document.getElementById('mobileSidebarOverlay').classList.remove('active');
+            const hb = document.getElementById('hamburgerBtn');
+            if (hb) hb.setAttribute('aria-expanded', 'false');
+            const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
+            if (!searchOpen) document.body.style.overflow = '';
+        }
+        function toggleMobileTools() {
+            buildMobileToolsMenu();
+            const toggle = document.getElementById('mobileToolsToggle');
+            const menu = document.getElementById('mobileToolsMenu');
+            const isOpen = menu.classList.contains('active');
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+            if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
+        }
+        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(function(l) {
+            l.addEventListener('click', closeMobileSidebar);
+        });
+
+        // Resize handler
+        (function initResizeHandler() {
+            let resizeRaf = 0;
+            let lastWasDesktop = window.innerWidth > 768;
+            window.addEventListener('resize', function() {
+                if (resizeRaf) return;
+                resizeRaf = requestAnimationFrame(function () {
+                    resizeRaf = 0;
+                    const isDesktop = window.innerWidth > 768;
+                    if (isDesktop && !lastWasDesktop) {
+                        if (document.getElementById('mobileSidebar').classList.contains('active')) {
+                            closeMobileSidebar();
+                        }
+                    }
+                    lastWasDesktop = isDesktop;
+                });
+            });
+        })();
+
+        // ============ Search ============
+        let lastFocusedBeforeSearch = null;
+        let searchResultsRaf = 0;
+        let searchIsOpen = false;
+        const searchState = { activeIndex: -1 };
+
+        function openFullSearch() {
+            const overlay = document.getElementById('searchOverlayFull');
+            lastFocusedBeforeSearch = document.activeElement;
+            searchIsOpen = true;
+            overlay.classList.add('active');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            filterFullSearch();
+            setTimeout(function() {
+                if (searchIsOpen) document.getElementById('fullSearchInput').focus();
+            }, 200);
+        }
+        function closeFullSearch() {
+            const overlay = document.getElementById('searchOverlayFull');
+            if (!overlay.classList.contains('active')) return;
+            searchIsOpen = false;
+            if (searchResultsRaf) {
+                cancelAnimationFrame(searchResultsRaf);
+                searchResultsRaf = 0;
+            }
+            overlay.classList.remove('active');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.getElementById('fullSearchInput').value = '';
+            document.getElementById('searchClearBtn').classList.remove('show');
+            const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
+            if (!sidebarOpen) document.body.style.overflow = '';
+            if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
+                try { lastFocusedBeforeSearch.focus(); } catch (e) {}
+            }
+            lastFocusedBeforeSearch = null;
+        }
+
+        function buildSearchResults(q) {
+            const list = document.getElementById('fullSearchResultsList');
+            const nr = document.getElementById('fullNoResult');
+
+            let matched;
+            if (q === '') {
+                matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
+            } else {
+                matched = [];
+                for (let i = 0; i < tools.length; i++) {
+                    const t = tools[i];
+                    if (t._hay.indexOf(q) === -1) continue;
+                    let score = 3;
+                    if (t._nameLower.startsWith(q)) score = 0;
+                    else if (t._nameLower.indexOf(q) !== -1) score = 1;
+                    else if (t._descLower.indexOf(q) !== -1) score = 2;
+                    matched.push({ t: t, idx: i, score: score });
+                }
+                matched.sort(function (a, b) {
+                    return a.score - b.score || a.idx - b.idx;
+                });
+            }
+
+            const total = matched.length;
+            const parts = [];
+
+            for (let i = 0; i < total; i++) {
+                const t = matched[i].t;
+                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
+                    '<span class="result-main">' +
+                    '<span class="result-name">' + highlight(t.name, q) + '</span>' +
+                    '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
+                    '</span>' +
+                    '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
+                    '</a>');
+            }
+
+            list.innerHTML = parts.join('');
+            searchState.activeIndex = -1;
+
+            if (total === 0 && q !== '') {
+                nr.classList.add('show');
+                document.getElementById('fullSearchQuery').textContent = q;
+            } else {
+                nr.classList.remove('show');
+            }
+        }
+
+        function filterFullSearch() {
+            const input = document.getElementById('fullSearchInput');
+            const q = input.value.toLowerCase().trim();
+            document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
+            if (!searchIsOpen) return;
+            if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
+            searchResultsRaf = requestAnimationFrame(function () {
+                searchResultsRaf = 0;
+                buildSearchResults(q);
+            });
+        }
+
+        function handleSearchKey(e) {
+            const items = Array.prototype.slice.call(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (!items.length) return;
+                searchState.activeIndex = (searchState.activeIndex + 1) % items.length;
+                items.forEach(function(i) { i.classList.remove('active'); });
+                items[searchState.activeIndex].classList.add('active');
+                items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (!items.length) return;
+                searchState.activeIndex = (searchState.activeIndex - 1 + items.length) % items.length;
+                items.forEach(function(i) { i.classList.remove('active'); });
+                items[searchState.activeIndex].classList.add('active');
+                items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) {
+                    window.location.href = items[searchState.activeIndex].getAttribute('href');
+                } else if (items.length === 1) {
+                    window.location.href = items[0].getAttribute('href');
+                }
+            }
+        }
+
+        function clearSearchInput() {
+            const input = document.getElementById('fullSearchInput');
+            input.value = '';
+            filterFullSearch();
+            input.focus();
+        }
+
+        (function initSearchBackdrop() {
+            const overlay = document.getElementById('searchOverlayFull');
+            if (overlay) {
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === overlay) closeFullSearch();
+                });
+            }
+        })();
+
+        (function setSearchPlaceholder() {
+            const input = document.getElementById('fullSearchInput');
+            if (!input) return;
+            input.placeholder = 'Search all ' + tools.length + ' free tools…';
+        })();
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const container = document.getElementById('toolsMenuContainer');
+                if (container && container.classList.contains('open')) {
+                    container.classList.remove('open');
+                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                    document.getElementById('toolsTrigger').focus();
+                }
+                closeFullSearch();
+                closeMobileSidebar();
+            }
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                openFullSearch();
+            }
+        });
+
+        function toggleFaq(btnEl) {
+            const item = btnEl.closest('.faq-item');
+            if (!item) return;
+            const expanded = btnEl.getAttribute('aria-expanded') === 'true';
+            item.classList.toggle('active');
+            btnEl.setAttribute('aria-expanded', String(!expanded));
+            const icon = btnEl.querySelector('svg');
+            if (icon) {
+                icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+        }
+
+        // ============================================================
+        //  TEXT STATISTICS TOOL LOGIC
+        // ============================================================
+
+        // ---------- Syllable estimator (rule-based) ----------
+        function countSyllables(word) {
+            word = word.toLowerCase().replace(/[^a-z]/g, '');
+            if (word.length <= 3) return 1;
+            // Remove trailing silent e
+            word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+            word = word.replace(/^y/, '');
+            // Count vowel groups
+            const matches = word.match(/[aeiouy]{1,2}/g);
+            return matches ? matches.length : 1;
+        }
+
+        // ---------- Main statistics calculator ----------
+        function calculateStats(text) {
+            if (!text || !text.trim()) {
+                return null;
+            }
+
+            // Trim but preserve internal structure
+            const trimmed = text;
+
+            // --- Characters ---
+            const charsWithSpaces = trimmed.length;
+            const charsWithoutSpaces = trimmed.replace(/\s/g, '').length;
+
+            // --- Letters and digits ---
+            const letters = (trimmed.match(/[a-zA-Z]/g) || []).length;
+            const digits = (trimmed.match(/[0-9]/g) || []).length;
+
+            // --- Words ---
+            // Match sequences of non-whitespace characters
+            const wordMatches = trimmed.match(/\S+/g) || [];
+            const words = wordMatches.length;
+
+            // Filter to alphabetic words for readability calculations
+            const alphaWords = wordMatches.filter(function(w) {
+                return /[a-zA-Z]/.test(w);
+            });
+
+            // --- Sentences ---
+            // Split on ., !, ?, and … but keep it simple
+            const sentenceMatches = trimmed.match(/[^.!?…]+[.!?…]+/g) || [];
+            let sentences = sentenceMatches.length;
+            // If there's trailing text without ending punctuation, count it as a sentence
+            const leftover = trimmed.replace(/[^.!?…]+[.!?…]+/g, '').trim();
+            if (leftover.length > 0) sentences++;
+            if (sentences === 0 && words > 0) sentences = 1;
+
+            // --- Paragraphs ---
+            const paragraphMatches = trimmed.split(/\n\s*\n/).filter(function(p) {
+                return p.trim().length > 0;
+            });
+            const paragraphs = paragraphMatches.length || (words > 0 ? 1 : 0);
+
+            // --- Lines ---
+            const lines = trimmed.split(/\r\n|\r|\n/).length;
+
+            // --- Average word length (in characters, alphabetic words only) ---
+            let totalAlphaChars = 0;
+            for (let i = 0; i < alphaWords.length; i++) {
+                totalAlphaChars += alphaWords[i].replace(/[^a-zA-Z]/g, '').length;
+            }
+            const avgWordLength = alphaWords.length > 0 ? (totalAlphaChars / alphaWords.length) : 0;
+
+            // --- Average sentence length ---
+            const avgSentenceLength = sentences > 0 ? (words / sentences) : 0;
+
+            // --- Average paragraph length ---
+            const avgParaLength = paragraphs > 0 ? (words / paragraphs) : 0;
+
+            // --- Longest word ---
+            let longestWord = '—';
+            let longestLen = 0;
+            for (let i = 0; i < alphaWords.length; i++) {
+                const clean = alphaWords[i].replace(/[^a-zA-Z]/g, '');
+                if (clean.length > longestLen) {
+                    longestLen = clean.length;
+                    longestWord = clean;
+                }
+            }
+
+            // --- Syllables ---
+            let totalSyllables = 0;
+            let complexWords = 0;
+            for (let i = 0; i < alphaWords.length; i++) {
+                const clean = alphaWords[i].replace(/[^a-zA-Z]/g, '');
+                const syl = countSyllables(clean);
+                totalSyllables += syl;
+                if (syl >= 3) complexWords++;
+            }
+            const avgSyllablesPerWord = alphaWords.length > 0 ? (totalSyllables / alphaWords.length) : 0;
+
+            // --- Reading and speaking time ---
+            const READING_WPM = 225;
+            const SPEAKING_WPM = 150;
+            const readingMinutes = words / READING_WPM;
+            const speakingMinutes = words / SPEAKING_WPM;
+
+            // --- Readability scores ---
+            const safeWords = words > 0 ? words : 1;
+            const safeSentences = sentences > 0 ? sentences : 1;
+            const safeAlphaWords = alphaWords.length > 0 ? alphaWords.length : 1;
+
+            // Flesch Reading Ease
+            let fleschScore = 206.835 - (1.015 * (safeWords / safeSentences)) - (84.6 * (totalSyllables / safeAlphaWords));
+            fleschScore = Math.max(0, Math.min(100, fleschScore));
+
+            // Flesch-Kincaid Grade Level
+            let fkGrade = (0.39 * (safeWords / safeSentences)) + (11.8 * (totalSyllables / safeAlphaWords)) - 15.59;
+            fkGrade = Math.max(0, fkGrade);
+
+            // Gunning Fog Index
+            let gunningFog = 0.4 * ((safeWords / safeSentences) + (100 * (complexWords / safeAlphaWords)));
+            gunningFog = Math.max(0, gunningFog);
+
+            // Automated Readability Index
+            let ariScore = (4.71 * (charsWithoutSpaces / safeWords)) + (0.5 * (safeWords / safeSentences)) - 21.43;
+            ariScore = Math.max(0, ariScore);
+
+            // --- Keyword frequency (top words, excluding stop words) ---
+            const STOP_WORDS = {
+                'the': 1, 'a': 1, 'an': 1, 'and': 1, 'or': 1, 'but': 1, 'of': 1, 'to': 1, 'in': 1,
+                'on': 1, 'at': 1, 'for': 1, 'with': 1, 'by': 1, 'from': 1, 'as': 1, 'is': 1,
+                'are': 1, 'was': 1, 'were': 1, 'be': 1, 'been': 1, 'being': 1, 'have': 1,
+                'has': 1, 'had': 1, 'do': 1, 'does': 1, 'did': 1, 'will': 1, 'would': 1,
+                'could': 1, 'should': 1, 'may': 1, 'might': 1, 'shall': 1, 'can': 1, 'need': 1,
+                'it': 1, 'its': 1, 'this': 1, 'that': 1, 'these': 1, 'those': 1, 'i': 1,
+                'you': 1, 'he': 1, 'she': 1, 'we': 1, 'they': 1, 'me': 1, 'him': 1,
+                'her': 1, 'us': 1, 'them': 1, 'my': 1, 'your': 1, 'his': 1, 'our': 1,
+                'their': 1, 'mine': 1, 'yours': 1, 'hers': 1, 'ours': 1, 'theirs': 1,
+                'not': 1, 'no': 1, 'nor': 1, 'so': 1, 'if': 1, 'then': 1, 'than': 1,
+                'too': 1, 'very': 1, 'just': 1, 'also': 1, 'only': 1, 'even': 1,
+                'more': 1, 'most': 1, 'much': 1, 'many': 1, 'some': 1, 'any': 1,
+                'all': 1, 'each': 1, 'every': 1, 'both': 1, 'few': 1, 'several': 1,
+                'about': 1, 'above': 1, 'after': 1, 'again': 1, 'against': 1, 'below': 1,
+                'between': 1, 'down': 1, 'during': 1, 'into': 1, 'through': 1, 'under': 1,
+                'until': 1, 'up': 1, 'out': 1, 'off': 1, 'over': 1, 'once': 1,
+                'here': 1, 'there': 1, 'when': 1, 'where': 1, 'why': 1, 'how': 1,
+                'what': 1, 'which': 1, 'who': 1, 'whom': 1, 'whose': 1, 'am': 1,
+                'because': 1, 'while': 1, 'before': 1, 'though': 1, 'although': 1
+            };
+
+            const freq = {};
+            for (let i = 0; i < alphaWords.length; i++) {
+                const w = alphaWords[i].toLowerCase().replace(/[^a-z']/g, '');
+                if (w.length < 2) continue;
+                if (STOP_WORDS[w]) continue;
+                freq[w] = (freq[w] || 0) + 1;
+            }
+            const sortedKeywords = Object.keys(freq).sort(function(a, b) {
+                return freq[b] - freq[a];
+            }).slice(0, 10);
+            const topKeywords = sortedKeywords.map(function(w) {
+                return { word: w, count: freq[w] };
+            });
+
+            return {
+                words: words,
+                charsWithSpaces: charsWithSpaces,
+                charsWithoutSpaces: charsWithoutSpaces,
+                letters: letters,
+                digits: digits,
+                sentences: sentences,
+                paragraphs: paragraphs,
+                lines: lines,
+                avgWordLength: avgWordLength,
+                avgSentenceLength: avgSentenceLength,
+                avgParaLength: avgParaLength,
+                longestWord: longestWord,
+                totalSyllables: totalSyllables,
+                complexWords: complexWords,
+                readingMinutes: readingMinutes,
+                speakingMinutes: speakingMinutes,
+                fleschScore: fleschScore,
+                fkGrade: fkGrade,
+                gunningFog: gunningFog,
+                ariScore: ariScore,
+                topKeywords: topKeywords
+            };
+        }
+
+        // ---------- Formatting helpers ----------
+        function formatTime(minutes) {
+            if (minutes < 1) {
+                const secs = Math.round(minutes * 60);
+                return secs + ' sec';
+            }
+            const mins = Math.round(minutes);
+            if (mins < 60) {
+                return mins + ' min';
+            }
+            const h = Math.floor(mins / 60);
+            const m = mins % 60;
+            return h + 'h ' + m + 'm';
+        }
+
+        function formatFleschDescription(score) {
+            if (score >= 90) return 'Very easy to read — 5th grade level.';
+            if (score >= 80) return 'Easy to read — 6th grade level.';
+            if (score >= 70) return 'Fairly easy to read — 7th grade level.';
+            if (score >= 60) return 'Standard — 8th–9th grade level. Most web content targets this range.';
+            if (score >= 50) return 'Fairly difficult — 10th–12th grade level.';
+            if (score >= 30) return 'Difficult — college level.';
+            return 'Very difficult — graduate level.';
+        }
+
+        function getFleschColor(score) {
+            if (score >= 70) return '#16a34a';
+            if (score >= 50) return '#d97706';
+            return '#dc2626';
+        }
+
+        function formatNumber(n) {
+            return n.toLocaleString('en-US');
+        }
+
+        function formatDecimal(n, places) {
+            if (places === undefined) places = 1;
+            return parseFloat(n.toFixed(places)).toString();
+        }
+
+        // ---------- Render ----------
+        function renderStats(stats) {
+            const empty = document.getElementById('statsEmpty');
+            const content = document.getElementById('statsContent');
+
+            if (!stats || stats.words === 0) {
+                empty.style.display = 'flex';
+                content.style.display = 'none';
+                return;
+            }
+
+            empty.style.display = 'none';
+            content.style.display = 'block';
+
+            // Cards
+            document.getElementById('cardWords').textContent = formatNumber(stats.words);
+            document.getElementById('cardChars').textContent = formatNumber(stats.charsWithSpaces);
+            document.getElementById('cardSentences').textContent = formatNumber(stats.sentences);
+            document.getElementById('cardParagraphs').textContent = formatNumber(stats.paragraphs);
+
+            // Counts
+            document.getElementById('statWords').textContent = formatNumber(stats.words);
+            document.getElementById('statCharsWithSpaces').textContent = formatNumber(stats.charsWithSpaces);
+            document.getElementById('statCharsWithoutSpaces').textContent = formatNumber(stats.charsWithoutSpaces);
+            document.getElementById('statLetters').textContent = formatNumber(stats.letters);
+            document.getElementById('statDigits').textContent = formatNumber(stats.digits);
+            document.getElementById('statSentences').textContent = formatNumber(stats.sentences);
+            document.getElementById('statParagraphs').textContent = formatNumber(stats.paragraphs);
+            document.getElementById('statLines').textContent = formatNumber(stats.lines);
+
+            // Averages
+            document.getElementById('statAvgWordLength').textContent = formatDecimal(stats.avgWordLength, 2);
+            document.getElementById('statAvgSentenceLength').textContent = formatDecimal(stats.avgSentenceLength, 1);
+            document.getElementById('statAvgParaLength').textContent = formatDecimal(stats.avgParaLength, 1);
+            document.getElementById('statLongestWord').textContent = stats.longestWord;
+            document.getElementById('statSyllables').textContent = formatNumber(stats.totalSyllables);
+
+            // Time
+            document.getElementById('statReadingTime').textContent = formatTime(stats.readingMinutes);
+            document.getElementById('statSpeakingTime').textContent = formatTime(stats.speakingMinutes);
+
+            // Readability
+            document.getElementById('fleschScore').textContent = Math.round(stats.fleschScore);
+            document.getElementById('fleschScore').style.color = getFleschColor(stats.fleschScore);
+            document.getElementById('fleschFill').style.width = stats.fleschScore + '%';
+            document.getElementById('fleschFill').style.background = getFleschColor(stats.fleschScore);
+            document.getElementById('fleschDesc').textContent = formatFleschDescription(stats.fleschScore);
+
+            document.getElementById('fkGrade').textContent = formatDecimal(stats.fkGrade, 1);
+            document.getElementById('gunningFog').textContent = formatDecimal(stats.gunningFog, 1);
+            document.getElementById('ariScore').textContent = formatDecimal(stats.ariScore, 1);
+            document.getElementById('statComplexWords').textContent = formatNumber(stats.complexWords);
+
+            // Keywords
+            const kwList = document.getElementById('keywordList');
+            if (stats.topKeywords.length === 0) {
+                kwList.innerHTML = '<div class="keyword-item" style="justify-content:center;color:var(--text-light);font-size:13px;padding:16px;">Not enough text yet.</div>';
+            } else {
+                const maxCount = stats.topKeywords[0].count;
+                let html = '';
+                for (let i = 0; i < stats.topKeywords.length; i++) {
+                    const kw = stats.topKeywords[i];
+                    const pct = maxCount > 0 ? (kw.count / maxCount * 100) : 0;
+                    html += '<div class="keyword-item">' +
+                        '<span class="keyword-word">' + escHtml(kw.word) + '</span>' +
+                        '<div class="keyword-bar-wrap"><div class="keyword-bar" style="width:' + pct + '%;"></div></div>' +
+                        '<span class="keyword-count">' + kw.count + '</span>' +
+                        '</div>';
+                }
+                kwList.innerHTML = html;
+            }
+        }
+
+        // ---------- Live analysis ----------
+        let analyzeRaf = 0;
+        function scheduleAnalysis() {
+            if (analyzeRaf) cancelAnimationFrame(analyzeRaf);
+            analyzeRaf = requestAnimationFrame(function() {
+                analyzeRaf = 0;
+                const text = document.getElementById('textInput').value;
+                const stats = calculateStats(text);
+                renderStats(stats);
+                window._lastStats = stats;
+            });
+        }
+
+        // ---------- Copy stats ----------
+        function copyStats() {
+            const s = window._lastStats;
+            if (!s || s.words === 0) {
+                showToast('No text to analyze yet.');
+                return;
+            }
+            let text = 'Text Statistics\n';
+            text += '================\n\n';
+            text += 'Words: ' + s.words + '\n';
+            text += 'Characters (with spaces): ' + s.charsWithSpaces + '\n';
+            text += 'Characters (without spaces): ' + s.charsWithoutSpaces + '\n';
+            text += 'Letters: ' + s.letters + '\n';
+            text += 'Digits: ' + s.digits + '\n';
+            text += 'Sentences: ' + s.sentences + '\n';
+            text += 'Paragraphs: ' + s.paragraphs + '\n';
+            text += 'Lines: ' + s.lines + '\n\n';
+            text += 'Average word length: ' + formatDecimal(s.avgWordLength, 2) + '\n';
+            text += 'Average sentence length: ' + formatDecimal(s.avgSentenceLength, 1) + ' words\n';
+            text += 'Average paragraph length: ' + formatDecimal(s.avgParaLength, 1) + ' words\n';
+            text += 'Syllables: ' + s.totalSyllables + '\n';
+            text += 'Complex words (3+ syllables): ' + s.complexWords + '\n\n';
+            text += 'Reading time: ' + formatTime(s.readingMinutes) + '\n';
+            text += 'Speaking time: ' + formatTime(s.speakingMinutes) + '\n\n';
+            text += 'Flesch Reading Ease: ' + Math.round(s.fleschScore) + '\n';
+            text += 'Flesch-Kincaid Grade Level: ' + formatDecimal(s.fkGrade, 1) + '\n';
+            text += 'Gunning Fog Index: ' + formatDecimal(s.gunningFog, 1) + '\n';
+            text += 'Automated Readability Index: ' + formatDecimal(s.ariScore, 1) + '\n';
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function() {
+                    showToast('Statistics copied to clipboard!');
+                }).catch(function() {
+                    showToast('Copy failed. Try again.');
+                });
+            } else {
+                showToast('Clipboard not supported.');
+            }
+        }
+
+        // ---------- Example text ----------
+        const EXAMPLE_TEXT = 'The quick brown fox jumps over the lazy dog. This sentence contains every letter of the alphabet at least once, which makes it useful for testing fonts and keyboards. ' +
+            'Text analysis is the process of examining written content to understand its structure, complexity, and readability. ' +
+            'Writers use these metrics to improve their work, students use them to meet word counts, and marketers use them to optimise content for search engines and audiences.\n\n' +
+            'Readability scores like Flesch Reading Ease and Flesch-Kincaid Grade Level estimate how difficult a passage is to read. ' +
+            'They consider average sentence length and average syllables per word. Shorter sentences and simpler words produce higher (easier) scores. ' +
+            'A score of 60 to 70 is considered standard, suitable for most adult readers.\n\n' +
+            'Keyword frequency analysis shows which words appear most often in your text. ' +
+            'This helps identify overused words, unintentional repetition, and the main topics of a document. ' +
+            'It is a simple but powerful way to audit your writing before publishing.';
+
+        // ---------- Init ----------
+        document.getElementById('dynamicYear').textContent = new Date().getFullYear();
+        buildMegaMenu();
+        buildMobileToolsMenu();
+
+        const textInput = document.getElementById('textInput');
+        textInput.addEventListener('input', scheduleAnalysis);
+
+        document.getElementById('clearBtn').addEventListener('click', function() {
+            textInput.value = '';
+            scheduleAnalysis();
+            textInput.focus();
+            showToast('Cleared.');
+        });
+
+        document.getElementById('exampleBtn').addEventListener('click', function() {
+            textInput.value = EXAMPLE_TEXT;
+            scheduleAnalysis();
+            showToast('Example text loaded.');
+        });
+
+        document.getElementById('copyStatsBtn').addEventListener('click', copyStats);
+
+        // Initial render (empty state)
+        scheduleAnalysis();
+
+        function initLucide() {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
+        }
+        initLucide();
+        window.addEventListener('load', initLucide);
+    </script>
+</body>
+</html>
