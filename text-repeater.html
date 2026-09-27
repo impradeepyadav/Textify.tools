@@ -815,6 +815,100 @@
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
 
+        /* ===== ACTION MODAL (Stylish Popup) ===== */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-box {
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 32px 28px 28px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
+            text-align: center;
+            transform: translateY(20px) scale(0.95);
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+            opacity: 0;
+        }
+        .modal-overlay.active .modal-box {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        .modal-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--tool-accent-soft);
+            color: var(--tool-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            animation: modalIconPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+        html.dark-mode .modal-icon {
+            background: var(--tool-accent-light);
+        }
+        .modal-icon svg, .modal-icon i {
+            width: 32px;
+            height: 32px;
+        }
+        @keyframes modalIconPop {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .modal-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+        .modal-message {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .modal-close-btn {
+            background: var(--tool-accent);
+            color: var(--tool-accent-contrast);
+            border: none;
+            padding: 12px 32px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px var(--tool-accent-light);
+            width: 100%;
+        }
+        .modal-close-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px var(--tool-accent-light);
+        }
+        .modal-close-btn:active {
+            transform: translateY(0);
+        }
+
         /* ===== CONTENT SECTIONS ===== */
         .content-section { margin-bottom: 50px; width: 100%; max-width: 100%; }
         .content-section h2 {
@@ -1458,20 +1552,19 @@
                     </div>
                 </div>
 
-                <!-- Content: Related tools -->
+                <!-- Content: Creative uses (replaces Related tools) -->
                 <div class="content-section">
-                    <h2>Related text tools you might find useful</h2>
-                    <p>If you use the text repeater often, you may also need these free tools from Textify.tools:</p>
+                    <h2>Creative and fun ways to use a text repeater</h2>
+                    <p>The text repeater isn't just for testing and data generation — it's also a fun tool for social media, messaging, and creative expression. Here are some popular ways people use it:</p>
                     <ul>
-                        <li><a href="/word-counter">Word Counter</a> — count words, characters, sentences, and paragraphs in any text.</li>
-                        <li><a href="/case-converter">Case Converter</a> — switch between uppercase, lowercase, title case, and sentence case.</li>
-                        <li><a href="/duplicate-line-remover">Duplicate Line Remover</a> — strip out repeated lines and keep only unique ones.</li>
-                        <li><a href="/text-finder-replacer">Text Finder &amp; Replacer</a> — bulk find and replace words or phrases.</li>
-                        <li><a href="/fancy-text-generator">Fancy Text Generator</a> — turn plain text into stylized Unicode fonts for social media.</li>
-                        <li><a href="/random-text-generator">Random Text Generator</a> — generate random strings of letters, numbers, and symbols.</li>
-                        <li><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a> — placeholder text for designs and mockups.</li>
-                        <li><a href="/zalgo-text-generator">Zalgo Text Generator</a> — create cursed, glitchy text effects.</li>
+                        <li><strong>Emoji walls:</strong> Repeat 🔥, ❤️, 😂, or any emoji hundreds of times to create a solid wall of emojis for WhatsApp, Discord, or Instagram comments.</li>
+                        <li><strong>Copypasta and memes:</strong> Generate long strings of text to create Discord copypasta, spam messages, or meme content.</li>
+                        <li><strong>Social media captions:</strong> Repeat a word or phrase to emphasize a point in a caption, or to create a visually striking pattern.</li>
+                        <li><strong>Birthday and celebration messages:</strong> Repeat "Happy Birthday 🎂" or "Congratulations 🎉" many times to make a celebratory message that stands out.</li>
+                        <li><strong>Pranks and jokes:</strong> Fill a friend's chat with a repeated message (use responsibly and with good humor!).</li>
+                        <li><strong>Art and design:</strong> Use repeated characters to create text-based art, borders, or patterns for designs.</li>
                     </ul>
+                    <p>Remember to use the tool responsibly and respect the platforms you're posting on. Some chat apps limit message length, so check the platform guide above for recommended repeat counts.</p>
                 </div>
 
                 <!-- FAQ -->
@@ -1669,6 +1762,19 @@
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
             <div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>
+        </div>
+    </div>
+
+    <!-- Stylish Action Modal (Copy / Download) -->
+    <div class="modal-overlay" id="actionModal" role="dialog" aria-modal="true" aria-label="Action confirmation">
+        <div class="modal-box">
+            <div class="modal-icon" id="modalIcon">
+                <i data-lucide="check-circle" id="modalIconCheck"></i>
+                <i data-lucide="download" id="modalIconDownload" style="display:none;"></i>
+            </div>
+            <h3 class="modal-title" id="modalTitle">Copied!</h3>
+            <p class="modal-message" id="modalMessage">Your repeated text is in the clipboard.</p>
+            <button type="button" class="modal-close-btn" onclick="closeModal()">Got it</button>
         </div>
     </div>
 
@@ -2039,7 +2145,8 @@
             const hb = document.getElementById('hamburgerBtn');
             if (hb) hb.setAttribute('aria-expanded', 'false');
             const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
-            if (!searchOpen) document.body.style.overflow = '';
+            const modalOpen = document.getElementById('actionModal').classList.contains('active');
+            if (!searchOpen && !modalOpen) document.body.style.overflow = '';
         }
         function toggleMobileTools() {
             buildMobileToolsMenu();
@@ -2104,7 +2211,8 @@
             document.getElementById('fullSearchInput').value = '';
             document.getElementById('searchClearBtn').classList.remove('show');
             const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
-            if (!sidebarOpen) document.body.style.overflow = '';
+            const modalOpen = document.getElementById('actionModal').classList.contains('active');
+            if (!sidebarOpen && !modalOpen) document.body.style.overflow = '';
             if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
                 try { lastFocusedBeforeSearch.focus(); } catch (e) {}
             }
@@ -2229,6 +2337,7 @@
                 }
                 closeFullSearch();
                 closeMobileSidebar();
+                closeModal();
             }
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
@@ -2387,11 +2496,61 @@
             repeatText();
         }
 
+        // ============ MODAL LOGIC ============
+        let modalTimer;
+        function showModal(type) {
+            const overlay = document.getElementById('actionModal');
+            const iconCheck = document.getElementById('modalIconCheck');
+            const iconDownload = document.getElementById('modalIconDownload');
+            const title = document.getElementById('modalTitle');
+            const message = document.getElementById('modalMessage');
+
+            if (type === 'copy') {
+                iconCheck.style.display = 'block';
+                iconDownload.style.display = 'none';
+                title.textContent = 'Copied!';
+                message.textContent = 'Your repeated text is in the clipboard.';
+            } else if (type === 'download') {
+                iconCheck.style.display = 'none';
+                iconDownload.style.display = 'block';
+                title.textContent = 'Download Started!';
+                message.textContent = 'Your file is downloading as repeated-text.txt.';
+            }
+
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Re-init lucide icons inside modal
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
+
+            clearTimeout(modalTimer);
+            modalTimer = setTimeout(closeModal, 4000);
+        }
+
+        function closeModal() {
+            const overlay = document.getElementById('actionModal');
+            if (!overlay.classList.contains('active')) return;
+            overlay.classList.remove('active');
+            const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
+            const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
+            if (!searchOpen && !sidebarOpen) {
+                document.body.style.overflow = '';
+            }
+            clearTimeout(modalTimer);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('actionModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
         function copyOutput() {
             if (!lastOutput) { showToast('Nothing to copy yet.'); return; }
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(lastOutput).then(function() {
-                    showToast('Output copied to clipboard!');
+                    showModal('copy');
                 }).catch(function() {
                     fallbackCopy();
                 });
@@ -2403,8 +2562,12 @@
         function fallbackCopy() {
             const ta = document.getElementById('outputArea');
             ta.select();
-            try { document.execCommand('copy'); showToast('Output copied!'); }
-            catch (e) { showToast('Copy failed. Try selecting manually.'); }
+            try {
+                document.execCommand('copy');
+                showModal('copy');
+            } catch (e) {
+                showToast('Copy failed. Try selecting manually.');
+            }
         }
 
         function downloadOutput() {
@@ -2418,7 +2581,7 @@
             a.click();
             document.body.removeChild(a);
             setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
-            showToast('Downloading repeated-text.txt…');
+            showModal('download');
         }
 
         // ---------- Presets ----------
