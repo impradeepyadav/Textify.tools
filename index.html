@@ -218,7 +218,6 @@
             font-weight: 700;
         }
 
-        /* FIX #3: prevent sun/moon flash before JS runs */
         html.dark-mode #sunIcon,
         html.dark-mode #mobileSunIcon { display: none !important; }
         html.dark-mode #moonIcon,
@@ -317,7 +316,6 @@
         .search-box .search-close-btn:hover, .search-box .search-clear-btn:hover { background: var(--chip-hover); }
         .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; flex: 1; min-height: 0; contain: content; }
 
-        /* No sticky header anymore — removed as requested */
         .search-results-list .search-result-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.15s; border-bottom: 1px solid var(--line); }
         .search-results-list .search-result-item:last-child { border-bottom: none; }
         .search-results-list .search-result-item:hover,
@@ -345,7 +343,6 @@
         .hero-search .hero-clear.show { display: flex; }
         .hero-search kbd { font-family: inherit; font-size: 11px; font-weight: 600; color: var(--text-light); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 3px 7px; flex-shrink: 0; }
 
-        /* FIX #1: base bar wraps on desktop; mobile uses horizontal scroll */
         .category-filter-bar {
             display: flex;
             flex-wrap: wrap;
@@ -502,7 +499,7 @@
     <div class="page-wrapper">
         <header>
             <div class="header-inner">
-                <a href="/" class="logo">
+                <a href="/" class="logo" target="_blank" rel="noopener noreferrer">
                     <img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
                     Textify.tools
                 </a>
@@ -514,8 +511,8 @@
                             </button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
                         </div>
-                        <a href="/privacy-policy">Privacy</a>
-                        <a href="/blog">Blog</a>
+                        <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy</a>
+                        <a href="/blog" target="_blank" rel="noopener noreferrer">Blog</a>
                         <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
@@ -553,23 +550,23 @@
                         <table class="info-table">
                             <thead><tr><th>If you want to…</th><th>Try this tool</th></tr></thead>
                             <tbody>
-                                <tr><td>Count words for an essay</td><td><a href="/word-counter">Word Counter</a></td></tr>
-                                <tr><td>Change text from UPPERCASE to lowercase</td><td><a href="/case-converter">Case Converter</a></td></tr>
-                                <tr><td>Join broken lines into one paragraph</td><td><a href="/join-lines">Join Lines</a></td></tr>
-                                <tr><td>Make API responses readable</td><td><a href="/json-formatter">JSON Formatter</a></td></tr>
-                                <tr><td>Create a strong password</td><td><a href="/password-generator">Password Generator</a></td></tr>
-                                <tr><td>Shrink a PDF to under 100KB for a form</td><td><a href="/pdf-100kb">PDF to 100KB</a></td></tr>
-                                <tr><td>Shrink a PDF to under 50KB</td><td><a href="/pdf-50kb">PDF to 50KB</a></td></tr>
-                                <tr><td>Compress a PDF to about 200KB</td><td><a href="/pdf-200kb">PDF to 200KB</a></td></tr>
-                                <tr><td>Compare two versions of a document</td><td><a href="/text-diff-checker">Text Diff Checker</a></td></tr>
-                                <tr><td>Extract all email addresses from a messy list</td><td><a href="/email-extractor">Email Extractor</a></td></tr>
-                                <tr><td>Remove duplicate lines from a list</td><td><a href="/duplicate-line-remover">Duplicate Line Remover</a></td></tr>
-                                <tr><td>Sort lines alphabetically</td><td><a href="/text-sorter">Text Sorter</a></td></tr>
-                                <tr><td>Make a QR code for a link</td><td><a href="/qr-code-generator">QR Code Generator</a></td></tr>
-                                <tr><td>Convert plain text to CSV</td><td><a href="/text-to-csv">Text to CSV</a></td></tr>
-                                <tr><td>Create a WhatsApp link</td><td><a href="/whatsapp-link-generator">WhatsApp Link Generator</a></td></tr>
-                                <tr><td>Print a shipping label for a parcel</td><td><a href="/shipping-label-generator">Shipping Label Generator</a></td></tr>
-                                <tr><td>Build a professional resume in minutes</td><td><a href="/resume-builder">Resume Builder</a></td></tr>
+                                <tr><td>Count words for an essay</td><td><a href="/word-counter" target="_blank" rel="noopener noreferrer">Word Counter</a></td></tr>
+                                <tr><td>Change text from UPPERCASE to lowercase</td><td><a href="/case-converter" target="_blank" rel="noopener noreferrer">Case Converter</a></td></tr>
+                                <tr><td>Join broken lines into one paragraph</td><td><a href="/join-lines" target="_blank" rel="noopener noreferrer">Join Lines</a></td></tr>
+                                <tr><td>Make API responses readable</td><td><a href="/json-formatter" target="_blank" rel="noopener noreferrer">JSON Formatter</a></td></tr>
+                                <tr><td>Create a strong password</td><td><a href="/password-generator" target="_blank" rel="noopener noreferrer">Password Generator</a></td></tr>
+                                <tr><td>Shrink a PDF to under 100KB for a form</td><td><a href="/pdf-100kb" target="_blank" rel="noopener noreferrer">PDF to 100KB</a></td></tr>
+                                <tr><td>Shrink a PDF to under 50KB</td><td><a href="/pdf-50kb" target="_blank" rel="noopener noreferrer">PDF to 50KB</a></td></tr>
+                                <tr><td>Compress a PDF to about 200KB</td><td><a href="/pdf-200kb" target="_blank" rel="noopener noreferrer">PDF to 200KB</a></td></tr>
+                                <tr><td>Compare two versions of a document</td><td><a href="/text-diff-checker" target="_blank" rel="noopener noreferrer">Text Diff Checker</a></td></tr>
+                                <tr><td>Extract all email addresses from a messy list</td><td><a href="/email-extractor" target="_blank" rel="noopener noreferrer">Email Extractor</a></td></tr>
+                                <tr><td>Remove duplicate lines from a list</td><td><a href="/duplicate-line-remover" target="_blank" rel="noopener noreferrer">Duplicate Line Remover</a></td></tr>
+                                <tr><td>Sort lines alphabetically</td><td><a href="/text-sorter" target="_blank" rel="noopener noreferrer">Text Sorter</a></td></tr>
+                                <tr><td>Make a QR code for a link</td><td><a href="/qr-code-generator" target="_blank" rel="noopener noreferrer">QR Code Generator</a></td></tr>
+                                <tr><td>Convert plain text to CSV</td><td><a href="/text-to-csv" target="_blank" rel="noopener noreferrer">Text to CSV</a></td></tr>
+                                <tr><td>Create a WhatsApp link</td><td><a href="/whatsapp-link-generator" target="_blank" rel="noopener noreferrer">WhatsApp Link Generator</a></td></tr>
+                                <tr><td>Print a shipping label for a parcel</td><td><a href="/shipping-label-generator" target="_blank" rel="noopener noreferrer">Shipping Label Generator</a></td></tr>
+                                <tr><td>Build a professional resume in minutes</td><td><a href="/resume-builder" target="_blank" rel="noopener noreferrer">Resume Builder</a></td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -684,21 +681,21 @@
                         <table class="info-table">
                             <thead><tr><th>Tool</th><th>Perfect for</th><th>Typical user</th></tr></thead>
                             <tbody>
-                                <tr><td><strong><a href="/json-formatter">JSON Formatter</a></strong></td><td>Making API responses readable</td><td>Web & mobile devs</td></tr>
-                                <tr><td><strong><a href="/text-to-handwriting">Text to Handwriting</a></strong></td><td>Homework, notes, creative projects</td><td>Students, teachers</td></tr>
-                                <tr><td><strong><a href="/join-lines">Join Lines</a></strong></td><td>Turning broken, wrapped lines back into one paragraph</td><td>Writers, students, anyone pasting from PDFs</td></tr>
-                                <tr><td><strong><a href="/jwt-decoder">JWT Decoder</a></strong></td><td>Debugging auth tokens</td><td>Full-stack devs</td></tr>
-                                <tr><td><strong><a href="/pdf-100kb">PDF to 100KB</a></strong></td><td>Beating upload size limits on forms and portals</td><td>Job seekers, students, applicants</td></tr>
-                                <tr><td><strong><a href="/pdf-50kb">PDF to 50KB</a></strong></td><td>Aggressive compression for very strict limits</td><td>Government form filers</td></tr>
-                                <tr><td><strong><a href="/pdf-200kb">PDF to 200KB</a></strong></td><td>Slimming scans and documents without losing quality</td><td>Office workers, small businesses</td></tr>
-                                <tr><td><strong><a href="/text-repeater">Text Repeater</a></strong></td><td>Pranks, stress-testing, fun</td><td>Social media enthusiasts</td></tr>
-                                <tr><td><strong><a href="/word-counter">Word Counter</a></strong></td><td>Essays, blog posts, SEO meta</td><td>Writers, marketers</td></tr>
-                                <tr><td><strong><a href="/password-generator">Password Generator</a></strong></td><td>Creating strong passwords on the fly</td><td>Anyone who cares about security</td></tr>
-                                <tr><td><strong><a href="/markdown-to-html">Markdown to HTML</a></strong></td><td>Turning notes into web-ready HTML</td><td>Technical writers, bloggers</td></tr>
-                                <tr><td><strong><a href="/qr-code-generator">QR Code Generator</a></strong></td><td>Making scannable codes from text</td><td>Marketers, event organizers</td></tr>
-                                <tr><td><strong><a href="/whatsapp-link-generator">WhatsApp Link Generator</a></strong></td><td>Create click-to-chat links with pre-filled messages</td><td>Marketers, customer support, anyone sharing contact info</td></tr>
-                                <tr><td><strong><a href="/shipping-label-generator">Shipping Label Generator</a></strong></td><td>Printable parcel and courier labels</td><td>Online sellers, small business owners</td></tr>
-                                <tr><td><strong><a href="/resume-builder">Resume Builder</a></strong></td><td>Turning plain details into a clean, professional CV</td><td>Job seekers, freshers, career switchers</td></tr>
+                                <tr><td><strong><a href="/json-formatter" target="_blank" rel="noopener noreferrer">JSON Formatter</a></strong></td><td>Making API responses readable</td><td>Web & mobile devs</td></tr>
+                                <tr><td><strong><a href="/text-to-handwriting" target="_blank" rel="noopener noreferrer">Text to Handwriting</a></strong></td><td>Homework, notes, creative projects</td><td>Students, teachers</td></tr>
+                                <tr><td><strong><a href="/join-lines" target="_blank" rel="noopener noreferrer">Join Lines</a></strong></td><td>Turning broken, wrapped lines back into one paragraph</td><td>Writers, students, anyone pasting from PDFs</td></tr>
+                                <tr><td><strong><a href="/jwt-decoder" target="_blank" rel="noopener noreferrer">JWT Decoder</a></strong></td><td>Debugging auth tokens</td><td>Full-stack devs</td></tr>
+                                <tr><td><strong><a href="/pdf-100kb" target="_blank" rel="noopener noreferrer">PDF to 100KB</a></strong></td><td>Beating upload size limits on forms and portals</td><td>Job seekers, students, applicants</td></tr>
+                                <tr><td><strong><a href="/pdf-50kb" target="_blank" rel="noopener noreferrer">PDF to 50KB</a></strong></td><td>Aggressive compression for very strict limits</td><td>Government form filers</td></tr>
+                                <tr><td><strong><a href="/pdf-200kb" target="_blank" rel="noopener noreferrer">PDF to 200KB</a></strong></td><td>Slimming scans and documents without losing quality</td><td>Office workers, small businesses</td></tr>
+                                <tr><td><strong><a href="/text-repeater" target="_blank" rel="noopener noreferrer">Text Repeater</a></strong></td><td>Pranks, stress-testing, fun</td><td>Social media enthusiasts</td></tr>
+                                <tr><td><strong><a href="/word-counter" target="_blank" rel="noopener noreferrer">Word Counter</a></strong></td><td>Essays, blog posts, SEO meta</td><td>Writers, marketers</td></tr>
+                                <tr><td><strong><a href="/password-generator" target="_blank" rel="noopener noreferrer">Password Generator</a></strong></td><td>Creating strong passwords on the fly</td><td>Anyone who cares about security</td></tr>
+                                <tr><td><strong><a href="/markdown-to-html" target="_blank" rel="noopener noreferrer">Markdown to HTML</a></strong></td><td>Turning notes into web-ready HTML</td><td>Technical writers, bloggers</td></tr>
+                                <tr><td><strong><a href="/qr-code-generator" target="_blank" rel="noopener noreferrer">QR Code Generator</a></strong></td><td>Making scannable codes from text</td><td>Marketers, event organizers</td></tr>
+                                <tr><td><strong><a href="/whatsapp-link-generator" target="_blank" rel="noopener noreferrer">WhatsApp Link Generator</a></strong></td><td>Create click-to-chat links with pre-filled messages</td><td>Marketers, customer support, anyone sharing contact info</td></tr>
+                                <tr><td><strong><a href="/shipping-label-generator" target="_blank" rel="noopener noreferrer">Shipping Label Generator</a></strong></td><td>Printable parcel and courier labels</td><td>Online sellers, small business owners</td></tr>
+                                <tr><td><strong><a href="/resume-builder" target="_blank" rel="noopener noreferrer">Resume Builder</a></strong></td><td>Turning plain details into a clean, professional CV</td><td>Job seekers, freshers, career switchers</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -752,13 +749,13 @@
                         <li><strong>Size issues:</strong> A PDF is too large for an upload portal, or an image needs to be under 100KB.</li>
                     </ul>
                     <h3>Step 2: Clean before you format</h3>
-                    <p>It's tempting to jump straight to the JSON Formatter or the Case Converter. But if your text has duplicate lines, invisible blank characters, or mixed line endings, you'll just be formatting garbage. Clean first with tools like <a href="/whitespace-cleaner">Whitespace Cleaner</a>, <a href="/duplicate-line-remover">Duplicate Line Remover</a>, or <a href="/remove-blank-characters">Remove Blank Characters</a>.</p>
+                    <p>It's tempting to jump straight to the JSON Formatter or the Case Converter. But if your text has duplicate lines, invisible blank characters, or mixed line endings, you'll just be formatting garbage. Clean first with tools like <a href="/whitespace-cleaner" target="_blank" rel="noopener noreferrer">Whitespace Cleaner</a>, <a href="/duplicate-line-remover" target="_blank" rel="noopener noreferrer">Duplicate Line Remover</a>, or <a href="/remove-blank-characters" target="_blank" rel="noopener noreferrer">Remove Blank Characters</a>.</p>
                     <h3>Step 3: Format and structure</h3>
                     <p>Once the text is clean, use the right formatter. JSON Formatter for API responses, HTML Formatter for markup, Markdown to HTML for documentation, and Text to CSV for spreadsheet-ready data. If you're working with code, the JavaScript Formatter, CSS Formatter, and SQL Formatter will save you from manual indentation.</p>
                     <h3>Step 4: Extract only what you need</h3>
-                    <p>If you're staring at a wall of text and only need email addresses, use the <a href="/email-extractor">Email Extractor</a>. Need URLs? <a href="/url-extractor">URL Extractor</a>. Need phone numbers? <a href="/phone-extractor">Phone Extractor</a>. This is faster than manually scanning and less error-prone than writing a regex on the fly.</p>
+                    <p>If you're staring at a wall of text and only need email addresses, use the <a href="/email-extractor" target="_blank" rel="noopener noreferrer">Email Extractor</a>. Need URLs? <a href="/url-extractor" target="_blank" rel="noopener noreferrer">URL Extractor</a>. Need phone numbers? <a href="/phone-extractor" target="_blank" rel="noopener noreferrer">Phone Extractor</a>. This is faster than manually scanning and less error-prone than writing a regex on the fly.</p>
                     <h3>Step 5: Verify and share</h3>
-                    <p>Before you send anything out, run a final check. Use the <a href="/word-counter">Word Counter</a> to confirm length, the <a href="/text-diff-checker">Text Diff Checker</a> to compare versions, and the <a href="/case-converter">Case Converter</a> to fix headings. Then copy, download, or share. No server round-trip, no waiting.</p>
+                    <p>Before you send anything out, run a final check. Use the <a href="/word-counter" target="_blank" rel="noopener noreferrer">Word Counter</a> to confirm length, the <a href="/text-diff-checker" target="_blank" rel="noopener noreferrer">Text Diff Checker</a> to compare versions, and the <a href="/case-converter" target="_blank" rel="noopener noreferrer">Case Converter</a> to fix headings. Then copy, download, or share. No server round-trip, no waiting.</p>
                 </div>
 
                 <div class="section">
@@ -788,12 +785,12 @@
                     <h2>How to clean messy text before publishing (step-by-step)</h2>
                     <p>Whether you're publishing a blog post, sending a client email, or preparing a report, messy text makes you look careless. Here's a repeatable cleaning routine that takes less than two minutes.</p>
                     <ol>
-                        <li><strong>Remove extra spaces:</strong> Use <a href="/remove-extra-spaces">Remove Extra Spaces</a> or <a href="/whitespace-cleaner">Whitespace Cleaner</a> to get rid of double spaces, tabs, and trailing spaces.</li>
-                        <li><strong>Fix line breaks:</strong> If you copied text from a PDF, lines are probably broken in weird places. Use <a href="/join-lines">Join Lines</a> to merge them into one paragraph, or <a href="/remove-line-breaks">Remove Line Breaks</a> if you want a single line.</li>
-                        <li><strong>Remove duplicates:</strong> If you have a list, run it through <a href="/duplicate-line-remover">Duplicate Line Remover</a> to keep only unique entries.</li>
-                        <li><strong>Standardize case:</strong> Headings should be Title Case, sentences should be Sentence case. Use <a href="/title-case-converter">Title Case Converter</a> or <a href="/sentence-case-converter">Sentence Case Converter</a>.</li>
+                        <li><strong>Remove extra spaces:</strong> Use <a href="/remove-extra-spaces" target="_blank" rel="noopener noreferrer">Remove Extra Spaces</a> or <a href="/whitespace-cleaner" target="_blank" rel="noopener noreferrer">Whitespace Cleaner</a> to get rid of double spaces, tabs, and trailing spaces.</li>
+                        <li><strong>Fix line breaks:</strong> If you copied text from a PDF, lines are probably broken in weird places. Use <a href="/join-lines" target="_blank" rel="noopener noreferrer">Join Lines</a> to merge them into one paragraph, or <a href="/remove-line-breaks" target="_blank" rel="noopener noreferrer">Remove Line Breaks</a> if you want a single line.</li>
+                        <li><strong>Remove duplicates:</strong> If you have a list, run it through <a href="/duplicate-line-remover" target="_blank" rel="noopener noreferrer">Duplicate Line Remover</a> to keep only unique entries.</li>
+                        <li><strong>Standardize case:</strong> Headings should be Title Case, sentences should be Sentence case. Use <a href="/title-case-converter" target="_blank" rel="noopener noreferrer">Title Case Converter</a> or <a href="/sentence-case-converter" target="_blank" rel="noopener noreferrer">Sentence Case Converter</a>.</li>
                         <li><strong>Strip unwanted characters:</strong> Remove emojis, symbols, HTML tags, or punctuation with the relevant removal tool.</li>
-                        <li><strong>Count and verify:</strong> Finally, use <a href="/word-counter">Word Counter</a> to check length and <a href="/text-statistics">Text Statistics</a> for a full readability summary.</li>
+                        <li><strong>Count and verify:</strong> Finally, use <a href="/word-counter" target="_blank" rel="noopener noreferrer">Word Counter</a> to check length and <a href="/text-statistics" target="_blank" rel="noopener noreferrer">Text Statistics</a> for a full readability summary.</li>
                     </ol>
                     <p>Once you do this a few times, it becomes second nature. You'll start noticing messy text everywhere — and you'll be able to fix it in seconds.</p>
                 </div>
@@ -803,21 +800,21 @@
                     <p>If you write for the web, you already know that SEO is part formatting, part research, and part patience. These tools won't write the article for you, but they'll handle the mechanical parts so you can focus on the message.</p>
                     <h3>Before you write</h3>
                     <ul>
-                        <li>Use <a href="/keyword-extractor">Keyword Extractor</a> to pull important terms from competitor pages or your own notes.</li>
-                        <li>Use <a href="/keyword-density-checker">Keyword Density Checker</a> to make sure you're not overstuffing.</li>
-                        <li>Use <a href="/reading-time-estimator">Reading Time Estimator</a> to plan article length for your audience.</li>
+                        <li>Use <a href="/keyword-extractor" target="_blank" rel="noopener noreferrer">Keyword Extractor</a> to pull important terms from competitor pages or your own notes.</li>
+                        <li>Use <a href="/keyword-density-checker" target="_blank" rel="noopener noreferrer">Keyword Density Checker</a> to make sure you're not overstuffing.</li>
+                        <li>Use <a href="/reading-time-estimator" target="_blank" rel="noopener noreferrer">Reading Time Estimator</a> to plan article length for your audience.</li>
                     </ul>
                     <h3>While you write</h3>
                     <ul>
-                        <li>Keep the <a href="/word-counter">Word Counter</a> open to hit your target length.</li>
-                        <li>Use <a href="/case-converter">Case Converter</a> for consistent headings and subheadings.</li>
-                        <li>Use <a href="/text-cleaner">Text Cleaner</a> to remove accidental formatting from pasted research.</li>
+                        <li>Keep the <a href="/word-counter" target="_blank" rel="noopener noreferrer">Word Counter</a> open to hit your target length.</li>
+                        <li>Use <a href="/case-converter" target="_blank" rel="noopener noreferrer">Case Converter</a> for consistent headings and subheadings.</li>
+                        <li>Use <a href="/text-cleaner" target="_blank" rel="noopener noreferrer">Text Cleaner</a> to remove accidental formatting from pasted research.</li>
                     </ul>
                     <h3>After you write</h3>
                     <ul>
-                        <li>Run <a href="/text-diff-checker">Text Diff Checker</a> to compare your draft with the edited version.</li>
-                        <li>Use <a href="/markdown-to-html">Markdown to HTML</a> if you're publishing to a CMS that needs HTML.</li>
-                        <li>Generate a <a href="/qr-code-generator">QR Code</a> for offline promotion or print materials.</li>
+                        <li>Run <a href="/text-diff-checker" target="_blank" rel="noopener noreferrer">Text Diff Checker</a> to compare your draft with the edited version.</li>
+                        <li>Use <a href="/markdown-to-html" target="_blank" rel="noopener noreferrer">Markdown to HTML</a> if you're publishing to a CMS that needs HTML.</li>
+                        <li>Generate a <a href="/qr-code-generator" target="_blank" rel="noopener noreferrer">QR Code</a> for offline promotion or print materials.</li>
                     </ul>
                     <div class="table-wrapper">
                         <table class="info-table">
@@ -844,16 +841,16 @@
                                 <tr><th>Task</th><th>Tool</th><th>What it does</th></tr>
                             </thead>
                             <tbody>
-                                <tr><td>Format an ugly JSON response</td><td><a href="/json-formatter">JSON Formatter</a></td><td>Adds indentation and makes it readable.</td></tr>
-                                <tr><td>Minify JSON for production</td><td><a href="/json-minifier">JSON Minifier</a></td><td>Removes all unnecessary whitespace.</td></tr>
-                                <tr><td>Decode a JWT</td><td><a href="/jwt-decoder">JWT Decoder</a></td><td>Shows header and payload without verifying signature.</td></tr>
-                                <tr><td>Test a regex pattern</td><td><a href="/regex-tester">Regex Tester</a></td><td>Highlights matches in real time.</td></tr>
-                                <tr><td>Encode text to Base64</td><td><a href="/base64-encoder">Base64 Encoder</a></td><td>Converts text to Base64 string.</td></tr>
-                                <tr><td>Generate a UUID</td><td><a href="/uuid-generator">UUID Generator</a></td><td>Creates random v4 UUIDs.</td></tr>
-                                <tr><td>Hash a password or string</td><td><a href="/sha256-generator">SHA-256 Generator</a></td><td>Generates SHA-256 hash.</td></tr>
-                                <tr><td>Convert Markdown to HTML</td><td><a href="/markdown-to-html">Markdown to HTML</a></td><td>Useful for documentation and README files.</td></tr>
-                                <tr><td>Format SQL queries</td><td><a href="/sql-formatter">SQL Formatter</a></td><td>Makes complex queries readable.</td></tr>
-                                <tr><td>Convert CSV to JSON</td><td><a href="/csv-to-json">CSV to JSON</a></td><td>Saves manual data conversion.</td></tr>
+                                <tr><td>Format an ugly JSON response</td><td><a href="/json-formatter" target="_blank" rel="noopener noreferrer">JSON Formatter</a></td><td>Adds indentation and makes it readable.</td></tr>
+                                <tr><td>Minify JSON for production</td><td><a href="/json-minifier" target="_blank" rel="noopener noreferrer">JSON Minifier</a></td><td>Removes all unnecessary whitespace.</td></tr>
+                                <tr><td>Decode a JWT</td><td><a href="/jwt-decoder" target="_blank" rel="noopener noreferrer">JWT Decoder</a></td><td>Shows header and payload without verifying signature.</td></tr>
+                                <tr><td>Test a regex pattern</td><td><a href="/regex-tester" target="_blank" rel="noopener noreferrer">Regex Tester</a></td><td>Highlights matches in real time.</td></tr>
+                                <tr><td>Encode text to Base64</td><td><a href="/base64-encoder" target="_blank" rel="noopener noreferrer">Base64 Encoder</a></td><td>Converts text to Base64 string.</td></tr>
+                                <tr><td>Generate a UUID</td><td><a href="/uuid-generator" target="_blank" rel="noopener noreferrer">UUID Generator</a></td><td>Creates random v4 UUIDs.</td></tr>
+                                <tr><td>Hash a password or string</td><td><a href="/sha256-generator" target="_blank" rel="noopener noreferrer">SHA-256 Generator</a></td><td>Generates SHA-256 hash.</td></tr>
+                                <tr><td>Convert Markdown to HTML</td><td><a href="/markdown-to-html" target="_blank" rel="noopener noreferrer">Markdown to HTML</a></td><td>Useful for documentation and README files.</td></tr>
+                                <tr><td>Format SQL queries</td><td><a href="/sql-formatter" target="_blank" rel="noopener noreferrer">SQL Formatter</a></td><td>Makes complex queries readable.</td></tr>
+                                <tr><td>Convert CSV to JSON</td><td><a href="/csv-to-json" target="_blank" rel="noopener noreferrer">CSV to JSON</a></td><td>Saves manual data conversion.</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -873,7 +870,7 @@
                         <li><strong>Resume Builder:</strong> Turn a plain text CV into a professional resume.</li>
                         <li><strong>GPA Calculator:</strong> Track your grades and plan your semester.</li>
                     </ul>
-                    <p>If you're working on a group project, you can also use the <a href="/text-diff-checker">Text Diff Checker</a> to see what changed between versions. No more "final_v2_really_final.docx" confusion.</p>
+                    <p>If you're working on a group project, you can also use the <a href="/text-diff-checker" target="_blank" rel="noopener noreferrer">Text Diff Checker</a> to see what changed between versions. No more "final_v2_really_final.docx" confusion.</p>
                 </div>
 
                 <div class="section">
@@ -917,13 +914,13 @@
                     <h2>Common text mistakes and how to fix them</h2>
                     <p>After seeing thousands of users run text through these tools, a few mistakes come up again and again. Here's how to spot them and fix them fast.</p>
                     <ul>
-                        <li><strong>Double spaces:</strong> Almost invisible, but they make text look uneven. Fix with <a href="/remove-extra-spaces">Remove Extra Spaces</a>.</li>
-                        <li><strong>Inconsistent capitalization:</strong> Headings in Title Case, body in Sentence case. Use <a href="/title-case-converter">Title Case Converter</a> or <a href="/sentence-case-converter">Sentence Case Converter</a>.</li>
-                        <li><strong>Duplicate lines:</strong> Common in email lists and product SKUs. Fix with <a href="/duplicate-line-remover">Duplicate Line Remover</a>.</li>
-                        <li><strong>Hidden blank characters:</strong> Copied from web pages or PDFs. Fix with <a href="/remove-blank-characters">Remove Blank Characters</a>.</li>
-                        <li><strong>Mixed line endings:</strong> Windows uses CRLF, Unix uses LF. Fix with <a href="/line-break-converter">Line Break Converter</a>.</li>
-                        <li><strong>Overlong lines:</strong> Hard to read in code or plain text. Fix with <a href="/wrap-text">Wrap Text</a>.</li>
-                        <li><strong>Broken paragraphs:</strong> Lines that should be joined. Fix with <a href="/join-lines">Join Lines</a>.</li>
+                        <li><strong>Double spaces:</strong> Almost invisible, but they make text look uneven. Fix with <a href="/remove-extra-spaces" target="_blank" rel="noopener noreferrer">Remove Extra Spaces</a>.</li>
+                        <li><strong>Inconsistent capitalization:</strong> Headings in Title Case, body in Sentence case. Use <a href="/title-case-converter" target="_blank" rel="noopener noreferrer">Title Case Converter</a> or <a href="/sentence-case-converter" target="_blank" rel="noopener noreferrer">Sentence Case Converter</a>.</li>
+                        <li><strong>Duplicate lines:</strong> Common in email lists and product SKUs. Fix with <a href="/duplicate-line-remover" target="_blank" rel="noopener noreferrer">Duplicate Line Remover</a>.</li>
+                        <li><strong>Hidden blank characters:</strong> Copied from web pages or PDFs. Fix with <a href="/remove-blank-characters" target="_blank" rel="noopener noreferrer">Remove Blank Characters</a>.</li>
+                        <li><strong>Mixed line endings:</strong> Windows uses CRLF, Unix uses LF. Fix with <a href="/line-break-converter" target="_blank" rel="noopener noreferrer">Line Break Converter</a>.</li>
+                        <li><strong>Overlong lines:</strong> Hard to read in code or plain text. Fix with <a href="/wrap-text" target="_blank" rel="noopener noreferrer">Wrap Text</a>.</li>
+                        <li><strong>Broken paragraphs:</strong> Lines that should be joined. Fix with <a href="/join-lines" target="_blank" rel="noopener noreferrer">Join Lines</a>.</li>
                     </ul>
                     <p>None of these are difficult to fix once you know which tool to use. The key is to clean before you format, not after.</p>
                 </div>
@@ -960,9 +957,9 @@
                     <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Do I really not need an account?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Really. That's the whole point. Open the page, use the tool, close it. No registration, no login, no strings attached.</div></div>
                     <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I use the output for commercial projects?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Absolutely. The text you generate belongs to you. Use it for work, school, or anything else. No attribution needed.</div></div>
                     <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">How do you make money if it's free?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">A few small ads (via Google AdSense) cover hosting and development. No data selling, no hidden fees.</div></div>
-                    <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What if I need a tool that isn't here?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">I'm all ears! Drop a message through the <a href="/contact-us">Contact page</a>. If it can run safely in a browser, there's a good chance I'll build it.</div></div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What if I need a tool that isn't here?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">I'm all ears! Drop a message through the <a href="/contact-us" target="_blank" rel="noopener noreferrer">Contact page</a>. If it can run safely in a browser, there's a good chance I'll build it.</div></div>
                     <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Do these tools work on my phone or tablet?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Absolutely. Every tool adapts to any screen size. You can even add the site to your home screen and use it like an app.</div></div>
-                    <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I suggest a tool or report a problem?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Please do! Head over to the <a href="/contact-us">Contact page</a> or drop a message on social media. I read every suggestion and try to fix bugs within a day or two.</div></div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I suggest a tool or report a problem?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Please do! Head over to the <a href="/contact-us" target="_blank" rel="noopener noreferrer">Contact page</a> or drop a message on social media. I read every suggestion and try to fix bugs within a day or two.</div></div>
                 </div>
 
                 <div class="section">
@@ -972,7 +969,7 @@
                     <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I use these tools on my phone?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Yes. Every tool is responsive and works on phones, tablets, and desktops. You can also add the site to your home screen for quick access.</div></div>
                     <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Do the tools work offline?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Many tools work offline after the page has loaded once. Since processing happens in your browser, an internet connection is only needed to load the page initially.</div></div>
                     <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Is my data safe?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Yes. The text you enter never leaves your device. There is no backend processing for the tools, and nothing is stored on a server.</div></div>
-                    <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I suggest a new tool?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Absolutely. Use the <a href="/contact-us">Contact page</a> to send your idea. If it can run safely in a browser, there's a good chance it will be built.</div></div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I suggest a new tool?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Absolutely. Use the <a href="/contact-us" target="_blank" rel="noopener noreferrer">Contact page</a> to send your idea. If it can run safely in a browser, there's a good chance it will be built.</div></div>
                     <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Are the outputs free for commercial use?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Yes. Whatever you create with these tools belongs to you. Use it for personal, academic, or commercial projects without attribution.</div></div>
                     <div class="faq-item"><button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Why do you show ads?<i data-lucide="chevron-down" width="16"></i></button><div class="faq-answer">Ads cover hosting and development costs. They are kept as unobtrusive as possible, and no data from your text is ever shared with advertisers.</div></div>
                 </div>
@@ -992,36 +989,36 @@
                         <div class="footer-column">
                             <h3 class="footer-heading">Popular Tools</h3>
                             <ul class="footer-links">
-                                <li><a href="/word-counter">Word Counter</a></li>
-                                <li><a href="/json-formatter">JSON Formatter</a></li>
-                                <li><a href="/case-converter">Case Converter</a></li>
-                                <li><a href="/password-generator">Password Generator</a></li>
-                                <li><a href="/text-to-handwriting">Text to Handwriting</a></li>
-                                <li><a href="/image-resizer">Image Resizer</a></li>
-                                <li><a href="/qr-code-generator">QR Code Generator</a></li>
-                                <li><a href="/image-compressor">Image Compressor</a></li>
-                                <li><a href="/pdf-merge">PDF Merge</a></li>
-                                <li><a href="/resume-builder">Resume Builder</a></li>
-                                <li><a href="/whatsapp-link-generator">WhatsApp Link</a></li>
-                                <li><a href="/signature-resizer">Signature Resizer</a></li>
+                                <li><a href="/word-counter" target="_blank" rel="noopener noreferrer">Word Counter</a></li>
+                                <li><a href="/json-formatter" target="_blank" rel="noopener noreferrer">JSON Formatter</a></li>
+                                <li><a href="/case-converter" target="_blank" rel="noopener noreferrer">Case Converter</a></li>
+                                <li><a href="/password-generator" target="_blank" rel="noopener noreferrer">Password Generator</a></li>
+                                <li><a href="/text-to-handwriting" target="_blank" rel="noopener noreferrer">Text to Handwriting</a></li>
+                                <li><a href="/image-resizer" target="_blank" rel="noopener noreferrer">Image Resizer</a></li>
+                                <li><a href="/qr-code-generator" target="_blank" rel="noopener noreferrer">QR Code Generator</a></li>
+                                <li><a href="/image-compressor" target="_blank" rel="noopener noreferrer">Image Compressor</a></li>
+                                <li><a href="/pdf-merge" target="_blank" rel="noopener noreferrer">PDF Merge</a></li>
+                                <li><a href="/resume-builder" target="_blank" rel="noopener noreferrer">Resume Builder</a></li>
+                                <li><a href="/whatsapp-link-generator" target="_blank" rel="noopener noreferrer">WhatsApp Link</a></li>
+                                <li><a href="/signature-resizer" target="_blank" rel="noopener noreferrer">Signature Resizer</a></li>
                             </ul>
                         </div>
                         <div class="footer-column">
                             <h3 class="footer-heading">Quick Links</h3>
                             <ul class="footer-links">
-                                <li><a href="/">Home</a></li>
-                                <li><a href="/about-us">About Us</a></li>
-                                <li><a href="/contact-us">Contact Us</a></li>
+                                <li><a href="/" target="_blank" rel="noopener noreferrer">Home</a></li>
+                                <li><a href="/about-us" target="_blank" rel="noopener noreferrer">About Us</a></li>
+                                <li><a href="/contact-us" target="_blank" rel="noopener noreferrer">Contact Us</a></li>
                                 <li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li>
-                                <li><a href="/blog">Blog</a></li>
+                                <li><a href="/blog" target="_blank" rel="noopener noreferrer">Blog</a></li>
                             </ul>
                         </div>
                         <div class="footer-column">
                             <h3 class="footer-heading">Legal Pages</h3>
                             <ul class="footer-links">
-                                <li><a href="/privacy-policy">Privacy Policy</a></li>
-                                <li><a href="/terms-of-use">Terms of Use</a></li>
-                                <li><a href="/disclaimer">Disclaimer</a></li>
+                                <li><a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+                                <li><a href="/terms-of-use" target="_blank" rel="noopener noreferrer">Terms of Use</a></li>
+                                <li><a href="/disclaimer" target="_blank" rel="noopener noreferrer">Disclaimer</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1033,14 +1030,14 @@
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
         <div class="mobile-sidebar-header">
-            <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
+            <a href="/" class="mobile-sidebar-logo" target="_blank" rel="noopener noreferrer"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
             <button class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
         </div>
         <div class="mobile-sidebar-nav">
             <button class="mobile-tools-toggle" id="mobileToolsToggle" onclick="toggleMobileTools()" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <i data-lucide="chevron-down"></i></button>
             <div class="mobile-tools-menu" id="mobileToolsMenu"></div>
-            <a href="/privacy-policy">Privacy</a>
-            <a href="/blog">Blog</a>
+            <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy</a>
+            <a href="/blog" target="_blank" rel="noopener noreferrer">Blog</a>
             <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
         </div>
         <div class="mobile-sidebar-actions">
@@ -1348,6 +1345,35 @@
         let searchResultsRaf = 0;
         let searchIsOpen = false;
 
+        /* ===================================================================
+           GLOBAL HELPER: open every internal/HTTP link in a new tab.
+           The original tab keeps its scroll position, filter state,
+           search query, and theme — pressing back in the new tab
+           returns the user exactly where they started.
+           =================================================================== */
+        function openAllLinksInNewTab(scope) {
+            var root = scope || document;
+            var links = root.querySelectorAll('a[href]');
+            for (var i = 0; i < links.length; i++) {
+                var a = links[i];
+                var href = a.getAttribute('href');
+                if (!href) continue;
+                // Skip anchors, JS, mailto, tel
+                if (href.charAt(0) === '#' ||
+                    href.indexOf('javascript:') === 0 ||
+                    href.indexOf('mailto:') === 0 ||
+                    href.indexOf('tel:') === 0) continue;
+                // Force new tab
+                if (a.getAttribute('target') !== '_blank') {
+                    a.setAttribute('target', '_blank');
+                }
+                var rel = a.getAttribute('rel') || '';
+                if (rel.indexOf('noopener') === -1) {
+                    a.setAttribute('rel', (rel ? rel + ' ' : '') + 'noopener noreferrer');
+                }
+            }
+        }
+
         function cacheToolCards() {
             toolCardNodes = Array.prototype.slice.call(document.querySelectorAll('.tool-card'));
             toolCardHay = toolCardNodes.map(function (c) { return c.dataset.search || ''; });
@@ -1396,7 +1422,6 @@
             input.focus();
         }
 
-        // FIX #3: use trimmed query consistently for user-facing messages
         function applyFilters() {
             const rawQuery = filterState.query;
             const q = rawQuery.toLowerCase().trim();
@@ -1415,16 +1440,15 @@
                 if (show) visible++;
             }
 
-            // FIX #5: sensible fallback message when query is empty
             const empty = document.getElementById('noToolsFound');
             if (empty) {
                 const show = visible === 0;
                 empty.classList.toggle('show', show);
                 if (show) {
                     if (displayQuery) {
-                        empty.innerHTML = 'No tools match <strong>' + escHtml(displayQuery) + '</strong> in this category. Try a different search or <a href="/contact-us" style="color:var(--primary);font-weight:600;">suggest a tool</a>.';
+                        empty.innerHTML = 'No tools match <strong>' + escHtml(displayQuery) + '</strong> in this category. Try a different search or <a href="/contact-us" target="_blank" rel="noopener noreferrer" style="color:var(--primary);font-weight:600;">suggest a tool</a>.';
                     } else {
-                        empty.innerHTML = 'No tools found in this category. Try a different category or <a href="/contact-us" style="color:var(--primary);font-weight:600;">suggest a tool</a>.';
+                        empty.innerHTML = 'No tools found in this category. Try a different category or <a href="/contact-us" target="_blank" rel="noopener noreferrer" style="color:var(--primary);font-weight:600;">suggest a tool</a>.';
                     }
                 }
             }
@@ -1443,7 +1467,7 @@
         function renderToolCards() {
             document.getElementById('toolsGrid').innerHTML = tools.map(t => {
                 return `
-                <a href="${escAttr(t.link)}" class="tool-card" data-category="${escAttr(t.category)}" data-search="${escAttr(t._hay)}">
+                <a href="${escAttr(t.link)}" class="tool-card" data-category="${escAttr(t.category)}" data-search="${escAttr(t._hay)}" target="_blank" rel="noopener noreferrer">
                     <div class="tool-icon" style="color:${escAttr(t.color)}"><i data-lucide="${escAttr(t.icon)}" width="24" height="24"></i></div>
                     <h3>${escHtml(t.name)}</h3><p>${escHtml(t.desc)}</p><span class="badge">Free</span>
                 </a>`;
@@ -1453,12 +1477,12 @@
         function buildMegaMenu() {
             if (megaMenuBuilt) return;
             megaMenuBuilt = true;
-            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
+            document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}" target="_blank" rel="noopener noreferrer">${escHtml(t.name)}</a>`).join('');
         }
         function buildMobileToolsMenu() {
             if (mobileMenuBuilt) return;
             mobileMenuBuilt = true;
-            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
+            document.getElementById('mobileToolsMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}" target="_blank" rel="noopener noreferrer">${escHtml(t.name)}</a>`).join('');
         }
         function renderCategoryGrid() {
             const grid = document.getElementById('categoryGrid');
@@ -1479,16 +1503,12 @@
 
         const searchState = { activeIndex: -1 };
 
-        /* ===================================================================
-           SEARCH: empty query shows ALL tools, no sticky header anymore.
-           =================================================================== */
         function buildSearchResults(q) {
             const list = document.getElementById('fullSearchResultsList');
             const nr = document.getElementById('fullNoResult');
 
             let matched;
             if (q === '') {
-                // Show the complete catalogue, in original order
                 matched = tools.map(function (t, i) { return { t: t, idx: i, score: 0 }; });
             } else {
                 matched = [];
@@ -1509,11 +1529,9 @@
             const total = matched.length;
             const parts = [];
 
-            // No header — removed as requested
-
             for (let i = 0; i < total; i++) {
                 const t = matched[i].t;
-                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item">' +
+                parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item" target="_blank" rel="noopener noreferrer">' +
                     '<span class="result-main">' +
                     '<span class="result-name">' + highlight(t.name, q) + '</span>' +
                     '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
@@ -1563,10 +1581,15 @@
                 items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
             } else if (e.key === 'Enter') {
                 e.preventDefault();
+                let targetHref = null;
                 if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) {
-                    window.location.href = items[searchState.activeIndex].getAttribute('href');
+                    targetHref = items[searchState.activeIndex].getAttribute('href');
                 } else if (items.length === 1) {
-                    window.location.href = items[0].getAttribute('href');
+                    targetHref = items[0].getAttribute('href');
+                }
+                if (targetHref) {
+                    // Open in a new tab so the original tab keeps its state
+                    window.open(targetHref, '_blank', 'noopener,noreferrer');
                 }
             }
         }
@@ -1587,13 +1610,11 @@
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
-            // Renders the FULL tool list immediately when the box is empty
             filterFullSearch();
             setTimeout(() => {
                 if (searchIsOpen) document.getElementById('fullSearchInput').focus();
             }, 200);
         }
-        // FIX #2: cancel any pending search rebuild when closing the overlay
         function closeFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay.classList.contains('active')) return;
@@ -1792,7 +1813,6 @@
             input.placeholder = 'Search all ' + tools.length + ' free tools…';
         }
 
-        // FIX #4: use closest() instead of parentElement for robustness
         function toggleFaq(btnEl) {
             const item = btnEl.closest('.faq-item');
             if (!item) return;
@@ -1823,6 +1843,9 @@
             initResizeHandler();
             setKbdHint();
             setSearchPlaceholder();
+
+            // Apply new-tab behavior to ALL links currently in the DOM
+            openAllLinksInNewTab();
 
             applyFilters();
         }
