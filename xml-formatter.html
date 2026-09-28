@@ -9,7 +9,7 @@
     <meta name="author" content="Pradeep Yadav">
     <link rel="canonical" href="https://textify.tools/xml-formatter">
     <link rel="alternate" hreflang="en-US" href="https://textify.tools/xml-formatter">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff" id="themeColorMeta">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/xml-formatter">
@@ -50,7 +50,7 @@
             var isDark = stored === 'dark' || (!stored && prefersDark);
             if (isDark) {
                 document.documentElement.classList.add('dark-mode');
-                var meta = document.querySelector('meta[name="theme-color"]');
+                var meta = document.getElementById('themeColorMeta');
                 if (meta) meta.setAttribute('content', '#0f172a');
             }
         })();
@@ -206,8 +206,28 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg); color: var(--text); min-height: 100vh;
             transition: background 0.3s, color 0.3s; overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
         .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
+
+        /* Accessibility: visible focus ring for keyboard users */
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            border-radius: 6px;
+        }
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
 
         /* FIX: prevent sun/moon flash */
         html.dark-mode #sunIcon,
@@ -230,7 +250,7 @@
             background: transparent; width: 100%;
         }
         .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; letter-spacing: -0.4px; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
         .desktop-nav { display: flex; gap: 15px; align-items: center; }
@@ -239,12 +259,16 @@
         .tools-menu-container { position: relative; }
         .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; background: none; border: none; font-family: inherit; }
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
-        .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
+        /* FIX: Lucide replaces <i> with <svg>, so target both */
+        .tools-trigger i,
+        .tools-trigger svg { width: 14px; height: 14px; transition: transform 0.2s; flex-shrink: 0; }
         .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 220px; max-width: min(90vw, 400px); max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
         .tools-menu-container:hover .tools-mega-menu,
         .tools-menu-container.open .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
         .tools-menu-container:hover .tools-trigger i,
-        .tools-menu-container.open .tools-trigger i { transform: rotate(180deg); }
+        .tools-menu-container:hover .tools-trigger svg,
+        .tools-menu-container.open .tools-trigger i,
+        .tools-menu-container.open .tools-trigger svg { transform: rotate(180deg); }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
@@ -252,7 +276,7 @@
 
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
-        .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
+        .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; font-family: inherit; }
         .search-trigger:hover { border-color: var(--primary); color: var(--primary); }
         .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; }
         .hamburger-btn:hover { background: var(--hover); }
@@ -272,14 +296,18 @@
         .mobile-sidebar-nav a:hover { background: var(--hover); color: var(--primary); }
         .mobile-tools-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 10px; background: none; border: none; cursor: pointer; color: var(--text); font-weight: 500; font-size: 15px; font-family: inherit; transition: 0.2s; }
         .mobile-tools-toggle:hover { background: var(--hover); color: var(--primary); }
-        .mobile-tools-toggle i { width: 16px; height: 16px; transition: transform 0.3s; }
-        .mobile-tools-toggle.active i { transform: rotate(180deg); }
+        /* FIX: target both <i> and the Lucide-generated <svg> */
+        .mobile-tools-toggle i,
+        .mobile-tools-toggle svg { width: 16px; height: 16px; transition: transform 0.3s; flex-shrink: 0; }
+        .mobile-tools-toggle.active i,
+        .mobile-tools-toggle.active svg { transform: rotate(180deg); }
         .mobile-tools-menu { display: none; flex-direction: column; padding-left: 16px; gap: 2px; margin-bottom: 6px; }
         .mobile-tools-menu.active { display: flex; }
         .mobile-tools-menu a { font-size: 14px; padding: 10px 14px; color: var(--text-light); }
         .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
         .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
         .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
+        .mobile-sidebar-actions button svg { width: 16px; height: 16px; flex-shrink: 0; }
 
         /* ===== SEARCH OVERLAY — matches index page ===== */
         .search-overlay-full {
@@ -353,6 +381,7 @@
         main { flex: 1; padding: 40px 0; width: 100%; max-width: 100%; background: transparent; }
         .content-container { width: 100%; padding: 0 40px; }
         @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
+        @media (min-width: 1800px) { .content-container { padding: 0 60px; } main { padding: 50px 0; } }
         h1 { font-size: 32px; font-weight: 800; margin-bottom: 10px; line-height: 1.3; text-align: left; }
         .subtitle { font-size: 16px; color: var(--text-light); line-height: 1.7; margin-bottom: 30px; text-align: left; word-wrap: break-word; }
         h2 { font-size: 28px; font-weight: 700; margin: 45px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
@@ -375,7 +404,9 @@
 
         /* ============ FAQ (matches index page) ============ */
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
-        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; border: none; width: 100%; text-align: left; font-family: inherit; }
+        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text); font-size: 15px; border: none; width: 100%; text-align: left; font-family: inherit; gap: 12px; }
+        .faq-question i,
+        .faq-question svg { width: 16px; height: 16px; transition: transform 0.3s; flex-shrink: 0; }
         .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
@@ -438,7 +469,7 @@
             display: none;
         }
         .error-message.visible { display: block; }
-        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; }
+        .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; max-width: 90vw; overflow: hidden; text-overflow: ellipsis; }
         .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
 </head>
@@ -454,7 +485,7 @@
                     <div class="desktop-nav">
                         <div class="tools-menu-container" id="toolsMenuContainer">
                             <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu" onclick="toggleToolsMenu()">
-                                Tools <i data-lucide="chevron-down"></i>
+                                Tools <i data-lucide="chevron-down" aria-hidden="true"></i>
                             </button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
                         </div>
@@ -463,12 +494,12 @@
                         <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20" aria-hidden="true"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20" aria-hidden="true"></i>
                     </button>
-                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="search-trigger" onclick="openFullSearch()" aria-label="Search tools"><i data-lucide="search" aria-hidden="true"></i> Search tools...</button>
                     <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
-                        <span class="menu-icon"><span></span><span></span></span>
+                        <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
                     </button>
                 </div>
             </div>
@@ -499,22 +530,22 @@
                             <input type="checkbox" id="sort-attributes" onchange="formatXml()">
                             <label for="sort-attributes">Sort attributes alphabetically</label>
                         </div>
-                        <button class="btn primary" onclick="formatXml()"><i data-lucide="refresh-cw" width="16" height="16"></i> Format</button>
+                        <button class="btn primary" onclick="formatXml()"><i data-lucide="refresh-cw" width="16" height="16" aria-hidden="true"></i> Format</button>
                     </div>
 
                     <div class="textarea-group">
                         <div class="textarea-wrapper">
                             <label for="input-xml">Input XML</label>
                             <textarea id="input-xml" placeholder="Paste your XML here...&#10;e.g.,&#10;<root><item id='1'><name>Apple</name></item></root>" oninput="autoFormatXml()"></textarea>
-                            <div class="error-message" id="error-message"></div>
+                            <div class="error-message" id="error-message" role="alert"></div>
                         </div>
                         <div class="textarea-wrapper">
                             <label for="output-xml">Formatted XML</label>
                             <textarea id="output-xml" readonly placeholder="Your beautiful XML will appear here..."></textarea>
                             <div class="button-row">
-                                <button class="btn primary" onclick="copyToClipboard()"><i data-lucide="copy" width="16" height="16"></i> Copy</button>
-                                <button class="btn" onclick="downloadXml()"><i data-lucide="download" width="16" height="16"></i> Download</button>
-                                <button class="btn" onclick="clearAll()"><i data-lucide="trash-2" width="16" height="16"></i> Clear</button>
+                                <button class="btn primary" onclick="copyToClipboard()"><i data-lucide="copy" width="16" height="16" aria-hidden="true"></i> Copy</button>
+                                <button class="btn" onclick="downloadXml()"><i data-lucide="download" width="16" height="16" aria-hidden="true"></i> Download</button>
+                                <button class="btn" onclick="clearAll()"><i data-lucide="trash-2" width="16" height="16" aria-hidden="true"></i> Clear</button>
                             </div>
                         </div>
                     </div>
@@ -606,21 +637,21 @@
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
                             Is this tool really free?
-                            <i data-lucide="chevron-down" width="16"></i>
+                            <i data-lucide="chevron-down" width="16" aria-hidden="true"></i>
                         </button>
                         <div class="faq-answer">Absolutely. No paid plans, no hidden fees. I keep the lights on with a few small, non‑intrusive ads.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
                             What if my XML is invalid?
-                            <i data-lucide="chevron-down" width="16"></i>
+                            <i data-lucide="chevron-down" width="16" aria-hidden="true"></i>
                         </button>
                         <div class="faq-answer">The tool will display a specific error message right below the input box, pointing to the line and column where the parser tripped. Fix the syntax, and the formatting will update.</div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
                             Do you store my XML data?
-                            <i data-lucide="chevron-down" width="16"></i>
+                            <i data-lucide="chevron-down" width="16" aria-hidden="true"></i>
                         </button>
                         <div class="faq-answer">Never. All processing happens inside your browser. Your XML doesn't leave your device. I can't see it, and I never store it.</div>
                     </div>
@@ -695,18 +726,18 @@
     <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
-            <button class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
+            <button class="mobile-sidebar-close" id="mobileSidebarClose" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20" aria-hidden="true"></i></button>
         </div>
         <div class="mobile-sidebar-nav">
-            <button class="mobile-tools-toggle" id="mobileToolsToggle" onclick="toggleMobileTools()" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <i data-lucide="chevron-down"></i></button>
+            <button class="mobile-tools-toggle" id="mobileToolsToggle" onclick="toggleMobileTools()" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <i data-lucide="chevron-down" aria-hidden="true"></i></button>
             <div class="mobile-tools-menu" id="mobileToolsMenu"></div>
             <a href="/privacy-policy">Privacy</a>
             <a href="/blog">Blog</a>
             <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
         </div>
         <div class="mobile-sidebar-actions">
-            <button onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
-            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
+            <button onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search" aria-hidden="true"></i> Search</button>
+            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16" aria-hidden="true"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" aria-hidden="true"></i> Theme</button>
         </div>
     </div>
 
@@ -714,10 +745,11 @@
     <div class="search-overlay-full" id="searchOverlayFull" role="dialog" aria-modal="true" aria-label="Search tools" aria-hidden="true">
         <div class="search-container">
             <div class="search-box">
-                <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
+                <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;" aria-hidden="true"></i>
+                <label for="fullSearchInput" class="sr-only">Search all tools</label>
                 <input type="text" id="fullSearchInput" placeholder="Type to search free tools…" oninput="filterFullSearch()" onkeydown="handleSearchKey(event)" autocomplete="off" aria-label="Search all tools">
-                <button class="search-clear-btn" id="searchClearBtn" onclick="clearSearchInput()" aria-label="Clear search"><i data-lucide="x" width="16" height="16"></i></button>
-                <button class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
+                <button class="search-clear-btn" id="searchClearBtn" onclick="clearSearchInput()" aria-label="Clear search"><i data-lucide="x" width="16" height="16" aria-hidden="true"></i></button>
+                <button class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20" aria-hidden="true"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
             <div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>
@@ -893,7 +925,7 @@
             { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', icon: 'hash', link: '/word-counter', keywords: 'word count character counter letters essay limit', color: '#8b5cf6', category: 'text' },
             { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', icon: 'type', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', color: '#8b5cf6', category: 'text' },
             { name: 'Paragraph Counter', desc: 'Quickly count paragraphs in your writing.', icon: 'align-left', link: '/paragraph-counter', keywords: 'paragraph count block format', color: '#8b5cf6', category: 'text' },
-            { name: 'Line Counter', desc: 'Count lines in text.', icon: 'list', link: '/line-counter', keywords: 'line count text lines rows', color: '#8b5cf6', category: 'text' },
+            { name: 'Line Counter', desc: 'Count lines in text, including empty and non-empty lines.', icon: 'list', link: '/line-counter', keywords: 'line count text lines rows', color: '#8b5cf6', category: 'text' },
             { name: 'Reading Time Estimator', desc: 'Estimate how long it takes to read your text.', icon: 'clock', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute blog', color: '#0ea5e9', category: 'text' },
             { name: 'Speaking Time Calculator', desc: 'Estimate how long it takes to speak your text aloud.', icon: 'mic', link: '/speaking-time-calculator', keywords: 'speaking time talk duration speech presentation', color: '#0ea5e9', category: 'text' },
             { name: 'Keyword Counter', desc: 'Count occurrences of each keyword in your text.', icon: 'hash', link: '/keyword-counter', keywords: 'keyword frequency count word seo', color: '#0ea5e9', category: 'text' },
@@ -931,6 +963,8 @@
             { name: 'Wrap Text', desc: 'Wrap long lines to a specified width.', icon: 'wrap-text', link: '/wrap-text', keywords: 'word wrap text line width column', color: '#10b981', category: 'text' },
             { name: 'Unwrap Text', desc: 'Join broken lines into a single paragraph.', icon: 'unlink', link: '/unwrap-text', keywords: 'unwrap text join lines paragraph merge', color: '#10b981', category: 'text' },
             { name: 'Join Lines', desc: 'Merge multiple lines into one single continuous line or paragraph.', icon: 'unlink', link: '/join-lines', keywords: 'join lines merge combine single line paragraph unwrap newline concatenate', color: '#10b981', category: 'text' },
+            { name: 'Text Diff Checker', desc: 'Compare two texts side by side and highlight every difference.', icon: 'git-compare', link: '/text-diff-checker', keywords: 'diff compare text changes version differences side by side review', color: '#0ea5e9', category: 'text' },
+            { name: 'Text Sorter', desc: 'Sort lines alphabetically, numerically, by length, or in reverse.', icon: 'arrow-up-down', link: '/text-sorter', keywords: 'sort lines alphabetical numeric order arrange a-z z-a', color: '#0ea5e9', category: 'text' },
             { name: 'Text to Handwriting', desc: 'Convert typed text into realistic handwriting.', icon: 'pen-tool', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment notes', color: '#a855f7', category: 'text' },
             { name: 'Bold Text Generator', desc: 'Bold Unicode text for social media bios.', icon: 'bold', link: '/bold-text-generator', keywords: 'bold unicode text style font bio', color: '#ec4899', category: 'text' },
             { name: 'Italic Text Generator', desc: 'Italic Unicode text using math symbols.', icon: 'italic', link: '/italic-text-generator', keywords: 'italic unicode text style font', color: '#ec4899', category: 'text' },
@@ -1082,7 +1116,7 @@
             { name: 'Matrix Calculator', desc: 'Perform matrix operations.', icon: 'layout-grid', link: '/matrix-calculator', keywords: 'matrix calculator determinant multiply', color: '#8b5cf6', category: 'calculator' },
             { name: 'Probability Calculator', desc: 'Calculate probabilities.', icon: 'percent', link: '/probability-calculator', keywords: 'probability calculator chance', color: '#8b5cf6', category: 'calculator' },
             { name: 'Standard Deviation Calculator', desc: 'Calculate standard deviation.', icon: 'bar-chart-2', link: '/standard-deviation-calculator', keywords: 'standard deviation calculator statistics', color: '#8b5cf6', category: 'calculator' },
-            { name: 'Mean Median Mode Calculator', desc: 'Calculate mean, median, mode.', icon: 'bar-chart-2', link: '/mean-median-mode-calculator', keywords: 'mean median mode calculator average statistics', color: '#8b5cf6', category: 'calculator' },
+            { name: 'Mean Median Mode Calculator', desc: 'Calculate mean, median, and mode instantly.', icon: 'bar-chart-2', link: '/mean-median-mode-calculator', keywords: 'mean median mode average calculator statistics central tendency', color: '#8b5cf6', category: 'calculator' },
             { name: 'Prime Number Checker', desc: 'Check if a number is prime.', icon: 'hash', link: '/prime-number-checker', keywords: 'prime number check', color: '#10b981', category: 'calculator' },
             { name: 'Prime Number Generator', desc: 'Generate prime numbers.', icon: 'hash', link: '/prime-number-generator', keywords: 'prime number generator', color: '#10b981', category: 'calculator' },
             { name: 'Factorial Calculator', desc: 'Calculate factorial of a number.', icon: 'hash', link: '/factorial-calculator', keywords: 'factorial calculator', color: '#10b981', category: 'calculator' },
@@ -1103,13 +1137,13 @@
             { name: 'Subtract Days from Date', desc: 'Subtract days from a date.', icon: 'calendar', link: '/subtract-days-from-date', keywords: 'subtract days date calculator', color: '#0ea5e9', category: 'calculator' },
             { name: 'Business Days Calculator', desc: 'Calculate business days between dates.', icon: 'briefcase', link: '/business-days-calculator', keywords: 'business days calculator working days', color: '#0ea5e9', category: 'calculator' },
             { name: 'Date to Unix Timestamp', desc: 'Convert date to Unix timestamp.', icon: 'clock', link: '/date-to-unix-timestamp', keywords: 'date unix timestamp epoch', color: '#0ea5e9', category: 'calculator' },
-            { name: 'Unix Timestamp to Date', desc: 'Convert Unix timestamp to date.', icon: 'clock', link: '/unix-timestamp-to-date', keywords: 'unix timestamp date epoch', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Unix Timestamp to Date', desc: 'Convert Unix timestamp to human-readable date.', icon: 'clock', link: '/unix-timestamp-to-date', keywords: 'unix timestamp date epoch converter', color: '#0ea5e9', category: 'calculator' },
             { name: 'Time Duration Calculator', desc: 'Calculate time duration between two times.', icon: 'clock', link: '/time-duration-calculator', keywords: 'time duration calculator hours minutes', color: '#0ea5e9', category: 'calculator' },
             { name: 'Countdown Calculator', desc: 'Countdown to a future date.', icon: 'clock', link: '/countdown-calculator', keywords: 'countdown calculator timer', color: '#0ea5e9', category: 'calculator' },
             { name: 'Week Number Calculator', desc: 'Find week number of a date.', icon: 'calendar', link: '/week-number-calculator', keywords: 'week number calculator iso', color: '#0ea5e9', category: 'calculator' },
             { name: 'Leap Year Checker', desc: 'Check if a year is a leap year.', icon: 'calendar', link: '/leap-year-checker', keywords: 'leap year checker february', color: '#0ea5e9', category: 'calculator' },
-            { name: 'World Clock', desc: 'View current time in different time zones.', icon: 'globe', link: '/world-clock', keywords: 'world clock time zones current time', color: '#0ea5e9', category: 'calculator' },
-            { name: 'Time Zone Converter', desc: 'Convert time between time zones.', icon: 'globe', link: '/time-zone-converter', keywords: 'time zone converter utc gmt', color: '#0ea5e9', category: 'calculator' },
+            { name: 'World Clock', desc: 'See live time in any city with timezone converter.', icon: 'globe', link: '/world-clock', keywords: 'world clock time zones live time timezone converter global clock', color: '#0ea5e9', category: 'calculator' },
+            { name: 'Time Zone Converter', desc: 'Convert time between any two time zones.', icon: 'globe', link: '/time-zone-converter', keywords: 'time zone converter timezone conversion utc gmt dst', color: '#0ea5e9', category: 'calculator' },
             { name: 'Length Converter', desc: 'Convert length units.', icon: 'ruler', link: '/length-converter', keywords: 'length converter units meter feet inch', color: '#f59e0b', category: 'calculator' },
             { name: 'Weight Converter', desc: 'Convert weight units.', icon: 'scale', link: '/weight-converter', keywords: 'weight converter units kg pound', color: '#f59e0b', category: 'calculator' },
             { name: 'Temperature Converter', desc: 'Convert temperature units.', icon: 'thermometer', link: '/temperature-converter', keywords: 'temperature converter celsius fahrenheit kelvin', color: '#f59e0b', category: 'calculator' },
@@ -1164,7 +1198,7 @@
 
         // ============ Theme (CSS-class based) ============
         function setThemeColorMeta(isDark) {
-            const meta = document.querySelector('meta[name="theme-color"]');
+            const meta = document.getElementById('themeColorMeta');
             if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
         }
 
@@ -1181,14 +1215,44 @@
             }
         }
 
+        // FIX: react to OS-level theme changes when the user hasn't picked one manually.
+        function initSystemThemeListener() {
+            if (!window.matchMedia) return;
+            const mq = window.matchMedia('(prefers-color-scheme: dark)');
+            const handler = function (e) {
+                let stored = null;
+                try { stored = localStorage.getItem('theme'); } catch (err) {}
+                if (stored) return; // user has explicitly chosen a theme
+                const isDark = e.matches;
+                document.documentElement.classList.toggle('dark-mode', isDark);
+                setThemeColorMeta(isDark);
+            };
+            if (typeof mq.addEventListener === 'function') {
+                mq.addEventListener('change', handler);
+            } else if (typeof mq.addListener === 'function') {
+                mq.addListener(handler);
+            }
+        }
+
         // ============ Tools Menu ============
+        // FIX: helper that optionally returns focus to the trigger.
+        function closeToolsMenu(returnFocus) {
+            const container = document.getElementById('toolsMenuContainer');
+            const trigger = document.getElementById('toolsTrigger');
+            if (!container || !container.classList.contains('open')) return;
+            container.classList.remove('open');
+            if (trigger) {
+                trigger.setAttribute('aria-expanded', 'false');
+                if (returnFocus) trigger.focus();
+            }
+        }
+
         function toggleToolsMenu() {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
             const isOpen = container.classList.contains('open');
             if (isOpen) {
-                container.classList.remove('open');
-                trigger.setAttribute('aria-expanded', 'false');
+                closeToolsMenu(true);
             } else {
                 buildMegaMenu();
                 container.classList.add('open');
@@ -1200,8 +1264,7 @@
         document.addEventListener('click', function(e) {
             const container = document.getElementById('toolsMenuContainer');
             if (container && !container.contains(e.target) && container.classList.contains('open')) {
-                container.classList.remove('open');
-                document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                closeToolsMenu(false);
             }
         });
 
@@ -1215,15 +1278,24 @@
             const hb = document.getElementById('hamburgerBtn');
             if (hb) hb.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
+            const closeBtn = document.getElementById('mobileSidebarClose');
+            if (closeBtn) setTimeout(function () { closeBtn.focus(); }, 100);
         }
         function closeMobileSidebar() {
             const sb = document.getElementById('mobileSidebar');
-            if (!sb) return;
+            if (!sb || !sb.classList.contains('active')) return;
             sb.classList.remove('active');
             sb.setAttribute('aria-hidden', 'true');
             document.getElementById('mobileSidebarOverlay').classList.remove('active');
             const hb = document.getElementById('hamburgerBtn');
-            if (hb) hb.setAttribute('aria-expanded', 'false');
+            if (hb) {
+                hb.setAttribute('aria-expanded', 'false');
+                // FIX: return focus to the hamburger when the sidebar closes,
+                // unless we're opening the search overlay right after.
+                if (!searchIsOpen) {
+                    try { hb.focus(); } catch (e) {}
+                }
+            }
             const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
             if (!searchOpen) document.body.style.overflow = '';
         }
@@ -1265,6 +1337,12 @@
 
         function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
+            // FIX: if already open, just refocus the input instead of overwriting
+            // lastFocusedBeforeSearch with an element inside the overlay.
+            if (overlay.classList.contains('active')) {
+                document.getElementById('fullSearchInput').focus();
+                return;
+            }
             lastFocusedBeforeSearch = document.activeElement;
             searchIsOpen = true;
             overlay.classList.add('active');
@@ -1408,12 +1486,7 @@
         // Keyboard shortcuts
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') {
-                const container = document.getElementById('toolsMenuContainer');
-                if (container && container.classList.contains('open')) {
-                    container.classList.remove('open');
-                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
-                    document.getElementById('toolsTrigger').focus();
-                }
+                closeToolsMenu(true);
                 closeFullSearch();
                 closeMobileSidebar();
             }
@@ -1439,6 +1512,8 @@
         // ============ Init ============
         buildMegaMenu();
         buildMobileToolsMenu();
+        initSystemThemeListener();
+
         // Pre-populate search results (hidden overlay) so it's ready when opened
         searchIsOpen = true;
         filterFullSearch();
