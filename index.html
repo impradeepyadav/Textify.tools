@@ -1214,6 +1214,8 @@
             { name: 'Wrap Text', desc: 'Wrap long lines to a specified width.', icon: 'wrap-text', link: '/wrap-text', keywords: 'word wrap text line width column', color: '#10b981', category: 'text' },
             { name: 'Unwrap Text', desc: 'Join broken lines into a single paragraph.', icon: 'unlink', link: '/unwrap-text', keywords: 'unwrap text join lines paragraph merge', color: '#10b981', category: 'text' },
             { name: 'Join Lines', desc: 'Merge multiple lines into one single continuous line or paragraph.', icon: 'unlink', link: '/join-lines', keywords: 'join lines merge combine single line paragraph unwrap newline concatenate', color: '#10b981', category: 'text' },
+            { name: 'Text Diff Checker', desc: 'Compare two texts side by side and highlight every difference.', icon: 'git-compare', link: '/text-diff-checker', keywords: 'diff compare text changes version differences side by side review', color: '#0ea5e9', category: 'text' },
+            { name: 'Text Sorter', desc: 'Sort lines alphabetically, numerically, by length, or in reverse.', icon: 'arrow-up-down', link: '/text-sorter', keywords: 'sort lines alphabetical numeric order arrange a-z z-a', color: '#0ea5e9', category: 'text' },
             { name: 'Text to Handwriting', desc: 'Convert typed text into realistic handwriting.', icon: 'pen-tool', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment notes', color: '#a855f7', category: 'text' },
             { name: 'Bold Text Generator', desc: 'Bold Unicode text for social media bios.', icon: 'bold', link: '/bold-text-generator', keywords: 'bold unicode text style font bio', color: '#ec4899', category: 'text' },
             { name: 'Italic Text Generator', desc: 'Italic Unicode text using math symbols.', icon: 'italic', link: '/italic-text-generator', keywords: 'italic unicode text style font', color: '#ec4899', category: 'text' },
@@ -1673,6 +1675,12 @@
 
         function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
+            // FIX: if already open, just refocus the input instead of overwriting
+            // lastFocusedBeforeSearch with an element inside the overlay.
+            if (overlay.classList.contains('active')) {
+                document.getElementById('fullSearchInput').focus();
+                return;
+            }
             lastFocusedBeforeSearch = document.activeElement;
             searchIsOpen = true;
             overlay.classList.add('active');
@@ -1731,13 +1739,42 @@
             }
         }
 
+        // FIX: react to OS-level theme changes when the user hasn't picked one manually.
+        function initSystemThemeListener() {
+            if (!window.matchMedia) return;
+            const mq = window.matchMedia('(prefers-color-scheme: dark)');
+            const handler = function (e) {
+                let stored = null;
+                try { stored = localStorage.getItem('theme'); } catch (err) {}
+                if (stored) return; // user has explicitly chosen a theme
+                const isDark = e.matches;
+                document.documentElement.classList.toggle('dark-mode', isDark);
+                setThemeColorMeta(isDark);
+            };
+            if (typeof mq.addEventListener === 'function') {
+                mq.addEventListener('change', handler);
+            } else if (typeof mq.addListener === 'function') {
+                mq.addListener(handler);
+            }
+        }
+
+        function closeToolsMenu(returnFocus) {
+            const container = document.getElementById('toolsMenuContainer');
+            const trigger = document.getElementById('toolsTrigger');
+            if (!container || !container.classList.contains('open')) return;
+            container.classList.remove('open');
+            if (trigger) {
+                trigger.setAttribute('aria-expanded', 'false');
+                if (returnFocus) trigger.focus();
+            }
+        }
+
         function toggleToolsMenu() {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
             const isOpen = container.classList.contains('open');
             if (isOpen) {
-                container.classList.remove('open');
-                trigger.setAttribute('aria-expanded', 'false');
+                closeToolsMenu(true);
             } else {
                 buildMegaMenu();
                 container.classList.add('open');
@@ -1749,8 +1786,7 @@
         document.addEventListener('click', function(e) {
             const container = document.getElementById('toolsMenuContainer');
             if (container && !container.contains(e.target) && container.classList.contains('open')) {
-                container.classList.remove('open');
-                document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                closeToolsMenu(false);
             }
         });
 
@@ -1774,7 +1810,14 @@
             const ov = document.getElementById('mobileSidebarOverlay');
             if (ov) ov.classList.remove('active');
             const hb = document.getElementById('hamburgerBtn');
-            if (hb) hb.setAttribute('aria-expanded', 'false');
+            if (hb) {
+                hb.setAttribute('aria-expanded', 'false');
+                // FIX: return focus to the hamburger when the sidebar closes,
+                // unless we're opening the search overlay right after.
+                if (!searchIsOpen) {
+                    try { hb.focus(); } catch (e) {}
+                }
+            }
             if (!searchIsOpen) document.body.style.overflow = '';
         }
         function toggleMobileTools() {
@@ -1856,9 +1899,7 @@
                 if (e.key === 'Escape') {
                     const container = document.getElementById('toolsMenuContainer');
                     if (container && container.classList.contains('open')) {
-                        container.classList.remove('open');
-                        document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
-                        document.getElementById('toolsTrigger').focus();
+                        closeToolsMenu(true);
                     }
                     closeFullSearch();
                     closeMobileSidebar();
@@ -1909,6 +1950,7 @@
             initDelegatedHandlers();
             initKeyboardShortcuts();
             initResizeHandler();
+            initSystemThemeListener();
             setKbdHint();
             setSearchPlaceholder();
 
