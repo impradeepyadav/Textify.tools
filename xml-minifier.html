@@ -10,7 +10,7 @@
     <link rel="canonical" href="https://textify.tools/xml-minifier">
     <link rel="alternate" hreflang="x-default" href="https://textify.tools/xml-minifier">
     <link rel="alternate" hreflang="en-US" href="https://textify.tools/xml-minifier">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff" id="themeColorMeta">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://textify.tools/xml-minifier">
@@ -52,7 +52,7 @@
             var isDark = stored === 'dark' || (!stored && prefersDark);
             if (isDark) {
                 document.documentElement.classList.add('dark-mode');
-                var meta = document.querySelector('meta[name="theme-color"]');
+                var meta = document.getElementById('themeColorMeta');
                 if (meta) meta.setAttribute('content', '#0f172a');
             }
         })();
@@ -248,8 +248,28 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg); color: var(--text); min-height: 100vh;
             transition: background 0.3s, color 0.3s; overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
         .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
+
+        /* Accessibility: visible focus ring for keyboard users */
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 2px solid var(--tool-accent);
+            outline-offset: 2px;
+            border-radius: 6px;
+        }
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
 
         html.dark-mode #sunIcon,
         html.dark-mode #mobileSunIcon { display: none !important; }
@@ -272,7 +292,7 @@
             background: transparent; width: 100%;
         }
         .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; letter-spacing: -0.4px; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; }
         .desktop-nav { display: flex; gap: 15px; align-items: center; }
@@ -281,12 +301,15 @@
         .tools-menu-container { position: relative; }
         .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; background: none; border: none; font-family: inherit; }
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
-        .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
+        .tools-trigger i,
+        .tools-trigger svg { width: 14px; height: 14px; transition: transform 0.2s; flex-shrink: 0; }
         .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 220px; max-width: min(90vw, 400px); max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
         .tools-menu-container:hover .tools-mega-menu,
         .tools-menu-container.open .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
         .tools-menu-container:hover .tools-trigger i,
-        .tools-menu-container.open .tools-trigger i { transform: rotate(180deg); }
+        .tools-menu-container:hover .tools-trigger svg,
+        .tools-menu-container.open .tools-trigger i,
+        .tools-menu-container.open .tools-trigger svg { transform: rotate(180deg); }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
@@ -294,7 +317,7 @@
 
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
-        .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
+        .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; font-family: inherit; }
         .search-trigger:hover { border-color: var(--primary); color: var(--primary); }
         .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; }
         .hamburger-btn:hover { background: var(--hover); }
@@ -314,14 +337,17 @@
         .mobile-sidebar-nav a:hover { background: var(--hover); color: var(--primary); }
         .mobile-tools-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 10px; background: none; border: none; cursor: pointer; color: var(--text); font-weight: 500; font-size: 15px; font-family: inherit; transition: 0.2s; }
         .mobile-tools-toggle:hover { background: var(--hover); color: var(--primary); }
-        .mobile-tools-toggle i { width: 16px; height: 16px; transition: transform 0.3s; }
-        .mobile-tools-toggle.active i { transform: rotate(180deg); }
+        .mobile-tools-toggle i,
+        .mobile-tools-toggle svg { width: 16px; height: 16px; transition: transform 0.3s; flex-shrink: 0; }
+        .mobile-tools-toggle.active i,
+        .mobile-tools-toggle.active svg { transform: rotate(180deg); }
         .mobile-tools-menu { display: none; flex-direction: column; padding-left: 16px; gap: 2px; margin-bottom: 6px; }
         .mobile-tools-menu.active { display: flex; }
         .mobile-tools-menu a { font-size: 14px; padding: 10px 14px; color: var(--text-light); }
         .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
         .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
         .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
+        .mobile-sidebar-actions button svg { width: 16px; height: 16px; flex-shrink: 0; }
 
         /* ===== SEARCH OVERLAY ===== */
         .search-overlay-full {
@@ -429,7 +455,7 @@
             font-size: 16px; font-weight: 700; margin-bottom: 16px;
             display: flex; align-items: center; gap: 8px;
         }
-        .tool-panel h2 i { width: 18px; height: 18px; color: var(--tool-accent); }
+        .tool-panel h2 i, .tool-panel h2 svg { width: 18px; height: 18px; color: var(--tool-accent); }
 
         /* Input area */
         .input-group { margin-bottom: 16px; }
@@ -467,7 +493,7 @@
         .validator-badge.empty {
             background: var(--hover); color: var(--text-light);
         }
-        .validator-badge i { width: 14px; height: 14px; }
+        .validator-badge i, .validator-badge svg { width: 14px; height: 14px; }
 
         /* Options row */
         .options-row {
@@ -599,7 +625,7 @@
             font-size: 16px; font-weight: 700; margin-bottom: 8px;
             display: flex; align-items: center; gap: 8px;
         }
-        .feature-card h4 i { width: 18px; height: 18px; color: var(--tool-accent); }
+        .feature-card h4 i, .feature-card h4 svg { width: 18px; height: 18px; color: var(--tool-accent); }
         .feature-card p { font-size: 14px; color: var(--text-light); margin: 0; line-height: 1.6; }
 
         /* Table */
@@ -631,7 +657,7 @@
             border: none; width: 100%; text-align: left; font-family: inherit;
             gap: 12px;
         }
-        .faq-question i { width: 16px; height: 16px; transition: transform 0.3s; flex-shrink: 0; }
+        .faq-question i, .faq-question svg { width: 16px; height: 16px; transition: transform 0.3s; flex-shrink: 0; }
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--primary); }
         .faq-answer {
             padding: 16px 18px; display: none; color: var(--text-light);
@@ -702,7 +728,7 @@
                     <div class="desktop-nav">
                         <div class="tools-menu-container" id="toolsMenuContainer">
                             <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu" onclick="toggleToolsMenu()">
-                                Tools <i data-lucide="chevron-down"></i>
+                                Tools <i data-lucide="chevron-down" aria-hidden="true"></i>
                             </button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
                         </div>
@@ -711,12 +737,12 @@
                         <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20" aria-hidden="true"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20" aria-hidden="true"></i>
                     </button>
-                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="search-trigger" onclick="openFullSearch()" aria-label="Search tools"><i data-lucide="search" aria-hidden="true"></i> Search tools...</button>
                     <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
-                        <span class="menu-icon"><span></span><span></span></span>
+                        <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
                     </button>
                 </div>
             </div>
@@ -735,42 +761,43 @@
                 <div class="tool-layout">
                     <!-- Input Panel -->
                     <div class="tool-panel">
-                        <h2><i data-lucide="file-code-2"></i> Paste Your XML</h2>
+                        <h2><i data-lucide="file-code-2" aria-hidden="true"></i> Paste Your XML</h2>
 
                         <div class="validator-badge empty" id="validatorBadge">
-                            <i data-lucide="circle-dashed" width="14" height="14"></i> Waiting for input
+                            <i data-lucide="circle-dashed" width="14" height="14" aria-hidden="true"></i> Waiting for input
                         </div>
 
                         <div class="input-group">
+                            <label for="xmlInput" class="sr-only">Paste your XML</label>
                             <textarea id="xmlInput" placeholder='Paste your XML here...&#10;&#10;Example:&#10;&lt;?xml version="1.0" encoding="UTF-8"?&gt;&#10;&lt;catalog&gt;&#10;  &lt;book id="1"&gt;&#10;    &lt;title&gt;XML Guide&lt;/title&gt;&#10;    &lt;price&gt;29.99&lt;/price&gt;&#10;  &lt;/book&gt;&#10;&lt;/catalog&gt;' autocomplete="off" spellcheck="false"></textarea>
                         </div>
 
                         <div class="options-row">
                             <button type="button" class="option-toggle active" id="optPreserveCdata" data-opt="preserveCdata">
-                                <i data-lucide="shield" class="toggle-icon"></i> Preserve CDATA
+                                <i data-lucide="shield" class="toggle-icon" aria-hidden="true"></i> Preserve CDATA
                             </button>
                             <button type="button" class="option-toggle" id="optStripComments" data-opt="stripComments">
-                                <i data-lucide="message-square-x" class="toggle-icon"></i> Strip Comments
+                                <i data-lucide="message-square-x" class="toggle-icon" aria-hidden="true"></i> Strip Comments
                             </button>
                             <button type="button" class="option-toggle active" id="optPreservePI" data-opt="preservePI">
-                                <i data-lucide="info" class="toggle-icon"></i> Keep XML Declaration
+                                <i data-lucide="info" class="toggle-icon" aria-hidden="true"></i> Keep XML Declaration
                             </button>
                         </div>
 
                         <div class="btn-row">
                             <button type="button" class="btn btn-outline" id="pasteBtn">
-                                <i data-lucide="clipboard" width="16" height="16"></i> Paste
+                                <i data-lucide="clipboard" width="16" height="16" aria-hidden="true"></i> Paste
                             </button>
                             <button type="button" class="btn btn-outline" id="clearBtn">
-                                <i data-lucide="trash-2" width="16" height="16"></i> Clear
+                                <i data-lucide="trash-2" width="16" height="16" aria-hidden="true"></i> Clear
                             </button>
                             <button type="button" class="btn btn-outline" id="exampleBtn">
-                                <i data-lucide="sparkles" width="16" height="16"></i> Example
+                                <i data-lucide="sparkles" width="16" height="16" aria-hidden="true"></i> Example
                             </button>
                         </div>
 
                         <button type="button" class="btn btn-primary" id="minifyBtn" disabled>
-                            <i data-lucide="minimize-2" width="18" height="18"></i> Minify XML
+                            <i data-lucide="minimize-2" width="18" height="18" aria-hidden="true"></i> Minify XML
                         </button>
 
                         <div class="error-msg" id="errorMsg"></div>
@@ -778,9 +805,10 @@
 
                     <!-- Output Panel -->
                     <div class="tool-panel">
-                        <h2><i data-lucide="package"></i> Minified Output</h2>
+                        <h2><i data-lucide="package" aria-hidden="true"></i> Minified Output</h2>
 
                         <div class="output-wrap" id="outputWrap">
+                            <label for="xmlOutput" class="sr-only">Minified XML output</label>
                             <textarea class="output-textarea" id="xmlOutput" readonly></textarea>
 
                             <div class="stats-grid">
@@ -801,16 +829,16 @@
 
                             <div class="btn-row" style="margin-top:14px;">
                                 <button type="button" class="btn btn-outline" id="copyBtn">
-                                    <i data-lucide="copy" width="16" height="16"></i> Copy
+                                    <i data-lucide="copy" width="16" height="16" aria-hidden="true"></i> Copy
                                 </button>
                                 <button type="button" class="btn btn-outline" id="downloadBtn">
-                                    <i data-lucide="download" width="16" height="16"></i> Download
+                                    <i data-lucide="download" width="16" height="16" aria-hidden="true"></i> Download
                                 </button>
                             </div>
                         </div>
 
                         <div class="preview-placeholder" id="outputPlaceholder" style="display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--text-light);text-align:center;padding:60px 20px;">
-                            <i data-lucide="file-check-2" style="width:48px;height:48px;opacity:0.3;"></i>
+                            <i data-lucide="file-check-2" style="width:48px;height:48px;opacity:0.3;" aria-hidden="true"></i>
                             <p style="font-size:14px;max-width:260px;line-height:1.6;">Your minified XML will appear here. Paste XML on the left and click <strong>Minify XML</strong>.</p>
                         </div>
                     </div>
@@ -841,27 +869,27 @@
                     <h2>Why use this XML Minifier?</h2>
                     <div class="feature-grid">
                         <div class="feature-card">
-                            <h4><i data-lucide="shield-check"></i> 100% client-side</h4>
+                            <h4><i data-lucide="shield-check" aria-hidden="true"></i> 100% client-side</h4>
                             <p>Your XML never leaves your device. Everything runs in the browser using the native DOMParser. No server, no logs, no uploads.</p>
                         </div>
                         <div class="feature-card">
-                            <h4><i data-lucide="check-circle"></i> Real-time validation</h4>
+                            <h4><i data-lucide="check-circle" aria-hidden="true"></i> Real-time validation</h4>
                             <p>The tool validates your XML as you type, using the same parser your browser uses. Well-formed input is guaranteed.</p>
                         </div>
                         <div class="feature-card">
-                            <h4><i data-lucide="shield"></i> Preserves CDATA</h4>
+                            <h4><i data-lucide="shield" aria-hidden="true"></i> Preserves CDATA</h4>
                             <p>CDATA sections are treated as content, so their whitespace is never touched. Toggle the option off if you want them stripped.</p>
                         </div>
                         <div class="feature-card">
-                            <h4><i data-lucide="bar-chart-3"></i> Size statistics</h4>
+                            <h4><i data-lucide="bar-chart-3" aria-hidden="true"></i> Size statistics</h4>
                             <p>See exactly how many bytes you saved and what percentage of the original size that represents. No guesswork.</p>
                         </div>
                         <div class="feature-card">
-                            <h4><i data-lucide="settings-2"></i> Configurable options</h4>
+                            <h4><i data-lucide="settings-2" aria-hidden="true"></i> Configurable options</h4>
                             <p>Strip comments, keep or drop the XML declaration, and preserve CDATA — pick the exact output you need.</p>
                         </div>
                         <div class="feature-card">
-                            <h4><i data-lucide="wifi-off"></i> Works offline</h4>
+                            <h4><i data-lucide="wifi-off" aria-hidden="true"></i> Works offline</h4>
                             <p>Once the page loads, minification runs entirely on your device. No internet connection is needed after the initial page load.</p>
                         </div>
                     </div>
@@ -993,7 +1021,7 @@
                     <div class="faq-item">
                         <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                             What does an XML minifier do?
-                            <i data-lucide="chevron-down"></i>
+                            <i data-lucide="chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="faq-answer">An XML minifier removes unnecessary whitespace between tags, newlines, and indentation from an XML document. It produces the smallest representation of the XML while preserving all text content, attributes, CDATA sections, and the document structure.</div>
                     </div>
@@ -1001,7 +1029,7 @@
                     <div class="faq-item">
                         <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                             Does minifying XML change the data?
-                            <i data-lucide="chevron-down"></i>
+                            <i data-lucide="chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="faq-answer">No. Minification only removes whitespace between elements, which the XML specification says is insignificant. Text content, attributes, CDATA sections, and the document structure are all preserved exactly.</div>
                     </div>
@@ -1009,7 +1037,7 @@
                     <div class="faq-item">
                         <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                             How much does XML minification reduce file size?
-                            <i data-lucide="chevron-down"></i>
+                            <i data-lucide="chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="faq-answer">Typical reductions range from 20% to 70%, depending on how much indentation the original XML uses. Heavily indented files see the largest savings; already-compact files see minimal reduction.</div>
                     </div>
@@ -1017,7 +1045,7 @@
                     <div class="faq-item">
                         <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                             What's the difference between XML minify and XML beautify?
-                            <i data-lucide="chevron-down"></i>
+                            <i data-lucide="chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="faq-answer">Minify removes whitespace to make XML as small as possible. Beautify adds indentation and newlines to make XML human-readable. They're opposite operations serving different purposes.</div>
                     </div>
@@ -1025,7 +1053,7 @@
                     <div class="faq-item">
                         <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                             Will minifying break my CDATA sections?
-                            <i data-lucide="chevron-down"></i>
+                            <i data-lucide="chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="faq-answer">No. The tool preserves CDATA sections exactly as they are. Whitespace inside CDATA is considered part of the content, so it is never touched. You can toggle CDATA preservation off if you specifically want them stripped.</div>
                     </div>
@@ -1033,7 +1061,7 @@
                     <div class="faq-item">
                         <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                             Can I strip XML comments during minification?
-                            <i data-lucide="chevron-down"></i>
+                            <i data-lucide="chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="faq-answer">Yes. The tool has an option to remove XML comments. Turn it on to reduce the file size further, or leave it off to keep comments intact for documentation.</div>
                     </div>
@@ -1041,7 +1069,7 @@
                     <div class="faq-item">
                         <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                             Is this XML minifier safe for sensitive data?
-                            <i data-lucide="chevron-down"></i>
+                            <i data-lucide="chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="faq-answer">Yes. Everything runs in your browser using native JavaScript. No data is sent to any server. You can even disconnect from the internet after the page loads.</div>
                     </div>
@@ -1049,7 +1077,7 @@
                     <div class="faq-item">
                         <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                             Does it work offline?
-                            <i data-lucide="chevron-down"></i>
+                            <i data-lucide="chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="faq-answer">Yes. Once the page loads, minification runs entirely on your device. No internet connection is needed after the initial page load.</div>
                     </div>
@@ -1115,18 +1143,18 @@
     <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
-            <button type="button" class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
+            <button type="button" class="mobile-sidebar-close" id="mobileSidebarClose" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20" aria-hidden="true"></i></button>
         </div>
         <div class="mobile-sidebar-nav">
-            <button type="button" class="mobile-tools-toggle" id="mobileToolsToggle" onclick="toggleMobileTools()" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <i data-lucide="chevron-down"></i></button>
+            <button type="button" class="mobile-tools-toggle" id="mobileToolsToggle" onclick="toggleMobileTools()" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <i data-lucide="chevron-down" aria-hidden="true"></i></button>
             <div class="mobile-tools-menu" id="mobileToolsMenu"></div>
             <a href="/privacy-policy">Privacy</a>
             <a href="/blog">Blog</a>
             <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
         </div>
         <div class="mobile-sidebar-actions">
-            <button type="button" onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
-            <button type="button" onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
+            <button type="button" onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search" aria-hidden="true"></i> Search</button>
+            <button type="button" onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16" aria-hidden="true"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" aria-hidden="true"></i> Theme</button>
         </div>
     </div>
 
@@ -1134,10 +1162,11 @@
     <div class="search-overlay-full" id="searchOverlayFull" role="dialog" aria-modal="true" aria-label="Search tools" aria-hidden="true">
         <div class="search-container">
             <div class="search-box">
-                <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
+                <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;" aria-hidden="true"></i>
+                <label for="fullSearchInput" class="sr-only">Search all tools</label>
                 <input type="text" id="fullSearchInput" placeholder="Type to search free tools…" oninput="filterFullSearch()" onkeydown="handleSearchKey(event)" autocomplete="off" aria-label="Search all tools">
-                <button type="button" class="search-clear-btn" id="searchClearBtn" onclick="clearSearchInput()" aria-label="Clear search"><i data-lucide="x" width="16" height="16"></i></button>
-                <button type="button" class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
+                <button type="button" class="search-clear-btn" id="searchClearBtn" onclick="clearSearchInput()" aria-label="Clear search"><i data-lucide="x" width="16" height="16" aria-hidden="true"></i></button>
+                <button type="button" class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20" aria-hidden="true"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
             <div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>
@@ -1167,7 +1196,7 @@
             { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', icon: 'hash', link: '/word-counter', keywords: 'word count character counter letters essay limit', color: '#8b5cf6', category: 'text' },
             { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', icon: 'type', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', color: '#8b5cf6', category: 'text' },
             { name: 'Paragraph Counter', desc: 'Quickly count paragraphs in your writing.', icon: 'align-left', link: '/paragraph-counter', keywords: 'paragraph count block format', color: '#8b5cf6', category: 'text' },
-            { name: 'Line Counter', desc: 'Count lines in text.', icon: 'list', link: '/line-counter', keywords: 'line count text lines rows', color: '#8b5cf6', category: 'text' },
+            { name: 'Line Counter', desc: 'Count lines in text, including empty and non-empty lines.', icon: 'list', link: '/line-counter', keywords: 'line count text lines rows', color: '#8b5cf6', category: 'text' },
             { name: 'Reading Time Estimator', desc: 'Estimate how long it takes to read your text.', icon: 'clock', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute blog', color: '#0ea5e9', category: 'text' },
             { name: 'Speaking Time Calculator', desc: 'Estimate how long it takes to speak your text aloud.', icon: 'mic', link: '/speaking-time-calculator', keywords: 'speaking time talk duration speech presentation', color: '#0ea5e9', category: 'text' },
             { name: 'Keyword Counter', desc: 'Count occurrences of each keyword in your text.', icon: 'hash', link: '/keyword-counter', keywords: 'keyword frequency count word seo', color: '#0ea5e9', category: 'text' },
@@ -1205,6 +1234,8 @@
             { name: 'Wrap Text', desc: 'Wrap long lines to a specified width.', icon: 'wrap-text', link: '/wrap-text', keywords: 'word wrap text line width column', color: '#10b981', category: 'text' },
             { name: 'Unwrap Text', desc: 'Join broken lines into a single paragraph.', icon: 'unlink', link: '/unwrap-text', keywords: 'unwrap text join lines paragraph merge', color: '#10b981', category: 'text' },
             { name: 'Join Lines', desc: 'Merge multiple lines into one single continuous line or paragraph.', icon: 'unlink', link: '/join-lines', keywords: 'join lines merge combine single line paragraph unwrap newline concatenate', color: '#10b981', category: 'text' },
+            { name: 'Text Diff Checker', desc: 'Compare two texts side by side and highlight every difference.', icon: 'git-compare', link: '/text-diff-checker', keywords: 'diff compare text changes version differences side by side review', color: '#0ea5e9', category: 'text' },
+            { name: 'Text Sorter', desc: 'Sort lines alphabetically, numerically, by length, or in reverse.', icon: 'arrow-up-down', link: '/text-sorter', keywords: 'sort lines alphabetical numeric order arrange a-z z-a', color: '#0ea5e9', category: 'text' },
             { name: 'Text to Handwriting', desc: 'Convert typed text into realistic handwriting.', icon: 'pen-tool', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment notes', color: '#a855f7', category: 'text' },
             { name: 'Bold Text Generator', desc: 'Bold Unicode text for social media bios.', icon: 'bold', link: '/bold-text-generator', keywords: 'bold unicode text style font bio', color: '#ec4899', category: 'text' },
             { name: 'Italic Text Generator', desc: 'Italic Unicode text using math symbols.', icon: 'italic', link: '/italic-text-generator', keywords: 'italic unicode text style font', color: '#ec4899', category: 'text' },
@@ -1450,7 +1481,7 @@
 
         // ============ Theme ============
         function setThemeColorMeta(isDark) {
-            const meta = document.querySelector('meta[name="theme-color"]');
+            const meta = document.getElementById('themeColorMeta');
             if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
         }
 
@@ -1467,14 +1498,44 @@
             }
         }
 
+        // FIX: react to OS-level theme changes when the user hasn't picked one manually.
+        function initSystemThemeListener() {
+            if (!window.matchMedia) return;
+            const mq = window.matchMedia('(prefers-color-scheme: dark)');
+            const handler = function (e) {
+                let stored = null;
+                try { stored = localStorage.getItem('theme'); } catch (err) {}
+                if (stored) return; // user has explicitly chosen a theme
+                const isDark = e.matches;
+                document.documentElement.classList.toggle('dark-mode', isDark);
+                setThemeColorMeta(isDark);
+            };
+            if (typeof mq.addEventListener === 'function') {
+                mq.addEventListener('change', handler);
+            } else if (typeof mq.addListener === 'function') {
+                mq.addListener(handler);
+            }
+        }
+
         // ============ Tools Menu ============
+        // FIX: helper that optionally returns focus to the trigger.
+        function closeToolsMenu(returnFocus) {
+            const container = document.getElementById('toolsMenuContainer');
+            const trigger = document.getElementById('toolsTrigger');
+            if (!container || !container.classList.contains('open')) return;
+            container.classList.remove('open');
+            if (trigger) {
+                trigger.setAttribute('aria-expanded', 'false');
+                if (returnFocus) trigger.focus();
+            }
+        }
+
         function toggleToolsMenu() {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
             const isOpen = container.classList.contains('open');
             if (isOpen) {
-                container.classList.remove('open');
-                trigger.setAttribute('aria-expanded', 'false');
+                closeToolsMenu(true);
             } else {
                 buildMegaMenu();
                 container.classList.add('open');
@@ -1486,8 +1547,7 @@
         document.addEventListener('click', function(e) {
             const container = document.getElementById('toolsMenuContainer');
             if (container && !container.contains(e.target) && container.classList.contains('open')) {
-                container.classList.remove('open');
-                document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                closeToolsMenu(false);
             }
         });
 
@@ -1501,15 +1561,24 @@
             const hb = document.getElementById('hamburgerBtn');
             if (hb) hb.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
+            const closeBtn = document.getElementById('mobileSidebarClose');
+            if (closeBtn) setTimeout(function () { closeBtn.focus(); }, 100);
         }
         function closeMobileSidebar() {
             const sb = document.getElementById('mobileSidebar');
-            if (!sb) return;
+            if (!sb || !sb.classList.contains('active')) return;
             sb.classList.remove('active');
             sb.setAttribute('aria-hidden', 'true');
             document.getElementById('mobileSidebarOverlay').classList.remove('active');
             const hb = document.getElementById('hamburgerBtn');
-            if (hb) hb.setAttribute('aria-expanded', 'false');
+            if (hb) {
+                hb.setAttribute('aria-expanded', 'false');
+                // FIX: return focus to the hamburger when the sidebar closes,
+                // unless we're opening the search overlay right after.
+                if (!searchIsOpen) {
+                    try { hb.focus(); } catch (e) {}
+                }
+            }
             const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
             if (!searchOpen) document.body.style.overflow = '';
         }
@@ -1552,6 +1621,12 @@
 
         function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
+            // FIX: if already open, just refocus the input instead of overwriting
+            // lastFocusedBeforeSearch with an element inside the overlay.
+            if (overlay.classList.contains('active')) {
+                document.getElementById('fullSearchInput').focus();
+                return;
+            }
             lastFocusedBeforeSearch = document.activeElement;
             searchIsOpen = true;
             overlay.classList.add('active');
@@ -1692,12 +1767,7 @@
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                const container = document.getElementById('toolsMenuContainer');
-                if (container && container.classList.contains('open')) {
-                    container.classList.remove('open');
-                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
-                    document.getElementById('toolsTrigger').focus();
-                }
+                closeToolsMenu(true);
                 closeFullSearch();
                 closeMobileSidebar();
             }
@@ -1733,13 +1803,13 @@
             const badge = document.getElementById('validatorBadge');
             if (state === 'valid') {
                 badge.className = 'validator-badge valid';
-                badge.innerHTML = '<i data-lucide="check-circle" width="14" height="14"></i> ' + (message || 'Valid XML');
+                badge.innerHTML = '<i data-lucide="check-circle" width="14" height="14" aria-hidden="true"></i> ' + escHtml(message || 'Valid XML');
             } else if (state === 'invalid') {
                 badge.className = 'validator-badge invalid';
-                badge.innerHTML = '<i data-lucide="alert-circle" width="14" height="14"></i> ' + (message || 'Invalid XML');
+                badge.innerHTML = '<i data-lucide="alert-circle" width="14" height="14" aria-hidden="true"></i> ' + escHtml(message || 'Invalid XML');
             } else {
                 badge.className = 'validator-badge empty';
-                badge.innerHTML = '<i data-lucide="circle-dashed" width="14" height="14"></i> ' + (message || 'Waiting for input');
+                badge.innerHTML = '<i data-lucide="circle-dashed" width="14" height="14" aria-hidden="true"></i> ' + escHtml(message || 'Waiting for input');
             }
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
                 window.lucide.createIcons();
@@ -1823,7 +1893,6 @@
                 if (body.startsWith('<!--', i)) {
                     const end = body.indexOf('-->', i + 4);
                     if (end === -1) {
-                        // Malformed — let it through
                         tokens.push({ type: 'text', value: body.slice(i) });
                         break;
                     }
@@ -1858,7 +1927,6 @@
                 }
                 // DOCTYPE
                 if (body.startsWith('<!DOCTYPE', i)) {
-                    // Find matching '>', considering possible internal subset '[ ... ]'
                     let depth = 0;
                     let j = i + 9;
                     while (j < len) {
@@ -1874,7 +1942,6 @@
                 }
                 // Tag (open, close, or self-closing)
                 if (body[i] === '<') {
-                    // Find closing '>' respecting quotes in attributes
                     let j = i + 1;
                     let inQuote = null;
                     while (j < len) {
@@ -1904,7 +1971,6 @@
                     break;
                 }
                 if (nextTag === i) {
-                    // Shouldn't happen, but guard
                     i++;
                     continue;
                 }
@@ -1912,22 +1978,7 @@
                 i = nextTag;
             }
 
-            // Now walk the tokens, tracking element depth.
-            // We keep a stack of { hasChildElements: bool } per open element.
-            // Whitespace-only text nodes are dropped IF they are direct children
-            // of an element that also contains at least one child element.
-            const stack = [];
             const output = [];
-
-            // Precompute for each element on the stack whether it contains
-            // child elements. We'll do a two-pass: first pass marks hasChildElements,
-            // then second pass filters text nodes.
-
-            // First pass: build a tree of the raw tokens
-            // Simpler approach: iterate with lookahead.
-            // For each text token, check if it's whitespace-only AND both its
-            // previous and next non-text tokens are element tags (open/close/self).
-            // That heuristic works for well-formed XML without mixed content.
 
             for (let k = 0; k < tokens.length; k++) {
                 const t = tokens[k];
@@ -1935,12 +1986,9 @@
                 if (t.type === 'text') {
                     const isWhitespace = /^\s+$/.test(t.value);
                     if (!isWhitespace) {
-                        // Preserve non-whitespace text exactly
                         output.push(t.value);
                         continue;
                     }
-                    // Whitespace-only text. Decide whether to drop.
-                    // Look at the previous and next non-text tokens.
                     let prev = null;
                     for (let p = k - 1; p >= 0; p--) {
                         if (tokens[p].type !== 'text' || !/^\s+$/.test(tokens[p].value)) {
@@ -1956,10 +2004,8 @@
                     const prevIsTag = prev && (prev.type === 'open' || prev.type === 'close' || prev.type === 'self' || prev.type === 'cdata' || prev.type === 'pi' || prev.type === 'doctype' || prev.type === 'comment');
                     const nextIsTag = next && (next.type === 'open' || next.type === 'close' || next.type === 'self' || next.type === 'cdata' || next.type === 'pi' || next.type === 'doctype' || next.type === 'comment');
                     if (prevIsTag && nextIsTag) {
-                        // Drop it — it's insignificant inter-element whitespace
                         continue;
                     }
-                    // Otherwise preserve (mixed content case)
                     output.push(t.value);
                     continue;
                 }
@@ -1975,12 +2021,6 @@
                     if (optState.preserveCdata) {
                         output.push(t.value);
                     } else {
-                        // Extract inner text and keep it as escaped text? No —
-                        // safer to just drop the CDATA markers if user wants
-                        // to strip whitespace inside. Actually "preserve CDATA off"
-                        // is a rare option; we'll treat it as "unwrap" the CDATA
-                        // into its raw content (which is still valid as long as
-                        // it doesn't contain ']]>').
                         const inner = t.value.slice(9, -3);
                         output.push(inner);
                     }
@@ -1994,13 +2034,11 @@
                     continue;
                 }
 
-                // open / close / self / doctype
                 output.push(t.value);
             }
 
             let result = output.join('');
 
-            // Prepend declaration if we kept it
             if (declaration && optState.preservePI) {
                 result = declaration + result;
             }
@@ -2015,7 +2053,6 @@
                 return;
             }
 
-            // Validate first
             const doc = validateXml();
             if (!doc) {
                 showToast('Cannot minify invalid XML.');
@@ -2029,7 +2066,6 @@
                 const saved = originalSize - minifiedSize;
                 const reduction = originalSize > 0 ? ((saved / originalSize) * 100).toFixed(1) : 0;
 
-                // Re-validate the minified output to be safe
                 const checkDoc = new DOMParser().parseFromString(minified, 'application/xml');
                 if (checkDoc.querySelector('parsererror')) {
                     showToast('Minification produced invalid XML. Please report this.');
@@ -2115,7 +2151,6 @@
         function initOptionToggles() {
             const toggles = document.querySelectorAll('.option-toggle');
             toggles.forEach(function(t) {
-                // Sync initial state from optState
                 const key = t.getAttribute('data-opt');
                 if (optState[key]) t.classList.add('active');
                 else t.classList.remove('active');
@@ -2124,7 +2159,6 @@
                     const k = this.getAttribute('data-opt');
                     optState[k] = !optState[k];
                     this.classList.toggle('active', optState[k]);
-                    // If we already have output, re-minify
                     if (document.getElementById('xmlOutput').value && document.getElementById('xmlInput').value) {
                         minify();
                     }
@@ -2137,6 +2171,7 @@
         buildMegaMenu();
         buildMobileToolsMenu();
         initOptionToggles();
+        initSystemThemeListener();
 
         const xmlInput = document.getElementById('xmlInput');
         let validateTimer;
