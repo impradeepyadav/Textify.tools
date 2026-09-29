@@ -9,7 +9,6 @@
     <meta name="author" content="Pradeep Yadav">
     <link rel="canonical" href="https://textify.tools/">
     <link rel="alternate" hreflang="x-default" href="https://textify.tools/">
-    <link rel="alternate" hreflang="en-US" href="https://textify.tools/">
 
     <!-- FIX: single theme-color meta with an id so JS can reliably update it -->
     <meta name="theme-color" content="#ffffff" id="themeColorMeta">
@@ -230,7 +229,6 @@
         table { max-width: 100%; }
         pre, code { white-space: pre-wrap; word-wrap: break-word; }
 
-        /* Accessibility: visible focus ring for keyboard users */
         a:focus-visible, button:focus-visible, input:focus-visible {
             outline: 2px solid var(--primary);
             outline-offset: 2px;
@@ -254,7 +252,6 @@
             font-weight: 700;
         }
 
-        /* Prevent sun/moon flash before JS runs */
         html.dark-mode #sunIcon,
         html.dark-mode #mobileSunIcon { display: none !important; }
         html.dark-mode #moonIcon,
@@ -279,7 +276,6 @@
         .tools-menu-container { position: relative; }
         .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; background: none; border: none; font-family: inherit; }
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
-        /* FIX: Lucide replaces <i> with <svg>, so target both */
         .tools-trigger i,
         .tools-trigger svg { width: 14px; height: 14px; transition: transform 0.2s; flex-shrink: 0; }
         .tools-mega-menu {
@@ -304,6 +300,7 @@
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
         .tools-mega-menu::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
+        .noscript-tools a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; }
 
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
@@ -335,7 +332,6 @@
         .mobile-sidebar-nav a:hover { background: var(--hover); color: var(--primary); }
         .mobile-tools-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 10px; background: none; border: none; cursor: pointer; color: var(--text); font-weight: 500; font-size: 15px; font-family: inherit; transition: 0.2s; }
         .mobile-tools-toggle:hover { background: var(--hover); color: var(--primary); }
-        /* FIX: target both <i> and the Lucide-generated <svg> */
         .mobile-tools-toggle i,
         .mobile-tools-toggle svg { width: 16px; height: 16px; transition: transform 0.3s; flex-shrink: 0; }
         .mobile-tools-toggle.active i,
@@ -380,7 +376,6 @@
 
         .hero-search { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px 10px 4px 16px; max-width: 640px; margin: 0 0 26px; transition: border-color 0.2s, box-shadow 0.2s; }
         .hero-search:focus-within { border-color: var(--primary); box-shadow: 0 0 0 4px var(--hover); }
-        /* FIX: Lucide replaces the <i>, so target svg too */
         .hero-search > i,
         .hero-search > svg { color: var(--text-light); flex-shrink: 0; width: 18px; height: 18px; }
         .hero-search input { flex: 1; border: none; background: transparent; outline: none; font-family: inherit; font-size: 15px; color: var(--text); padding: 12px 0; min-width: 0; }
@@ -560,7 +555,24 @@
                             <button type="button" class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu" onclick="toggleToolsMenu()">
                                 Tools <i data-lucide="chevron-down" aria-hidden="true"></i>
                             </button>
-                            <div class="tools-mega-menu" id="megaMenu"></div>
+                            <div class="tools-mega-menu" id="megaMenu">
+                                <noscript>
+                                    <div class="noscript-tools">
+                                        <a href="/word-counter">Word Counter</a>
+                                        <a href="/case-converter">Case Converter</a>
+                                        <a href="/json-formatter">JSON Formatter</a>
+                                        <a href="/password-generator">Password Generator</a>
+                                        <a href="/qr-code-generator">QR Code Generator</a>
+                                        <a href="/image-resizer">Image Resizer</a>
+                                        <a href="/pdf-merge">PDF Merge</a>
+                                        <a href="/text-to-handwriting">Text to Handwriting</a>
+                                        <a href="/join-lines">Join Lines</a>
+                                        <a href="/pdf-100kb">PDF to 100KB</a>
+                                        <a href="/resume-builder">Resume Builder</a>
+                                        <a href="/whatsapp-link-generator">WhatsApp Link Generator</a>
+                                    </div>
+                                </noscript>
+                            </div>
                         </div>
                         <a href="/privacy-policy">Privacy</a>
                         <a href="/blog">Blog</a>
@@ -1548,6 +1560,7 @@
         function buildMegaMenu() {
             if (megaMenuBuilt) return;
             megaMenuBuilt = true;
+            // Only replace contents if JS is running (noscript content is unreachable to JS anyway)
             document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
         function buildMobileToolsMenu() {
@@ -1675,8 +1688,6 @@
 
         function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
-            // FIX: if already open, just refocus the input instead of overwriting
-            // lastFocusedBeforeSearch with an element inside the overlay.
             if (overlay.classList.contains('active')) {
                 document.getElementById('fullSearchInput').focus();
                 return;
@@ -1739,14 +1750,14 @@
             }
         }
 
-        // FIX: react to OS-level theme changes when the user hasn't picked one manually.
+        // React to OS-level theme changes when the user hasn't picked one manually.
         function initSystemThemeListener() {
             if (!window.matchMedia) return;
             const mq = window.matchMedia('(prefers-color-scheme: dark)');
             const handler = function (e) {
                 let stored = null;
                 try { stored = localStorage.getItem('theme'); } catch (err) {}
-                if (stored) return; // user has explicitly chosen a theme
+                if (stored) return;
                 const isDark = e.matches;
                 document.documentElement.classList.toggle('dark-mode', isDark);
                 setThemeColorMeta(isDark);
@@ -1812,8 +1823,6 @@
             const hb = document.getElementById('hamburgerBtn');
             if (hb) {
                 hb.setAttribute('aria-expanded', 'false');
-                // FIX: return focus to the hamburger when the sidebar closes,
-                // unless we're opening the search overlay right after.
                 if (!searchIsOpen) {
                     try { hb.focus(); } catch (e) {}
                 }
@@ -1925,7 +1934,6 @@
             input.placeholder = 'Search all ' + tools.length + ' free tools…';
         }
 
-        // FIX: works with both the original <i> and the Lucide-generated <svg>
         function toggleFaq(btnEl) {
             const item = btnEl.closest('.faq-item');
             if (!item) return;
@@ -1943,6 +1951,7 @@
             renderCategoryGrid();
             cacheToolCards();
 
+            // Lucide is loaded with `defer`, so by DOMContentLoaded it's ready.
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
                 window.lucide.createIcons();
             }
@@ -1962,6 +1971,13 @@
         } else {
             init();
         }
+
+        // Fallback: if Lucide was slow and icons still show as <i>, try once more on load.
+        window.addEventListener('load', function () {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
+        });
     </script>
 </body>
 </html>
