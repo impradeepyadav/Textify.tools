@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://textify.tools/blog/how-to-repeat-text-100000-times">
     <link rel="alternate" hreflang="en-US" href="https://textify.tools/blog/how-to-repeat-text-100000-times">
     <link rel="alternate" hreflang="x-default" href="https://textify.tools/blog/how-to-repeat-text-100000-times">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff" id="themeColorMeta">
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://textify.tools/blog/how-to-repeat-text-100000-times">
@@ -75,7 +75,7 @@
             var isDark = stored === 'dark' || (!stored && prefersDark);
             if (isDark) {
                 document.documentElement.classList.add('dark-mode');
-                var meta = document.querySelector('meta[name="theme-color"]');
+                var meta = document.getElementById('themeColorMeta');
                 if (meta) meta.setAttribute('content', '#0f172a');
             }
         })();
@@ -393,12 +393,31 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg); color: var(--text); min-height: 100vh;
             transition: background 0.3s, color 0.3s; overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
         .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
         img, video, canvas, iframe, embed, object, svg { max-width: 100%; height: auto; }
         table { max-width: 100%; }
         pre, code { white-space: pre-wrap; word-wrap: break-word; }
         mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
+
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+            border-radius: 6px;
+        }
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
 
         h1, h2, h3, h4, h5, h6,
         .logo,
@@ -422,7 +441,7 @@
             background: transparent; width: 100%;
         }
         .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; min-width: 0; }
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; flex-shrink: 0; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; flex-shrink: 0; letter-spacing: -0.4px; }
         .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
         .header-right { display: flex; align-items: center; gap: 12px; min-width: 0; }
         .desktop-nav { display: flex; gap: 15px; align-items: center; }
@@ -431,12 +450,15 @@
         .tools-menu-container { position: relative; }
         .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; background: none; border: none; font-family: inherit; white-space: nowrap; }
         .tools-trigger:hover { color: var(--primary); background: var(--hover); }
-        .tools-trigger i { width: 14px; height: 14px; transition: transform 0.2s; }
+        .tools-trigger i,
+        .tools-trigger svg { width: 14px; height: 14px; transition: transform 0.2s; flex-shrink: 0; }
         .tools-mega-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px 8px; min-width: 220px; max-width: min(90vw, 400px); max-height: 70vh; overflow-y: auto; box-shadow: 0 20px 40px var(--shadow); opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50; }
         .tools-menu-container:hover .tools-mega-menu,
         .tools-menu-container.open .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
         .tools-menu-container:hover .tools-trigger i,
-        .tools-menu-container.open .tools-trigger i { transform: rotate(180deg); }
+        .tools-menu-container:hover .tools-trigger svg,
+        .tools-menu-container.open .tools-trigger i,
+        .tools-menu-container.open .tools-trigger svg { transform: rotate(180deg); }
         .tools-mega-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s; margin-bottom: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
@@ -444,7 +466,7 @@
 
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; flex-shrink: 0; }
         .theme-btn:hover { background: var(--hover); }
-        .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; }
+        .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; font-family: inherit; }
         .search-trigger:hover { border-color: var(--primary); color: var(--primary); }
         .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; flex-shrink: 0; }
         .hamburger-btn:hover { background: var(--hover); }
@@ -464,14 +486,17 @@
         .mobile-sidebar-nav a:hover { background: var(--hover); color: var(--primary); }
         .mobile-tools-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 10px; background: none; border: none; cursor: pointer; color: var(--text); font-weight: 500; font-size: 15px; font-family: inherit; transition: 0.2s; }
         .mobile-tools-toggle:hover { background: var(--hover); color: var(--primary); }
-        .mobile-tools-toggle i { width: 16px; height: 16px; transition: transform 0.3s; }
-        .mobile-tools-toggle.active i { transform: rotate(180deg); }
+        .mobile-tools-toggle i,
+        .mobile-tools-toggle svg { width: 16px; height: 16px; transition: transform 0.3s; flex-shrink: 0; }
+        .mobile-tools-toggle.active i,
+        .mobile-tools-toggle.active svg { transform: rotate(180deg); }
         .mobile-tools-menu { display: none; flex-direction: column; padding-left: 16px; gap: 2px; margin-bottom: 6px; }
         .mobile-tools-menu.active { display: flex; }
         .mobile-tools-menu a { font-size: 14px; padding: 10px 14px; color: var(--text-light); }
         .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
         .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
         .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
+        .mobile-sidebar-actions button svg { width: 16px; height: 16px; flex-shrink: 0; }
 
         .search-overlay-full {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -1474,7 +1499,7 @@
                     <div class="desktop-nav">
                         <div class="tools-menu-container" id="toolsMenuContainer">
                             <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu" onclick="toggleToolsMenu()">
-                                Tools <i data-lucide="chevron-down"></i>
+                                Tools <i data-lucide="chevron-down" aria-hidden="true"></i>
                             </button>
                             <div class="tools-mega-menu" id="megaMenu"></div>
                         </div>
@@ -1483,12 +1508,12 @@
                         <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
                     </div>
                     <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-                        <i data-lucide="sun" id="sunIcon" width="20" height="20"></i>
-                        <i data-lucide="moon" id="moonIcon" width="20" height="20"></i>
+                        <i data-lucide="sun" id="sunIcon" width="20" height="20" aria-hidden="true"></i>
+                        <i data-lucide="moon" id="moonIcon" width="20" height="20" aria-hidden="true"></i>
                     </button>
-                    <button class="search-trigger" onclick="openFullSearch()"><i data-lucide="search"></i> Search tools...</button>
+                    <button class="search-trigger" onclick="openFullSearch()" aria-label="Search tools"><i data-lucide="search" aria-hidden="true"></i> Search tools...</button>
                     <button class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Menu" aria-expanded="false" aria-controls="mobileSidebar">
-                        <span class="menu-icon"><span></span><span></span></span>
+                        <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
                     </button>
                 </div>
             </div>
@@ -1499,14 +1524,14 @@
                 <article class="article-container" itemscope itemtype="https://schema.org/BlogPosting">
 
                     <a href="/blog" class="back-link">
-                        <i data-lucide="arrow-left" width="16" height="16"></i> Back to Blog
+                        <i data-lucide="arrow-left" width="16" height="16" aria-hidden="true"></i> Back to Blog
                     </a>
 
                     <div class="author-byline">
                         <div class="author-info">
                             <div class="author-meta-row">
                                 <time datetime="2026-09-27" itemprop="datePublished">Sep 27, 2026</time>
-                                <span class="dot">•</span>
+                                <span class="dot" aria-hidden="true">•</span>
                                 <span>6 min read</span>
                             </div>
 
@@ -1602,11 +1627,11 @@
                             <div class="tool-body">
 
                                 <div class="tool-presets" id="toolPresets">
-                                    <button class="tool-preset" data-preset="10">Repeat 10×</button>
-                                    <button class="tool-preset" data-preset="100">Repeat 100×</button>
-                                    <button class="tool-preset" data-preset="1000">Repeat 1,000×</button>
-                                    <button class="tool-preset active" data-preset="10000">Repeat 10,000×</button>
-                                    <button class="tool-preset" data-preset="100000">Repeat 100,000×</button>
+                                    <button type="button" class="tool-preset" data-preset="10">Repeat 10×</button>
+                                    <button type="button" class="tool-preset" data-preset="100">Repeat 100×</button>
+                                    <button type="button" class="tool-preset" data-preset="1000">Repeat 1,000×</button>
+                                    <button type="button" class="tool-preset active" data-preset="10000">Repeat 10,000×</button>
+                                    <button type="button" class="tool-preset" data-preset="100000">Repeat 100,000×</button>
                                 </div>
 
                                 <div class="tool-field">
@@ -1631,7 +1656,7 @@
                                             <option value="\n" selected>New line</option>
                                             <option value=" ">Space</option>
                                             <option value=", ">Comma + space</option>
-                                            <option value=", ">Comma</option>
+                                            <option value=",">Comma</option>
                                             <option value="; ">Semicolon + space</option>
                                             <option value="\t">Tab</option>
                                             <option value="">None (join directly)</option>
@@ -1646,27 +1671,27 @@
                                 </div>
 
                                 <div class="tool-actions">
-                                    <button class="tool-btn primary" id="repeatBtn" onclick="runRepeat()">
-                                        <i data-lucide="repeat"></i> Repeat now
+                                    <button type="button" class="tool-btn primary" id="repeatBtn">
+                                        <i data-lucide="repeat" aria-hidden="true"></i> Repeat now
                                     </button>
-                                    <button class="tool-btn" id="copyBtn" onclick="copyOutput()" disabled>
-                                        <i data-lucide="copy"></i> Copy output
+                                    <button type="button" class="tool-btn" id="copyBtn" disabled>
+                                        <i data-lucide="copy" aria-hidden="true"></i> Copy output
                                     </button>
-                                    <button class="tool-btn" id="downloadBtn" onclick="downloadOutput()" disabled>
-                                        <i data-lucide="download"></i> Download .txt
+                                    <button type="button" class="tool-btn" id="downloadBtn" disabled>
+                                        <i data-lucide="download" aria-hidden="true"></i> Download .txt
                                     </button>
-                                    <button class="tool-btn danger" id="clearBtn" onclick="clearOutput()">
-                                        <i data-lucide="trash-2"></i> Clear
+                                    <button type="button" class="tool-btn danger" id="clearBtn">
+                                        <i data-lucide="trash-2" aria-hidden="true"></i> Clear
                                     </button>
                                 </div>
 
                                 <div class="tool-warning" id="sizeWarning">
-                                    <i data-lucide="alert-triangle" width="16" height="16"></i>
+                                    <i data-lucide="alert-triangle" width="16" height="16" aria-hidden="true"></i>
                                     <span>This will generate a very large output. Copying may be slow. Consider using Download instead.</span>
                                 </div>
 
-                                <div class="tool-success-msg" id="successMsg">
-                                    <i data-lucide="check-circle" width="16" height="16"></i>
+                                <div class="tool-success-msg" id="successMsg" role="status" aria-live="polite">
+                                    <i data-lucide="check-circle" width="16" height="16" aria-hidden="true"></i>
                                     <span id="successText">Text repeated successfully.</span>
                                 </div>
 
@@ -1826,13 +1851,13 @@
 
                         <a href="#tool" class="tool-inline">
                             <span class="ti-left">
-                                <span class="ti-icon"><i data-lucide="repeat"></i></span>
+                                <span class="ti-icon"><i data-lucide="repeat" aria-hidden="true"></i></span>
                                 <span>
                                     <span class="ti-name">Try the Text Repeater</span><br>
                                     <span class="ti-desc">Repeat any text up to 100,000 times — free, private, browser-only</span>
                                 </span>
                             </span>
-                            <i data-lucide="arrow-right" class="ti-arrow" width="16" height="16"></i>
+                            <i data-lucide="arrow-right" class="ti-arrow" width="16" height="16" aria-hidden="true"></i>
                         </a>
 
                         <section class="article-faq" id="faq" aria-label="Frequently asked questions">
@@ -1867,18 +1892,6 @@
                 <section class="related-posts" aria-label="Related articles">
                     <h2>Keep reading</h2>
                     <div class="related-grid">
-                        <a href="/blog/how-to-calculate-meeting-cost.html" class="related-card">
-                            <div class="related-card-img">
-                                <img src="/images/how-to-calculate-meeting-cost.webp" alt="Meeting Cost Calculator" width="640" height="360" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentNode.textContent='Business';">
-                            </div>
-                            <div class="related-card-body">
-                                <span class="related-card-cat">Business</span>
-                                <h3>Meeting Cost Calculator</h3>
-                                <p>See how much that meeting is really costing you — including hidden recovery time.</p>
-                                <span class="related-card-readmore">Read more →</span>
-                            </div>
-                        </a>
-
                         <a href="/blog/how-to-clean-messy-text-before-publishing" class="related-card">
                             <div class="related-card-img">
                                 <img src="/images/how-to-clean-messy-text-before-publishing.png" alt="How to Clean Messy Text Before Publishing" width="640" height="360" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentNode.textContent='Text Cleaning';">
@@ -1899,6 +1912,18 @@
                                 <span class="related-card-cat">Text Cleaning</span>
                                 <h3>How to Extract Emails from a Messy Text File</h3>
                                 <p>Got a wall of text with email addresses buried inside? The Email Extractor pulls them all out.</p>
+                                <span class="related-card-readmore">Read more →</span>
+                            </div>
+                        </a>
+
+                        <a href="/blog/how-to-remove-duplicate-lines-without-excel" class="related-card">
+                            <div class="related-card-img">
+                                <img src="/images/how-to-remove-duplicate-lines-without-excel.png" alt="How to Remove Duplicate Lines (Without Excel)" width="640" height="360" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentNode.textContent='Text Cleaning';">
+                            </div>
+                            <div class="related-card-body">
+                                <span class="related-card-cat">Text Cleaning</span>
+                                <h3>How to Remove Duplicate Lines (Without Excel)</h3>
+                                <p>Got a list with repeats? The Duplicate Line Remover keeps unique entries in one click.</p>
                                 <span class="related-card-readmore">Read more →</span>
                             </div>
                         </a>
@@ -1963,28 +1988,29 @@
     <div class="mobile-sidebar" id="mobileSidebar" aria-hidden="true">
         <div class="mobile-sidebar-header">
             <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
-            <button class="mobile-sidebar-close" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20"></i></button>
+            <button type="button" class="mobile-sidebar-close" id="mobileSidebarClose" onclick="closeMobileSidebar()" aria-label="Close menu"><i data-lucide="x" width="20" height="20" aria-hidden="true"></i></button>
         </div>
         <div class="mobile-sidebar-nav">
-            <button class="mobile-tools-toggle" id="mobileToolsToggle" onclick="toggleMobileTools()" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <i data-lucide="chevron-down"></i></button>
+            <button type="button" class="mobile-tools-toggle" id="mobileToolsToggle" onclick="toggleMobileTools()" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <i data-lucide="chevron-down" aria-hidden="true"></i></button>
             <div class="mobile-tools-menu" id="mobileToolsMenu"></div>
             <a href="/privacy-policy">Privacy</a>
             <a href="/blog">Blog</a>
             <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
         </div>
         <div class="mobile-sidebar-actions">
-            <button onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search"></i> Search</button>
-            <button onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16"></i> Theme</button>
+            <button type="button" onclick="closeMobileSidebar(); openFullSearch();"><i data-lucide="search" aria-hidden="true"></i> Search</button>
+            <button type="button" onclick="toggleTheme();"><i data-lucide="sun" id="mobileSunIcon" width="16" height="16" aria-hidden="true"></i><i data-lucide="moon" id="mobileMoonIcon" width="16" height="16" aria-hidden="true"></i> Theme</button>
         </div>
     </div>
 
     <div class="search-overlay-full" id="searchOverlayFull" role="dialog" aria-modal="true" aria-label="Search tools" aria-hidden="true">
         <div class="search-container">
             <div class="search-box">
-                <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;"></i>
+                <i data-lucide="search" width="20" height="20" style="color:var(--text-light);flex-shrink:0;" aria-hidden="true"></i>
+                <label for="fullSearchInput" class="sr-only">Search all tools</label>
                 <input type="text" id="fullSearchInput" placeholder="Type to search free tools…" oninput="filterFullSearch()" onkeydown="handleSearchKey(event)" autocomplete="off" aria-label="Search all tools">
-                <button class="search-clear-btn" id="searchClearBtn" onclick="clearSearchInput()" aria-label="Clear search"><i data-lucide="x" width="16" height="16"></i></button>
-                <button class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20"></i></button>
+                <button type="button" class="search-clear-btn" id="searchClearBtn" onclick="clearSearchInput()" aria-label="Clear search"><i data-lucide="x" width="16" height="16" aria-hidden="true"></i></button>
+                <button type="button" class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><i data-lucide="x" width="20" height="20" aria-hidden="true"></i></button>
             </div>
             <div class="search-results-list" id="fullSearchResultsList"></div>
             <div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>
@@ -2026,7 +2052,7 @@
             { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', icon: 'hash', link: '/word-counter', keywords: 'word count character counter letters essay limit', color: '#8b5cf6', category: 'text' },
             { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', icon: 'type', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', color: '#8b5cf6', category: 'text' },
             { name: 'Paragraph Counter', desc: 'Quickly count paragraphs in your writing.', icon: 'align-left', link: '/paragraph-counter', keywords: 'paragraph count block format', color: '#8b5cf6', category: 'text' },
-            { name: 'Line Counter', desc: 'Count lines in text.', icon: 'list', link: '/line-counter', keywords: 'line count text lines rows', color: '#8b5cf6', category: 'text' },
+            { name: 'Line Counter', desc: 'Count lines in text, including empty and non-empty lines.', icon: 'list', link: '/line-counter', keywords: 'line count text lines rows', color: '#8b5cf6', category: 'text' },
             { name: 'Reading Time Estimator', desc: 'Estimate how long it takes to read your text.', icon: 'clock', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute blog', color: '#0ea5e9', category: 'text' },
             { name: 'Speaking Time Calculator', desc: 'Estimate how long it takes to speak your text aloud.', icon: 'mic', link: '/speaking-time-calculator', keywords: 'speaking time talk duration speech presentation', color: '#0ea5e9', category: 'text' },
             { name: 'Keyword Counter', desc: 'Count occurrences of each keyword in your text.', icon: 'hash', link: '/keyword-counter', keywords: 'keyword frequency count word seo', color: '#0ea5e9', category: 'text' },
@@ -2064,6 +2090,8 @@
             { name: 'Wrap Text', desc: 'Wrap long lines to a specified width.', icon: 'wrap-text', link: '/wrap-text', keywords: 'word wrap text line width column', color: '#10b981', category: 'text' },
             { name: 'Unwrap Text', desc: 'Join broken lines into a single paragraph.', icon: 'unlink', link: '/unwrap-text', keywords: 'unwrap text join lines paragraph merge', color: '#10b981', category: 'text' },
             { name: 'Join Lines', desc: 'Merge multiple lines into one single continuous line or paragraph.', icon: 'unlink', link: '/join-lines', keywords: 'join lines merge combine single line paragraph unwrap newline concatenate', color: '#10b981', category: 'text' },
+            { name: 'Text Diff Checker', desc: 'Compare two texts side by side and highlight every difference.', icon: 'git-compare', link: '/text-diff-checker', keywords: 'diff compare text changes version differences side by side review', color: '#0ea5e9', category: 'text' },
+            { name: 'Text Sorter', desc: 'Sort lines alphabetically, numerically, by length, or in reverse.', icon: 'arrow-up-down', link: '/text-sorter', keywords: 'sort lines alphabetical numeric order arrange a-z z-a', color: '#0ea5e9', category: 'text' },
             { name: 'Text to Handwriting', desc: 'Convert typed text into realistic handwriting.', icon: 'pen-tool', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment notes', color: '#a855f7', category: 'text' },
             { name: 'Bold Text Generator', desc: 'Bold Unicode text for social media bios.', icon: 'bold', link: '/bold-text-generator', keywords: 'bold unicode text style font bio', color: '#ec4899', category: 'text' },
             { name: 'Italic Text Generator', desc: 'Italic Unicode text using math symbols.', icon: 'italic', link: '/italic-text-generator', keywords: 'italic unicode text style font', color: '#ec4899', category: 'text' },
@@ -2148,7 +2176,6 @@
             { name: 'WhatsApp Link Generator', desc: 'Create wa.me links from phone numbers and pre-filled messages.', icon: 'message-circle', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', color: '#25D366', category: 'generator' },
             { name: 'Business Name Generator', desc: 'Generate business name ideas.', icon: 'briefcase', link: '/business-name-generator', keywords: 'business name generator brand startup', color: '#14b8a6', category: 'generator' },
             { name: 'Invoice Number Generator', desc: 'Generate invoice numbers.', icon: 'file-text', link: '/invoice-number-generator', keywords: 'invoice number generator billing', color: '#14b8a6', category: 'generator' },
-            { name: 'Shipping Label Generator', desc: 'Create printable shipping and courier labels with sender, receiver and tracking details.', icon: 'package', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', color: '#0ea5e9', category: 'generator' },
             { name: 'Image Compressor', desc: 'Compress images in your browser.', icon: 'image', link: '/image-compressor', keywords: 'image compressor reduce size jpg png', color: '#ec4899', category: 'image' },
             { name: 'Image Resizer', desc: 'Resize images without losing quality.', icon: 'image', link: '/image-resizer', keywords: 'image resize dimensions scale', color: '#ec4899', category: 'image' },
             { name: 'Image Cropper', desc: 'Crop images easily.', icon: 'crop', link: '/image-cropper', keywords: 'image crop trim cut', color: '#ec4899', category: 'image' },
@@ -2190,6 +2217,7 @@
             { name: 'Quotation Generator', desc: 'Generate quotations.', icon: 'file-text', link: '/quotation-generator', keywords: 'quotation generator quote estimate', color: '#10b981', category: 'business' },
             { name: 'Receipt Generator', desc: 'Generate receipts.', icon: 'file-text', link: '/receipt-generator', keywords: 'receipt generator payment', color: '#10b981', category: 'business' },
             { name: 'Payslip Generator', desc: 'Generate payslips.', icon: 'file-text', link: '/payslip-generator', keywords: 'payslip generator salary payroll', color: '#10b981', category: 'business' },
+            { name: 'Shipping Label Generator', desc: 'Create printable shipping and courier labels with sender, receiver and tracking details.', icon: 'package', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', color: '#0ea5e9', category: 'business' },
             { name: 'Resume Builder', desc: 'Build a clean, professional resume from your details and export it in seconds.', icon: 'file-text', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', color: '#8b5cf6', category: 'business' },
             { name: 'GST Calculator', desc: 'Calculate GST amounts.', icon: 'percent', link: '/gst-calculator', keywords: 'gst calculator tax goods services', color: '#10b981', category: 'business' },
             { name: 'Discount Calculator', desc: 'Calculate discounts.', icon: 'percent', link: '/discount-calculator', keywords: 'discount calculator sale off price', color: '#10b981', category: 'business' },
@@ -2295,7 +2323,7 @@
         }
 
         function setThemeColorMeta(isDark) {
-            const meta = document.querySelector('meta[name="theme-color"]');
+            const meta = document.getElementById('themeColorMeta');
             if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
         }
 
@@ -2312,13 +2340,43 @@
             }
         }
 
+        // FIX: react to OS-level theme changes when the user hasn't picked one manually.
+        function initSystemThemeListener() {
+            if (!window.matchMedia) return;
+            const mq = window.matchMedia('(prefers-color-scheme: dark)');
+            const handler = function (e) {
+                let stored = null;
+                try { stored = localStorage.getItem('theme'); } catch (err) {}
+                if (stored) return; // user has explicitly chosen a theme
+                const isDark = e.matches;
+                document.documentElement.classList.toggle('dark-mode', isDark);
+                setThemeColorMeta(isDark);
+            };
+            if (typeof mq.addEventListener === 'function') {
+                mq.addEventListener('change', handler);
+            } else if (typeof mq.addListener === 'function') {
+                mq.addListener(handler);
+            }
+        }
+
+        // FIX: helper that optionally returns focus to the trigger.
+        function closeToolsMenu(returnFocus) {
+            const container = document.getElementById('toolsMenuContainer');
+            const trigger = document.getElementById('toolsTrigger');
+            if (!container || !container.classList.contains('open')) return;
+            container.classList.remove('open');
+            if (trigger) {
+                trigger.setAttribute('aria-expanded', 'false');
+                if (returnFocus) trigger.focus();
+            }
+        }
+
         function toggleToolsMenu() {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
             const isOpen = container.classList.contains('open');
             if (isOpen) {
-                container.classList.remove('open');
-                trigger.setAttribute('aria-expanded', 'false');
+                closeToolsMenu(true);
             } else {
                 buildMegaMenu();
                 container.classList.add('open');
@@ -2330,8 +2388,7 @@
         document.addEventListener('click', function(e) {
             const container = document.getElementById('toolsMenuContainer');
             if (container && !container.contains(e.target) && container.classList.contains('open')) {
-                container.classList.remove('open');
-                document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
+                closeToolsMenu(false);
             }
         });
 
@@ -2344,15 +2401,24 @@
             const hb = document.getElementById('hamburgerBtn');
             if (hb) hb.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
+            const closeBtn = document.getElementById('mobileSidebarClose');
+            if (closeBtn) setTimeout(function () { closeBtn.focus(); }, 100);
         }
         function closeMobileSidebar() {
             const sb = document.getElementById('mobileSidebar');
-            if (!sb) return;
+            if (!sb || !sb.classList.contains('active')) return;
             sb.classList.remove('active');
             sb.setAttribute('aria-hidden', 'true');
             document.getElementById('mobileSidebarOverlay').classList.remove('active');
             const hb = document.getElementById('hamburgerBtn');
-            if (hb) hb.setAttribute('aria-expanded', 'false');
+            if (hb) {
+                hb.setAttribute('aria-expanded', 'false');
+                // FIX: return focus to the hamburger when the sidebar closes,
+                // unless we're opening the search overlay right after.
+                if (!searchIsOpen) {
+                    try { hb.focus(); } catch (e) {}
+                }
+            }
             const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
             if (!searchOpen) document.body.style.overflow = '';
         }
@@ -2392,6 +2458,12 @@
 
         function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
+            // FIX: if already open, just refocus the input instead of overwriting
+            // lastFocusedBeforeSearch with an element inside the overlay.
+            if (overlay.classList.contains('active')) {
+                document.getElementById('fullSearchInput').focus();
+                return;
+            }
             lastFocusedBeforeSearch = document.activeElement;
             searchIsOpen = true;
             overlay.classList.add('active');
@@ -2532,12 +2604,7 @@
 
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape') {
-                const container = document.getElementById('toolsMenuContainer');
-                if (container && container.classList.contains('open')) {
-                    container.classList.remove('open');
-                    document.getElementById('toolsTrigger').setAttribute('aria-expanded', 'false');
-                    document.getElementById('toolsTrigger').focus();
-                }
+                closeToolsMenu(true);
                 closeFullSearch();
                 closeMobileSidebar();
             }
@@ -2549,10 +2616,15 @@
 
         buildMegaMenu();
         buildMobileToolsMenu();
+        initSystemThemeListener();
 
-        searchIsOpen = true;
-        filterFullSearch();
-        searchIsOpen = false;
+        // Precompute the initial (unfiltered) search list without flashing the overlay.
+        (function warmupSearch() {
+            const wasOpen = searchIsOpen;
+            searchIsOpen = true;
+            filterFullSearch();
+            searchIsOpen = wasOpen;
+        })();
 
         function initLucide() {
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
@@ -2785,14 +2857,13 @@
                 updateWarning();
             });
 
+            el.repeatBtn.addEventListener('click', runRepeat);
+            el.copyBtn.addEventListener('click', copyOutput);
+            el.downloadBtn.addEventListener('click', downloadOutput);
+            el.clearBtn.addEventListener('click', clearOutput);
+
             updateInputStats();
             updateWarning();
-
-            // Expose functions to global scope for onclick
-            window.runRepeat = runRepeat;
-            window.copyOutput = copyOutput;
-            window.downloadOutput = downloadOutput;
-            window.clearOutput = clearOutput;
         })();
     </script>
 </body>
