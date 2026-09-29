@@ -286,11 +286,10 @@
         }
         .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* Accessibility: visible focus ring for keyboard users */
+        /* Accessibility: subtle focus ring for keyboard users only.
+           Black border animation on click/hover has been removed. */
         a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-            outline: 2px solid var(--tool-accent);
-            outline-offset: 2px;
-            border-radius: 6px;
+            outline: none;
         }
         .sr-only {
             position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -353,7 +352,8 @@
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
         .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; font-family: inherit; }
-        .search-trigger:hover { border-color: var(--primary); color: var(--primary); }
+        /* Black border on hover removed */
+        .search-trigger:hover { background: var(--chip-hover); }
         .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; }
         .hamburger-btn:hover { background: var(--hover); }
         .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
@@ -381,7 +381,7 @@
         .mobile-tools-menu a { font-size: 14px; padding: 10px 14px; color: var(--text-light); }
         .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
         .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
-        .mobile-sidebar-actions button:hover { border-color: var(--primary); color: var(--primary); }
+        .mobile-sidebar-actions button:hover { background: var(--chip-hover); }
         .mobile-sidebar-actions button svg { width: 16px; height: 16px; flex-shrink: 0; }
 
         /* ===== SEARCH OVERLAY ===== */
@@ -397,9 +397,10 @@
         .search-box {
             display: flex; align-items: center; gap: 10px; background: var(--bg);
             border-radius: 16px; padding: 6px 10px 6px 16px;
-            border: 2px solid var(--line);
+            border: 1px solid var(--line);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             margin-bottom: 12px; flex-shrink: 0;
+            transition: border-color 0.2s;
         }
         .search-box input {
             flex: 1; border: none; background: transparent; font-size: 17px;
@@ -523,28 +524,24 @@
             width: 100%; padding: 13px 15px; border-radius: 11px;
             border: 1.5px solid var(--input-border); background: var(--input-bg);
             color: var(--text); font-family: inherit; font-size: 15px;
-            outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none; transition: border-color 0.2s;
         }
-        .form-input:hover { border-color: var(--text-light); }
-        .form-input:focus {
-            border-color: var(--tool-accent);
-            box-shadow: 0 0 0 3px var(--tool-accent-light);
-        }
+        /* Removed black border on hover/focus */
+        .form-input:hover { border-color: var(--input-border); }
+        .form-input:focus { border-color: var(--text-light); }
 
         .form-textarea {
             width: 100%; padding: 15px; border-radius: 12px;
             border: 1.5px solid var(--input-border); background: var(--input-bg);
             color: var(--text); font-family: ui-monospace, 'SF Mono', Menlo, monospace;
             font-size: 14px; line-height: 1.7; outline: none;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: border-color 0.2s;
             min-height: 130px; resize: vertical;
             white-space: pre-wrap; overflow-wrap: break-word;
         }
-        .form-textarea:hover { border-color: var(--text-light); }
-        .form-textarea:focus {
-            border-color: var(--tool-accent);
-            box-shadow: 0 0 0 3px var(--tool-accent-light);
-        }
+        /* Removed black border + glow on hover/focus */
+        .form-textarea:hover { border-color: var(--input-border); }
+        .form-textarea:focus { border-color: var(--text-light); }
 
         /* ===== REPEAT COUNT CONTROL ===== */
         .count-control {
@@ -564,22 +561,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.15s, border-color 0.15s, color 0.15s;
+            transition: background 0.15s, border-color 0.15s;
         }
+        /* Removed black border animation on hover/click */
         .count-stepper-btn:hover {
             background: var(--hover);
-            border-color: var(--tool-accent);
-            color: var(--tool-accent);
         }
         .count-stepper-btn:active {
-            background: var(--tool-accent-light);
+            background: var(--hover);
         }
         .count-field {
             flex: 1; min-width: 0; padding: 13px 15px; border-radius: 11px;
             border: 1.5px solid var(--input-border); background: var(--input-bg);
             color: var(--text); font-family: inherit; font-size: 15px;
             font-weight: 600; outline: none; text-align: center;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: border-color 0.2s;
             font-variant-numeric: tabular-nums;
             -moz-appearance: textfield;
         }
@@ -587,11 +583,9 @@
         .count-field::-webkit-inner-spin-button {
             -webkit-appearance: none; margin: 0;
         }
-        .count-field:hover { border-color: var(--text-light); }
-        .count-field:focus {
-            border-color: var(--tool-accent);
-            box-shadow: 0 0 0 3px var(--tool-accent-light);
-        }
+        /* Removed black border + glow on hover/focus */
+        .count-field:hover { border-color: var(--input-border); }
+        .count-field:focus { border-color: var(--text-light); }
 
         /* ===== QUICK PRESETS ===== */
         .presets {
@@ -605,15 +599,14 @@
             transition: all 0.15s; font-variant-numeric: tabular-nums;
             display: inline-flex; align-items: center; gap: 4px;
         }
+        /* Removed black border on hover */
         .preset-chip:hover {
-            border-color: var(--tool-accent);
             color: var(--text);
-            background: var(--tool-accent-soft);
+            background: var(--hover);
         }
         .preset-chip.active {
             background: var(--tool-accent); color: var(--tool-accent-contrast);
             border-color: var(--tool-accent);
-            box-shadow: 0 2px 6px var(--tool-accent-light);
         }
 
         /* ===== SEPARATOR GRID ===== */
@@ -630,14 +623,13 @@
             cursor: pointer; transition: all 0.15s; user-select: none;
             font-family: inherit;
         }
+        /* Removed black border on hover */
         .sep-option:hover {
-            border-color: var(--tool-accent);
-            background: var(--tool-accent-soft);
+            background: var(--hover);
         }
         .sep-option.active {
             background: var(--tool-accent); color: var(--tool-accent-contrast);
             border-color: var(--tool-accent);
-            box-shadow: 0 2px 8px var(--tool-accent-light);
         }
         .sep-option.active .sep-label { color: var(--tool-accent-contrast); }
         .sep-option.active .sep-icon { color: var(--tool-accent-contrast); }
@@ -664,7 +656,8 @@
             border: 1.5px solid var(--input-border); background: var(--input-bg);
             cursor: pointer; transition: all 0.15s; margin-bottom: 10px;
         }
-        .toggle-row:hover { border-color: var(--tool-accent); }
+        /* Removed black border on hover */
+        .toggle-row:hover { background: var(--hover); }
         .toggle-row:last-child { margin-bottom: 0; }
         .toggle-row input[type="checkbox"] {
             width: 18px; height: 18px; cursor: pointer;
@@ -689,26 +682,23 @@
             display: inline-flex; align-items: center; justify-content: center;
             gap: 8px; padding: 13px 20px; border-radius: 11px;
             font-weight: 600; font-size: 14px; font-family: inherit;
-            cursor: pointer; transition: all 0.15s; border: none;
+            cursor: pointer; transition: filter 0.15s, background 0.15s; border: none;
             text-decoration: none; white-space: nowrap;
         }
         .btn-primary {
             background: var(--tool-accent); color: var(--tool-accent-contrast);
             width: 100%; margin-top: 8px;
-            box-shadow: 0 2px 8px var(--tool-accent-light);
         }
-        .btn-primary:hover {
-            filter: brightness(1.1); transform: translateY(-1px);
-            box-shadow: 0 4px 14px var(--tool-accent-light);
-        }
-        .btn-primary:active { transform: translateY(0); }
+        /* Removed lift / shadow animation on hover; only subtle brightness */
+        .btn-primary:hover { filter: brightness(1.1); }
+        .btn-primary:active { filter: brightness(0.95); }
         .btn-outline {
             background: var(--input-bg); color: var(--text);
             border: 1.5px solid var(--input-border);
         }
+        /* Removed black border on hover */
         .btn-outline:hover {
-            border-color: var(--tool-accent); color: var(--tool-accent);
-            background: var(--tool-accent-soft);
+            background: var(--hover);
         }
         .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
         .btn-row .btn { flex: 1; min-width: 0; }
@@ -740,9 +730,10 @@
         .stat-tile {
             background: var(--soft-bg); border: 1px solid var(--line);
             border-radius: 12px; padding: 14px 12px; text-align: center;
-            transition: border-color 0.2s;
+            transition: none;
         }
-        .stat-tile:hover { border-color: var(--tool-accent); }
+        /* Removed black border on hover */
+        .stat-tile:hover { border-color: var(--line); }
         .stat-tile .stat-icon {
             display: flex; justify-content: center; margin-bottom: 6px;
             color: var(--text-light);
@@ -765,12 +756,10 @@
             position: relative; border-radius: 12px;
             border: 1.5px solid var(--input-border);
             background: var(--input-bg); overflow: hidden;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: border-color 0.2s;
         }
-        .output-wrap:focus-within {
-            border-color: var(--tool-accent);
-            box-shadow: 0 0 0 3px var(--tool-accent-light);
-        }
+        /* Removed black border + glow on focus-within */
+        .output-wrap:focus-within { border-color: var(--input-border); }
         .output-toolbar {
             display: flex; align-items: center; justify-content: space-between;
             padding: 8px 12px; border-bottom: 1px solid var(--line);
@@ -791,10 +780,10 @@
             background: transparent; border: none; cursor: pointer;
             padding: 6px; border-radius: 7px; color: var(--text-light);
             display: flex; align-items: center; justify-content: center;
-            transition: all 0.15s;
+            transition: background 0.15s, color 0.15s;
         }
         .icon-btn:hover {
-            background: var(--hover); color: var(--tool-accent);
+            background: var(--hover);
         }
         .icon-btn svg, .icon-btn i { width: 14px; height: 14px; }
 
@@ -947,18 +936,12 @@
             font-size: 15px;
             font-family: inherit;
             cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 4px 12px var(--tool-accent-light);
+            transition: filter 0.2s;
             width: 100%;
         }
-        .modal-close-btn:hover {
-            filter: brightness(1.1);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px var(--tool-accent-light);
-        }
-        .modal-close-btn:active {
-            transform: translateY(0);
-        }
+        /* Removed lift/shadow animation on hover */
+        .modal-close-btn:hover { filter: brightness(1.1); }
+        .modal-close-btn:active { filter: brightness(0.95); }
 
         /* ===== CONTENT SECTIONS ===== */
         .content-section { margin-bottom: 50px; width: 100%; max-width: 100%; }
@@ -1621,7 +1604,7 @@
                     </div>
                 </div>
 
-                <!-- Content: Creative uses (replaces Related tools) -->
+                <!-- Content: Creative uses -->
                 <div class="content-section">
                     <h2>Creative and fun ways to use a text repeater</h2>
                     <p>The text repeater isn't just for testing and data generation — it's also a fun tool for social media, messaging, and creative expression. Here are some popular ways people use it:</p>
@@ -2136,7 +2119,6 @@
             if (megaMenuBuilt) return;
             megaMenuBuilt = true;
             const menu = document.getElementById('megaMenu');
-            // Preserve any noscript content by only injecting when JS is enabled.
             menu.innerHTML = tools.map(t => '<a href="' + escAttr(t.link) + '">' + escHtml(t.name) + '</a>').join('');
         }
         function buildMobileToolsMenu() {
@@ -2175,14 +2157,13 @@
             }
         }
 
-        // React to OS-level theme changes when the user hasn't picked one manually.
         function initSystemThemeListener() {
             if (!window.matchMedia) return;
             const mq = window.matchMedia('(prefers-color-scheme: dark)');
             const handler = function (e) {
                 let stored = null;
                 try { stored = localStorage.getItem('theme'); } catch (err) {}
-                if (stored) return; // user has explicitly chosen a theme
+                if (stored) return;
                 const isDark = e.matches;
                 document.documentElement.classList.toggle('dark-mode', isDark);
                 setThemeColorMeta(isDark);
@@ -2227,7 +2208,7 @@
             }
         });
 
-        // ============ Search state (declared early to avoid TDZ in sidebar close) ============
+        // ============ Search state ============
         let searchIsOpen = false;
 
         // ============ Mobile Sidebar ============
@@ -2461,7 +2442,6 @@
             const expanded = btnEl.getAttribute('aria-expanded') === 'true';
             item.classList.toggle('active');
             btnEl.setAttribute('aria-expanded', String(!expanded));
-            // Lucide may not have replaced <i> with <svg> yet, so guard.
             const icon = btnEl.querySelector('svg');
             if (icon) {
                 icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
@@ -2513,7 +2493,6 @@
 
             const inputLen = input.length;
             const perCopyLen = inputLen + (doNumber ? 7 : 0);
-            // Separator appears count-1 times between copies, plus 1 if trailing is on.
             const sepCount = trailing ? count : Math.max(0, count - 1);
             const estimatedSize = perCopyLen * count + separator.length * sepCount;
 
@@ -2579,13 +2558,11 @@
             lastOutput = '';
             currentSeparator = '\n';
 
-            // Reset separator UI to new line
             document.querySelectorAll('.sep-option').forEach(function(b) {
                 b.classList.toggle('active', b.getAttribute('data-sep') === '\n');
                 b.setAttribute('aria-pressed', b.getAttribute('data-sep') === '\n' ? 'true' : 'false');
             });
 
-            // Reset presets
             document.querySelectorAll('.preset-chip').forEach(function(b) {
                 b.classList.toggle('active', b.getAttribute('data-count') === '10');
             });
@@ -2791,7 +2768,6 @@
         initInputCounter();
         initSystemThemeListener();
 
-        // Auto-repeat when toggles change (if there's output already)
         ['numberThem', 'trailingSeparator'].forEach(function(id) {
             const el = document.getElementById(id);
             if (el) {
@@ -2803,7 +2779,6 @@
             }
         });
 
-        // Custom separator uses debounced input to avoid regenerating on every keystroke
         (function initCustomSeparatorDebounce() {
             const el = document.getElementById('customSeparator');
             if (!el) return;
@@ -2817,7 +2792,6 @@
             });
         })();
 
-        // Ctrl+Enter to repeat
         document.getElementById('repeatInput').addEventListener('keydown', function(e) {
             if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
                 e.preventDefault();
@@ -2825,15 +2799,12 @@
             }
         });
 
-        // Load initial example
         (function initialExample() {
             document.getElementById('repeatInput').value = 'Hello World';
             document.getElementById('inputCharCount').textContent = '11 chars';
             repeatText();
         })();
 
-        // Lucide loads with `defer`, so wait until DOMContentLoaded to run createIcons().
-        // (Deferred scripts execute before DOMContentLoaded, so lucide will be ready.)
         function initLucide() {
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
                 window.lucide.createIcons();
