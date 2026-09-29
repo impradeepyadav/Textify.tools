@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Text to Handwriting – Convert Typed Text to Realistic Handwriting Online (Free)</title>
-    <meta name="description" content="Free text to handwriting converter. Turn typed text into realistic handwritten pages on ruled, grid, or plain paper. Upload custom fonts, download multi-page PDF or PNG, and print directly. No signup.">
+    <meta name="description" content="Free text to handwriting converter. Turn typed text into realistic handwritten pages with custom fonts, ruled/grid paper, and multi-page PDF export. No signup.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Pradeep Yadav">
     <link rel="canonical" href="https://textify.tools/text-to-handwriting">
+    <link rel="alternate" hreflang="en" href="https://textify.tools/text-to-handwriting">
     <link rel="alternate" hreflang="x-default" href="https://textify.tools/text-to-handwriting">
     <meta name="theme-color" content="#ffffff" id="themeColorMeta">
     <meta property="og:type" content="website">
@@ -15,11 +16,14 @@
     <meta property="og:title" content="Text to Handwriting – Convert Typed Text to Realistic Handwriting Online">
     <meta property="og:description" content="Free text to handwriting converter. Custom fonts, multi-page PDF, ruled/grid/plain paper, ink colors. Runs in your browser.">
     <meta property="og:site_name" content="Textify.tools">
+    <meta property="og:locale" content="en_US">
     <meta property="og:image" content="https://textify.tools/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Text to Handwriting converter – transform typed text into realistic handwritten pages">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@BuiltByPradeep">
+    <meta name="twitter:creator" content="@BuiltByPradeep">
     <meta name="twitter:title" content="Text to Handwriting – Convert Typed Text to Realistic Handwriting Online">
     <meta name="twitter:description" content="Free text to handwriting converter. Custom fonts, multi-page PDF, ruled/grid/plain paper, ink colors. Runs in your browser.">
     <meta name="twitter:image" content="https://textify.tools/og-image.png">
@@ -117,6 +121,7 @@
                         { "@type": "Question", "name": "How many pages can the PDF export handle?", "acceptedAnswer": { "@type": "Answer", "text": "The PDF export automatically paginates your text. Long content is split across multiple A4 pages, each rendered with the same paper, ink, and handwriting style. There is no hard page limit — the browser handles it." } },
                         { "@type": "Question", "name": "Can I print directly from the tool?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click the Print button to open your browser's print dialog with a print-ready version of every page. You can print to paper or save as PDF from the print dialog." } },
                         { "@type": "Question", "name": "What handwriting styles are built in?", "acceptedAnswer": { "@type": "Answer", "text": "The tool includes 11 handwriting styles including Neat Cursive, Elegant Script, Casual Print, Light Script, Neat Print, Bold Hand, Homemade Apple, Reenie Beanie, Architect's Daughter, Covered Grace, and Nanum Pen Script." } },
+                        { "@type": "Question", "name": "What is ink pressure simulation?", "acceptedAnswer": { "@type": "Answer", "text": "It simulates how a real pen releases ink by slightly varying opacity across each line. Real handwriting has natural variation in darkness — some strokes are darker, some lighter. Toggle it off if you prefer perfectly uniform ink." } },
                         { "@type": "Question", "name": "Is my text data safe?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Everything runs in your browser. Text and custom fonts never leave your device — no server processing, no logging, no data storage. Close the tab and it's gone." } },
                         { "@type": "Question", "name": "Does this work on mobile devices?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool is fully responsive and works on phones, tablets, and desktops. You can convert, preview, download, and print from any modern browser." } },
                         { "@type": "Question", "name": "How do I get the most realistic handwriting?", "acceptedAnswer": { "@type": "Answer", "text": "Use a casual or cursive style, choose blue or black ink, keep font size moderate, enable random jitter and ink pressure simulation, use short paragraphs, and select ruled paper. Uploading your own handwriting font gives the most personal result." } }
@@ -215,12 +220,13 @@
             --bad-bg: rgba(248, 113, 113, 0.1);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
+        html { scroll-behavior: smooth; overflow-x: hidden; -webkit-text-size-adjust: 100%; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg); color: var(--text); min-height: 100vh;
             transition: background 0.3s, color 0.3s; overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
         }
         .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
 
@@ -243,11 +249,11 @@
         html:not(.dark-mode) #moonIcon, html:not(.dark-mode) #mobileMoonIcon { display: none !important; }
         html:not(.dark-mode) #sunIcon, html:not(.dark-mode) #mobileSunIcon { display: block !important; }
 
-        /* ===== FIX: svg ko height:auto se hata diya, warna mobile pe flex me icon 0px ho jata hai ===== */
+        /* Icons: never shrink. Fix mobile visibility of PNG/PDF/Print/Open buttons */
         img, video, canvas, iframe, embed, object { max-width: 100%; height: auto; }
         svg { max-width: 100%; }
-        /* Buttons ke andar wale icons kabhi shrink na hon */
-        .btn svg, .btn i { flex: 0 0 auto; max-width: none; }
+        .btn svg, .btn i { flex: 0 0 auto; max-width: none; min-width: 0; }
+        button svg, a svg, button i, a i { flex-shrink: 0; }
 
         table { max-width: 100%; }
         pre, code { white-space: pre-wrap; word-wrap: break-word; }
@@ -449,7 +455,7 @@
         .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
         .btn-row .btn { flex: 1 1 110px; min-width: 0; }
 
-        /* ===== FIX: mobile pe 4 export buttons 2x2 grid me, icons kabhi gayab nahi honge ===== */
+        /* Mobile: 4 export buttons in 2x2 grid, icons never disappear */
         @media (max-width: 600px) {
             .btn-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
             .btn-row .btn { width: 100%; flex: none; min-width: 0; padding: 12px 6px; font-size: 13px; gap: 6px; }
@@ -473,7 +479,7 @@
         .preview-toolbar .pt-left svg, .preview-toolbar .pt-left i { width: 13px; height: 13px; flex-shrink: 0; }
 
         .preview-wrap { position: relative; border-radius: 12px; border: 1.5px solid var(--input-border); background: var(--soft-bg); overflow: hidden; transition: border-color 0.2s; min-height: 400px; }
-        .preview-scroll { overflow: auto; max-height: 620px; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .preview-scroll { overflow: auto; max-height: 620px; padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 20px; -webkit-overflow-scrolling: touch; }
         .preview-scroll .page-canvas {
             display: block;
             box-shadow: 0 4px 20px rgba(0,0,0,0.12);
@@ -504,9 +510,9 @@
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--toast-bg); color: var(--toast-text); padding: 14px 28px; border-radius: 30px; font-weight: 600; font-size: 14px; z-index: 9999; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.4s; pointer-events: none; white-space: nowrap; max-width: 90vw; overflow: hidden; text-overflow: ellipsis; }
         .toast.show { transform: translateX(-50%) translateY(0); }
 
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; padding: 16px; }
         .modal-overlay.active { opacity: 1; visibility: visible; }
-        .modal-box { background: var(--bg); border: 1px solid var(--line); border-radius: 24px; padding: 32px 28px 28px; max-width: 400px; width: 90%; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4); text-align: center; transform: translateY(20px) scale(0.95); transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease; opacity: 0; }
+        .modal-box { background: var(--bg); border: 1px solid var(--line); border-radius: 24px; padding: 32px 28px 28px; max-width: 400px; width: 100%; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4); text-align: center; transform: translateY(20px) scale(0.95); transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease; opacity: 0; }
         .modal-overlay.active .modal-box { transform: translateY(0) scale(1); opacity: 1; }
         .modal-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--tool-accent-soft); color: var(--tool-accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; animation: modalIconPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
         html.dark-mode .modal-icon { background: var(--tool-accent-light); }
@@ -539,7 +545,7 @@
         .feature-card h4 svg, .feature-card h4 i { width: 18px; height: 18px; color: var(--tool-accent); flex-shrink: 0; }
         .feature-card p { font-size: 14px; color: var(--text-light); margin: 0; line-height: 1.6; }
 
-        .table-wrapper { overflow-x: auto; margin: 25px 0; border: 1px solid var(--line); border-radius: 10px; width: 100%; }
+        .table-wrapper { overflow-x: auto; margin: 25px 0; border: 1px solid var(--line); border-radius: 10px; width: 100%; -webkit-overflow-scrolling: touch; }
         .info-table { width: 100%; border-collapse: collapse; min-width: 600px; }
         .info-table th, .info-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); color: var(--text-light); font-size: 14px; line-height: 1.6; }
         .info-table th { background: var(--faq-bg); font-weight: 700; color: var(--text); font-size: 13px; text-transform: uppercase; letter-spacing: 0.3px; }
@@ -667,7 +673,7 @@
             <div class="content-container">
 
                 <div class="tool-hero">
-                    <h1>Text to Handwriting</h1>
+                    <h1>Text to Handwriting Converter</h1>
                     <p class="subtitle">Everything you need, right on this page. Convert typed text into realistic handwriting with 11 built-in styles, custom font upload, ruled/grid/plain paper, ink colors, ink pressure simulation, multi-page PDF export, PNG export, and direct print. 100% free and private — runs entirely in your browser.</p>
                 </div>
 
@@ -1152,6 +1158,14 @@ Student</textarea>
 
                     <div class="faq-item">
                         <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            Can I use this for handwritten assignments?
+                            <i data-lucide="chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">Yes. The tool is designed for students who need to submit handwritten assignments. Use it responsibly and follow your institution's academic honesty policies.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
                             How many pages can the PDF export handle?
                             <i data-lucide="chevron-down" aria-hidden="true"></i>
                         </button>
@@ -1164,6 +1178,14 @@ Student</textarea>
                             <i data-lucide="chevron-down" aria-hidden="true"></i>
                         </button>
                         <div class="faq-answer">Yes. Click the Print button to open your browser's print dialog with a print-ready version of every page. You can print to paper or "Save as PDF" from the print dialog.</div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+                            What handwriting styles are built in?
+                            <i data-lucide="chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="faq-answer">The tool includes 11 handwriting styles including Neat Cursive, Elegant Script, Casual Print, Light Script, Neat Print, Bold Hand, Homemade Apple, Reenie Beanie, Architect's Daughter, Covered Grace, and Nanum Pen Script.</div>
                     </div>
 
                     <div class="faq-item">
@@ -1699,7 +1721,6 @@ Student</textarea>
             toggle.classList.toggle('active');
             if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
         }
-        // Use event delegation so links injected later (mobile tools menu) still close the sidebar.
         document.getElementById('mobileSidebar').addEventListener('click', function (e) {
             if (e.target.closest('a')) closeMobileSidebar();
         });
@@ -2015,17 +2036,48 @@ Student</textarea>
                 return w;
             }
 
+            // Character-level breaker for words longer than the text column.
+            function breakLongWord(word) {
+                const parts = [];
+                let current = '';
+                for (let i = 0; i < word.length; i++) {
+                    const test = current + word[i];
+                    if (measureText(test) > maxWidth && current) {
+                        parts.push(current);
+                        current = word[i];
+                    } else {
+                        current = test;
+                    }
+                }
+                if (current) parts.push(current);
+                return parts.length ? parts : [word];
+            }
+
             for (let p = 0; p < paragraphs.length; p++) {
                 const para = paragraphs[p].trim();
                 if (para === '') { wrappedLines.push({ type: 'blank' }); continue; }
                 const words = para.split(/\s+/);
                 let line = '';
                 for (let w = 0; w < words.length; w++) {
-                    const testLine = line ? line + ' ' + words[w] : words[w];
+                    const word = words[w];
+                    // Long word that doesn't fit on its own line → break it.
+                    if (measureText(word) > maxWidth) {
+                        if (line) {
+                            wrappedLines.push({ type: 'text', text: line });
+                            line = '';
+                        }
+                        const chunks = breakLongWord(word);
+                        for (let k = 0; k < chunks.length - 1; k++) {
+                            wrappedLines.push({ type: 'text', text: chunks[k] });
+                        }
+                        line = chunks[chunks.length - 1];
+                        continue;
+                    }
+                    const testLine = line ? line + ' ' + word : word;
                     const testWidth = measureText(testLine);
                     if (testWidth > maxWidth && line) {
                         wrappedLines.push({ type: 'text', text: line });
-                        line = words[w];
+                        line = word;
                     } else {
                         line = testLine;
                     }
@@ -2067,7 +2119,8 @@ Student</textarea>
                     try { ctx.letterSpacing = currentLetterSpacing + 'px'; } catch (e) {}
                 }
 
-                let y = snapToBaseline ? (MARGIN_TOP + step) : (MARGIN_TOP + fontSize);
+                // FIX: start at MARGIN_TOP so the first ruled line is used (previously +step skipped it).
+                let y = snapToBaseline ? MARGIN_TOP : (MARGIN_TOP + fontSize);
 
                 for (let l = 0; l < pageLines.length; l++) {
                     const entry = pageLines[l];
@@ -2102,7 +2155,7 @@ Student</textarea>
                     }
 
                     if (pressureEnabled) {
-                        drawLineWithPressure(ctx, entry.text, x + jx, drawY + jy, angle, fontSize, fontFamily, currentColor, measureText, justifyExtra);
+                        drawLineWithPressure(ctx, entry.text, x + jx, drawY + jy, angle, fontSize, fontFamily, currentColor, justifyExtra);
                     } else {
                         ctx.save();
                         ctx.translate(x + jx, drawY + jy);
@@ -2115,6 +2168,14 @@ Student</textarea>
                         }
                         if (currentAlign === 'justify' && !isLastLine) {
                             drawJustified(ctx, entry.text, maxWidth);
+                        } else if (!nativeLetterSpacing && currentLetterSpacing !== 0) {
+                            // FIX: manual per-char spacing when native letterSpacing is not supported.
+                            let cx = 0;
+                            for (let ci = 0; ci < entry.text.length; ci++) {
+                                ctx.fillText(entry.text[ci], cx, 0);
+                                cx += ctx.measureText(entry.text[ci]).width;
+                                if (ci < entry.text.length - 1) cx += currentLetterSpacing;
+                            }
                         } else {
                             ctx.fillText(entry.text, 0, 0);
                         }
@@ -2148,26 +2209,23 @@ Student</textarea>
             showToast('Handwriting generated — ' + pages.length + ' page' + (pages.length === 1 ? '' : 's') + '.');
         }
 
-        // Pass fontFamily explicitly instead of re-parsing ctx.font; supports justified spacing.
-        function drawLineWithPressure(ctx, text, x, y, angle, fontSize, fontFamily, color, measureFn, justifyExtra) {
+        // FIX: pressure-mode drawing now respects the letterSpacing slider.
+        function drawLineWithPressure(ctx, text, x, y, angle, fontSize, fontFamily, color, justifyExtra) {
             ctx.save();
             ctx.translate(x, y);
             ctx.rotate(angle);
             ctx.font = fontSize + 'px ' + fontFamily;
             ctx.textBaseline = 'alphabetic';
-            if ('letterSpacing' in ctx) {
-                try { ctx.letterSpacing = currentLetterSpacing + 'px'; } catch (e) {}
-            }
+            // Do NOT set ctx.letterSpacing here — we handle spacing manually per character.
             let cx = 0;
             for (let i = 0; i < text.length; i++) {
                 const ch = text[i];
-                // Pressure variation: subtle alpha change per char
+                if (i > 0) cx += currentLetterSpacing;
                 const alpha = 0.82 + Math.random() * 0.18;
                 ctx.fillStyle = hexToRgba(color, alpha);
-                // Slight vertical wobble
                 const wobble = (Math.random() - 0.5) * 1.2;
                 ctx.fillText(ch, cx, wobble);
-                let chW = measureFn(ch);
+                let chW = ctx.measureText(ch).width;
                 if (justifyExtra && ch === ' ') chW += justifyExtra;
                 cx += chW;
             }
@@ -2311,18 +2369,78 @@ Student</textarea>
             showModal('download', 'Print Dialog Opened', 'Choose your printer or save as PDF from the dialog.');
         }
 
+        // ============ Open button shows ALL pages ============
         function openInNewTab() {
             if (renderedPages.length === 0) {
                 showToast('Please generate handwriting first.');
                 return;
             }
-            const dataUrl = renderedPages[0].canvas.toDataURL('image/png');
-            const win = window.open();
-            if (win) {
-                win.document.write('<html><head><title>Handwriting</title><style>body{margin:0;background:#222;display:flex;justify-content:center;align-items:flex-start;padding:20px;}img{max-width:100%;box-shadow:0 4px 20px rgba(0,0,0,0.5);border-radius:6px;}</style></head><body><img src="' + dataUrl + '" alt="Handwriting"></body></html>');
-                win.document.close();
-            } else {
-                showToast('Popup blocked — allow popups to open in a new tab.');
+
+            const total = renderedPages.length;
+
+            // Build a self-contained HTML document with all pages
+            let bodyHtml = '';
+            for (let i = 0; i < total; i++) {
+                const dataUrl = renderedPages[i].canvas.toDataURL('image/png');
+                bodyHtml += '<div class="page-wrap">' +
+                    '<div class="page-label">Page ' + (i + 1) + ' of ' + total + '</div>' +
+                    '<img src="' + dataUrl + '" alt="Handwriting page ' + (i + 1) + '" loading="lazy">' +
+                    '</div>';
+            }
+
+            const html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">' +
+                '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
+                '<title>Handwriting - ' + total + ' page' + (total === 1 ? '' : 's') + '</title>' +
+                '<style>' +
+                '*{box-sizing:border-box;}html,body{margin:0;padding:0;background:#1c1c1c;-webkit-text-size-adjust:100%;}' +
+                'body{min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}' +
+                '.header{position:sticky;top:0;z-index:10;background:#111;color:#fff;padding:12px 16px;font-size:14px;font-weight:600;text-align:center;border-bottom:1px solid #333;}' +
+                '.container{display:flex;flex-direction:column;align-items:center;gap:24px;padding:20px 12px 60px;}' +
+                '.page-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;max-width:900px;}' +
+                '.page-label{color:#aaa;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;}' +
+                'img{display:block;width:100%;height:auto;background:#fff;border-radius:6px;box-shadow:0 6px 24px rgba(0,0,0,0.5);}' +
+                '.tip{color:#888;font-size:12px;text-align:center;padding:0 20px 30px;}' +
+                '@media(max-width:600px){.container{padding:12px 8px 40px;gap:16px;}.header{font-size:13px;padding:10px 12px;}}' +
+                '</style></head><body>' +
+                '<div class="header">Handwriting Preview — ' + total + ' page' + (total === 1 ? '' : 's') + ' total</div>' +
+                '<div class="container">' + bodyHtml + '</div>' +
+                '<div class="tip">Tip: Long-press (mobile) or right-click (desktop) any image to save it.</div>' +
+                '</body></html>';
+
+            // Try blob URL first (best for mobile), fallback to document.write
+            let opened = false;
+            let blobUrl = null;
+            try {
+                const blob = new Blob([html], { type: 'text/html' });
+                blobUrl = URL.createObjectURL(blob);
+                const win = window.open(blobUrl, '_blank');
+                if (win) {
+                    opened = true;
+                    // Revoke later (after page has loaded)
+                    setTimeout(function () { URL.revokeObjectURL(blobUrl); }, 60000);
+                }
+            } catch (e) {
+                opened = false;
+            }
+
+            // FIX: revoke the blob URL if the popup was blocked
+            if (!opened && blobUrl) {
+                try { URL.revokeObjectURL(blobUrl); } catch (e) {}
+            }
+
+            if (!opened) {
+                // Fallback: document.write (works if popup allowed but blob blocked)
+                const win = window.open('', '_blank');
+                if (win) {
+                    win.document.open();
+                    win.document.write(html);
+                    win.document.close();
+                    opened = true;
+                }
+            }
+
+            if (!opened) {
+                showToast('Popup blocked — please allow popups for this site.');
             }
         }
 
