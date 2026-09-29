@@ -663,7 +663,8 @@
             width: 18px; height: 18px; cursor: pointer;
             accent-color: var(--tool-accent); flex-shrink: 0; margin-top: 2px;
         }
-        .toggle-row label {
+        .toggle-row label,
+        .toggle-row .toggle-text {
             font-size: 14px; font-weight: 600; cursor: pointer;
             color: var(--text); margin: 0; line-height: 1.4;
             flex: 1;
@@ -1221,7 +1222,7 @@
                                 </button>
                             </div>
                             <div class="custom-sep-row" id="customSepRow">
-                                <input type="text" id="customSeparator" class="form-input" placeholder="e.g. --- or use \n for newline, \t for tab" autocomplete="off">
+                                <input type="text" id="customSeparator" class="form-input" placeholder="e.g. --- or use \n for newline, \t for tab" aria-label="Custom separator" autocomplete="off">
                             </div>
                         </div>
 
@@ -1229,18 +1230,18 @@
                         <div class="form-section">
                             <label class="toggle-row" for="numberThem">
                                 <input type="checkbox" id="numberThem">
-                                <label for="numberThem">
+                                <span class="toggle-text">
                                     Auto-number repetitions
                                     <span class="toggle-hint">Replaces <code>{n}</code> with 1, 2, 3… in each copy</span>
-                                </label>
+                                </span>
                             </label>
 
                             <label class="toggle-row" for="trailingSeparator">
                                 <input type="checkbox" id="trailingSeparator">
-                                <label for="trailingSeparator">
+                                <span class="toggle-text">
                                     Add separator after the last copy
                                     <span class="toggle-hint">Useful for CSV rows and lists that need a trailing comma or newline</span>
-                                </label>
+                                </span>
                             </label>
                         </div>
 
@@ -2453,8 +2454,12 @@
         // ============================================================
 
         let lastOutput = '';
-        let currentSeparator = '\n';
+        // NOTE: The stored separator value matches the `data-sep` attribute
+        // (a literal backslash + n), and is resolved to a real newline at use time.
+        let currentSeparator = '\\n';
         let customSepTimer = null;
+
+        const DEFAULT_SEP_ATTR = '\\n';
 
         function resolveSeparator(sepValue) {
             if (sepValue === 'custom') {
@@ -2542,11 +2547,24 @@
             showToast('Repeated ' + count.toLocaleString() + ' time' + (count === 1 ? '' : 's') + ' (' + charCount.toLocaleString() + ' chars).');
         }
 
+        function setActiveSeparator(sepAttr) {
+            currentSeparator = sepAttr;
+            document.querySelectorAll('.sep-option').forEach(function(b) {
+                const isActive = b.getAttribute('data-sep') === sepAttr;
+                b.classList.toggle('active', isActive);
+                b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+            if (sepAttr === 'custom') {
+                document.getElementById('customSepRow').classList.add('show');
+            } else {
+                document.getElementById('customSepRow').classList.remove('show');
+            }
+        }
+
         function clearAll() {
             document.getElementById('repeatInput').value = '';
             document.getElementById('repeatCount').value = 10;
             document.getElementById('customSeparator').value = '';
-            document.getElementById('customSepRow').classList.remove('show');
             document.getElementById('numberThem').checked = false;
             document.getElementById('trailingSeparator').checked = false;
             document.getElementById('outputArea').value = '';
@@ -2555,13 +2573,10 @@
             document.getElementById('errorMsg').classList.remove('show');
             document.getElementById('warningBanner').classList.remove('show');
             document.getElementById('inputCharCount').textContent = '0 chars';
+            document.getElementById('outputSubtitle').textContent = 'Generated result';
             lastOutput = '';
-            currentSeparator = '\n';
 
-            document.querySelectorAll('.sep-option').forEach(function(b) {
-                b.classList.toggle('active', b.getAttribute('data-sep') === '\n');
-                b.setAttribute('aria-pressed', b.getAttribute('data-sep') === '\n' ? 'true' : 'false');
-            });
+            setActiveSeparator(DEFAULT_SEP_ATTR);
 
             document.querySelectorAll('.preset-chip').forEach(function(b) {
                 b.classList.toggle('active', b.getAttribute('data-count') === '10');
@@ -2575,11 +2590,10 @@
             document.getElementById('repeatCount').value = 10;
             document.getElementById('numberThem').checked = false;
             document.getElementById('trailingSeparator').checked = false;
-            currentSeparator = '\n';
-            document.querySelectorAll('.sep-option').forEach(function(b) {
-                b.classList.toggle('active', b.getAttribute('data-sep') === '\n');
-                b.setAttribute('aria-pressed', b.getAttribute('data-sep') === '\n' ? 'true' : 'false');
-            });
+            document.getElementById('customSeparator').value = '';
+
+            setActiveSeparator(DEFAULT_SEP_ATTR);
+
             document.querySelectorAll('.preset-chip').forEach(function(b) {
                 b.classList.toggle('active', b.getAttribute('data-count') === '10');
             });
@@ -2716,13 +2730,15 @@
             document.querySelectorAll('.sep-option').forEach(function(btn) {
                 btn.addEventListener('click', function() {
                     const sep = this.getAttribute('data-sep');
-                    currentSeparator = sep;
+
                     document.querySelectorAll('.sep-option').forEach(function(b) {
                         b.classList.remove('active');
                         b.setAttribute('aria-pressed', 'false');
                     });
                     this.classList.add('active');
                     this.setAttribute('aria-pressed', 'true');
+
+                    currentSeparator = sep;
 
                     if (sep === 'custom') {
                         document.getElementById('customSepRow').classList.add('show');
