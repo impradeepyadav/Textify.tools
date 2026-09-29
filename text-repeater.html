@@ -9,7 +9,6 @@
     <meta name="author" content="Pradeep Yadav">
     <link rel="canonical" href="https://textify.tools/text-repeater">
     <link rel="alternate" hreflang="x-default" href="https://textify.tools/text-repeater">
-    <link rel="alternate" hreflang="en-US" href="https://textify.tools/text-repeater">
     <meta name="theme-color" content="#ffffff" id="themeColorMeta">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -18,6 +17,8 @@
     <meta property="og:description" content="Free text repeater: repeat any message, emoji or text up to 100,000x. Pick custom separator & copy in one click for WhatsApp, Discord, Instagram.">
     <meta property="og:site_name" content="Textify.tools">
     <meta property="og:image" content="https://textify.tools/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Text Repeater – Repeat Text, Words & Emojis Up to 100K Times">
@@ -117,27 +118,42 @@
                         {
                             "@type": "Question",
                             "name": "What is a text repeater?",
-                            "acceptedAnswer": { "@type": "Answer", "text": "A text repeater is an online tool that takes any word, sentence, emoji, or block of text and duplicates it a set number of times. It saves you from manually copy-pasting the same content over and over." }
+                            "acceptedAnswer": { "@type": "Answer", "text": "A text repeater is an online tool that takes any word, sentence, emoji, or block of text and duplicates it a set number of times. It saves you from manually copy-pasting the same content over and over. Modern text repeaters also let you control the separator between copies and show live stats like character count, word count, and line count." }
                         },
                         {
                             "@type": "Question",
                             "name": "How many times can I repeat text?",
-                            "acceptedAnswer": { "@type": "Answer", "text": "You can repeat text up to 100,000 times with this tool. For most use cases — WhatsApp messages, Discord spam, form testing, social media — a few dozen repetitions is plenty." }
+                            "acceptedAnswer": { "@type": "Answer", "text": "You can repeat text up to 100,000 times with this tool. For most use cases — WhatsApp messages, Discord spam, form testing, social media — a few dozen repetitions is plenty. The tool handles large outputs smoothly because all processing happens in your browser, though extremely large outputs may trigger a safety warning." }
                         },
                         {
                             "@type": "Question",
                             "name": "Can I repeat emojis?",
-                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Paste any emoji or emoji sequence into the input box and repeat it up to 100,000 times. Emojis work exactly like regular text, so you can create long emoji strings for WhatsApp, Discord, Instagram, and TikTok." }
+                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Paste any emoji or emoji sequence into the input box and repeat it up to 100,000 times. Emojis work exactly like regular text, so you can create long emoji strings for WhatsApp, Discord, Instagram, and TikTok. Popular uses include emoji walls (🔥🔥🔥), heart strings (❤️❤️❤️), and celebratory messages (🎉🎂🥳)." }
                         },
                         {
                             "@type": "Question",
                             "name": "What separator options are available?",
-                            "acceptedAnswer": { "@type": "Answer", "text": "You can choose from newline, space, comma, pipe, bullet dot, tab, or no separator at all. You can also use a custom separator with support for \\n (newline) and \\t (tab) escape sequences." }
+                            "acceptedAnswer": { "@type": "Answer", "text": "You can choose from newline, space, comma, pipe, bullet dot, tab, or no separator at all. Each separator changes how the repeated text is formatted. You can also use a custom separator with support for \\n (newline) and \\t (tab) escape sequences." }
                         },
                         {
                             "@type": "Question",
-                            "name": "Can I add numbers to each repetition?",
-                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Type {n} anywhere in your text, and the tool will replace it with 1, 2, 3… for each repetition. This is perfect for generating numbered lists, user IDs, or sequential test data." }
+                            "name": "How does auto-numbering work?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Type {n} anywhere in your text, then enable the \"Auto-number repetitions\" checkbox. The tool replaces {n} with 1, 2, 3… for each repetition. For example, \"User {n}\" becomes \"User 1\", \"User 2\", \"User 3\", and so on." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "What does the trailing separator option do?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "By default, the separator only appears between copies. When you enable \"Add separator after the last repetition\", it's also appended to the very end of the output. This is useful for building CSV rows or lists that need a trailing comma or newline." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Can I use this text repeater for WhatsApp?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Repeat a message, emoji, or phrase and paste it directly into WhatsApp chats, groups, or status updates. WhatsApp supports long messages (around 65,000 characters), so even hundreds of repetitions work fine. Keep the count reasonable so your message stays readable." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Does it work for Discord spam or copypasta?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The text repeater is commonly used to create Discord copypasta, repeated emoji walls, and long message strings. Note that Discord has a 2,000-character limit per message, so keep repeat counts reasonable for chat use — usually 10 to 100 repetitions is plenty." }
                         },
                         {
                             "@type": "Question",
@@ -147,22 +163,22 @@
                         {
                             "@type": "Question",
                             "name": "Is my data safe?",
-                            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Everything runs in your browser. The text you paste never leaves your device — there is no server processing, no logging, and no data storage." }
+                            "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Everything runs in your browser. The text you paste never leaves your device — there is no server processing, no logging, and no data storage. Close the tab and it's gone." }
+                        },
+                        {
+                            "@type": "Question",
+                            "name": "Can I use this tool on my phone?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool is fully responsive and works on phones, tablets, and desktops. You can even add it to your home screen for quick access." }
                         },
                         {
                             "@type": "Question",
                             "name": "Does this tool work offline?",
-                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once the page loads, the text repeater works without an internet connection. All processing happens locally in your browser." }
+                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once the page loads, the text repeater works without an internet connection. All processing happens locally in your browser using JavaScript." }
                         },
                         {
                             "@type": "Question",
-                            "name": "Can I use this text repeater for WhatsApp?",
-                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Repeat a message, emoji, or phrase and paste it directly into WhatsApp chats, groups, or status updates. WhatsApp supports long messages, so even hundreds of repetitions work fine." }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Does it work for Discord spam or copypasta?",
-                            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The text repeater is commonly used to create Discord copypasta, repeated emoji walls, and long message strings. Note that Discord has a 2,000-character limit per message, so keep repeat counts reasonable for chat use." }
+                            "name": "Why do I see a warning when I try a very high repeat count?",
+                            "acceptedAnswer": { "@type": "Answer", "text": "The tool includes a browser safety guard to prevent your tab from freezing. If the estimated output is extremely large (usually above ~5 million characters), you'll see a warning instead of a frozen page. Reduce the repeat count or shorten the input text to proceed." }
                         }
                     ]
                 },
@@ -534,20 +550,30 @@
         .count-control {
             display: flex; align-items: stretch; gap: 8px;
         }
-        .count-stepper {
-            display: flex; align-items: stretch; flex-shrink: 0;
-            border: 1.5px solid var(--input-border); border-radius: 11px;
-            background: var(--input-bg); overflow: hidden;
+        .count-stepper-btn {
+            width: 44px;
+            flex-shrink: 0;
+            border: 1.5px solid var(--input-border);
+            border-radius: 11px;
+            background: var(--input-bg);
+            cursor: pointer;
+            color: var(--text);
+            font-size: 20px;
+            font-weight: 600;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
         }
-        .count-stepper button {
-            border: none; background: transparent; cursor: pointer;
-            color: var(--text); padding: 0 14px; font-size: 18px; font-weight: 600;
-            font-family: inherit; transition: background 0.15s;
-            display: flex; align-items: center; justify-content: center;
-            min-width: 40px;
+        .count-stepper-btn:hover {
+            background: var(--hover);
+            border-color: var(--tool-accent);
+            color: var(--tool-accent);
         }
-        .count-stepper button:hover { background: var(--hover); }
-        .count-stepper button:active { background: var(--tool-accent-light); }
+        .count-stepper-btn:active {
+            background: var(--tool-accent-light);
+        }
         .count-field {
             flex: 1; min-width: 0; padding: 13px 15px; border-radius: 11px;
             border: 1.5px solid var(--input-border); background: var(--input-bg);
@@ -1062,6 +1088,11 @@
             .mobile-sidebar-overlay { display: none !important; }
             .mobile-sidebar { display: none !important; }
         }
+
+        /* noscript fallback nav */
+        .noscript-tools { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0; }
+        .noscript-tools a { font-size: 13px; color: var(--text-light); text-decoration: none; padding: 4px 8px; border-radius: 6px; }
+        .noscript-tools a:hover { background: var(--hover); color: var(--primary); }
     </style>
 </head>
 <body>
@@ -1078,7 +1109,20 @@
                             <button class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu" onclick="toggleToolsMenu()">
                                 Tools <i data-lucide="chevron-down" aria-hidden="true"></i>
                             </button>
-                            <div class="tools-mega-menu" id="megaMenu"></div>
+                            <div class="tools-mega-menu" id="megaMenu">
+                                <noscript>
+                                    <div class="noscript-tools">
+                                        <a href="/word-counter">Word Counter</a>
+                                        <a href="/case-converter">Case Converter</a>
+                                        <a href="/json-formatter">JSON Formatter</a>
+                                        <a href="/password-generator">Password Generator</a>
+                                        <a href="/qr-code-generator">QR Code Generator</a>
+                                        <a href="/image-resizer">Image Resizer</a>
+                                        <a href="/pdf-merge">PDF Merge</a>
+                                        <a href="/text-to-handwriting">Text to Handwriting</a>
+                                    </div>
+                                </noscript>
+                            </div>
                         </div>
                         <a href="/privacy-policy">Privacy</a>
                         <a href="/blog">Blog</a>
@@ -1141,9 +1185,9 @@
                                 <span class="label-hint">1 – 100,000</span>
                             </label>
                             <div class="count-control">
-                                <button type="button" class="count-stepper-btn" id="countMinus" aria-label="Decrease count" style="width:44px; border:1.5px solid var(--input-border); border-radius:11px; background:var(--input-bg); cursor:pointer; color:var(--text); font-size:20px; font-weight:600;">−</button>
+                                <button type="button" class="count-stepper-btn" id="countMinus" aria-label="Decrease count">−</button>
                                 <input type="number" id="repeatCount" class="count-field" value="10" min="1" max="100000" step="1">
-                                <button type="button" class="count-stepper-btn" id="countPlus" aria-label="Increase count" style="width:44px; border:1.5px solid var(--input-border); border-radius:11px; background:var(--input-bg); cursor:pointer; color:var(--text); font-size:20px; font-weight:600;">+</button>
+                                <button type="button" class="count-stepper-btn" id="countPlus" aria-label="Increase count">+</button>
                             </div>
                             <div class="presets" id="presetRow">
                                 <button type="button" class="preset-chip" data-count="5">×5</button>
@@ -1804,7 +1848,7 @@
         </div>
     </div>
 
-    <div class="toast" id="toast"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <script>
         // ============ Categories ============
@@ -2091,7 +2135,9 @@
         function buildMegaMenu() {
             if (megaMenuBuilt) return;
             megaMenuBuilt = true;
-            document.getElementById('megaMenu').innerHTML = tools.map(t => '<a href="' + escAttr(t.link) + '">' + escHtml(t.name) + '</a>').join('');
+            const menu = document.getElementById('megaMenu');
+            // Preserve any noscript content by only injecting when JS is enabled.
+            menu.innerHTML = tools.map(t => '<a href="' + escAttr(t.link) + '">' + escHtml(t.name) + '</a>').join('');
         }
         function buildMobileToolsMenu() {
             if (mobileMenuBuilt) return;
@@ -2129,7 +2175,7 @@
             }
         }
 
-        // FIX: react to OS-level theme changes when the user hasn't picked one manually.
+        // React to OS-level theme changes when the user hasn't picked one manually.
         function initSystemThemeListener() {
             if (!window.matchMedia) return;
             const mq = window.matchMedia('(prefers-color-scheme: dark)');
@@ -2149,7 +2195,6 @@
         }
 
         // ============ Tools Menu ============
-        // FIX: helper that optionally returns focus to the trigger.
         function closeToolsMenu(returnFocus) {
             const container = document.getElementById('toolsMenuContainer');
             const trigger = document.getElementById('toolsTrigger');
@@ -2182,6 +2227,9 @@
             }
         });
 
+        // ============ Search state (declared early to avoid TDZ in sidebar close) ============
+        let searchIsOpen = false;
+
         // ============ Mobile Sidebar ============
         function openMobileSidebar() {
             buildMobileToolsMenu();
@@ -2204,8 +2252,6 @@
             const hb = document.getElementById('hamburgerBtn');
             if (hb) {
                 hb.setAttribute('aria-expanded', 'false');
-                // FIX: return focus to the hamburger when the sidebar closes,
-                // unless we're opening the search overlay right after.
                 if (!searchIsOpen) {
                     try { hb.focus(); } catch (e) {}
                 }
@@ -2249,13 +2295,10 @@
         // ============ Search ============
         let lastFocusedBeforeSearch = null;
         let searchResultsRaf = 0;
-        let searchIsOpen = false;
         const searchState = { activeIndex: -1 };
 
         function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
-            // FIX: if already open, just refocus the input instead of overwriting
-            // lastFocusedBeforeSearch with an element inside the overlay.
             if (overlay.classList.contains('active')) {
                 document.getElementById('fullSearchInput').focus();
                 return;
@@ -2418,6 +2461,7 @@
             const expanded = btnEl.getAttribute('aria-expanded') === 'true';
             item.classList.toggle('active');
             btnEl.setAttribute('aria-expanded', String(!expanded));
+            // Lucide may not have replaced <i> with <svg> yet, so guard.
             const icon = btnEl.querySelector('svg');
             if (icon) {
                 icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
@@ -2430,6 +2474,7 @@
 
         let lastOutput = '';
         let currentSeparator = '\n';
+        let customSepTimer = null;
 
         function resolveSeparator(sepValue) {
             if (sepValue === 'custom') {
@@ -2468,7 +2513,9 @@
 
             const inputLen = input.length;
             const perCopyLen = inputLen + (doNumber ? 7 : 0);
-            const estimatedSize = perCopyLen * count + separator.length * (count + (trailing ? 1 : -1));
+            // Separator appears count-1 times between copies, plus 1 if trailing is on.
+            const sepCount = trailing ? count : Math.max(0, count - 1);
+            const estimatedSize = perCopyLen * count + separator.length * sepCount;
 
             const SAFE_LIMIT = 5000000;
             if (estimatedSize > SAFE_LIMIT) {
@@ -2587,7 +2634,6 @@
             overlay.classList.add('active');
             document.body.style.overflow = 'hidden';
 
-            // Re-init lucide icons inside modal
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
                 window.lucide.createIcons();
             }
@@ -2608,7 +2654,6 @@
             clearTimeout(modalTimer);
         }
 
-        // Close modal when clicking outside
         document.getElementById('actionModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
@@ -2727,7 +2772,7 @@
             });
         }
 
-        // ---------- Init ----------
+        // ============ Init ============
         document.getElementById('dynamicYear').textContent = new Date().getFullYear();
         buildMegaMenu();
         buildMobileToolsMenu();
@@ -2747,7 +2792,7 @@
         initSystemThemeListener();
 
         // Auto-repeat when toggles change (if there's output already)
-        ['numberThem', 'trailingSeparator', 'customSeparator'].forEach(function(id) {
+        ['numberThem', 'trailingSeparator'].forEach(function(id) {
             const el = document.getElementById(id);
             if (el) {
                 el.addEventListener('change', function() {
@@ -2755,13 +2800,22 @@
                         repeatText();
                     }
                 });
-                el.addEventListener('input', function() {
+            }
+        });
+
+        // Custom separator uses debounced input to avoid regenerating on every keystroke
+        (function initCustomSeparatorDebounce() {
+            const el = document.getElementById('customSeparator');
+            if (!el) return;
+            el.addEventListener('input', function() {
+                clearTimeout(customSepTimer);
+                customSepTimer = setTimeout(function() {
                     if (document.getElementById('repeatInput').value.trim() !== '' && lastOutput) {
                         repeatText();
                     }
-                });
-            }
-        });
+                }, 400);
+            });
+        })();
 
         // Ctrl+Enter to repeat
         document.getElementById('repeatInput').addEventListener('keydown', function(e) {
@@ -2778,12 +2832,18 @@
             repeatText();
         })();
 
+        // Lucide loads with `defer`, so wait until DOMContentLoaded to run createIcons().
+        // (Deferred scripts execute before DOMContentLoaded, so lucide will be ready.)
         function initLucide() {
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
                 window.lucide.createIcons();
             }
         }
-        initLucide();
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initLucide);
+        } else {
+            initLucide();
+        }
         window.addEventListener('load', initLucide);
     </script>
 </body>
