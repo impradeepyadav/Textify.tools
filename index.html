@@ -302,6 +302,19 @@
         .tools-mega-menu::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
         .noscript-tools a { display: block; padding: 8px 14px; border-radius: 6px; color: var(--text); font-size: 13px; font-weight: 500; text-decoration: none; }
 
+        /* FIX: on narrow desktop widths, right-align the mega menu so it never overflows the viewport */
+        @media (max-width: 1100px) {
+            .tools-mega-menu {
+                left: auto;
+                right: 0;
+                transform: translateX(0) translateY(8px);
+            }
+            .tools-menu-container:hover .tools-mega-menu,
+            .tools-menu-container.open .tools-mega-menu {
+                transform: translateX(0) translateY(0);
+            }
+        }
+
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
         .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; font-family: inherit; }
@@ -1438,12 +1451,24 @@
         function escHtml(s) {
             return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
+
+        // FIX: highlight ALL matches, not just the first one
         function highlight(text, q) {
-            const safe = escHtml(text);
-            if (!q) return safe;
-            const idx = text.toLowerCase().indexOf(q);
-            if (idx === -1) return safe;
-            return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
+            if (!q) return escHtml(text);
+            const lower = text.toLowerCase();
+            const qLen = q.length;
+            let idx = lower.indexOf(q);
+            if (idx === -1) return escHtml(text);
+            let result = '';
+            let lastIdx = 0;
+            while (idx !== -1) {
+                result += escHtml(text.slice(lastIdx, idx));
+                result += '<mark>' + escHtml(text.slice(idx, idx + qLen)) + '</mark>';
+                lastIdx = idx + qLen;
+                idx = lower.indexOf(q, lastIdx);
+            }
+            result += escHtml(text.slice(lastIdx));
+            return result;
         }
 
         const filterState = { category: 'all', query: '' };
@@ -1560,7 +1585,6 @@
         function buildMegaMenu() {
             if (megaMenuBuilt) return;
             megaMenuBuilt = true;
-            // Only replace contents if JS is running (noscript content is unreachable to JS anyway)
             document.getElementById('megaMenu').innerHTML = tools.map(t => `<a href="${escAttr(t.link)}">${escHtml(t.name)}</a>`).join('');
         }
         function buildMobileToolsMenu() {
@@ -1811,7 +1835,10 @@
             if (hb) hb.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
             const closeBtn = document.getElementById('mobileSidebarClose');
-            if (closeBtn) setTimeout(function () { closeBtn.focus(); }, 100);
+            // FIX: only focus the close button if the sidebar is still open when the timeout fires
+            if (closeBtn) setTimeout(function () {
+                if (sb.classList.contains('active')) closeBtn.focus();
+            }, 100);
         }
         function closeMobileSidebar() {
             const sb = document.getElementById('mobileSidebar');
@@ -1903,6 +1930,25 @@
             }
         }
 
+        // FIX: focus trap helper so Tab stays inside the open dialog / sidebar
+        function trapFocus(e, container) {
+            if (e.key !== 'Tab') return;
+            const focusable = container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+            const list = Array.prototype.filter.call(focusable, function (el) {
+                return el.offsetParent !== null || el === document.activeElement;
+            });
+            if (!list.length) return;
+            const first = list[0];
+            const last = list[list.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+
         function initKeyboardShortcuts() {
             document.addEventListener('keydown', e => {
                 if (e.key === 'Escape') {
@@ -1916,6 +1962,12 @@
                 if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                     e.preventDefault();
                     openFullSearch();
+                }
+                // FIX: keep Tab focus trapped inside open dialogs
+                if (searchIsOpen) {
+                    trapFocus(e, document.getElementById('searchOverlayFull'));
+                } else if (document.getElementById('mobileSidebar').classList.contains('active')) {
+                    trapFocus(e, document.getElementById('mobileSidebar'));
                 }
             });
         }
