@@ -729,7 +729,7 @@
             background: transparent; color: var(--text);
             font-family: ui-monospace, 'SF Mono', Menlo, monospace;
             font-size: 13px; line-height: 1.7; outline: none;
-            min-height: 240px; max-height: 480px; resize: vertical;
+            min-height: 240px; resize: vertical;
             overflow-y: auto; white-space: pre-wrap; word-wrap: break-word;
             display: block;
         }
@@ -780,12 +780,13 @@
             position: fixed; bottom: 30px; left: 50%;
             transform: translateX(-50%) translateY(100px);
             background: var(--toast-bg); color: var(--toast-text);
-            padding: 14px 28px; border-radius: 30px;
+            padding: 14px 28px; border-radius: 18px;
             font-weight: 600; font-size: 14px; z-index: 9999;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             transition: transform 0.4s; pointer-events: none;
-            white-space: nowrap; max-width: 90vw;
-            overflow: hidden; text-overflow: ellipsis;
+            max-width: min(90vw, 480px);
+            text-align: center; line-height: 1.45;
+            overflow-wrap: break-word;
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
 
@@ -1104,7 +1105,7 @@
                             <label class="form-label">
                                 <span>Separator between copies</span>
                             </label>
-                            <div class="sep-grid" id="sepGrid" role="radiogroup" aria-label="Separator">
+                            <div class="sep-grid" id="sepGrid" role="group" aria-label="Separator">
                                 <button type="button" class="sep-option active" data-sep="\n" aria-pressed="true">
                                     <span class="sep-icon">↵</span>
                                     <span class="sep-label">New line</span>
@@ -1189,8 +1190,14 @@
                             </div>
                         </div>
 
-                        <div class="error-banner" id="errorMsg" role="alert"></div>
-                        <div class="warning-banner" id="warningBanner" role="alert"></div>
+                        <div class="error-banner" id="errorMsg" role="alert">
+                            <i data-lucide="alert-circle" aria-hidden="true"></i>
+                            <div id="errorMsgText"></div>
+                        </div>
+                        <div class="warning-banner" id="warningBanner" role="alert">
+                            <i data-lucide="alert-triangle" aria-hidden="true"></i>
+                            <div id="warningMsgText"></div>
+                        </div>
 
                         <div class="result-placeholder" id="resultPlaceholder">
                             <div class="placeholder-icon">
@@ -2041,12 +2048,22 @@
         function escHtml(s) {
             return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
         }
+        // FIX: highlight every occurrence, not just the first one.
         function highlight(text, q) {
-            const safe = escHtml(text);
-            if (!q) return safe;
-            const idx = text.toLowerCase().indexOf(q);
-            if (idx === -1) return safe;
-            return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
+            if (!q) return escHtml(text);
+            const lower = text.toLowerCase();
+            const ql = q.toLowerCase();
+            if (ql.length === 0) return escHtml(text);
+            let out = '';
+            let from = 0;
+            let idx;
+            while ((idx = lower.indexOf(ql, from)) !== -1) {
+                out += escHtml(text.slice(from, idx)) +
+                       '<mark>' + escHtml(text.slice(idx, idx + ql.length)) + '</mark>';
+                from = idx + ql.length;
+            }
+            out += escHtml(text.slice(from));
+            return out;
         }
 
         function trapFocus(e, container) {
@@ -2187,7 +2204,9 @@
             toggle.classList.toggle('active');
             if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
         }
-        document.querySelectorAll('.mobile-sidebar-nav a, .mobile-tools-menu a').forEach(function(l) {
+        // FIX: the tools menu lives inside .mobile-sidebar-nav, so a single
+        // selector is enough — the old dual selector bound the handler twice.
+        document.querySelectorAll('.mobile-sidebar-nav a').forEach(function(l) {
             l.addEventListener('click', closeMobileSidebar);
         });
 
@@ -2335,7 +2354,8 @@
                 e.preventDefault();
                 if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) {
                     window.location.href = items[searchState.activeIndex].getAttribute('href');
-                } else if (items.length === 1) {
+                } else if (items.length > 0) {
+                    // FIX: previously a no-op when multiple results and no arrow selection.
                     window.location.href = items[0].getAttribute('href');
                 }
             }
@@ -2413,28 +2433,64 @@
 
         const DEFAULT_SEP_ATTR = '\\n';
 
+        // FIX: \r is now unescaped for fixed separators too (not just custom).
         function resolveSeparator(sepValue) {
             if (sepValue === 'custom') {
                 let custom = document.getElementById('customSeparator').value;
-                custom = custom.replace(/\\n/g, '\n').replace(/\\t/g, '\t').replace(/\\r/g, '\r');
-                return custom;
+                return custom
+                    .replace(/\\n/g, '\n')
+                    .replace(/\\t/g, '\t')
+                    .replace(/\\r/g, '\r');
             }
-            return sepValue.replace(/\\n/g, '\n').replace(/\\t/g, '\t');
+            return sepValue
+                .replace(/\\n/g, '\n')
+                .replace(/\\t/g, '\t')
+                .replace(/\\r/g, '\r');
+        }
+
+        // FIX: count words without allocating a giant array via split().
+        function countWords(str) {
+            const re = /\S+/g;
+            let count = 0;
+            while (re.exec(str) !== null) { count++; }
+            return count;
+        }
+
+        // FIX: count lines with a simple scan instead of split('\n').
+        function countLines(str) {
+            let lines = 1;
+            for (let i = 0; i < str.length; i++) {
+                if (str.charCodeAt(i) === 10) lines++;
+            }
+            return lines;
+        }
+
+        // FIX: single place that resets the output panel to its empty state.
+        function resetOutputPanel() {
+            lastOutput = '';
+            document.getElementById('outputArea').value = '';
+            document.getElementById('resultPlaceholder').style.display = 'flex';
+            document.getElementById('resultContent').style.display = 'none';
+            document.getElementById('outputSubtitle').textContent = 'Generated result';
+            document.getElementById('statChars').textContent = '0';
+            document.getElementById('statWords').textContent = '0';
+            document.getElementById('statLines').textContent = '0';
         }
 
         function repeatText() {
             const errorEl = document.getElementById('errorMsg');
+            const errorTextEl = document.getElementById('errorMsgText');
             const warnEl = document.getElementById('warningBanner');
+            const warnTextEl = document.getElementById('warningMsgText');
             errorEl.classList.remove('show');
             warnEl.classList.remove('show');
 
             const input = document.getElementById('repeatInput').value;
             if (!input.trim()) {
-                errorEl.innerHTML = '<i data-lucide="alert-circle" aria-hidden="true"></i><div>Please enter some text to repeat.</div>';
+                // FIX: stale output is cleared so Copy can never return old data.
+                resetOutputPanel();
+                errorTextEl.textContent = 'Please enter some text to repeat.';
                 errorEl.classList.add('show');
-                if (window.lucide && typeof window.lucide.createIcons === 'function') {
-                    window.lucide.createIcons();
-                }
                 showToast('Please enter some text.');
                 return;
             }
@@ -2458,11 +2514,12 @@
 
             const SAFE_LIMIT = 5000000;
             if (estimatedSize > SAFE_LIMIT) {
-                warnEl.innerHTML = '<i data-lucide="alert-triangle" aria-hidden="true"></i><div><strong>Output too large</strong><br>This would generate approximately ' + (estimatedSize / 1000000).toFixed(1) + ' million characters, which may freeze your browser tab. Try reducing the repeat count or shortening the input text.</div>';
+                // FIX: stale output is cleared so Copy can never return old data.
+                resetOutputPanel();
+                warnTextEl.innerHTML = '<strong>Output too large</strong><br>This would generate approximately ' +
+                    (estimatedSize / 1000000).toFixed(1) +
+                    ' million characters, which may freeze your browser tab. Try reducing the repeat count or shortening the input text.';
                 warnEl.classList.add('show');
-                if (window.lucide && typeof window.lucide.createIcons === 'function') {
-                    window.lucide.createIcons();
-                }
                 showToast('Output would be too large. Reduce count or shorten text.');
                 return;
             }
@@ -2484,8 +2541,8 @@
             }
 
             const charCount = output.length;
-            const wordCount = output.trim() === '' ? 0 : output.trim().split(/\s+/).length;
-            const lineCount = output.split('\n').length;
+            const wordCount = countWords(output);
+            const lineCount = countLines(output);
 
             document.getElementById('statChars').textContent = charCount.toLocaleString();
             document.getElementById('statWords').textContent = wordCount.toLocaleString();
@@ -2532,14 +2589,11 @@
             document.getElementById('customSeparator').value = '';
             document.getElementById('numberThem').checked = false;
             document.getElementById('trailingSeparator').checked = false;
-            document.getElementById('outputArea').value = '';
-            document.getElementById('resultPlaceholder').style.display = 'flex';
-            document.getElementById('resultContent').style.display = 'none';
             document.getElementById('errorMsg').classList.remove('show');
             document.getElementById('warningBanner').classList.remove('show');
             document.getElementById('inputCharCount').textContent = '0 chars';
-            document.getElementById('outputSubtitle').textContent = 'Generated result';
-            lastOutput = '';
+
+            resetOutputPanel();
 
             setActiveSeparator(DEFAULT_SEP_ATTR);
             syncPresetChips(10);
@@ -2584,10 +2638,6 @@
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
-
-            if (window.lucide && typeof window.lucide.createIcons === 'function') {
-                window.lucide.createIcons();
-            }
 
             const closeBtn = overlay.querySelector('.modal-close-btn');
             if (closeBtn) {
