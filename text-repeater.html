@@ -234,6 +234,7 @@
             --warn-bg: rgba(217, 119, 6, 0.1);
             --bad: #dc2626;
             --bad-bg: rgba(220, 38, 38, 0.1);
+            --focus-ring: #2563eb;
         }
         html.dark-mode {
             --bg: #0b1220;
@@ -275,6 +276,7 @@
             --warn-bg: rgba(251, 191, 36, 0.1);
             --bad: #f87171;
             --bad-bg: rgba(248, 113, 113, 0.1);
+            --focus-ring: #60a5fa;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -286,9 +288,20 @@
         }
         .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; background: transparent; display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* Accessibility: subtle focus ring for keyboard users only.
-           Black border animation on click/hover has been removed. */
-        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+        /* FIX: Proper focus-visible ring for keyboard users (WCAG 2.4.7).
+           Inputs/textarea keep their subtle border-based focus indicator. */
+        a:focus-visible,
+        button:focus-visible,
+        .sep-option:focus-visible,
+        .preset-chip:focus-visible,
+        .category-card:focus-visible,
+        [tabindex]:focus-visible {
+            outline: 2px solid var(--focus-ring);
+            outline-offset: 2px;
+            border-radius: 6px;
+        }
+        input:focus-visible,
+        textarea:focus-visible {
             outline: none;
         }
         .sr-only {
@@ -348,11 +361,16 @@
         .tools-mega-menu a:hover { background: var(--hover); color: var(--primary); }
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
         .tools-mega-menu::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
+        /* Right-align the mega menu on narrow desktops so it never overflows */
+        @media (max-width: 1100px) {
+            .tools-mega-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+            .tools-menu-container:hover .tools-mega-menu,
+            .tools-menu-container.open .tools-mega-menu { transform: translateX(0) translateY(0); }
+        }
 
         .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
         .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; font-family: inherit; }
-        /* Black border on hover removed */
         .search-trigger:hover { background: var(--chip-hover); }
         .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; }
         .hamburger-btn:hover { background: var(--hover); }
@@ -526,7 +544,6 @@
             color: var(--text); font-family: inherit; font-size: 15px;
             outline: none; transition: border-color 0.2s;
         }
-        /* Removed black border on hover/focus */
         .form-input:hover { border-color: var(--input-border); }
         .form-input:focus { border-color: var(--text-light); }
 
@@ -539,7 +556,6 @@
             min-height: 130px; resize: vertical;
             white-space: pre-wrap; overflow-wrap: break-word;
         }
-        /* Removed black border + glow on hover/focus */
         .form-textarea:hover { border-color: var(--input-border); }
         .form-textarea:focus { border-color: var(--text-light); }
 
@@ -563,13 +579,8 @@
             justify-content: center;
             transition: background 0.15s, border-color 0.15s;
         }
-        /* Removed black border animation on hover/click */
-        .count-stepper-btn:hover {
-            background: var(--hover);
-        }
-        .count-stepper-btn:active {
-            background: var(--hover);
-        }
+        .count-stepper-btn:hover { background: var(--hover); }
+        .count-stepper-btn:active { background: var(--hover); }
         .count-field {
             flex: 1; min-width: 0; padding: 13px 15px; border-radius: 11px;
             border: 1.5px solid var(--input-border); background: var(--input-bg);
@@ -583,7 +594,6 @@
         .count-field::-webkit-inner-spin-button {
             -webkit-appearance: none; margin: 0;
         }
-        /* Removed black border + glow on hover/focus */
         .count-field:hover { border-color: var(--input-border); }
         .count-field:focus { border-color: var(--text-light); }
 
@@ -599,7 +609,6 @@
             transition: all 0.15s; font-variant-numeric: tabular-nums;
             display: inline-flex; align-items: center; gap: 4px;
         }
-        /* Removed black border on hover */
         .preset-chip:hover {
             color: var(--text);
             background: var(--hover);
@@ -623,7 +632,6 @@
             cursor: pointer; transition: all 0.15s; user-select: none;
             font-family: inherit;
         }
-        /* Removed black border on hover */
         .sep-option:hover {
             background: var(--hover);
         }
@@ -656,7 +664,6 @@
             border: 1.5px solid var(--input-border); background: var(--input-bg);
             cursor: pointer; transition: all 0.15s; margin-bottom: 10px;
         }
-        /* Removed black border on hover */
         .toggle-row:hover { background: var(--hover); }
         .toggle-row:last-child { margin-bottom: 0; }
         .toggle-row input[type="checkbox"] {
@@ -690,14 +697,12 @@
             background: var(--tool-accent); color: var(--tool-accent-contrast);
             width: 100%; margin-top: 8px;
         }
-        /* Removed lift / shadow animation on hover; only subtle brightness */
         .btn-primary:hover { filter: brightness(1.1); }
         .btn-primary:active { filter: brightness(0.95); }
         .btn-outline {
             background: var(--input-bg); color: var(--text);
             border: 1.5px solid var(--input-border);
         }
-        /* Removed black border on hover */
         .btn-outline:hover {
             background: var(--hover);
         }
@@ -733,7 +738,6 @@
             border-radius: 12px; padding: 14px 12px; text-align: center;
             transition: none;
         }
-        /* Removed black border on hover */
         .stat-tile:hover { border-color: var(--line); }
         .stat-tile .stat-icon {
             display: flex; justify-content: center; margin-bottom: 6px;
@@ -759,7 +763,6 @@
             background: var(--input-bg); overflow: hidden;
             transition: border-color 0.2s;
         }
-        /* Removed black border + glow on focus-within */
         .output-wrap:focus-within { border-color: var(--input-border); }
         .output-toolbar {
             display: flex; align-items: center; justify-content: space-between;
@@ -856,7 +859,7 @@
         }
         .toast.show { transform: translateX(-50%) translateY(0); }
 
-        /* ===== ACTION MODAL (Stylish Popup) ===== */
+        /* ===== ACTION MODAL ===== */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.5);
@@ -910,6 +913,13 @@
             width: 32px;
             height: 32px;
         }
+        /* FIX: icons live inside spans so their ids survive lucide.createIcons() */
+        .modal-icon > span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 0;
+        }
         @keyframes modalIconPop {
             0% { transform: scale(0.5); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
@@ -940,7 +950,6 @@
             transition: filter 0.2s;
             width: 100%;
         }
-        /* Removed lift/shadow animation on hover */
         .modal-close-btn:hover { filter: brightness(1.1); }
         .modal-close-btn:active { filter: brightness(0.95); }
 
@@ -1173,12 +1182,12 @@
                                 <input type="number" id="repeatCount" class="count-field" value="10" min="1" max="100000" step="1">
                                 <button type="button" class="count-stepper-btn" id="countPlus" aria-label="Increase count">+</button>
                             </div>
-                            <div class="presets" id="presetRow">
-                                <button type="button" class="preset-chip" data-count="5">×5</button>
-                                <button type="button" class="preset-chip active" data-count="10">×10</button>
-                                <button type="button" class="preset-chip" data-count="50">×50</button>
-                                <button type="button" class="preset-chip" data-count="100">×100</button>
-                                <button type="button" class="preset-chip" data-count="1000">×1000</button>
+                            <div class="presets" id="presetRow" role="group" aria-label="Quick repeat count presets">
+                                <button type="button" class="preset-chip" data-count="5" aria-pressed="false">×5</button>
+                                <button type="button" class="preset-chip active" data-count="10" aria-pressed="true">×10</button>
+                                <button type="button" class="preset-chip" data-count="50" aria-pressed="false">×50</button>
+                                <button type="button" class="preset-chip" data-count="100" aria-pressed="false">×100</button>
+                                <button type="button" class="preset-chip" data-count="1000" aria-pressed="false">×1000</button>
                             </div>
                         </div>
 
@@ -1272,8 +1281,8 @@
                             </div>
                         </div>
 
-                        <div class="error-banner" id="errorMsg"></div>
-                        <div class="warning-banner" id="warningBanner"></div>
+                        <div class="error-banner" id="errorMsg" role="alert"></div>
+                        <div class="warning-banner" id="warningBanner" role="alert"></div>
 
                         <div class="result-placeholder" id="resultPlaceholder">
                             <div class="placeholder-icon">
@@ -1317,7 +1326,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <textarea id="outputArea" class="output-area" readonly placeholder="Generated output will appear here..."></textarea>
+                                <textarea id="outputArea" class="output-area" readonly placeholder="Generated output will appear here..." aria-label="Repeated output"></textarea>
                             </div>
 
                             <div class="btn-row" style="margin-top:14px;">
@@ -1820,11 +1829,12 @@
     </div>
 
     <!-- Stylish Action Modal (Copy / Download) -->
-    <div class="modal-overlay" id="actionModal" role="dialog" aria-modal="true" aria-label="Action confirmation">
+    <div class="modal-overlay" id="actionModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalMessage" aria-hidden="true">
         <div class="modal-box">
+            <!-- FIX: icons wrapped in spans so lucide.createIcons() cannot strip the ids -->
             <div class="modal-icon" id="modalIcon">
-                <i data-lucide="check-circle" id="modalIconCheck" aria-hidden="true"></i>
-                <i data-lucide="download" id="modalIconDownload" style="display:none;" aria-hidden="true"></i>
+                <span id="modalIconCheck"><i data-lucide="check-circle" aria-hidden="true"></i></span>
+                <span id="modalIconDownload" style="display:none;"><i data-lucide="download" aria-hidden="true"></i></span>
             </div>
             <h3 class="modal-title" id="modalTitle">Copied!</h3>
             <p class="modal-message" id="modalMessage">Your repeated text is in the clipboard.</p>
@@ -2112,6 +2122,29 @@
             return escHtml(text.slice(0, idx)) + '<mark>' + escHtml(text.slice(idx, idx + q.length)) + '</mark>' + escHtml(text.slice(idx + q.length));
         }
 
+        // ============ Focus trap ============
+        // FIX: keeps Tab / Shift+Tab inside the currently open dialog.
+        function trapFocus(e, container) {
+            if (e.key !== 'Tab') return;
+            const focusable = container.querySelectorAll(
+                'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), ' +
+                'select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            );
+            const list = Array.prototype.filter.call(focusable, function (el) {
+                return el.offsetParent !== null || el === document.activeElement;
+            });
+            if (!list.length) return;
+            const first = list[0];
+            const last = list[list.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+
         // ============ Build shared components ============
         let megaMenuBuilt = false;
         let mobileMenuBuilt = false;
@@ -2223,7 +2256,10 @@
             if (hb) hb.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
             const closeBtn = document.getElementById('mobileSidebarClose');
-            if (closeBtn) setTimeout(function () { closeBtn.focus(); }, 100);
+            // FIX: only focus the close button if the sidebar is still open when the timeout fires
+            if (closeBtn) setTimeout(function () {
+                if (sb.classList.contains('active')) closeBtn.focus();
+            }, 100);
         }
         function closeMobileSidebar() {
             const sb = document.getElementById('mobileSidebar');
@@ -2424,16 +2460,33 @@
             input.placeholder = 'Search all ' + tools.length + ' free tools…';
         })();
 
+        // ============ Global keyboard shortcuts + focus traps ============
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeToolsMenu(true);
                 closeFullSearch();
                 closeMobileSidebar();
                 closeModal();
+                return;
             }
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
                 openFullSearch();
+                return;
+            }
+            // FIX: keep Tab focus inside the open dialog / sidebar
+            const modalOverlay = document.getElementById('actionModal');
+            if (modalOverlay.classList.contains('active')) {
+                trapFocus(e, modalOverlay.querySelector('.modal-box'));
+                return;
+            }
+            if (searchIsOpen) {
+                trapFocus(e, document.getElementById('searchOverlayFull'));
+                return;
+            }
+            const sb = document.getElementById('mobileSidebar');
+            if (sb.classList.contains('active')) {
+                trapFocus(e, sb);
             }
         });
 
@@ -2454,8 +2507,8 @@
         // ============================================================
 
         let lastOutput = '';
-        // NOTE: The stored separator value matches the `data-sep` attribute
-        // (a literal backslash + n), and is resolved to a real newline at use time.
+        // NOTE: stored value matches the `data-sep` attribute (literal backslash + n),
+        // resolved to a real newline at use time.
         let currentSeparator = '\\n';
         let customSepTimer = null;
 
@@ -2477,7 +2530,8 @@
             warnEl.classList.remove('show');
 
             const input = document.getElementById('repeatInput').value;
-            if (!input) {
+            // FIX: reject whitespace-only input (not just empty string)
+            if (!input.trim()) {
                 errorEl.innerHTML = '<i data-lucide="alert-circle" aria-hidden="true"></i><div>Please enter some text to repeat.</div>';
                 errorEl.classList.add('show');
                 if (window.lucide && typeof window.lucide.createIcons === 'function') {
@@ -2496,8 +2550,13 @@
             const doNumber = document.getElementById('numberThem').checked;
             const trailing = document.getElementById('trailingSeparator').checked;
 
+            // FIX: estimate based on the actual number of {n} placeholders and their
+            // real replacement length, instead of a fixed +7 magic number.
             const inputLen = input.length;
-            const perCopyLen = inputLen + (doNumber ? 7 : 0);
+            const nMatches = doNumber ? (input.match(/\{n\}/g) || []).length : 0;
+            const replacementLen = String(count).length;
+            const perCopyNumberExtra = nMatches * Math.max(0, replacementLen - 3);
+            const perCopyLen = inputLen + perCopyNumberExtra;
             const sepCount = trailing ? count : Math.max(0, count - 1);
             const estimatedSize = perCopyLen * count + separator.length * sepCount;
 
@@ -2536,7 +2595,10 @@
             document.getElementById('statWords').textContent = wordCount.toLocaleString();
             document.getElementById('statLines').textContent = lineCount.toLocaleString();
 
-            document.getElementById('outputSubtitle').textContent = count.toLocaleString() + ' × copies · ' + charCount.toLocaleString() + ' chars';
+            // FIX: correct singular/plural wording in the subtitle
+            document.getElementById('outputSubtitle').textContent =
+                count.toLocaleString() + (count === 1 ? ' copy' : ' copies') +
+                ' · ' + charCount.toLocaleString() + ' chars';
 
             document.getElementById('outputArea').value = output;
             document.getElementById('resultPlaceholder').style.display = 'none';
@@ -2561,6 +2623,14 @@
             }
         }
 
+        function syncPresetChips(activeCount) {
+            document.querySelectorAll('.preset-chip').forEach(function(b) {
+                const isActive = b.getAttribute('data-count') === String(activeCount);
+                b.classList.toggle('active', isActive);
+                b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+            });
+        }
+
         function clearAll() {
             document.getElementById('repeatInput').value = '';
             document.getElementById('repeatCount').value = 10;
@@ -2577,10 +2647,7 @@
             lastOutput = '';
 
             setActiveSeparator(DEFAULT_SEP_ATTR);
-
-            document.querySelectorAll('.preset-chip').forEach(function(b) {
-                b.classList.toggle('active', b.getAttribute('data-count') === '10');
-            });
+            syncPresetChips(10);
 
             showToast('Cleared.');
         }
@@ -2593,10 +2660,8 @@
             document.getElementById('customSeparator').value = '';
 
             setActiveSeparator(DEFAULT_SEP_ATTR);
+            syncPresetChips(10);
 
-            document.querySelectorAll('.preset-chip').forEach(function(b) {
-                b.classList.toggle('active', b.getAttribute('data-count') === '10');
-            });
             document.getElementById('inputCharCount').textContent = '11 chars';
             repeatText();
         }
@@ -2611,22 +2676,31 @@
             const message = document.getElementById('modalMessage');
 
             if (type === 'copy') {
-                iconCheck.style.display = 'block';
+                iconCheck.style.display = '';
                 iconDownload.style.display = 'none';
                 title.textContent = 'Copied!';
                 message.textContent = 'Your repeated text is in the clipboard.';
             } else if (type === 'download') {
                 iconCheck.style.display = 'none';
-                iconDownload.style.display = 'block';
+                iconDownload.style.display = '';
                 title.textContent = 'Download Started!';
                 message.textContent = 'Your file is downloading as repeated-text.txt.';
             }
 
             overlay.classList.add('active');
+            overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
 
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
                 window.lucide.createIcons();
+            }
+
+            // Focus the close button so keyboard users land inside the dialog
+            const closeBtn = overlay.querySelector('.modal-close-btn');
+            if (closeBtn) {
+                setTimeout(function() {
+                    if (overlay.classList.contains('active')) closeBtn.focus();
+                }, 50);
             }
 
             clearTimeout(modalTimer);
@@ -2637,6 +2711,7 @@
             const overlay = document.getElementById('actionModal');
             if (!overlay.classList.contains('active')) return;
             overlay.classList.remove('active');
+            overlay.setAttribute('aria-hidden', 'true');
             const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
             const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
             if (!searchOpen && !sidebarOpen) {
@@ -2693,10 +2768,7 @@
                 btn.addEventListener('click', function() {
                     const count = this.getAttribute('data-count');
                     document.getElementById('repeatCount').value = count;
-                    document.querySelectorAll('.preset-chip').forEach(function(b) {
-                        b.classList.remove('active');
-                    });
-                    this.classList.add('active');
+                    syncPresetChips(count);
                     if (document.getElementById('repeatInput').value.trim() !== '' && lastOutput) {
                         repeatText();
                     }
@@ -2711,6 +2783,7 @@
                 let v = parseInt(input.value, 10) || 1;
                 v = Math.max(1, v - 1);
                 input.value = v;
+                syncPresetChips(v);
                 if (document.getElementById('repeatInput').value.trim() !== '' && lastOutput) {
                     repeatText();
                 }
@@ -2719,9 +2792,14 @@
                 let v = parseInt(input.value, 10) || 1;
                 v = Math.min(100000, v + 1);
                 input.value = v;
+                syncPresetChips(v);
                 if (document.getElementById('repeatInput').value.trim() !== '' && lastOutput) {
                     repeatText();
                 }
+            });
+            // Keep the presets in sync if the user types a custom number
+            input.addEventListener('input', function() {
+                syncPresetChips(this.value);
             });
         }
 
@@ -2815,11 +2893,8 @@
             }
         });
 
-        (function initialExample() {
-            document.getElementById('repeatInput').value = 'Hello World';
-            document.getElementById('inputCharCount').textContent = '11 chars';
-            repeatText();
-        })();
+        // FIX: no auto-example on load. The placeholder is now actually visible on
+        // first visit, matching its stated purpose ("Enter some text and click Repeat Text").
 
         function initLucide() {
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
