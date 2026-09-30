@@ -1981,9 +1981,7 @@ Student</textarea>
         // ----- Core rendering -----
         function renderHandwriting() {
             const errorEl = document.getElementById('errorMsg');
-            const warnEl = document.getElementById('warningBanner');
             errorEl.classList.remove('show');
-            warnEl.classList.remove('show');
 
             const input = document.getElementById('handwritingInput').value;
             if (!input.trim()) {
@@ -2053,44 +2051,65 @@ Student</textarea>
                 return parts.length ? parts : [word];
             }
 
+            // FIX 1 + FIX 4: Preserve leading indentation, do NOT push an extra blank after
+            // each non-empty paragraph. Empty source lines already produce blank entries.
             for (let p = 0; p < paragraphs.length; p++) {
-                const para = paragraphs[p].trim();
-                if (para === '') { wrappedLines.push({ type: 'blank' }); continue; }
-                const words = para.split(/\s+/);
+                const rawPara = paragraphs[p];
+                if (rawPara.trim() === '') {
+                    wrappedLines.push({ type: 'blank' });
+                    continue;
+                }
+                // Preserve leading whitespace as an indent on the first wrapped line.
+                const indentMatch = rawPara.match(/^[ \t]+/);
+                const indent = indentMatch ? indentMatch[0].replace(/\t/g, '    ') : '';
+                const content = rawPara.trim();
+                const words = content.split(/\s+/);
                 let line = '';
+                let isFirstLine = true;
                 for (let w = 0; w < words.length; w++) {
                     const word = words[w];
-                    // Long word that doesn't fit on its own line → break it.
+                    const prefix = isFirstLine ? indent : '';
+                    // Word longer than the whole column → break it.
                     if (measureText(word) > maxWidth) {
                         if (line) {
-                            wrappedLines.push({ type: 'text', text: line });
+                            wrappedLines.push({ type: 'text', text: prefix + line });
+                            isFirstLine = false;
                             line = '';
                         }
                         const chunks = breakLongWord(word);
                         for (let k = 0; k < chunks.length - 1; k++) {
-                            wrappedLines.push({ type: 'text', text: chunks[k] });
+                            wrappedLines.push({ type: 'text', text: (isFirstLine ? indent : '') + chunks[k] });
+                            isFirstLine = false;
                         }
                         line = chunks[chunks.length - 1];
                         continue;
                     }
                     const testLine = line ? line + ' ' + word : word;
-                    const testWidth = measureText(testLine);
-                    if (testWidth > maxWidth && line) {
-                        wrappedLines.push({ type: 'text', text: line });
+                    if (measureText((isFirstLine ? indent : '') + testLine) > maxWidth && line) {
+                        wrappedLines.push({ type: 'text', text: (isFirstLine ? indent : '') + line });
+                        isFirstLine = false;
                         line = word;
                     } else {
                         line = testLine;
                     }
                 }
-                if (line) wrappedLines.push({ type: 'text', text: line });
-                wrappedLines.push({ type: 'blank' });
+                if (line) wrappedLines.push({ type: 'text', text: (isFirstLine ? indent : '') + line });
+                // NOTE: Do NOT push a blank here — trailing source newlines already handle it.
+            }
+
+            // FIX 7: Remove trailing blank entries so the last page isn't padded with empty rows.
+            while (wrappedLines.length && wrappedLines[wrappedLines.length - 1].type === 'blank') {
+                wrappedLines.pop();
             }
 
             // Split lines into pages — accounts for first-line offset so nothing overflows.
             const usableHeight = H - MARGIN_TOP - MARGIN_BOTTOM;
             let linesPerPage;
             if (snapToBaseline) {
-                linesPerPage = Math.max(1, Math.floor(usableHeight / step));
+                // FIX 5: y starts at MARGIN_TOP, so the max index n satisfies
+                // MARGIN_TOP + n*step <= H - MARGIN_BOTTOM  →  n <= usableHeight / step
+                // Number of lines = floor(usableHeight / step) + 1.
+                linesPerPage = Math.max(1, Math.floor(usableHeight / step) + 1);
             } else {
                 linesPerPage = Math.max(1, Math.floor((usableHeight - fontSize) / step) + 1);
             }
@@ -2119,8 +2138,15 @@ Student</textarea>
                     try { ctx.letterSpacing = currentLetterSpacing + 'px'; } catch (e) {}
                 }
 
-                // FIX: start at MARGIN_TOP so the first ruled line is used (previously +step skipped it).
+                // Start at MARGIN_TOP so the first ruled line is used.
                 let y = snapToBaseline ? MARGIN_TOP : (MARGIN_TOP + fontSize);
+
+                // FIX 3: find the index of the LAST text entry on this page so justified
+                // alignment doesn't stretch a trailing blank line.
+                let lastTextIdx = -1;
+                for (let k = pageLines.length - 1; k >= 0; k--) {
+                    if (pageLines[k].type === 'text') { lastTextIdx = k; break; }
+                }
 
                 for (let l = 0; l < pageLines.length; l++) {
                     const entry = pageLines[l];
@@ -2146,7 +2172,7 @@ Student</textarea>
 
                     // Justification: how much extra space to distribute between words
                     let justifyExtra = 0;
-                    const isLastLine = (l === pageLines.length - 1);
+                    const isLastLine = (l === lastTextIdx);
                     if (currentAlign === 'justify' && !isLastLine) {
                         const spaceCount = (entry.text.match(/ /g) || []).length;
                         if (spaceCount > 0) {
@@ -2169,7 +2195,7 @@ Student</textarea>
                         if (currentAlign === 'justify' && !isLastLine) {
                             drawJustified(ctx, entry.text, maxWidth);
                         } else if (!nativeLetterSpacing && currentLetterSpacing !== 0) {
-                            // FIX: manual per-char spacing when native letterSpacing is not supported.
+                            // Manual per-char spacing when native letterSpacing is not supported.
                             let cx = 0;
                             for (let ci = 0; ci < entry.text.length; ci++) {
                                 ctx.fillText(entry.text[ci], cx, 0);
@@ -2209,7 +2235,7 @@ Student</textarea>
             showToast('Handwriting generated — ' + pages.length + ' page' + (pages.length === 1 ? '' : 's') + '.');
         }
 
-        // FIX: pressure-mode drawing now respects the letterSpacing slider.
+        // Pressure-mode drawing respects the letterSpacing slider.
         function drawLineWithPressure(ctx, text, x, y, angle, fontSize, fontFamily, color, justifyExtra) {
             ctx.save();
             ctx.translate(x, y);
@@ -2292,27 +2318,47 @@ Student</textarea>
         }
 
         // ----- Download helpers -----
+        // FIX 4: PNG export now saves every page, not just page 1.
         function downloadPNG() {
             if (renderedPages.length === 0) {
                 showToast('Please generate handwriting first.');
                 return;
             }
-            try {
-                renderedPages[0].canvas.toBlob(function (blob) {
-                    if (!blob) { showToast('PNG export failed.'); return; }
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'handwriting-page-1.png';
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
-                    showModal('download', 'PNG Downloaded', 'Your handwritten page has been saved as a PNG image.');
-                }, 'image/png');
-            } catch (err) {
-                showToast('PNG export failed.');
+            const total = renderedPages.length;
+            let i = 0;
+            function next() {
+                if (i >= total) {
+                    showModal('download',
+                        total > 1 ? 'PNG Pages Downloaded' : 'PNG Downloaded',
+                        total > 1
+                            ? ('Your ' + total + ' handwritten pages have been saved as PNG images.')
+                            : 'Your handwritten page has been saved as a PNG image.');
+                    return;
+                }
+                const idx = i;
+                try {
+                    renderedPages[idx].canvas.toBlob(function(blob) {
+                        if (blob) {
+                            const url = URL.createObjectURL(blob);
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.download = total > 1
+                                ? ('handwriting-page-' + (idx + 1) + '-of-' + total + '.png')
+                                : 'handwriting-page-1.png';
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                            setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+                        }
+                        i++;
+                        setTimeout(next, 150);
+                    }, 'image/png');
+                } catch (err) {
+                    i++;
+                    setTimeout(next, 150);
+                }
             }
+            next();
         }
 
         function downloadPDF() {
@@ -2423,19 +2469,24 @@ Student</textarea>
                 opened = false;
             }
 
-            // FIX: revoke the blob URL if the popup was blocked
+            // Revoke the blob URL if the popup was blocked
             if (!opened && blobUrl) {
                 try { URL.revokeObjectURL(blobUrl); } catch (e) {}
             }
 
             if (!opened) {
-                // Fallback: document.write (works if popup allowed but blob blocked)
+                // FIX 6: only claim success if the fallback window actually exists
+                // and has a writable document.
                 const win = window.open('', '_blank');
-                if (win) {
-                    win.document.open();
-                    win.document.write(html);
-                    win.document.close();
-                    opened = true;
+                if (win && win.document) {
+                    try {
+                        win.document.open();
+                        win.document.write(html);
+                        win.document.close();
+                        opened = true;
+                    } catch (e) {
+                        opened = false;
+                    }
                 }
             }
 
@@ -2454,7 +2505,6 @@ Student</textarea>
             document.getElementById('previewToolbar').style.display = 'none';
             document.getElementById('previewSubtitle').textContent = 'Generated handwriting';
             document.getElementById('errorMsg').classList.remove('show');
-            document.getElementById('warningBanner').classList.remove('show');
             renderedPages = [];
             showToast('Cleared.');
         }
