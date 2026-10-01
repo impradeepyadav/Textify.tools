@@ -462,10 +462,15 @@
         html.dark-mode .mobile-sidebar-actions button .icon-moon { display: block !important; }
 
         /* ==========================================================
-           SEARCH OVERLAY — simple, fast fade + tiny scale (no FLIP)
+           SEARCH OVERLAY — FLIP animation handled 100% by JS
+           CSS only controls visibility + fade of the backdrop.
+           The .search-box itself has NO transition so JS can drive
+           the FLIP transform without conflict.
            ========================================================== */
         .search-overlay-full {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            position: fixed; top: 0; left: 0; width: 100%;
+            height: 100%;
+            height: 100dvh;
             background: var(--overlay-bg);
             backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
             z-index: 300;
@@ -493,13 +498,8 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.18);
             margin-bottom: 12px; flex-shrink: 0;
             min-width: 0;
-            opacity: 0;
-            transform: scale(0.97);
-            transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.2, 0.8, 0.3, 1);
-        }
-        .search-overlay-full.active .search-box {
-            opacity: 1;
-            transform: scale(1);
+            /* Important: no CSS transition/transform here.
+               JS applies FLIP transform inline. */
         }
         .search-box input {
             flex: 1; border: none; background: transparent;
@@ -884,7 +884,7 @@
             h1 { font-size: clamp(23px, 7vw, 30px); }
             .subtitle { font-size: 15px; }
 
-            /* horizontal chip scroller — NO scroll-snap (it caused the jumpy feel) */
+            /* horizontal chip scroller — no scroll-snap (kept it feeling snappy) */
             .category-filter-bar {
                 flex-wrap: nowrap;
                 overflow-x: auto;
@@ -1010,6 +1010,11 @@
             .search-trigger:hover { border-color: var(--line); color: var(--text-light); }
             .desktop-nav a:hover { background: none; color: var(--text-light); }
         }
+
+        /* Reduced motion: skip FLIP animation entirely */
+        @media (prefers-reduced-motion: reduce) {
+            .search-box { transition: none !important; }
+        }
     </style>
 </head>
 <body>
@@ -1058,7 +1063,7 @@
                         <svg class="icon icon-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg>
                         <svg class="icon icon-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg>
                     </button>
-                    <button type="button" class="search-trigger" onclick="openFullSearch()" aria-label="Search tools"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
+                    <button type="button" class="search-trigger" onclick="openFullSearch(this)" aria-label="Search tools"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
                     <button type="button" class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileSidebar">
                         <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
                     </button>
@@ -1071,7 +1076,7 @@
                 <h1>Free Online Text Tools — Open, Use, Done. No Signup.</h1>
                 <p class="subtitle">No signup. We don't track the text you enter. Just free text tools that work instantly in your browser. Word counter, case converter, JSON formatter, text cleaner, and a lot more. Your text never leaves your device. Open a tool and start working — it's that simple.</p>
 
-                <button type="button" class="hero-search" id="heroSearchBtn" onclick="openFullSearch()" aria-label="Search tools">
+                <button type="button" class="hero-search" id="heroSearchBtn" onclick="openFullSearch(this)" aria-label="Search tools">
                     <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-search"/></svg>
                     <span class="hero-search-text">
                         <span class="hs-full">Search tools… try "word counter", "json formatter", "pdf 100kb"</span>
@@ -1394,7 +1399,7 @@
             <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
         </div>
         <div class="mobile-sidebar-actions">
-            <button type="button" onclick="openSearchFromSidebar()"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg> Search</button>
+            <button type="button" onclick="openSearchFromSidebar(this)"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg> Search</button>
             <button type="button" onclick="toggleTheme()"><svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg> Theme</button>
         </div>
     </div>
@@ -1414,6 +1419,24 @@
     </div>
 
     <script>
+        /* ============================================================
+           FLIP ANIMATION — works on desktop AND touch devices
+           ------------------------------------------------------------
+           Open:  the search box flies from the clicked trigger
+                  (hero button, header button, or sidebar button)
+                  to the centre of the screen.
+           Close: it flies back to its origin.
+           ------------------------------------------------------------
+           Touch-device specific care:
+             • transform + opacity only (GPU, no layout thrash)
+             • will-change added during animation, removed after
+             • origin checked with isOnScreen() to avoid flying
+               to an off-screen element after scrolling
+             • focus() called inside the user gesture so the
+               mobile keyboard always opens
+             • prefers-reduced-motion respected (skips FLIP)
+           ============================================================ */
+
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'text', label: 'Text Tools' },
@@ -1707,6 +1730,28 @@
         let filterRaf = 0;
         let searchResultsRaf = 0;
         let searchIsOpen = false;
+        let searchCloseTimer = 0;
+
+        /* ---------- Utility helpers ---------- */
+
+        function isTouchDevice() {
+            return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
+        }
+
+        function prefersReducedMotion() {
+            return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        }
+
+        function isOnScreen(el) {
+            if (!el || !el.getBoundingClientRect) return false;
+            var r = el.getBoundingClientRect();
+            var vw = window.innerWidth || document.documentElement.clientWidth;
+            var vh = window.innerHeight || document.documentElement.clientHeight;
+            if (r.width < 2 || r.height < 2) return false;
+            if (r.bottom < 0 || r.top > vh) return false;
+            if (r.right < 0 || r.left > vw) return false;
+            return true;
+        }
 
         function cacheToolCards() {
             toolCardNodes = Array.prototype.slice.call(document.querySelectorAll('.tool-card'));
@@ -1902,40 +1947,146 @@
         }
 
         let lastFocusedBeforeSearch = null;
+        let lastFlipOrigin = null;
 
-        // ============================================================
-        // SEARCH — simple, fast fade + tiny scale. No FLIP, no flying
-        // boxes, no layout thrash on mobile. Instant keyboard focus.
-        // ============================================================
-        function openFullSearch() {
+        /* ============================================================
+           OPEN SEARCH — with FLIP animation
+           ============================================================ */
+        function openFullSearch(originEl) {
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay) return;
 
+            // Already open → just refocus
             if (overlay.classList.contains('active')) {
-                const existingInput = document.getElementById('fullSearchInput');
-                if (existingInput) existingInput.focus();
+                var existingInput = document.getElementById('fullSearchInput');
+                if (existingInput) {
+                    try { existingInput.focus(); } catch (e) {}
+                }
                 return;
+            }
+
+            // Cancel any in-flight close animation
+            if (searchCloseTimer) {
+                clearTimeout(searchCloseTimer);
+                searchCloseTimer = 0;
             }
 
             lastFocusedBeforeSearch = document.activeElement;
             searchIsOpen = true;
 
+            // ---- Resolve the FLIP origin ----
+            var origin = originEl;
+            if (!origin || !isOnScreen(origin)) {
+                origin = document.getElementById('heroSearchBtn');
+            }
+            if (!origin || !isOnScreen(origin)) {
+                origin = document.querySelector('.search-trigger');
+            }
+            if (!origin || !isOnScreen(origin)) {
+                origin = null;
+            }
+            lastFlipOrigin = origin;
+
+            // ---- Show the overlay immediately ----
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
 
+            // ---- Build search results right away ----
             filterFullSearch();
 
-            // Focus immediately so mobile keyboards open reliably
-            const inp = document.getElementById('fullSearchInput');
+            // ---- FLIP animation ----
+            const searchBox = document.getElementById('searchBoxAnimated');
+            if (searchBox) {
+                var reduceMotion = prefersReducedMotion();
+
+                // Reset any lingering inline animation styles
+                searchBox.style.transition = 'none';
+                searchBox.style.transform = '';
+                searchBox.style.opacity = '';
+                searchBox.style.willChange = '';
+                searchBox.style.transformOrigin = '';
+
+                // Force reflow so the reset state is committed
+                void searchBox.offsetHeight;
+
+                if (origin && !reduceMotion) {
+                    var originRect = origin.getBoundingClientRect();
+                    var boxRect = searchBox.getBoundingClientRect();
+
+                    if (boxRect.width > 0 && boxRect.height > 0) {
+                        var deltaX = (originRect.left + originRect.width / 2) - (boxRect.left + boxRect.width / 2);
+                        var deltaY = (originRect.top + originRect.height / 2) - (boxRect.top + boxRect.height / 2);
+                        var scaleX = originRect.width / boxRect.width;
+                        var scaleY = originRect.height / boxRect.height;
+
+                        // Clamp so it never becomes a microscopic dot
+                        if (scaleX < 0.3) scaleX = 0.3;
+                        if (scaleY < 0.3) scaleY = 0.3;
+
+                        // Set the inverted (starting) state
+                        searchBox.style.transformOrigin = 'center center';
+                        searchBox.style.willChange = 'transform, opacity';
+                        searchBox.style.transform = 'translate(' + deltaX + 'px, ' + deltaY + 'px) scale(' + scaleX + ', ' + scaleY + ')';
+                        searchBox.style.opacity = '0.7';
+
+                        // Force reflow so the browser commits the starting state
+                        void searchBox.offsetHeight;
+
+                        // Animate to natural position
+                        searchBox.style.transition = 'transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease';
+                        searchBox.style.transform = 'translate(0, 0) scale(1, 1)';
+                        searchBox.style.opacity = '1';
+
+                        // Clean up when done
+                        setTimeout(function() {
+                            if (searchBox && searchIsOpen) {
+                                searchBox.style.transition = '';
+                                searchBox.style.transform = '';
+                                searchBox.style.opacity = '';
+                                searchBox.style.willChange = '';
+                                searchBox.style.transformOrigin = '';
+                            }
+                        }, 460);
+                    }
+                } else if (!reduceMotion) {
+                    // No origin: small scale-in fallback
+                    searchBox.style.willChange = 'transform, opacity';
+                    searchBox.style.transformOrigin = 'center center';
+                    searchBox.style.transform = 'scale(0.94)';
+                    searchBox.style.opacity = '0';
+                    void searchBox.offsetHeight;
+                    searchBox.style.transition = 'transform 0.24s cubic-bezier(0.2, 0.8, 0.3, 1), opacity 0.2s ease';
+                    searchBox.style.transform = 'scale(1)';
+                    searchBox.style.opacity = '1';
+                    setTimeout(function() {
+                        if (searchBox && searchIsOpen) {
+                            searchBox.style.transition = '';
+                            searchBox.style.transform = '';
+                            searchBox.style.opacity = '';
+                            searchBox.style.willChange = '';
+                            searchBox.style.transformOrigin = '';
+                        }
+                    }, 280);
+                }
+            }
+
+            // ---- Focus inside the user gesture (critical for mobile keyboards) ----
+            var inp = document.getElementById('fullSearchInput');
             if (inp) {
                 try { inp.focus(); } catch (e) {}
             }
         }
 
+        /* ============================================================
+           CLOSE SEARCH — reverse FLIP animation
+           ============================================================ */
         function closeFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay || !overlay.classList.contains('active')) return;
+
+            // Already closing — ignore
+            if (searchCloseTimer) return;
 
             searchIsOpen = false;
             if (searchResultsRaf) {
@@ -1943,32 +2094,86 @@
                 searchResultsRaf = 0;
             }
 
-            overlay.classList.remove('active');
-            overlay.setAttribute('aria-hidden', 'true');
+            const searchBox = document.getElementById('searchBoxAnimated');
+            var origin = lastFlipOrigin;
+            var didAnimate = false;
 
-            const inp = document.getElementById('fullSearchInput');
-            if (inp) inp.value = '';
-            const clearBtn = document.getElementById('searchClearBtn');
-            if (clearBtn) clearBtn.classList.remove('show');
-            const list = document.getElementById('fullSearchResultsList');
-            if (list) list.innerHTML = '';
-            const nr = document.getElementById('fullNoResult');
-            if (nr) nr.classList.remove('show');
+            if (searchBox && origin && isOnScreen(origin) && !prefersReducedMotion()) {
+                // Measure natural box position first
+                searchBox.style.transition = 'none';
+                searchBox.style.transform = '';
+                searchBox.style.opacity = '';
+                void searchBox.offsetHeight;
 
-            const sidebarEl = document.getElementById('mobileSidebar');
-            const sidebarOpen = sidebarEl && sidebarEl.classList.contains('active');
-            if (!sidebarOpen) document.body.style.overflow = '';
+                var originRect = origin.getBoundingClientRect();
+                var boxRect = searchBox.getBoundingClientRect();
 
-            if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
-                try { lastFocusedBeforeSearch.focus(); } catch (e) {}
+                if (boxRect.width > 0 && boxRect.height > 0) {
+                    var deltaX = (originRect.left + originRect.width / 2) - (boxRect.left + boxRect.width / 2);
+                    var deltaY = (originRect.top + originRect.height / 2) - (boxRect.top + boxRect.height / 2);
+                    var scaleX = originRect.width / boxRect.width;
+                    var scaleY = originRect.height / boxRect.height;
+                    if (scaleX < 0.3) scaleX = 0.3;
+                    if (scaleY < 0.3) scaleY = 0.3;
+
+                    searchBox.style.transformOrigin = 'center center';
+                    searchBox.style.willChange = 'transform, opacity';
+                    searchBox.style.transition = 'transform 0.26s cubic-bezier(0.4, 0, 0.5, 1), opacity 0.22s ease';
+                    searchBox.style.transform = 'translate(' + deltaX + 'px, ' + deltaY + 'px) scale(' + scaleX + ', ' + scaleY + ')';
+                    searchBox.style.opacity = '0.4';
+                    didAnimate = true;
+                }
             }
-            lastFocusedBeforeSearch = null;
+
+            // Blur + clear input right away (hides mobile keyboard fast)
+            var inp = document.getElementById('fullSearchInput');
+            if (inp) {
+                try { inp.blur(); } catch (e) {}
+                inp.value = '';
+            }
+            var clearBtn = document.getElementById('searchClearBtn');
+            if (clearBtn) clearBtn.classList.remove('show');
+
+            var finish = function() {
+                searchCloseTimer = 0;
+                overlay.classList.remove('active');
+                overlay.setAttribute('aria-hidden', 'true');
+
+                if (searchBox) {
+                    searchBox.style.transition = '';
+                    searchBox.style.transform = '';
+                    searchBox.style.opacity = '';
+                    searchBox.style.willChange = '';
+                    searchBox.style.transformOrigin = '';
+                }
+
+                const list = document.getElementById('fullSearchResultsList');
+                if (list) list.innerHTML = '';
+                const nr = document.getElementById('fullNoResult');
+                if (nr) nr.classList.remove('show');
+
+                const sidebarEl = document.getElementById('mobileSidebar');
+                const sidebarOpen = sidebarEl && sidebarEl.classList.contains('active');
+                if (!sidebarOpen) document.body.style.overflow = '';
+
+                if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
+                    try { lastFocusedBeforeSearch.focus(); } catch (e) {}
+                }
+                lastFocusedBeforeSearch = null;
+                lastFlipOrigin = null;
+            };
+
+            if (didAnimate) {
+                searchCloseTimer = setTimeout(finish, 270);
+            } else {
+                finish();
+            }
         }
 
         /* Used by the mobile sidebar Search button. */
-        function openSearchFromSidebar() {
+        function openSearchFromSidebar(btn) {
             closeMobileSidebar(true);
-            openFullSearch();
+            openFullSearch(btn);
         }
 
         (function initSearchBackdrop() {
@@ -2185,7 +2390,7 @@
                 }
                 if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                     e.preventDefault();
-                    openFullSearch();
+                    openFullSearch(null);
                 }
                 if (searchIsOpen) {
                     trapFocus(e, document.getElementById('searchOverlayFull'));
@@ -2255,7 +2460,7 @@
             }
         });
 
-        // Update the search placeholder when the viewport is resized
+        // Update placeholder when viewport is resized
         let placeholderRaf = 0;
         window.addEventListener('resize', function () {
             if (placeholderRaf) return;
