@@ -99,7 +99,6 @@
             --mark-text: #1e3a8a;
             --border-hover: #cbd5e1;
             --focus-ring: rgba(59, 130, 246, 0.25);
-
             --page-max: 1920px;
             --gutter: clamp(14px, 3vw, 60px);
             --header-h: 64px;
@@ -204,9 +203,7 @@
 
         .icon { display: inline-block; vertical-align: middle; flex-shrink: 0; }
 
-        /* ==========================================================
-           HEADER
-           ========================================================== */
+        /* HEADER */
         header {
             border-bottom: 1px solid var(--line);
             display: flex;
@@ -323,10 +320,7 @@
         }
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
 
-        /* ==========================================================
-           MOBILE SIDEBAR — SAME STYLE AS ORIGINAL
-           Flat tools list, no category headers.
-           ========================================================== */
+        /* MOBILE SIDEBAR */
         .mobile-sidebar-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.5); z-index: 150;
@@ -358,7 +352,6 @@
         .mobile-sidebar-header {
             display: flex; justify-content: space-between; align-items: center;
             margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line);
-            flex-shrink: 0;
         }
         .mobile-sidebar-logo {
             display: flex; align-items: center; gap: 8px; text-decoration: none;
@@ -386,8 +379,6 @@
         .mobile-tools-toggle:hover { background: var(--hover); color: var(--text); }
         .mobile-tools-toggle .icon { width: 16px; height: 16px; transition: transform 0.25s; flex-shrink: 0; }
         .mobile-tools-toggle.active .icon { transform: rotate(180deg); }
-
-        /* Same flat style as original — just now contains all tools */
         .mobile-tools-menu {
             display: none; flex-direction: column; padding-left: 16px;
             gap: 2px; margin-bottom: 6px;
@@ -398,11 +389,9 @@
             text-decoration: none; border-radius: 8px;
         }
         .mobile-tools-menu a:hover { background: var(--hover); color: var(--text); }
-
         .mobile-sidebar-actions {
             display: flex; gap: 8px; margin-top: 20px; padding-top: 18px;
             border-top: 1px solid var(--line);
-            flex-shrink: 0;
         }
         .mobile-sidebar-actions button {
             flex: 1; display: flex; align-items: center; justify-content: center;
@@ -417,9 +406,7 @@
         html:not(.dark-mode) .mobile-sidebar-actions button .icon-sun { display: block !important; }
         html.dark-mode .mobile-sidebar-actions button .icon-moon { display: block !important; }
 
-        /* ==========================================================
-           SEARCH OVERLAY
-           ========================================================== */
+        /* SEARCH OVERLAY — FLIP handled by JS (Web Animations API) */
         .search-overlay-full {
             position: fixed; top: 0; left: 0; width: 100%;
             height: 100%;
@@ -451,6 +438,10 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.18);
             margin-bottom: 12px; flex-shrink: 0;
             min-width: 0;
+            /* No CSS transition — WAAPI drives the FLIP */
+            transform-origin: center center;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
         .search-box input {
             flex: 1; border: none; background: transparent;
@@ -510,9 +501,7 @@
         .search-no-result.show { display: block; }
         mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
 
-        /* ==========================================================
-           MAIN
-           ========================================================== */
+        /* MAIN */
         main {
             flex: 1;
             padding: clamp(20px, 3.5vw, 50px) 0;
@@ -786,36 +775,28 @@
             }
             .search-trigger .search-trigger-label { display: none; }
         }
-
         @media (max-width: 1024px) {
             .desktop-nav { gap: 2px; }
             .desktop-nav a { padding: 6px 6px; font-size: 13px; }
             .tools-trigger { padding: 6px 6px; font-size: 13px; }
         }
-
         @media (max-width: 900px) {
             .footer-middle { flex-direction: column; align-items: stretch; gap: 28px; }
             .footer-left-column { max-width: 100%; flex: 0 1 auto; }
             .footer-right-columns { justify-content: flex-start; flex: 0 1 auto; }
         }
-
         @media (max-width: 768px) {
             :root { --header-h: 58px; }
-
             header { padding: 0 16px; }
             .logo { font-size: 19px; }
             .logo-img { width: 22px; height: 22px; }
-
             .desktop-nav { display: none; }
             .theme-btn { display: none; }
             .search-trigger { display: none; }
             .hamburger-btn { display: flex; }
-
             main { padding: 20px 0; }
-
             h1 { font-size: clamp(23px, 7vw, 30px); }
             .subtitle { font-size: 15px; }
-
             .category-filter-bar {
                 flex-wrap: nowrap;
                 overflow-x: auto;
@@ -826,13 +807,11 @@
             .category-filter-bar::-webkit-scrollbar { height: 6px; }
             .category-filter-bar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
             .cat-chip { padding: 7px 14px; font-size: 12px; }
-
             .hero-search { font-size: 13.5px; padding: 4px 10px 4px 14px; gap: 8px; }
             .hero-search kbd { display: none; }
             .hero-search .hs-full { display: none; }
             .hero-search .hs-short { display: inline; }
             .hero-search .hero-search-text { padding: 11px 0; }
-
             .search-overlay-full {
                 padding: 14px 12px 12px;
                 backdrop-filter: none;
@@ -844,32 +823,23 @@
             .search-box input { font-size: 16px; padding: 12px 0; }
             .search-result-item .result-tag { display: none; }
             .search-results-list .search-result-item { padding: 11px 14px; }
-
             footer { padding: 30px 16px 120px; }
             .footer-links a { display: block; }
-
             .info-table { min-width: 520px; }
             .info-table th, .info-table td { padding: 12px 14px; font-size: 14px; }
         }
-
         @media (max-width: 560px) {
             :root { --gutter: 14px; }
-
             .footer-right-columns { flex-direction: column; gap: 22px; width: 100%; }
             .footer-column { width: 100%; min-width: 0; }
-
             .feature-grid { grid-template-columns: 1fr; }
             .tools-grid { grid-template-columns: 1fr; }
             .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
             .section h2 { font-size: 21px; }
             .section h3 { font-size: 17px; }
-
             .mobile-sidebar-actions { flex-wrap: wrap; }
-
             .hero-search { font-size: 13px; }
         }
-
         @media (max-width: 380px) {
             .logo { font-size: 17px; gap: 7px; }
             .logo-img { width: 20px; height: 20px; }
@@ -882,24 +852,20 @@
             .hero-search { font-size: 12.5px; padding: 4px 8px 4px 12px; gap: 6px; }
             .hero-search > .icon { width: 16px; height: 16px; }
         }
-
         @media (min-width: 769px) {
             .hamburger-btn { display: none; }
             .mobile-sidebar-overlay { display: none !important; }
             .mobile-sidebar { display: none !important; }
         }
-
         @media (min-width: 1800px) {
             .tools-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
             .feature-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
         }
-
         @media (max-height: 500px) and (orientation: landscape) {
             .mobile-sidebar { padding: 14px; }
             .mobile-sidebar-header { margin-bottom: 14px; padding-bottom: 12px; }
             .search-overlay-full { padding-top: 10px; }
         }
-
         @media (hover: none), (pointer: coarse) {
             .tool-card:hover {
                 transform: none;
@@ -1330,9 +1296,8 @@
 
     <script>
         /* ============================================================
-           All 236 tools live in this array. The mega menu, tools grid,
-           AND the mobile sidebar list are all rendered from it — so
-           every tool shows up everywhere automatically.
+           All 236 tools in one array. The desktop mega menu, the tools
+           grid, and the mobile sidebar list are all rendered from it.
            ============================================================ */
 
         const categories = [
@@ -1631,6 +1596,9 @@
         let searchOpenAnim = null;
         let searchCloseAnim = null;
 
+        /* Touch detection — used to time the input focus correctly */
+        var IS_TOUCH_DEVICE = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
+
         function isOnScreen(el) {
             if (!el || !el.getBoundingClientRect) return false;
             var r = el.getBoundingClientRect();
@@ -1654,7 +1622,14 @@
             } catch (e) {}
         }
 
+        /* Capture trigger rect on pointerdown — before :active shrinks the button */
         document.addEventListener('pointerdown', function(e) {
+            var t = e.target && e.target.closest && e.target.closest('#heroSearchBtn, .search-trigger, .mobile-sidebar-actions button[onclick*="openSearchFromSidebar"]');
+            if (t) captureTriggerRect(t);
+        }, { passive: true, capture: true });
+
+        /* Also capture on touchstart for older mobile browsers */
+        document.addEventListener('touchstart', function(e) {
             var t = e.target && e.target.closest && e.target.closest('#heroSearchBtn, .search-trigger, .mobile-sidebar-actions button[onclick*="openSearchFromSidebar"]');
             if (t) captureTriggerRect(t);
         }, { passive: true, capture: true });
@@ -1756,9 +1731,6 @@
             ).join('');
         }
 
-        /* ============================================================
-           Render tools grid from the tools array
-           ============================================================ */
         const iconMap = {
             text: 'type',
             developer: 'code-2',
@@ -1797,9 +1769,6 @@
             }).join('') + '<div class="no-tools-found" id="noToolsFound"></div>';
         }
 
-        /* ============================================================
-           Desktop mega menu — flat list of all tools (same style as before)
-           ============================================================ */
         function renderMegaMenu() {
             const menu = document.getElementById('megaMenu');
             if (!menu) return;
@@ -1808,10 +1777,6 @@
             }).join('');
         }
 
-        /* ============================================================
-           Mobile sidebar tools list — flat list, same style as original,
-           but now contains ALL tools.
-           ============================================================ */
         function renderMobileToolsMenu() {
             const menu = document.getElementById('mobileToolsMenu');
             if (!menu) return;
@@ -1913,19 +1878,55 @@
             const input = document.getElementById('fullSearchInput');
             input.value = '';
             filterFullSearch();
-            input.focus();
+            try { input.focus({ preventScroll: true }); } catch (e) { try { input.focus(); } catch (e2) {} }
         }
 
         let lastFocusedBeforeSearch = null;
         let lastFlipOriginRect = null;
 
+        /* Helper: focus the search input without triggering scroll jump */
+        function focusSearchInput(delay) {
+            var doFocus = function() {
+                if (!searchIsOpen) return;
+                var inp = document.getElementById('fullSearchInput');
+                if (!inp) return;
+                try {
+                    inp.focus({ preventScroll: true });
+                } catch (e) {
+                    try { inp.focus(); } catch (e2) {}
+                }
+            };
+            if (delay && delay > 0) {
+                setTimeout(doFocus, delay);
+            } else {
+                doFocus();
+            }
+        }
+
+        /* ============================================================
+           OPEN SEARCH — FLIP animation that works identically on
+           touch devices and desktop.
+
+           Key fixes for touch:
+           1. Web Animations API (element.animate) — not affected by
+              prefers-reduced-motion CSS overrides.
+           2. Origin rect captured on pointerdown/touchstart BEFORE
+              :active shrinks the button.
+           3. On touch devices, we DELAY the input focus by ~140ms so
+              the animation has already started. Otherwise the virtual
+              keyboard opens instantly, resizes the viewport, and
+              cancels/glitches the animation.
+           4. Double rAF so mobile browsers finish layout before we
+              measure the search box.
+           5. A sanity re-try if the box wasn't laid out yet.
+           ============================================================ */
         function openFullSearch(originEl) {
             var overlay = document.getElementById('searchOverlayFull');
             if (!overlay) return;
 
+            // Already open — just refocus
             if (overlay.classList.contains('active')) {
-                var existing = document.getElementById('fullSearchInput');
-                if (existing) try { existing.focus(); } catch (e) {}
+                focusSearchInput(0);
                 return;
             }
 
@@ -1937,6 +1938,7 @@
             lastFocusedBeforeSearch = document.activeElement;
             searchIsOpen = true;
 
+            // Resolve origin rect
             var origin = originEl || capturedTriggerEl || document.getElementById('heroSearchBtn');
             var originRect = null;
 
@@ -1963,101 +1965,114 @@
             capturedTriggerEl = null;
             capturedTriggerRect = null;
 
+            // Show the overlay
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
 
             filterFullSearch();
 
-            var inp = document.getElementById('fullSearchInput');
-            if (inp) {
-                try { inp.focus(); } catch (e) {}
-            }
-
             var box = document.getElementById('searchBoxAnimated');
             if (!box) return;
 
-            requestAnimationFrame(function() {
-                requestAnimationFrame(function() {
-                    if (!searchIsOpen) return;
+            var duration = IS_TOUCH_DEVICE ? 420 : 460;
 
-                    var boxRect = box.getBoundingClientRect();
-                    if (boxRect.width < 2 || boxRect.height < 2) return;
+            var runAnimation = function(retries) {
+                retries = retries || 0;
+                if (!searchIsOpen) return;
 
-                    var duration = 460;
-
-                    if (!originRect) {
-                        try {
-                            searchOpenAnim = box.animate(
-                                [
-                                    { transform: 'scale(0.94)', opacity: 0.6 },
-                                    { transform: 'scale(1)', opacity: 1 }
-                                ],
-                                { duration: 260, easing: 'cubic-bezier(0.2, 0.8, 0.3, 1)', fill: 'both' }
-                            );
-                            searchOpenAnim.onfinish = function() {
-                                try { searchOpenAnim.cancel(); } catch (e) {}
-                                searchOpenAnim = null;
-                            };
-                        } catch (e) {}
-                        return;
+                var boxRect = box.getBoundingClientRect();
+                if (boxRect.width < 2 || boxRect.height < 2) {
+                    if (retries < 8) {
+                        setTimeout(function() { runAnimation(retries + 1); }, 16);
                     }
+                    return;
+                }
 
-                    var deltaX = (originRect.left + originRect.width / 2) - (boxRect.left + boxRect.width / 2);
-                    var deltaY = (originRect.top + originRect.height / 2) - (boxRect.top + boxRect.height / 2);
-                    var scaleX = originRect.width / boxRect.width;
-                    var scaleY = originRect.height / boxRect.height;
-
-                    if (scaleX < 0.25) scaleX = 0.25;
-                    if (scaleX > 1.1) scaleX = 1.1;
-                    if (scaleY < 0.25) scaleY = 0.25;
-                    if (scaleY > 1.1) scaleY = 1.1;
-
-                    var vw = window.innerWidth;
-                    var vh = window.innerHeight;
-                    if (deltaX > vw) deltaX = vw;
-                    if (deltaX < -vw) deltaX = -vw;
-                    if (deltaY > vh) deltaY = vh;
-                    if (deltaY < -vh) deltaY = -vh;
-
+                // No usable origin → simple scale-in
+                if (!originRect) {
                     try {
                         searchOpenAnim = box.animate(
                             [
-                                {
-                                    transform: 'translate(' + deltaX + 'px, ' + deltaY + 'px) scale(' + scaleX + ', ' + scaleY + ')',
-                                    opacity: 0.7
-                                },
-                                {
-                                    transform: 'translate(0, 0) scale(1, 1)',
-                                    opacity: 1
-                                }
+                                { transform: 'scale(0.94)', opacity: 0.6 },
+                                { transform: 'scale(1)', opacity: 1 }
                             ],
-                            {
-                                duration: duration,
-                                easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                                fill: 'both'
-                            }
+                            { duration: 260, easing: 'cubic-bezier(0.2, 0.8, 0.3, 1)', fill: 'both' }
                         );
                         searchOpenAnim.onfinish = function() {
                             try { searchOpenAnim.cancel(); } catch (e) {}
                             searchOpenAnim = null;
                         };
-                    } catch (e) {
-                        box.style.transition = 'none';
-                        box.style.transformOrigin = 'center center';
-                        box.style.transform = 'translate(' + deltaX + 'px, ' + deltaY + 'px) scale(' + scaleX + ', ' + scaleY + ')';
-                        box.style.opacity = '0.7';
-                        void box.offsetHeight;
-                        box.style.transition = 'transform ' + duration + 'ms cubic-bezier(0.16, 1, 0.3, 1), opacity 300ms ease';
-                        box.style.transform = 'translate(0, 0) scale(1, 1)';
-                        box.style.opacity = '1';
-                        setTimeout(function() {
-                            box.style.transition = '';
-                            box.style.transform = '';
-                            box.style.opacity = '';
-                            box.style.transformOrigin = '';
-                        }, duration + 20);
-                    }
+                    } catch (e) {}
+                    focusSearchInput(IS_TOUCH_DEVICE ? 140 : 0);
+                    return;
+                }
+
+                // Compute FLIP deltas
+                var deltaX = (originRect.left + originRect.width / 2) - (boxRect.left + boxRect.width / 2);
+                var deltaY = (originRect.top + originRect.height / 2) - (boxRect.top + boxRect.height / 2);
+                var scaleX = originRect.width / boxRect.width;
+                var scaleY = originRect.height / boxRect.height;
+
+                // Clamp scale so it never becomes a microscopic dot
+                if (scaleX < 0.3) scaleX = 0.3;
+                if (scaleX > 1.1) scaleX = 1.1;
+                if (scaleY < 0.3) scaleY = 0.3;
+                if (scaleY > 1.1) scaleY = 1.1;
+
+                // Clamp translation to viewport
+                var vw = window.innerWidth || document.documentElement.clientWidth;
+                var vh = window.innerHeight || document.documentElement.clientHeight;
+                if (deltaX > vw) deltaX = vw;
+                if (deltaX < -vw) deltaX = -vw;
+                if (deltaY > vh) deltaY = vh;
+                if (deltaY < -vh) deltaY = -vh;
+
+                var startTransform = 'translate(' + deltaX + 'px, ' + deltaY + 'px) scale(' + scaleX + ', ' + scaleY + ')';
+
+                try {
+                    searchOpenAnim = box.animate(
+                        [
+                            { transform: startTransform, opacity: 0.75 },
+                            { transform: 'translate(0, 0) scale(1, 1)', opacity: 1 }
+                        ],
+                        {
+                            duration: duration,
+                            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                            fill: 'both'
+                        }
+                    );
+                    searchOpenAnim.onfinish = function() {
+                        try { searchOpenAnim.cancel(); } catch (e) {}
+                        searchOpenAnim = null;
+                    };
+                } catch (e) {
+                    // Very old browser fallback — inline style + transition
+                    box.style.transformOrigin = 'center center';
+                    box.style.transition = 'none';
+                    box.style.transform = startTransform;
+                    box.style.opacity = '0.75';
+                    void box.offsetHeight;
+                    box.style.transition = 'transform ' + duration + 'ms cubic-bezier(0.16, 1, 0.3, 1), opacity 300ms ease';
+                    box.style.transform = 'translate(0, 0) scale(1, 1)';
+                    box.style.opacity = '1';
+                    setTimeout(function() {
+                        box.style.transition = '';
+                        box.style.transform = '';
+                        box.style.opacity = '';
+                        box.style.transformOrigin = '';
+                    }, duration + 30);
+                }
+
+                // Focus input — delayed on touch so the virtual keyboard
+                // doesn't pop up mid-animation and break the FLIP.
+                focusSearchInput(IS_TOUCH_DEVICE ? 140 : 0);
+            };
+
+            // Double rAF so mobile browsers finish layout before we measure
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() {
+                    runAnimation(0);
                 });
             });
         }
@@ -2117,9 +2132,9 @@
                     var scaleX = originRect.width / boxRect.width;
                     var scaleY = originRect.height / boxRect.height;
 
-                    if (scaleX < 0.25) scaleX = 0.25;
+                    if (scaleX < 0.3) scaleX = 0.3;
                     if (scaleX > 1.1) scaleX = 1.1;
-                    if (scaleY < 0.25) scaleY = 0.25;
+                    if (scaleY < 0.3) scaleY = 0.3;
                     if (scaleY > 1.1) scaleY = 1.1;
 
                     try {
@@ -2143,6 +2158,7 @@
                             searchCloseAnim = null;
                             finish();
                         };
+                        // Safety net
                         setTimeout(function() {
                             if (searchCloseAnim) {
                                 try { searchCloseAnim.cancel(); } catch (e) {}
