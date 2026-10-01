@@ -131,11 +131,6 @@
             --mark-text: #1e3a8a;
             --border-hover: #cbd5e1;
             --focus-ring: rgba(59, 130, 246, 0.25);
-
-            /* ---- responsive tokens ---- */
-            --page-max: 1920px;
-            --gutter: clamp(14px, 3vw, 60px);
-            --header-h: 64px;
         }
         html.dark-mode {
             --bg: #0f172a;
@@ -169,59 +164,20 @@
             --border-hover: #334155;
             --focus-ring: rgba(96, 165, 250, 0.3);
         }
-
-        /* ==========================================================
-           RESET + GLOBAL SAFETY (no horizontal scroll anywhere)
-           ========================================================== */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        html {
-            /* smooth scroll only on desktop – mobile jumps instantly (feels faster) */
-            scroll-behavior: auto;
-            overflow-x: hidden;
-            -webkit-text-size-adjust: 100%;
-            -moz-text-size-adjust: 100%;
-            text-size-adjust: 100%;
-            -webkit-tap-highlight-color: transparent;
-        }
-        @media (min-width: 769px) {
-            html { scroll-behavior: smooth; }
-        }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            transition: background 0.3s, color 0.3s;
-            overflow-x: hidden;
-            width: 100%;
-            max-width: 100%;
-            overflow-wrap: break-word;
-            word-wrap: break-word;
-            -webkit-font-smoothing: antialiased;
-            -webkit-tap-highlight-color: transparent;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg); color: var(--text); min-height: 100vh;
+            transition: background 0.3s, color 0.3s; overflow-x: hidden;
         }
-        .page-wrapper {
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            min-width: 0;
-        }
-        img, video, canvas, iframe, embed, object { max-width: 100%; height: auto; }
-        svg { max-width: 100%; }
+        .page-wrapper { width: 100%; max-width: 100%; margin: 0 auto; display: flex; flex-direction: column; min-height: 100vh; }
+        img, video, canvas, iframe, embed, object, svg { max-width: 100%; height: auto; }
         table { max-width: 100%; }
-        pre, code { white-space: pre-wrap; word-wrap: break-word; overflow-wrap: anywhere; }
-
-        /* Every tappable element: no 300ms delay, no double-tap zoom jump */
-        button, a, input, select, textarea, [role="button"] {
-            touch-action: manipulation;
-        }
+        pre, code { white-space: pre-wrap; word-wrap: break-word; }
 
         /* ==========================================================
-           GLOBAL FOCUS — soft blue glow, no black outline
+           GLOBAL FOCUS — no more black outline. Uses a soft blue glow.
            ========================================================== */
         a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
             outline: none;
@@ -253,207 +209,91 @@
 
         .icon { display: inline-block; vertical-align: middle; flex-shrink: 0; }
 
-        /* ==========================================================
-           HEADER
-           ========================================================== */
         header {
-            border-bottom: 1px solid var(--line);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 var(--gutter);
-            min-height: var(--header-h);
+            border-bottom: 1px solid var(--line); display: flex; justify-content: center;
+            align-items: center; padding: 0 40px; height: 64px; transition: border-color 0.3s;
             width: 100%;
-            transition: border-color 0.3s;
         }
-        .header-inner {
-            width: 100%;
-            max-width: var(--page-max);
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-            min-width: 0;
-        }
-        .logo {
-            display: flex; align-items: center; gap: 10px;
-            text-decoration: none; color: var(--text);
-            font-size: clamp(17px, 2vw, 22px);
-            font-weight: 800; white-space: nowrap; flex-shrink: 0;
-        }
-        .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; flex-shrink: 0; }
-        .header-right { display: flex; align-items: center; gap: clamp(6px, 1vw, 12px); min-width: 0; }
-        .desktop-nav { display: flex; gap: clamp(2px, 0.8vw, 12px); align-items: center; min-width: 0; }
-        .desktop-nav a {
-            text-decoration: none; color: var(--text-light); font-weight: 500;
-            font-size: clamp(13px, 1.05vw, 14px);
-            padding: 6px 8px; border-radius: 6px; transition: background 0.2s, color 0.2s;
-            white-space: nowrap;
-        }
+        .header-inner { width: 100%; max-width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 22px; font-weight: 800; }
+        .logo-img { width: 24px; height: 24px; border-radius: 4px; object-fit: contain; }
+        .header-right { display: flex; align-items: center; gap: 12px; }
+        .desktop-nav { display: flex; gap: 15px; align-items: center; }
+        .desktop-nav a { text-decoration: none; color: var(--text-light); font-weight: 500; font-size: 14px; padding: 6px 8px; border-radius: 6px; transition: 0.2s; }
         .desktop-nav a:hover { color: var(--text); background: var(--hover); }
-
         .tools-menu-container { position: relative; }
-        .tools-trigger {
-            display: flex; align-items: center; gap: 4px; cursor: pointer;
-            padding: 6px 8px; border-radius: 6px; color: var(--text-light);
-            font-weight: 500; font-size: clamp(13px, 1.05vw, 14px);
-            transition: background 0.2s, color 0.2s; background: none; border: none;
-            font-family: inherit; white-space: nowrap;
-        }
+        .tools-trigger { display: flex; align-items: center; gap: 4px; cursor: pointer; padding: 6px 8px; border-radius: 6px; color: var(--text-light); font-weight: 500; font-size: 14px; transition: 0.2s; background: none; border: none; font-family: inherit; }
         .tools-trigger:hover { color: var(--text); background: var(--hover); }
         .tools-trigger .icon { width: 14px; height: 14px; transition: transform 0.2s; flex-shrink: 0; }
-
-        /* Mega menu — right aligned so it can NEVER overflow the viewport */
         .tools-mega-menu {
-            position: absolute;
-            top: calc(100% + 8px);
-            right: 0;
-            left: auto;
-            transform: translateY(8px);
-            background: var(--bg);
-            border: 1px solid var(--line);
-            border-radius: 12px;
+            position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
             padding: 12px 8px;
-            width: min(320px, calc(100vw - 24px));
-            max-height: min(70vh, 560px);
-            overflow-y: auto;
-            overscroll-behavior: contain;
-            -webkit-overflow-scrolling: touch;
+            min-width: 220px;
+            max-width: min(90vw, 400px);
+            max-height: 70vh; overflow-y: auto;
             box-shadow: 0 20px 40px var(--shadow);
-            opacity: 0; visibility: hidden;
-            transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
-            z-index: 200;
+            opacity: 0; visibility: hidden; transition: 0.25s; z-index: 50;
         }
         .tools-menu-container:hover .tools-mega-menu,
-        .tools-menu-container.open .tools-mega-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+        .tools-menu-container.open .tools-mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
         .tools-menu-container:hover .tools-trigger .icon,
         .tools-menu-container.open .tools-trigger .icon { transform: rotate(180deg); }
-
         .tools-mega-menu a {
-            display: block; padding: 8px 14px; border-radius: 6px;
-            color: var(--text); font-size: 13px; font-weight: 500;
-            text-decoration: none; transition: background 0.2s; margin-bottom: 1px;
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-            max-width: 100%;
+            display: block; padding: 8px 14px; border-radius: 6px; color: var(--text);
+            font-size: 13px; font-weight: 500; text-decoration: none; transition: 0.2s;
+            margin-bottom: 1px; white-space: nowrap;
+            overflow: hidden; text-overflow: ellipsis; max-width: 100%;
         }
         .tools-mega-menu a:hover { background: var(--hover); color: var(--text); }
         .tools-mega-menu::-webkit-scrollbar { width: 6px; }
         .tools-mega-menu::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 3px; }
 
-        .theme-btn {
-            background: none; border: none; cursor: pointer; padding: 8px;
-            border-radius: 8px; color: var(--text); display: flex; align-items: center;
-            flex-shrink: 0;
+        @media (max-width: 1100px) {
+            .tools-mega-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+            .tools-menu-container:hover .tools-mega-menu,
+            .tools-menu-container.open .tools-mega-menu { transform: translateX(0) translateY(0); }
         }
+
+        .theme-btn { background: none; border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .theme-btn:hover { background: var(--hover); }
-
-        .search-trigger {
-            background: var(--hover); border: 1px solid var(--line);
-            padding: 10px 18px; border-radius: 25px; cursor: pointer;
-            display: flex; align-items: center; gap: 8px; color: var(--text-light);
-            font-size: 14px; white-space: nowrap; font-family: inherit;
-            transition: border-color 0.2s, color 0.2s; flex-shrink: 0;
-        }
+        .search-trigger { background: var(--hover); border: 1px solid var(--line); padding: 10px 18px; border-radius: 25px; cursor: pointer; display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 14px; white-space: nowrap; font-family: inherit; transition: 0.2s; }
         .search-trigger:hover { border-color: var(--border-hover); color: var(--text); }
-
-        .hamburger-btn {
-            display: none; background: none; border: none; cursor: pointer;
-            padding: 8px; color: var(--text); border-radius: 8px; flex-shrink: 0;
-        }
+        .hamburger-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--text); border-radius: 8px; }
         .hamburger-btn:hover { background: var(--hover); }
         .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
-        .hamburger-btn .menu-icon span {
-            display: block; width: 22px; height: 2px; background: currentColor;
-            border-radius: 2px; transition: 0.2s;
-        }
+        .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
 
-        /* ==========================================================
-           MOBILE SIDEBAR — GPU friendly (transform, not left)
-           ========================================================== */
-        .mobile-sidebar-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5); z-index: 150;
-            opacity: 0; visibility: hidden;
-            transition: opacity 0.2s ease, visibility 0.2s ease;
-        }
+        .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: 0.3s; }
         .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
-
         .mobile-sidebar {
-            position: fixed; top: 0; left: 0;
-            width: min(300px, 86vw);
-            height: 100vh;
-            height: 100dvh;
-            max-height: 100vh;
-            max-height: 100dvh;
-            background: var(--sidebar-bg);
-            z-index: 160;
-            box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-            padding: 20px;
-            display: flex; flex-direction: column;
+            position: fixed; top: 0; left: -300px; width: 280px; height: 100vh;
+            background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+            padding: 20px; display: flex; flex-direction: column;
             visibility: hidden;
-            transform: translateX(-100%);
-            transition: transform 0.26s cubic-bezier(0.2, 0.8, 0.3, 1), visibility 0.26s;
+            transition: left 0.35s cubic-bezier(0.4,0,0.2,1), visibility 0.35s;
             overflow-y: auto;
-            overscroll-behavior: contain;
-            -webkit-overflow-scrolling: touch;
         }
-        .mobile-sidebar.active { transform: translateX(0); visibility: visible; }
-        .mobile-sidebar-header {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line);
-        }
-        .mobile-sidebar-logo {
-            display: flex; align-items: center; gap: 8px; text-decoration: none;
-            color: var(--text); font-size: 20px; font-weight: 800;
-        }
+        .mobile-sidebar.active { left: 0; visibility: visible; }
+        .mobile-sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+        .mobile-sidebar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); font-size: 20px; font-weight: 800; }
         .mobile-sidebar-logo .logo-img { width: 20px; height: 20px; }
-        .mobile-sidebar-close {
-            background: var(--hover); border: none; cursor: pointer; padding: 8px;
-            border-radius: 8px; color: var(--text); display: flex; align-items: center;
-            flex-shrink: 0;
-        }
+        .mobile-sidebar-close { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 8px; color: var(--text); display: flex; align-items: center; }
         .mobile-sidebar-nav { display: flex; flex-direction: column; gap: 4px; }
-        .mobile-sidebar-nav > a {
-            display: block; padding: 12px 14px; border-radius: 10px;
-            text-decoration: none; color: var(--text); font-weight: 500;
-            font-size: 15px; transition: background 0.2s;
-        }
+        .mobile-sidebar-nav > a { display: block; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.2s; }
         .mobile-sidebar-nav > a:hover { background: var(--hover); color: var(--text); }
-        .mobile-tools-toggle {
-            display: flex; align-items: center; justify-content: space-between;
-            width: 100%; padding: 12px 14px; border-radius: 10px; background: none;
-            border: none; cursor: pointer; color: var(--text); font-weight: 500;
-            font-size: 15px; font-family: inherit; transition: background 0.2s;
-        }
+        .mobile-tools-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 14px; border-radius: 10px; background: none; border: none; cursor: pointer; color: var(--text); font-weight: 500; font-size: 15px; font-family: inherit; transition: 0.2s; }
         .mobile-tools-toggle:hover { background: var(--hover); color: var(--text); }
-        .mobile-tools-toggle .icon { width: 16px; height: 16px; transition: transform 0.25s; flex-shrink: 0; }
+        .mobile-tools-toggle .icon { width: 16px; height: 16px; transition: transform 0.3s; flex-shrink: 0; }
         .mobile-tools-toggle.active .icon { transform: rotate(180deg); }
-        .mobile-tools-menu {
-            display: none; flex-direction: column; padding-left: 16px;
-            gap: 2px; margin-bottom: 6px;
-        }
+        .mobile-tools-menu { display: none; flex-direction: column; padding-left: 16px; gap: 2px; margin-bottom: 6px; }
         .mobile-tools-menu.active { display: flex; }
-        .mobile-tools-menu a {
-            font-size: 14px; padding: 10px 14px; color: var(--text-light);
-            text-decoration: none; border-radius: 8px;
-        }
+        .mobile-tools-menu a { font-size: 14px; padding: 10px 14px; color: var(--text-light); text-decoration: none; border-radius: 8px; }
         .mobile-tools-menu a:hover { background: var(--hover); color: var(--text); }
-        .mobile-sidebar-actions {
-            display: flex; gap: 8px; margin-top: 20px; padding-top: 18px;
-            border-top: 1px solid var(--line);
-        }
-        .mobile-sidebar-actions button {
-            flex: 1; display: flex; align-items: center; justify-content: center;
-            gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line);
-            background: var(--hover); color: var(--text); font-weight: 500;
-            font-size: 14px; cursor: pointer; font-family: inherit; transition: border-color 0.2s;
-        }
+        .mobile-sidebar-actions { display: flex; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+        .mobile-sidebar-actions button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--hover); color: var(--text); font-weight: 500; font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s; }
         .mobile-sidebar-actions button:hover { border-color: var(--border-hover); color: var(--text); }
         .mobile-sidebar-actions button .icon { width: 16px; height: 16px; flex-shrink: 0; }
         .mobile-sidebar-actions button .icon-sun,
@@ -462,32 +302,22 @@
         html.dark-mode .mobile-sidebar-actions button .icon-moon { display: block !important; }
 
         /* ==========================================================
-           SEARCH OVERLAY — FLIP animation handled 100% by JS
-           CSS only controls visibility + fade of the backdrop.
-           The .search-box itself has NO transition so JS can drive
-           the FLIP transform without conflict.
+           SEARCH OVERLAY — animated. The search-box inside gets a
+           FLIP animation from the hero search position to center.
            ========================================================== */
         .search-overlay-full {
-            position: fixed; top: 0; left: 0; width: 100%;
-            height: 100%;
-            height: 100dvh;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--overlay-bg);
             backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-            z-index: 300;
-            display: flex; flex-direction: column; align-items: center;
-            padding: clamp(16px, 6vh, 60px) 16px 16px;
+            z-index: 300; display: flex; flex-direction: column;
+            align-items: center; padding-top: 60px;
             opacity: 0; visibility: hidden;
-            transition: opacity 0.18s ease, visibility 0.18s ease;
-            overflow: hidden;
-            overscroll-behavior: contain;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
         .search-overlay-full.active { opacity: 1; visibility: visible; }
         .search-container {
-            width: 100%;
-            max-width: 620px;
-            display: flex; flex-direction: column;
-            max-height: 100%;
-            min-height: 0;
+            width: 92%; max-width: 620px; display: flex; flex-direction: column;
+            max-height: 88vh; min-height: 0;
         }
         .search-box {
             display: flex; align-items: center; gap: 10px;
@@ -497,116 +327,85 @@
             border: 1px solid var(--line);
             box-shadow: 0 10px 30px rgba(0,0,0,0.18);
             margin-bottom: 12px; flex-shrink: 0;
-            min-width: 0;
-            /* Important: no CSS transition/transform here.
-               JS applies FLIP transform inline. */
+            transform-origin: center center;
+            will-change: transform;
         }
-        .search-box input {
-            flex: 1; border: none; background: transparent;
-            font-size: 16px; color: var(--text); outline: none;
-            font-family: inherit; padding: 12px 0; min-width: 0; width: 100%;
-        }
+        .search-box input { flex: 1; border: none; background: transparent; font-size: 17px; color: var(--text); outline: none; font-family: inherit; padding: 12px 0; min-width: 0; }
         .search-box input:focus,
         .search-box input:focus-visible { outline: none; box-shadow: none; }
-        .search-box .search-clear-btn {
-            display: none; background: var(--hover); border: none; cursor: pointer;
-            padding: 6px; border-radius: 50%; color: var(--text-light);
-            align-items: center; justify-content: center; flex-shrink: 0;
-        }
+        .search-box .search-clear-btn { display: none; background: var(--hover); border: none; cursor: pointer; padding: 6px; border-radius: 50%; color: var(--text-light); align-items: center; justify-content: center; flex-shrink: 0; }
         .search-box .search-clear-btn.show { display: flex; }
-        .search-box .search-close-btn {
-            background: var(--hover); border: none; cursor: pointer; padding: 8px;
-            border-radius: 50%; color: var(--text); display: flex;
-            align-items: center; justify-content: center; flex-shrink: 0;
-        }
-        .search-box .search-close-btn:hover,
-        .search-box .search-clear-btn:hover { background: var(--chip-hover); }
+        .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .search-box .search-close-btn:hover, .search-box .search-clear-btn:hover { background: var(--chip-hover); }
         .search-box .search-icon-leading { color: var(--text-light); flex-shrink: 0; }
 
-        .search-results-list {
-            background: var(--bg); border-radius: 16px; border: 1px solid var(--line);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            overflow-y: auto; -webkit-overflow-scrolling: touch;
-            overscroll-behavior: contain;
-            flex: 1; min-height: 0;
-        }
-        .search-results-list .search-result-item {
-            display: flex; align-items: center; justify-content: space-between;
-            gap: 12px; padding: 12px 18px; text-decoration: none; color: var(--text);
-            font-weight: 500; font-size: 15px; transition: background 0.12s;
-            border-bottom: 1px solid var(--line); min-width: 0;
-        }
+        .search-results-list { background: var(--bg); border-radius: 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.2); overflow-y: auto; flex: 1; min-height: 0; contain: content; }
+
+        .search-results-list .search-result-item { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 18px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 15px; transition: 0.15s; border-bottom: 1px solid var(--line); }
         .search-results-list .search-result-item:last-child { border-bottom: none; }
         .search-results-list .search-result-item:hover,
         .search-results-list .search-result-item.active { background: var(--hover); color: var(--text); }
         .search-results-list .search-result-item.active { box-shadow: inset 3px 0 0 #3b82f6; }
         .search-result-item .result-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
-        .search-result-item .result-name { font-weight: 600; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .search-result-item .result-desc {
-            font-size: 12px; color: var(--text-light); font-weight: 400;
-            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-        }
-        .search-results-list .result-tag {
-            font-size: 10px; background: var(--hover); padding: 3px 8px;
-            border-radius: 12px; color: var(--text-light); text-transform: uppercase;
-            font-weight: 600; flex-shrink: 0; white-space: nowrap;
-        }
-        .search-no-result {
-            text-align: center; padding: 28px 20px; color: var(--text-light);
-            font-size: 14px; display: none; background: var(--bg);
-            border-radius: 16px; border: 1px solid var(--line); margin-top: 8px;
-        }
+        .search-result-item .result-name { font-weight: 600; font-size: 15px; }
+        .search-result-item .result-desc { font-size: 12px; color: var(--text-light); font-weight: 400; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .search-results-list .result-tag { font-size: 10px; background: var(--hover); padding: 3px 8px; border-radius: 12px; color: var(--text-light); text-transform: uppercase; font-weight: 600; flex-shrink: 0; white-space: nowrap; }
+        .search-no-result { text-align: center; padding: 28px 20px; color: var(--text-light); font-size: 14px; display: none; background: var(--bg); border-radius: 16px; border: 1px solid var(--line); margin-top: 8px; }
         .search-no-result.show { display: block; }
         mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
 
-        /* ==========================================================
-           MAIN
-           ========================================================== */
-        main {
-            flex: 1;
-            padding: clamp(20px, 3.5vw, 50px) 0;
-            width: 100%;
-            min-width: 0;
+        @keyframes searchResultIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .content-container {
-            width: 100%;
-            max-width: var(--page-max);
-            margin: 0 auto;
-            padding: 0 var(--gutter);
-            min-width: 0;
-        }
-        h1 {
-            font-size: clamp(24px, 4vw, 42px);
-            font-weight: 800;
-            margin-bottom: 12px;
-            line-height: 1.25;
-            text-align: left;
-            overflow-wrap: break-word;
-        }
-        .subtitle {
-            font-size: clamp(15px, 1.5vw, 18px);
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: clamp(18px, 2.5vw, 28px);
-            text-align: left;
-            overflow-wrap: break-word;
-        }
+        .search-results-list .search-result-item { animation: searchResultIn 0.25s ease both; }
+        .search-results-list .search-result-item:nth-child(1) { animation-delay: 0.02s; }
+        .search-results-list .search-result-item:nth-child(2) { animation-delay: 0.04s; }
+        .search-results-list .search-result-item:nth-child(3) { animation-delay: 0.06s; }
+        .search-results-list .search-result-item:nth-child(4) { animation-delay: 0.08s; }
+        .search-results-list .search-result-item:nth-child(5) { animation-delay: 0.10s; }
+        .search-results-list .search-result-item:nth-child(6) { animation-delay: 0.12s; }
+        .search-results-list .search-result-item:nth-child(7) { animation-delay: 0.14s; }
+        .search-results-list .search-result-item:nth-child(8) { animation-delay: 0.16s; }
+        .search-results-list .search-result-item:nth-child(9) { animation-delay: 0.18s; }
+        .search-results-list .search-result-item:nth-child(10) { animation-delay: 0.20s; }
 
-        /* HERO SEARCH */
+        main { flex: 1; padding: 40px 0; width: 100%; max-width: 100%; }
+        .content-container { width: 100%; padding: 0 40px; }
+        @media (max-width: 768px) { .content-container { padding: 0 16px; } main { padding: 20px 0; } }
+        h1 { font-size: 38px; font-weight: 800; margin-bottom: 12px; line-height: 1.3; text-align: left; }
+        .subtitle { font-size: 18px; color: var(--text-light); line-height: 1.7; margin-bottom: 28px; text-align: left; word-wrap: break-word; }
+
+        /* ==========================================================
+           HERO SEARCH — no black border, subtle hover lift.
+           ========================================================== */
         .hero-search {
-            display: flex; align-items: center; gap: 10px;
-            background: var(--card); border: 1px solid var(--line);
-            border-radius: 14px; padding: 4px 10px 4px 16px;
-            max-width: min(640px, 100%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 4px 10px 4px 16px;
+            max-width: 640px;
             width: 100%;
-            margin: 0 0 clamp(18px, 2.5vw, 26px);
-            font-family: inherit; font-size: 15px;
-            color: var(--text-light); text-align: left;
-            cursor: pointer; appearance: none; -webkit-appearance: none;
-            transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
-            min-width: 0;
+            margin: 0 0 26px;
+            font-family: inherit;
+            font-size: 15px;
+            color: var(--text-light);
+            text-align: left;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
-        .hero-search:active { transform: scale(0.99); }
+        .hero-search:hover {
+            background: var(--hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            border-color: var(--border-hover);
+        }
+        .hero-search:active { transform: translateY(0) scale(0.99); }
         .hero-search:focus,
         .hero-search:focus-visible,
         .hero-search:focus-within {
@@ -615,13 +414,16 @@
             box-shadow: none !important;
         }
         .hero-search > .icon { color: var(--text-light); flex-shrink: 0; transition: color 0.2s ease; }
+        .hero-search:hover > .icon { color: var(--text); }
         .hero-search .hero-search-text {
-            flex: 1; min-width: 0; padding: 12px 0;
-            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+            flex: 1;
+            min-width: 0;
+            padding: 12px 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             color: var(--text-light);
-            line-height: 1.2;
         }
-        .hero-search .hs-short { display: none; }
         .hero-search kbd {
             font-family: inherit; font-size: 11px; font-weight: 600;
             color: var(--text-light); background: var(--bg);
@@ -629,190 +431,103 @@
             padding: 3px 7px; flex-shrink: 0;
         }
 
-        /* CATEGORY FILTER BAR */
         .category-filter-bar {
-            display: flex; flex-wrap: wrap; gap: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
             justify-content: flex-start;
-            margin-bottom: clamp(18px, 2.4vw, 26px);
+            margin-bottom: 26px;
             padding: 0;
-            min-width: 0;
         }
-        .cat-chip {
-            padding: 9px 18px; border-radius: 24px; font-size: 13px;
-            font-weight: 600; cursor: pointer; border: 1px solid var(--line);
-            background: var(--chip-bg); color: var(--text-light);
-            transition: background 0.18s, color 0.18s, border-color 0.18s;
-            white-space: nowrap; font-family: inherit;
-            user-select: none; flex-shrink: 0;
+        @media (max-width: 768px) {
+            .category-filter-bar {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                padding-bottom: 6px;
+            }
+            .category-filter-bar::-webkit-scrollbar { height: 6px; }
+            .category-filter-bar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
         }
+        .cat-chip { padding: 9px 18px; border-radius: 24px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid var(--line); background: var(--chip-bg); color: var(--text-light); transition: all 0.2s; white-space: nowrap; font-family: inherit; user-select: none; flex-shrink: 0; }
         .cat-chip:hover { background: var(--chip-hover); border-color: var(--border-hover); color: var(--text); }
         .cat-chip.active { background: var(--chip-active-bg); color: var(--chip-active-text); border-color: var(--chip-active-bg); }
 
-        .results-line {
-            font-size: 13px; color: var(--text-light); font-weight: 500;
-            margin-bottom: 16px; display: none;
-        }
+        .results-line { font-size: 13px; color: var(--text-light); font-weight: 500; margin-bottom: 16px; display: none; }
         .results-line.show { display: block; }
 
-        /* ==========================================================
-           GRIDS — fluid, auto-fitting, works on every screen
-           ========================================================== */
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
-            gap: clamp(12px, 1.4vw, 20px);
-            margin-bottom: clamp(32px, 5vw, 60px);
-            width: 100%;
-            min-width: 0;
-        }
-        .tool-card {
-            background: var(--card); border: 1px solid var(--line);
-            border-radius: 16px; padding: clamp(16px, 1.8vw, 24px);
-            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-            cursor: pointer; text-decoration: none; color: var(--text);
-            display: flex; flex-direction: column; gap: 12px;
-            box-shadow: var(--card-shadow);
-            min-width: 0;
-        }
+        .tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 60px; width: 100%; }
+        @media (max-width: 1400px) { .tools-grid { grid-template-columns: repeat(4, 1fr); gap: 16px; } }
+        @media (max-width: 1200px) { .tools-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+        @media (max-width: 900px) { .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+        @media (max-width: 560px) { .tools-grid { grid-template-columns: 1fr; gap: 12px; } }
+        .tool-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; cursor: pointer; text-decoration: none; color: var(--text); display: flex; flex-direction: column; gap: 12px; box-shadow: var(--card-shadow);
+            content-visibility: auto; contain-intrinsic-size: auto 190px; }
         .tool-card.hidden-card { display: none; }
         .tool-card:hover { transform: translateY(-4px); box-shadow: var(--card-hover-shadow); border-color: var(--border-hover); }
-        .tool-card .tool-icon {
-            width: 48px; height: 48px; background: var(--hover); border-radius: 12px;
-            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-        }
+        .tool-card .tool-icon { width: 48px; height: 48px; background: var(--hover); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
         .tool-card .tool-icon svg { width: 24px; height: 24px; }
-        .tool-card h3 { font-size: clamp(16px, 1.4vw, 18px); font-weight: 700; margin: 0; overflow-wrap: break-word; }
-        .tool-card p { font-size: 14px; color: var(--text-light); line-height: 1.5; margin: 0; overflow-wrap: break-word; }
-        .tool-card .badge {
-            display: inline-block; padding: 4px 8px; border-radius: 12px;
-            font-size: 11px; font-weight: 600; background: var(--hover);
-            color: var(--text-light); margin-top: 4px; align-self: flex-start;
-        }
-        .no-tools-found {
-            display: none; grid-column: 1 / -1; text-align: center;
-            padding: 50px 20px; border: 1px dashed var(--line);
-            border-radius: 16px; color: var(--text-light); font-size: 15px;
-        }
+        .tool-card h3 { font-size: 18px; font-weight: 700; margin: 0; }
+        .tool-card p { font-size: 14px; color: var(--text-light); line-height: 1.5; margin: 0; }
+        .tool-card .badge { display: inline-block; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; background: var(--hover); color: var(--text-light); margin-top: 4px; }
+        .no-tools-found { display: none; grid-column: 1 / -1; text-align: center; padding: 50px 20px; border: 1px dashed var(--line); border-radius: 16px; color: var(--text-light); font-size: 15px; }
         .no-tools-found.show { display: block; }
         .no-tools-found strong { color: var(--text); }
 
-        /* SECTIONS */
-        .section { margin-bottom: clamp(34px, 4.5vw, 50px); width: 100%; max-width: 100%; min-width: 0; }
-        .section h2 {
-            font-size: clamp(20px, 2.6vw, 28px); font-weight: 700;
-            margin-bottom: 20px; padding-bottom: 10px;
-            border-bottom: 2px solid var(--hover);
-            overflow-wrap: break-word;
-        }
-        .section h3 { font-size: clamp(17px, 2vw, 20px); font-weight: 700; margin: 25px 0 12px; }
-        .section p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: clamp(15px, 1.5vw, 16px); }
+        .section { margin-bottom: 50px; width: 100%; max-width: 100%; }
+        .section h2 { font-size: 28px; font-weight: 700; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--hover); }
+        .section h3 { font-size: 20px; font-weight: 700; margin: 25px 0 12px; }
+        .section p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: 16px; }
         .section ul, .section ol { padding-left: 22px; color: var(--text-light); margin-bottom: 22px; }
-        .section li { margin-bottom: 10px; line-height: 1.7; font-size: clamp(15px, 1.5vw, 16px); }
+        .section li { margin-bottom: 10px; line-height: 1.7; }
         .section a { color: var(--footer-link-color); text-decoration: none; }
         .section a:hover { text-decoration: underline; }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
-            gap: clamp(12px, 1.4vw, 20px);
-            margin-top: 25px;
-            width: 100%;
-            min-width: 0;
-        }
-        .feature-card {
-            background: var(--accent); padding: clamp(16px, 1.6vw, 20px);
-            border-radius: 12px; border: 1px solid var(--line); min-width: 0;
-        }
-        .feature-card h4 {
-            font-size: clamp(15px, 1.4vw, 17px); font-weight: 700; margin-bottom: 8px;
-            display: flex; align-items: center; gap: 8px; overflow-wrap: break-word;
-        }
+        .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 25px; width: 100%; }
+        @media (max-width: 1200px) { .feature-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 900px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .feature-grid { grid-template-columns: 1fr; } }
+        .feature-card { background: var(--accent); padding: 20px; border-radius: 12px; border: 1px solid var(--line); }
+        .feature-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
         .feature-card h4 .icon { width: 20px; height: 20px; flex-shrink: 0; }
         .feature-card p { font-size: 14px; color: var(--text-light); margin: 0; }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(min(130px, 100%), 1fr));
-            gap: clamp(10px, 1.2vw, 15px);
-            margin-top: 20px;
-            width: 100%;
-            min-width: 0;
-        }
+        .category-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 15px; margin-top: 20px; width: 100%; }
+        @media (max-width: 1200px) { .category-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 768px) { .category-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .category-grid { grid-template-columns: 1fr 1fr; } }
         .category-card {
             background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-            padding: 18px 12px; text-align: center; cursor: pointer;
-            text-decoration: none; color: var(--text); transition: background 0.18s, border-color 0.18s;
-            font-family: inherit; font-size: 14px; width: 100%;
-            display: flex; flex-direction: column; align-items: center;
-            justify-content: center; gap: 0; min-width: 0;
+            padding: 18px 12px; text-align: center; cursor: pointer; text-decoration: none;
+            color: var(--text); transition: 0.2s; font-family: inherit; font-size: 14px;
+            width: 100%; display: flex; flex-direction: column; align-items: center;
+            justify-content: center; gap: 0;
         }
         .category-card:hover { border-color: var(--border-hover); background: var(--hover); }
         .category-card:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus-ring); }
         .category-card .icon { width: 32px; height: 32px; margin-bottom: 8px; color: var(--text); }
-        .category-card span { display: block; font-weight: 600; font-size: 14px; overflow-wrap: break-word; }
-
-        /* TABLES — always horizontally scrollable, never break layout */
-        .table-wrapper {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin: 25px 0;
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            width: 100%;
-            max-width: 100%;
-        }
-        .info-table { width: 100%; border-collapse: collapse; min-width: 560px; }
-        .info-table th, .info-table td {
-            padding: 14px 16px; text-align: left;
-            border-bottom: 1px solid var(--line); color: var(--text-light);
-        }
+        .category-card span { display: block; font-weight: 600; font-size: 14px; }
+        .table-wrapper { overflow-x: auto; margin: 25px 0; border: 1px solid var(--line); border-radius: 10px; width: 100%; }
+        .info-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        .info-table th, .info-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); color: var(--text-light); }
         .info-table th { background: var(--table-header); font-weight: 700; color: var(--text); }
         .info-table tr:hover { background: var(--table-hover); }
         .info-table a { color: var(--text); text-decoration: none; font-weight: 600; }
         .info-table a:hover { text-decoration: underline; }
-
-        /* FAQ */
         .faq-item { margin-bottom: 16px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
-        .faq-question {
-            background: var(--faq-bg); padding: 16px 18px; font-weight: 600;
-            cursor: pointer; display: flex; justify-content: space-between;
-            align-items: center; gap: 12px; color: var(--text);
-            font-size: clamp(14px, 1.4vw, 15px);
-            border: none; width: 100%; text-align: left; font-family: inherit;
-            line-height: 1.5;
-        }
+        .faq-question { background: var(--faq-bg); padding: 16px 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--text); font-size: 15px; border: none; width: 100%; text-align: left; }
         .faq-question .icon { width: 16px; height: 16px; flex-shrink: 0; transition: transform 0.25s; }
         .faq-item.active .faq-question .icon { transform: rotate(180deg); }
-        .faq-answer {
-            padding: 16px 18px; display: none; color: var(--text-light);
-            line-height: 1.7; border-top: 1px solid var(--line);
-        }
+        .faq-answer { padding: 16px 18px; display: none; color: var(--text-light); line-height: 1.7; border-top: 1px solid var(--line); }
         .faq-item.active .faq-answer { display: block; }
         .faq-item.active .faq-question { background: var(--faq-active); color: var(--text); }
 
-        /* ==========================================================
-           FOOTER
-           ========================================================== */
-        footer {
-            border-top: 1px solid var(--footer-border);
-            padding: clamp(28px, 4vw, 60px) var(--gutter) clamp(60px, 12vw, 180px);
-            width: 100%;
-        }
-        .footer-container { width: 100%; max-width: var(--page-max); margin: 0 auto; min-width: 0; }
-        .footer-middle {
-            display: flex; flex-wrap: wrap; gap: clamp(20px, 3vw, 30px);
-            justify-content: space-between; align-items: flex-start; min-width: 0;
-        }
-        .footer-left-column { flex: 1 1 320px; min-width: 0; max-width: 420px; }
-        .footer-right-columns {
-            display: flex; flex: 2 1 420px; gap: clamp(18px, 3vw, 40px);
-            justify-content: flex-end; flex-wrap: wrap; min-width: 0;
-        }
-        .footer-column { min-width: 140px; flex: 0 1 auto; }
-        .footer-heading {
-            font-size: 16px; font-weight: 700; color: var(--footer-heading);
-            margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px;
-        }
+        footer { border-top: 1px solid var(--footer-border); padding: 40px 40px 220px; width: 100%; }
+        .footer-container { width: 100%; max-width: 100%; margin: 0 auto; }
+        .footer-middle { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; align-items: flex-start; }
+        .footer-left-column { flex: 0 0 380px; max-width: 380px; }
+        .footer-right-columns { display: flex; flex: 1; gap: 30px; justify-content: flex-end; flex-wrap: wrap; }
+        .footer-column { min-width: 160px; }
+        .footer-heading { font-size: 16px; font-weight: 700; color: var(--footer-heading); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
         .footer-links { list-style: none; padding: 0; margin: 0; }
         .footer-links li { margin-bottom: 8px; }
 
@@ -823,6 +538,7 @@
             text-decoration: none;
             display: inline-block;
             transition: color 0.2s ease, transform 0.2s ease;
+            will-change: transform;
         }
         .footer-links a { font-size: 14px; }
         .footer-links a:hover,
@@ -839,181 +555,50 @@
         .footer-copyright { font-size: 14px; color: var(--footer-text); margin-bottom: 15px; }
         .footer-about-text { font-size: 15px; color: var(--footer-text); line-height: 1.7; }
 
-        /* ==========================================================
-           RESPONSIVE BREAKPOINTS
-           ========================================================== */
-
-        /* --- ≤ 1180px : compact the header search button --- */
-        @media (max-width: 1180px) {
-            .search-trigger {
-                width: 40px; height: 40px; padding: 0;
-                justify-content: center; border-radius: 50%;
-            }
-            .search-trigger .search-trigger-label { display: none; }
-        }
-
-        /* --- ≤ 1024px : tighten desktop nav --- */
-        @media (max-width: 1024px) {
-            .desktop-nav { gap: 2px; }
-            .desktop-nav a { padding: 6px 6px; font-size: 13px; }
-            .tools-trigger { padding: 6px 6px; font-size: 13px; }
-        }
-
-        /* --- ≤ 900px : stack the footer --- */
-        @media (max-width: 900px) {
-            .footer-middle { flex-direction: column; align-items: stretch; gap: 28px; }
-            .footer-left-column { max-width: 100%; flex: 0 1 auto; }
-            .footer-right-columns { justify-content: flex-start; flex: 0 1 auto; }
-        }
-
-        /* --- ≤ 768px : mobile layout --- */
         @media (max-width: 768px) {
-            :root { --header-h: 58px; }
-
-            header { padding: 0 16px; }
-            .logo { font-size: 19px; }
-            .logo-img { width: 22px; height: 22px; }
-
-            .desktop-nav { display: none; }
-            .theme-btn { display: none; }
-            .search-trigger { display: none; }
-            .hamburger-btn { display: flex; }
-
-            main { padding: 20px 0; }
-
-            h1 { font-size: clamp(23px, 7vw, 30px); }
-            .subtitle { font-size: 15px; }
-
-            /* horizontal chip scroller — no scroll-snap (kept it feeling snappy) */
-            .category-filter-bar {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: thin;
-                padding-bottom: 6px;
-            }
-            .category-filter-bar::-webkit-scrollbar { height: 6px; }
-            .category-filter-bar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
-            .cat-chip { padding: 7px 14px; font-size: 12px; }
-
-            /* ---- Hero search: shorter text on mobile so it always fits ---- */
-            .hero-search { font-size: 13.5px; padding: 4px 10px 4px 14px; gap: 8px; }
-            .hero-search kbd { display: none; }
-            .hero-search .hs-full { display: none; }
-            .hero-search .hs-short { display: inline; }
-            .hero-search .hero-search-text { padding: 11px 0; }
-
-            /* ---- Search overlay: lighter blur, faster paint ---- */
-            .search-overlay-full {
-                padding: 14px 12px 12px;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
-                background: rgba(0, 0, 0, 0.6);
-            }
-            html.dark-mode .search-overlay-full { background: rgba(0, 0, 0, 0.82); }
-            .search-box { padding: 2px 8px 2px 14px; gap: 8px; }
-            .search-box input { font-size: 16px; padding: 12px 0; }
-            .search-result-item .result-tag { display: none; }
-            .search-results-list .search-result-item { padding: 11px 14px; }
-
-            footer { padding: 30px 16px 120px; }
+            footer { padding: 30px 16px 160px; }
+            .footer-middle { flex-direction: column; align-items: flex-start; gap: 28px; text-align: left; }
+            .footer-left-column { flex: 1 1 auto; max-width: 100%; text-align: left; }
+            .footer-right-columns { flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 22px; width: 100%; }
+            .footer-column { min-width: auto; text-align: left; width: 100%; }
             .footer-links a { display: block; }
-
-            .info-table { min-width: 520px; }
-            .info-table th, .info-table td { padding: 12px 14px; font-size: 14px; }
+            .desktop-nav { display: none; }
+            .theme-btn, .search-trigger { display: none; }
+            .hamburger-btn { display: flex; }
+            header { padding: 0 16px; }
+            .logo { font-size: 20px; }
+            h1 { font-size: 28px; }
+            main { padding: 20px 0; }
+            .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .tool-card { padding: 18px; }
+            .tool-card h3 { font-size: 16px; }
+            .cat-chip { padding: 7px 14px; font-size: 12px; }
+            .feature-grid { grid-template-columns: repeat(2, 1fr); }
+            .category-grid { grid-template-columns: repeat(2, 1fr); }
+            .search-overlay-full { padding-top: 24px; }
+            .search-container { width: 94%; }
+            .search-box input { font-size: 16px; }
+            .search-result-item .result-desc { max-width: 180px; }
+            .hero-search kbd { display: none; }
         }
-
-        /* --- ≤ 560px : single column everything --- */
         @media (max-width: 560px) {
-            :root { --gutter: 14px; }
-
-            .footer-right-columns { flex-direction: column; gap: 22px; width: 100%; }
-            .footer-column { width: 100%; min-width: 0; }
-
-            .feature-grid { grid-template-columns: 1fr; }
             .tools-grid { grid-template-columns: 1fr; }
-            .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-            .section h2 { font-size: 21px; }
-            .section h3 { font-size: 17px; }
-
-            .mobile-sidebar-actions { flex-wrap: wrap; }
-
-            .hero-search { font-size: 13px; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .category-grid { grid-template-columns: 1fr 1fr; }
         }
-
-        /* --- ≤ 380px : ultra small phones --- */
-        @media (max-width: 380px) {
-            .logo { font-size: 17px; gap: 7px; }
-            .logo-img { width: 20px; height: 20px; }
-            h1 { font-size: 22px; }
-            .cat-chip { padding: 6px 12px; font-size: 11px; }
-            .tool-card { padding: 15px; }
-            .category-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .category-card { padding: 14px 8px; font-size: 13px; }
-            .search-results-list .search-result-item { padding: 10px 12px; }
-            .hero-search { font-size: 12.5px; padding: 4px 8px 4px 12px; gap: 6px; }
-            .hero-search > .icon { width: 16px; height: 16px; }
-        }
-
-        /* --- Desktop-only helpers --- */
         @media (min-width: 769px) {
             .hamburger-btn { display: none; }
             .mobile-sidebar-overlay { display: none !important; }
             .mobile-sidebar { display: none !important; }
         }
-
-        /* --- Very wide screens --- */
         @media (min-width: 1800px) {
-            .tools-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
-            .feature-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
-        }
-
-        /* --- Landscape phones / short screens --- */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .mobile-sidebar { padding: 14px; }
-            .mobile-sidebar-header { margin-bottom: 14px; padding-bottom: 12px; }
-            .search-overlay-full { padding-top: 10px; }
-        }
-
-        /* ==========================================================
-           TOUCH DEVICE FIX
-           Kills sticky :hover states that made cards/buttons jump
-           and stay "lifted" after a tap on phones and tablets.
-           ========================================================== */
-        @media (hover: none), (pointer: coarse) {
-            .tool-card:hover {
-                transform: none;
-                box-shadow: var(--card-shadow);
-                border-color: var(--line);
-            }
-            .hero-search:hover {
-                transform: none;
-                background: var(--card);
-                border-color: var(--line);
-            }
-            .hero-search:hover > .icon { color: var(--text-light); }
-            .cat-chip:hover:not(.active) {
-                background: var(--chip-bg);
-                border-color: var(--line);
-                color: var(--text-light);
-            }
-            .category-card:hover {
-                background: var(--card);
-                border-color: var(--line);
-            }
-            .footer-links a:hover,
-            .footer-credit a:hover,
-            .footer-about-text a:hover {
-                transform: none;
-            }
-            .search-trigger:hover { border-color: var(--line); color: var(--text-light); }
-            .desktop-nav a:hover { background: none; color: var(--text-light); }
-        }
-
-        /* Reduced motion: skip FLIP animation entirely */
-        @media (prefers-reduced-motion: reduce) {
-            .search-box { transition: none !important; }
+            .tools-grid { grid-template-columns: repeat(5, 1fr); }
+            .feature-grid { grid-template-columns: repeat(5, 1fr); }
+            main { padding: 50px 0; }
+            header { padding: 0 60px; }
+            .content-container { padding: 0 60px; }
+            h1 { font-size: 44px; }
+            footer { padding: 60px 60px 260px; }
         }
     </style>
 </head>
@@ -1063,7 +648,7 @@
                         <svg class="icon icon-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg>
                         <svg class="icon icon-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg>
                     </button>
-                    <button type="button" class="search-trigger" onclick="openFullSearch(this)" aria-label="Search tools"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
+                    <button type="button" class="search-trigger" onclick="openFullSearch()" aria-label="Search tools"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg> Search tools...</button>
                     <button type="button" class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileSidebar">
                         <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
                     </button>
@@ -1076,12 +661,9 @@
                 <h1>Free Online Text Tools — Open, Use, Done. No Signup.</h1>
                 <p class="subtitle">No signup. We don't track the text you enter. Just free text tools that work instantly in your browser. Word counter, case converter, JSON formatter, text cleaner, and a lot more. Your text never leaves your device. Open a tool and start working — it's that simple.</p>
 
-                <button type="button" class="hero-search" id="heroSearchBtn" onclick="openFullSearch(this)" aria-label="Search tools">
+                <button type="button" class="hero-search" id="heroSearchBtn" onclick="openFullSearch()" aria-label="Search tools">
                     <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-search"/></svg>
-                    <span class="hero-search-text">
-                        <span class="hs-full">Search tools… try "word counter", "json formatter", "pdf 100kb"</span>
-                        <span class="hs-short">Search tools… try "word counter"</span>
-                    </span>
+                    <span class="hero-search-text">Search tools… try "join lines", "pdf 100kb", "json"</span>
                     <kbd id="heroKbdHint">Ctrl K</kbd>
                 </button>
 
@@ -1399,7 +981,7 @@
             <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
         </div>
         <div class="mobile-sidebar-actions">
-            <button type="button" onclick="openSearchFromSidebar(this)"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg> Search</button>
+            <button type="button" onclick="closeMobileSidebar(); openFullSearch();"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg> Search</button>
             <button type="button" onclick="toggleTheme()"><svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg> Theme</button>
         </div>
     </div>
@@ -1409,7 +991,7 @@
             <div class="search-box" id="searchBoxAnimated">
                 <svg class="icon search-icon-leading" width="20" height="20" aria-hidden="true"><use href="#i-search"/></svg>
                 <label for="fullSearchInput" class="sr-only">Search all tools</label>
-                <input type="text" id="fullSearchInput" placeholder="Search tools… try &quot;word counter&quot;, &quot;json formatter&quot;, &quot;pdf 100kb&quot;" oninput="filterFullSearch()" onkeydown="handleSearchKey(event)" autocomplete="off" aria-label="Search all tools">
+                <input type="text" id="fullSearchInput" placeholder="Type to search free tools…" oninput="filterFullSearch()" onkeydown="handleSearchKey(event)" autocomplete="off" aria-label="Search all tools">
                 <button type="button" class="search-clear-btn" id="searchClearBtn" onclick="clearSearchInput()" aria-label="Clear search"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg></button>
                 <button type="button" class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
             </div>
@@ -1419,24 +1001,6 @@
     </div>
 
     <script>
-        /* ============================================================
-           FLIP ANIMATION — works on desktop AND touch devices
-           ------------------------------------------------------------
-           Open:  the search box flies from the clicked trigger
-                  (hero button, header button, or sidebar button)
-                  to the centre of the screen.
-           Close: it flies back to its origin.
-           ------------------------------------------------------------
-           Touch-device specific care:
-             • transform + opacity only (GPU, no layout thrash)
-             • will-change added during animation, removed after
-             • origin checked with isOnScreen() to avoid flying
-               to an off-screen element after scrolling
-             • focus() called inside the user gesture so the
-               mobile keyboard always opens
-             • prefers-reduced-motion respected (skips FLIP)
-           ============================================================ */
-
         const categories = [
             { key: 'all', label: 'All Tools' },
             { key: 'text', label: 'Text Tools' },
@@ -1730,28 +1294,6 @@
         let filterRaf = 0;
         let searchResultsRaf = 0;
         let searchIsOpen = false;
-        let searchCloseTimer = 0;
-
-        /* ---------- Utility helpers ---------- */
-
-        function isTouchDevice() {
-            return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
-        }
-
-        function prefersReducedMotion() {
-            return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        }
-
-        function isOnScreen(el) {
-            if (!el || !el.getBoundingClientRect) return false;
-            var r = el.getBoundingClientRect();
-            var vw = window.innerWidth || document.documentElement.clientWidth;
-            var vh = window.innerHeight || document.documentElement.clientHeight;
-            if (r.width < 2 || r.height < 2) return false;
-            if (r.bottom < 0 || r.top > vh) return false;
-            if (r.right < 0 || r.left > vw) return false;
-            return true;
-        }
 
         function cacheToolCards() {
             toolCardNodes = Array.prototype.slice.call(document.querySelectorAll('.tool-card'));
@@ -1947,233 +1489,120 @@
         }
 
         let lastFocusedBeforeSearch = null;
-        let lastFlipOrigin = null;
+        let searchBoxAnimating = false;
 
-        /* ============================================================
-           OPEN SEARCH — with FLIP animation
-           ============================================================ */
-        function openFullSearch(originEl) {
+        // ============================================================
+        // FLIP animation: the search box flies from the hero search
+        // position to the center of the screen.
+        // ============================================================
+        function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
-            if (!overlay) return;
-
-            // Already open → just refocus
             if (overlay.classList.contains('active')) {
-                var existingInput = document.getElementById('fullSearchInput');
-                if (existingInput) {
-                    try { existingInput.focus(); } catch (e) {}
-                }
+                document.getElementById('fullSearchInput').focus();
                 return;
             }
-
-            // Cancel any in-flight close animation
-            if (searchCloseTimer) {
-                clearTimeout(searchCloseTimer);
-                searchCloseTimer = 0;
-            }
-
             lastFocusedBeforeSearch = document.activeElement;
             searchIsOpen = true;
 
-            // ---- Resolve the FLIP origin ----
-            var origin = originEl;
-            if (!origin || !isOnScreen(origin)) {
-                origin = document.getElementById('heroSearchBtn');
-            }
-            if (!origin || !isOnScreen(origin)) {
-                origin = document.querySelector('.search-trigger');
-            }
-            if (!origin || !isOnScreen(origin)) {
-                origin = null;
-            }
-            lastFlipOrigin = origin;
+            // Capture the hero search position BEFORE opening the overlay
+            const heroSearch = document.getElementById('heroSearchBtn');
+            const heroRect = heroSearch ? heroSearch.getBoundingClientRect() : null;
 
-            // ---- Show the overlay immediately ----
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
 
-            // ---- Build search results right away ----
-            filterFullSearch();
-
-            // ---- FLIP animation ----
             const searchBox = document.getElementById('searchBoxAnimated');
-            if (searchBox) {
-                var reduceMotion = prefersReducedMotion();
 
-                // Reset any lingering inline animation styles
-                searchBox.style.transition = 'none';
-                searchBox.style.transform = '';
-                searchBox.style.opacity = '';
-                searchBox.style.willChange = '';
-                searchBox.style.transformOrigin = '';
+            if (heroRect && searchBox && !searchBoxAnimating) {
+                searchBoxAnimating = true;
+                requestAnimationFrame(function () {
+                    // Measure the search box's final (centered) position
+                    const boxRect = searchBox.getBoundingClientRect();
 
-                // Force reflow so the reset state is committed
-                void searchBox.offsetHeight;
+                    // Compute the delta from final position to the hero position
+                    const deltaX = (heroRect.left + heroRect.width / 2) - (boxRect.left + boxRect.width / 2);
+                    const deltaY = (heroRect.top + heroRect.height / 2) - (boxRect.top + boxRect.height / 2);
+                    const scaleX = heroRect.width / boxRect.width;
+                    const scaleY = heroRect.height / boxRect.height;
 
-                if (origin && !reduceMotion) {
-                    var originRect = origin.getBoundingClientRect();
-                    var boxRect = searchBox.getBoundingClientRect();
+                    // Snap the search box into the hero's spot, with no transition
+                    searchBox.style.transition = 'none';
+                    searchBox.style.transform = 'translate(' + deltaX + 'px, ' + deltaY + 'px) scale(' + scaleX + ', ' + scaleY + ')';
+                    searchBox.style.opacity = '0.9';
 
-                    if (boxRect.width > 0 && boxRect.height > 0) {
-                        var deltaX = (originRect.left + originRect.width / 2) - (boxRect.left + boxRect.width / 2);
-                        var deltaY = (originRect.top + originRect.height / 2) - (boxRect.top + boxRect.height / 2);
-                        var scaleX = originRect.width / boxRect.width;
-                        var scaleY = originRect.height / boxRect.height;
-
-                        // Clamp so it never becomes a microscopic dot
-                        if (scaleX < 0.3) scaleX = 0.3;
-                        if (scaleY < 0.3) scaleY = 0.3;
-
-                        // Set the inverted (starting) state
-                        searchBox.style.transformOrigin = 'center center';
-                        searchBox.style.willChange = 'transform, opacity';
-                        searchBox.style.transform = 'translate(' + deltaX + 'px, ' + deltaY + 'px) scale(' + scaleX + ', ' + scaleY + ')';
-                        searchBox.style.opacity = '0.7';
-
-                        // Force reflow so the browser commits the starting state
-                        void searchBox.offsetHeight;
-
-                        // Animate to natural position
-                        searchBox.style.transition = 'transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease';
-                        searchBox.style.transform = 'translate(0, 0) scale(1, 1)';
-                        searchBox.style.opacity = '1';
-
-                        // Clean up when done
-                        setTimeout(function() {
-                            if (searchBox && searchIsOpen) {
-                                searchBox.style.transition = '';
-                                searchBox.style.transform = '';
-                                searchBox.style.opacity = '';
-                                searchBox.style.willChange = '';
-                                searchBox.style.transformOrigin = '';
-                            }
-                        }, 460);
-                    }
-                } else if (!reduceMotion) {
-                    // No origin: small scale-in fallback
-                    searchBox.style.willChange = 'transform, opacity';
-                    searchBox.style.transformOrigin = 'center center';
-                    searchBox.style.transform = 'scale(0.94)';
-                    searchBox.style.opacity = '0';
+                    // Force a reflow so the browser registers the starting state
                     void searchBox.offsetHeight;
-                    searchBox.style.transition = 'transform 0.24s cubic-bezier(0.2, 0.8, 0.3, 1), opacity 0.2s ease';
-                    searchBox.style.transform = 'scale(1)';
+
+                    // Animate to the natural centered position
+                    searchBox.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease';
+                    searchBox.style.transform = 'translate(0, 0) scale(1, 1)';
                     searchBox.style.opacity = '1';
-                    setTimeout(function() {
-                        if (searchBox && searchIsOpen) {
-                            searchBox.style.transition = '';
-                            searchBox.style.transform = '';
-                            searchBox.style.opacity = '';
-                            searchBox.style.willChange = '';
-                            searchBox.style.transformOrigin = '';
-                        }
-                    }, 280);
-                }
+
+                    // Clean up after the animation
+                    setTimeout(function () {
+                        searchBox.style.transition = '';
+                        searchBox.style.transform = '';
+                        searchBox.style.opacity = '';
+                        searchBoxAnimating = false;
+                    }, 550);
+                });
             }
 
-            // ---- Focus inside the user gesture (critical for mobile keyboards) ----
-            var inp = document.getElementById('fullSearchInput');
-            if (inp) {
-                try { inp.focus(); } catch (e) {}
-            }
+            filterFullSearch();
+            setTimeout(function () {
+                if (searchIsOpen) document.getElementById('fullSearchInput').focus();
+            }, 320);
         }
 
-        /* ============================================================
-           CLOSE SEARCH — reverse FLIP animation
-           ============================================================ */
         function closeFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
-            if (!overlay || !overlay.classList.contains('active')) return;
-
-            // Already closing — ignore
-            if (searchCloseTimer) return;
-
+            if (!overlay.classList.contains('active')) return;
             searchIsOpen = false;
             if (searchResultsRaf) {
                 cancelAnimationFrame(searchResultsRaf);
                 searchResultsRaf = 0;
             }
 
+            // Optional: animate the search box back toward the hero search
+            const heroSearch = document.getElementById('heroSearchBtn');
             const searchBox = document.getElementById('searchBoxAnimated');
-            var origin = lastFlipOrigin;
-            var didAnimate = false;
 
-            if (searchBox && origin && isOnScreen(origin) && !prefersReducedMotion()) {
-                // Measure natural box position first
-                searchBox.style.transition = 'none';
-                searchBox.style.transform = '';
-                searchBox.style.opacity = '';
-                void searchBox.offsetHeight;
+            if (heroSearch && searchBox && !searchBoxAnimating) {
+                const heroRect = heroSearch.getBoundingClientRect();
+                const boxRect = searchBox.getBoundingClientRect();
+                const deltaX = (heroRect.left + heroRect.width / 2) - (boxRect.left + boxRect.width / 2);
+                const deltaY = (heroRect.top + heroRect.height / 2) - (boxRect.top + boxRect.height / 2);
+                const scaleX = heroRect.width / boxRect.width;
+                const scaleY = heroRect.height / boxRect.height;
 
-                var originRect = origin.getBoundingClientRect();
-                var boxRect = searchBox.getBoundingClientRect();
+                searchBoxAnimating = true;
+                searchBox.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease';
+                searchBox.style.transform = 'translate(' + deltaX + 'px, ' + deltaY + 'px) scale(' + scaleX + ', ' + scaleY + ')';
+                searchBox.style.opacity = '0.9';
 
-                if (boxRect.width > 0 && boxRect.height > 0) {
-                    var deltaX = (originRect.left + originRect.width / 2) - (boxRect.left + boxRect.width / 2);
-                    var deltaY = (originRect.top + originRect.height / 2) - (boxRect.top + boxRect.height / 2);
-                    var scaleX = originRect.width / boxRect.width;
-                    var scaleY = originRect.height / boxRect.height;
-                    if (scaleX < 0.3) scaleX = 0.3;
-                    if (scaleY < 0.3) scaleY = 0.3;
-
-                    searchBox.style.transformOrigin = 'center center';
-                    searchBox.style.willChange = 'transform, opacity';
-                    searchBox.style.transition = 'transform 0.26s cubic-bezier(0.4, 0, 0.5, 1), opacity 0.22s ease';
-                    searchBox.style.transform = 'translate(' + deltaX + 'px, ' + deltaY + 'px) scale(' + scaleX + ', ' + scaleY + ')';
-                    searchBox.style.opacity = '0.4';
-                    didAnimate = true;
-                }
-            }
-
-            // Blur + clear input right away (hides mobile keyboard fast)
-            var inp = document.getElementById('fullSearchInput');
-            if (inp) {
-                try { inp.blur(); } catch (e) {}
-                inp.value = '';
-            }
-            var clearBtn = document.getElementById('searchClearBtn');
-            if (clearBtn) clearBtn.classList.remove('show');
-
-            var finish = function() {
-                searchCloseTimer = 0;
-                overlay.classList.remove('active');
-                overlay.setAttribute('aria-hidden', 'true');
-
-                if (searchBox) {
+                setTimeout(function () {
                     searchBox.style.transition = '';
                     searchBox.style.transform = '';
                     searchBox.style.opacity = '';
-                    searchBox.style.willChange = '';
-                    searchBox.style.transformOrigin = '';
-                }
-
-                const list = document.getElementById('fullSearchResultsList');
-                if (list) list.innerHTML = '';
-                const nr = document.getElementById('fullNoResult');
-                if (nr) nr.classList.remove('show');
-
-                const sidebarEl = document.getElementById('mobileSidebar');
-                const sidebarOpen = sidebarEl && sidebarEl.classList.contains('active');
-                if (!sidebarOpen) document.body.style.overflow = '';
-
-                if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
-                    try { lastFocusedBeforeSearch.focus(); } catch (e) {}
-                }
-                lastFocusedBeforeSearch = null;
-                lastFlipOrigin = null;
-            };
-
-            if (didAnimate) {
-                searchCloseTimer = setTimeout(finish, 270);
-            } else {
-                finish();
+                    searchBoxAnimating = false;
+                }, 420);
             }
-        }
 
-        /* Used by the mobile sidebar Search button. */
-        function openSearchFromSidebar(btn) {
-            closeMobileSidebar(true);
-            openFullSearch(btn);
+            overlay.classList.remove('active');
+            overlay.setAttribute('aria-hidden', 'true');
+            document.getElementById('fullSearchInput').value = '';
+            document.getElementById('searchClearBtn').classList.remove('show');
+            const list = document.getElementById('fullSearchResultsList');
+            if (list) list.innerHTML = '';
+            const nr = document.getElementById('fullNoResult');
+            if (nr) nr.classList.remove('show');
+            const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
+            if (!sidebarOpen) document.body.style.overflow = '';
+            if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
+                try { lastFocusedBeforeSearch.focus(); } catch (e) {}
+            }
+            lastFocusedBeforeSearch = null;
         }
 
         (function initSearchBackdrop() {
@@ -2265,8 +1694,7 @@
                 if (sb.classList.contains('active')) closeBtn.focus();
             }, 100);
         }
-
-        function closeMobileSidebar(skipFocus) {
+        function closeMobileSidebar() {
             const sb = document.getElementById('mobileSidebar');
             if (!sb || !sb.classList.contains('active')) return;
             sb.classList.remove('active');
@@ -2276,13 +1704,12 @@
             const hb = document.getElementById('hamburgerBtn');
             if (hb) {
                 hb.setAttribute('aria-expanded', 'false');
-                if (!skipFocus && !searchIsOpen) {
+                if (!searchIsOpen) {
                     try { hb.focus(); } catch (e) {}
                 }
             }
             if (!searchIsOpen) document.body.style.overflow = '';
         }
-
         function toggleMobileTools() {
             const toggle = document.getElementById('mobileToolsToggle');
             const menu = document.getElementById('mobileToolsMenu');
@@ -2321,12 +1748,7 @@
                     const chip = document.querySelector('.cat-chip[data-cat="' + catKey + '"]');
                     filterByCategory(catKey, chip);
                     const bar = document.getElementById('categoryFilterBar');
-                    if (bar && bar.scrollIntoView) {
-                        bar.scrollIntoView({
-                            behavior: window.innerWidth > 768 ? 'smooth' : 'auto',
-                            block: 'start'
-                        });
-                    }
+                    if (bar && bar.scrollIntoView) bar.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 });
             }
 
@@ -2390,7 +1812,7 @@
                 }
                 if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                     e.preventDefault();
-                    openFullSearch(null);
+                    openFullSearch();
                 }
                 if (searchIsOpen) {
                     trapFocus(e, document.getElementById('searchOverlayFull'));
@@ -2411,11 +1833,7 @@
         function setSearchPlaceholder() {
             const input = document.getElementById('fullSearchInput');
             if (!input) return;
-            if (window.innerWidth <= 560) {
-                input.placeholder = 'Search tools… try "word counter"';
-            } else {
-                input.placeholder = 'Search tools… try "word counter", "json formatter", "pdf 100kb"';
-            }
+            input.placeholder = 'Search all ' + tools.length + ' free tools…';
         }
 
         function toggleFaq(btnEl) {
@@ -2458,16 +1876,6 @@
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
                 window.lucide.createIcons();
             }
-        });
-
-        // Update placeholder when viewport is resized
-        let placeholderRaf = 0;
-        window.addEventListener('resize', function () {
-            if (placeholderRaf) return;
-            placeholderRaf = requestAnimationFrame(function () {
-                placeholderRaf = 0;
-                setSearchPlaceholder();
-            });
         });
     </script>
 </body>
