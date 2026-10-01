@@ -203,7 +203,6 @@
 
         .icon { display: inline-block; vertical-align: middle; flex-shrink: 0; }
 
-        /* HEADER */
         header {
             border-bottom: 1px solid var(--line);
             display: flex;
@@ -320,7 +319,6 @@
         }
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
 
-        /* MOBILE SIDEBAR */
         .mobile-sidebar-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.5); z-index: 150;
@@ -406,7 +404,6 @@
         html:not(.dark-mode) .mobile-sidebar-actions button .icon-sun { display: block !important; }
         html.dark-mode .mobile-sidebar-actions button .icon-moon { display: block !important; }
 
-        /* SEARCH OVERLAY — FLIP handled by JS (Web Animations API) */
         .search-overlay-full {
             position: fixed; top: 0; left: 0; width: 100%;
             height: 100%;
@@ -438,7 +435,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.18);
             margin-bottom: 12px; flex-shrink: 0;
             min-width: 0;
-            /* No CSS transition — WAAPI drives the FLIP */
             transform-origin: center center;
             backface-visibility: hidden;
             -webkit-backface-visibility: hidden;
@@ -501,7 +497,6 @@
         .search-no-result.show { display: block; }
         mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
 
-        /* MAIN */
         main {
             flex: 1;
             padding: clamp(20px, 3.5vw, 50px) 0;
@@ -866,6 +861,18 @@
             .mobile-sidebar-header { margin-bottom: 14px; padding-bottom: 12px; }
             .search-overlay-full { padding-top: 10px; }
         }
+
+        /* ==========================================================
+           TOUCH DEVICES
+           ------------------------------------------------------------
+           1. First we neutralise sticky :hover on touch — otherwise a
+              tap leaves cards/footer links stuck in the "hovered"
+              state, which looks broken.
+           2. Then we add a `.touch-hover` class (applied by JS for
+              ~220ms after touchstart) that reproduces the exact same
+              animation desktop users get from :hover. So every
+              device sees the same lift / slide / colour effect.
+           ========================================================== */
         @media (hover: none), (pointer: coarse) {
             .tool-card:hover {
                 transform: none;
@@ -894,6 +901,62 @@
             }
             .search-trigger:hover { border-color: var(--line); color: var(--text-light); }
             .desktop-nav a:hover { background: none; color: var(--text-light); }
+        }
+
+        /* ----------------------------------------------------------
+           .touch-hover — same visual state as :hover, applied by JS
+           on touchstart and removed ~220ms later. This runs on EVERY
+           device (it just never gets triggered on desktop because
+           desktop uses real :hover).
+           ---------------------------------------------------------- */
+        .tool-card.touch-hover {
+            transform: translateY(-4px);
+            box-shadow: var(--card-hover-shadow);
+            border-color: var(--border-hover);
+        }
+        .cat-chip.touch-hover:not(.active) {
+            background: var(--chip-hover);
+            border-color: var(--border-hover);
+            color: var(--text);
+        }
+        .category-card.touch-hover {
+            background: var(--hover);
+            border-color: var(--border-hover);
+        }
+        .hero-search.touch-hover {
+            background: var(--hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            border-color: var(--border-hover);
+        }
+        .footer-links a.touch-hover,
+        .footer-credit a.touch-hover,
+        .footer-about-text a.touch-hover {
+            color: var(--footer-link-hover);
+            text-decoration: none;
+            transform: translateX(4px);
+        }
+        .mobile-sidebar-nav > a.touch-hover,
+        .mobile-tools-menu a.touch-hover,
+        .mobile-tools-toggle.touch-hover {
+            background: var(--hover);
+            color: var(--text);
+        }
+        .mobile-sidebar-actions button.touch-hover {
+            border-color: var(--border-hover);
+            color: var(--text);
+        }
+        .search-results-list .search-result-item.touch-hover {
+            background: var(--hover);
+            color: var(--text);
+        }
+        .search-box .search-close-btn.touch-hover,
+        .search-box .search-clear-btn.touch-hover {
+            background: var(--chip-hover);
+        }
+        .tools-mega-menu a.touch-hover {
+            background: var(--hover);
+            color: var(--text);
         }
     </style>
 </head>
@@ -1596,7 +1659,6 @@
         let searchOpenAnim = null;
         let searchCloseAnim = null;
 
-        /* Touch detection — used to time the input focus correctly */
         var IS_TOUCH_DEVICE = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0);
 
         function isOnScreen(el) {
@@ -1622,17 +1684,125 @@
             } catch (e) {}
         }
 
-        /* Capture trigger rect on pointerdown — before :active shrinks the button */
         document.addEventListener('pointerdown', function(e) {
             var t = e.target && e.target.closest && e.target.closest('#heroSearchBtn, .search-trigger, .mobile-sidebar-actions button[onclick*="openSearchFromSidebar"]');
             if (t) captureTriggerRect(t);
         }, { passive: true, capture: true });
 
-        /* Also capture on touchstart for older mobile browsers */
         document.addEventListener('touchstart', function(e) {
             var t = e.target && e.target.closest && e.target.closest('#heroSearchBtn, .search-trigger, .mobile-sidebar-actions button[onclick*="openSearchFromSidebar"]');
             if (t) captureTriggerRect(t);
         }, { passive: true, capture: true });
+
+        /* ============================================================
+           TOUCH HOVER
+           ------------------------------------------------------------
+           On touch devices the CSS :hover state is unreliable — it
+           "sticks" after a tap and makes cards / footer links look
+           broken. We already neutralise :hover on touch via the
+           @media (hover: none) block.
+
+           To give touch users the SAME animation desktop users get
+           from hovering (lift, shadow, colour slide), we add a
+           `.touch-hover` class for ~220ms after touchstart. CSS
+           rules for `.touch-hover` mirror the desktop :hover rules
+           exactly, so the visual result is identical on every device.
+
+           Scrolling is detected: if the finger moves more than a
+           few pixels, we cancel the hover so scroll gestures never
+           trigger card animations by accident.
+           ============================================================ */
+        function initTouchHover() {
+            if (!IS_TOUCH_DEVICE) return;
+
+            var HOVER_SELECTOR = [
+                '.tool-card',
+                '.cat-chip',
+                '.category-card',
+                '.hero-search',
+                '.footer-links a',
+                '.footer-credit a',
+                '.footer-about-text a',
+                '.mobile-sidebar-nav > a',
+                '.mobile-tools-menu a',
+                '.mobile-tools-toggle',
+                '.mobile-sidebar-actions button',
+                '.search-results-list .search-result-item',
+                '.search-box .search-close-btn',
+                '.search-box .search-clear-btn',
+                '.tools-mega-menu a'
+            ].join(', ');
+
+            var HOVER_CLASS = 'touch-hover';
+            var HOVER_DURATION = 220;
+            var SCROLL_THRESHOLD = 10;
+
+            var activeEl = null;
+            var hoverTimer = 0;
+            var touchStartX = 0;
+            var touchStartY = 0;
+            var scrollDetected = false;
+
+            function clearActive() {
+                if (activeEl) {
+                    activeEl.classList.remove(HOVER_CLASS);
+                    activeEl = null;
+                }
+                if (hoverTimer) {
+                    clearTimeout(hoverTimer);
+                    hoverTimer = 0;
+                }
+            }
+
+            document.addEventListener('touchstart', function(e) {
+                if (e.touches.length !== 1) {
+                    clearActive();
+                    return;
+                }
+                var t = e.touches[0];
+                touchStartX = t.clientX;
+                touchStartY = t.clientY;
+                scrollDetected = false;
+
+                var target = e.target && e.target.closest ? e.target.closest(HOVER_SELECTOR) : null;
+                if (!target) {
+                    clearActive();
+                    return;
+                }
+
+                clearActive();
+
+                activeEl = target;
+                target.classList.add(HOVER_CLASS);
+
+                hoverTimer = setTimeout(function() {
+                    if (activeEl) activeEl.classList.remove(HOVER_CLASS);
+                    activeEl = null;
+                    hoverTimer = 0;
+                }, HOVER_DURATION);
+            }, { passive: true });
+
+            document.addEventListener('touchmove', function(e) {
+                if (scrollDetected || !activeEl) return;
+                if (e.touches.length !== 1) return;
+                var t = e.touches[0];
+                var dx = Math.abs(t.clientX - touchStartX);
+                var dy = Math.abs(t.clientY - touchStartY);
+                if (dx > SCROLL_THRESHOLD || dy > SCROLL_THRESHOLD) {
+                    scrollDetected = true;
+                    clearActive();
+                }
+            }, { passive: true });
+
+            document.addEventListener('touchend', function() {
+                // Let the timer finish the animation so the hover state
+                // stays visible for a moment after the finger lifts.
+            }, { passive: true });
+
+            document.addEventListener('touchcancel', function() {
+                clearActive();
+            }, { passive: true });
+        }
 
         function cacheToolCards() {
             toolCardNodes = Array.prototype.slice.call(document.querySelectorAll('.tool-card'));
@@ -1884,7 +2054,6 @@
         let lastFocusedBeforeSearch = null;
         let lastFlipOriginRect = null;
 
-        /* Helper: focus the search input without triggering scroll jump */
         function focusSearchInput(delay) {
             var doFocus = function() {
                 if (!searchIsOpen) return;
@@ -1903,28 +2072,10 @@
             }
         }
 
-        /* ============================================================
-           OPEN SEARCH — FLIP animation that works identically on
-           touch devices and desktop.
-
-           Key fixes for touch:
-           1. Web Animations API (element.animate) — not affected by
-              prefers-reduced-motion CSS overrides.
-           2. Origin rect captured on pointerdown/touchstart BEFORE
-              :active shrinks the button.
-           3. On touch devices, we DELAY the input focus by ~140ms so
-              the animation has already started. Otherwise the virtual
-              keyboard opens instantly, resizes the viewport, and
-              cancels/glitches the animation.
-           4. Double rAF so mobile browsers finish layout before we
-              measure the search box.
-           5. A sanity re-try if the box wasn't laid out yet.
-           ============================================================ */
         function openFullSearch(originEl) {
             var overlay = document.getElementById('searchOverlayFull');
             if (!overlay) return;
 
-            // Already open — just refocus
             if (overlay.classList.contains('active')) {
                 focusSearchInput(0);
                 return;
@@ -1938,7 +2089,6 @@
             lastFocusedBeforeSearch = document.activeElement;
             searchIsOpen = true;
 
-            // Resolve origin rect
             var origin = originEl || capturedTriggerEl || document.getElementById('heroSearchBtn');
             var originRect = null;
 
@@ -1965,7 +2115,6 @@
             capturedTriggerEl = null;
             capturedTriggerRect = null;
 
-            // Show the overlay
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
@@ -1989,7 +2138,6 @@
                     return;
                 }
 
-                // No usable origin → simple scale-in
                 if (!originRect) {
                     try {
                         searchOpenAnim = box.animate(
@@ -2008,19 +2156,16 @@
                     return;
                 }
 
-                // Compute FLIP deltas
                 var deltaX = (originRect.left + originRect.width / 2) - (boxRect.left + boxRect.width / 2);
                 var deltaY = (originRect.top + originRect.height / 2) - (boxRect.top + boxRect.height / 2);
                 var scaleX = originRect.width / boxRect.width;
                 var scaleY = originRect.height / boxRect.height;
 
-                // Clamp scale so it never becomes a microscopic dot
                 if (scaleX < 0.3) scaleX = 0.3;
                 if (scaleX > 1.1) scaleX = 1.1;
                 if (scaleY < 0.3) scaleY = 0.3;
                 if (scaleY > 1.1) scaleY = 1.1;
 
-                // Clamp translation to viewport
                 var vw = window.innerWidth || document.documentElement.clientWidth;
                 var vh = window.innerHeight || document.documentElement.clientHeight;
                 if (deltaX > vw) deltaX = vw;
@@ -2047,7 +2192,6 @@
                         searchOpenAnim = null;
                     };
                 } catch (e) {
-                    // Very old browser fallback — inline style + transition
                     box.style.transformOrigin = 'center center';
                     box.style.transition = 'none';
                     box.style.transform = startTransform;
@@ -2064,12 +2208,9 @@
                     }, duration + 30);
                 }
 
-                // Focus input — delayed on touch so the virtual keyboard
-                // doesn't pop up mid-animation and break the FLIP.
                 focusSearchInput(IS_TOUCH_DEVICE ? 140 : 0);
             };
 
-            // Double rAF so mobile browsers finish layout before we measure
             requestAnimationFrame(function() {
                 requestAnimationFrame(function() {
                     runAnimation(0);
@@ -2158,7 +2299,6 @@
                             searchCloseAnim = null;
                             finish();
                         };
-                        // Safety net
                         setTimeout(function() {
                             if (searchCloseAnim) {
                                 try { searchCloseAnim.cancel(); } catch (e) {}
@@ -2455,6 +2595,7 @@
             initKeyboardShortcuts();
             initResizeHandler();
             initSystemThemeListener();
+            initTouchHover();
             setKbdHint();
             setSearchPlaceholder();
 
