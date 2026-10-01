@@ -176,11 +176,16 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         html {
-            scroll-behavior: smooth;
+            /* smooth scroll only on desktop – mobile jumps instantly (feels faster) */
+            scroll-behavior: auto;
             overflow-x: hidden;
             -webkit-text-size-adjust: 100%;
             -moz-text-size-adjust: 100%;
             text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+        @media (min-width: 769px) {
+            html { scroll-behavior: smooth; }
         }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -194,6 +199,7 @@
             overflow-wrap: break-word;
             word-wrap: break-word;
             -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
         }
         .page-wrapper {
             width: 100%;
@@ -208,6 +214,11 @@
         svg { max-width: 100%; }
         table { max-width: 100%; }
         pre, code { white-space: pre-wrap; word-wrap: break-word; overflow-wrap: anywhere; }
+
+        /* Every tappable element: no 300ms delay, no double-tap zoom jump */
+        button, a, input, select, textarea, [role="button"] {
+            touch-action: manipulation;
+        }
 
         /* ==========================================================
            GLOBAL FOCUS — soft blue glow, no black outline
@@ -277,7 +288,7 @@
         .desktop-nav a {
             text-decoration: none; color: var(--text-light); font-weight: 500;
             font-size: clamp(13px, 1.05vw, 14px);
-            padding: 6px 8px; border-radius: 6px; transition: 0.2s;
+            padding: 6px 8px; border-radius: 6px; transition: background 0.2s, color 0.2s;
             white-space: nowrap;
         }
         .desktop-nav a:hover { color: var(--text); background: var(--hover); }
@@ -287,7 +298,7 @@
             display: flex; align-items: center; gap: 4px; cursor: pointer;
             padding: 6px 8px; border-radius: 6px; color: var(--text-light);
             font-weight: 500; font-size: clamp(13px, 1.05vw, 14px);
-            transition: 0.2s; background: none; border: none;
+            transition: background 0.2s, color 0.2s; background: none; border: none;
             font-family: inherit; white-space: nowrap;
         }
         .tools-trigger:hover { color: var(--text); background: var(--hover); }
@@ -311,7 +322,7 @@
             -webkit-overflow-scrolling: touch;
             box-shadow: 0 20px 40px var(--shadow);
             opacity: 0; visibility: hidden;
-            transition: 0.25s;
+            transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
             z-index: 200;
         }
         .tools-menu-container:hover .tools-mega-menu,
@@ -326,7 +337,7 @@
         .tools-mega-menu a {
             display: block; padding: 8px 14px; border-radius: 6px;
             color: var(--text); font-size: 13px; font-weight: 500;
-            text-decoration: none; transition: 0.2s; margin-bottom: 1px;
+            text-decoration: none; transition: background 0.2s; margin-bottom: 1px;
             white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
             max-width: 100%;
         }
@@ -346,7 +357,7 @@
             padding: 10px 18px; border-radius: 25px; cursor: pointer;
             display: flex; align-items: center; gap: 8px; color: var(--text-light);
             font-size: 14px; white-space: nowrap; font-family: inherit;
-            transition: 0.2s; flex-shrink: 0;
+            transition: border-color 0.2s, color 0.2s; flex-shrink: 0;
         }
         .search-trigger:hover { border-color: var(--border-hover); color: var(--text); }
 
@@ -363,17 +374,18 @@
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
 
         /* ==========================================================
-           MOBILE SIDEBAR
+           MOBILE SIDEBAR — GPU friendly (transform, not left)
            ========================================================== */
         .mobile-sidebar-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.5); z-index: 150;
-            opacity: 0; visibility: hidden; transition: 0.3s;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
         }
         .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
 
         .mobile-sidebar {
-            position: fixed; top: 0; left: -320px;
+            position: fixed; top: 0; left: 0;
             width: min(300px, 86vw);
             height: 100vh;
             height: 100dvh;
@@ -385,11 +397,13 @@
             padding: 20px;
             display: flex; flex-direction: column;
             visibility: hidden;
-            transition: left 0.35s cubic-bezier(0.4,0,0.2,1), visibility 0.35s;
+            transform: translateX(-100%);
+            transition: transform 0.26s cubic-bezier(0.2, 0.8, 0.3, 1), visibility 0.26s;
             overflow-y: auto;
+            overscroll-behavior: contain;
             -webkit-overflow-scrolling: touch;
         }
-        .mobile-sidebar.active { left: 0; visibility: visible; }
+        .mobile-sidebar.active { transform: translateX(0); visibility: visible; }
         .mobile-sidebar-header {
             display: flex; justify-content: space-between; align-items: center;
             margin-bottom: 25px; padding-bottom: 18px; border-bottom: 1px solid var(--line);
@@ -408,17 +422,17 @@
         .mobile-sidebar-nav > a {
             display: block; padding: 12px 14px; border-radius: 10px;
             text-decoration: none; color: var(--text); font-weight: 500;
-            font-size: 15px; transition: 0.2s;
+            font-size: 15px; transition: background 0.2s;
         }
         .mobile-sidebar-nav > a:hover { background: var(--hover); color: var(--text); }
         .mobile-tools-toggle {
             display: flex; align-items: center; justify-content: space-between;
             width: 100%; padding: 12px 14px; border-radius: 10px; background: none;
             border: none; cursor: pointer; color: var(--text); font-weight: 500;
-            font-size: 15px; font-family: inherit; transition: 0.2s;
+            font-size: 15px; font-family: inherit; transition: background 0.2s;
         }
         .mobile-tools-toggle:hover { background: var(--hover); color: var(--text); }
-        .mobile-tools-toggle .icon { width: 16px; height: 16px; transition: transform 0.3s; flex-shrink: 0; }
+        .mobile-tools-toggle .icon { width: 16px; height: 16px; transition: transform 0.25s; flex-shrink: 0; }
         .mobile-tools-toggle.active .icon { transform: rotate(180deg); }
         .mobile-tools-menu {
             display: none; flex-direction: column; padding-left: 16px;
@@ -438,7 +452,7 @@
             flex: 1; display: flex; align-items: center; justify-content: center;
             gap: 8px; padding: 12px; border-radius: 10px; border: 1px solid var(--line);
             background: var(--hover); color: var(--text); font-weight: 500;
-            font-size: 14px; cursor: pointer; font-family: inherit; transition: 0.2s;
+            font-size: 14px; cursor: pointer; font-family: inherit; transition: border-color 0.2s;
         }
         .mobile-sidebar-actions button:hover { border-color: var(--border-hover); color: var(--text); }
         .mobile-sidebar-actions button .icon { width: 16px; height: 16px; flex-shrink: 0; }
@@ -448,7 +462,7 @@
         html.dark-mode .mobile-sidebar-actions button .icon-moon { display: block !important; }
 
         /* ==========================================================
-           SEARCH OVERLAY — FLIP animated
+           SEARCH OVERLAY — simple, fast fade + tiny scale (no FLIP)
            ========================================================== */
         .search-overlay-full {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -458,8 +472,9 @@
             display: flex; flex-direction: column; align-items: center;
             padding: clamp(16px, 6vh, 60px) 16px 16px;
             opacity: 0; visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            transition: opacity 0.18s ease, visibility 0.18s ease;
             overflow: hidden;
+            overscroll-behavior: contain;
         }
         .search-overlay-full.active { opacity: 1; visibility: visible; }
         .search-container {
@@ -477,9 +492,14 @@
             border: 1px solid var(--line);
             box-shadow: 0 10px 30px rgba(0,0,0,0.18);
             margin-bottom: 12px; flex-shrink: 0;
-            transform-origin: center center;
-            will-change: transform;
             min-width: 0;
+            opacity: 0;
+            transform: scale(0.97);
+            transition: opacity 0.18s ease, transform 0.18s cubic-bezier(0.2, 0.8, 0.3, 1);
+        }
+        .search-overlay-full.active .search-box {
+            opacity: 1;
+            transform: scale(1);
         }
         .search-box input {
             flex: 1; border: none; background: transparent;
@@ -507,12 +527,13 @@
             background: var(--bg); border-radius: 16px; border: 1px solid var(--line);
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             overflow-y: auto; -webkit-overflow-scrolling: touch;
-            flex: 1; min-height: 0; contain: content;
+            overscroll-behavior: contain;
+            flex: 1; min-height: 0;
         }
         .search-results-list .search-result-item {
             display: flex; align-items: center; justify-content: space-between;
             gap: 12px; padding: 12px 18px; text-decoration: none; color: var(--text);
-            font-weight: 500; font-size: 15px; transition: 0.15s;
+            font-weight: 500; font-size: 15px; transition: background 0.12s;
             border-bottom: 1px solid var(--line); min-width: 0;
         }
         .search-results-list .search-result-item:last-child { border-bottom: none; }
@@ -537,22 +558,6 @@
         }
         .search-no-result.show { display: block; }
         mark { background: var(--mark-bg); color: var(--mark-text); border-radius: 3px; padding: 0 2px; }
-
-        @keyframes searchResultIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .search-results-list .search-result-item { animation: searchResultIn 0.25s ease both; }
-        .search-results-list .search-result-item:nth-child(1) { animation-delay: 0.02s; }
-        .search-results-list .search-result-item:nth-child(2) { animation-delay: 0.04s; }
-        .search-results-list .search-result-item:nth-child(3) { animation-delay: 0.06s; }
-        .search-results-list .search-result-item:nth-child(4) { animation-delay: 0.08s; }
-        .search-results-list .search-result-item:nth-child(5) { animation-delay: 0.10s; }
-        .search-results-list .search-result-item:nth-child(6) { animation-delay: 0.12s; }
-        .search-results-list .search-result-item:nth-child(7) { animation-delay: 0.14s; }
-        .search-results-list .search-result-item:nth-child(8) { animation-delay: 0.16s; }
-        .search-results-list .search-result-item:nth-child(9) { animation-delay: 0.18s; }
-        .search-results-list .search-result-item:nth-child(10) { animation-delay: 0.20s; }
 
         /* ==========================================================
            MAIN
@@ -598,16 +603,10 @@
             font-family: inherit; font-size: 15px;
             color: var(--text-light); text-align: left;
             cursor: pointer; appearance: none; -webkit-appearance: none;
-            transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
             min-width: 0;
         }
-        .hero-search:hover {
-            background: var(--hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            border-color: var(--border-hover);
-        }
-        .hero-search:active { transform: translateY(0) scale(0.99); }
+        .hero-search:active { transform: scale(0.99); }
         .hero-search:focus,
         .hero-search:focus-visible,
         .hero-search:focus-within {
@@ -616,12 +615,13 @@
             box-shadow: none !important;
         }
         .hero-search > .icon { color: var(--text-light); flex-shrink: 0; transition: color 0.2s ease; }
-        .hero-search:hover > .icon { color: var(--text); }
         .hero-search .hero-search-text {
             flex: 1; min-width: 0; padding: 12px 0;
             overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
             color: var(--text-light);
+            line-height: 1.2;
         }
+        .hero-search .hs-short { display: none; }
         .hero-search kbd {
             font-family: inherit; font-size: 11px; font-weight: 600;
             color: var(--text-light); background: var(--bg);
@@ -641,7 +641,8 @@
             padding: 9px 18px; border-radius: 24px; font-size: 13px;
             font-weight: 600; cursor: pointer; border: 1px solid var(--line);
             background: var(--chip-bg); color: var(--text-light);
-            transition: all 0.2s; white-space: nowrap; font-family: inherit;
+            transition: background 0.18s, color 0.18s, border-color 0.18s;
+            white-space: nowrap; font-family: inherit;
             user-select: none; flex-shrink: 0;
         }
         .cat-chip:hover { background: var(--chip-hover); border-color: var(--border-hover); color: var(--text); }
@@ -667,13 +668,11 @@
         .tool-card {
             background: var(--card); border: 1px solid var(--line);
             border-radius: 16px; padding: clamp(16px, 1.8vw, 24px);
-            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
             cursor: pointer; text-decoration: none; color: var(--text);
             display: flex; flex-direction: column; gap: 12px;
             box-shadow: var(--card-shadow);
             min-width: 0;
-            content-visibility: auto;
-            contain-intrinsic-size: auto 190px;
         }
         .tool-card.hidden-card { display: none; }
         .tool-card:hover { transform: translateY(-4px); box-shadow: var(--card-hover-shadow); border-color: var(--border-hover); }
@@ -742,7 +741,7 @@
         .category-card {
             background: var(--card); border: 1px solid var(--line); border-radius: 12px;
             padding: 18px 12px; text-align: center; cursor: pointer;
-            text-decoration: none; color: var(--text); transition: 0.2s;
+            text-decoration: none; color: var(--text); transition: background 0.18s, border-color 0.18s;
             font-family: inherit; font-size: 14px; width: 100%;
             display: flex; flex-direction: column; align-items: center;
             justify-content: center; gap: 0; min-width: 0;
@@ -824,7 +823,6 @@
             text-decoration: none;
             display: inline-block;
             transition: color 0.2s ease, transform 0.2s ease;
-            will-change: transform;
         }
         .footer-links a { font-size: 14px; }
         .footer-links a:hover,
@@ -886,24 +884,37 @@
             h1 { font-size: clamp(23px, 7vw, 30px); }
             .subtitle { font-size: 15px; }
 
+            /* horizontal chip scroller — NO scroll-snap (it caused the jumpy feel) */
             .category-filter-bar {
                 flex-wrap: nowrap;
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: thin;
                 padding-bottom: 6px;
-                scroll-snap-type: x proximity;
             }
             .category-filter-bar::-webkit-scrollbar { height: 6px; }
             .category-filter-bar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
-            .cat-chip { padding: 7px 14px; font-size: 12px; scroll-snap-align: start; }
+            .cat-chip { padding: 7px 14px; font-size: 12px; }
 
+            /* ---- Hero search: shorter text on mobile so it always fits ---- */
+            .hero-search { font-size: 13.5px; padding: 4px 10px 4px 14px; gap: 8px; }
             .hero-search kbd { display: none; }
-            .hero-search { font-size: 14px; padding: 4px 10px 4px 14px; }
+            .hero-search .hs-full { display: none; }
+            .hero-search .hs-short { display: inline; }
+            .hero-search .hero-search-text { padding: 11px 0; }
 
-            .search-overlay-full { padding: 16px 12px 12px; }
-            .search-box input { font-size: 16px; }
+            /* ---- Search overlay: lighter blur, faster paint ---- */
+            .search-overlay-full {
+                padding: 14px 12px 12px;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                background: rgba(0, 0, 0, 0.6);
+            }
+            html.dark-mode .search-overlay-full { background: rgba(0, 0, 0, 0.82); }
+            .search-box { padding: 2px 8px 2px 14px; gap: 8px; }
+            .search-box input { font-size: 16px; padding: 12px 0; }
             .search-result-item .result-tag { display: none; }
+            .search-results-list .search-result-item { padding: 11px 14px; }
 
             footer { padding: 30px 16px 120px; }
             .footer-links a { display: block; }
@@ -927,6 +938,8 @@
             .section h3 { font-size: 17px; }
 
             .mobile-sidebar-actions { flex-wrap: wrap; }
+
+            .hero-search { font-size: 13px; }
         }
 
         /* --- ≤ 380px : ultra small phones --- */
@@ -938,7 +951,9 @@
             .tool-card { padding: 15px; }
             .category-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
             .category-card { padding: 14px 8px; font-size: 13px; }
-            .search-results-list .search-result-item { padding: 10px 14px; }
+            .search-results-list .search-result-item { padding: 10px 12px; }
+            .hero-search { font-size: 12.5px; padding: 4px 8px 4px 12px; gap: 6px; }
+            .hero-search > .icon { width: 16px; height: 16px; }
         }
 
         /* --- Desktop-only helpers --- */
@@ -959,6 +974,41 @@
             .mobile-sidebar { padding: 14px; }
             .mobile-sidebar-header { margin-bottom: 14px; padding-bottom: 12px; }
             .search-overlay-full { padding-top: 10px; }
+        }
+
+        /* ==========================================================
+           TOUCH DEVICE FIX
+           Kills sticky :hover states that made cards/buttons jump
+           and stay "lifted" after a tap on phones and tablets.
+           ========================================================== */
+        @media (hover: none), (pointer: coarse) {
+            .tool-card:hover {
+                transform: none;
+                box-shadow: var(--card-shadow);
+                border-color: var(--line);
+            }
+            .hero-search:hover {
+                transform: none;
+                background: var(--card);
+                border-color: var(--line);
+            }
+            .hero-search:hover > .icon { color: var(--text-light); }
+            .cat-chip:hover:not(.active) {
+                background: var(--chip-bg);
+                border-color: var(--line);
+                color: var(--text-light);
+            }
+            .category-card:hover {
+                background: var(--card);
+                border-color: var(--line);
+            }
+            .footer-links a:hover,
+            .footer-credit a:hover,
+            .footer-about-text a:hover {
+                transform: none;
+            }
+            .search-trigger:hover { border-color: var(--line); color: var(--text-light); }
+            .desktop-nav a:hover { background: none; color: var(--text-light); }
         }
     </style>
 </head>
@@ -1008,7 +1058,7 @@
                         <svg class="icon icon-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg>
                         <svg class="icon icon-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg>
                     </button>
-                    <button type="button" class="search-trigger" onclick="openFullSearch(this)" aria-label="Search tools"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
+                    <button type="button" class="search-trigger" onclick="openFullSearch()" aria-label="Search tools"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
                     <button type="button" class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileSidebar">
                         <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
                     </button>
@@ -1021,9 +1071,12 @@
                 <h1>Free Online Text Tools — Open, Use, Done. No Signup.</h1>
                 <p class="subtitle">No signup. We don't track the text you enter. Just free text tools that work instantly in your browser. Word counter, case converter, JSON formatter, text cleaner, and a lot more. Your text never leaves your device. Open a tool and start working — it's that simple.</p>
 
-                <button type="button" class="hero-search" id="heroSearchBtn" onclick="openFullSearch(this)" aria-label="Search tools">
+                <button type="button" class="hero-search" id="heroSearchBtn" onclick="openFullSearch()" aria-label="Search tools">
                     <svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-search"/></svg>
-                    <span class="hero-search-text">Search tools… try "word counter", "json formatter", "pdf 100kb"</span>
+                    <span class="hero-search-text">
+                        <span class="hs-full">Search tools… try "word counter", "json formatter", "pdf 100kb"</span>
+                        <span class="hs-short">Search tools… try "word counter"</span>
+                    </span>
                     <kbd id="heroKbdHint">Ctrl K</kbd>
                 </button>
 
@@ -1341,7 +1394,7 @@
             <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
         </div>
         <div class="mobile-sidebar-actions">
-            <button type="button" onclick="openSearchFromSidebar(this)"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg> Search</button>
+            <button type="button" onclick="openSearchFromSidebar()"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg> Search</button>
             <button type="button" onclick="toggleTheme()"><svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg> Theme</button>
         </div>
     </div>
@@ -1849,44 +1902,17 @@
         }
 
         let lastFocusedBeforeSearch = null;
-        let searchBoxAnimating = false;
-        let lastFlipOrigin = null;
-
-        function isOnScreen(el) {
-            if (!el || !el.getBoundingClientRect) return false;
-            var r = el.getBoundingClientRect();
-            var vw = window.innerWidth || document.documentElement.clientWidth;
-            var vh = window.innerHeight || document.documentElement.clientHeight;
-            if (r.width < 2 || r.height < 2) return false;
-            if (r.bottom < 0 || r.top > vh) return false;
-            if (r.right < 0 || r.left > vw) return false;
-            return true;
-        }
-
-        function getFlipOrigin(preferred) {
-            if (preferred && isOnScreen(preferred)) return preferred;
-            var hero = document.getElementById('heroSearchBtn');
-            if (hero && isOnScreen(hero)) return hero;
-            return null;
-        }
-
-        function clearSearchBoxStyles(box) {
-            if (!box) return;
-            box.style.transition = '';
-            box.style.transform = '';
-            box.style.opacity = '';
-        }
 
         // ============================================================
-        // FLIP animation: the search box flies from the clicked
-        // search trigger (header / hero / sidebar) to the centre.
+        // SEARCH — simple, fast fade + tiny scale. No FLIP, no flying
+        // boxes, no layout thrash on mobile. Instant keyboard focus.
         // ============================================================
-        function openFullSearch(originEl) {
+        function openFullSearch() {
             const overlay = document.getElementById('searchOverlayFull');
             if (!overlay) return;
 
             if (overlay.classList.contains('active')) {
-                var existingInput = document.getElementById('fullSearchInput');
+                const existingInput = document.getElementById('fullSearchInput');
                 if (existingInput) existingInput.focus();
                 return;
             }
@@ -1894,56 +1920,17 @@
             lastFocusedBeforeSearch = document.activeElement;
             searchIsOpen = true;
 
-            var origin = getFlipOrigin(originEl);
-            lastFlipOrigin = origin;
-
             overlay.classList.add('active');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
 
-            const searchBox = document.getElementById('searchBoxAnimated');
-
-            if (origin && searchBox && !searchBoxAnimating) {
-                var originRect = origin.getBoundingClientRect();
-                searchBoxAnimating = true;
-                requestAnimationFrame(function () {
-                    const boxRect = searchBox.getBoundingClientRect();
-                    if (!boxRect.width || !boxRect.height) {
-                        searchBoxAnimating = false;
-                        return;
-                    }
-
-                    const deltaX = (originRect.left + originRect.width / 2) - (boxRect.left + boxRect.width / 2);
-                    const deltaY = (originRect.top + originRect.height / 2) - (boxRect.top + boxRect.height / 2);
-                    const scaleX = originRect.width / boxRect.width;
-                    const scaleY = originRect.height / boxRect.height;
-
-                    searchBox.style.transition = 'none';
-                    searchBox.style.transform = 'translate(' + deltaX + 'px, ' + deltaY + 'px) scale(' + scaleX + ', ' + scaleY + ')';
-                    searchBox.style.opacity = '0.85';
-
-                    void searchBox.offsetHeight;
-
-                    searchBox.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease';
-                    searchBox.style.transform = 'translate(0, 0) scale(1, 1)';
-                    searchBox.style.opacity = '1';
-
-                    setTimeout(function () {
-                        clearSearchBoxStyles(searchBox);
-                        searchBoxAnimating = false;
-                    }, 550);
-                });
-            } else if (searchBox) {
-                clearSearchBoxStyles(searchBox);
-            }
-
             filterFullSearch();
 
-            setTimeout(function () {
-                if (!searchIsOpen) return;
-                var inp = document.getElementById('fullSearchInput');
-                if (inp) inp.focus();
-            }, 320);
+            // Focus immediately so mobile keyboards open reliably
+            const inp = document.getElementById('fullSearchInput');
+            if (inp) {
+                try { inp.focus(); } catch (e) {}
+            }
         }
 
         function closeFullSearch() {
@@ -1956,47 +1943,20 @@
                 searchResultsRaf = 0;
             }
 
-            const searchBox = document.getElementById('searchBoxAnimated');
-            var origin = getFlipOrigin(lastFlipOrigin);
-            lastFlipOrigin = null;
-
-            if (origin && searchBox && !searchBoxAnimating) {
-                var originRect = origin.getBoundingClientRect();
-                var boxRect = searchBox.getBoundingClientRect();
-                if (boxRect.width && boxRect.height) {
-                    var deltaX = (originRect.left + originRect.width / 2) - (boxRect.left + boxRect.width / 2);
-                    var deltaY = (originRect.top + originRect.height / 2) - (boxRect.top + boxRect.height / 2);
-                    var scaleX = originRect.width / boxRect.width;
-                    var scaleY = originRect.height / boxRect.height;
-
-                    searchBoxAnimating = true;
-                    searchBox.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease';
-                    searchBox.style.transform = 'translate(' + deltaX + 'px, ' + deltaY + 'px) scale(' + scaleX + ', ' + scaleY + ')';
-                    searchBox.style.opacity = '0.9';
-
-                    setTimeout(function () {
-                        clearSearchBoxStyles(searchBox);
-                        searchBoxAnimating = false;
-                    }, 420);
-                }
-            } else if (searchBox) {
-                clearSearchBoxStyles(searchBox);
-            }
-
             overlay.classList.remove('active');
             overlay.setAttribute('aria-hidden', 'true');
 
-            var inp = document.getElementById('fullSearchInput');
+            const inp = document.getElementById('fullSearchInput');
             if (inp) inp.value = '';
-            var clearBtn = document.getElementById('searchClearBtn');
+            const clearBtn = document.getElementById('searchClearBtn');
             if (clearBtn) clearBtn.classList.remove('show');
-            var list = document.getElementById('fullSearchResultsList');
+            const list = document.getElementById('fullSearchResultsList');
             if (list) list.innerHTML = '';
-            var nr = document.getElementById('fullNoResult');
+            const nr = document.getElementById('fullNoResult');
             if (nr) nr.classList.remove('show');
 
-            var sidebarEl = document.getElementById('mobileSidebar');
-            var sidebarOpen = sidebarEl && sidebarEl.classList.contains('active');
+            const sidebarEl = document.getElementById('mobileSidebar');
+            const sidebarOpen = sidebarEl && sidebarEl.classList.contains('active');
             if (!sidebarOpen) document.body.style.overflow = '';
 
             if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus) {
@@ -2006,9 +1966,9 @@
         }
 
         /* Used by the mobile sidebar Search button. */
-        function openSearchFromSidebar(btn) {
-            closeMobileSidebar();
-            openFullSearch(btn);
+        function openSearchFromSidebar() {
+            closeMobileSidebar(true);
+            openFullSearch();
         }
 
         (function initSearchBackdrop() {
@@ -2100,7 +2060,8 @@
                 if (sb.classList.contains('active')) closeBtn.focus();
             }, 100);
         }
-        function closeMobileSidebar() {
+
+        function closeMobileSidebar(skipFocus) {
             const sb = document.getElementById('mobileSidebar');
             if (!sb || !sb.classList.contains('active')) return;
             sb.classList.remove('active');
@@ -2110,12 +2071,13 @@
             const hb = document.getElementById('hamburgerBtn');
             if (hb) {
                 hb.setAttribute('aria-expanded', 'false');
-                if (!searchIsOpen) {
+                if (!skipFocus && !searchIsOpen) {
                     try { hb.focus(); } catch (e) {}
                 }
             }
             if (!searchIsOpen) document.body.style.overflow = '';
         }
+
         function toggleMobileTools() {
             const toggle = document.getElementById('mobileToolsToggle');
             const menu = document.getElementById('mobileToolsMenu');
@@ -2154,7 +2116,12 @@
                     const chip = document.querySelector('.cat-chip[data-cat="' + catKey + '"]');
                     filterByCategory(catKey, chip);
                     const bar = document.getElementById('categoryFilterBar');
-                    if (bar && bar.scrollIntoView) bar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    if (bar && bar.scrollIntoView) {
+                        bar.scrollIntoView({
+                            behavior: window.innerWidth > 768 ? 'smooth' : 'auto',
+                            block: 'start'
+                        });
+                    }
                 });
             }
 
@@ -2218,7 +2185,7 @@
                 }
                 if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                     e.preventDefault();
-                    openFullSearch(null);
+                    openFullSearch();
                 }
                 if (searchIsOpen) {
                     trapFocus(e, document.getElementById('searchOverlayFull'));
@@ -2236,11 +2203,14 @@
             kbd.textContent = isMac ? '⌘ K' : 'Ctrl K';
         }
 
-        /* The placeholder now matches the hero search hint with popular keywords. */
         function setSearchPlaceholder() {
             const input = document.getElementById('fullSearchInput');
             if (!input) return;
-            input.placeholder = 'Search tools… try "word counter", "json formatter", "pdf 100kb"';
+            if (window.innerWidth <= 560) {
+                input.placeholder = 'Search tools… try "word counter"';
+            } else {
+                input.placeholder = 'Search tools… try "word counter", "json formatter", "pdf 100kb"';
+            }
         }
 
         function toggleFaq(btnEl) {
@@ -2283,6 +2253,16 @@
             if (window.lucide && typeof window.lucide.createIcons === 'function') {
                 window.lucide.createIcons();
             }
+        });
+
+        // Update the search placeholder when the viewport is resized
+        let placeholderRaf = 0;
+        window.addEventListener('resize', function () {
+            if (placeholderRaf) return;
+            placeholderRaf = requestAnimationFrame(function () {
+                placeholderRaf = 0;
+                setSearchPlaceholder();
+            });
         });
     </script>
 </body>
