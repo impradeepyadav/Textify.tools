@@ -53,12 +53,7 @@
       "@type": "WebSite",
       "name": "Textify.tools",
       "alternateName": "Textify",
-      "url": "https://textify.tools/",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": { "@type": "EntryPoint", "urlTemplate": "https://textify.tools/?q={search_term_string}" },
-        "query-input": "required name=search_term_string"
-      }
+      "url": "https://textify.tools/"
     }
     </script>
     <script type="application/ld+json">
@@ -67,7 +62,7 @@
       "@type": "Organization",
       "name": "Textify.tools",
       "url": "https://textify.tools/",
-      "logo": "https://textify.tools/og-image.png",
+      "logo": "https://textify.tools/apple-touch-icon.png",
       "founder": { "@type": "Person", "name": "Pradeep Yadav", "url": "https://x.com/BuiltByPradeep" },
       "sameAs": ["https://x.com/BuiltByPradeep"]
     }
@@ -87,7 +82,7 @@
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "Is every tool actually free?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yep, 100% free - no pro plans, no credit card tricks. I fund this with a few non-annoying ads and my own love for building helpful stuff." } },
+          "acceptedAnswer": { "@type": "Answer", "text": "Yep, 100% free – no \"pro\" plans, no credit card tricks. I fund this with a few non-annoying ads and my own love for building helpful stuff." } },
         { "@type": "Question", "name": "Do I really not need an account?",
           "acceptedAnswer": { "@type": "Answer", "text": "Really. That's the whole point. Open the page, use the tool, close it. No registration, no login, no strings attached." } },
         { "@type": "Question", "name": "Can I use the output for commercial projects?",
@@ -152,19 +147,19 @@
             --page-max: 1920px; --gutter: clamp(14px, 3vw, 60px); --header-h: 64px;
         }
         html.dark-mode {
-            --bg: #0f172a; --text: #f1f5f9; --text-light: #94a3b8; --line: #1e293b;
-            --primary: #f1f5f9; --hover: #1e293b; --card: #1e293b;
+            --bg: #0f172a; --text: #f8fafc; --text-light: #cbd5e1; --line: #334155;
+            --primary: #f8fafc; --hover: #1e293b; --card: #1e293b;
             --footer-text: #e2e8f0; --footer-heading: #ffffff;
-            --footer-link-color: #60a5fa; --footer-link-hover: #ffffff;
+            --footer-link-color: #7dd3fc; --footer-link-hover: #ffffff;
             --footer-border: #334155; --faq-bg: #1e293b; --faq-active: #334155;
-            --table-header: #1e293b; --table-hover: #1e293b;
-            --shadow: rgba(0,0,0,0.5); --overlay-bg: rgba(0,0,0,0.75);
+            --table-header: #1e293b; --table-hover: #334155;
+            --shadow: rgba(0,0,0,0.6); --overlay-bg: rgba(0,0,0,0.8);
             --sidebar-bg: #0f172a; --accent: #1e293b;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.5);
-            --chip-bg: #1e293b; --chip-active-bg: #000000; --chip-active-text: #ffffff;
-            --chip-hover: #334155; --mark-bg: #1e3a8a; --mark-text: #dbeafe;
-            --border-hover: #334155; --focus-ring: rgba(96, 165, 250, 0.3);
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.35);
+            --card-hover-shadow: 0 8px 24px rgba(0,0,0,0.55);
+            --chip-bg: #1e293b; --chip-active-bg: #ffffff; --chip-active-text: #0f172a;
+            --chip-hover: #334155; --mark-bg: #1d4ed8; --mark-text: #dbeafe;
+            --border-hover: #475569; --focus-ring: rgba(96, 165, 250, 0.4);
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: auto; overflow-x: hidden; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
@@ -241,16 +236,11 @@
         html.dark-mode .mobile-sidebar-actions button .icon-moon { display: block !important; }
         .search-overlay-full { position: fixed; top: 0; left: 0; width: 100%; height: 100%; height: 100dvh; background: var(--overlay-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 300; display: flex; flex-direction: column; align-items: center; padding: clamp(16px, 6vh, 60px) 16px 16px; opacity: 0; visibility: hidden; transition: opacity 0.18s ease, visibility 0.18s ease; overflow: hidden; overscroll-behavior: contain; }
         .search-overlay-full.active { opacity: 1; visibility: visible; }
-
-        /* ============================================================
-           FIX: search bar ke side ka border/focus animation hata diya
-           ============================================================ */
         .search-container { width: 100%; max-width: 620px; display: flex; flex-direction: column; max-height: 100%; min-height: 0; }
         .search-box { display: flex; align-items: center; gap: 10px; background: var(--card); border-radius: 14px; padding: 4px 10px 4px 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.18); margin-bottom: 12px; flex-shrink: 0; min-width: 0; transform-origin: center center; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
         .search-box:focus-within { border-color: var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.18); }
         .search-box input { flex: 1; border: none; background: transparent; font-size: 16px; color: var(--text); outline: none; font-family: inherit; padding: 12px 0; min-width: 0; width: 100%; }
         .search-box input:focus, .search-box input:focus-visible { outline: none; box-shadow: none; border-color: transparent; }
-
         .search-box .search-clear-btn { display: none; background: var(--hover); border: none; cursor: pointer; padding: 6px; border-radius: 50%; color: var(--text-light); align-items: center; justify-content: center; flex-shrink: 0; }
         .search-box .search-clear-btn.show { display: flex; }
         .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -276,7 +266,6 @@
         .hero-search { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px 10px 4px 16px; max-width: min(640px, 100%); width: 100%; margin: 0 0 clamp(18px, 2.5vw, 26px); font-family: inherit; font-size: 15px; color: var(--text-light); text-align: left; cursor: pointer; appearance: none; -webkit-appearance: none; transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; min-width: 0; }
         .hero-search:active { transform: scale(0.99); }
         .hero-search:focus { outline: none; }
-        /* FIX: hero search click par bhi border ring hata di */
         .hero-search:focus-visible { outline: none; border-color: var(--line); box-shadow: none; }
         .hero-search > .icon { color: var(--text-light); flex-shrink: 0; transition: color 0.2s ease; }
         .hero-search .hero-search-text { flex: 1; min-width: 0; padding: 12px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-light); line-height: 1.2; }
@@ -285,7 +274,7 @@
         .category-filter-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start; margin-bottom: clamp(18px, 2.4vw, 26px); padding: 0; min-width: 0; }
         .cat-chip { padding: 9px 18px; border-radius: 24px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid var(--line); background: var(--chip-bg); color: var(--text-light); transition: background 0.18s, color 0.18s, border-color 0.18s; white-space: nowrap; font-family: inherit; user-select: none; flex-shrink: 0; }
         .cat-chip:hover { background: var(--chip-hover); border-color: var(--border-hover); color: var(--text); }
-        .cat-chip.active { background: var(--chip-active-bg); color: var(--chip-active-text); border-color: var(--chip-active-bg); }
+        .cat-chip.active { background: var(--chip-active-bg); color: var(--chip-active-text); border-color: var(--chip-active-bg); font-weight: 700; }
         .results-line { font-size: 13px; color: var(--text-light); font-weight: 500; margin-bottom: 16px; display: none; }
         .results-line.show { display: block; }
         .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: clamp(12px, 1.4vw, 20px); margin-bottom: clamp(32px, 5vw, 60px); width: 100%; min-width: 0; }
@@ -360,7 +349,7 @@
             .cat-chip { padding: 7px 14px; font-size: 12px; } .hero-search { font-size: 13.5px; padding: 4px 10px 4px 14px; gap: 8px; }
             .hero-search kbd { display: none; } .hero-search .hs-full { display: none; } .hero-search .hs-short { display: inline; } .hero-search .hero-search-text { padding: 11px 0; }
             .search-overlay-full { padding: 14px 12px 12px; backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(0, 0, 0, 0.6); }
-            html.dark-mode .search-overlay-full { background: rgba(0, 0, 0, 0.82); }
+            html.dark-mode .search-overlay-full { background: rgba(0, 0, 0, 0.85); }
             .search-box { padding: 2px 8px 2px 14px; gap: 8px; } .search-box input { font-size: 16px; padding: 12px 0; }
             .search-result-item .result-tag { display: none; } .search-results-list .search-result-item { padding: 11px 14px; }
             footer { padding: 30px 16px 120px; } .footer-links a { display: block; }
@@ -403,6 +392,7 @@
         .search-results-list .search-result-item.touch-hover { background: var(--hover); color: var(--text); }
         .search-box .search-close-btn.touch-hover, .search-box .search-clear-btn.touch-hover { background: var(--chip-hover); }
         .tools-mega-menu a.touch-hover { background: var(--hover); color: var(--text); }
+        .faq-question.touch-hover { background: var(--faq-active); }
     </style>
 </head>
 <body>
@@ -420,7 +410,7 @@
         <header>
             <div class="header-inner">
                 <a href="/" class="logo">
-                    <img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
+                    <img src="/favicon-32x32.png" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">
                     Textify.tools
                 </a>
                 <div class="header-right">
@@ -917,7 +907,7 @@
                 </div>
 
                 <div class="section">
-                    <h2>Questions? Here's what people usually ask.</h2>
+                    <h2>Frequently Asked Questions</h2>
                     <div class="faq-item">
                         <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a1" onclick="toggleFaq(this)">Is every tool actually free?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
                         <div class="faq-answer" id="faq-a1">Yep, 100% free – no "pro" plans, no credit card tricks. I fund this with a few non-annoying ads and my own love for building helpful stuff.</div>
@@ -1020,7 +1010,7 @@
     <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar" role="dialog" aria-modal="true" aria-label="Mobile navigation menu" aria-hidden="true">
         <div class="mobile-sidebar-header">
-            <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
+            <a href="/" class="mobile-sidebar-logo"><img src="/favicon-32x32.png" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
             <button type="button" class="mobile-sidebar-close" id="mobileSidebarClose" onclick="closeMobileSidebar()" aria-label="Close menu"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
         </div>
         <div class="mobile-sidebar-nav">
@@ -1375,7 +1365,7 @@
 
         function initTouchHover() {
             if (!IS_TOUCH_DEVICE) return;
-            var HOVER_SELECTOR = ['.tool-card','.cat-chip','.category-card','.hero-search','.footer-links a','.footer-credit a','.footer-about-text a','.mobile-sidebar-nav > a','.mobile-tools-menu a','.mobile-tools-toggle','.mobile-sidebar-actions button','.search-results-list .search-result-item','.search-box .search-close-btn','.search-box .search-clear-btn','.tools-mega-menu a'].join(', ');
+            var HOVER_SELECTOR = ['.tool-card','.cat-chip','.category-card','.hero-search','.footer-links a','.footer-credit a','.footer-about-text a','.mobile-sidebar-nav > a','.mobile-tools-menu a','.mobile-tools-toggle','.mobile-sidebar-actions button','.search-results-list .search-result-item','.search-box .search-close-btn','.search-box .search-clear-btn','.tools-mega-menu a','.faq-question'].join(', ');
             var HOVER_CLASS = 'touch-hover';
             var SCROLL_THRESHOLD = 10;
             var activeEl = null, touchStartX = 0, touchStartY = 0, scrollDetected = false, releaseTimer = 0;
@@ -1451,15 +1441,23 @@
             } else { line.classList.remove('show'); }
         }
 
+        // Lazy render flags — mega menu and mobile menu are only built on first use.
+        var megaMenuRendered = false;
+        var mobileToolsRendered = false;
+
         function renderMegaMenu() {
-            const menu = document.getElementById('megaMenu');
+            if (megaMenuRendered) return;
+            var menu = document.getElementById('megaMenu');
             if (!menu) return;
             menu.innerHTML = tools.map(function(t) { return '<a href="' + escAttr(t.link) + '">' + escHtml(t.name) + '</a>'; }).join('');
+            megaMenuRendered = true;
         }
         function renderMobileToolsMenu() {
-            const menu = document.getElementById('mobileToolsMenu');
+            if (mobileToolsRendered) return;
+            var menu = document.getElementById('mobileToolsMenu');
             if (!menu) return;
             menu.innerHTML = tools.map(function(t) { return '<a href="' + escAttr(t.link) + '">' + escHtml(t.name) + '</a>'; }).join('');
+            mobileToolsRendered = true;
         }
 
         const searchState = { activeIndex: -1 };
@@ -1713,6 +1711,7 @@
         function toggleToolsMenu() {
             var container = document.getElementById('toolsMenuContainer');
             var trigger = document.getElementById('toolsTrigger');
+            renderMegaMenu();
             if (container.classList.contains('open')) closeToolsMenu(true);
             else {
                 container.classList.add('open');
@@ -1729,6 +1728,7 @@
         function openMobileSidebar() {
             var sb = document.getElementById('mobileSidebar');
             if (sb.classList.contains('active')) return;
+            renderMobileToolsMenu();
             sb.classList.add('active');
             sb.setAttribute('aria-hidden', 'false');
             document.getElementById('mobileSidebarOverlay').classList.add('active');
@@ -1755,6 +1755,7 @@
         function toggleMobileTools() {
             var toggle = document.getElementById('mobileToolsToggle');
             var menu = document.getElementById('mobileToolsMenu');
+            renderMobileToolsMenu();
             var isOpen = menu.classList.contains('active');
             menu.classList.toggle('active');
             toggle.classList.toggle('active');
@@ -1770,7 +1771,7 @@
                     resizeRaf = 0;
                     var isDesktop = window.innerWidth > 768;
                     if (isDesktop && !lastWasDesktop) {
-                        if (document.getElementById('mobileSidebar').classList.contains('active')) closeMobileSidebar();
+                        if (document.getElementById('mobileSidebar').classList.contains('active')) closeMobileSidebar(true);
                     }
                     lastWasDesktop = isDesktop;
                 });
@@ -1806,7 +1807,10 @@
             var container = document.getElementById('toolsMenuContainer');
             var trigger = document.getElementById('toolsTrigger');
             if (container && trigger) {
-                container.addEventListener('mouseenter', function() { trigger.setAttribute('aria-expanded', 'true'); });
+                container.addEventListener('mouseenter', function() {
+                    renderMegaMenu();
+                    trigger.setAttribute('aria-expanded', 'true');
+                });
                 container.addEventListener('mouseleave', function() { if (!container.classList.contains('open')) trigger.setAttribute('aria-expanded', 'false'); });
             }
         }
@@ -1854,15 +1858,25 @@
             btnEl.setAttribute('aria-expanded', String(!expanded));
         }
 
+        function initLucideFallback() {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            } else {
+                // Lucide CDN failed to load. Hide the <i data-lucide> placeholders so
+                // layout doesn't show empty broken icon boxes.
+                var placeholders = document.querySelectorAll('i[data-lucide]');
+                for (var i = 0; i < placeholders.length; i++) placeholders[i].style.display = 'none';
+            }
+        }
+
         function init() {
             var yearEl = document.getElementById('dynamicYear');
             if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-            renderMegaMenu();
-            renderMobileToolsMenu();
+            // Mega menu and mobile tools menu are now lazily rendered on first use
+            // (see renderMegaMenu / renderMobileToolsMenu) to keep initial DOM small.
             cacheToolCards();
-
-            if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
+            initLucideFallback();
 
             initDelegatedHandlers();
             initKeyboardShortcuts();
