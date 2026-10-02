@@ -2,6 +2,7 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
+    <meta name="color-scheme" content="light dark">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Free Online Text Tools - Textify.tools</title>
     <meta name="description" content="Free online text tools: word counter, case converter, JSON formatter, PDF & image tools, calculators & more. No signup, nothing leaves your browser.">
@@ -131,6 +132,7 @@
     <script src="https://unpkg.com/lucide@0.344.0" defer></script>
     <style>
         :root {
+            color-scheme: light;
             --bg: #ffffff; --text: #0a0a0a; --text-light: #525252; --line: #e5e5e5;
             --primary: #0f172a; --hover: #f3f4f6; --card: #fafafa;
             --footer-text: #333333; --footer-heading: #000000;
@@ -147,6 +149,7 @@
             --page-max: 1920px; --gutter: clamp(14px, 3vw, 60px); --header-h: 64px;
         }
         html.dark-mode {
+            color-scheme: dark;
             --bg: #0f172a; --text: #f8fafc; --text-light: #cbd5e1; --line: #334155;
             --primary: #f8fafc; --hover: #1e293b; --card: #1e293b;
             --footer-text: #e2e8f0; --footer-heading: #ffffff;
@@ -174,10 +177,10 @@
         a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus-ring); border-radius: 6px; }
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
         h1, h2, h3, h4, h5, h6, .logo, .tool-card h3, .feature-card h4, .section h2, .section h3, .faq-question { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 700; }
-        html.dark-mode .icon-sun { display: none !important; }
-        html.dark-mode .icon-moon { display: block !important; }
-        html:not(.dark-mode) .icon-moon { display: none !important; }
-        html:not(.dark-mode) .icon-sun { display: block !important; }
+        html.dark-mode .theme-btn .icon-sun { display: none !important; }
+        html.dark-mode .theme-btn .icon-moon { display: block !important; }
+        html:not(.dark-mode) .theme-btn .icon-moon { display: none !important; }
+        html:not(.dark-mode) .theme-btn .icon-sun { display: block !important; }
         .icon { display: inline-block; vertical-align: middle; flex-shrink: 0; }
         header { border-bottom: 1px solid var(--line); display: flex; justify-content: center; align-items: center; padding: 0 var(--gutter); min-height: var(--header-h); width: 100%; transition: border-color 0.3s; }
         .header-inner { width: 100%; max-width: var(--page-max); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 10px; min-width: 0; }
@@ -208,7 +211,7 @@
         .hamburger-btn .menu-icon { display: flex; flex-direction: column; gap: 5px; }
         .hamburger-btn .menu-icon span { display: block; width: 22px; height: 2px; background: currentColor; border-radius: 2px; transition: 0.2s; }
         .hamburger-btn .menu-icon span:first-child { width: 16px; }
-        .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 150; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease; }
+        .mobile-sidebar-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--overlay-bg); z-index: 150; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, visibility 0.2s ease; }
         .mobile-sidebar-overlay.active { opacity: 1; visibility: visible; }
         .mobile-sidebar { position: fixed; top: 0; left: 0; width: min(300px, 86vw); height: 100vh; height: 100dvh; max-height: 100vh; max-height: 100dvh; background: var(--sidebar-bg); z-index: 160; box-shadow: 4px 0 20px rgba(0,0,0,0.1); padding: 20px; display: flex; flex-direction: column; visibility: hidden; transform: translateX(-100%); transition: transform 0.26s cubic-bezier(0.2, 0.8, 0.3, 1), visibility 0.26s; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
         .mobile-sidebar.active { transform: translateX(0); visibility: visible; }
@@ -240,7 +243,16 @@
         .search-box { display: flex; align-items: center; gap: 10px; background: var(--card); border-radius: 14px; padding: 4px 10px 4px 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.18); margin-bottom: 12px; flex-shrink: 0; min-width: 0; transform-origin: center center; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
         .search-box:focus-within { border-color: var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.18); }
         .search-box input { flex: 1; border: none; background: transparent; font-size: 16px; color: var(--text); outline: none; font-family: inherit; padding: 12px 0; min-width: 0; width: 100%; }
+        .search-box input::placeholder { color: var(--text-light); opacity: 1; }
         .search-box input:focus, .search-box input:focus-visible { outline: none; box-shadow: none; border-color: transparent; }
+        html.dark-mode input:-webkit-autofill,
+        html.dark-mode input:-webkit-autofill:hover,
+        html.dark-mode input:-webkit-autofill:focus {
+            -webkit-text-fill-color: var(--text);
+            -webkit-box-shadow: 0 0 0 1000px var(--card) inset;
+            box-shadow: 0 0 0 1000px var(--card) inset;
+            transition: background-color 9999s ease-in-out 0s;
+        }
         .search-box .search-clear-btn { display: none; background: var(--hover); border: none; cursor: pointer; padding: 6px; border-radius: 50%; color: var(--text-light); align-items: center; justify-content: center; flex-shrink: 0; }
         .search-box .search-clear-btn.show { display: flex; }
         .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -1378,7 +1390,7 @@
                 if (e.touches.length !== 1) { clearActive(); return; }
                 var t = e.touches[0];
                 touchStartX = t.clientX; touchStartY = t.clientY; scrollDetected = false;
-                var target = e.target && e.target.closest ? e.target.closest(HOVER_SELECTOR) : null;
+                var target = (e.target instanceof Element) ? e.target.closest(HOVER_SELECTOR) : null;
                 if (!target) { clearActive(); return; }
                 clearActive();
                 activeEl = target;
@@ -1435,10 +1447,12 @@
                 if (show) empty.innerHTML = 'No tools found in this category. Try a different category or <a href="/contact-us" style="color:var(--primary);font-weight:600;">suggest a tool</a>.';
             }
             const line = document.getElementById('resultsLine');
-            if (cat !== 'all') {
-                line.textContent = visible + ' tool' + (visible === 1 ? '' : 's') + ' in ' + categoryLabelMap[cat];
-                line.classList.add('show');
-            } else { line.classList.remove('show'); }
+            if (line) {
+                if (cat !== 'all') {
+                    line.textContent = visible + ' tool' + (visible === 1 ? '' : 's') + ' in ' + categoryLabelMap[cat];
+                    line.classList.add('show');
+                } else { line.classList.remove('show'); }
+            }
         }
 
         // Lazy render flags — mega menu and mobile menu are only built on first use.
@@ -1818,7 +1832,7 @@
         function trapFocus(e, container) {
             if (e.key !== 'Tab') return;
             var focusable = container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
-            var list = Array.prototype.filter.call(focusable, function (el) { return el.offsetParent !== null || el === document.activeElement; });
+            var list = Array.prototype.filter.call(focusable, function (el) { return el.getClientRects().length > 0 || el === document.activeElement; });
             if (!list.length) return;
             var first = list[0], last = list[list.length - 1];
             if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
