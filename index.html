@@ -6,7 +6,6 @@
     <title>Free Online Text Tools - Textify.tools</title>
     <meta name="description" content="Free online text tools: word counter, case converter, JSON formatter, PDF & image tools, calculators & more. No signup, nothing leaves your browser.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <!-- SEO FIX #12: removed <meta name="author"> (Google ignores it; use Person schema instead) -->
     <link rel="canonical" href="https://textify.tools/">
     <link rel="alternate" hreflang="en" href="https://textify.tools/">
     <link rel="alternate" hreflang="x-default" href="https://textify.tools/">
@@ -21,7 +20,6 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Textify.tools - free online text tools that run entirely in your browser">
-    <!-- SEO FIX #11: og:image type + secure_url -->
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:secure_url" content="https://textify.tools/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -31,7 +29,6 @@
     <meta name="twitter:description" content="No signup, no uploads. Just open the page and get stuff done. Word counter, JSON formatter, password generator and loads more.">
     <meta name="twitter:image" content="https://textify.tools/og-image.png">
     <meta name="twitter:image:alt" content="Textify.tools - free online text tools that run entirely in your browser">
-    <!-- SEO FIX #10: removed duplicate rel="shortcut icon" (legacy alias) -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -45,15 +42,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- SEO FIX #13: preload Inter woff2 for faster LCP -->
     <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2">
     <meta name="seznam-wmt" content="8DbUQnO2xnx728VFuNQW6AqFTPyIFwmT">
     <meta name="naver-site-verification" content="98e621a33b0e64d38835c336d782023596de9b1a">
     <meta name="yandex-verification" content="6e105f6188a8c833">
 
-    <!-- ============================================================
-         SEO FIX #2/#3/#4: Structured data (JSON-LD)
-         ============================================================ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -88,7 +81,6 @@
       ]
     }
     </script>
-    <!-- SEO FIX #1: FAQPage schema — enables FAQ rich snippets in SERPs -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -249,11 +241,16 @@
         html.dark-mode .mobile-sidebar-actions button .icon-moon { display: block !important; }
         .search-overlay-full { position: fixed; top: 0; left: 0; width: 100%; height: 100%; height: 100dvh; background: var(--overlay-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 300; display: flex; flex-direction: column; align-items: center; padding: clamp(16px, 6vh, 60px) 16px 16px; opacity: 0; visibility: hidden; transition: opacity 0.18s ease, visibility 0.18s ease; overflow: hidden; overscroll-behavior: contain; }
         .search-overlay-full.active { opacity: 1; visibility: visible; }
+
+        /* ============================================================
+           FIX: search bar ke side ka border/focus animation hata diya
+           ============================================================ */
         .search-container { width: 100%; max-width: 620px; display: flex; flex-direction: column; max-height: 100%; min-height: 0; }
-        .search-box { display: flex; align-items: center; gap: 10px; background: var(--card); border-radius: 14px; padding: 4px 10px 4px 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.18); margin-bottom: 12px; flex-shrink: 0; min-width: 0; transform-origin: center center; backface-visibility: hidden; -webkit-backface-visibility: hidden; transition: border-color 0.15s, box-shadow 0.15s; }
-        .search-box:focus-within { border-color: var(--border-hover); box-shadow: 0 10px 30px rgba(0,0,0,0.18), 0 0 0 3px var(--focus-ring); }
+        .search-box { display: flex; align-items: center; gap: 10px; background: var(--card); border-radius: 14px; padding: 4px 10px 4px 16px; border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.18); margin-bottom: 12px; flex-shrink: 0; min-width: 0; transform-origin: center center; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+        .search-box:focus-within { border-color: var(--line); box-shadow: 0 10px 30px rgba(0,0,0,0.18); }
         .search-box input { flex: 1; border: none; background: transparent; font-size: 16px; color: var(--text); outline: none; font-family: inherit; padding: 12px 0; min-width: 0; width: 100%; }
-        .search-box input:focus, .search-box input:focus-visible { outline: none; box-shadow: none; }
+        .search-box input:focus, .search-box input:focus-visible { outline: none; box-shadow: none; border-color: transparent; }
+
         .search-box .search-clear-btn { display: none; background: var(--hover); border: none; cursor: pointer; padding: 6px; border-radius: 50%; color: var(--text-light); align-items: center; justify-content: center; flex-shrink: 0; }
         .search-box .search-clear-btn.show { display: flex; }
         .search-box .search-close-btn { background: var(--hover); border: none; cursor: pointer; padding: 8px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -279,7 +276,8 @@
         .hero-search { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 4px 10px 4px 16px; max-width: min(640px, 100%); width: 100%; margin: 0 0 clamp(18px, 2.5vw, 26px); font-family: inherit; font-size: 15px; color: var(--text-light); text-align: left; cursor: pointer; appearance: none; -webkit-appearance: none; transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; min-width: 0; }
         .hero-search:active { transform: scale(0.99); }
         .hero-search:focus { outline: none; }
-        .hero-search:focus-visible { outline: none; border-color: var(--border-hover); box-shadow: 0 0 0 3px var(--focus-ring); }
+        /* FIX: hero search click par bhi border ring hata di */
+        .hero-search:focus-visible { outline: none; border-color: var(--line); box-shadow: none; }
         .hero-search > .icon { color: var(--text-light); flex-shrink: 0; transition: color 0.2s ease; }
         .hero-search .hero-search-text { flex: 1; min-width: 0; padding: 12px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-light); line-height: 1.2; }
         .hero-search .hs-short { display: none; }
@@ -463,7 +461,6 @@
                     <kbd id="heroKbdHint">Ctrl K</kbd>
                 </button>
 
-                <!-- SEO FIX #6: category chips pre-rendered for crawlers -->
                 <div class="category-filter-bar" id="categoryFilterBar" role="group" aria-label="Filter tools by category">
                     <button type="button" class="cat-chip active" data-cat="all" aria-pressed="true">All Tools</button>
                     <button type="button" class="cat-chip" data-cat="text" aria-pressed="false">Text Tools</button>
@@ -477,10 +474,6 @@
                 </div>
                 <p class="results-line" id="resultsLine" role="status" aria-live="polite"></p>
 
-                <!-- ============================================================
-                     SEO FIX #5: tools grid pre-rendered in raw HTML.
-                     All 236 tool links are now crawlable without JS.
-                     ============================================================ -->
                 <div class="tools-grid" id="toolsGrid" aria-label="Tool results">
                     <a href="/word-counter" class="tool-card" data-category="text"><div class="tool-icon" style="color:#8b5cf6"><i data-lucide="hash" class="icon" width="24" height="24" aria-hidden="true"></i></div><h3>Word Counter</h3><p>Count words, characters, sentences and paragraphs instantly.</p><span class="badge">Free</span></a>
                     <a href="/sentence-counter" class="tool-card" data-category="text"><div class="tool-icon" style="color:#8b5cf6"><i data-lucide="type" class="icon" width="24" height="24" aria-hidden="true"></i></div><h3>Sentence Counter</h3><p>Count the number of sentences in any text.</p><span class="badge">Free</span></a>
@@ -831,7 +824,6 @@
                 <div class="section">
                     <h2>Browse tools by category</h2>
                     <p>All neatly grouped so you don't get lost. Click any category to filter the grid above, or just scroll.</p>
-                    <!-- SEO FIX #7: category grid pre-rendered in raw HTML -->
                     <div class="category-grid" id="categoryGrid">
                         <button type="button" class="category-card" data-cat="text"><i data-lucide="type" class="icon" width="32" height="32" aria-hidden="true"></i><span>Text Tools</span></button>
                         <button type="button" class="category-card" data-cat="developer"><i data-lucide="code-2" class="icon" width="32" height="32" aria-hidden="true"></i><span>Developer</span></button>
@@ -1068,10 +1060,6 @@
         ];
         const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
 
-        /* ============================================================
-           SEO FIX #5/#6/#7: cards + chips + category grid are now in HTML.
-           This array is used ONLY for search + mega menu data.
-           ============================================================ */
         const tools = [
             { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', link: '/word-counter', keywords: 'word count character counter letters essay limit', category: 'text' },
             { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', category: 'text' },
@@ -1463,10 +1451,6 @@
             } else { line.classList.remove('show'); }
         }
 
-        /* ============================================================
-           Only mega menu and mobile tools menu are still JS-rendered.
-           They are navigational duplicates of the pre-rendered grid.
-           ============================================================ */
         function renderMegaMenu() {
             const menu = document.getElementById('megaMenu');
             if (!menu) return;
@@ -1874,7 +1858,6 @@
             var yearEl = document.getElementById('dynamicYear');
             if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-            /* SEO FIX #5/#6/#7: no longer render grid/chips/category-grid — they're in HTML */
             renderMegaMenu();
             renderMobileToolsMenu();
             cacheToolCards();
