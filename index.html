@@ -164,22 +164,16 @@
             -webkit-tap-highlight-color: transparent;
         }
         .page-wrapper {
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            min-width: 0;
+            width: 100%; max-width: 100%; margin: 0 auto;
+            display: flex; flex-direction: column;
+            min-height: 100vh; min-width: 0;
         }
         img, video, canvas, iframe, embed, object { max-width: 100%; height: auto; }
         svg { max-width: 100%; }
         table { max-width: 100%; }
         pre, code { white-space: pre-wrap; word-wrap: break-word; overflow-wrap: anywhere; }
 
-        button, a, input, select, textarea, [role="button"] {
-            touch-action: manipulation;
-        }
+        button, a, input, select, textarea, [role="button"] { touch-action: manipulation; }
 
         a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
             outline: none;
@@ -205,23 +199,16 @@
 
         header {
             border-bottom: 1px solid var(--line);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: flex; justify-content: center; align-items: center;
             padding: 0 var(--gutter);
             min-height: var(--header-h);
             width: 100%;
             transition: border-color 0.3s;
         }
         .header-inner {
-            width: 100%;
-            max-width: var(--page-max);
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-            min-width: 0;
+            width: 100%; max-width: var(--page-max); margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 10px; min-width: 0;
         }
         .logo {
             display: flex; align-items: center; gap: 10px;
@@ -252,20 +239,13 @@
         .tools-trigger .icon { width: 14px; height: 14px; transition: transform 0.2s; flex-shrink: 0; }
 
         .tools-mega-menu {
-            position: absolute;
-            top: calc(100% + 8px);
-            right: 0;
-            left: auto;
+            position: absolute; top: calc(100% + 8px); right: 0; left: auto;
             transform: translateY(8px);
-            background: var(--bg);
-            border: 1px solid var(--line);
-            border-radius: 12px;
+            background: var(--bg); border: 1px solid var(--line); border-radius: 12px;
             padding: 12px 8px;
             width: min(320px, calc(100vw - 24px));
             max-height: min(70vh, 560px);
-            overflow-y: auto;
-            overscroll-behavior: contain;
-            -webkit-overflow-scrolling: touch;
+            overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
             box-shadow: 0 20px 40px var(--shadow);
             opacity: 0; visibility: hidden;
             transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
@@ -273,9 +253,7 @@
         }
         .tools-menu-container:hover .tools-mega-menu,
         .tools-menu-container.open .tools-mega-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+            opacity: 1; visibility: visible; transform: translateY(0);
         }
         .tools-menu-container:hover .tools-trigger .icon,
         .tools-menu-container.open .tools-trigger .icon { transform: rotate(180deg); }
@@ -330,21 +308,15 @@
         .mobile-sidebar {
             position: fixed; top: 0; left: 0;
             width: min(300px, 86vw);
-            height: 100vh;
-            height: 100dvh;
-            max-height: 100vh;
-            max-height: 100dvh;
-            background: var(--sidebar-bg);
-            z-index: 160;
+            height: 100vh; height: 100dvh;
+            max-height: 100vh; max-height: 100dvh;
+            background: var(--sidebar-bg); z-index: 160;
             box-shadow: 4px 0 20px rgba(0,0,0,0.1);
             padding: 20px;
             display: flex; flex-direction: column;
-            visibility: hidden;
-            transform: translateX(-100%);
+            visibility: hidden; transform: translateX(-100%);
             transition: transform 0.26s cubic-bezier(0.2, 0.8, 0.3, 1), visibility 0.26s;
-            overflow-y: auto;
-            overscroll-behavior: contain;
-            -webkit-overflow-scrolling: touch;
+            overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
         }
         .mobile-sidebar.active { transform: translateX(0); visibility: visible; }
         .mobile-sidebar-header {
@@ -406,8 +378,7 @@
 
         .search-overlay-full {
             position: fixed; top: 0; left: 0; width: 100%;
-            height: 100%;
-            height: 100dvh;
+            height: 100%; height: 100dvh;
             background: var(--overlay-bg);
             backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
             z-index: 300;
@@ -415,21 +386,17 @@
             padding: clamp(16px, 6vh, 60px) 16px 16px;
             opacity: 0; visibility: hidden;
             transition: opacity 0.18s ease, visibility 0.18s ease;
-            overflow: hidden;
-            overscroll-behavior: contain;
+            overflow: hidden; overscroll-behavior: contain;
         }
         .search-overlay-full.active { opacity: 1; visibility: visible; }
         .search-container {
-            width: 100%;
-            max-width: 620px;
+            width: 100%; max-width: 620px;
             display: flex; flex-direction: column;
-            max-height: 100%;
-            min-height: 0;
+            max-height: 100%; min-height: 0;
         }
         .search-box {
             display: flex; align-items: center; gap: 10px;
-            background: var(--card);
-            border-radius: 14px;
+            background: var(--card); border-radius: 14px;
             padding: 4px 10px 4px 16px;
             border: 1px solid var(--line);
             box-shadow: 0 10px 30px rgba(0,0,0,0.18);
@@ -500,39 +467,29 @@
         main {
             flex: 1;
             padding: clamp(20px, 3.5vw, 50px) 0;
-            width: 100%;
-            min-width: 0;
+            width: 100%; min-width: 0;
         }
         .content-container {
-            width: 100%;
-            max-width: var(--page-max);
-            margin: 0 auto;
-            padding: 0 var(--gutter);
-            min-width: 0;
+            width: 100%; max-width: var(--page-max); margin: 0 auto;
+            padding: 0 var(--gutter); min-width: 0;
         }
         h1 {
             font-size: clamp(24px, 4vw, 42px);
-            font-weight: 800;
-            margin-bottom: 12px;
-            line-height: 1.25;
-            text-align: left;
-            overflow-wrap: break-word;
+            font-weight: 800; margin-bottom: 12px; line-height: 1.25;
+            text-align: left; overflow-wrap: break-word;
         }
         .subtitle {
             font-size: clamp(15px, 1.5vw, 18px);
-            color: var(--text-light);
-            line-height: 1.7;
+            color: var(--text-light); line-height: 1.7;
             margin-bottom: clamp(18px, 2.5vw, 28px);
-            text-align: left;
-            overflow-wrap: break-word;
+            text-align: left; overflow-wrap: break-word;
         }
 
         .hero-search {
             display: flex; align-items: center; gap: 10px;
             background: var(--card); border: 1px solid var(--line);
             border-radius: 14px; padding: 4px 10px 4px 16px;
-            max-width: min(640px, 100%);
-            width: 100%;
+            max-width: min(640px, 100%); width: 100%;
             margin: 0 0 clamp(18px, 2.5vw, 26px);
             font-family: inherit; font-size: 15px;
             color: var(--text-light); text-align: left;
@@ -552,8 +509,7 @@
         .hero-search .hero-search-text {
             flex: 1; min-width: 0; padding: 12px 0;
             overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-            color: var(--text-light);
-            line-height: 1.2;
+            color: var(--text-light); line-height: 1.2;
         }
         .hero-search .hs-short { display: none; }
         .hero-search kbd {
@@ -567,8 +523,7 @@
             display: flex; flex-wrap: wrap; gap: 8px;
             justify-content: flex-start;
             margin-bottom: clamp(18px, 2.4vw, 26px);
-            padding: 0;
-            min-width: 0;
+            padding: 0; min-width: 0;
         }
         .cat-chip {
             padding: 9px 18px; border-radius: 24px; font-size: 13px;
@@ -592,8 +547,7 @@
             grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
             gap: clamp(12px, 1.4vw, 20px);
             margin-bottom: clamp(32px, 5vw, 60px);
-            width: 100%;
-            min-width: 0;
+            width: 100%; min-width: 0;
         }
         .tool-card {
             background: var(--card); border: 1px solid var(--line);
@@ -601,8 +555,7 @@
             transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
             cursor: pointer; text-decoration: none; color: var(--text);
             display: flex; flex-direction: column; gap: 12px;
-            box-shadow: var(--card-shadow);
-            min-width: 0;
+            box-shadow: var(--card-shadow); min-width: 0;
         }
         .tool-card.hidden-card { display: none; }
         .tool-card:hover { transform: translateY(-4px); box-shadow: var(--card-hover-shadow); border-color: var(--border-hover); }
@@ -630,8 +583,7 @@
         .section h2 {
             font-size: clamp(20px, 2.6vw, 28px); font-weight: 700;
             margin-bottom: 20px; padding-bottom: 10px;
-            border-bottom: 2px solid var(--hover);
-            overflow-wrap: break-word;
+            border-bottom: 2px solid var(--hover); overflow-wrap: break-word;
         }
         .section h3 { font-size: clamp(17px, 2vw, 20px); font-weight: 700; margin: 25px 0 12px; }
         .section p { line-height: 1.8; color: var(--text-light); margin-bottom: 15px; font-size: clamp(15px, 1.5vw, 16px); }
@@ -644,9 +596,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
             gap: clamp(12px, 1.4vw, 20px);
-            margin-top: 25px;
-            width: 100%;
-            min-width: 0;
+            margin-top: 25px; width: 100%; min-width: 0;
         }
         .feature-card {
             background: var(--accent); padding: clamp(16px, 1.6vw, 20px);
@@ -663,9 +613,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(min(130px, 100%), 1fr));
             gap: clamp(10px, 1.2vw, 15px);
-            margin-top: 20px;
-            width: 100%;
-            min-width: 0;
+            margin-top: 20px; width: 100%; min-width: 0;
         }
         .category-card {
             background: var(--card); border: 1px solid var(--line); border-radius: 12px;
@@ -681,13 +629,9 @@
         .category-card span { display: block; font-weight: 600; font-size: 14px; overflow-wrap: break-word; }
 
         .table-wrapper {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin: 25px 0;
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            width: 100%;
-            max-width: 100%;
+            overflow-x: auto; -webkit-overflow-scrolling: touch;
+            margin: 25px 0; border: 1px solid var(--line);
+            border-radius: 10px; width: 100%; max-width: 100%;
         }
         .info-table { width: 100%; border-collapse: collapse; min-width: 560px; }
         .info-table th, .info-table td {
@@ -764,10 +708,7 @@
         .footer-about-text { font-size: 15px; color: var(--footer-text); line-height: 1.7; }
 
         @media (max-width: 1180px) {
-            .search-trigger {
-                width: 40px; height: 40px; padding: 0;
-                justify-content: center; border-radius: 50%;
-            }
+            .search-trigger { width: 40px; height: 40px; padding: 0; justify-content: center; border-radius: 50%; }
             .search-trigger .search-trigger-label { display: none; }
         }
         @media (max-width: 1024px) {
@@ -793,11 +734,9 @@
             h1 { font-size: clamp(23px, 7vw, 30px); }
             .subtitle { font-size: 15px; }
             .category-filter-bar {
-                flex-wrap: nowrap;
-                overflow-x: auto;
+                flex-wrap: nowrap; overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
-                scrollbar-width: thin;
-                padding-bottom: 6px;
+                scrollbar-width: thin; padding-bottom: 6px;
             }
             .category-filter-bar::-webkit-scrollbar { height: 6px; }
             .category-filter-bar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
@@ -809,8 +748,7 @@
             .hero-search .hero-search-text { padding: 11px 0; }
             .search-overlay-full {
                 padding: 14px 12px 12px;
-                backdrop-filter: none;
-                -webkit-backdrop-filter: none;
+                backdrop-filter: none; -webkit-backdrop-filter: none;
                 background: rgba(0, 0, 0, 0.6);
             }
             html.dark-mode .search-overlay-full { background: rgba(0, 0, 0, 0.82); }
@@ -861,103 +799,31 @@
             .mobile-sidebar-header { margin-bottom: 14px; padding-bottom: 12px; }
             .search-overlay-full { padding-top: 10px; }
         }
-
-        /* ==========================================================
-           TOUCH DEVICES
-           ------------------------------------------------------------
-           1. First we neutralise sticky :hover on touch — otherwise a
-              tap leaves cards/footer links stuck in the "hovered"
-              state, which looks broken.
-           2. Then we add a `.touch-hover` class (applied by JS for
-              ~220ms after touchstart) that reproduces the exact same
-              animation desktop users get from :hover. So every
-              device sees the same lift / slide / colour effect.
-           ========================================================== */
         @media (hover: none), (pointer: coarse) {
-            .tool-card:hover {
-                transform: none;
-                box-shadow: var(--card-shadow);
-                border-color: var(--line);
-            }
-            .hero-search:hover {
-                transform: none;
-                background: var(--card);
-                border-color: var(--line);
-            }
+            .tool-card:hover { transform: none; box-shadow: var(--card-shadow); border-color: var(--line); }
+            .hero-search:hover { transform: none; background: var(--card); border-color: var(--line); }
             .hero-search:hover > .icon { color: var(--text-light); }
-            .cat-chip:hover:not(.active) {
-                background: var(--chip-bg);
-                border-color: var(--line);
-                color: var(--text-light);
-            }
-            .category-card:hover {
-                background: var(--card);
-                border-color: var(--line);
-            }
-            .footer-links a:hover,
-            .footer-credit a:hover,
-            .footer-about-text a:hover {
-                transform: none;
-            }
+            .cat-chip:hover:not(.active) { background: var(--chip-bg); border-color: var(--line); color: var(--text-light); }
+            .category-card:hover { background: var(--card); border-color: var(--line); }
+            .footer-links a:hover, .footer-credit a:hover, .footer-about-text a:hover { transform: none; }
             .search-trigger:hover { border-color: var(--line); color: var(--text-light); }
             .desktop-nav a:hover { background: none; color: var(--text-light); }
         }
 
-        /* ----------------------------------------------------------
-           .touch-hover — same visual state as :hover, applied by JS
-           on touchstart and removed ~220ms later. This runs on EVERY
-           device (it just never gets triggered on desktop because
-           desktop uses real :hover).
-           ---------------------------------------------------------- */
-        .tool-card.touch-hover {
-            transform: translateY(-4px);
-            box-shadow: var(--card-hover-shadow);
-            border-color: var(--border-hover);
+        .tool-card.touch-hover { transform: translateY(-4px); box-shadow: var(--card-hover-shadow); border-color: var(--border-hover); }
+        .cat-chip.touch-hover:not(.active) { background: var(--chip-hover); border-color: var(--border-hover); color: var(--text); }
+        .category-card.touch-hover { background: var(--hover); border-color: var(--border-hover); }
+        .hero-search.touch-hover { background: var(--hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06); border-color: var(--border-hover); }
+        .footer-links a.touch-hover, .footer-credit a.touch-hover, .footer-about-text a.touch-hover {
+            color: var(--footer-link-hover); text-decoration: none; transform: translateX(4px);
         }
-        .cat-chip.touch-hover:not(.active) {
-            background: var(--chip-hover);
-            border-color: var(--border-hover);
-            color: var(--text);
+        .mobile-sidebar-nav > a.touch-hover, .mobile-tools-menu a.touch-hover, .mobile-tools-toggle.touch-hover {
+            background: var(--hover); color: var(--text);
         }
-        .category-card.touch-hover {
-            background: var(--hover);
-            border-color: var(--border-hover);
-        }
-        .hero-search.touch-hover {
-            background: var(--hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            border-color: var(--border-hover);
-        }
-        .footer-links a.touch-hover,
-        .footer-credit a.touch-hover,
-        .footer-about-text a.touch-hover {
-            color: var(--footer-link-hover);
-            text-decoration: none;
-            transform: translateX(4px);
-        }
-        .mobile-sidebar-nav > a.touch-hover,
-        .mobile-tools-menu a.touch-hover,
-        .mobile-tools-toggle.touch-hover {
-            background: var(--hover);
-            color: var(--text);
-        }
-        .mobile-sidebar-actions button.touch-hover {
-            border-color: var(--border-hover);
-            color: var(--text);
-        }
-        .search-results-list .search-result-item.touch-hover {
-            background: var(--hover);
-            color: var(--text);
-        }
-        .search-box .search-close-btn.touch-hover,
-        .search-box .search-clear-btn.touch-hover {
-            background: var(--chip-hover);
-        }
-        .tools-mega-menu a.touch-hover {
-            background: var(--hover);
-            color: var(--text);
-        }
+        .mobile-sidebar-actions button.touch-hover { border-color: var(--border-hover); color: var(--text); }
+        .search-results-list .search-result-item.touch-hover { background: var(--hover); color: var(--text); }
+        .search-box .search-close-btn.touch-hover, .search-box .search-clear-btn.touch-hover { background: var(--chip-hover); }
+        .tools-mega-menu a.touch-hover { background: var(--hover); color: var(--text); }
     </style>
 </head>
 <body>
@@ -1359,8 +1225,9 @@
 
     <script>
         /* ============================================================
-           All 236 tools in one array. The desktop mega menu, the tools
-           grid, and the mobile sidebar list are all rendered from it.
+           All 236 tools. Every tool now has its own `icon` and `color`
+           field so the grid renders the SAME icons as the original
+           static HTML — not a generic category icon.
            ============================================================ */
 
         const categories = [
@@ -1378,242 +1245,242 @@
         const categoryLabelMap = Object.fromEntries(categories.map(c => [c.key, c.label]));
 
         const tools = [
-            { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', link: '/word-counter', keywords: 'word count character counter letters essay limit', category: 'text' },
-            { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', category: 'text' },
-            { name: 'Paragraph Counter', desc: 'Quickly count paragraphs in your writing.', link: '/paragraph-counter', keywords: 'paragraph count block format', category: 'text' },
-            { name: 'Line Counter', desc: 'Count lines in text.', link: '/line-counter', keywords: 'line count text lines rows', category: 'text' },
-            { name: 'Reading Time Estimator', desc: 'Estimate how long it takes to read your text.', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute blog', category: 'text' },
-            { name: 'Speaking Time Calculator', desc: 'Estimate how long it takes to speak your text aloud.', link: '/speaking-time-calculator', keywords: 'speaking time talk duration speech presentation', category: 'text' },
-            { name: 'Keyword Counter', desc: 'Count occurrences of each keyword in your text.', link: '/keyword-counter', keywords: 'keyword frequency count word seo', category: 'text' },
-            { name: 'Keyword Density Checker', desc: 'Analyze keyword density as a percentage.', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'text' },
-            { name: 'Duplicate Word Finder', desc: 'Find and highlight duplicate words in your text.', link: '/duplicate-word-finder', keywords: 'duplicate word find highlight repeat', category: 'text' },
-            { name: 'Text Statistics', desc: 'Full summary: words, chars, sentences, readability, and more.', link: '/text-statistics', keywords: 'text stats readability summary data analysis', category: 'text' },
-            { name: 'Regex Tester', desc: 'Test regular expressions with match highlighting.', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'text' },
-            { name: 'Word Frequency Counter', desc: 'Count frequency of each word.', link: '/word-frequency-counter', keywords: 'word frequency count repeat', category: 'text' },
-            { name: 'Character Frequency Counter', desc: 'Count frequency of each character.', link: '/character-frequency-counter', keywords: 'character frequency count letters', category: 'text' },
-            { name: 'Password Strength Checker', desc: 'Check the strength of your password.', link: '/password-strength-checker', keywords: 'password strength check secure safety', category: 'text' },
-            { name: 'Duplicate Line Remover', desc: 'Remove duplicate lines and keep only unique ones.', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe list', category: 'text' },
-            { name: 'Whitespace Cleaner', desc: 'Remove extra spaces, tabs, and blank lines.', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'text' },
-            { name: 'Remove Extra Spaces', desc: 'Clean up unwanted spaces with one click.', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup double', category: 'text' },
-            { name: 'Remove Empty Lines', desc: 'Delete all blank lines instantly.', link: '/remove-empty-lines', keywords: 'empty lines remove delete blank', category: 'text' },
-            { name: 'Remove Blank Characters', desc: 'Strip out invisible blank characters.', link: '/remove-blank-characters', keywords: 'blank chars invisible characters remove zero width', category: 'text' },
-            { name: 'Remove Emojis', desc: 'Get rid of all emojis in one go.', link: '/remove-emojis', keywords: 'emoji remove strip smiley', category: 'text' },
-            { name: 'Remove Symbols', desc: 'Delete symbols and special characters.', link: '/remove-symbols', keywords: 'symbols remove special characters clean', category: 'text' },
-            { name: 'Remove Punctuation', desc: 'Strip punctuation marks.', link: '/remove-punctuation', keywords: 'punctuation remove comma period full stop', category: 'text' },
-            { name: 'Remove Numbers', desc: 'Delete all numeric digits.', link: '/remove-numbers', keywords: 'numbers remove digits numeric', category: 'text' },
-            { name: 'Remove HTML Tags', desc: 'Strip HTML/XML tags, leaving only text.', link: '/remove-html-tags', keywords: 'html tags strip remove clean markup', category: 'text' },
-            { name: 'Remove Line Breaks', desc: 'Remove line breaks and join lines.', link: '/remove-line-breaks', keywords: 'line break remove join newline', category: 'text' },
-            { name: 'Text Cleaner', desc: 'All-in-one text cleaning.', link: '/text-cleaner', keywords: 'clean text sanitize format tidy', category: 'text' },
-            { name: 'Remove Duplicate Words', desc: 'Remove duplicate words from text.', link: '/remove-duplicate-words', keywords: 'duplicate words remove repeat', category: 'text' },
-            { name: 'Case Converter', desc: 'Convert to uppercase, lowercase, title case and more.', link: '/case-converter', keywords: 'uppercase lowercase title case sentence change case', category: 'text' },
-            { name: 'Uppercase Converter', desc: 'Convert text to uppercase.', link: '/uppercase-converter', keywords: 'uppercase converter caps capital letters', category: 'text' },
-            { name: 'Lowercase Converter', desc: 'Convert text to lowercase.', link: '/lowercase-converter', keywords: 'lowercase converter small letters', category: 'text' },
-            { name: 'Title Case Converter', desc: 'Proper title case for headlines.', link: '/title-case-converter', keywords: 'title case headline capitalize proper apa mla', category: 'text' },
-            { name: 'Sentence Case Converter', desc: 'First letter of each sentence capitalized.', link: '/sentence-case-converter', keywords: 'sentence case capitalize first letter', category: 'text' },
-            { name: 'Capitalize Words', desc: 'Capitalize first letter of each word.', link: '/capitalize-words', keywords: 'capitalize first letter each word', category: 'text' },
-            { name: 'Toggle Case Converter', desc: 'Toggle case of every letter.', link: '/toggle-case-converter', keywords: 'toggle case invert swap alternating', category: 'text' },
-            { name: 'Text Repeater', desc: 'Repeat text up to 100,000 times.', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste spam', category: 'text' },
-            { name: 'Text Finder & Replacer', desc: 'Find and replace words or phrases in bulk.', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'text' },
-            { name: 'Line Break Converter', desc: 'Convert line breaks between Windows, Unix, Mac.', link: '/line-break-converter', keywords: 'line break crlf lf converter newline', category: 'text' },
-            { name: 'Text Indenter', desc: 'Add spaces or tabs at the beginning of each line.', link: '/text-indenter', keywords: 'indent text tab spaces code', category: 'text' },
-            { name: 'Wrap Text', desc: 'Wrap long lines to a specified width.', link: '/wrap-text', keywords: 'word wrap text line width column', category: 'text' },
-            { name: 'Unwrap Text', desc: 'Join broken lines into a single paragraph.', link: '/unwrap-text', keywords: 'unwrap text join lines paragraph merge', category: 'text' },
-            { name: 'Join Lines', desc: 'Merge multiple lines into one single continuous line or paragraph.', link: '/join-lines', keywords: 'join lines merge combine single line paragraph unwrap newline concatenate', category: 'text' },
-            { name: 'Text Diff Checker', desc: 'Compare two texts side by side and highlight every difference.', link: '/text-diff-checker', keywords: 'diff compare text changes version differences side by side review', category: 'text' },
-            { name: 'Text Sorter', desc: 'Sort lines alphabetically, numerically, by length, or in reverse.', link: '/text-sorter', keywords: 'sort lines alphabetical numeric order arrange a-z z-a', category: 'text' },
-            { name: 'Text to Handwriting', desc: 'Convert typed text into realistic handwriting.', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment notes', category: 'text' },
-            { name: 'Bold Text Generator', desc: 'Bold Unicode text for social media bios.', link: '/bold-text-generator', keywords: 'bold unicode text style font bio', category: 'text' },
-            { name: 'Italic Text Generator', desc: 'Italic Unicode text using math symbols.', link: '/italic-text-generator', keywords: 'italic unicode text style font', category: 'text' },
-            { name: 'Strikethrough Generator', desc: 'Strikethrough Unicode text.', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode', category: 'text' },
-            { name: 'Fancy Text Generator', desc: 'Generate multiple fancy Unicode styles at once.', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic instagram', category: 'text' },
-            { name: 'Upside Down Text', desc: 'Flip your text upside down.', link: '/upside-down-text', keywords: 'upside down flip text reverse', category: 'text' },
-            { name: 'Small Text Generator', desc: 'Generate small caps text.', link: '/small-text-generator', keywords: 'small caps tiny text superscript', category: 'text' },
-            { name: 'Zalgo Text Generator', desc: 'Create cursed zalgo text.', link: '/zalgo-text-generator', keywords: 'zalgo cursed text generator creepy', category: 'text' },
-            { name: 'Unicode Text Converter', desc: 'Convert text to Unicode variants.', link: '/unicode-text-converter', keywords: 'unicode text converter encode', category: 'text' },
-            { name: 'Email Extractor', desc: 'Extract all email addresses from text.', link: '/email-extractor', keywords: 'email extract find emails scrape address', category: 'text' },
-            { name: 'URL Extractor', desc: 'Pull out all URLs from text.', link: '/url-extractor', keywords: 'url extract link http https website', category: 'text' },
-            { name: 'Phone Extractor', desc: 'Extract phone numbers using common formats.', link: '/phone-extractor', keywords: 'phone number extract landline mobile contact', category: 'text' },
-            { name: 'Number Extractor', desc: 'Get every number (integer or decimal) from text.', link: '/number-extractor', keywords: 'number extract digits numeric decimal', category: 'text' },
-            { name: 'Date Extractor', desc: 'Find and extract dates like 12/05/2025.', link: '/date-extractor', keywords: 'date extract calendar find day month year', category: 'text' },
-            { name: 'Domain Extractor', desc: 'Extract domain names from URLs or emails.', link: '/domain-extractor', keywords: 'domain name website extract host', category: 'text' },
-            { name: 'Hashtag Extractor', desc: 'List all #hashtags from social media text.', link: '/hashtag-extractor', keywords: 'hashtag extract social media instagram twitter', category: 'text' },
-            { name: 'Mention Extractor', desc: 'Pull out @usernames from text.', link: '/mention-extractor', keywords: 'mention extract username @ social twitter', category: 'text' },
-            { name: 'Keyword Extractor', desc: 'Extract the most important words and phrases.', link: '/keyword-extractor', keywords: 'keyword extract important terms seo', category: 'text' },
-            { name: 'Duplicate Line Finder', desc: 'Show which lines appear more than once.', link: '/duplicate-line-finder', keywords: 'duplicate line find report repeat', category: 'text' },
-            { name: 'JSON Formatter/Beautifier', desc: 'Format messy JSON into readable, indented structure.', link: '/json-formatter', keywords: 'json format beautify pretty print indent api', category: 'developer' },
-            { name: 'JSON Minifier', desc: 'Minify JSON to remove unnecessary spaces.', link: '/json-minifier', keywords: 'json minify compress compact', category: 'developer' },
-            { name: 'JSON Validator', desc: 'Validate JSON syntax.', link: '/json-validator', keywords: 'json validate check syntax error', category: 'developer' },
-            { name: 'XML Formatter', desc: 'Beautify and indent XML data.', link: '/xml-formatter', keywords: 'xml format beautify indent', category: 'developer' },
-            { name: 'XML Minifier', desc: 'Minify XML.', link: '/xml-minifier', keywords: 'xml minify compress', category: 'developer' },
-            { name: 'HTML Formatter', desc: 'Format HTML code.', link: '/html-formatter', keywords: 'html format beautify indent', category: 'developer' },
-            { name: 'HTML Minifier', desc: 'Minify HTML.', link: '/html-minifier', keywords: 'html minify compress', category: 'developer' },
-            { name: 'CSS Formatter', desc: 'Format CSS code.', link: '/css-formatter', keywords: 'css format beautify indent', category: 'developer' },
-            { name: 'CSS Minifier', desc: 'Minify CSS.', link: '/css-minifier', keywords: 'css minify compress', category: 'developer' },
-            { name: 'JavaScript Formatter', desc: 'Format JavaScript code.', link: '/javascript-formatter', keywords: 'javascript format beautify js', category: 'developer' },
-            { name: 'JavaScript Minifier', desc: 'Minify JavaScript.', link: '/javascript-minifier', keywords: 'javascript minify compress js', category: 'developer' },
-            { name: 'SQL Formatter', desc: 'Format SQL queries.', link: '/sql-formatter', keywords: 'sql format query beautify database', category: 'developer' },
-            { name: 'Text to Binary', desc: 'Convert text to binary.', link: '/text-to-binary', keywords: 'text binary convert bits', category: 'developer' },
-            { name: 'Binary to Text', desc: 'Convert binary to text.', link: '/binary-to-text', keywords: 'binary text convert bits', category: 'developer' },
-            { name: 'Text to Hex', desc: 'Convert text to hexadecimal.', link: '/text-to-hex', keywords: 'text hex convert hexadecimal', category: 'developer' },
-            { name: 'Hex to Text', desc: 'Convert hex to text.', link: '/hex-to-text', keywords: 'hex text convert hexadecimal', category: 'developer' },
-            { name: 'Text to ASCII', desc: 'Convert text to ASCII codes.', link: '/text-to-ascii', keywords: 'text ascii convert code', category: 'developer' },
-            { name: 'ASCII to Text', desc: 'Convert ASCII codes to text.', link: '/ascii-to-text', keywords: 'ascii text convert code', category: 'developer' },
-            { name: 'Morse Code Translator', desc: 'Convert text to Morse code and back.', link: '/morse-code-translator', keywords: 'morse code translator dots dashes', category: 'developer' },
-            { name: 'Braille Translator', desc: 'Convert text to Braille.', link: '/braille-translator', keywords: 'braille translator blind', category: 'developer' },
-            { name: 'NATO Alphabet Generator', desc: 'Convert text to NATO phonetic alphabet.', link: '/nato-alphabet-generator', keywords: 'nato phonetic alphabet alpha bravo', category: 'developer' },
-            { name: 'Text to CSV', desc: 'Convert text to CSV format.', link: '/text-to-csv', keywords: 'text csv convert comma separated excel', category: 'developer' },
-            { name: 'CSV to Text', desc: 'Convert CSV to text.', link: '/csv-to-text', keywords: 'csv text convert', category: 'developer' },
-            { name: 'CSV to JSON', desc: 'Convert CSV to JSON.', link: '/csv-to-json', keywords: 'csv json convert', category: 'developer' },
-            { name: 'JSON to CSV', desc: 'Convert JSON to CSV.', link: '/json-to-csv', keywords: 'json csv convert', category: 'developer' },
-            { name: 'Markdown to HTML', desc: 'Convert Markdown to HTML.', link: '/markdown-to-html', keywords: 'markdown html convert md', category: 'developer' },
-            { name: 'HTML to Markdown', desc: 'Convert HTML to Markdown.', link: '/html-to-markdown', keywords: 'html markdown convert md', category: 'developer' },
-            { name: 'Markdown Table Generator', desc: 'Generate Markdown tables.', link: '/markdown-table-generator', keywords: 'markdown table generator md', category: 'developer' },
-            { name: 'HTML Table Generator', desc: 'Generate HTML tables.', link: '/html-table-generator', keywords: 'html table generator', category: 'developer' },
-            { name: 'Roman Numeral Converter', desc: 'Convert numbers to Roman numerals.', link: '/roman-numeral-converter', keywords: 'roman numeral converter latin', category: 'developer' },
-            { name: 'Number to Words', desc: 'Convert numbers to English words.', link: '/number-to-words', keywords: 'number to words converter cheque', category: 'developer' },
-            { name: 'Words to Number', desc: 'Convert English words to numbers.', link: '/words-to-number', keywords: 'words to number converter', category: 'developer' },
-            { name: 'Timestamp Converter', desc: 'Convert Unix timestamps to date and back.', link: '/timestamp-converter', keywords: 'timestamp unix converter date epoch', category: 'developer' },
-            { name: 'Color Converter', desc: 'Convert colors between HEX, RGB, HSL.', link: '/color-converter', keywords: 'color converter hex rgb hsl', category: 'developer' },
-            { name: 'Base64 Encoder', desc: 'Encode text to Base64.', link: '/base64-encoder', keywords: 'base64 encode', category: 'developer' },
-            { name: 'Base64 Decoder', desc: 'Decode Base64 text.', link: '/base64-decoder', keywords: 'base64 decode', category: 'developer' },
-            { name: 'URL Encoder', desc: 'Encode URLs.', link: '/url-encoder', keywords: 'url encode percent uri', category: 'developer' },
-            { name: 'URL Decoder', desc: 'Decode URLs.', link: '/url-decoder', keywords: 'url decode percent uri', category: 'developer' },
-            { name: 'HTML Entity Encoder', desc: 'Encode HTML entities.', link: '/html-entity-encoder', keywords: 'html entity encode amp lt', category: 'developer' },
-            { name: 'HTML Entity Decoder', desc: 'Decode HTML entities.', link: '/html-entity-decoder', keywords: 'html entity decode amp lt', category: 'developer' },
-            { name: 'Regex Generator', desc: 'Generate regex patterns from sample text.', link: '/regex-generator', keywords: 'regex generate pattern regular expression', category: 'developer' },
-            { name: 'Regex Escape Tool', desc: 'Escape special characters in regex.', link: '/regex-escape-tool', keywords: 'regex escape special characters', category: 'developer' },
-            { name: 'JWT Decoder', desc: 'Decode JWT tokens to view header and payload.', link: '/jwt-decoder', keywords: 'jwt decode token header payload auth', category: 'developer' },
-            { name: 'UUID Generator', desc: 'Generate random UUID v4 identifiers.', link: '/uuid-generator', keywords: 'uuid guid unique identifier random v4', category: 'developer' },
-            { name: 'UUID Validator', desc: 'Check if a UUID is valid.', link: '/uuid-validator', keywords: 'uuid validate check guid', category: 'developer' },
-            { name: 'MD5 Generator', desc: 'Generate MD5 hash.', link: '/md5-generator', keywords: 'md5 hash generator checksum', category: 'developer' },
-            { name: 'SHA-1 Generator', desc: 'Generate SHA-1 hash.', link: '/sha1-generator', keywords: 'sha1 hash generator checksum', category: 'developer' },
-            { name: 'SHA-256 Generator', desc: 'Generate SHA-256 hash.', link: '/sha256-generator', keywords: 'sha256 hash generator checksum', category: 'developer' },
-            { name: 'SHA-512 Generator', desc: 'Generate SHA-512 hash.', link: '/sha512-generator', keywords: 'sha512 hash generator checksum', category: 'developer' },
-            { name: 'HMAC Generator', desc: 'Generate HMAC hash.', link: '/hmac-generator', keywords: 'hmac hash generator secret key', category: 'developer' },
-            { name: 'Cron Expression Generator', desc: 'Generate cron expressions.', link: '/cron-expression-generator', keywords: 'cron expression generator schedule', category: 'developer' },
-            { name: 'Cron Expression Tester', desc: 'Test cron expressions.', link: '/cron-expression-tester', keywords: 'cron expression tester schedule', category: 'developer' },
-            { name: 'Password Generator', desc: 'Generate strong random passwords.', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generator' },
-            { name: 'PIN Generator', desc: 'Generate random PIN numbers.', link: '/pin-generator', keywords: 'pin generator random number', category: 'generator' },
-            { name: 'Random Number Generator', desc: 'Generate random numbers within a custom range.', link: '/random-number-generator', keywords: 'random number range integer generator lottery', category: 'generator' },
-            { name: 'Number Sequence Generator', desc: 'Generate arithmetic sequences.', link: '/number-sequence-generator', keywords: 'number sequence generator series', category: 'generator' },
-            { name: 'Lorem Ipsum Generator', desc: 'Placeholder text for designs and mockups.', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text design', category: 'generator' },
-            { name: 'Random Word Generator', desc: 'Generate random English words.', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generator' },
-            { name: 'Random Text Generator', desc: 'Generate random letters, numbers, and symbols.', link: '/random-text-generator', keywords: 'random text generate string dummy', category: 'generator' },
-            { name: 'QR Code Generator', desc: 'Convert any text or URL into a QR code image.', link: '/qr-code-generator', keywords: 'qr code generate text url image scan', category: 'generator' },
-            { name: 'Barcode Generator', desc: 'Generate barcodes from text or numbers.', link: '/barcode-generator', keywords: 'barcode generate code ean upc product', category: 'generator' },
-            { name: 'UTM Builder', desc: 'Add UTM parameters to URLs for campaign tracking.', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing analytics', category: 'generator' },
-            { name: 'WhatsApp Link Generator', desc: 'Create wa.me links from phone numbers and pre-filled messages.', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', category: 'generator' },
-            { name: 'Business Name Generator', desc: 'Generate business name ideas.', link: '/business-name-generator', keywords: 'business name generator brand startup', category: 'generator' },
-            { name: 'Invoice Number Generator', desc: 'Generate invoice numbers.', link: '/invoice-number-generator', keywords: 'invoice number generator billing', category: 'generator' },
-            { name: 'Image Compressor', desc: 'Compress images in your browser.', link: '/image-compressor', keywords: 'image compressor reduce size jpg png', category: 'image' },
-            { name: 'Image Resizer', desc: 'Resize images without losing quality.', link: '/image-resizer', keywords: 'image resize dimensions scale', category: 'image' },
-            { name: 'Image Cropper', desc: 'Crop images easily.', link: '/image-cropper', keywords: 'image crop trim cut', category: 'image' },
-            { name: 'Image Rotator', desc: 'Rotate images by degrees.', link: '/image-rotator', keywords: 'image rotate turn degrees', category: 'image' },
-            { name: 'Image Flipper', desc: 'Flip images horizontally or vertically.', link: '/image-flipper', keywords: 'image flip mirror horizontal vertical', category: 'image' },
-            { name: 'JPG to PNG', desc: 'Convert JPG images to PNG.', link: '/jpg-to-png', keywords: 'jpg png converter image', category: 'image' },
-            { name: 'PNG to JPG', desc: 'Convert PNG images to JPG.', link: '/png-to-jpg', keywords: 'png jpg converter image', category: 'image' },
-            { name: 'WebP to JPG', desc: 'Convert WebP images to JPG.', link: '/webp-to-jpg', keywords: 'webp jpg converter image', category: 'image' },
-            { name: 'JPG to WebP', desc: 'Convert JPG images to WebP.', link: '/jpg-to-webp', keywords: 'jpg webp converter image', category: 'image' },
-            { name: 'PNG to WebP', desc: 'Convert PNG images to WebP.', link: '/png-to-webp', keywords: 'png webp converter image', category: 'image' },
-            { name: 'Image to Base64', desc: 'Convert image to Base64 string.', link: '/image-to-base64', keywords: 'image base64 converter encode', category: 'image' },
-            { name: 'Base64 to Image', desc: 'Convert Base64 string to image.', link: '/base64-to-image', keywords: 'base64 image converter decode', category: 'image' },
-            { name: 'Grayscale Image', desc: 'Convert image to grayscale.', link: '/grayscale-image', keywords: 'grayscale image black white filter', category: 'image' },
-            { name: 'Photo 20KB', desc: 'Compress photo to 20KB.', link: '/photo-20kb', keywords: 'photo 20kb compress resize upload form', category: 'image' },
-            { name: 'Photo 50KB', desc: 'Compress photo to 50KB.', link: '/photo-50kb', keywords: 'photo 50kb compress resize upload form', category: 'image' },
-            { name: 'Photo 100KB', desc: 'Compress photo to 100KB.', link: '/photo-100kb', keywords: 'photo 100kb compress resize upload form', category: 'image' },
-            { name: 'Photo 200KB', desc: 'Compress photo to 200KB.', link: '/photo-200kb', keywords: 'photo 200kb compress resize upload form', category: 'image' },
-            { name: 'Signature Resizer', desc: 'Resize signatures for documents and forms.', link: '/signature-resizer', keywords: 'signature resize image document form exam', category: 'image' },
-            { name: 'Passport Size Photo Maker', desc: 'Create passport size photos from any image.', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image visa', category: 'image' },
-            { name: 'JPG to PDF', desc: 'Convert JPG images to PDF.', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image document', category: 'pdf' },
-            { name: 'PNG to PDF', desc: 'Convert PNG images to PDF.', link: '/png-to-pdf', keywords: 'png pdf converter image document', category: 'pdf' },
-            { name: 'Images to PDF', desc: 'Combine multiple images into a PDF.', link: '/images-to-pdf', keywords: 'images pdf converter combine merge', category: 'pdf' },
-            { name: 'PDF Page Counter', desc: 'Count pages in a PDF file.', link: '/pdf-page-counter', keywords: 'pdf page counter count pages', category: 'pdf' },
-            { name: 'PDF Metadata Viewer', desc: 'View PDF metadata.', link: '/pdf-metadata-viewer', keywords: 'pdf metadata viewer info author', category: 'pdf' },
-            { name: 'PDF to Images', desc: 'Convert PDF pages to images.', link: '/pdf-to-images', keywords: 'pdf images converter jpg png', category: 'pdf' },
-            { name: 'PDF Merge', desc: 'Merge multiple PDF files.', link: '/pdf-merge', keywords: 'pdf merge combine join files', category: 'pdf' },
-            { name: 'PDF Split', desc: 'Split a PDF into multiple files.', link: '/pdf-split', keywords: 'pdf split separate cut pages', category: 'pdf' },
-            { name: 'PDF Rotate', desc: 'Rotate PDF pages.', link: '/pdf-rotate', keywords: 'pdf rotate page turn', category: 'pdf' },
-            { name: 'PDF Page Extractor', desc: 'Extract specific pages from PDF.', link: '/pdf-page-extractor', keywords: 'pdf extract page range', category: 'pdf' },
-            { name: 'PDF Compressor', desc: 'Compress PDF file size.', link: '/pdf-compressor', keywords: 'pdf compress reduce size shrink smaller', category: 'pdf' },
-            { name: 'PDF to 50KB', desc: 'Compress a PDF down to roughly 50KB.', link: '/pdf-50kb', keywords: 'pdf 50kb compress reduce size shrink small upload form limit', category: 'pdf' },
-            { name: 'PDF to 100KB', desc: 'Compress a PDF down to roughly 100KB.', link: '/pdf-100kb', keywords: 'pdf 100kb compress reduce size shrink small upload form limit', category: 'pdf' },
-            { name: 'PDF to 200KB', desc: 'Compress a PDF down to roughly 200KB.', link: '/pdf-200kb', keywords: 'pdf 200kb compress reduce size shrink small upload form limit', category: 'pdf' },
-            { name: 'PDF to 500KB', desc: 'Compress a PDF down to roughly 500KB.', link: '/pdf-500kb', keywords: 'pdf 500kb compress reduce size shrink upload form limit', category: 'pdf' },
-            { name: 'PDF Text Extractor', desc: 'Extract text from PDF.', link: '/pdf-text-extractor', keywords: 'pdf text extractor copy', category: 'pdf' },
-            { name: 'PDF Lock', desc: 'Add password protection to PDF.', link: '/pdf-lock', keywords: 'pdf lock password protect encrypt', category: 'pdf' },
-            { name: 'PDF Unlock', desc: 'Remove password from PDF.', link: '/pdf-unlock', keywords: 'pdf unlock password remove decrypt', category: 'pdf' },
-            { name: 'Invoice Generator', desc: 'Generate invoices.', link: '/invoice-generator', keywords: 'invoice generator bill billing', category: 'business' },
-            { name: 'Quotation Generator', desc: 'Generate quotations.', link: '/quotation-generator', keywords: 'quotation generator quote estimate', category: 'business' },
-            { name: 'Receipt Generator', desc: 'Generate receipts.', link: '/receipt-generator', keywords: 'receipt generator payment', category: 'business' },
-            { name: 'Payslip Generator', desc: 'Generate payslips.', link: '/payslip-generator', keywords: 'payslip generator salary payroll', category: 'business' },
-            { name: 'Shipping Label Generator', desc: 'Create printable shipping and courier labels with sender, receiver and tracking details.', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', category: 'business' },
-            { name: 'Resume Builder', desc: 'Build a clean, professional resume from your details and export it in seconds.', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', category: 'business' },
-            { name: 'GST Calculator', desc: 'Calculate GST amounts.', link: '/gst-calculator', keywords: 'gst calculator tax goods services', category: 'business' },
-            { name: 'Discount Calculator', desc: 'Calculate discounts.', link: '/discount-calculator', keywords: 'discount calculator sale off price', category: 'business' },
-            { name: 'Profit Margin Calculator', desc: 'Calculate profit margins.', link: '/profit-margin-calculator', keywords: 'profit margin calculator business', category: 'business' },
-            { name: 'Salary Calculator', desc: 'Calculate salary.', link: '/salary-calculator', keywords: 'salary calculator income wage', category: 'business' },
-            { name: 'EMI Calculator', desc: 'Calculate loan EMI.', link: '/emi-calculator', keywords: 'emi calculator loan equated monthly installment', category: 'finance' },
-            { name: 'Loan Calculator', desc: 'Calculate loan details.', link: '/loan-calculator', keywords: 'loan calculator interest', category: 'finance' },
-            { name: 'SIP Calculator', desc: 'Calculate SIP returns.', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment returns', category: 'finance' },
-            { name: 'Income Tax Calculator', desc: 'Calculate income tax.', link: '/income-tax-calculator', keywords: 'income tax calculator slab', category: 'finance' },
-            { name: 'Tax Calculator', desc: 'Calculate taxes.', link: '/tax-calculator', keywords: 'tax calculator', category: 'finance' },
-            { name: 'Tip Calculator', desc: 'Calculate tips.', link: '/tip-calculator', keywords: 'tip calculator restaurant gratuity', category: 'finance' },
-            { name: 'GPA Calculator', desc: 'Calculate GPA.', link: '/gpa-calculator', keywords: 'gpa calculator student grade point', category: 'calculator' },
-            { name: 'CGPA Calculator', desc: 'Calculate CGPA.', link: '/cgpa-calculator', keywords: 'cgpa calculator student grade', category: 'calculator' },
-            { name: 'Percentage Calculator', desc: 'Calculate percentages.', link: '/percentage-calculator', keywords: 'percentage calculator percent', category: 'calculator' },
-            { name: 'Grade Calculator', desc: 'Calculate grades.', link: '/grade-calculator', keywords: 'grade calculator student marks', category: 'calculator' },
-            { name: 'Marks Percentage Calculator', desc: 'Calculate marks percentage.', link: '/marks-percentage-calculator', keywords: 'marks percentage calculator exam', category: 'calculator' },
-            { name: 'Attendance Calculator', desc: 'Calculate attendance percentage.', link: '/attendance-calculator', keywords: 'attendance calculator college percentage', category: 'calculator' },
-            { name: 'Study Time Calculator', desc: 'Calculate study time.', link: '/study-time-calculator', keywords: 'study time calculator planner', category: 'calculator' },
-            { name: 'Exam Countdown', desc: 'Countdown to exams.', link: '/exam-countdown', keywords: 'exam countdown timer days', category: 'calculator' },
-            { name: 'Age Calculator', desc: 'Calculate age from date of birth.', link: '/age-calculator', keywords: 'age calculator birth date dob', category: 'calculator' },
-            { name: 'Scientific Calculator', desc: 'Advanced scientific calculator.', link: '/scientific-calculator', keywords: 'scientific calculator math trigonometry', category: 'calculator' },
-            { name: 'Quadratic Equation Calculator', desc: 'Solve quadratic equations.', link: '/quadratic-equation-calculator', keywords: 'quadratic equation calculator roots', category: 'calculator' },
-            { name: 'Matrix Calculator', desc: 'Perform matrix operations.', link: '/matrix-calculator', keywords: 'matrix calculator determinant multiply', category: 'calculator' },
-            { name: 'Probability Calculator', desc: 'Calculate probabilities.', link: '/probability-calculator', keywords: 'probability calculator chance', category: 'calculator' },
-            { name: 'Standard Deviation Calculator', desc: 'Calculate standard deviation.', link: '/standard-deviation-calculator', keywords: 'standard deviation calculator statistics', category: 'calculator' },
-            { name: 'Mean Median Mode Calculator', desc: 'Calculate mean, median, mode.', link: '/mean-median-mode-calculator', keywords: 'mean median mode calculator average statistics', category: 'calculator' },
-            { name: 'Prime Number Checker', desc: 'Check if a number is prime.', link: '/prime-number-checker', keywords: 'prime number check', category: 'calculator' },
-            { name: 'Prime Number Generator', desc: 'Generate prime numbers.', link: '/prime-number-generator', keywords: 'prime number generator', category: 'calculator' },
-            { name: 'Factorial Calculator', desc: 'Calculate factorial of a number.', link: '/factorial-calculator', keywords: 'factorial calculator', category: 'calculator' },
-            { name: 'GCD Calculator', desc: 'Find greatest common divisor.', link: '/gcd-calculator', keywords: 'gcd calculator greatest common divisor hcf', category: 'calculator' },
-            { name: 'LCM Calculator', desc: 'Find least common multiple.', link: '/lcm-calculator', keywords: 'lcm calculator least common multiple', category: 'calculator' },
-            { name: 'Binary Calculator', desc: 'Perform binary calculations.', link: '/binary-calculator', keywords: 'binary calculator bits', category: 'calculator' },
-            { name: 'Decimal to Binary', desc: 'Convert decimal to binary.', link: '/decimal-to-binary', keywords: 'decimal binary convert', category: 'calculator' },
-            { name: 'Binary to Decimal', desc: 'Convert binary to decimal.', link: '/binary-to-decimal', keywords: 'binary decimal convert', category: 'calculator' },
-            { name: 'Decimal to Hex', desc: 'Convert decimal to hex.', link: '/decimal-to-hex', keywords: 'decimal hex convert hexadecimal', category: 'calculator' },
-            { name: 'Hex to Decimal', desc: 'Convert hex to decimal.', link: '/hex-to-decimal', keywords: 'hex decimal convert hexadecimal', category: 'calculator' },
-            { name: 'Decimal to Octal', desc: 'Convert decimal to octal.', link: '/decimal-to-octal', keywords: 'decimal octal convert', category: 'calculator' },
-            { name: 'Average Calculator', desc: 'Calculate average of numbers.', link: '/average-calculator', keywords: 'average calculator mean', category: 'calculator' },
-            { name: 'Ratio Calculator', desc: 'Calculate ratios.', link: '/ratio-calculator', keywords: 'ratio calculator proportion', category: 'calculator' },
-            { name: 'Fraction Calculator', desc: 'Calculate fractions.', link: '/fraction-calculator', keywords: 'fraction calculator numerator denominator', category: 'calculator' },
-            { name: 'Date Difference Calculator', desc: 'Calculate days between two dates.', link: '/date-difference-calculator', keywords: 'date difference days between', category: 'calculator' },
-            { name: 'Days Between Dates', desc: 'Find days between dates.', link: '/days-between-dates', keywords: 'days between dates calculator', category: 'calculator' },
-            { name: 'Add Days to Date', desc: 'Add days to a date.', link: '/add-days-to-date', keywords: 'add days date calculator', category: 'calculator' },
-            { name: 'Subtract Days from Date', desc: 'Subtract days from a date.', link: '/subtract-days-from-date', keywords: 'subtract days date calculator', category: 'calculator' },
-            { name: 'Business Days Calculator', desc: 'Calculate business days between dates.', link: '/business-days-calculator', keywords: 'business days calculator working days', category: 'calculator' },
-            { name: 'Date to Unix Timestamp', desc: 'Convert date to Unix timestamp.', link: '/date-to-unix-timestamp', keywords: 'date unix timestamp epoch', category: 'calculator' },
-            { name: 'Unix Timestamp to Date', desc: 'Convert Unix timestamp to date.', link: '/unix-timestamp-to-date', keywords: 'unix timestamp date epoch', category: 'calculator' },
-            { name: 'Time Duration Calculator', desc: 'Calculate time duration between two times.', link: '/time-duration-calculator', keywords: 'time duration calculator hours minutes', category: 'calculator' },
-            { name: 'Countdown Calculator', desc: 'Countdown to a future date.', link: '/countdown-calculator', keywords: 'countdown calculator timer', category: 'calculator' },
-            { name: 'Week Number Calculator', desc: 'Find week number of a date.', link: '/week-number-calculator', keywords: 'week number calculator iso', category: 'calculator' },
-            { name: 'Leap Year Checker', desc: 'Check if a year is a leap year.', link: '/leap-year-checker', keywords: 'leap year checker february', category: 'calculator' },
-            { name: 'World Clock', desc: 'View current time in different time zones.', link: '/world-clock', keywords: 'world clock time zones current time', category: 'calculator' },
-            { name: 'Time Zone Converter', desc: 'Convert time between time zones.', link: '/time-zone-converter', keywords: 'time zone converter utc gmt', category: 'calculator' },
-            { name: 'Length Converter', desc: 'Convert length units.', link: '/length-converter', keywords: 'length converter units meter feet inch', category: 'calculator' },
-            { name: 'Weight Converter', desc: 'Convert weight units.', link: '/weight-converter', keywords: 'weight converter units kg pound', category: 'calculator' },
-            { name: 'Temperature Converter', desc: 'Convert temperature units.', link: '/temperature-converter', keywords: 'temperature converter celsius fahrenheit kelvin', category: 'calculator' },
-            { name: 'Area Converter', desc: 'Convert area units.', link: '/area-converter', keywords: 'area converter units square meter acre', category: 'calculator' },
-            { name: 'Volume Converter', desc: 'Convert volume units.', link: '/volume-converter', keywords: 'volume converter units litre gallon', category: 'calculator' },
-            { name: 'Speed Converter', desc: 'Convert speed units.', link: '/speed-converter', keywords: 'speed converter units kmph mph', category: 'calculator' },
-            { name: 'Data Storage Converter', desc: 'Convert data storage units.', link: '/data-storage-converter', keywords: 'data storage converter units mb gb tb', category: 'calculator' },
-            { name: 'Energy Converter', desc: 'Convert energy units.', link: '/energy-converter', keywords: 'energy converter units joule calorie', category: 'calculator' },
-            { name: 'Pressure Converter', desc: 'Convert pressure units.', link: '/pressure-converter', keywords: 'pressure converter units pascal bar', category: 'calculator' },
-            { name: 'Power Converter', desc: 'Convert power units.', link: '/power-converter', keywords: 'power converter units watt horsepower', category: 'calculator' },
-            { name: 'Frequency Converter', desc: 'Convert frequency units.', link: '/frequency-converter', keywords: 'frequency converter units hertz', category: 'calculator' },
-            { name: 'Angle Converter', desc: 'Convert angle units.', link: '/angle-converter', keywords: 'angle converter units degree radian', category: 'calculator' },
-            { name: 'Pace Converter', desc: 'Convert pace units.', link: '/pace-converter', keywords: 'pace converter running units', category: 'calculator' },
-            { name: 'Fuel Economy Converter', desc: 'Convert fuel economy units.', link: '/fuel-economy-converter', keywords: 'fuel economy converter units mileage', category: 'calculator' }
+            { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', link: '/word-counter', keywords: 'word count character counter letters essay limit', category: 'text', icon: 'hash', color: '#8b5cf6' },
+            { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', category: 'text', icon: 'type', color: '#8b5cf6' },
+            { name: 'Paragraph Counter', desc: 'Quickly count paragraphs in your writing.', link: '/paragraph-counter', keywords: 'paragraph count block format', category: 'text', icon: 'align-left', color: '#8b5cf6' },
+            { name: 'Line Counter', desc: 'Count lines in text.', link: '/line-counter', keywords: 'line count text lines rows', category: 'text', icon: 'list', color: '#8b5cf6' },
+            { name: 'Reading Time Estimator', desc: 'Estimate how long it takes to read your text.', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute blog', category: 'text', icon: 'clock', color: '#0ea5e9' },
+            { name: 'Speaking Time Calculator', desc: 'Estimate how long it takes to speak your text aloud.', link: '/speaking-time-calculator', keywords: 'speaking time talk duration speech presentation', category: 'text', icon: 'mic', color: '#0ea5e9' },
+            { name: 'Keyword Counter', desc: 'Count occurrences of each keyword in your text.', link: '/keyword-counter', keywords: 'keyword frequency count word seo', category: 'text', icon: 'hash', color: '#0ea5e9' },
+            { name: 'Keyword Density Checker', desc: 'Analyze keyword density as a percentage.', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'text', icon: 'percent', color: '#0ea5e9' },
+            { name: 'Duplicate Word Finder', desc: 'Find and highlight duplicate words in your text.', link: '/duplicate-word-finder', keywords: 'duplicate word find highlight repeat', category: 'text', icon: 'search', color: '#0ea5e9' },
+            { name: 'Text Statistics', desc: 'Full summary: words, chars, sentences, readability, and more.', link: '/text-statistics', keywords: 'text stats readability summary data analysis', category: 'text', icon: 'bar-chart-2', color: '#0ea5e9' },
+            { name: 'Regex Tester', desc: 'Test regular expressions with match highlighting.', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'text', icon: 'search-code', color: '#0ea5e9' },
+            { name: 'Word Frequency Counter', desc: 'Count frequency of each word.', link: '/word-frequency-counter', keywords: 'word frequency count repeat', category: 'text', icon: 'bar-chart', color: '#0ea5e9' },
+            { name: 'Character Frequency Counter', desc: 'Count frequency of each character.', link: '/character-frequency-counter', keywords: 'character frequency count letters', category: 'text', icon: 'pie-chart', color: '#0ea5e9' },
+            { name: 'Password Strength Checker', desc: 'Check the strength of your password.', link: '/password-strength-checker', keywords: 'password strength check secure safety', category: 'text', icon: 'shield', color: '#0ea5e9' },
+            { name: 'Duplicate Line Remover', desc: 'Remove duplicate lines and keep only unique ones.', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe list', category: 'text', icon: 'list-filter', color: '#6366f1' },
+            { name: 'Whitespace Cleaner', desc: 'Remove extra spaces, tabs, and blank lines.', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'text', icon: 'sparkles', color: '#64748b' },
+            { name: 'Remove Extra Spaces', desc: 'Clean up unwanted spaces with one click.', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup double', category: 'text', icon: 'minus', color: '#64748b' },
+            { name: 'Remove Empty Lines', desc: 'Delete all blank lines instantly.', link: '/remove-empty-lines', keywords: 'empty lines remove delete blank', category: 'text', icon: 'scissors', color: '#64748b' },
+            { name: 'Remove Blank Characters', desc: 'Strip out invisible blank characters.', link: '/remove-blank-characters', keywords: 'blank chars invisible characters remove zero width', category: 'text', icon: 'eraser', color: '#64748b' },
+            { name: 'Remove Emojis', desc: 'Get rid of all emojis in one go.', link: '/remove-emojis', keywords: 'emoji remove strip smiley', category: 'text', icon: 'smile', color: '#64748b' },
+            { name: 'Remove Symbols', desc: 'Delete symbols and special characters.', link: '/remove-symbols', keywords: 'symbols remove special characters clean', category: 'text', icon: 'minus-circle', color: '#64748b' },
+            { name: 'Remove Punctuation', desc: 'Strip punctuation marks.', link: '/remove-punctuation', keywords: 'punctuation remove comma period full stop', category: 'text', icon: 'type', color: '#64748b' },
+            { name: 'Remove Numbers', desc: 'Delete all numeric digits.', link: '/remove-numbers', keywords: 'numbers remove digits numeric', category: 'text', icon: 'hash', color: '#64748b' },
+            { name: 'Remove HTML Tags', desc: 'Strip HTML/XML tags, leaving only text.', link: '/remove-html-tags', keywords: 'html tags strip remove clean markup', category: 'text', icon: 'code', color: '#64748b' },
+            { name: 'Remove Line Breaks', desc: 'Remove line breaks and join lines.', link: '/remove-line-breaks', keywords: 'line break remove join newline', category: 'text', icon: 'minus', color: '#64748b' },
+            { name: 'Text Cleaner', desc: 'All-in-one text cleaning.', link: '/text-cleaner', keywords: 'clean text sanitize format tidy', category: 'text', icon: 'sparkles', color: '#64748b' },
+            { name: 'Remove Duplicate Words', desc: 'Remove duplicate words from text.', link: '/remove-duplicate-words', keywords: 'duplicate words remove repeat', category: 'text', icon: 'copy', color: '#64748b' },
+            { name: 'Case Converter', desc: 'Convert to uppercase, lowercase, title case and more.', link: '/case-converter', keywords: 'uppercase lowercase title case sentence change case', category: 'text', icon: 'type', color: '#10b981' },
+            { name: 'Uppercase Converter', desc: 'Convert text to uppercase.', link: '/uppercase-converter', keywords: 'uppercase converter caps capital letters', category: 'text', icon: 'arrow-up', color: '#10b981' },
+            { name: 'Lowercase Converter', desc: 'Convert text to lowercase.', link: '/lowercase-converter', keywords: 'lowercase converter small letters', category: 'text', icon: 'arrow-down', color: '#10b981' },
+            { name: 'Title Case Converter', desc: 'Proper title case for headlines.', link: '/title-case-converter', keywords: 'title case headline capitalize proper apa mla', category: 'text', icon: 'heading', color: '#10b981' },
+            { name: 'Sentence Case Converter', desc: 'First letter of each sentence capitalized.', link: '/sentence-case-converter', keywords: 'sentence case capitalize first letter', category: 'text', icon: 'type', color: '#10b981' },
+            { name: 'Capitalize Words', desc: 'Capitalize first letter of each word.', link: '/capitalize-words', keywords: 'capitalize first letter each word', category: 'text', icon: 'pen-tool', color: '#10b981' },
+            { name: 'Toggle Case Converter', desc: 'Toggle case of every letter.', link: '/toggle-case-converter', keywords: 'toggle case invert swap alternating', category: 'text', icon: 'toggle-left', color: '#10b981' },
+            { name: 'Text Repeater', desc: 'Repeat text up to 100,000 times.', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste spam', category: 'text', icon: 'repeat', color: '#6366f1' },
+            { name: 'Text Finder & Replacer', desc: 'Find and replace words or phrases in bulk.', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'text', icon: 'search', color: '#ec4899' },
+            { name: 'Line Break Converter', desc: 'Convert line breaks between Windows, Unix, Mac.', link: '/line-break-converter', keywords: 'line break crlf lf converter newline', category: 'text', icon: 'wrap-text', color: '#10b981' },
+            { name: 'Text Indenter', desc: 'Add spaces or tabs at the beginning of each line.', link: '/text-indenter', keywords: 'indent text tab spaces code', category: 'text', icon: 'arrow-right-to-line', color: '#10b981' },
+            { name: 'Wrap Text', desc: 'Wrap long lines to a specified width.', link: '/wrap-text', keywords: 'word wrap text line width column', category: 'text', icon: 'wrap-text', color: '#10b981' },
+            { name: 'Unwrap Text', desc: 'Join broken lines into a single paragraph.', link: '/unwrap-text', keywords: 'unwrap text join lines paragraph merge', category: 'text', icon: 'unlink', color: '#10b981' },
+            { name: 'Join Lines', desc: 'Merge multiple lines into one single continuous line or paragraph.', link: '/join-lines', keywords: 'join lines merge combine single line paragraph unwrap newline concatenate', category: 'text', icon: 'unlink', color: '#10b981' },
+            { name: 'Text Diff Checker', desc: 'Compare two texts side by side and highlight every difference.', link: '/text-diff-checker', keywords: 'diff compare text changes version differences side by side review', category: 'text', icon: 'git-compare', color: '#0ea5e9' },
+            { name: 'Text Sorter', desc: 'Sort lines alphabetically, numerically, by length, or in reverse.', link: '/text-sorter', keywords: 'sort lines alphabetical numeric order arrange a-z z-a', category: 'text', icon: 'arrow-up-down', color: '#0ea5e9' },
+            { name: 'Text to Handwriting', desc: 'Convert typed text into realistic handwriting.', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment notes', category: 'text', icon: 'pen-tool', color: '#a855f7' },
+            { name: 'Bold Text Generator', desc: 'Bold Unicode text for social media bios.', link: '/bold-text-generator', keywords: 'bold unicode text style font bio', category: 'text', icon: 'bold', color: '#ec4899' },
+            { name: 'Italic Text Generator', desc: 'Italic Unicode text using math symbols.', link: '/italic-text-generator', keywords: 'italic unicode text style font', category: 'text', icon: 'italic', color: '#ec4899' },
+            { name: 'Strikethrough Generator', desc: 'Strikethrough Unicode text.', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode', category: 'text', icon: 'strikethrough', color: '#ec4899' },
+            { name: 'Fancy Text Generator', desc: 'Generate multiple fancy Unicode styles at once.', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic instagram', category: 'text', icon: 'sparkles', color: '#ec4899' },
+            { name: 'Upside Down Text', desc: 'Flip your text upside down.', link: '/upside-down-text', keywords: 'upside down flip text reverse', category: 'text', icon: 'arrow-down-up', color: '#ec4899' },
+            { name: 'Small Text Generator', desc: 'Generate small caps text.', link: '/small-text-generator', keywords: 'small caps tiny text superscript', category: 'text', icon: 'arrow-up', color: '#ec4899' },
+            { name: 'Zalgo Text Generator', desc: 'Create cursed zalgo text.', link: '/zalgo-text-generator', keywords: 'zalgo cursed text generator creepy', category: 'text', icon: 'ghost', color: '#ec4899' },
+            { name: 'Unicode Text Converter', desc: 'Convert text to Unicode variants.', link: '/unicode-text-converter', keywords: 'unicode text converter encode', category: 'text', icon: 'type', color: '#ec4899' },
+            { name: 'Email Extractor', desc: 'Extract all email addresses from text.', link: '/email-extractor', keywords: 'email extract find emails scrape address', category: 'text', icon: 'at-sign', color: '#0ea5e9' },
+            { name: 'URL Extractor', desc: 'Pull out all URLs from text.', link: '/url-extractor', keywords: 'url extract link http https website', category: 'text', icon: 'link', color: '#0ea5e9' },
+            { name: 'Phone Extractor', desc: 'Extract phone numbers using common formats.', link: '/phone-extractor', keywords: 'phone number extract landline mobile contact', category: 'text', icon: 'phone', color: '#0ea5e9' },
+            { name: 'Number Extractor', desc: 'Get every number (integer or decimal) from text.', link: '/number-extractor', keywords: 'number extract digits numeric decimal', category: 'text', icon: 'hash', color: '#0ea5e9' },
+            { name: 'Date Extractor', desc: 'Find and extract dates like 12/05/2025.', link: '/date-extractor', keywords: 'date extract calendar find day month year', category: 'text', icon: 'calendar', color: '#0ea5e9' },
+            { name: 'Domain Extractor', desc: 'Extract domain names from URLs or emails.', link: '/domain-extractor', keywords: 'domain name website extract host', category: 'text', icon: 'globe', color: '#0ea5e9' },
+            { name: 'Hashtag Extractor', desc: 'List all #hashtags from social media text.', link: '/hashtag-extractor', keywords: 'hashtag extract social media instagram twitter', category: 'text', icon: 'hash', color: '#0ea5e9' },
+            { name: 'Mention Extractor', desc: 'Pull out @usernames from text.', link: '/mention-extractor', keywords: 'mention extract username @ social twitter', category: 'text', icon: 'at-sign', color: '#0ea5e9' },
+            { name: 'Keyword Extractor', desc: 'Extract the most important words and phrases.', link: '/keyword-extractor', keywords: 'keyword extract important terms seo', category: 'text', icon: 'key', color: '#0ea5e9' },
+            { name: 'Duplicate Line Finder', desc: 'Show which lines appear more than once.', link: '/duplicate-line-finder', keywords: 'duplicate line find report repeat', category: 'text', icon: 'search', color: '#0ea5e9' },
+            { name: 'JSON Formatter/Beautifier', desc: 'Format messy JSON into readable, indented structure.', link: '/json-formatter', keywords: 'json format beautify pretty print indent api', category: 'developer', icon: 'braces', color: '#f59e0b' },
+            { name: 'JSON Minifier', desc: 'Minify JSON to remove unnecessary spaces.', link: '/json-minifier', keywords: 'json minify compress compact', category: 'developer', icon: 'braces', color: '#f59e0b' },
+            { name: 'JSON Validator', desc: 'Validate JSON syntax.', link: '/json-validator', keywords: 'json validate check syntax error', category: 'developer', icon: 'check-circle', color: '#f59e0b' },
+            { name: 'XML Formatter', desc: 'Beautify and indent XML data.', link: '/xml-formatter', keywords: 'xml format beautify indent', category: 'developer', icon: 'file-code', color: '#f59e0b' },
+            { name: 'XML Minifier', desc: 'Minify XML.', link: '/xml-minifier', keywords: 'xml minify compress', category: 'developer', icon: 'file-code', color: '#f59e0b' },
+            { name: 'HTML Formatter', desc: 'Format HTML code.', link: '/html-formatter', keywords: 'html format beautify indent', category: 'developer', icon: 'code', color: '#f59e0b' },
+            { name: 'HTML Minifier', desc: 'Minify HTML.', link: '/html-minifier', keywords: 'html minify compress', category: 'developer', icon: 'code', color: '#f59e0b' },
+            { name: 'CSS Formatter', desc: 'Format CSS code.', link: '/css-formatter', keywords: 'css format beautify indent', category: 'developer', icon: 'code-2', color: '#f59e0b' },
+            { name: 'CSS Minifier', desc: 'Minify CSS.', link: '/css-minifier', keywords: 'css minify compress', category: 'developer', icon: 'code-2', color: '#f59e0b' },
+            { name: 'JavaScript Formatter', desc: 'Format JavaScript code.', link: '/javascript-formatter', keywords: 'javascript format beautify js', category: 'developer', icon: 'code-2', color: '#f59e0b' },
+            { name: 'JavaScript Minifier', desc: 'Minify JavaScript.', link: '/javascript-minifier', keywords: 'javascript minify compress js', category: 'developer', icon: 'code-2', color: '#f59e0b' },
+            { name: 'SQL Formatter', desc: 'Format SQL queries.', link: '/sql-formatter', keywords: 'sql format query beautify database', category: 'developer', icon: 'database', color: '#f59e0b' },
+            { name: 'Text to Binary', desc: 'Convert text to binary.', link: '/text-to-binary', keywords: 'text binary convert bits', category: 'developer', icon: 'code', color: '#f59e0b' },
+            { name: 'Binary to Text', desc: 'Convert binary to text.', link: '/binary-to-text', keywords: 'binary text convert bits', category: 'developer', icon: 'code', color: '#f59e0b' },
+            { name: 'Text to Hex', desc: 'Convert text to hexadecimal.', link: '/text-to-hex', keywords: 'text hex convert hexadecimal', category: 'developer', icon: 'hexagon', color: '#f59e0b' },
+            { name: 'Hex to Text', desc: 'Convert hex to text.', link: '/hex-to-text', keywords: 'hex text convert hexadecimal', category: 'developer', icon: 'hexagon', color: '#f59e0b' },
+            { name: 'Text to ASCII', desc: 'Convert text to ASCII codes.', link: '/text-to-ascii', keywords: 'text ascii convert code', category: 'developer', icon: 'keyboard', color: '#f59e0b' },
+            { name: 'ASCII to Text', desc: 'Convert ASCII codes to text.', link: '/ascii-to-text', keywords: 'ascii text convert code', category: 'developer', icon: 'keyboard', color: '#f59e0b' },
+            { name: 'Morse Code Translator', desc: 'Convert text to Morse code and back.', link: '/morse-code-translator', keywords: 'morse code translator dots dashes', category: 'developer', icon: 'radio', color: '#f59e0b' },
+            { name: 'Braille Translator', desc: 'Convert text to Braille.', link: '/braille-translator', keywords: 'braille translator blind', category: 'developer', icon: 'eye-off', color: '#f59e0b' },
+            { name: 'NATO Alphabet Generator', desc: 'Convert text to NATO phonetic alphabet.', link: '/nato-alphabet-generator', keywords: 'nato phonetic alphabet alpha bravo', category: 'developer', icon: 'volume-2', color: '#f59e0b' },
+            { name: 'Text to CSV', desc: 'Convert text to CSV format.', link: '/text-to-csv', keywords: 'text csv convert comma separated excel', category: 'developer', icon: 'file-spreadsheet', color: '#f59e0b' },
+            { name: 'CSV to Text', desc: 'Convert CSV to text.', link: '/csv-to-text', keywords: 'csv text convert', category: 'developer', icon: 'file-spreadsheet', color: '#f59e0b' },
+            { name: 'CSV to JSON', desc: 'Convert CSV to JSON.', link: '/csv-to-json', keywords: 'csv json convert', category: 'developer', icon: 'file-spreadsheet', color: '#f59e0b' },
+            { name: 'JSON to CSV', desc: 'Convert JSON to CSV.', link: '/json-to-csv', keywords: 'json csv convert', category: 'developer', icon: 'file-spreadsheet', color: '#f59e0b' },
+            { name: 'Markdown to HTML', desc: 'Convert Markdown to HTML.', link: '/markdown-to-html', keywords: 'markdown html convert md', category: 'developer', icon: 'file-code', color: '#f59e0b' },
+            { name: 'HTML to Markdown', desc: 'Convert HTML to Markdown.', link: '/html-to-markdown', keywords: 'html markdown convert md', category: 'developer', icon: 'file-code', color: '#f59e0b' },
+            { name: 'Markdown Table Generator', desc: 'Generate Markdown tables.', link: '/markdown-table-generator', keywords: 'markdown table generator md', category: 'developer', icon: 'table', color: '#f59e0b' },
+            { name: 'HTML Table Generator', desc: 'Generate HTML tables.', link: '/html-table-generator', keywords: 'html table generator', category: 'developer', icon: 'table', color: '#f59e0b' },
+            { name: 'Roman Numeral Converter', desc: 'Convert numbers to Roman numerals.', link: '/roman-numeral-converter', keywords: 'roman numeral converter latin', category: 'developer', icon: 'hash', color: '#f59e0b' },
+            { name: 'Number to Words', desc: 'Convert numbers to English words.', link: '/number-to-words', keywords: 'number to words converter cheque', category: 'developer', icon: 'type', color: '#f59e0b' },
+            { name: 'Words to Number', desc: 'Convert English words to numbers.', link: '/words-to-number', keywords: 'words to number converter', category: 'developer', icon: 'hash', color: '#f59e0b' },
+            { name: 'Timestamp Converter', desc: 'Convert Unix timestamps to date and back.', link: '/timestamp-converter', keywords: 'timestamp unix converter date epoch', category: 'developer', icon: 'clock', color: '#f59e0b' },
+            { name: 'Color Converter', desc: 'Convert colors between HEX, RGB, HSL.', link: '/color-converter', keywords: 'color converter hex rgb hsl', category: 'developer', icon: 'palette', color: '#f59e0b' },
+            { name: 'Base64 Encoder', desc: 'Encode text to Base64.', link: '/base64-encoder', keywords: 'base64 encode', category: 'developer', icon: 'code', color: '#f59e0b' },
+            { name: 'Base64 Decoder', desc: 'Decode Base64 text.', link: '/base64-decoder', keywords: 'base64 decode', category: 'developer', icon: 'code', color: '#f59e0b' },
+            { name: 'URL Encoder', desc: 'Encode URLs.', link: '/url-encoder', keywords: 'url encode percent uri', category: 'developer', icon: 'link', color: '#f59e0b' },
+            { name: 'URL Decoder', desc: 'Decode URLs.', link: '/url-decoder', keywords: 'url decode percent uri', category: 'developer', icon: 'link', color: '#f59e0b' },
+            { name: 'HTML Entity Encoder', desc: 'Encode HTML entities.', link: '/html-entity-encoder', keywords: 'html entity encode amp lt', category: 'developer', icon: 'code', color: '#f59e0b' },
+            { name: 'HTML Entity Decoder', desc: 'Decode HTML entities.', link: '/html-entity-decoder', keywords: 'html entity decode amp lt', category: 'developer', icon: 'code', color: '#f59e0b' },
+            { name: 'Regex Generator', desc: 'Generate regex patterns from sample text.', link: '/regex-generator', keywords: 'regex generate pattern regular expression', category: 'developer', icon: 'search-code', color: '#0ea5e9' },
+            { name: 'Regex Escape Tool', desc: 'Escape special characters in regex.', link: '/regex-escape-tool', keywords: 'regex escape special characters', category: 'developer', icon: 'search-code', color: '#0ea5e9' },
+            { name: 'JWT Decoder', desc: 'Decode JWT tokens to view header and payload.', link: '/jwt-decoder', keywords: 'jwt decode token header payload auth', category: 'developer', icon: 'lock', color: '#0ea5e9' },
+            { name: 'UUID Generator', desc: 'Generate random UUID v4 identifiers.', link: '/uuid-generator', keywords: 'uuid guid unique identifier random v4', category: 'developer', icon: 'fingerprint', color: '#0ea5e9' },
+            { name: 'UUID Validator', desc: 'Check if a UUID is valid.', link: '/uuid-validator', keywords: 'uuid validate check guid', category: 'developer', icon: 'check', color: '#0ea5e9' },
+            { name: 'MD5 Generator', desc: 'Generate MD5 hash.', link: '/md5-generator', keywords: 'md5 hash generator checksum', category: 'developer', icon: 'hash', color: '#0ea5e9' },
+            { name: 'SHA-1 Generator', desc: 'Generate SHA-1 hash.', link: '/sha1-generator', keywords: 'sha1 hash generator checksum', category: 'developer', icon: 'hash', color: '#0ea5e9' },
+            { name: 'SHA-256 Generator', desc: 'Generate SHA-256 hash.', link: '/sha256-generator', keywords: 'sha256 hash generator checksum', category: 'developer', icon: 'hash', color: '#0ea5e9' },
+            { name: 'SHA-512 Generator', desc: 'Generate SHA-512 hash.', link: '/sha512-generator', keywords: 'sha512 hash generator checksum', category: 'developer', icon: 'hash', color: '#0ea5e9' },
+            { name: 'HMAC Generator', desc: 'Generate HMAC hash.', link: '/hmac-generator', keywords: 'hmac hash generator secret key', category: 'developer', icon: 'shield', color: '#0ea5e9' },
+            { name: 'Cron Expression Generator', desc: 'Generate cron expressions.', link: '/cron-expression-generator', keywords: 'cron expression generator schedule', category: 'developer', icon: 'calendar', color: '#0ea5e9' },
+            { name: 'Cron Expression Tester', desc: 'Test cron expressions.', link: '/cron-expression-tester', keywords: 'cron expression tester schedule', category: 'developer', icon: 'check', color: '#0ea5e9' },
+            { name: 'Password Generator', desc: 'Generate strong random passwords.', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generator', icon: 'key', color: '#14b8a6' },
+            { name: 'PIN Generator', desc: 'Generate random PIN numbers.', link: '/pin-generator', keywords: 'pin generator random number', category: 'generator', icon: 'lock', color: '#14b8a6' },
+            { name: 'Random Number Generator', desc: 'Generate random numbers within a custom range.', link: '/random-number-generator', keywords: 'random number range integer generator lottery', category: 'generator', icon: 'dice-6', color: '#14b8a6' },
+            { name: 'Number Sequence Generator', desc: 'Generate arithmetic sequences.', link: '/number-sequence-generator', keywords: 'number sequence generator series', category: 'generator', icon: 'list', color: '#14b8a6' },
+            { name: 'Lorem Ipsum Generator', desc: 'Placeholder text for designs and mockups.', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text design', category: 'generator', icon: 'file-text', color: '#14b8a6' },
+            { name: 'Random Word Generator', desc: 'Generate random English words.', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generator', icon: 'book-open', color: '#14b8a6' },
+            { name: 'Random Text Generator', desc: 'Generate random letters, numbers, and symbols.', link: '/random-text-generator', keywords: 'random text generate string dummy', category: 'generator', icon: 'dice-6', color: '#14b8a6' },
+            { name: 'QR Code Generator', desc: 'Convert any text or URL into a QR code image.', link: '/qr-code-generator', keywords: 'qr code generate text url image scan', category: 'generator', icon: 'qr-code', color: '#14b8a6' },
+            { name: 'Barcode Generator', desc: 'Generate barcodes from text or numbers.', link: '/barcode-generator', keywords: 'barcode generate code ean upc product', category: 'generator', icon: 'barcode', color: '#8b5cf6' },
+            { name: 'UTM Builder', desc: 'Add UTM parameters to URLs for campaign tracking.', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing analytics', category: 'generator', icon: 'link', color: '#14b8a6' },
+            { name: 'WhatsApp Link Generator', desc: 'Create wa.me links from phone numbers and pre-filled messages.', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', category: 'generator', icon: 'message-circle', color: '#25D366' },
+            { name: 'Business Name Generator', desc: 'Generate business name ideas.', link: '/business-name-generator', keywords: 'business name generator brand startup', category: 'generator', icon: 'briefcase', color: '#14b8a6' },
+            { name: 'Invoice Number Generator', desc: 'Generate invoice numbers.', link: '/invoice-number-generator', keywords: 'invoice number generator billing', category: 'generator', icon: 'file-text', color: '#14b8a6' },
+            { name: 'Image Compressor', desc: 'Compress images in your browser.', link: '/image-compressor', keywords: 'image compressor reduce size jpg png', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'Image Resizer', desc: 'Resize images without losing quality.', link: '/image-resizer', keywords: 'image resize dimensions scale', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'Image Cropper', desc: 'Crop images easily.', link: '/image-cropper', keywords: 'image crop trim cut', category: 'image', icon: 'crop', color: '#ec4899' },
+            { name: 'Image Rotator', desc: 'Rotate images by degrees.', link: '/image-rotator', keywords: 'image rotate turn degrees', category: 'image', icon: 'rotate-cw', color: '#ec4899' },
+            { name: 'Image Flipper', desc: 'Flip images horizontally or vertically.', link: '/image-flipper', keywords: 'image flip mirror horizontal vertical', category: 'image', icon: 'repeat', color: '#ec4899' },
+            { name: 'JPG to PNG', desc: 'Convert JPG images to PNG.', link: '/jpg-to-png', keywords: 'jpg png converter image', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'PNG to JPG', desc: 'Convert PNG images to JPG.', link: '/png-to-jpg', keywords: 'png jpg converter image', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'WebP to JPG', desc: 'Convert WebP images to JPG.', link: '/webp-to-jpg', keywords: 'webp jpg converter image', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'JPG to WebP', desc: 'Convert JPG images to WebP.', link: '/jpg-to-webp', keywords: 'jpg webp converter image', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'PNG to WebP', desc: 'Convert PNG images to WebP.', link: '/png-to-webp', keywords: 'png webp converter image', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'Image to Base64', desc: 'Convert image to Base64 string.', link: '/image-to-base64', keywords: 'image base64 converter encode', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'Base64 to Image', desc: 'Convert Base64 string to image.', link: '/base64-to-image', keywords: 'base64 image converter decode', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'Grayscale Image', desc: 'Convert image to grayscale.', link: '/grayscale-image', keywords: 'grayscale image black white filter', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'Photo 20KB', desc: 'Compress photo to 20KB.', link: '/photo-20kb', keywords: 'photo 20kb compress resize upload form', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'Photo 50KB', desc: 'Compress photo to 50KB.', link: '/photo-50kb', keywords: 'photo 50kb compress resize upload form', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'Photo 100KB', desc: 'Compress photo to 100KB.', link: '/photo-100kb', keywords: 'photo 100kb compress resize upload form', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'Photo 200KB', desc: 'Compress photo to 200KB.', link: '/photo-200kb', keywords: 'photo 200kb compress resize upload form', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'Signature Resizer', desc: 'Resize signatures for documents and forms.', link: '/signature-resizer', keywords: 'signature resize image document form exam', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'Passport Size Photo Maker', desc: 'Create passport size photos from any image.', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image visa', category: 'image', icon: 'image', color: '#ec4899' },
+            { name: 'JPG to PDF', desc: 'Convert JPG images to PDF.', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image document', category: 'pdf', icon: 'file', color: '#ef4444' },
+            { name: 'PNG to PDF', desc: 'Convert PNG images to PDF.', link: '/png-to-pdf', keywords: 'png pdf converter image document', category: 'pdf', icon: 'file', color: '#ef4444' },
+            { name: 'Images to PDF', desc: 'Combine multiple images into a PDF.', link: '/images-to-pdf', keywords: 'images pdf converter combine merge', category: 'pdf', icon: 'file', color: '#ef4444' },
+            { name: 'PDF Page Counter', desc: 'Count pages in a PDF file.', link: '/pdf-page-counter', keywords: 'pdf page counter count pages', category: 'pdf', icon: 'file', color: '#ef4444' },
+            { name: 'PDF Metadata Viewer', desc: 'View PDF metadata.', link: '/pdf-metadata-viewer', keywords: 'pdf metadata viewer info author', category: 'pdf', icon: 'info', color: '#ef4444' },
+            { name: 'PDF to Images', desc: 'Convert PDF pages to images.', link: '/pdf-to-images', keywords: 'pdf images converter jpg png', category: 'pdf', icon: 'file', color: '#ef4444' },
+            { name: 'PDF Merge', desc: 'Merge multiple PDF files.', link: '/pdf-merge', keywords: 'pdf merge combine join files', category: 'pdf', icon: 'git-merge', color: '#ef4444' },
+            { name: 'PDF Split', desc: 'Split a PDF into multiple files.', link: '/pdf-split', keywords: 'pdf split separate cut pages', category: 'pdf', icon: 'git-branch', color: '#ef4444' },
+            { name: 'PDF Rotate', desc: 'Rotate PDF pages.', link: '/pdf-rotate', keywords: 'pdf rotate page turn', category: 'pdf', icon: 'rotate-cw', color: '#ef4444' },
+            { name: 'PDF Page Extractor', desc: 'Extract specific pages from PDF.', link: '/pdf-page-extractor', keywords: 'pdf extract page range', category: 'pdf', icon: 'file', color: '#ef4444' },
+            { name: 'PDF Compressor', desc: 'Compress PDF file size.', link: '/pdf-compressor', keywords: 'pdf compress reduce size shrink smaller', category: 'pdf', icon: 'file', color: '#ef4444' },
+            { name: 'PDF to 50KB', desc: 'Compress a PDF down to roughly 50KB.', link: '/pdf-50kb', keywords: 'pdf 50kb compress reduce size shrink small upload form limit', category: 'pdf', icon: 'file', color: '#ef4444' },
+            { name: 'PDF to 100KB', desc: 'Compress a PDF down to roughly 100KB.', link: '/pdf-100kb', keywords: 'pdf 100kb compress reduce size shrink small upload form limit', category: 'pdf', icon: 'file', color: '#ef4444' },
+            { name: 'PDF to 200KB', desc: 'Compress a PDF down to roughly 200KB.', link: '/pdf-200kb', keywords: 'pdf 200kb compress reduce size shrink small upload form limit', category: 'pdf', icon: 'file', color: '#ef4444' },
+            { name: 'PDF to 500KB', desc: 'Compress a PDF down to roughly 500KB.', link: '/pdf-500kb', keywords: 'pdf 500kb compress reduce size shrink upload form limit', category: 'pdf', icon: 'file', color: '#ef4444' },
+            { name: 'PDF Text Extractor', desc: 'Extract text from PDF.', link: '/pdf-text-extractor', keywords: 'pdf text extractor copy', category: 'pdf', icon: 'file-text', color: '#ef4444' },
+            { name: 'PDF Lock', desc: 'Add password protection to PDF.', link: '/pdf-lock', keywords: 'pdf lock password protect encrypt', category: 'pdf', icon: 'lock', color: '#ef4444' },
+            { name: 'PDF Unlock', desc: 'Remove password from PDF.', link: '/pdf-unlock', keywords: 'pdf unlock password remove decrypt', category: 'pdf', icon: 'unlock', color: '#ef4444' },
+            { name: 'Invoice Generator', desc: 'Generate invoices.', link: '/invoice-generator', keywords: 'invoice generator bill billing', category: 'business', icon: 'file-text', color: '#10b981' },
+            { name: 'Quotation Generator', desc: 'Generate quotations.', link: '/quotation-generator', keywords: 'quotation generator quote estimate', category: 'business', icon: 'file-text', color: '#10b981' },
+            { name: 'Receipt Generator', desc: 'Generate receipts.', link: '/receipt-generator', keywords: 'receipt generator payment', category: 'business', icon: 'file-text', color: '#10b981' },
+            { name: 'Payslip Generator', desc: 'Generate payslips.', link: '/payslip-generator', keywords: 'payslip generator salary payroll', category: 'business', icon: 'file-text', color: '#10b981' },
+            { name: 'Shipping Label Generator', desc: 'Create printable shipping and courier labels with sender, receiver and tracking details.', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', category: 'business', icon: 'package', color: '#0ea5e9' },
+            { name: 'Resume Builder', desc: 'Build a clean, professional resume from your details and export it in seconds.', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', category: 'business', icon: 'file-text', color: '#8b5cf6' },
+            { name: 'GST Calculator', desc: 'Calculate GST amounts.', link: '/gst-calculator', keywords: 'gst calculator tax goods services', category: 'business', icon: 'percent', color: '#10b981' },
+            { name: 'Discount Calculator', desc: 'Calculate discounts.', link: '/discount-calculator', keywords: 'discount calculator sale off price', category: 'business', icon: 'percent', color: '#10b981' },
+            { name: 'Profit Margin Calculator', desc: 'Calculate profit margins.', link: '/profit-margin-calculator', keywords: 'profit margin calculator business', category: 'business', icon: 'trending-up', color: '#10b981' },
+            { name: 'Salary Calculator', desc: 'Calculate salary.', link: '/salary-calculator', keywords: 'salary calculator income wage', category: 'business', icon: 'dollar-sign', color: '#10b981' },
+            { name: 'EMI Calculator', desc: 'Calculate loan EMI.', link: '/emi-calculator', keywords: 'emi calculator loan equated monthly installment', category: 'finance', icon: 'calculator', color: '#f59e0b' },
+            { name: 'Loan Calculator', desc: 'Calculate loan details.', link: '/loan-calculator', keywords: 'loan calculator interest', category: 'finance', icon: 'calculator', color: '#f59e0b' },
+            { name: 'SIP Calculator', desc: 'Calculate SIP returns.', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment returns', category: 'finance', icon: 'trending-up', color: '#f59e0b' },
+            { name: 'Income Tax Calculator', desc: 'Calculate income tax.', link: '/income-tax-calculator', keywords: 'income tax calculator slab', category: 'finance', icon: 'percent', color: '#f59e0b' },
+            { name: 'Tax Calculator', desc: 'Calculate taxes.', link: '/tax-calculator', keywords: 'tax calculator', category: 'finance', icon: 'percent', color: '#f59e0b' },
+            { name: 'Tip Calculator', desc: 'Calculate tips.', link: '/tip-calculator', keywords: 'tip calculator restaurant gratuity', category: 'finance', icon: 'dollar-sign', color: '#f59e0b' },
+            { name: 'GPA Calculator', desc: 'Calculate GPA.', link: '/gpa-calculator', keywords: 'gpa calculator student grade point', category: 'calculator', icon: 'graduation-cap', color: '#8b5cf6' },
+            { name: 'CGPA Calculator', desc: 'Calculate CGPA.', link: '/cgpa-calculator', keywords: 'cgpa calculator student grade', category: 'calculator', icon: 'graduation-cap', color: '#8b5cf6' },
+            { name: 'Percentage Calculator', desc: 'Calculate percentages.', link: '/percentage-calculator', keywords: 'percentage calculator percent', category: 'calculator', icon: 'percent', color: '#8b5cf6' },
+            { name: 'Grade Calculator', desc: 'Calculate grades.', link: '/grade-calculator', keywords: 'grade calculator student marks', category: 'calculator', icon: 'graduation-cap', color: '#8b5cf6' },
+            { name: 'Marks Percentage Calculator', desc: 'Calculate marks percentage.', link: '/marks-percentage-calculator', keywords: 'marks percentage calculator exam', category: 'calculator', icon: 'percent', color: '#8b5cf6' },
+            { name: 'Attendance Calculator', desc: 'Calculate attendance percentage.', link: '/attendance-calculator', keywords: 'attendance calculator college percentage', category: 'calculator', icon: 'calendar', color: '#8b5cf6' },
+            { name: 'Study Time Calculator', desc: 'Calculate study time.', link: '/study-time-calculator', keywords: 'study time calculator planner', category: 'calculator', icon: 'clock', color: '#8b5cf6' },
+            { name: 'Exam Countdown', desc: 'Countdown to exams.', link: '/exam-countdown', keywords: 'exam countdown timer days', category: 'calculator', icon: 'calendar', color: '#8b5cf6' },
+            { name: 'Age Calculator', desc: 'Calculate age from date of birth.', link: '/age-calculator', keywords: 'age calculator birth date dob', category: 'calculator', icon: 'calendar', color: '#8b5cf6' },
+            { name: 'Scientific Calculator', desc: 'Advanced scientific calculator.', link: '/scientific-calculator', keywords: 'scientific calculator math trigonometry', category: 'calculator', icon: 'calculator', color: '#8b5cf6' },
+            { name: 'Quadratic Equation Calculator', desc: 'Solve quadratic equations.', link: '/quadratic-equation-calculator', keywords: 'quadratic equation calculator roots', category: 'calculator', icon: 'sigma', color: '#8b5cf6' },
+            { name: 'Matrix Calculator', desc: 'Perform matrix operations.', link: '/matrix-calculator', keywords: 'matrix calculator determinant multiply', category: 'calculator', icon: 'layout-grid', color: '#8b5cf6' },
+            { name: 'Probability Calculator', desc: 'Calculate probabilities.', link: '/probability-calculator', keywords: 'probability calculator chance', category: 'calculator', icon: 'percent', color: '#8b5cf6' },
+            { name: 'Standard Deviation Calculator', desc: 'Calculate standard deviation.', link: '/standard-deviation-calculator', keywords: 'standard deviation calculator statistics', category: 'calculator', icon: 'bar-chart-2', color: '#8b5cf6' },
+            { name: 'Mean Median Mode Calculator', desc: 'Calculate mean, median, mode.', link: '/mean-median-mode-calculator', keywords: 'mean median mode calculator average statistics', category: 'calculator', icon: 'bar-chart-2', color: '#8b5cf6' },
+            { name: 'Prime Number Checker', desc: 'Check if a number is prime.', link: '/prime-number-checker', keywords: 'prime number check', category: 'calculator', icon: 'hash', color: '#10b981' },
+            { name: 'Prime Number Generator', desc: 'Generate prime numbers.', link: '/prime-number-generator', keywords: 'prime number generator', category: 'calculator', icon: 'hash', color: '#10b981' },
+            { name: 'Factorial Calculator', desc: 'Calculate factorial of a number.', link: '/factorial-calculator', keywords: 'factorial calculator', category: 'calculator', icon: 'hash', color: '#10b981' },
+            { name: 'GCD Calculator', desc: 'Find greatest common divisor.', link: '/gcd-calculator', keywords: 'gcd calculator greatest common divisor hcf', category: 'calculator', icon: 'hash', color: '#10b981' },
+            { name: 'LCM Calculator', desc: 'Find least common multiple.', link: '/lcm-calculator', keywords: 'lcm calculator least common multiple', category: 'calculator', icon: 'hash', color: '#10b981' },
+            { name: 'Binary Calculator', desc: 'Perform binary calculations.', link: '/binary-calculator', keywords: 'binary calculator bits', category: 'calculator', icon: 'code', color: '#10b981' },
+            { name: 'Decimal to Binary', desc: 'Convert decimal to binary.', link: '/decimal-to-binary', keywords: 'decimal binary convert', category: 'calculator', icon: 'code', color: '#10b981' },
+            { name: 'Binary to Decimal', desc: 'Convert binary to decimal.', link: '/binary-to-decimal', keywords: 'binary decimal convert', category: 'calculator', icon: 'code', color: '#10b981' },
+            { name: 'Decimal to Hex', desc: 'Convert decimal to hex.', link: '/decimal-to-hex', keywords: 'decimal hex convert hexadecimal', category: 'calculator', icon: 'hexagon', color: '#10b981' },
+            { name: 'Hex to Decimal', desc: 'Convert hex to decimal.', link: '/hex-to-decimal', keywords: 'hex decimal convert hexadecimal', category: 'calculator', icon: 'hexagon', color: '#10b981' },
+            { name: 'Decimal to Octal', desc: 'Convert decimal to octal.', link: '/decimal-to-octal', keywords: 'decimal octal convert', category: 'calculator', icon: 'hash', color: '#10b981' },
+            { name: 'Average Calculator', desc: 'Calculate average of numbers.', link: '/average-calculator', keywords: 'average calculator mean', category: 'calculator', icon: 'bar-chart-2', color: '#10b981' },
+            { name: 'Ratio Calculator', desc: 'Calculate ratios.', link: '/ratio-calculator', keywords: 'ratio calculator proportion', category: 'calculator', icon: 'divide', color: '#10b981' },
+            { name: 'Fraction Calculator', desc: 'Calculate fractions.', link: '/fraction-calculator', keywords: 'fraction calculator numerator denominator', category: 'calculator', icon: 'divide', color: '#10b981' },
+            { name: 'Date Difference Calculator', desc: 'Calculate days between two dates.', link: '/date-difference-calculator', keywords: 'date difference days between', category: 'calculator', icon: 'calendar', color: '#0ea5e9' },
+            { name: 'Days Between Dates', desc: 'Find days between dates.', link: '/days-between-dates', keywords: 'days between dates calculator', category: 'calculator', icon: 'calendar', color: '#0ea5e9' },
+            { name: 'Add Days to Date', desc: 'Add days to a date.', link: '/add-days-to-date', keywords: 'add days date calculator', category: 'calculator', icon: 'calendar', color: '#0ea5e9' },
+            { name: 'Subtract Days from Date', desc: 'Subtract days from a date.', link: '/subtract-days-from-date', keywords: 'subtract days date calculator', category: 'calculator', icon: 'calendar', color: '#0ea5e9' },
+            { name: 'Business Days Calculator', desc: 'Calculate business days between dates.', link: '/business-days-calculator', keywords: 'business days calculator working days', category: 'calculator', icon: 'briefcase', color: '#0ea5e9' },
+            { name: 'Date to Unix Timestamp', desc: 'Convert date to Unix timestamp.', link: '/date-to-unix-timestamp', keywords: 'date unix timestamp epoch', category: 'calculator', icon: 'clock', color: '#0ea5e9' },
+            { name: 'Unix Timestamp to Date', desc: 'Convert Unix timestamp to date.', link: '/unix-timestamp-to-date', keywords: 'unix timestamp date epoch', category: 'calculator', icon: 'clock', color: '#0ea5e9' },
+            { name: 'Time Duration Calculator', desc: 'Calculate time duration between two times.', link: '/time-duration-calculator', keywords: 'time duration calculator hours minutes', category: 'calculator', icon: 'clock', color: '#0ea5e9' },
+            { name: 'Countdown Calculator', desc: 'Countdown to a future date.', link: '/countdown-calculator', keywords: 'countdown calculator timer', category: 'calculator', icon: 'clock', color: '#0ea5e9' },
+            { name: 'Week Number Calculator', desc: 'Find week number of a date.', link: '/week-number-calculator', keywords: 'week number calculator iso', category: 'calculator', icon: 'calendar', color: '#0ea5e9' },
+            { name: 'Leap Year Checker', desc: 'Check if a year is a leap year.', link: '/leap-year-checker', keywords: 'leap year checker february', category: 'calculator', icon: 'calendar', color: '#0ea5e9' },
+            { name: 'World Clock', desc: 'View current time in different time zones.', link: '/world-clock', keywords: 'world clock time zones current time', category: 'calculator', icon: 'globe', color: '#0ea5e9' },
+            { name: 'Time Zone Converter', desc: 'Convert time between time zones.', link: '/time-zone-converter', keywords: 'time zone converter utc gmt', category: 'calculator', icon: 'globe', color: '#0ea5e9' },
+            { name: 'Length Converter', desc: 'Convert length units.', link: '/length-converter', keywords: 'length converter units meter feet inch', category: 'calculator', icon: 'ruler', color: '#f59e0b' },
+            { name: 'Weight Converter', desc: 'Convert weight units.', link: '/weight-converter', keywords: 'weight converter units kg pound', category: 'calculator', icon: 'scale', color: '#f59e0b' },
+            { name: 'Temperature Converter', desc: 'Convert temperature units.', link: '/temperature-converter', keywords: 'temperature converter celsius fahrenheit kelvin', category: 'calculator', icon: 'thermometer', color: '#f59e0b' },
+            { name: 'Area Converter', desc: 'Convert area units.', link: '/area-converter', keywords: 'area converter units square meter acre', category: 'calculator', icon: 'square', color: '#f59e0b' },
+            { name: 'Volume Converter', desc: 'Convert volume units.', link: '/volume-converter', keywords: 'volume converter units litre gallon', category: 'calculator', icon: 'box', color: '#f59e0b' },
+            { name: 'Speed Converter', desc: 'Convert speed units.', link: '/speed-converter', keywords: 'speed converter units kmph mph', category: 'calculator', icon: 'gauge', color: '#f59e0b' },
+            { name: 'Data Storage Converter', desc: 'Convert data storage units.', link: '/data-storage-converter', keywords: 'data storage converter units mb gb tb', category: 'calculator', icon: 'hard-drive', color: '#f59e0b' },
+            { name: 'Energy Converter', desc: 'Convert energy units.', link: '/energy-converter', keywords: 'energy converter units joule calorie', category: 'calculator', icon: 'zap', color: '#f59e0b' },
+            { name: 'Pressure Converter', desc: 'Convert pressure units.', link: '/pressure-converter', keywords: 'pressure converter units pascal bar', category: 'calculator', icon: 'gauge', color: '#f59e0b' },
+            { name: 'Power Converter', desc: 'Convert power units.', link: '/power-converter', keywords: 'power converter units watt horsepower', category: 'calculator', icon: 'zap', color: '#f59e0b' },
+            { name: 'Frequency Converter', desc: 'Convert frequency units.', link: '/frequency-converter', keywords: 'frequency converter units hertz', category: 'calculator', icon: 'activity', color: '#f59e0b' },
+            { name: 'Angle Converter', desc: 'Convert angle units.', link: '/angle-converter', keywords: 'angle converter units degree radian', category: 'calculator', icon: 'rotate-cw', color: '#f59e0b' },
+            { name: 'Pace Converter', desc: 'Convert pace units.', link: '/pace-converter', keywords: 'pace converter running units', category: 'calculator', icon: 'gauge', color: '#f59e0b' },
+            { name: 'Fuel Economy Converter', desc: 'Convert fuel economy units.', link: '/fuel-economy-converter', keywords: 'fuel economy converter units mileage', category: 'calculator', icon: 'gauge', color: '#f59e0b' }
         ];
 
         const toolByLink = {};
@@ -1694,24 +1561,6 @@
             if (t) captureTriggerRect(t);
         }, { passive: true, capture: true });
 
-        /* ============================================================
-           TOUCH HOVER
-           ------------------------------------------------------------
-           On touch devices the CSS :hover state is unreliable — it
-           "sticks" after a tap and makes cards / footer links look
-           broken. We already neutralise :hover on touch via the
-           @media (hover: none) block.
-
-           To give touch users the SAME animation desktop users get
-           from hovering (lift, shadow, colour slide), we add a
-           `.touch-hover` class for ~220ms after touchstart. CSS
-           rules for `.touch-hover` mirror the desktop :hover rules
-           exactly, so the visual result is identical on every device.
-
-           Scrolling is detected: if the finger moves more than a
-           few pixels, we cancel the hover so scroll gestures never
-           trigger card animations by accident.
-           ============================================================ */
         function initTouchHover() {
             if (!IS_TOUCH_DEVICE) return;
 
@@ -1792,11 +1641,6 @@
                     scrollDetected = true;
                     clearActive();
                 }
-            }, { passive: true });
-
-            document.addEventListener('touchend', function() {
-                // Let the timer finish the animation so the hover state
-                // stays visible for a moment after the finger lifts.
             }, { passive: true });
 
             document.addEventListener('touchcancel', function() {
@@ -1901,35 +1745,18 @@
             ).join('');
         }
 
-        const iconMap = {
-            text: 'type',
-            developer: 'code-2',
-            generator: 'dice-6',
-            image: 'image',
-            pdf: 'file',
-            business: 'briefcase',
-            calculator: 'calculator',
-            finance: 'banknote'
-        };
-        const colorMap = {
-            text: '#0ea5e9',
-            developer: '#f59e0b',
-            generator: '#14b8a6',
-            image: '#ec4899',
-            pdf: '#ef4444',
-            business: '#10b981',
-            calculator: '#8b5cf6',
-            finance: '#f59e0b'
-        };
-
+        /* ============================================================
+           Render the tools grid — now using each tool's own `icon`
+           and `color` field, so the icons match the original HTML.
+           ============================================================ */
         function renderToolsGrid() {
             const grid = document.getElementById('toolsGrid');
             if (!grid) return;
             grid.innerHTML = tools.map(function(t) {
-                var iconName = iconMap[t.category] || 'wrench';
-                var color = colorMap[t.category] || '#64748b';
+                var iconName = t.icon || 'wrench';
+                var color = t.color || '#64748b';
                 return '<a href="' + escAttr(t.link) + '" class="tool-card" data-category="' + escAttr(t.category) + '">' +
-                    '<div class="tool-icon" style="color:' + color + '">' +
+                    '<div class="tool-icon" style="color:' + escAttr(color) + '">' +
                         '<i data-lucide="' + escAttr(iconName) + '" width="24" height="24" aria-hidden="true"></i>' +
                     '</div>' +
                     '<h3>' + escHtml(t.name) + '</h3>' +
