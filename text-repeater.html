@@ -158,7 +158,6 @@ img,video,canvas,iframe,embed,object{max-width:100%;height:auto}
 svg{max-width:100%}table{max-width:100%}
 pre,code{white-space:pre-wrap;word-wrap:break-word;overflow-wrap:anywhere}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus-ring);border-radius:6px}
-/* Prevent blue focus ring when clicking with mouse (only show for keyboard) */
 button:focus:not(:focus-visible),
 a:focus:not(:focus-visible),
 .btn:focus:not(:focus-visible),
@@ -283,9 +282,32 @@ main{flex:1;padding:clamp(20px,3.5vw,50px) 0;width:100%;min-width:0}
 /* ============ TOOL LAYOUT ============ */
 .tool-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-bottom:60px;align-items:start;width:100%;min-width:0}
 @media (max-width:900px){.tool-layout{grid-template-columns:minmax(0,1fr);gap:14px}}
-/* Tool panels: fully static borders — no animation, no focus ring, no transitions */
-.tool-panel{background:var(--panel-bg);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--card-shadow);width:100%;min-width:0;outline:none;transition:none;animation:none}
-.tool-panel:focus,.tool-panel:focus-visible,.tool-panel:focus-within,.tool-panel:hover{outline:none;box-shadow:var(--card-shadow);border-color:var(--line);transition:none;animation:none}
+
+/* Tool panels: fully static borders — no border animation, no focus ring, no transitions.
+   NOTE: We deliberately only freeze the panel container itself, NOT its children,
+   so the Repeat Text button's click animation can still play. */
+.tool-panel{
+    background:var(--panel-bg);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px;
+    box-shadow:var(--card-shadow);
+    width:100%;
+    min-width:0;
+    outline:none;
+    transition:none !important;
+    animation:none !important;
+}
+.tool-panel:focus,
+.tool-panel:focus-visible,
+.tool-panel:focus-within,
+.tool-panel:hover{
+    outline:none !important;
+    box-shadow:var(--card-shadow) !important;
+    border-color:var(--line) !important;
+    transition:none !important;
+    animation:none !important;
+}
 .tool-panel-header{display:flex;align-items:center;gap:12px;padding-bottom:18px;margin-bottom:20px;border-bottom:1px solid var(--line)}
 .tool-panel-icon{width:36px;height:36px;border-radius:10px;background:var(--tool-accent-soft);color:var(--tool-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 html.dark-mode .tool-panel-icon{background:var(--tool-accent-light)}
@@ -449,37 +471,49 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 @media (max-height:500px) and (orientation:landscape){.mobile-sidebar{padding:14px}.mobile-sidebar-header{margin-bottom:14px;padding-bottom:12px}.search-overlay-full{padding-top:10px}}
 
 /* ============================================================
+   REPEAT BUTTON CLICK ANIMATION — ONLY THIS BUTTON IS ANIMATED
+   ============================================================ */
+@keyframes repeatBtnPulse {
+    0%   { transform: scale(1);    box-shadow: 0 0 0 0 rgba(0,0,0,0.35); }
+    50%  { transform: scale(0.96); box-shadow: 0 0 0 10px rgba(0,0,0,0); }
+    100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+}
+@keyframes repeatBtnPulseDark {
+    0%   { transform: scale(1);    box-shadow: 0 0 0 0 rgba(255,255,255,0.45); }
+    50%  { transform: scale(0.96); box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+    100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+#repeatBtn.btn-primary.click-anim {
+    animation: repeatBtnPulse 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+html.dark-mode #repeatBtn.btn-primary.click-anim {
+    animation: repeatBtnPulseDark 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+    #repeatBtn.btn-primary.click-anim { animation: none !important; }
+}
+
+/* ============================================================
    TOOL PANEL BORDER ANIMATION KILL SWITCH
-   Removes every transition / animation on the tool panels,
-   their borders and their focus rings.
+   Freezes the panel container borders only.
+   Children (including the Repeat button) keep their own effects.
    ============================================================ */
 .tool-panel,
-.tool-panel *,
-.tool-panel *::before,
-.tool-panel *::after{
-    transition:none !important;
-    animation:none !important;
+.tool-panel:focus,
+.tool-panel:focus-visible,
+.tool-panel:focus-within,
+.tool-panel:hover {
+    transition: none !important;
+    animation: none !important;
 }
 .tool-panel input:focus,
 .tool-panel input:focus-visible,
 .tool-panel textarea:focus,
 .tool-panel textarea:focus-visible,
 .tool-panel select:focus,
-.tool-panel select:focus-visible,
-.tool-panel button:focus,
-.tool-panel button:focus-visible,
-.tool-panel .btn:focus,
-.tool-panel .btn:focus-visible,
-.tool-panel .form-input:focus,
-.tool-panel .form-textarea:focus,
-.tool-panel .count-field:focus,
-.tool-panel .count-stepper-btn:focus,
-.tool-panel .preset-chip:focus,
-.tool-panel .sep-option:focus,
-.tool-panel .toggle-row:focus,
-.tool-panel .icon-btn:focus{
-    outline:none !important;
-    box-shadow:none !important;
+.tool-panel select:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
 }
 </style>
 </head>
@@ -1814,6 +1848,15 @@ function initInputCounter(){
     });
 }
 
+/* ----- Repeat button click animation ----- */
+function triggerRepeatBtnAnim(btn){
+    btn.classList.remove('click-anim');
+    // Force reflow to restart animation
+    void btn.offsetWidth;
+    btn.classList.add('click-anim');
+    setTimeout(function(){ btn.classList.remove('click-anim'); }, 500);
+}
+
 function init(){
     document.getElementById('dynamicYear').textContent = new Date().getFullYear();
     initResizeHandler();
@@ -1825,6 +1868,7 @@ function init(){
 
     const repeatBtn = document.getElementById('repeatBtn');
     repeatBtn.addEventListener('click', function(){
+        triggerRepeatBtnAnim(this);
         repeatText();
     });
 
