@@ -822,7 +822,7 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 <div class="search-box" id="searchBoxAnimated">
 <svg class="icon search-icon-leading" width="20" height="20" aria-hidden="true"><use href="#i-search"/></svg>
 <label for="fullSearchInput" class="sr-only">Search all tools</label>
-<input type="text" id="fullSearchInput" placeholder="Search tools…" oninput="filterFullSearch()" onkeydown="handleSearchKey(event)" autocomplete="off" aria-label="Search all tools" role="combobox" aria-expanded="true" aria-controls="fullSearchResultsList">
+<input type="text" id="fullSearchInput" placeholder="Search tools…" oninput="filterFullSearch()" onkeydown="handleSearchKey(event)" autocomplete="off" aria-label="Search all tools" role="combobox" aria-expanded="false" aria-controls="fullSearchResultsList">
 <button type="button" class="search-clear-btn" id="searchClearBtn" onclick="clearSearchInput()" aria-label="Clear search"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg></button>
 <button type="button" class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
 </div>
@@ -851,7 +851,9 @@ const ICON_RULES = [
     [/line counter/, 'list-ordered'], [/line finder/, 'list-x'], [/line remover/, 'copy-x'],
     [/line break/, 'arrow-left-right'], [/reading time/, 'book-open'], [/speaking time/, 'mic'],
     [/keyword density/, 'percent'], [/keyword counter/, 'tag'], [/keyword extractor/, 'tags'],
-    [/duplicate word/, 'search'], [/text statistics/, 'bar-chart-2'], [/word frequency/, 'bar-chart-3'],
+    [/duplicate word/, 'search'], [/remove duplicate words/, 'copy-x'], [/text statistics/, 'bar-chart-2'],
+    [/regex tester/, 'asterisk'], [/regex generator/, 'wand-2'], [/regex escape/, 'shield'],
+    [/word frequency/, 'bar-chart-3'],
     [/character frequency/, 'bar-chart'], [/password strength/, 'shield-check'], [/whitespace/, 'eraser'],
     [/remove extra spaces/, 'minimize'], [/remove empty lines/, 'minus-square'], [/remove blank/, 'square'],
     [/remove emojis/, 'smile'], [/remove symbols/, 'asterisk'], [/remove punctuation/, 'quote'],
@@ -1361,7 +1363,11 @@ function openFullSearch(){
     overlay.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
     var input = document.getElementById('fullSearchInput');
-    if (input){ input.value = ''; input.placeholder = 'Search tools…'; }
+    if (input){
+        input.value = '';
+        input.placeholder = 'Search tools…';
+        input.setAttribute('aria-expanded', 'true');
+    }
     var clearBtn = document.getElementById('searchClearBtn');
     if (clearBtn) clearBtn.classList.remove('show');
     buildSearchResults('', '');
@@ -1380,7 +1386,10 @@ function closeFullSearch(){
     overlay.classList.remove('active');
     overlay.setAttribute('aria-hidden','true');
     var inp = document.getElementById('fullSearchInput');
-    if (inp) inp.value = '';
+    if (inp){
+        inp.value = '';
+        inp.setAttribute('aria-expanded', 'false');
+    }
     var clearBtn = document.getElementById('searchClearBtn');
     if (clearBtn) clearBtn.classList.remove('show');
     var list = document.getElementById('fullSearchResultsList');
