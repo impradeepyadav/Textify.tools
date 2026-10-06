@@ -219,9 +219,6 @@ main{flex:1;padding:clamp(20px,3.5vw,50px) 0;width:100%;min-width:0}
 .tool-hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;margin-bottom:12px;line-height:1.25;text-align:left;overflow-wrap:break-word}
 .tool-hero .subtitle{font-size:clamp(15px,1.5vw,18px);color:var(--text-light);line-height:1.7;margin-bottom:0;text-align:left;overflow-wrap:break-word}
 
-.privacy-strip{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--good-bg);border:1px solid var(--good);border-radius:12px;font-size:13px;font-weight:600;color:var(--good);margin-bottom:24px;line-height:1.5}
-.privacy-strip svg{width:18px;height:18px;flex-shrink:0}
-
 .tool-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-bottom:60px;align-items:start;width:100%;min-width:0}
 @media (max-width:900px){.tool-layout{grid-template-columns:minmax(0,1fr);gap:14px}}
 .tool-panel{background:var(--panel-bg);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--card-shadow);width:100%;min-width:0;transition:box-shadow .25s}
@@ -339,6 +336,14 @@ html.dark-mode .info-tip{background:var(--tool-accent-light)}
 .feature-card h4{font-size:clamp(15px,1.4vw,17px);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px;overflow-wrap:break-word}
 .feature-card h4 svg{width:20px;height:20px;flex-shrink:0;color:var(--tool-accent)}
 .feature-card p{font-size:14px;color:var(--text-light);margin:0;line-height:1.6}
+
+.table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;margin-bottom:22px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+table th,table td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+table th{background:var(--table-header);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--text-light);white-space:nowrap}
+table tr:last-child td{border-bottom:none}
+table tbody tr:hover{background:var(--table-hover)}
+table td strong{color:var(--text);font-weight:700}
 
 .faq-item{margin-bottom:16px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .faq-question{background:var(--faq-bg);padding:16px 18px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--text);font-size:clamp(14px,1.4vw,15px);border:none;width:100%;text-align:left;font-family:inherit;line-height:1.5}
@@ -465,11 +470,6 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <p class="subtitle">Remove password protection from a PDF you have the password for — right in your browser. Supports AES-256 and RC4 encryption, with both user and owner passwords accepted. Everything runs locally, so your document never leaves your device.</p>
 </div>
 
-<div class="privacy-strip">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-<div>Your PDF is processed locally in your browser. Files are not uploaded to our server.</div>
-</div>
-
 <div class="tool-layout">
 <!-- LEFT PANEL -->
 <div class="tool-panel">
@@ -585,6 +585,26 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 </div>
 
 <div class="content-section">
+<h2>Encryption types you might encounter</h2>
+<p>PDFs use one of a few encryption standards, and knowing which one you're dealing with helps you understand what this tool can do.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Encryption</th><th>PDF version</th><th>Common in</th><th>Supported here</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>AES-256</strong></td><td>PDF 2.0 (rev 6)</td><td>Modern PDFs from the last ~10 years</td><td>Yes — full support</td></tr>
+<tr><td><strong>RC4 128-bit</strong></td><td>PDF 1.4–1.7 (rev 3/4)</td><td>Older documents from ~2005–2015</td><td>Yes — full support</td></tr>
+<tr><td><strong>RC4 40-bit</strong></td><td>PDF 1.1–1.3 (rev 2)</td><td>Very old documents, rarely seen today</td><td>Yes — full support</td></tr>
+<tr><td><strong>AES-128</strong></td><td>PDF 1.6+ (rev 4)</td><td>Some mid-2000s PDFs</td><td>Not supported — clear error is shown</td></tr>
+<tr><td><strong>Public-key (certificate)</strong></td><td>PDF 1.5+</td><td>Enterprise document workflows</td><td>Not supported</td></tr>
+</tbody>
+</table>
+</div>
+<p>If your file uses an unsupported encryption method, the tool will say so clearly instead of producing a broken file. Try the file in an updated PDF reader first — sometimes the same PDF uses a mix of methods, and re-saving in a modern reader can change the encryption to one this tool supports.</p>
+</div>
+
+<div class="content-section">
 <h2>When would you need to unlock a PDF?</h2>
 <ul>
 <li><strong>Your own forgotten password:</strong> You locked a PDF months ago and can no longer remember the password.</li>
@@ -593,6 +613,21 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <li><strong>Archiving:</strong> Remove encryption from old documents so they can be indexed and searched more easily.</li>
 <li><strong>Sharing internally:</strong> A document that requires a password for external use is annoying for internal team members.</li>
 <li><strong>Printing:</strong> Some locked PDFs block printing entirely, even for the person who owns the document.</li>
+<li><strong>Text extraction:</strong> Many PDFs that are encrypted block copy-paste, which stops you from extracting text until you unlock them first.</li>
+<li><strong>Automation:</strong> Scripts and tools that process PDFs can't easily read encrypted files — unlocking first is often a required step.</li>
+</ul>
+</div>
+
+<div class="content-section">
+<h2>Tips for a smooth unlock experience</h2>
+<ul>
+<li><strong>Try the user password first.</strong> If it doesn't work, try the owner password. Some PDFs accept only one of the two.</li>
+<li><strong>Watch for trailing spaces.</strong> Copy-pasting passwords often brings along a hidden space. Type it manually if you can.</li>
+<li><strong>Check for Caps Lock.</strong> Passwords are case-sensitive — a single uppercase letter can make the difference.</li>
+<li><strong>Keep the original file.</strong> Never overwrite a locked PDF with the unlocked version until you're sure the unlocked file opens correctly.</li>
+<li><strong>Lock your documents again after editing.</strong> If you removed protection to make edits, use the <a href="/pdf-lock">PDF Lock tool</a> to re-encrypt the final file before sharing it.</li>
+<li><strong>Forget 100% of the password?</strong> There is no recovery. AES-256 is designed so that brute-forcing even a short password takes years. Keep passwords in a password manager or a safe note.</li>
+<li><strong>Test with a trusted viewer.</strong> After unlocking, open the file in Adobe Acrobat Reader, macOS Preview, or your browser to confirm it opens and looks correct.</li>
 </ul>
 </div>
 
@@ -600,11 +635,12 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <h2>Frequently asked questions</h2>
 <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Is this PDF Unlock tool free?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. Completely free, no signup, no watermark, no hidden charges. Unlock as many PDFs as you want, for personal or commercial use.</div></div>
 <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Are my PDF files uploaded to a server?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">No. The entire decryption happens in your browser using JavaScript and the Web Crypto API. Your PDF never leaves your device — there is no server processing, no logging, and no data storage. Close the tab and it's gone.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What encryption does this tool support?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">AES-256 (PDF 2.0, revision 6) and RC4 (40-bit and 128-bit legacy encryption). AES-128 is not yet supported — you'll see a clear error if your PDF uses it.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What encryption does this tool support?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">AES-256 (PDF 2.0, revision 6) and RC4 (40-bit and 128-bit legacy encryption). AES-128 and public-key encryption are not yet supported — you'll see a clear error if your PDF uses those.</div></div>
 <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What's the difference between a user password and an owner password?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">The <strong>user password</strong> is required to open the PDF. The <strong>owner password</strong> controls permissions (printing, copying, modifying). Both are accepted by this tool — enter whichever one you have.</div></div>
 <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I unlock a PDF without the password?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">No. There is no legitimate way to bypass AES-256 or RC4 encryption without the password. This tool is designed for removing protection from PDFs you own and have the password for. If you have the password, this tool will remove the protection cleanly.</div></div>
 <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Does it work with permission-restricted PDFs?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. If a PDF opens without a password but blocks printing, copying, or editing, that's permission-restricted encryption. Enter the owner password (or leave it empty if the PDF doesn't require one) and the tool will remove those restrictions.</div></div>
 <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Does it work offline?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. Once the page and the decryption library are loaded, the tool works without an internet connection. All processing happens locally in your browser.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Why does it say the password is incorrect?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Double-check for trailing spaces, Caps Lock, and any special characters. If you're sure the password is right but the tool still rejects it, the PDF may use a password encoding this tool doesn't handle. Try opening the PDF in Adobe Acrobat Reader to verify the password works there first.</div></div>
 </div>
 </div>
 </main>
@@ -1261,13 +1297,6 @@ async function ensureDecryptLib(){
     });
 })();
 
-function formatBytes(bytes){
-    if (bytes === 0) return '0 B';
-    var k = 1024, sizes = ['B', 'KB', 'MB', 'GB'];
-    var i = Math.floor(Math.log(bytes) / Math.log(k));
-    return (bytes / Math.pow(k, i)).toFixed(i === 0 ? 0 : 1) + ' ' + sizes[i];
-}
-
 async function handleFile(file){
     hideError(); hideWarning();
     if (!file) return;
@@ -1284,7 +1313,6 @@ async function handleFile(file){
         return;
     }
 
-    // Reset previous result
     if (resultUrl){ try { URL.revokeObjectURL(resultUrl); } catch(e){} resultUrl = null; }
     resultBlob = null;
     pdfFile = null; pdfBytes = null;
@@ -1292,7 +1320,6 @@ async function handleFile(file){
     try {
         var buf = new Uint8Array(await file.arrayBuffer());
 
-        // Ensure library is loaded before checking encryption
         var lib = await ensureDecryptLib();
         var info = null;
         try {
@@ -1375,7 +1402,6 @@ function updateUnlockBtnState(){
     btn.disabled = !pdfFile || !pdfBytes;
 }
 
-/* ---- Password visibility toggle ---- */
 function togglePass(inputId, btn){
     var input = document.getElementById(inputId);
     if (!input) return;
@@ -1388,7 +1414,6 @@ function togglePass(inputId, btn){
     }
 }
 
-/* ---- Error / warning helpers ---- */
 function showError(msg){
     var el = document.getElementById('errorMsg');
     el.innerHTML = '<i data-lucide="alert-circle" aria-hidden="true"></i><div>' + escHtml(msg) + '</div>';
@@ -1404,7 +1429,6 @@ function showWarning(msg){
 }
 function hideWarning(){ document.getElementById('warningBanner').classList.remove('show'); }
 
-/* ---- Main unlock flow ---- */
 async function unlockPDF(){
     if (decrypting) return;
     if (!pdfFile || !pdfBytes){ showError('Please upload a PDF first.'); return; }
@@ -1431,7 +1455,6 @@ async function unlockPDF(){
     try {
         var lib = await ensureDecryptLib();
 
-        // Decrypt
         var decrypted;
         try {
             decrypted = await lib.decryptPDF(pdfBytes, password);
@@ -1458,7 +1481,6 @@ async function unlockPDF(){
         resultUrl = URL.createObjectURL(resultBlob);
         resultName = pdfFile.name.replace(/\.pdf$/i, '') + '-unlocked.pdf';
 
-        // Update UI
         document.getElementById('statOriginal').textContent = formatBytes(pdfFile.size);
         document.getElementById('statUnlocked').textContent = formatBytes(resultBlob.size);
         document.getElementById('statStatus').textContent = 'Unlocked';
@@ -1502,7 +1524,6 @@ function downloadResult(){
     showToast('Downloading ' + (resultName || 'unlocked.pdf'));
 }
 
-/* ---- Modal (kept for consistency) ---- */
 var modalTimer;
 function showModal(type){
     var overlay = document.getElementById('actionModal');
@@ -1528,7 +1549,6 @@ function closeModal(){
 }
 document.getElementById('actionModal').addEventListener('click', function(e){ if (e.target === this) closeModal(); });
 
-/* ---- Wire up buttons ---- */
 document.getElementById('unlockBtn').addEventListener('click', unlockPDF);
 document.getElementById('cancelBtn').addEventListener('click', function(){
     if (decrypting){ cancelled = true; showToast('Cancelling…'); }
@@ -1540,7 +1560,6 @@ document.getElementById('pdfPassword').addEventListener('keydown', function(e){
     if (e.key === 'Enter' && !document.getElementById('unlockBtn').disabled) unlockPDF();
 });
 
-/* ---- Init ---- */
 document.getElementById('dynamicYear').textContent = new Date().getFullYear();
 initSystemThemeListener();
 
