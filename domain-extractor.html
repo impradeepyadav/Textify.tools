@@ -5,26 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Domain Extractor – Extract Domains from Text, Emails & URLs</title>
 <meta name="description" content="Extract domains from text, emails, and URLs instantly with our free online Domain Extractor. Fast, accurate, and easy to use with no signup.">
-<meta name="keywords" content="domain extractor, extract domain from url, extract domains from text, domain name extractor, extract domain from email, bulk domain extractor, url to domain converter, domain parser, hostname extractor, extract domains online, domain extractor tool, pull domain names, list of urls to domains, extract root domain, extract all domains from text, free domain extractor, domain extractor no signup, domain name finder, tld extractor, subdomain extractor, domain scraper">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Pradeep Yadav">
 <link rel="canonical" href="https://textify.tools/domain-extractor">
 <link rel="alternate" hreflang="en" href="https://textify.tools/domain-extractor">
+<link rel="alternate" hreflang="en-US" href="https://textify.tools/domain-extractor">
 <link rel="alternate" hreflang="x-default" href="https://textify.tools/domain-extractor">
 <meta name="theme-color" content="#ffffff" id="themeColorMeta">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://textify.tools/domain-extractor">
 <meta property="og:title" content="Domain Extractor – Extract Domain Names from Text, URLs &amp; Emails">
 <meta property="og:description" content="Free online domain extractor. Pull domain names from any text, URLs, or email addresses instantly. Deduplicate, sort, filter by TLD, and download — all in your browser.">
 <meta property="og:site_name" content="Textify.tools">
-<meta property="og:image" content="https://textify.tools/og-image.png">
+<meta property="og:image" content="https://textify.tools/og-image-domain-extractor.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Domain Extractor – extract domain names from text, URLs and emails in your browser">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@BuiltByPradeep">
+<meta name="twitter:creator" content="@BuiltByPradeep">
 <meta name="twitter:title" content="Domain Extractor – Extract Domain Names from Text, URLs &amp; Emails">
 <meta name="twitter:description" content="Free online domain extractor. Pull domain names from any text, URLs, or email addresses instantly. Deduplicate, sort, filter by TLD, and download.">
-<meta name="twitter:image" content="https://textify.tools/og-image.png">
+<meta name="twitter:image" content="https://textify.tools/og-image-domain-extractor.png">
 <meta name="twitter:image:alt" content="Domain Extractor – extract domain names from text, URLs and emails in your browser">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -67,11 +70,18 @@ gtag('config', 'G-6VGXXT81MB');
 {
   "@context": "https://schema.org",
   "@graph": [
-    { "@type": "WebSite", "@id": "https://textify.tools/#website", "url": "https://textify.tools/", "name": "Textify.tools", "description": "Free online text tools you can use right in your browser.", "publisher": { "@id": "https://textify.tools/#organization" } },
+    { "@type": "WebSite", "@id": "https://textify.tools/#website", "url": "https://textify.tools/", "name": "Textify.tools", "description": "Free online text tools you can use right in your browser.", "publisher": { "@id": "https://textify.tools/#organization" }, "potentialAction": { "@type": "SearchAction", "target": "https://textify.tools/search?q={search_term_string}", "query-input": "required name=search_term_string" } },
     { "@type": "Organization", "@id": "https://textify.tools/#organization", "name": "Textify.tools", "url": "https://textify.tools/", "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 }, "sameAs": ["https://x.com/BuiltByPradeep"] },
     { "@type": "Person", "@id": "https://textify.tools/#author", "name": "Pradeep Yadav", "url": "https://textify.tools/about-us", "worksFor": { "@id": "https://textify.tools/#organization" } },
-    { "@type": "WebApplication", "@id": "https://textify.tools/domain-extractor/#app", "name": "Domain Extractor", "url": "https://textify.tools/domain-extractor", "description": "Free online domain extractor. Extract domain names from any text, URLs, or email addresses instantly. Deduplicate, sort, filter by TLD, and download — all in your browser.", "applicationCategory": "UtilityApplication", "operatingSystem": "Web Browser", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }, "featureList": "Extract domains from text, Extract domains from URLs, Extract domains from emails, Include subdomains, Strip www prefix, Deduplicate results, Sort alphabetically, Filter by TLD, Copy to clipboard, Download as TXT, Domain statistics" },
-    { "@type": "FAQPage", "mainEntity": [
+    { "@type": "WebApplication", "@id": "https://textify.tools/domain-extractor/#app", "name": "Domain Extractor", "url": "https://textify.tools/domain-extractor", "description": "Free online domain extractor. Extract domain names from any text, URLs, or email addresses instantly. Deduplicate, sort, filter by TLD, and download — all in your browser.", "applicationCategory": "UtilityApplication", "operatingSystem": "Web Browser", "browserRequirements": "Requires JavaScript", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }, "featureList": "Extract domains from text, Extract domains from URLs, Extract domains from emails, Include subdomains, Strip www prefix, Deduplicate results, Sort alphabetically, Filter by TLD, Copy to clipboard, Download as TXT, Domain statistics", "creator": { "@id": "https://textify.tools/#author" }, "publisher": { "@id": "https://textify.tools/#organization" } },
+    { "@type": "HowTo", "@id": "https://textify.tools/domain-extractor/#howto", "name": "How to extract domain names from text, URLs, and emails", "description": "Step-by-step guide to extracting every domain name from a block of text using the Textify.tools Domain Extractor.", "totalTime": "PT1M", "tool": [{ "@type": "HowToTool", "name": "Textify.tools Domain Extractor" }], "step": [
+      { "@type": "HowToStep", "position": 1, "name": "Paste your text", "text": "Paste URLs, email addresses, log lines, or any text that contains domain names into the input box." },
+      { "@type": "HowToStep", "position": 2, "name": "Choose extraction options", "text": "Toggle include subdomains, strip www prefix, extract from emails, remove duplicates, and sort alphabetically." },
+      { "@type": "HowToStep", "position": 3, "name": "Click Extract Domains", "text": "The tool scans your text, normalises every match, and displays a clean list of domains." },
+      { "@type": "HowToStep", "position": 4, "name": "Filter by TLD", "text": "Use the TLD filter chips to show only .com, .org, .io, or any other extension you care about." },
+      { "@type": "HowToStep", "position": 5, "name": "Copy or download", "text": "Copy the list to your clipboard or download it as a .txt file with one domain per line." }
+    ] },
+    { "@type": "FAQPage", "@id": "https://textify.tools/domain-extractor/#faq", "mainEntity": [
       { "@type": "Question", "name": "What is a domain extractor?", "acceptedAnswer": { "@type": "Answer", "text": "A domain extractor is a tool that scans any block of text — URLs, email addresses, log files, or plain prose — and pulls out all the domain names it finds." } },
       { "@type": "Question", "name": "How do I extract domains from a list of URLs?", "acceptedAnswer": { "@type": "Answer", "text": "Paste your list of URLs into the input box and click Extract Domains. The tool parses each URL, strips the protocol and path, and returns just the domain names." } },
       { "@type": "Question", "name": "Can I extract domains from email addresses?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool detects email addresses like user@example.com and extracts just the example.com part." } },
@@ -80,7 +90,13 @@ gtag('config', 'G-6VGXXT81MB');
       { "@type": "Question", "name": "Is my text uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Everything runs in your browser using JavaScript. The text you paste never leaves your device." } },
       { "@type": "Question", "name": "Can I download the extracted domains?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can copy the full list to your clipboard or download it as a .txt file with one domain per line." } },
       { "@type": "Question", "name": "Is this domain extractor free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free. No signup, no watermark, no hidden charges." } },
-      { "@type": "Question", "name": "Does it work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once the page loads, the domain extractor works without an internet connection." } }
+      { "@type": "Question", "name": "Does it work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once the page loads, the domain extractor works without an internet connection." } },
+      { "@type": "Question", "name": "What is the difference between a domain and a URL?", "acceptedAnswer": { "@type": "Answer", "text": "A domain is the human-readable address of a website (example.com). A URL includes the protocol, domain, path, and query string (https://example.com/blog?page=2). This tool converts URLs into just their domains." } },
+      { "@type": "Question", "name": "Does the tool support multi-part TLDs like .co.uk?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool has a built-in list of common multi-part public suffixes such as .co.uk, .com.au, .co.in, .com.br, and .co.jp, so it correctly identifies the registrable domain." } },
+      { "@type": "Question", "name": "Will it extract IP addresses?", "acceptedAnswer": { "@type": "Answer", "text": "No. IP addresses such as 192.168.1.1 are not domain names, and the tool automatically filters them out of the results." } },
+      { "@type": "Question", "name": "Can I extract domains from HTML source code?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Paste any HTML snippet into the input box. The tool will pull out every domain name it finds, including those inside href, src, and plain text." } },
+      { "@type": "Question", "name": "How many domains can I extract at once?", "acceptedAnswer": { "@type": "Answer", "text": "There is no hard limit. Since extraction happens in your browser, the practical limit is your device's memory. Lists with tens of thousands of URLs work fine." } },
+      { "@type": "Question", "name": "Is the extracted data stored anywhere?", "acceptedAnswer": { "@type": "Answer", "text": "No. Nothing is stored, logged, or transmitted. Everything happens locally in your browser and disappears when you close the tab." } }
     ] },
     { "@type": "BreadcrumbList", "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
@@ -133,20 +149,7 @@ img,video,canvas,iframe,embed,object{max-width:100%;height:auto}
 svg{max-width:100%}table{max-width:100%}
 pre,code{white-space:pre-wrap;word-wrap:break-word;overflow-wrap:anywhere}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus-ring);border-radius:6px}
-button:focus:not(:focus-visible),
-a:focus:not(:focus-visible),
-.cat-chip:focus:not(:focus-visible),
-.category-card:focus:not(:focus-visible),
-.tool-card:focus:not(:focus-visible),
-.theme-btn:focus:not(:focus-visible),
-.search-trigger:focus:not(:focus-visible),
-.hamburger-btn:focus:not(:focus-visible),
-.tools-trigger:focus:not(:focus-visible),
-.mobile-tools-toggle:focus:not(:focus-visible),
-.mobile-sidebar-close:focus:not(:focus-visible),
-.search-close-btn:focus:not(:focus-visible),
-.search-clear-btn:focus:not(:focus-visible),
-.faq-question:focus:not(:focus-visible){box-shadow:none !important;outline:none !important}
+button:focus:not(:focus-visible),a:focus:not(:focus-visible),.cat-chip:focus:not(:focus-visible),.category-card:focus:not(:focus-visible),.tool-card:focus:not(:focus-visible),.theme-btn:focus:not(:focus-visible),.search-trigger:focus:not(:focus-visible),.hamburger-btn:focus:not(:focus-visible),.tools-trigger:focus:not(:focus-visible),.mobile-tools-toggle:focus:not(:focus-visible),.mobile-sidebar-close:focus:not(:focus-visible),.search-close-btn:focus:not(:focus-visible),.search-clear-btn:focus:not(:focus-visible),.faq-question:focus:not(:focus-visible),.tld-chip:focus:not(:focus-visible),.icon-btn:focus:not(:focus-visible){box-shadow:none !important;outline:none !important}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}}
 h1,h2,h3,h4,h5,h6,.logo,.tool-card h3,.feature-card h4,.section h2,.section h3,.faq-question{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:700}
@@ -156,7 +159,7 @@ html:not(.dark-mode) .icon-moon{display:none !important}
 html:not(.dark-mode) .icon-sun{display:block !important}
 .icon{display:inline-block;vertical-align:middle;flex-shrink:0}
 
-/* ============ HEADER ============ */
+/* HEADER */
 header{border-bottom:1px solid var(--line);display:flex;justify-content:center;align-items:center;padding:0 var(--gutter);min-height:var(--header-h);width:100%;transition:border-color .3s;background:var(--bg);position:relative;z-index:100}
 .header-inner{width:100%;max-width:var(--page-max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px;min-width:0}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-size:clamp(17px,2vw,22px);font-weight:800;white-space:nowrap;flex-shrink:0}
@@ -186,7 +189,7 @@ header{border-bottom:1px solid var(--line);display:flex;justify-content:center;a
 .hamburger-btn .menu-icon span{display:block;width:22px;height:2px;background:currentColor;border-radius:2px;transition:.2s}
 .hamburger-btn .menu-icon span:first-child{width:16px}
 
-/* ============ MOBILE SIDEBAR ============ */
+/* MOBILE SIDEBAR */
 .mobile-sidebar-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:150;opacity:0;visibility:hidden;transition:.3s}
 .mobile-sidebar-overlay.active{opacity:1;visibility:visible}
 .mobile-sidebar{position:fixed;top:0;left:-320px;width:min(300px,86vw);height:100vh;height:100dvh;max-height:100vh;max-height:100dvh;background:var(--sidebar-bg);z-index:160;box-shadow:4px 0 20px rgba(0,0,0,.1);padding:20px;display:flex;flex-direction:column;visibility:hidden;transition:left .35s cubic-bezier(.4,0,.2,1),visibility .35s;overflow-y:auto;-webkit-overflow-scrolling:touch}
@@ -214,7 +217,7 @@ header{border-bottom:1px solid var(--line);display:flex;justify-content:center;a
 html:not(.dark-mode) .mobile-sidebar-actions button .icon-sun{display:block !important}
 html.dark-mode .mobile-sidebar-actions button .icon-moon{display:block !important}
 
-/* ============ SEARCH OVERLAY ============ */
+/* SEARCH OVERLAY */
 .search-overlay-full{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--overlay-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:300;display:flex;flex-direction:column;align-items:center;padding:clamp(16px,6vh,60px) 16px 16px;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;overflow:hidden}
 .search-overlay-full.active{opacity:1;visibility:visible}
 .search-container{width:100%;max-width:620px;display:flex;flex-direction:column;max-height:100%;min-height:0}
@@ -243,16 +246,16 @@ mark{background:var(--mark-bg);color:var(--mark-text);border-radius:3px;padding:
 @keyframes searchResultIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .search-results-list .search-result-item{animation:searchResultIn .25s ease both}
 
-/* ============ MAIN ============ */
+/* MAIN */
 main{flex:1;padding:clamp(20px,3.5vw,50px) 0;width:100%;min-width:0}
 .content-container{width:100%;max-width:var(--page-max);margin:0 auto;padding:0 var(--gutter);min-width:0}
 
-/* ============ TOOL HERO ============ */
+/* HERO */
 .tool-hero{text-align:left;margin-bottom:30px;min-width:0}
 .tool-hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;margin-bottom:12px;line-height:1.25;text-align:left;overflow-wrap:break-word}
 .tool-hero .subtitle{font-size:clamp(15px,1.5vw,18px);color:var(--text-light);line-height:1.7;margin-bottom:0;text-align:left;overflow-wrap:break-word}
 
-/* ============ TOOL LAYOUT ============ */
+/* TOOL LAYOUT */
 .tool-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-bottom:60px;align-items:start;width:100%;min-width:0}
 @media (max-width:900px){.tool-layout{grid-template-columns:minmax(0,1fr);gap:14px}}
 .tool-panel{background:var(--panel-bg);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--card-shadow);width:100%;min-width:0;transition:box-shadow .25s}
@@ -342,7 +345,7 @@ html.dark-mode .info-tip{background:var(--tool-accent-light)}
 .info-tip code{background:var(--hover);padding:1px 5px;border-radius:4px;font-size:12px;font-weight:600}
 .info-tip > div{min-width:0}
 
-/* ============ CONTENT SECTIONS ============ */
+/* CONTENT SECTIONS */
 .section,.content-section{margin-bottom:clamp(34px,4.5vw,50px);width:100%;max-width:100%;min-width:0}
 .section h2,.content-section h2{font-size:clamp(20px,2.6vw,28px);font-weight:700;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--hover);overflow-wrap:break-word;letter-spacing:-.4px}
 .section h3,.content-section h3{font-size:clamp(17px,2vw,20px);font-weight:700;margin:25px 0 12px}
@@ -375,7 +378,13 @@ html.dark-mode .info-tip{background:var(--tool-accent-light)}
 .faq-item.active .faq-answer{display:block}
 .faq-item.active .faq-question{background:var(--faq-active);color:var(--text)}
 
-/* ============ FOOTER ============ */
+/* GLOSSARY */
+.glossary-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:14px;margin-top:20px}
+.glossary-item{background:var(--accent);border:1px solid var(--line);border-radius:10px;padding:16px}
+.glossary-item dt{font-weight:700;color:var(--text);font-size:15px;margin-bottom:6px}
+.glossary-item dd{color:var(--text-light);font-size:14px;line-height:1.65;margin:0}
+
+/* FOOTER */
 footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) var(--gutter) clamp(60px,12vw,180px);width:100%}
 .footer-container{width:100%;max-width:var(--page-max);margin:0 auto;min-width:0}
 .footer-middle{display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,30px);justify-content:space-between;align-items:flex-start;min-width:0}
@@ -392,7 +401,7 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 .footer-copyright{font-size:14px;color:var(--footer-text);margin-bottom:15px}
 .footer-about-text{font-size:15px;color:var(--footer-text);line-height:1.7}
 
-/* ============ TOAST & MODAL ============ */
+/* TOAST & MODAL */
 .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--toast-bg);color:var(--toast-text);padding:14px 28px;border-radius:30px;font-weight:600;font-size:14px;z-index:9999;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .4s;pointer-events:none;max-width:min(90vw,480px);text-align:center;line-height:1.45;overflow-wrap:break-word}
 .toast.show{transform:translateX(-50%) translateY(0)}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:10000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;padding:16px}
@@ -408,7 +417,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 .modal-close-btn{background:var(--tool-accent);color:var(--tool-accent-contrast);border:none;padding:12px 32px;border-radius:12px;font-weight:700;font-size:15px;font-family:inherit;cursor:pointer;transition:all .2s;box-shadow:0 4px 12px var(--tool-accent-light);width:100%;outline:none}
 .modal-close-btn:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 8px 20px var(--tool-accent-light)}
 
-/* ============ RESPONSIVE ============ */
+/* RESPONSIVE */
 @media (max-width:1180px){.search-trigger{width:40px;height:40px;padding:0;justify-content:center;border-radius:50%}.search-trigger .search-trigger-label,.search-trigger .search-text{display:none}}
 @media (max-width:1024px){.desktop-nav{gap:2px}.desktop-nav a{padding:6px 6px;font-size:13px}.tools-trigger{padding:6px 6px;font-size:13px}}
 @media (max-width:900px){.footer-middle{flex-direction:column;align-items:stretch;gap:28px}.footer-left-column{max-width:100%;flex:0 1 auto}.footer-right-columns{justify-content:flex-start;flex:0 1 auto}}
@@ -598,7 +607,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 
 <div style="margin-top:16px;">
 <div class="form-label" style="margin-bottom:6px;"><span>Filter by TLD</span><span class="label-hint" id="tldFilterHint">Click to toggle</span></div>
-<div class="tld-filter-row" id="tldFilterRow"></div>
+<div class="tld-filter-row" id="tldFilterRow" role="group" aria-label="Filter by top-level domain"></div>
 </div>
 </div>
 </div>
@@ -636,6 +645,35 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 </div>
 
 <div class="content-section">
+<h2>Domain vs URL vs Hostname vs Subdomain — what's the difference?</h2>
+<p>These four terms are often used interchangeably, but they mean different things. Understanding the difference helps you pick the right option when extracting domains.</p>
+<div class="table-wrapper">
+<table class="info-table">
+<thead><tr><th scope="col">Term</th><th scope="col">Example</th><th scope="col">What it means</th></tr></thead>
+<tbody>
+<tr><td><strong>URL</strong></td><td><code>https://blog.example.com/posts?page=2</code></td><td>The complete web address. Includes protocol, subdomain, domain, TLD, path, and query string.</td></tr>
+<tr><td><strong>Hostname</strong></td><td><code>blog.example.com</code></td><td>The full machine name. May include a subdomain prefix and always includes the registrable domain.</td></tr>
+<tr><td><strong>Domain</strong> (registrable)</td><td><code>example.com</code></td><td>The name you actually register with a registrar. Includes the second-level label plus the TLD.</td></tr>
+<tr><td><strong>Subdomain</strong></td><td><code>blog</code> in <code>blog.example.com</code></td><td>An optional prefix that points to a specific service or area of a site.</td></tr>
+<tr><td><strong>TLD</strong></td><td><code>.com</code>, <code>.org</code>, <code>.co.uk</code></td><td>The rightmost part of a domain. Can be single-label (<code>.com</code>) or multi-part (<code>.co.uk</code>).</td></tr>
+</tbody>
+</table>
+</div>
+<p>When you toggle <em>Include subdomains</em> off, this tool converts a hostname like <code>blog.example.com</code> into the registrable domain <code>example.com</code>. That's exactly what you want when you're grouping links by the site they point to, rather than by the specific subdomain.</p>
+</div>
+
+<div class="content-section">
+<h2>Understanding TLDs: single-label, multi-part, and new gTLDs</h2>
+<p>Every domain ends in a top-level domain (TLD). Modern TLDs fall into three buckets, and this tool handles all three:</p>
+<ul>
+<li><strong>Country-code TLDs (ccTLDs):</strong> Two-letter codes like <code>.uk</code>, <code>.de</code>, <code>.in</code>, <code>.jp</code>. Some countries use a two-part structure where the registrable domain is <code>example.co.uk</code> rather than <code>co.uk</code>.</li>
+<li><strong>Generic TLDs (gTLDs):</strong> Legacy extensions like <code>.com</code>, <code>.org</code>, <code>.net</code>, <code>.info</code>, plus new ones like <code>.app</code>, <code>.dev</code>, <code>.io</code>, <code>.ai</code>, <code>.xyz</code>.</li>
+<li><strong>Multi-part public suffixes:</strong> Combinations like <code>.co.uk</code>, <code>.com.au</code>, <code>.co.in</code>, <code>.com.br</code>, <code>.co.jp</code>. These are treated as a single suffix when finding the registrable domain.</li>
+</ul>
+<p>Because the tool keeps a curated list of both single-label and multi-part suffixes, it correctly identifies <code>shop.example.co.uk</code> as a subdomain of <code>example.co.uk</code> — not of <code>co.uk</code>. That distinction matters when you're building blocklists, allowlists, or backlink reports.</p>
+</div>
+
+<div class="content-section">
 <h2>When would you need to extract domains?</h2>
 <h3>SEO and link analysis</h3>
 <ul>
@@ -643,6 +681,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <li>Build a list of referring domains from backlink reports</li>
 <li>Audit competitor outbound links to understand their link-building strategy</li>
 <li>Identify which third-party services, CDNs, and analytics providers a site uses</li>
+<li>Find broken outbound links by comparing live domains against a crawl log</li>
 </ul>
 <h3>Cybersecurity and threat intelligence</h3>
 <ul>
@@ -650,6 +689,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <li>Extract domains from phishing email HTML for investigation</li>
 <li>Build allowlists and blocklists from network traffic logs</li>
 <li>Map attack surface by finding all subdomains mentioned in a system</li>
+<li>Compare IOC feeds and deduplicate overlapping domain entries</li>
 </ul>
 <h3>Email list management</h3>
 <ul>
@@ -657,6 +697,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <li>Identify business vs. personal email domains for marketing campaigns</li>
 <li>Clean up messy contact lists by pulling out the domain column</li>
 <li>Find common email providers in a customer database</li>
+<li>Detect disposable email domains before running a campaign</li>
 </ul>
 <h3>Data cleaning and research</h3>
 <ul>
@@ -664,6 +705,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <li>Clean up URL fields in a spreadsheet by pulling out just the domain</li>
 <li>Build a source list from citations and references</li>
 <li>Normalise inconsistent URL formats in a dataset</li>
+<li>Prepare domain lists for DNS lookups, WHOIS queries, or bulk uptime checks</li>
 </ul>
 </div>
 
@@ -672,7 +714,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <p>Domain extraction is more nuanced than running a single regex over text. Here's what the tool actually does:</p>
 <ol>
 <li><strong>Email detection:</strong> When <em>Extract from emails</em> is enabled, the tool scans for email addresses like <code>user@domain.com</code>, extracts the domain part, and marks the matched region as consumed so it won't be double-counted.</li>
-<li><strong>URL detection:</strong> It looks for URLs with protocols (<code>http://</code>, <code>https://</code>, <code>ftp://</code>) or protocol-relative <code>//</code>. The hostname is captured and the matched region is consumed.</li>
+<li><strong>Full URL detection:</strong> It matches complete URLs including the protocol, hostname, port, path, query string, and fragment. The hostname is captured and the <em>entire URL</em> is consumed — so a domain-looking string inside a path like <code>https://example.com/blog/foo.com</code> won't be mistakenly extracted.</li>
 <li><strong>Bare domain detection:</strong> Finally, it scans for plain domains like <code>example.com</code> or <code>sub.domain.co.uk</code> that appear without a protocol. Any match that overlaps an email or URL — or is immediately preceded by <code>@</code> — is skipped.</li>
 <li><strong>Normalisation:</strong> Each match is cleaned — the protocol is stripped, the path and query string are removed, and the port number is discarded. If <em>Strip www prefix</em> is enabled, the leading <code>www.</code> is removed.</li>
 <li><strong>Subdomain handling:</strong> If <em>Include subdomains</em> is disabled, the tool strips subdomains and keeps only the registrable domain (e.g., <code>blog.example.com</code> → <code>example.com</code>).</li>
@@ -686,13 +728,36 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <thead><tr><th scope="col">Input</th><th scope="col">Extracted domain</th><th scope="col">Notes</th></tr></thead>
 <tbody>
 <tr><td><code>https://www.example.com/path?q=1</code></td><td><code>example.com</code></td><td>Protocol, www, path, and query stripped</td></tr>
+<tr><td><code>https://example.com/blog/foo.com</code></td><td><code>example.com</code></td><td>Domain-like text inside the path is ignored</td></tr>
 <tr><td><code>user@mail.example.org</code></td><td><code>mail.example.org</code></td><td>Email domain extracted (with subdomains)</td></tr>
 <tr><td><code>blog.example.co.uk</code></td><td><code>blog.example.co.uk</code></td><td>Multi-part TLD handled correctly</td></tr>
 <tr><td><code>192.168.1.1</code></td><td>—</td><td>IP addresses are ignored</td></tr>
 <tr><td><code>file.txt</code></td><td>—</td><td>Unknown TLD filtered out</td></tr>
+<tr><td><code>version 1.2.3.4</code></td><td>—</td><td>Numeric-looking version strings ignored</td></tr>
 </tbody>
 </table>
 </div>
+</div>
+
+<div class="content-section">
+<h2>Best practices for domain extraction</h2>
+<ul>
+<li><strong>Paste the raw text.</strong> Don't worry about formatting — the tool handles line breaks, commas, tabs, and spaces as separators.</li>
+<li><strong>Toggle subdomains based on your goal.</strong> If you're building a blocklist, keep subdomains. If you're doing domain-level analysis, strip them.</li>
+<li><strong>Use <em>Strip www prefix</em></strong> to normalise results when you don't care about the www variant. This is especially useful when comparing two lists for overlap.</li>
+<li><strong>Disable email extraction if you're only interested in URLs.</strong> This prevents email domains from polluting your list.</li>
+<li><strong>Use the TLD filter chips</strong> to focus on specific extensions. For example, click <code>.io</code> to see only startup domains, or <code>.gov</code> to isolate public-sector sites.</li>
+<li><strong>Sort alphabetically</strong> before exporting to make the list easier to scan and deduplicate manually.</li>
+<li><strong>Check the total count.</strong> If the "Total Found" number is much higher than "Unique", your input has a lot of repeated domains — dedupe is working.</li>
+<li><strong>Cross-check before acting.</strong> Regex-based extraction is very accurate, but always eyeball the results before feeding them into an automation pipeline.</li>
+</ul>
+</div>
+
+<div class="content-section">
+<h2>Privacy, accuracy, and limits</h2>
+<p><strong>Privacy:</strong> Nothing you paste into this domain extractor is sent to a server. The extraction engine is a JavaScript function that runs entirely in your browser tab. There is no upload, no queue, no analytics event that includes your text, and no server-side log.</p>
+<p><strong>Accuracy:</strong> The extractor uses a curated list of single-label and multi-part TLDs to filter out false positives like filenames (<code>style.css</code>) and version strings (<code>1.2.3</code>). It also skips IP addresses, which are valid hosts but not domains. That said, no regex-based extractor is perfect — if you find an edge case, the results are still editable, so you can clean them up before copying or downloading.</p>
+<p><strong>Limits:</strong> There is no hard limit on input size. Because everything happens in-browser, the practical limit is your device's memory. Lists of tens of thousands of URLs process in under a second on a modern browser. Very large pastes (1 MB+) may take a moment.</p>
 </div>
 
 <div class="content-section">
@@ -709,6 +774,22 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 </div>
 
 <div class="content-section">
+<h2>Glossary of domain terms</h2>
+<dl class="glossary-grid">
+<div class="glossary-item"><dt>Domain</dt><dd>The human-readable name of a website, made of a second-level label plus a TLD, like <code>example.com</code>.</dd></div>
+<div class="glossary-item"><dt>Subdomain</dt><dd>A prefix added to a domain to create a separate section of a site, like <code>blog</code> in <code>blog.example.com</code>.</dd></div>
+<div class="glossary-item"><dt>Hostname</dt><dd>The full name of a machine on the internet. May include a subdomain and always includes a domain. Example: <code>api.example.com</code>.</dd></div>
+<div class="glossary-item"><dt>TLD</dt><dd>Top-Level Domain — the rightmost label of a domain, such as <code>.com</code>, <code>.org</code>, or <code>.uk</code>.</dd></div>
+<div class="glossary-item"><dt>ccTLD</dt><dd>Country-code TLD — a two-letter code reserved for a country, such as <code>.de</code> for Germany.</dd></div>
+<div class="glossary-item"><dt>gTLD</dt><dd>Generic TLD — extensions not tied to a country, like <code>.com</code>, <code>.org</code>, <code>.app</code>, and <code>.dev</code>.</dd></div>
+<div class="glossary-item"><dt>Public suffix</dt><dd>A suffix under which users can register names. Examples: <code>com</code>, <code>co.uk</code>, <code>github.io</code>.</dd></div>
+<div class="glossary-item"><dt>Registrable domain</dt><dd>The part of a hostname that you actually register — the public suffix plus one label. For <code>blog.example.co.uk</code>, the registrable domain is <code>example.co.uk</code>.</dd></div>
+<div class="glossary-item"><dt>URL</dt><dd>The full web address including protocol, hostname, path, and query string. Example: <code>https://example.com/path?q=1</code>.</dd></div>
+<div class="glossary-item"><dt>Protocol</dt><dd>The scheme at the start of a URL, like <code>https://</code> or <code>ftp://</code>.</dd></div>
+</dl>
+</div>
+
+<div class="content-section">
 <h2>Frequently asked questions</h2>
 <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What is a domain extractor?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">A domain extractor is a tool that scans any block of text — URLs, email addresses, log files, or plain prose — and pulls out all the domain names it finds. It saves you from manually picking out domains from messy data.</div></div>
 <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">How do I extract domains from a list of URLs?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Paste your list of URLs into the input box and click Extract Domains. The tool will parse each URL, strip the protocol and path, and return just the domain names. It also deduplicates the results so you get a clean unique list.</div></div>
@@ -719,7 +800,12 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I download the extracted domains?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. You can copy the full list to your clipboard or download it as a <code>.txt</code> file with one domain per line.</div></div>
 <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Is this domain extractor free?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes, completely free. No signup, no watermark, no hidden charges. Extract as many domains as you want, for personal or commercial use.</div></div>
 <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Does it work offline?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. Once the page loads, the domain extractor works without an internet connection. All processing happens locally in your browser using JavaScript.</div></div>
-</div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What is the difference between a domain and a URL?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">A domain is the human-readable address of a website (<code>example.com</code>). A URL includes the protocol, domain, path, and query string (<code>https://example.com/blog?page=2</code>). This tool converts URLs into just their domains.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Does the tool support multi-part TLDs like .co.uk?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. The tool has a built-in list of common multi-part public suffixes such as <code>.co.uk</code>, <code>.com.au</code>, <code>.co.in</code>, <code>.com.br</code>, and <code>.co.jp</code>, so it correctly identifies the registrable domain.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Will it extract IP addresses?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">No. IP addresses such as <code>192.168.1.1</code> are not domain names, and the tool automatically filters them out of the results.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I extract domains from HTML source code?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. Paste any HTML snippet into the input box. The tool will pull out every domain name it finds, including those inside <code>href</code>, <code>src</code>, and plain text.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">How many domains can I extract at once?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">There is no hard limit. Since extraction happens in your browser, the practical limit is your device's memory. Lists with tens of thousands of URLs work fine.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Is the extracted data stored anywhere?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">No. Nothing is stored, logged, or transmitted. Everything happens locally in your browser and disappears when you close the tab.</div></div>
 </div>
 </main>
 
@@ -1051,7 +1137,7 @@ tools.forEach(function(t) {
     t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
 });
 
-function escAttr(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function escAttr(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/'/g,'&#39;');}
 function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
 function highlight(text,q){
     if(!q) return escHtml(text);
@@ -1071,7 +1157,6 @@ function trapFocus(e,container){
     else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
 }
 
-/* ============ Toast ============ */
 let toastTimer;
 function showToast(msg,dur){
     dur=dur||2400;
@@ -1081,7 +1166,6 @@ function showToast(msg,dur){
     toastTimer=setTimeout(function(){t.classList.remove('show');},dur);
 }
 
-/* ============ Theme ============ */
 function setThemeColorMeta(isDark){
     const meta=document.getElementById('themeColorMeta');
     if(meta)meta.setAttribute('content',isDark?'#0f172a':'#ffffff');
@@ -1113,7 +1197,6 @@ function initSystemThemeListener(){
     else if(typeof mq.addListener==='function')mq.addListener(handler);
 }
 
-/* ============ Tools Menu ============ */
 function closeToolsMenu(returnFocus){
     const container=document.getElementById('toolsMenuContainer');
     const trigger=document.getElementById('toolsTrigger');
@@ -1135,7 +1218,6 @@ document.addEventListener('click',function(e){
 
 let searchIsOpen=false;
 
-/* ============ Mobile Sidebar ============ */
 function openMobileSidebar(){
     const sb=document.getElementById('mobileSidebar');
     sb.classList.add('active');sb.setAttribute('aria-hidden','false');
@@ -1185,7 +1267,6 @@ function openSearchFromSidebar(){closeMobileSidebar();openFullSearch();}
     });
 })();
 
-/* ============ Search ============ */
 let lastFocusedBeforeSearch=null;
 let searchResultsRaf=0;
 const searchState={activeIndex:-1};
@@ -1323,10 +1404,9 @@ function toggleFaq(btnEl){
 }
 
 /* ============================================================
-   DOMAIN EXTRACTOR LOGIC — FIXED
+   DOMAIN EXTRACTOR LOGIC
    ============================================================ */
 
-/* Single-label TLDs (generic + country codes + common new gTLDs) */
 var SINGLE_TLDS = [
     'com','org','net','edu','gov','mil','int','info','biz','name','pro','aero','coop','museum',
     'jobs','mobi','travel','tel','asia','cat','post','xxx',
@@ -1376,10 +1456,11 @@ var SINGLE_TLDS = [
     'analytics','data','database','server','security','cyber','vpn','messaging','voip','phone',
     'mobile','wireless','telecom','internet','broadband','cable','satellite','radio','magazine',
     'journal','review','reviews','guide','directory','list','search','finder','tool','tools','apps',
-    'application','saas','platform'
+    'application','saas','platform',
+    'io','sh','gg','tv','fm','cc','ws',
+    'zip','mov','phd','esq','foo','bar','new','page','ing','bot','box'
 ];
 
-/* Multi-part public suffixes (common ones) */
 var MULTI_TLDS = [
     'co.uk','org.uk','ac.uk','gov.uk','me.uk','net.uk','sch.uk','ltd.uk','plc.uk',
     'com.au','net.au','org.au','edu.au','gov.au','asn.au','id.au',
@@ -1459,6 +1540,7 @@ var MULTI_TLD_SET = {};
 MULTI_TLDS.forEach(function(t){ MULTI_TLD_SET[t] = true; });
 
 var lastExtractedDomains = [];
+var lastResult = null;
 var activeTldFilters = {};
 
 function getTldFromDomain(domain){
@@ -1524,15 +1606,15 @@ function extractDomains(text){
     var consumed = [];
     var rawMatches = [];
 
-    function overlapsConsumed(start, end){
-        for (var i = 0; i < consumed.length; i++) {
+    function overlaps(start, end){
+        for (var i = 0; i < consumed.length; i++){
             if (start < consumed[i][1] && end > consumed[i][0]) return true;
         }
         return false;
     }
 
     if (!text || !text.trim()) {
-        return { domains: [], total: 0, unique: 0, tldCounts: {} };
+        return { domains: [], allNormalised: [], uniqueList: [], total: 0, unique: 0, tldCounts: {} };
     }
 
     // 1. Emails
@@ -1548,13 +1630,13 @@ function extractDomains(text){
         }
     }
 
-    // 2. URLs with protocol
-    var urlRegex = /(?:https?:\/\/|ftp:\/\/|\/\/)([a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)+)/gi;
+    // 2. Full URLs — consume entire URL including path, query, fragment, port
+    var urlRegex = /(?:https?:\/\/|ftp:\/\/|\/\/)([a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?)+)(?::\d+)?(?:[\/?#][^\s<>"'`\\]*)?/gi;
     var um;
     while ((um = urlRegex.exec(text)) !== null) {
         var uStart = um.index;
         var uEnd = um.index + um[0].length;
-        if (overlapsConsumed(uStart, uEnd)) continue;
+        if (overlaps(uStart, uEnd)) continue;
         var uHost = normaliseHostname(um[1]);
         if (uHost && isValidDomain(uHost)) {
             rawMatches.push(uHost);
@@ -1568,7 +1650,7 @@ function extractDomains(text){
     while ((bm = bareRegex.exec(text)) !== null) {
         var bStart = bm.index;
         var bEnd = bm.index + bm[0].length;
-        if (overlapsConsumed(bStart, bEnd)) continue;
+        if (overlaps(bStart, bEnd)) continue;
         if (bStart > 0 && text.charAt(bStart - 1) === '@') continue;
         var bHost = normaliseHostname(bm[1]);
         if (bHost && isValidDomain(bHost)) {
@@ -1586,24 +1668,28 @@ function extractDomains(text){
         if (h) normalised.push(h);
     }
 
-    // Always compute the unique list for the "Unique" stat
+    // Unique list (preserving first-appearance order)
     var seen = {};
     var uniqueList = [];
     for (var k = 0; k < normalised.length; k++) {
         if (!seen[normalised[k]]) { seen[normalised[k]] = true; uniqueList.push(normalised[k]); }
     }
 
-    var finalList = dedupe ? uniqueList.slice() : normalised.slice();
-    if (shouldSort) finalList.sort();
+    // Display list
+    var displayList = dedupe ? uniqueList.slice() : normalised.slice();
+    if (shouldSort) displayList.sort();
 
+    // TLD counts computed from ALL occurrences (consistent stats)
     var tldCounts = {};
-    for (var m = 0; m < finalList.length; m++) {
-        var t = getTldFromDomain(finalList[m]);
+    for (var m = 0; m < normalised.length; m++) {
+        var t = getTldFromDomain(normalised[m]);
         if (t) tldCounts[t] = (tldCounts[t] || 0) + 1;
     }
 
     return {
-        domains: finalList,
+        domains: displayList,
+        allNormalised: normalised,
+        uniqueList: uniqueList,
         total: normalised.length,
         unique: uniqueList.length,
         tldCounts: tldCounts
@@ -1618,9 +1704,14 @@ function runExtraction(fromButton){
 
     var text = document.getElementById('domainInput').value;
     if (!text || !text.trim()) {
+        document.getElementById('resultPlaceholder').style.display = 'flex';
+        document.getElementById('resultContent').style.display = 'none';
+        document.getElementById('domainOutput').value = '';
+        document.getElementById('outputSubtitle').textContent = 'Results';
+        lastExtractedDomains = [];
+        lastResult = null;
+        activeTldFilters = {};
         if (fromButton) {
-            document.getElementById('resultPlaceholder').style.display = 'flex';
-            document.getElementById('resultContent').style.display = 'none';
             errorEl.innerHTML = '<i data-lucide="alert-circle" aria-hidden="true"></i><div>Please paste some text to extract domains from.</div>';
             errorEl.classList.add('show');
             if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
@@ -1630,12 +1721,15 @@ function runExtraction(fromButton){
     }
 
     var result = extractDomains(text);
+    lastResult = result;
     lastExtractedDomains = result.domains;
+    activeTldFilters = {};
 
     if (result.domains.length === 0) {
         document.getElementById('resultPlaceholder').style.display = 'flex';
         document.getElementById('resultContent').style.display = 'none';
         document.getElementById('outputSubtitle').textContent = 'Results';
+        lastExtractedDomains = [];
         warnEl.innerHTML = '<i data-lucide="alert-triangle" aria-hidden="true"></i><div>No domains were found in the text you entered. Try pasting text that contains URLs, email addresses, or domain names.</div>';
         warnEl.classList.add('show');
         if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
@@ -1661,10 +1755,10 @@ function renderTldChips(tldCounts){
     var newActive = {};
     keys.forEach(function(k){ if (activeTldFilters[k] === false) newActive[k] = false; });
     activeTldFilters = newActive;
-    var html = '<button type="button" class="tld-chip active" data-tld="__all__" onclick="toggleTldFilter(\'__all__\')">All <span class="tc-count">' + keys.length + '</span></button>';
+    var html = '<button type="button" class="tld-chip active" data-tld="__all__" aria-pressed="true" onclick="toggleTldFilter(\'__all__\')">All <span class="tc-count">' + keys.length + '</span></button>';
     keys.forEach(function(k){
         var isActive = activeTldFilters[k] !== false;
-        html += '<button type="button" class="tld-chip' + (isActive ? ' active' : '') + '" data-tld="' + escAttr(k) + '" onclick="toggleTldFilter(\'' + escAttr(k) + '\')">.' + escHtml(k) + ' <span class="tc-count">' + tldCounts[k] + '</span></button>';
+        html += '<button type="button" class="tld-chip' + (isActive ? ' active' : '') + '" data-tld="' + escAttr(k) + '" aria-pressed="' + (isActive ? 'true' : 'false') + '" onclick="toggleTldFilter(\'' + escAttr(k) + '\')">.' + escHtml(k) + ' <span class="tc-count">' + tldCounts[k] + '</span></button>';
     });
     row.innerHTML = html;
 }
@@ -1672,7 +1766,10 @@ function renderTldChips(tldCounts){
 function toggleTldFilter(tld){
     if (tld === '__all__') {
         activeTldFilters = {};
-        document.querySelectorAll('#tldFilterRow .tld-chip').forEach(function(c){ c.classList.add('active'); });
+        document.querySelectorAll('#tldFilterRow .tld-chip').forEach(function(c){
+            c.classList.add('active');
+            c.setAttribute('aria-pressed','true');
+        });
         applyTldFilter();
         return;
     }
@@ -1681,34 +1778,64 @@ function toggleTldFilter(tld){
     document.querySelectorAll('#tldFilterRow .tld-chip').forEach(function(c){
         var k = c.getAttribute('data-tld');
         if (k === '__all__') return;
-        if (activeTldFilters[k] === false) c.classList.remove('active');
-        else c.classList.add('active');
+        if (activeTldFilters[k] === false) {
+            c.classList.remove('active');
+            c.setAttribute('aria-pressed','false');
+        } else {
+            c.classList.add('active');
+            c.setAttribute('aria-pressed','true');
+        }
     });
     var anyInactive = Object.keys(activeTldFilters).some(function(k){ return activeTldFilters[k] === false; });
     var allChip = document.querySelector('#tldFilterRow .tld-chip[data-tld="__all__"]');
-    if (allChip) { if (anyInactive) allChip.classList.remove('active'); else allChip.classList.add('active'); }
+    if (allChip) {
+        if (anyInactive) { allChip.classList.remove('active'); allChip.setAttribute('aria-pressed','false'); }
+        else { allChip.classList.add('active'); allChip.setAttribute('aria-pressed','true'); }
+    }
     applyTldFilter();
 }
 
 function applyTldFilter(){
-    var filtered = lastExtractedDomains.filter(function(d){
+    if (!lastResult) return;
+    var dedupe = document.getElementById('optDedupe').checked;
+    var shouldSort = document.getElementById('optSort').checked;
+
+    var filteredOccurrences = lastResult.allNormalised.filter(function(d){
         var t = getTldFromDomain(d);
         if (!t) return true;
         return activeTldFilters[t] !== false;
     });
-    document.getElementById('domainOutput').value = filtered.join('\n');
-    document.getElementById('outputSubtitle').textContent = filtered.length + ' domain' + (filtered.length === 1 ? '' : 's') + ' shown';
+
+    var displayList;
+    if (dedupe) {
+        var seenTmp = {};
+        displayList = [];
+        for (var i = 0; i < filteredOccurrences.length; i++){
+            if (!seenTmp[filteredOccurrences[i]]) {
+                seenTmp[filteredOccurrences[i]] = true;
+                displayList.push(filteredOccurrences[i]);
+            }
+        }
+    } else {
+        displayList = filteredOccurrences.slice();
+    }
+    if (shouldSort) displayList.sort();
+
+    document.getElementById('domainOutput').value = displayList.join('\n');
 
     var seen = {};
     var tldCounts = {};
-    for (var i = 0; i < filtered.length; i++) {
-        seen[filtered[i]] = true;
-        var t = getTldFromDomain(filtered[i]);
+    for (var j = 0; j < filteredOccurrences.length; j++){
+        seen[filteredOccurrences[j]] = true;
+        var t = getTldFromDomain(filteredOccurrences[j]);
         if (t) tldCounts[t] = (tldCounts[t] || 0) + 1;
     }
-    document.getElementById('statTotal').textContent = filtered.length.toLocaleString();
+    document.getElementById('statTotal').textContent = filteredOccurrences.length.toLocaleString();
     document.getElementById('statUnique').textContent = Object.keys(seen).length.toLocaleString();
     document.getElementById('statTlds').textContent = Object.keys(tldCounts).length.toLocaleString();
+    document.getElementById('outputSubtitle').textContent = displayList.length + ' domain' + (displayList.length === 1 ? '' : 's') + ' shown';
+
+    lastExtractedDomains = displayList;
 }
 
 function clearAll(){
@@ -1724,6 +1851,7 @@ function clearAll(){
     document.getElementById('statUnique').textContent = '0';
     document.getElementById('statTlds').textContent = '0';
     lastExtractedDomains = [];
+    lastResult = null;
     activeTldFilters = {};
     showToast('Cleared.');
 }
@@ -1734,7 +1862,7 @@ function loadExample(){
         'Visit https://www.textify.tools/domain-extractor for more tools.\n' +
         'Backup mirrors: backup.example.org, mirror.textify.co.uk\n' +
         'API endpoint: https://api.example.io/v1/domains?limit=100\n' +
-        'Internal services: db.internal.example.net, cache.example.local';
+        'Vendor sites: shop.example.co.uk, blog.example.com.au, cdn.example.dev';
     document.getElementById('inputCharCount').textContent =
         document.getElementById('domainInput').value.length.toLocaleString() + ' chars';
     runExtraction(true);
@@ -1767,7 +1895,6 @@ function downloadList(){
     showModal('download');
 }
 
-/* ============ Modal ============ */
 let modalTimer;
 function showModal(type){
     const overlay = document.getElementById('actionModal');
@@ -1780,7 +1907,7 @@ function showModal(type){
     if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
     const closeBtn = overlay.querySelector('.modal-close-btn');
     if (closeBtn) setTimeout(function(){ if (overlay.classList.contains('active')) closeBtn.focus(); }, 50);
-    clearTimeout(modalTimer); modalTimer = setTimeout(closeModal, 4000);
+    clearTimeout(modalTimer); modalTimer = setTimeout(closeModal, 6000);
 }
 function closeModal(){
     const overlay = document.getElementById('actionModal');
@@ -1793,7 +1920,6 @@ function closeModal(){
 }
 document.getElementById('actionModal').addEventListener('click', function(e){ if (e.target === this) closeModal(); });
 
-/* ============ Init ============ */
 document.getElementById('dynamicYear').textContent = new Date().getFullYear();
 initSystemThemeListener();
 
