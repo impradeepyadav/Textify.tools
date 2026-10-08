@@ -16,14 +16,20 @@
 <meta property="og:title" content="Tax Calculator – Free Online Sales Tax, VAT &amp; GST Calculator | Textify.tools">
 <meta property="og:description" content="Add or remove sales tax, VAT, and GST on any amount. Preset rates for 60+ countries. Free, private, no signup.">
 <meta property="og:site_name" content="Textify.tools">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://textify.tools/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Tax Calculator – free online sales tax, VAT and GST calculator">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@BuiltByPradeep">
+<meta name="twitter:creator" content="@BuiltByPradeep">
 <meta name="twitter:title" content="Tax Calculator – Free Online Sales Tax, VAT &amp; GST Calculator | Textify.tools">
 <meta name="twitter:description" content="Add or remove sales tax, VAT, and GST on any amount with preset rates for 60+ countries. Free, private, no signup.">
 <meta name="twitter:image" content="https://textify.tools/og-image.png">
+<meta name="twitter:image:width" content="1200">
+<meta name="twitter:image:height" content="630">
 <meta name="twitter:image:alt" content="Tax Calculator – free online sales tax, VAT and GST calculator">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -35,9 +41,9 @@
 <meta name="msapplication-TileImage" content="/mstile-150x150.png">
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="preconnect" href="https://pagead2.googlesyndication.com">
-<link rel="preconnect" href="https://unpkg.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <meta name="yandex-verification" content="6e105f6188a8c833">
 <script>
@@ -60,9 +66,7 @@ function gtag() { dataLayer.push(arguments); }
 gtag('js', new Date());
 gtag('config', 'G-6VGXXT81MB');
 </script>
-<script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
-<script src="https://unpkg.com/lucide@0.344.0" defer></script>
+<script type="text/javascript" async data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -296,6 +300,7 @@ main{flex:1;padding:clamp(20px,3.5vw,50px) 0;width:100%;min-width:0}
 .result-item.tax .value{color:var(--tax-color)}
 .result-item.total .value{color:var(--total-color)}
 .chart-container{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px;position:relative;width:100%;max-width:320px;margin:0 auto;aspect-ratio:1/1}
+.chart-container canvas{width:100%;height:100%;display:block}
 .verify-box{background:var(--accent);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-top:4px}
 .verify-box .verify-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-light);margin-bottom:6px;display:flex;align-items:center;gap:6px}
 .verify-box .verify-line{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13px;color:var(--text-light);line-height:1.7;word-break:break-word}
@@ -403,6 +408,8 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
 <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
 <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="i-calculator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></symbol>
+<symbol id="i-receipt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 17.5v-11"/></symbol>
 </defs>
 </svg>
 
@@ -437,7 +444,7 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 
 <div class="tool-layout">
 <div class="tool-panel">
-<h2><svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg> Tax Details</h2>
+<h2><svg class="icon" aria-hidden="true"><use href="#i-calculator"/></svg> Tax Details</h2>
 
 <div class="mode-toggle" id="modeToggle">
 <button type="button" class="active" data-mode="add">Add Tax</button>
@@ -552,7 +559,7 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 </div>
 
 <button type="button" class="btn btn-primary" id="calculateBtn" style="margin-top:8px;">
-<svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-search"/></svg> Calculate
+<svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-calculator"/></svg> Calculate
 </button>
 <button type="button" class="btn btn-outline" id="resetBtn" style="width:100%;">
 Reset
@@ -585,7 +592,7 @@ Reset
 </div>
 
 <div class="chart-container">
-<canvas id="taxChart"></canvas>
+<canvas id="taxChart" width="320" height="320" role="img" aria-label="Doughnut chart showing pre-tax and tax breakdown"></canvas>
 </div>
 
 <div class="verify-box" id="verifyBox">
@@ -1419,6 +1426,13 @@ function toggleTheme(){
         try{localStorage.setItem('theme','dark');}catch(e){}
         setThemeColorMeta(true);
     }
+    // Redraw chart on theme toggle
+    const amount = parseFloat(document.getElementById('amountInput').value) || 0;
+    const rate = parseFloat(document.getElementById('taxRateInput').value) || 0;
+    if(amount > 0){
+        const result = calculateTax(amount, rate, currentMode);
+        renderChart(result.preTax, result.taxAmount);
+    }
 }
 function initSystemThemeListener(){
     if(!window.matchMedia)return;
@@ -1430,6 +1444,12 @@ function initSystemThemeListener(){
         const isDark=e.matches;
         document.documentElement.classList.toggle('dark-mode',isDark);
         setThemeColorMeta(isDark);
+        const amount = parseFloat(document.getElementById('amountInput').value) || 0;
+        const rate = parseFloat(document.getElementById('taxRateInput').value) || 0;
+        if(amount > 0){
+            const result = calculateTax(amount, rate, currentMode);
+            renderChart(result.preTax, result.taxAmount);
+        }
     };
     if(typeof mq.addEventListener==='function')mq.addEventListener('change',handler);
     else if(typeof mq.addListener==='function')mq.addListener(handler);
@@ -1637,7 +1657,6 @@ function toggleFaq(btnEl){
 /* ============================================================
    TAX CALCULATOR LOGIC
    ============================================================ */
-let taxChart = null;
 let currentMode = 'add';
 let currentCurrency = { code:'USD', symbol:'$', locale:'en-US' };
 
@@ -1717,47 +1736,102 @@ function renderVerification(amount, rate, result){
     }
 }
 
+/* ============================================================
+   INLINE CANVAS DOUGHNUT CHART — zero dependencies
+   ============================================================ */
 function renderChart(preTax, taxAmount){
     const canvas = document.getElementById('taxChart');
-    if(!canvas || !window.Chart) return;
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if(!ctx) return;
+
     const isDark = document.documentElement.classList.contains('dark-mode');
-    const textColor = isDark ? '#94a3b8' : '#525252';
-    const bgColor = isDark ? '#1e293b' : '#ffffff';
+    const dpr = window.devicePixelRatio || 1;
+    const cssSize = canvas.clientWidth || 288;
+    const cssHeight = cssSize;
+    canvas.width = cssSize * dpr;
+    canvas.height = cssHeight * dpr;
+    canvas.style.height = cssHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const W = cssSize;
+    const H = cssHeight;
+    ctx.clearRect(0, 0, W, H);
+
+    const total = preTax + taxAmount;
+    if(total <= 0){
+        // Draw empty ring
+        const cx = W / 2;
+        const cy = H / 2;
+        const outer = Math.min(W, H) * 0.42;
+        const inner = outer * 0.65;
+        ctx.beginPath();
+        ctx.arc(cx, cy, (outer + inner) / 2, 0, Math.PI * 2);
+        ctx.lineWidth = outer - inner;
+        ctx.strokeStyle = isDark ? '#1e293b' : '#e5e5e5';
+        ctx.stroke();
+        return;
+    }
+
+    const cx = W / 2;
+    const cy = H / 2 - 8;
+    const outer = Math.min(W, H) * 0.40;
+    const inner = outer * 0.65;
+
     const preTaxColor = isDark ? '#34d399' : '#10b981';
     const taxColor = isDark ? '#fb7185' : '#ef4444';
 
-    if(taxChart){ taxChart.destroy(); taxChart = null; }
+    const preTaxPct = preTax / total;
+    const taxPct = taxAmount / total;
 
-    taxChart = new Chart(canvas, {
-        type:'doughnut',
-        data:{
-            labels:['Pre-Tax', 'Tax'],
-            datasets:[{
-                data:[preTax, taxAmount],
-                backgroundColor:[preTaxColor, taxColor],
-                borderColor:bgColor, borderWidth:3, hoverOffset:6
-            }]
-        },
-        options:{
-            responsive:true, maintainAspectRatio:true, cutout:'65%',
-            plugins:{
-                legend:{
-                    position:'bottom',
-                    labels:{ color:textColor, font:{family:'Inter', size:13, weight:'600'}, padding:16, usePointStyle:true, pointStyle:'circle' }
-                },
-                tooltip:{
-                    callbacks:{ label: function(context){
-                        const val = context.parsed;
-                        const total = preTax + taxAmount;
-                        const pct = total > 0 ? ((val/total)*100).toFixed(1) : 0;
-                        return ' ' + context.label + ': ' + formatCurrency(val) + ' (' + pct + '%)';
-                    }},
-                    backgroundColor: isDark ? '#0f172a' : '#1f2937',
-                    titleColor:'#ffffff', bodyColor:'#ffffff',
-                    padding:10, cornerRadius:8, displayColors:false
-                }
-            }
-        }
+    // Pre-tax arc
+    const startAngle = -Math.PI / 2;
+    const preTaxEnd = startAngle + Math.PI * 2 * preTaxPct;
+    ctx.beginPath();
+    ctx.arc(cx, cy, (outer + inner) / 2, startAngle, preTaxEnd);
+    ctx.lineWidth = outer - inner;
+    ctx.strokeStyle = preTaxColor;
+    ctx.stroke();
+
+    // Tax arc
+    ctx.beginPath();
+    ctx.arc(cx, cy, (outer + inner) / 2, preTaxEnd, startAngle + Math.PI * 2);
+    ctx.lineWidth = outer - inner;
+    ctx.strokeStyle = taxColor;
+    ctx.stroke();
+
+    // Center text
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = isDark ? '#94a3b8' : '#525252';
+    ctx.font = '600 11px Inter, sans-serif';
+    ctx.fillText('Tax', cx, cy - 14);
+    ctx.fillStyle = isDark ? '#f1f5f9' : '#0a0a0a';
+    ctx.font = '800 ' + Math.round(outer * 0.32) + 'px Inter, sans-serif';
+    ctx.fillText((taxPct * 100).toFixed(1) + '%', cx, cy + 6);
+
+    // Legend below
+    const legendY = H - 20;
+    const legendItems = [
+        { color: preTaxColor, label: 'Pre-Tax' },
+        { color: taxColor, label: 'Tax' }
+    ];
+    ctx.font = '600 12px Inter, sans-serif';
+    const itemWidths = legendItems.map(function(it){
+        return 14 + 6 + ctx.measureText(it.label).width;
+    });
+    const totalWidth = itemWidths.reduce(function(a,b){return a+b;}, 0) + 20;
+    let lx = (W - totalWidth) / 2 + 10;
+
+    legendItems.forEach(function(it, i){
+        ctx.beginPath();
+        ctx.arc(lx, legendY, 5, 0, Math.PI * 2);
+        ctx.fillStyle = it.color;
+        ctx.fill();
+        ctx.fillStyle = isDark ? '#94a3b8' : '#525252';
+        ctx.textAlign = 'left';
+        ctx.fillText(it.label, lx + 11, legendY + 1);
+        lx += itemWidths[i] + 10;
     });
 }
 
@@ -1803,6 +1877,14 @@ function initRateChips(){
             document.getElementById('taxRateInput').value = this.dataset.rate;
         });
     });
+    // Sync chips with manual rate input
+    const rateInput = document.getElementById('taxRateInput');
+    rateInput.addEventListener('input', function(){
+        const val = this.value;
+        chips.forEach(function(c){
+            c.classList.toggle('active', c.dataset.rate === val);
+        });
+    });
 }
 
 function initCountrySelector(){
@@ -1846,7 +1928,7 @@ function resetForm(){
     document.getElementById('totalValue').textContent = formatCurrency(0);
     document.getElementById('rateValue').textContent = '0%';
     document.getElementById('verifyLine').textContent = 'Enter an amount and rate to see the math.';
-    if(taxChart){ taxChart.destroy(); taxChart = null; }
+    renderChart(0, 0);
     showToast('Reset complete.');
 }
 
@@ -1870,24 +1952,8 @@ document.getElementById('resetBtn').addEventListener('click', resetForm);
     }
 });
 
-const themeObserver = new MutationObserver(function(){
-    const amount = parseFloat(document.getElementById('amountInput').value) || 0;
-    const rate = parseFloat(document.getElementById('taxRateInput').value) || 0;
-    if(amount > 0){
-        const result = calculateTax(amount, rate, currentMode);
-        renderChart(result.preTax, result.taxAmount);
-    }
-});
-themeObserver.observe(document.documentElement, { attributes:true, attributeFilter:['class'] });
-
-function initLucide(){
-    if(window.lucide && typeof window.lucide.createIcons === 'function'){
-        window.lucide.createIcons();
-    }
-}
-if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initLucide);
-else initLucide();
-window.addEventListener('load', initLucide);
+// Initial chart render
+renderChart(100, 0);
 </script>
 </body>
 </html>
