@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Free Online Text Tools – Textify.tools</title>
 <meta name="description" content="Free online text tools: word counter, case converter, JSON formatter, PDF & image tools, calculators & more. No signup, nothing leaves your browser.">
-<meta name="keywords" content="free text tools, word counter, case converter, json formatter, pdf tools, image tools, online text utilities">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Pradeep Yadav">
 <link rel="canonical" href="https://textify.tools/">
@@ -71,10 +70,27 @@ gtag('config', 'G-6VGXXT81MB');
 {
     "@context": "https://schema.org",
     "@graph": [
-        { "@type": "WebSite", "@id": "https://textify.tools/#website", "url": "https://textify.tools/", "name": "Textify.tools", "description": "Free online text tools that run entirely in your browser.", "publisher": { "@id": "https://textify.tools/#organization" }, "inLanguage": "en-US", "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://textify.tools/search?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
+        { "@type": "WebSite", "@id": "https://textify.tools/#website", "url": "https://textify.tools/", "name": "Textify.tools", "description": "Free online text tools that run entirely in your browser.", "publisher": { "@id": "https://textify.tools/#organization" }, "inLanguage": "en-US" },
         { "@type": "Organization", "@id": "https://textify.tools/#organization", "name": "Textify.tools", "url": "https://textify.tools/", "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 }, "sameAs": ["https://x.com/BuiltByPradeep"] },
         { "@type": "Person", "@id": "https://textify.tools/#author", "name": "Pradeep Yadav", "url": "https://textify.tools/about-us", "worksFor": { "@id": "https://textify.tools/#organization" } },
-        { "@type": "WebPage", "@id": "https://textify.tools/#webpage", "url": "https://textify.tools/", "name": "Free Online Text Tools – Textify.tools", "isPartOf": { "@id": "https://textify.tools/#website" }, "inLanguage": "en-US", "author": { "@id": "https://textify.tools/#author" } }
+        { "@type": "WebPage", "@id": "https://textify.tools/#webpage", "url": "https://textify.tools/", "name": "Free Online Text Tools – Textify.tools", "isPartOf": { "@id": "https://textify.tools/#website" }, "inLanguage": "en-US", "author": { "@id": "https://textify.tools/#author" } },
+        {
+            "@type": "FAQPage",
+            "@id": "https://textify.tools/#faq",
+            "mainEntity": [
+                { "@type": "Question", "name": "Is every tool actually free?", "acceptedAnswer": { "@type": "Answer", "text": "Yep, 100% free – no \"pro\" plans, no credit card tricks. I fund this with a few non-annoying ads and my own love for building helpful stuff." } },
+                { "@type": "Question", "name": "Do I really not need an account?", "acceptedAnswer": { "@type": "Answer", "text": "Really. That's the whole point. Open the page, use the tool, close it. No registration, no login, no strings attached." } },
+                { "@type": "Question", "name": "Can I use the output for commercial projects?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The text you generate belongs to you. Use it for work, school, or anything else. No attribution needed." } },
+                { "@type": "Question", "name": "How do you make money if it's free?", "acceptedAnswer": { "@type": "Answer", "text": "A few small ads (via Google AdSense) cover hosting and development. No data selling, no hidden fees." } },
+                { "@type": "Question", "name": "What if I need a tool that isn't here?", "acceptedAnswer": { "@type": "Answer", "text": "I'm all ears! Drop a message through the Contact page. If it can run safely in a browser, there's a good chance I'll build it." } },
+                { "@type": "Question", "name": "Do these tools work on my phone or tablet?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Every tool adapts to any screen size. You can even add the site to your home screen and use it like an app." } },
+                { "@type": "Question", "name": "Can I suggest a tool or report a problem?", "acceptedAnswer": { "@type": "Answer", "text": "Please do! Head over to the Contact page or drop a message on social media. I read every suggestion and try to fix bugs within a day or two." } },
+                { "@type": "Question", "name": "Is there a limit on how many times I can use a tool?", "acceptedAnswer": { "@type": "Answer", "text": "No artificial limits. You can use the tools as many times as you want. Performance may vary depending on your device and browser, but there are no daily caps or paywalls." } },
+                { "@type": "Question", "name": "Do the tools work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Many tools work offline after the page has loaded once. Since processing happens in your browser, an internet connection is only needed to load the page initially." } },
+                { "@type": "Question", "name": "Is my data safe?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The text you enter never leaves your device. There is no backend processing for the tools, and nothing is stored on a server." } },
+                { "@type": "Question", "name": "Why do you show ads?", "acceptedAnswer": { "@type": "Answer", "text": "Ads cover hosting and development costs. They are kept as unobtrusive as possible, and no data from your text is ever shared with advertisers." } }
+            ]
+        }
     ]
 }
 </script>
@@ -147,8 +163,12 @@ header{border-bottom:1px solid var(--line);display:flex;justify-content:center;a
 .tools-trigger:hover{color:var(--text);background:var(--hover)}
 .tools-trigger .icon{width:14px;height:14px;transition:transform .2s;flex-shrink:0}
 .tools-mega-menu{position:absolute;top:calc(100% + 8px);right:0;left:auto;transform:translateY(8px);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 8px;width:min(320px,calc(100vw - 24px));max-height:min(70vh,560px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;box-shadow:0 20px 40px var(--shadow);opacity:0;visibility:hidden;transition:.25s;z-index:200}
-.tools-menu-container:hover .tools-mega-menu,.tools-menu-container.open .tools-mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
-.tools-menu-container:hover .tools-trigger .icon,.tools-menu-container.open .tools-trigger .icon{transform:rotate(180deg)}
+.tools-menu-container:hover .tools-mega-menu,
+.tools-menu-container.open .tools-mega-menu,
+.tools-menu-container:focus-within .tools-mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.tools-menu-container:hover .tools-trigger .icon,
+.tools-menu-container.open .tools-trigger .icon,
+.tools-menu-container:focus-within .tools-trigger .icon{transform:rotate(180deg)}
 .tools-mega-menu a{display:block;padding:8px 14px;border-radius:6px;color:var(--text);font-size:13px;font-weight:500;text-decoration:none;transition:.2s;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .tools-mega-menu a:hover{background:var(--hover);color:var(--text)}
 .tools-mega-menu::-webkit-scrollbar{width:6px}
@@ -211,14 +231,16 @@ html.dark-mode .mobile-sidebar-actions button .icon-moon{display:block !importan
 .search-result-item .result-main{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
 .search-result-item .result-name{font-weight:600;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .search-result-item .result-desc{font-size:12px;color:var(--text-light);font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.search-results-list .result-tag{font-size:10px;background:var(--hover);padding:3px 8px;border-radius:12px;color:var(--text-light);text-transform:uppercase;font-weight:600;flex-shrink:0;white-space:nowrap}
+.search-results-list .result-tag{font-size:11px;background:var(--hover);padding:3px 8px;border-radius:12px;color:var(--text-light);text-transform:uppercase;font-weight:600;flex-shrink:0;white-space:nowrap}
 .search-no-result{text-align:center;padding:28px 20px;color:var(--text-light);font-size:14px;display:none;background:var(--bg);border-radius:16px;border:1px solid var(--line);margin-top:8px}
 .search-no-result.show{display:block}
 mark{background:var(--mark-bg);color:var(--mark-text);border-radius:3px;padding:0 2px}
 @keyframes searchResultIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .search-results-list .search-result-item{animation:searchResultIn .25s ease both}
+.search-results-list.no-anim .search-result-item{animation:none}
 
 main{flex:1;padding:clamp(20px,3.5vw,50px) 0;width:100%;min-width:0}
+main:focus{outline:none}
 .content-container{width:100%;max-width:var(--page-max);margin:0 auto;padding:0 var(--gutter);min-width:0}
 h1{font-size:clamp(24px,4vw,42px);font-weight:800;margin-bottom:12px;line-height:1.25;text-align:left;overflow-wrap:break-word}
 .subtitle{font-size:clamp(15px,1.5vw,18px);color:var(--text-light);line-height:1.7;margin-bottom:clamp(18px,2.5vw,28px);text-align:left;overflow-wrap:break-word}
@@ -245,7 +267,7 @@ h1{font-size:clamp(24px,4vw,42px);font-weight:800;margin-bottom:12px;line-height
 html.dark-mode .tool-card .tool-icon { background:rgba(255,255,255,.06); }
 .tool-card h3{font-size:clamp(16px,1.4vw,18px);font-weight:700;margin:0;overflow-wrap:break-word}
 .tool-card p{font-size:14px;color:var(--text-light);line-height:1.5;margin:0;overflow-wrap:break-word}
-.tool-card .badge{display:inline-block;padding:4px 8px;border-radius:12px;font-size:11px;font-weight:600;background:var(--hover);color:var(--text-light);margin-top:4px;align-self:flex-start}
+.tool-card .badge{display:inline-block;padding:4px 8px;border-radius:12px;font-size:12px;font-weight:600;background:var(--hover);color:var(--text-light);margin-top:4px;align-self:flex-start}
 .no-tools-found{display:none;grid-column:1 / -1;text-align:center;padding:50px 20px;border:1px dashed var(--line);border-radius:16px;color:var(--text-light);font-size:15px}
 .no-tools-found.show{display:block}
 .no-tools-found strong{color:var(--text)}
@@ -282,7 +304,7 @@ html.dark-mode .tool-card .tool-icon { background:rgba(255,255,255,.06); }
 .faq-answer{padding:16px 18px;display:none;color:var(--text-light);line-height:1.7;border-top:1px solid var(--line)}
 .faq-item.active .faq-answer{display:block}
 .faq-item.active .faq-question{background:var(--faq-active);color:var(--text)}
-footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) var(--gutter) clamp(60px,12vw,180px);width:100%}
+footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) var(--gutter) clamp(40px,6vw,80px);width:100%}
 .footer-container{width:100%;max-width:var(--page-max);margin:0 auto;min-width:0}
 .footer-middle{display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,30px);justify-content:space-between;align-items:flex-start;min-width:0}
 .footer-left-column{flex:1 1 320px;min-width:0;max-width:420px}
@@ -300,7 +322,7 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 @media (max-width:1180px){.search-trigger{width:40px;height:40px;padding:0;justify-content:center;border-radius:50%}.search-trigger .search-trigger-label{display:none}}
 @media (max-width:1024px){.desktop-nav{gap:2px}.desktop-nav a{padding:6px 6px;font-size:13px}.tools-trigger{padding:6px 6px;font-size:13px}}
 @media (max-width:900px){.footer-middle{flex-direction:column;align-items:stretch;gap:28px}.footer-left-column{max-width:100%;flex:0 1 auto}.footer-right-columns{justify-content:flex-start;flex:0 1 auto}}
-@media (max-width:768px){:root{--header-h:58px}header{padding:0 16px}.logo{font-size:19px}.logo-img{width:22px;height:22px}.desktop-nav{display:none}.theme-btn{display:none}.search-trigger{display:none}.hamburger-btn{display:flex}main{padding:20px 0}h1{font-size:clamp(23px,7vw,30px)}.subtitle{font-size:15px}.category-filter-bar{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:6px;scroll-snap-type:x proximity}.category-filter-bar::-webkit-scrollbar{height:6px}.category-filter-bar::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}.cat-chip{padding:7px 14px;font-size:12px;scroll-snap-align:start}.search-overlay-full{padding:16px 12px 12px}.search-box input{font-size:16px}.search-result-item .result-tag{display:none}footer{padding:30px 16px 120px}.footer-links a{display:block}.info-table{min-width:520px}.info-table th,.info-table td{padding:12px 14px;font-size:14px}}
+@media (max-width:768px){:root{--header-h:58px}header{padding:0 16px}.logo{font-size:19px}.logo-img{width:22px;height:22px}.desktop-nav{display:none}.theme-btn{display:none}.search-trigger{display:none}.hamburger-btn{display:flex}main{padding:20px 0}h1{font-size:clamp(23px,7vw,30px)}.subtitle{font-size:15px}.category-filter-bar{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:6px;scroll-snap-type:x proximity}.category-filter-bar::-webkit-scrollbar{height:6px}.category-filter-bar::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}.cat-chip{padding:8px 15px;font-size:13px;scroll-snap-align:start}.search-overlay-full{padding:16px 12px 12px}.search-box input{font-size:16px}.search-result-item .result-tag{display:none}footer{padding:30px 16px 60px}.footer-links a{display:block}.info-table{min-width:520px}.info-table th,.info-table td{padding:12px 14px;font-size:14px}}
 @media (max-width:560px){:root{--gutter:14px}.footer-right-columns{flex-direction:column;gap:22px;width:100%}.footer-column{width:100%;min-width:0}.feature-grid{grid-template-columns:1fr}.tools-grid{grid-template-columns:1fr}.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section h2{font-size:21px}.section h3{font-size:17px}.mobile-sidebar-actions{flex-wrap:wrap}}
 @media (min-width:769px){.hamburger-btn{display:none}.mobile-sidebar-overlay{display:none !important}.mobile-sidebar{display:none !important}}
 @media (min-width:1800px){.tools-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}.feature-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}}
@@ -463,21 +485,19 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 <div class="header-right">
 <div class="desktop-nav">
 <div class="tools-menu-container" id="toolsMenuContainer">
-<button type="button" class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu" onclick="toggleToolsMenu()">Tools <svg class="icon" aria-hidden="true" width="14" height="14"><use href="#i-chevron-down"/></svg></button>
-<div class="tools-mega-menu" id="megaMenu">
-<a href="/word-counter">Word Counter</a><a href="/sentence-counter">Sentence Counter</a><a href="/paragraph-counter">Paragraph Counter</a><a href="/line-counter">Line Counter</a><a href="/reading-time-estimator">Reading Time Estimator</a><a href="/speaking-time-calculator">Speaking Time Calculator</a><a href="/keyword-counter">Keyword Counter</a><a href="/keyword-density-checker">Keyword Density Checker</a><a href="/duplicate-word-finder">Duplicate Word Finder</a><a href="/text-statistics">Text Statistics</a><a href="/regex-tester">Regex Tester</a><a href="/word-frequency-counter">Word Frequency Counter</a><a href="/character-frequency-counter">Character Frequency Counter</a><a href="/password-strength-checker">Password Strength Checker</a><a href="/duplicate-line-remover">Duplicate Line Remover</a><a href="/whitespace-cleaner">Whitespace Cleaner</a><a href="/remove-extra-spaces">Remove Extra Spaces</a><a href="/remove-empty-lines">Remove Empty Lines</a><a href="/remove-blank-characters">Remove Blank Characters</a><a href="/remove-emojis">Remove Emojis</a><a href="/remove-symbols">Remove Symbols</a><a href="/remove-punctuation">Remove Punctuation</a><a href="/remove-numbers">Remove Numbers</a><a href="/remove-html-tags">Remove HTML Tags</a><a href="/remove-line-breaks">Remove Line Breaks</a><a href="/text-cleaner">Text Cleaner</a><a href="/remove-duplicate-words">Remove Duplicate Words</a><a href="/case-converter">Case Converter</a><a href="/uppercase-converter">Uppercase Converter</a><a href="/lowercase-converter">Lowercase Converter</a><a href="/title-case-converter">Title Case Converter</a><a href="/sentence-case-converter">Sentence Case Converter</a><a href="/capitalize-words">Capitalize Words</a><a href="/toggle-case-converter">Toggle Case Converter</a><a href="/text-repeater">Text Repeater</a><a href="/text-finder-replacer">Text Finder &amp; Replacer</a><a href="/line-break-converter">Line Break Converter</a><a href="/text-indenter">Text Indenter</a><a href="/wrap-text">Wrap Text</a><a href="/unwrap-text">Unwrap Text</a><a href="/join-lines">Join Lines</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/text-sorter">Text Sorter</a><a href="/text-to-handwriting">Text to Handwriting</a><a href="/bold-text-generator">Bold Text Generator</a><a href="/italic-text-generator">Italic Text Generator</a><a href="/strikethrough-generator">Strikethrough Generator</a><a href="/fancy-text-generator">Fancy Text Generator</a><a href="/upside-down-text">Upside Down Text</a><a href="/small-text-generator">Small Text Generator</a><a href="/zalgo-text-generator">Zalgo Text Generator</a><a href="/unicode-text-converter">Unicode Text Converter</a><a href="/email-extractor">Email Extractor</a><a href="/url-extractor">URL Extractor</a><a href="/phone-extractor">Phone Extractor</a><a href="/number-extractor">Number Extractor</a><a href="/date-extractor">Date Extractor</a><a href="/domain-extractor">Domain Extractor</a><a href="/hashtag-extractor">Hashtag Extractor</a><a href="/mention-extractor">Mention Extractor</a><a href="/keyword-extractor">Keyword Extractor</a><a href="/duplicate-line-finder">Duplicate Line Finder</a><a href="/json-formatter">JSON Formatter/Beautifier</a><a href="/json-minifier">JSON Minifier</a><a href="/json-validator">JSON Validator</a><a href="/xml-formatter">XML Formatter</a><a href="/xml-minifier">XML Minifier</a><a href="/html-formatter">HTML Formatter</a><a href="/html-minifier">HTML Minifier</a><a href="/css-formatter">CSS Formatter</a><a href="/css-minifier">CSS Minifier</a><a href="/javascript-formatter">JavaScript Formatter</a><a href="/javascript-minifier">JavaScript Minifier</a><a href="/sql-formatter">SQL Formatter</a><a href="/text-to-binary">Text to Binary</a><a href="/binary-to-text">Binary to Text</a><a href="/text-to-hex">Text to Hex</a><a href="/hex-to-text">Hex to Text</a><a href="/text-to-ascii">Text to ASCII</a><a href="/ascii-to-text">ASCII to Text</a><a href="/morse-code-translator">Morse Code Translator</a><a href="/braille-translator">Braille Translator</a><a href="/nato-alphabet-generator">NATO Alphabet Generator</a><a href="/text-to-csv">Text to CSV</a><a href="/csv-to-text">CSV to Text</a><a href="/csv-to-json">CSV to JSON</a><a href="/json-to-csv">JSON to CSV</a><a href="/markdown-to-html">Markdown to HTML</a><a href="/html-to-markdown">HTML to Markdown</a><a href="/markdown-table-generator">Markdown Table Generator</a><a href="/html-table-generator">HTML Table Generator</a><a href="/roman-numeral-converter">Roman Numeral Converter</a><a href="/number-to-words">Number to Words</a><a href="/words-to-number">Words to Number</a><a href="/timestamp-converter">Timestamp Converter</a><a href="/color-converter">Color Converter</a><a href="/base64-encoder">Base64 Encoder</a><a href="/base64-decoder">Base64 Decoder</a><a href="/url-encoder">URL Encoder</a><a href="/url-decoder">URL Decoder</a><a href="/html-entity-encoder">HTML Entity Encoder</a><a href="/html-entity-decoder">HTML Entity Decoder</a><a href="/regex-generator">Regex Generator</a><a href="/regex-escape-tool">Regex Escape Tool</a><a href="/jwt-decoder">JWT Decoder</a><a href="/uuid-generator">UUID Generator</a><a href="/uuid-validator">UUID Validator</a><a href="/md5-generator">MD5 Generator</a><a href="/sha1-generator">SHA-1 Generator</a><a href="/sha256-generator">SHA-256 Generator</a><a href="/sha512-generator">SHA-512 Generator</a><a href="/hmac-generator">HMAC Generator</a><a href="/cron-expression-generator">Cron Expression Generator</a><a href="/cron-expression-tester">Cron Expression Tester</a><a href="/password-generator">Password Generator</a><a href="/pin-generator">PIN Generator</a><a href="/random-number-generator">Random Number Generator</a><a href="/number-sequence-generator">Number Sequence Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a><a href="/random-word-generator">Random Word Generator</a><a href="/random-text-generator">Random Text Generator</a><a href="/qr-code-generator">QR Code Generator</a><a href="/barcode-generator">Barcode Generator</a><a href="/utm-builder">UTM Builder</a><a href="/whatsapp-link-generator">WhatsApp Link Generator</a><a href="/business-name-generator">Business Name Generator</a><a href="/invoice-number-generator">Invoice Number Generator</a><a href="/image-compressor">Image Compressor</a><a href="/image-resizer">Image Resizer</a><a href="/image-cropper">Image Cropper</a><a href="/image-rotator">Image Rotator</a><a href="/image-flipper">Image Flipper</a><a href="/jpg-to-png">JPG to PNG</a><a href="/png-to-jpg">PNG to JPG</a><a href="/webp-to-jpg">WebP to JPG</a><a href="/jpg-to-webp">JPG to WebP</a><a href="/png-to-webp">PNG to WebP</a><a href="/image-to-base64">Image to Base64</a><a href="/base64-to-image">Base64 to Image</a><a href="/grayscale-image">Grayscale Image</a><a href="/photo-20kb">Photo 20KB</a><a href="/photo-50kb">Photo 50KB</a><a href="/photo-100kb">Photo 100KB</a><a href="/photo-200kb">Photo 200KB</a><a href="/signature-resizer">Signature Resizer</a><a href="/passport-size-photo-maker">Passport Size Photo Maker</a><a href="/jpg-to-pdf">JPG to PDF</a><a href="/png-to-pdf">PNG to PDF</a><a href="/images-to-pdf">Images to PDF</a><a href="/pdf-page-counter">PDF Page Counter</a><a href="/pdf-metadata-viewer">PDF Metadata Viewer</a><a href="/pdf-to-images">PDF to Images</a><a href="/pdf-merge">PDF Merge</a><a href="/pdf-split">PDF Split</a><a href="/pdf-rotate">PDF Rotate</a><a href="/pdf-page-extractor">PDF Page Extractor</a><a href="/pdf-compressor">PDF Compressor</a><a href="/pdf-50kb">PDF to 50KB</a><a href="/pdf-100kb">PDF to 100KB</a><a href="/pdf-200kb">PDF to 200KB</a><a href="/pdf-500kb">PDF to 500KB</a><a href="/pdf-text-extractor">PDF Text Extractor</a><a href="/pdf-lock">PDF Lock</a><a href="/pdf-unlock">PDF Unlock</a><a href="/invoice-generator">Invoice Generator</a><a href="/quotation-generator">Quotation Generator</a><a href="/receipt-generator">Receipt Generator</a><a href="/payslip-generator">Payslip Generator</a><a href="/shipping-label-generator">Shipping Label Generator</a><a href="/resume-builder">Resume Builder</a><a href="/gst-calculator">GST Calculator</a><a href="/discount-calculator">Discount Calculator</a><a href="/profit-margin-calculator">Profit Margin Calculator</a><a href="/salary-calculator">Salary Calculator</a><a href="/emi-calculator">EMI Calculator</a><a href="/loan-calculator">Loan Calculator</a><a href="/sip-calculator">SIP Calculator</a><a href="/income-tax-calculator">Income Tax Calculator</a><a href="/tax-calculator">Tax Calculator</a><a href="/tip-calculator">Tip Calculator</a><a href="/gpa-calculator">GPA Calculator</a><a href="/cgpa-calculator">CGPA Calculator</a><a href="/percentage-calculator">Percentage Calculator</a><a href="/grade-calculator">Grade Calculator</a><a href="/marks-percentage-calculator">Marks Percentage Calculator</a><a href="/attendance-calculator">Attendance Calculator</a><a href="/study-time-calculator">Study Time Calculator</a><a href="/exam-countdown">Exam Countdown</a><a href="/age-calculator">Age Calculator</a><a href="/scientific-calculator">Scientific Calculator</a><a href="/quadratic-equation-calculator">Quadratic Equation Calculator</a><a href="/matrix-calculator">Matrix Calculator</a><a href="/probability-calculator">Probability Calculator</a><a href="/standard-deviation-calculator">Standard Deviation Calculator</a><a href="/mean-median-mode-calculator">Mean Median Mode Calculator</a><a href="/prime-number-checker">Prime Number Checker</a><a href="/prime-number-generator">Prime Number Generator</a><a href="/factorial-calculator">Factorial Calculator</a><a href="/gcd-calculator">GCD Calculator</a><a href="/lcm-calculator">LCM Calculator</a><a href="/binary-calculator">Binary Calculator</a><a href="/decimal-to-binary">Decimal to Binary</a><a href="/binary-to-decimal">Binary to Decimal</a><a href="/decimal-to-hex">Decimal to Hex</a><a href="/hex-to-decimal">Hex to Decimal</a><a href="/decimal-to-octal">Decimal to Octal</a><a href="/average-calculator">Average Calculator</a><a href="/ratio-calculator">Ratio Calculator</a><a href="/fraction-calculator">Fraction Calculator</a><a href="/date-difference-calculator">Date Difference Calculator</a><a href="/days-between-dates">Days Between Dates</a><a href="/add-days-to-date">Add Days to Date</a><a href="/subtract-days-from-date">Subtract Days from Date</a><a href="/business-days-calculator">Business Days Calculator</a><a href="/date-to-unix-timestamp">Date to Unix Timestamp</a><a href="/unix-timestamp-to-date">Unix Timestamp to Date</a><a href="/time-duration-calculator">Time Duration Calculator</a><a href="/countdown-calculator">Countdown Calculator</a><a href="/week-number-calculator">Week Number Calculator</a><a href="/leap-year-checker">Leap Year Checker</a><a href="/world-clock">World Clock</a><a href="/time-zone-converter">Time Zone Converter</a><a href="/length-converter">Length Converter</a><a href="/weight-converter">Weight Converter</a><a href="/temperature-converter">Temperature Converter</a><a href="/area-converter">Area Converter</a><a href="/volume-converter">Volume Converter</a><a href="/speed-converter">Speed Converter</a><a href="/data-storage-converter">Data Storage Converter</a><a href="/energy-converter">Energy Converter</a><a href="/pressure-converter">Pressure Converter</a><a href="/power-converter">Power Converter</a><a href="/frequency-converter">Frequency Converter</a><a href="/angle-converter">Angle Converter</a><a href="/pace-converter">Pace Converter</a><a href="/fuel-economy-converter">Fuel Economy Converter</a>
-</div>
+<button type="button" class="tools-trigger" id="toolsTrigger" aria-expanded="false" aria-controls="megaMenu" data-action="toggle-tools">Tools <svg class="icon" aria-hidden="true" width="14" height="14"><use href="#i-chevron-down"/></svg></button>
+<div class="tools-mega-menu" id="megaMenu"></div>
 </div>
 <a href="/privacy-policy">Privacy</a><a href="/blog">Blog</a><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
 </div>
-<button type="button" class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode"><svg class="icon icon-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg></button>
-<button type="button" class="search-trigger" onclick="openFullSearch()" aria-label="Search tools"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
-<button type="button" class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileSidebar"><span class="menu-icon" aria-hidden="true"><span></span><span></span></span></button>
+<button type="button" class="theme-btn" data-action="toggle-theme" aria-label="Toggle dark mode"><svg class="icon icon-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg></button>
+<button type="button" class="search-trigger" data-action="open-search" aria-label="Search tools"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
+<button type="button" class="hamburger-btn" id="hamburgerBtn" data-action="open-sidebar" aria-label="Open menu" aria-expanded="false" aria-controls="mobileSidebar"><span class="menu-icon" aria-hidden="true"><span></span><span></span></span></button>
 </div>
 </div>
 </header>
 
-<main id="mainContent">
+<main id="mainContent" tabindex="-1">
 <div class="content-container">
 <h1>Free Online Text Tools — Open, Use, Done. No Signup.</h1>
 <p class="subtitle">No signup. We don't track the text you enter. Just free text tools that work instantly in your browser. Word counter, case converter, JSON formatter, text cleaner, and a lot more. Your text never leaves your device. Open a tool and start working — it's that simple.</p>
@@ -839,10 +859,16 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 </div>
 
 <div class="section">
-<h2>Why we don't want your data</h2>
+<h2>Privacy in plain English</h2>
 <p>Storing user data is a huge headache. Servers cost money, GDPR is scary, and hackers are always poking around. By keeping every tool in your browser, we avoid all that. The text you enter never leaves your device. We can't lose what we never had.</p>
-<p>When you use the JSON formatter, that ugly payload stays inside your own browser's memory. Close the tab, and poof — it's gone. We don't keep a log of what you type or paste into any tool. Google Analytics does count anonymous page views and general traffic, but that's it — nothing about your content.</p>
-<p>If a government ever asks for your data, we'll happily show them an empty folder. That's privacy by design, not just a fancy policy.</p>
+<p>I built Textify.tools after getting frustrated with sites that demanded signups, pushed giant ads, or made me wonder where my data was going. Here's what you can count on:</p>
+<ul>
+<li><strong>We don't track the text you enter into our tools</strong> — All the magic happens in your browser using JavaScript. There is no backend for tool processing, and what you type or paste is never sent anywhere.</li>
+<li><strong>No account, ever</strong> — No email, no password, no social login. Just open the page and go.</li>
+<li><strong>Anonymous traffic analytics only</strong> — I use Google Analytics to see anonymous page views and general traffic patterns, but the text you type into any tool is never tracked.</li>
+<li><strong>Many tools work offline</strong> — After a tool page has loaded, many tools keep working even without an internet connection. Bookmark your favorites for flights or remote areas.</li>
+</ul>
+<p>When you use the JSON formatter, that ugly payload stays inside your own browser's memory. Close the tab, and poof — it's gone. If a government ever asks for your data, we'll happily show them an empty folder. That's privacy by design, not just a fancy policy.</p>
 </div>
 
 <div class="section">
@@ -883,29 +909,18 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 </div>
 
 <div class="section">
-<h2>Privacy in plain English</h2>
-<p>I built Textify.tools after getting frustrated with sites that demanded signups, pushed giant ads, or made me wonder where my data was going. Here's what you can count on:</p>
-<ul>
-<li><strong>We don't track the text you enter into our tools</strong> — All the magic happens in your browser using JavaScript. There is no backend for tool processing, and what you type or paste is never sent anywhere.</li>
-<li><strong>No account, ever</strong> — No email, no password, no social login. Just open the page and go.</li>
-<li><strong>Anonymous traffic analytics only</strong> — I use Google Analytics to see anonymous page views and general traffic patterns, but the text you type into any tool is never tracked.</li>
-<li><strong>Many tools work offline</strong> — After a tool page has loaded, many tools keep working even without an internet connection. Bookmark your favorites for flights or remote areas.</li>
-</ul>
-</div>
-
-<div class="section">
 <h2>Frequently asked questions</h2>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a1" onclick="toggleFaq(this)">Is every tool actually free?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a1">Yep, 100% free – no "pro" plans, no credit card tricks. I fund this with a few non-annoying ads and my own love for building helpful stuff.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a2" onclick="toggleFaq(this)">Do I really not need an account?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a2">Really. That's the whole point. Open the page, use the tool, close it. No registration, no login, no strings attached.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a3" onclick="toggleFaq(this)">Can I use the output for commercial projects?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a3">Absolutely. The text you generate belongs to you. Use it for work, school, or anything else. No attribution needed.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a4" onclick="toggleFaq(this)">How do you make money if it's free?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a4">A few small ads (via Google AdSense) cover hosting and development. No data selling, no hidden fees.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a5" onclick="toggleFaq(this)">What if I need a tool that isn't here?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a5">I'm all ears! Drop a message through the <a href="/contact-us">Contact page</a>. If it can run safely in a browser, there's a good chance I'll build it.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a6" onclick="toggleFaq(this)">Do these tools work on my phone or tablet?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a6">Absolutely. Every tool adapts to any screen size. You can even add the site to your home screen and use it like an app.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a7" onclick="toggleFaq(this)">Can I suggest a tool or report a problem?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a7">Please do! Head over to the <a href="/contact-us">Contact page</a> or drop a message on social media. I read every suggestion and try to fix bugs within a day or two.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a8" onclick="toggleFaq(this)">Is there a limit on how many times I can use a tool?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a8">No artificial limits. You can use the tools as many times as you want. Performance may vary depending on your device and browser, but there are no daily caps or paywalls.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a9" onclick="toggleFaq(this)">Do the tools work offline?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a9">Many tools work offline after the page has loaded once. Since processing happens in your browser, an internet connection is only needed to load the page initially.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a10" onclick="toggleFaq(this)">Is my data safe?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a10">Yes. The text you enter never leaves your device. There is no backend processing for the tools, and nothing is stored on a server.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a11" onclick="toggleFaq(this)">Why do you show ads?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a11">Ads cover hosting and development costs. They are kept as unobtrusive as possible, and no data from your text is ever shared with advertisers.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a1" data-action="toggle-faq">Is every tool actually free?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a1">Yep, 100% free – no "pro" plans, no credit card tricks. I fund this with a few non-annoying ads and my own love for building helpful stuff.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a2" data-action="toggle-faq">Do I really not need an account?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a2">Really. That's the whole point. Open the page, use the tool, close it. No registration, no login, no strings attached.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a3" data-action="toggle-faq">Can I use the output for commercial projects?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a3">Absolutely. The text you generate belongs to you. Use it for work, school, or anything else. No attribution needed.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a4" data-action="toggle-faq">How do you make money if it's free?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a4">A few small ads (via Google AdSense) cover hosting and development. No data selling, no hidden fees.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a5" data-action="toggle-faq">What if I need a tool that isn't here?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a5">I'm all ears! Drop a message through the <a href="/contact-us">Contact page</a>. If it can run safely in a browser, there's a good chance I'll build it.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a6" data-action="toggle-faq">Do these tools work on my phone or tablet?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a6">Absolutely. Every tool adapts to any screen size. You can even add the site to your home screen and use it like an app.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a7" data-action="toggle-faq">Can I suggest a tool or report a problem?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a7">Please do! Head over to the <a href="/contact-us">Contact page</a> or drop a message on social media. I read every suggestion and try to fix bugs within a day or two.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a8" data-action="toggle-faq">Is there a limit on how many times I can use a tool?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a8">No artificial limits. You can use the tools as many times as you want. Performance may vary depending on your device and browser, but there are no daily caps or paywalls.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a9" data-action="toggle-faq">Do the tools work offline?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a9">Many tools work offline after the page has loaded once. Since processing happens in your browser, an internet connection is only needed to load the page initially.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a10" data-action="toggle-faq">Is my data safe?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a10">Yes. The text you enter never leaves your device. There is no backend processing for the tools, and nothing is stored on a server.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a11" data-action="toggle-faq">Why do you show ads?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a11">Ads cover hosting and development costs. They are kept as unobtrusive as possible, and no data from your text is ever shared with advertisers.</div></div>
 </div>
 </div>
 </main>
@@ -935,24 +950,22 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 </footer>
 </div>
 
-<div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
+<div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" data-action="close-sidebar"></div>
 <div class="mobile-sidebar" id="mobileSidebar" role="dialog" aria-modal="true" aria-label="Mobile navigation menu" aria-hidden="true">
 <div class="mobile-sidebar-header">
 <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
-<button type="button" class="mobile-sidebar-close" id="mobileSidebarClose" onclick="closeMobileSidebar()" aria-label="Close menu"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
+<button type="button" class="mobile-sidebar-close" id="mobileSidebarClose" data-action="close-sidebar" aria-label="Close menu"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
 </div>
 <nav class="mobile-sidebar-nav" aria-label="Mobile navigation">
-<button type="button" class="mobile-tools-toggle" id="mobileToolsToggle" onclick="toggleMobileTools()" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
-<div class="mobile-tools-menu" id="mobileToolsMenu">
-<a href="/word-counter">Word Counter</a><a href="/sentence-counter">Sentence Counter</a><a href="/paragraph-counter">Paragraph Counter</a><a href="/line-counter">Line Counter</a><a href="/reading-time-estimator">Reading Time Estimator</a><a href="/speaking-time-calculator">Speaking Time Calculator</a><a href="/keyword-counter">Keyword Counter</a><a href="/keyword-density-checker">Keyword Density Checker</a><a href="/duplicate-word-finder">Duplicate Word Finder</a><a href="/text-statistics">Text Statistics</a><a href="/regex-tester">Regex Tester</a><a href="/word-frequency-counter">Word Frequency Counter</a><a href="/character-frequency-counter">Character Frequency Counter</a><a href="/password-strength-checker">Password Strength Checker</a><a href="/duplicate-line-remover">Duplicate Line Remover</a><a href="/whitespace-cleaner">Whitespace Cleaner</a><a href="/remove-extra-spaces">Remove Extra Spaces</a><a href="/remove-empty-lines">Remove Empty Lines</a><a href="/remove-blank-characters">Remove Blank Characters</a><a href="/remove-emojis">Remove Emojis</a><a href="/remove-symbols">Remove Symbols</a><a href="/remove-punctuation">Remove Punctuation</a><a href="/remove-numbers">Remove Numbers</a><a href="/remove-html-tags">Remove HTML Tags</a><a href="/remove-line-breaks">Remove Line Breaks</a><a href="/text-cleaner">Text Cleaner</a><a href="/remove-duplicate-words">Remove Duplicate Words</a><a href="/case-converter">Case Converter</a><a href="/uppercase-converter">Uppercase Converter</a><a href="/lowercase-converter">Lowercase Converter</a><a href="/title-case-converter">Title Case Converter</a><a href="/sentence-case-converter">Sentence Case Converter</a><a href="/capitalize-words">Capitalize Words</a><a href="/toggle-case-converter">Toggle Case Converter</a><a href="/text-repeater">Text Repeater</a><a href="/text-finder-replacer">Text Finder &amp; Replacer</a><a href="/line-break-converter">Line Break Converter</a><a href="/text-indenter">Text Indenter</a><a href="/wrap-text">Wrap Text</a><a href="/unwrap-text">Unwrap Text</a><a href="/join-lines">Join Lines</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/text-sorter">Text Sorter</a><a href="/text-to-handwriting">Text to Handwriting</a><a href="/bold-text-generator">Bold Text Generator</a><a href="/italic-text-generator">Italic Text Generator</a><a href="/strikethrough-generator">Strikethrough Generator</a><a href="/fancy-text-generator">Fancy Text Generator</a><a href="/upside-down-text">Upside Down Text</a><a href="/small-text-generator">Small Text Generator</a><a href="/zalgo-text-generator">Zalgo Text Generator</a><a href="/unicode-text-converter">Unicode Text Converter</a><a href="/email-extractor">Email Extractor</a><a href="/url-extractor">URL Extractor</a><a href="/phone-extractor">Phone Extractor</a><a href="/number-extractor">Number Extractor</a><a href="/date-extractor">Date Extractor</a><a href="/domain-extractor">Domain Extractor</a><a href="/hashtag-extractor">Hashtag Extractor</a><a href="/mention-extractor">Mention Extractor</a><a href="/keyword-extractor">Keyword Extractor</a><a href="/duplicate-line-finder">Duplicate Line Finder</a><a href="/json-formatter">JSON Formatter/Beautifier</a><a href="/json-minifier">JSON Minifier</a><a href="/json-validator">JSON Validator</a><a href="/xml-formatter">XML Formatter</a><a href="/xml-minifier">XML Minifier</a><a href="/html-formatter">HTML Formatter</a><a href="/html-minifier">HTML Minifier</a><a href="/css-formatter">CSS Formatter</a><a href="/css-minifier">CSS Minifier</a><a href="/javascript-formatter">JavaScript Formatter</a><a href="/javascript-minifier">JavaScript Minifier</a><a href="/sql-formatter">SQL Formatter</a><a href="/text-to-binary">Text to Binary</a><a href="/binary-to-text">Binary to Text</a><a href="/text-to-hex">Text to Hex</a><a href="/hex-to-text">Hex to Text</a><a href="/text-to-ascii">Text to ASCII</a><a href="/ascii-to-text">ASCII to Text</a><a href="/morse-code-translator">Morse Code Translator</a><a href="/braille-translator">Braille Translator</a><a href="/nato-alphabet-generator">NATO Alphabet Generator</a><a href="/text-to-csv">Text to CSV</a><a href="/csv-to-text">CSV to Text</a><a href="/csv-to-json">CSV to JSON</a><a href="/json-to-csv">JSON to CSV</a><a href="/markdown-to-html">Markdown to HTML</a><a href="/html-to-markdown">HTML to Markdown</a><a href="/markdown-table-generator">Markdown Table Generator</a><a href="/html-table-generator">HTML Table Generator</a><a href="/roman-numeral-converter">Roman Numeral Converter</a><a href="/number-to-words">Number to Words</a><a href="/words-to-number">Words to Number</a><a href="/timestamp-converter">Timestamp Converter</a><a href="/color-converter">Color Converter</a><a href="/base64-encoder">Base64 Encoder</a><a href="/base64-decoder">Base64 Decoder</a><a href="/url-encoder">URL Encoder</a><a href="/url-decoder">URL Decoder</a><a href="/html-entity-encoder">HTML Entity Encoder</a><a href="/html-entity-decoder">HTML Entity Decoder</a><a href="/regex-generator">Regex Generator</a><a href="/regex-escape-tool">Regex Escape Tool</a><a href="/jwt-decoder">JWT Decoder</a><a href="/uuid-generator">UUID Generator</a><a href="/uuid-validator">UUID Validator</a><a href="/md5-generator">MD5 Generator</a><a href="/sha1-generator">SHA-1 Generator</a><a href="/sha256-generator">SHA-256 Generator</a><a href="/sha512-generator">SHA-512 Generator</a><a href="/hmac-generator">HMAC Generator</a><a href="/cron-expression-generator">Cron Expression Generator</a><a href="/cron-expression-tester">Cron Expression Tester</a><a href="/password-generator">Password Generator</a><a href="/pin-generator">PIN Generator</a><a href="/random-number-generator">Random Number Generator</a><a href="/number-sequence-generator">Number Sequence Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a><a href="/random-word-generator">Random Word Generator</a><a href="/random-text-generator">Random Text Generator</a><a href="/qr-code-generator">QR Code Generator</a><a href="/barcode-generator">Barcode Generator</a><a href="/utm-builder">UTM Builder</a><a href="/whatsapp-link-generator">WhatsApp Link Generator</a><a href="/business-name-generator">Business Name Generator</a><a href="/invoice-number-generator">Invoice Number Generator</a><a href="/image-compressor">Image Compressor</a><a href="/image-resizer">Image Resizer</a><a href="/image-cropper">Image Cropper</a><a href="/image-rotator">Image Rotator</a><a href="/image-flipper">Image Flipper</a><a href="/jpg-to-png">JPG to PNG</a><a href="/png-to-jpg">PNG to JPG</a><a href="/webp-to-jpg">WebP to JPG</a><a href="/jpg-to-webp">JPG to WebP</a><a href="/png-to-webp">PNG to WebP</a><a href="/image-to-base64">Image to Base64</a><a href="/base64-to-image">Base64 to Image</a><a href="/grayscale-image">Grayscale Image</a><a href="/photo-20kb">Photo 20KB</a><a href="/photo-50kb">Photo 50KB</a><a href="/photo-100kb">Photo 100KB</a><a href="/photo-200kb">Photo 200KB</a><a href="/signature-resizer">Signature Resizer</a><a href="/passport-size-photo-maker">Passport Size Photo Maker</a><a href="/jpg-to-pdf">JPG to PDF</a><a href="/png-to-pdf">PNG to PDF</a><a href="/images-to-pdf">Images to PDF</a><a href="/pdf-page-counter">PDF Page Counter</a><a href="/pdf-metadata-viewer">PDF Metadata Viewer</a><a href="/pdf-to-images">PDF to Images</a><a href="/pdf-merge">PDF Merge</a><a href="/pdf-split">PDF Split</a><a href="/pdf-rotate">PDF Rotate</a><a href="/pdf-page-extractor">PDF Page Extractor</a><a href="/pdf-compressor">PDF Compressor</a><a href="/pdf-50kb">PDF to 50KB</a><a href="/pdf-100kb">PDF to 100KB</a><a href="/pdf-200kb">PDF to 200KB</a><a href="/pdf-500kb">PDF to 500KB</a><a href="/pdf-text-extractor">PDF Text Extractor</a><a href="/pdf-lock">PDF Lock</a><a href="/pdf-unlock">PDF Unlock</a><a href="/invoice-generator">Invoice Generator</a><a href="/quotation-generator">Quotation Generator</a><a href="/receipt-generator">Receipt Generator</a><a href="/payslip-generator">Payslip Generator</a><a href="/shipping-label-generator">Shipping Label Generator</a><a href="/resume-builder">Resume Builder</a><a href="/gst-calculator">GST Calculator</a><a href="/discount-calculator">Discount Calculator</a><a href="/profit-margin-calculator">Profit Margin Calculator</a><a href="/salary-calculator">Salary Calculator</a><a href="/emi-calculator">EMI Calculator</a><a href="/loan-calculator">Loan Calculator</a><a href="/sip-calculator">SIP Calculator</a><a href="/income-tax-calculator">Income Tax Calculator</a><a href="/tax-calculator">Tax Calculator</a><a href="/tip-calculator">Tip Calculator</a><a href="/gpa-calculator">GPA Calculator</a><a href="/cgpa-calculator">CGPA Calculator</a><a href="/percentage-calculator">Percentage Calculator</a><a href="/grade-calculator">Grade Calculator</a><a href="/marks-percentage-calculator">Marks Percentage Calculator</a><a href="/attendance-calculator">Attendance Calculator</a><a href="/study-time-calculator">Study Time Calculator</a><a href="/exam-countdown">Exam Countdown</a><a href="/age-calculator">Age Calculator</a><a href="/scientific-calculator">Scientific Calculator</a><a href="/quadratic-equation-calculator">Quadratic Equation Calculator</a><a href="/matrix-calculator">Matrix Calculator</a><a href="/probability-calculator">Probability Calculator</a><a href="/standard-deviation-calculator">Standard Deviation Calculator</a><a href="/mean-median-mode-calculator">Mean Median Mode Calculator</a><a href="/prime-number-checker">Prime Number Checker</a><a href="/prime-number-generator">Prime Number Generator</a><a href="/factorial-calculator">Factorial Calculator</a><a href="/gcd-calculator">GCD Calculator</a><a href="/lcm-calculator">LCM Calculator</a><a href="/binary-calculator">Binary Calculator</a><a href="/decimal-to-binary">Decimal to Binary</a><a href="/binary-to-decimal">Binary to Decimal</a><a href="/decimal-to-hex">Decimal to Hex</a><a href="/hex-to-decimal">Hex to Decimal</a><a href="/decimal-to-octal">Decimal to Octal</a><a href="/average-calculator">Average Calculator</a><a href="/ratio-calculator">Ratio Calculator</a><a href="/fraction-calculator">Fraction Calculator</a><a href="/date-difference-calculator">Date Difference Calculator</a><a href="/days-between-dates">Days Between Dates</a><a href="/add-days-to-date">Add Days to Date</a><a href="/subtract-days-from-date">Subtract Days from Date</a><a href="/business-days-calculator">Business Days Calculator</a><a href="/date-to-unix-timestamp">Date to Unix Timestamp</a><a href="/unix-timestamp-to-date">Unix Timestamp to Date</a><a href="/time-duration-calculator">Time Duration Calculator</a><a href="/countdown-calculator">Countdown Calculator</a><a href="/week-number-calculator">Week Number Calculator</a><a href="/leap-year-checker">Leap Year Checker</a><a href="/world-clock">World Clock</a><a href="/time-zone-converter">Time Zone Converter</a><a href="/length-converter">Length Converter</a><a href="/weight-converter">Weight Converter</a><a href="/temperature-converter">Temperature Converter</a><a href="/area-converter">Area Converter</a><a href="/volume-converter">Volume Converter</a><a href="/speed-converter">Speed Converter</a><a href="/data-storage-converter">Data Storage Converter</a><a href="/energy-converter">Energy Converter</a><a href="/pressure-converter">Pressure Converter</a><a href="/power-converter">Power Converter</a><a href="/frequency-converter">Frequency Converter</a><a href="/angle-converter">Angle Converter</a><a href="/pace-converter">Pace Converter</a><a href="/fuel-economy-converter">Fuel Economy Converter</a>
-</div>
+<button type="button" class="mobile-tools-toggle" id="mobileToolsToggle" data-action="toggle-mobile-tools" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+<div class="mobile-tools-menu" id="mobileToolsMenu"></div>
 <a href="/privacy-policy">Privacy</a>
 <a href="/blog">Blog</a>
 <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
 </nav>
 <div class="mobile-sidebar-actions">
-<button type="button" onclick="openSearchFromSidebar()"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg> Search</button>
-<button type="button" onclick="toggleTheme()"><svg class="icon icon-sun" width="16" height="16" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" width="16" height="16" aria-hidden="true"><use href="#i-moon"/></svg> Theme</button>
+<button type="button" data-action="search-from-sidebar"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg> Search</button>
+<button type="button" data-action="toggle-theme"><svg class="icon icon-sun" width="16" height="16" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" width="16" height="16" aria-hidden="true"><use href="#i-moon"/></svg> Theme</button>
 </div>
 </div>
 
@@ -961,11 +974,11 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 <div class="search-box" id="searchBoxAnimated">
 <svg class="icon search-icon-leading" width="20" height="20" aria-hidden="true"><use href="#i-search"/></svg>
 <label for="fullSearchInput" class="sr-only">Search all tools</label>
-<input type="text" id="fullSearchInput" placeholder="Search tools…" oninput="filterFullSearch()" onkeydown="handleSearchKey(event)" autocomplete="off" aria-label="Search all tools" role="combobox" aria-expanded="true" aria-controls="fullSearchResultsList">
-<button type="button" class="search-clear-btn" id="searchClearBtn" onclick="clearSearchInput()" aria-label="Clear search"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg></button>
-<button type="button" class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
+<input type="text" id="fullSearchInput" placeholder="Search tools…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="fullSearchResultsList" aria-activedescendant="">
+<button type="button" class="search-clear-btn" id="searchClearBtn" data-action="clear-search" aria-label="Clear search"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg></button>
+<button type="button" class="search-close-btn" data-action="close-search" aria-label="Close search"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
 </div>
-<div class="search-results-list" id="fullSearchResultsList" role="list" aria-label="Tool suggestions"></div>
+<div class="search-results-list" id="fullSearchResultsList" role="listbox" aria-label="Tool suggestions"></div>
 <div class="search-no-result" id="fullNoResult" role="status" aria-live="polite">No tools found for "<span id="fullSearchQuery"></span>"</div>
 </div>
 </div>
@@ -1286,8 +1299,8 @@ function applyFilters(){
 
 const searchState = { activeIndex: -1 };
 
-function buildResultItemHtml(t, q){
-    return '<a href="' + escAttr(t.link) + '" class="search-result-item" role="listitem">' +
+function buildResultItemHtml(t, q, idx){
+    return '<a href="' + escAttr(t.link) + '" class="search-result-item" id="search-result-' + idx + '" role="option">' +
         '<span class="result-main">' +
         '<span class="result-name">' + highlight(t.name, q) + '</span>' +
         '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
@@ -1296,13 +1309,23 @@ function buildResultItemHtml(t, q){
         '</a>';
 }
 
+function setActiveDescendant(el){
+    const input = document.getElementById('fullSearchInput');
+    if (!input) return;
+    if (el) input.setAttribute('aria-activedescendant', el.id);
+    else input.setAttribute('aria-activedescendant', '');
+}
+
 function renderAllSuggestions(){
     const list = document.getElementById('fullSearchResultsList');
     if (!list) return;
+    /* Disable entry animation for the bulk render to avoid 200+ simultaneous animations */
+    list.classList.add('no-anim');
     let html = '';
-    for (let i = 0; i < tools.length; i++) html += buildResultItemHtml(tools[i], '');
+    for (let i = 0; i < tools.length; i++) html += buildResultItemHtml(tools[i], '', i);
     list.innerHTML = html;
     searchState.activeIndex = -1;
+    setActiveDescendant(null);
     const input = document.getElementById('fullSearchInput');
     if (input) input.setAttribute('aria-expanded', 'true');
 }
@@ -1313,6 +1336,8 @@ function buildSearchResults(q, displayQuery){
     const input = document.getElementById('fullSearchInput');
     if (!list) return;
     if (q === ''){ renderAllSuggestions(); if (nr) nr.classList.remove('show'); return; }
+    /* Filtered results are fewer — allow the entry animation */
+    list.classList.remove('no-anim');
     let matched = [];
     for (let i = 0; i < tools.length; i++){
         const t = tools[i];
@@ -1326,9 +1351,10 @@ function buildSearchResults(q, displayQuery){
     matched.sort(function(a, b){ return a.score - b.score || a.idx - b.idx; });
     const total = matched.length;
     const parts = [];
-    for (let i = 0; i < total; i++) parts.push(buildResultItemHtml(matched[i].t, q));
+    for (let i = 0; i < total; i++) parts.push(buildResultItemHtml(matched[i].t, q, i));
     list.innerHTML = parts.join('');
     searchState.activeIndex = -1;
+    setActiveDescendant(null);
     if (input) input.setAttribute('aria-expanded', total > 0 ? 'true' : 'false');
     if (total === 0){
         nr.classList.add('show');
@@ -1356,6 +1382,7 @@ function handleSearchKey(e){
         searchState.activeIndex = (searchState.activeIndex + 1) % items.length;
         items.forEach(i => i.classList.remove('active'));
         items[searchState.activeIndex].classList.add('active');
+        setActiveDescendant(items[searchState.activeIndex]);
         items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
     } else if (e.key === 'ArrowUp'){
         e.preventDefault();
@@ -1363,11 +1390,16 @@ function handleSearchKey(e){
         searchState.activeIndex = (searchState.activeIndex - 1 + items.length) % items.length;
         items.forEach(i => i.classList.remove('active'));
         items[searchState.activeIndex].classList.add('active');
+        setActiveDescendant(items[searchState.activeIndex]);
         items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
     } else if (e.key === 'Enter'){
         e.preventDefault();
-        if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) window.location.href = items[searchState.activeIndex].getAttribute('href');
-        else if (items.length === 1) window.location.href = items[0].getAttribute('href');
+        if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) {
+            window.location.href = items[searchState.activeIndex].getAttribute('href');
+        } else if (items.length) {
+            /* Open the top result even when nothing is highlighted */
+            window.location.href = items[0].getAttribute('href');
+        }
     }
 }
 
@@ -1395,7 +1427,6 @@ function openFullSearch(){
     const input = document.getElementById('fullSearchInput');
     if (input){ input.value = ''; }
     document.getElementById('searchClearBtn').classList.remove('show');
-    /* Show all tools immediately on open — matches original behaviour */
     renderAllSuggestions();
     document.getElementById('fullNoResult').classList.remove('show');
     setTimeout(function(){
@@ -1408,28 +1439,37 @@ function closeFullSearch(){
     if (!overlay || !overlay.classList.contains('active')) return;
     searchIsOpen = false;
     if (searchResultsRaf){ cancelAnimationFrame(searchResultsRaf); searchResultsRaf = 0; }
+
+    /* Move focus OUT of the overlay BEFORE hiding it. Setting aria-hidden on an
+       ancestor of the focused element causes browsers to block the attribute
+       and log a console warning. */
+    if (overlay.contains(document.activeElement) && document.activeElement.blur){
+        document.activeElement.blur();
+    }
+
     overlay.classList.remove('active');
     overlay.setAttribute('aria-hidden','true');
     const inp = document.getElementById('fullSearchInput');
-    if (inp){ inp.value = ''; inp.setAttribute('aria-expanded', 'false'); }
+    if (inp){ inp.value = ''; inp.setAttribute('aria-expanded', 'false'); inp.setAttribute('aria-activedescendant', ''); }
     document.getElementById('searchClearBtn').classList.remove('show');
     document.getElementById('fullSearchResultsList').innerHTML = '';
     document.getElementById('fullNoResult').classList.remove('show');
     const sidebarEl = document.getElementById('mobileSidebar');
     const sidebarOpen = sidebarEl && sidebarEl.classList.contains('active');
     if (!sidebarOpen) document.body.style.overflow = '';
-    if (lastFocusedBeforeSearch && lastFocusedBeforeSearch.focus){
+
+    /* Restore focus only if the previous target is still visible/attached */
+    if (lastFocusedBeforeSearch && document.contains(lastFocusedBeforeSearch) && lastFocusedBeforeSearch.offsetParent !== null && lastFocusedBeforeSearch.focus){
         try { lastFocusedBeforeSearch.focus(); } catch (e) {}
     }
     lastFocusedBeforeSearch = null;
 }
 
-function openSearchFromSidebar(){ closeMobileSidebar(); openFullSearch(); }
-
-(function initSearchBackdrop(){
-    const overlay = document.getElementById('searchOverlayFull');
-    if (overlay) overlay.addEventListener('click', function(e){ if (e.target === overlay) closeFullSearch(); });
-})();
+function openSearchFromSidebar(){
+    closeMobileSidebar();
+    /* Defer opening until the sidebar's aria-hidden transition settles */
+    setTimeout(openFullSearch, 60);
+}
 
 function setThemeColorMeta(isDark){
     const meta = document.getElementById('themeColorMeta');
@@ -1481,10 +1521,6 @@ function toggleToolsMenu(){
         if (firstLink) firstLink.focus();
     }
 }
-document.addEventListener('click', function(e){
-    const container = document.getElementById('toolsMenuContainer');
-    if (container && !container.contains(e.target) && container.classList.contains('open')) closeToolsMenu(false);
-});
 
 function openMobileSidebar(){
     const sb = document.getElementById('mobileSidebar');
@@ -1500,13 +1536,23 @@ function openMobileSidebar(){
 function closeMobileSidebar(){
     const sb = document.getElementById('mobileSidebar');
     if (!sb || !sb.classList.contains('active')) return;
+
+    /* Blur any focused descendant BEFORE setting aria-hidden on the sidebar */
+    if (sb.contains(document.activeElement) && document.activeElement.blur){
+        document.activeElement.blur();
+    }
+
     sb.classList.remove('active');
     sb.setAttribute('aria-hidden','true');
     const ov = document.getElementById('mobileSidebarOverlay');
     if (ov) ov.classList.remove('active');
-    const hb = document.getElementById('hamburgerBtn');
-    if (hb){ hb.setAttribute('aria-expanded','false'); if (!searchIsOpen){ try { hb.focus(); } catch (e) {} } }
     if (!searchIsOpen) document.body.style.overflow = '';
+
+    /* Return focus to the hamburger only if it is currently visible */
+    const hb = document.getElementById('hamburgerBtn');
+    if (hb && !searchIsOpen && hb.offsetParent !== null){
+        try { hb.focus(); } catch (e) {}
+    }
 }
 function toggleMobileTools(){
     const toggle = document.getElementById('mobileToolsToggle');
@@ -1533,6 +1579,29 @@ function initResizeHandler(){
     });
 }
 
+/* Build the desktop mega menu and mobile tools menu from the tools array.
+   This removes ~400 duplicated anchors of markup from the HTML source. */
+function populateNavMenus(){
+    const mega = document.getElementById('megaMenu');
+    const mobileMenu = document.getElementById('mobileToolsMenu');
+    if (mega){
+        const parts = [];
+        for (let i = 0; i < tools.length; i++){
+            const t = tools[i];
+            parts.push('<a href="' + escAttr(t.link) + '">' + escHtml(t.name) + '</a>');
+        }
+        mega.innerHTML = parts.join('');
+    }
+    if (mobileMenu){
+        const parts = [];
+        for (let i = 0; i < tools.length; i++){
+            const t = tools[i];
+            parts.push('<a href="' + escAttr(t.link) + '">' + escHtml(t.name) + '</a>');
+        }
+        mobileMenu.innerHTML = parts.join('');
+    }
+}
+
 function initDelegatedHandlers(){
     const catGrid = document.getElementById('categoryGrid');
     if (catGrid) catGrid.addEventListener('click', function(e){
@@ -1555,13 +1624,64 @@ function initDelegatedHandlers(){
         filterByCategory(catKey, btn);
     });
     const sb = document.getElementById('mobileSidebar');
-    if (sb) sb.addEventListener('click', (e) => { if (e.target.closest('a')) closeMobileSidebar(); });
+    if (sb) sb.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (link) closeMobileSidebar();
+    });
     const container = document.getElementById('toolsMenuContainer');
     const trigger = document.getElementById('toolsTrigger');
     if (container && trigger){
         container.addEventListener('mouseenter', () => { trigger.setAttribute('aria-expanded','true'); });
         container.addEventListener('mouseleave', () => { if (!container.classList.contains('open')) trigger.setAttribute('aria-expanded','false'); });
     }
+}
+
+/* Attach all previously inline onclick handlers here — keeps the HTML free of
+   inline script, which is required for a strict Content-Security-Policy. */
+function initEventListeners(){
+    document.querySelectorAll('[data-action="toggle-theme"]').forEach(function(btn){
+        btn.addEventListener('click', toggleTheme);
+    });
+    document.querySelectorAll('[data-action="open-search"]').forEach(function(btn){
+        btn.addEventListener('click', openFullSearch);
+    });
+    document.querySelectorAll('[data-action="close-search"]').forEach(function(btn){
+        btn.addEventListener('click', closeFullSearch);
+    });
+    document.querySelectorAll('[data-action="clear-search"]').forEach(function(btn){
+        btn.addEventListener('click', clearSearchInput);
+    });
+    document.querySelectorAll('[data-action="open-sidebar"]').forEach(function(btn){
+        btn.addEventListener('click', openMobileSidebar);
+    });
+    document.querySelectorAll('[data-action="close-sidebar"]').forEach(function(btn){
+        btn.addEventListener('click', closeMobileSidebar);
+    });
+    document.querySelectorAll('[data-action="toggle-tools"]').forEach(function(btn){
+        btn.addEventListener('click', toggleToolsMenu);
+    });
+    document.querySelectorAll('[data-action="toggle-mobile-tools"]').forEach(function(btn){
+        btn.addEventListener('click', toggleMobileTools);
+    });
+    document.querySelectorAll('[data-action="search-from-sidebar"]').forEach(function(btn){
+        btn.addEventListener('click', openSearchFromSidebar);
+    });
+    document.querySelectorAll('[data-action="toggle-faq"]').forEach(function(btn){
+        btn.addEventListener('click', function(){ toggleFaq(this); });
+    });
+    const searchInput = document.getElementById('fullSearchInput');
+    if (searchInput){
+        searchInput.addEventListener('input', filterFullSearch);
+        searchInput.addEventListener('keydown', handleSearchKey);
+    }
+    const searchOverlay = document.getElementById('searchOverlayFull');
+    if (searchOverlay){
+        searchOverlay.addEventListener('click', function(e){ if (e.target === searchOverlay) closeFullSearch(); });
+    }
+    document.addEventListener('click', function(e){
+        const container = document.getElementById('toolsMenuContainer');
+        if (container && !container.contains(e.target) && container.classList.contains('open')) closeToolsMenu(false);
+    });
 }
 
 function trapFocus(e, container){
@@ -1600,8 +1720,10 @@ function toggleFaq(btnEl){
 function init(){
     const yearEl = document.getElementById('dynamicYear');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+    populateNavMenus();
     cacheToolCards();
     initDelegatedHandlers();
+    initEventListeners();
     initKeyboardShortcuts();
     initResizeHandler();
     initSystemThemeListener();
