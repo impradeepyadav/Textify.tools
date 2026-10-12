@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-<title>Paragraph Counter – Free Online Tool to Count Paragraphs Instantly</title>
-<meta name="description" content="Instantly count paragraphs in your text along with word, sentence, and character counts. Free paragraph counter — no signup, no uploads, everything runs in your browser.">
+<title>Paragraph Counter Online – Count Paragraphs Free</title>
+<meta name="description" content="Count paragraphs online for free with our Paragraph Counter tool. Instantly check paragraph count in essays, articles, documents, and any text.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Pradeep Yadav">
 <link rel="canonical" href="https://textify.tools/paragraph-counter">
@@ -28,8 +28,6 @@
 <meta name="twitter:title" content="Paragraph Counter – Free Online Tool to Count Paragraphs Instantly">
 <meta name="twitter:description" content="Instantly count paragraphs along with word, sentence, and character counts. Free, private, and runs entirely in your browser.">
 <meta name="twitter:image" content="https://textify.tools/og-image.png">
-<meta name="twitter:image:width" content="1200">
-<meta name="twitter:image:height" content="630">
 <meta name="twitter:image:alt" content="Paragraph Counter tool – count paragraphs online for free">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -85,19 +83,23 @@ gtag('config', 'G-6VGXXT81MB');
             "browserRequirements": "Requires JavaScript",
             "softwareVersion": "1.0",
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-            "featureList": "Paragraph count, Word count, Sentence count, Character count, Paragraph structure analysis, Live updates, Copy stats, Download as TXT, CSV, JSON, HTML"
+            "featureList": "Paragraph count, Word count, Sentence count, Character count, Paragraph structure analysis, Live updates, Copy stats, Download TXT"
         },
         {
             "@type": "FAQPage",
             "mainEntity": [
                 { "@type": "Question", "name": "What is a paragraph counter?", "acceptedAnswer": { "@type": "Answer", "text": "A paragraph counter is a tool that counts how many paragraphs are in a block of text. It identifies paragraphs by finding blank lines that separate blocks of content. Along with paragraph count, most counters also show related stats like word count, sentence count, and character count." } },
                 { "@type": "Question", "name": "How does the paragraph counter detect paragraphs?", "acceptedAnswer": { "@type": "Answer", "text": "The tool splits your text on one or more blank lines (double newlines). Every non-empty block of text between blank lines is counted as one paragraph. This matches how most word processors and text editors treat paragraphs." } },
+                { "@type": "Question", "name": "How many paragraphs should an essay have?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on the assignment, but a common structure is five paragraphs for a short essay (introduction, three body paragraphs, conclusion) and one paragraph per idea for longer work. If your teacher or client gave you a number, follow that. Otherwise aim for one main idea per paragraph rather than hitting a specific count." } },
+                { "@type": "Question", "name": "How many sentences are in a paragraph?", "acceptedAnswer": { "@type": "Answer", "text": "On the web, two to four sentences per paragraph is the norm. In academic writing, five to eight sentences is more typical. News writing often uses one or two. There is no fixed rule — the right length is whatever lets the reader follow your point without losing their place." } },
                 { "@type": "Question", "name": "Does it count paragraphs in real time?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. As you type or paste text, the paragraph count, word count, sentence count, and character count update instantly. There is no button to press and no waiting — everything runs locally in your browser." } },
                 { "@type": "Question", "name": "Is there a character or word limit?", "acceptedAnswer": { "@type": "Answer", "text": "There is no artificial limit. You can paste whole essays, articles, or even book chapters. Extremely long inputs (over 100,000 words) may slow down your browser tab, but the tool itself does not impose a cap." } },
+                { "@type": "Question", "name": "Why does my pasted text show only one paragraph?", "acceptedAnswer": { "@type": "Answer", "text": "Almost always because it uses single line breaks between paragraphs instead of blank lines. Text copied from PDFs, plain-text editors, and some CMS fields arrives this way. Replace the single line breaks with double line breaks and the count will be correct." } },
                 { "@type": "Question", "name": "Does the paragraph counter work on mobile?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool is fully responsive and works on phones, tablets, laptops, and desktops. You can even add it to your home screen for quick access." } },
                 { "@type": "Question", "name": "Is my text uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No. Everything runs locally in your browser using JavaScript. Your text never leaves your device, there is no server processing, and nothing is logged or stored." } },
-                { "@type": "Question", "name": "Can I export the results?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can copy a summary of all counts to your clipboard, copy the full text, or download your text as TXT, CSV, JSON, or HTML." } },
-                { "@type": "Question", "name": "Does it work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once the page has loaded, the paragraph counter keeps working even without an internet connection because all processing is local." } }
+                { "@type": "Question", "name": "Can I export the results?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can copy a plain-text summary of all counts to your clipboard, copy the full text back, or download your text as a .txt file." } },
+                { "@type": "Question", "name": "Does it work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once the page has loaded, the paragraph counter keeps working even without an internet connection because all processing is local." } },
+                { "@type": "Question", "name": "Is the paragraph counter free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Completely free. There is no account, no paywall, no daily limit, and no premium tier. The tool is supported by optional donations." } }
             ]
         },
         {
@@ -334,6 +336,7 @@ html.dark-mode .info-tip{background:var(--tool-accent-light)}
 .stat-tile .stat-value{font-size:clamp(22px,4vw,30px);font-weight:800;color:var(--text);line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.8px;overflow-wrap:break-word}
 
 /* ============ DETAILED STATS TABLE ============ */
+.detail-stats-head{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-light);margin:4px 0 10px}
 .detail-stats{width:100%;border-collapse:collapse;margin-top:4px;font-size:14px}
 .detail-stats tr{border-bottom:1px solid var(--line)}
 .detail-stats tr:last-child{border-bottom:none}
@@ -511,7 +514,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 
 <div class="tool-hero">
 <h1>Paragraph Counter – Count Paragraphs Instantly in Any Text</h1>
-<p class="subtitle">Paste or type your text below and see the paragraph count update live. Along with paragraphs, you also get words, sentences, characters (with and without spaces), and detailed structure stats — all running locally in your browser with no signup and nothing uploaded.</p>
+<p class="subtitle">Paste or type your text below and watch the paragraph count update as you go. You also get words, sentences, characters (with and without spaces), average paragraph length, and more — all calculated right inside your browser, with no signup and nothing sent anywhere.</p>
 </div>
 
 <div class="tool-layout">
@@ -552,6 +555,9 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <button type="button" class="btn btn-outline" id="copyBtn">
 <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-copy"/></svg> Copy text
 </button>
+<button type="button" class="btn btn-outline" id="downloadBtn">
+<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-download"/></svg> Download TXT
+</button>
 </div>
 </div>
 
@@ -567,7 +573,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 
 <div class="stats-grid" aria-live="polite" aria-atomic="true">
 <div class="stat-tile primary">
-<div class="stat-icon"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-align-left"/></svg></div>
+<div class="stat-icon"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-pilcrow"/></svg></div>
 <div class="stat-label">Paragraphs</div>
 <div class="stat-value" id="statParagraphs">0</div>
 </div>
@@ -588,9 +594,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 </div>
 </div>
 
-<div class="sentence-list-head" style="margin-top:4px;margin-bottom:10px;">
-<span>Detailed stats</span>
-</div>
+<div class="detail-stats-head">Detailed stats</div>
 
 <table class="detail-stats" aria-label="Detailed paragraph statistics">
 <tbody>
@@ -625,62 +629,155 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 
 <!-- ============ CONTENT SECTIONS ============ -->
 <div class="content-section">
-<h2>What does this Paragraph Counter do?</h2>
-<p>This free online paragraph counter scans your text and tells you exactly how many paragraphs it contains — instantly and without any signup. Along with the paragraph count, you also get word count, sentence count, character count (with and without spaces), and detailed structure stats like average words per paragraph, longest and shortest paragraphs, and blank line count.</p>
-<p>The tool works in real time: every time you type or paste something into the input box, the numbers update on the right. You can also copy a summary of all stats to your clipboard, copy the full text, or clear and start over.</p>
-<p>Because everything runs locally in your browser using JavaScript, your text never leaves your device. There's no server upload, no logging, and no rate limit. You can paste an essay, a full article, a legal document, or anything else you're working with.</p>
+<h2>How to use the paragraph counter</h2>
+<p>There's nothing to install and nothing to configure — the whole thing lives on this one page.</p>
+<ol>
+<li><strong>Paste or type your text</strong> into the box on the left. It doesn't matter where it came from: Word, Google Docs, Notion, an email draft, a PDF reader, a CMS field, or your own two thumbs on a phone.</li>
+<li><strong>Watch the numbers move.</strong> The paragraph count is the big number in the dark tile. Everything else — words, sentences, characters, averages — sits underneath it and updates at the same time.</li>
+<li><strong>Take what you need.</strong> Hit <em>Copy stats</em> for a plain-text summary you can drop into an email or a document, <em>Copy text</em> to grab your text back, or <em>Download TXT</em> to save it as a file.</li>
+</ol>
+<p>Not sure what to paste? Click <strong>Load example</strong>. It drops in four short paragraphs of sample text that include a few deliberately awkward cases — abbreviations like <code>Dr.</code> and times like <code>3.30 p.m.</code> — so you can see how the sentence counter copes with them before you trust it with your real work.</p>
 </div>
 
 <div class="content-section">
-<h2>How paragraphs are detected</h2>
-<p>A paragraph is normally a block of text separated from the next block by one or more blank lines. This tool follows that same convention:</p>
+<h2>What this paragraph counter actually measures</h2>
+<p>This is a straightforward tool that does one job properly. It reads the text you give it and reports back on its structure — how many paragraphs, how long they are, and how they compare to each other.</p>
+<p>Alongside the paragraph count you get word count, sentence count, character count with and without spaces, the average number of words and sentences per paragraph, the longest and shortest paragraphs, and a count of blank lines. Nothing is estimated and nothing is rounded off behind your back — the numbers come straight from your text.</p>
+<p>Everything runs in JavaScript inside your browser tab. There's no upload, no queue, no server round-trip, and no rate limit. Paste a two-line note or paste an entire dissertation; the tool doesn't care either way.</p>
+</div>
+
+<div class="content-section">
+<h2>How this tool decides what counts as a paragraph</h2>
+<p>Different programs draw the line in different places, so it's worth being explicit about ours. We use the same rule Word, Google Docs, and most publishing software use: <strong>a paragraph ends where a blank line begins.</strong></p>
 <ul>
-<li><strong>One blank line</strong> between two blocks of text counts as a paragraph break.</li>
-<li><strong>Multiple blank lines</strong> still count as a single break — the tool collapses consecutive newlines.</li>
-<li><strong>A single newline</strong> (no blank line) does <em>not</em> count as a paragraph break. The two lines will be treated as part of the same paragraph, matching how most word processors behave.</li>
+<li><strong>One blank line between two blocks</strong> — that's a paragraph break. Two paragraphs, not one.</li>
+<li><strong>Three or four blank lines in a row</strong> — still a single break. Consecutive blank lines get collapsed, so you don't end up with phantom empty paragraphs inflating your count.</li>
+<li><strong>A single line break with no blank line</strong> — <em>not</em> a break. Those lines stay part of the same paragraph. This mirrors what happens when you press Shift+Enter in a word processor.</li>
+<li><strong>Leading and trailing whitespace</strong> — ignored. Empty blocks at the very start or end of your text aren't counted as paragraphs.</li>
 </ul>
-<p>If your text uses single newlines between paragraphs, you'll need to convert them to double newlines first. The tool won't guess at your intent — it counts what's actually there.</p>
+<p>There's one practical consequence worth knowing about. If you wrote your text in a plain-text editor and separated paragraphs with single newlines, the tool will read the whole thing as one giant paragraph — because that's genuinely what it is, structurally. To fix it, replace those single newlines with double newlines first. Our <a href="/line-break-converter">Line Break Converter</a> does exactly that in one click.</p>
 </div>
 
 <div class="content-section">
 <h2>Why people count paragraphs</h2>
-<p>Paragraph count turns out to be surprisingly useful across many kinds of writing. Here are the most common reasons people use a paragraph counter:</p>
+<p>Paragraph count sounds like a niche metric until you need it. Then it turns out to be surprisingly useful across a lot of different kinds of writing.</p>
 <ul>
-<li><strong>Academic writing</strong> — Many assignments specify a target paragraph count or ask for a specific number of paragraphs per section. Checking the count is much faster than counting by hand.</li>
-<li><strong>Content writing</strong> — Blog posts and articles benefit from short, readable paragraphs. The average words per paragraph stat helps you spot walls of text.</li>
-<li><strong>Editing and proofreading</strong> — Seeing the longest and shortest paragraphs helps you spot places where the structure is uneven.</li>
-<li><strong>Legal documents</strong> — Contracts and agreements often have clauses separated by blank lines. Paragraph count helps you verify the structure.</li>
-<li><strong>Translation and localization</strong> — Translators often work paragraph by paragraph. Knowing the count helps with quoting and workflow.</li>
-<li><strong>Social media</strong> — Some platforms have guidelines about paragraph breaks in captions and posts.</li>
+<li><strong>Academic writing</strong> — Plenty of assignments specify a paragraph count, or ask for a set number of paragraphs per section. Counting by hand is tedious and error-prone; this takes a second.</li>
+<li><strong>Blogging and content writing</strong> — Short paragraphs are easier to read on a phone. The <em>average words per paragraph</em> stat is the quickest way to spot a wall of text before your readers bounce off it.</li>
+<li><strong>Editing and proofreading</strong> — When the longest paragraph is four times the length of the shortest one, that's usually a sign the structure needs work. The stats make that visible.</li>
+<li><strong>Legal and contract work</strong> — Clauses and sub-clauses are often separated by blank lines. Counting them helps you verify nothing went missing in a revision.</li>
+<li><strong>Translation and localisation</strong> — Translators frequently quote per paragraph. Knowing the count up front makes pricing and scheduling much easier.</li>
+<li><strong>Social media</strong> — Some platforms and brand style guides have opinions about how many breaks a caption should have.</li>
+<li><strong>Teaching</strong> — If you're marking student essays, a quick paragraph count is a decent first signal of whether they understand how to structure an argument.</li>
 </ul>
 </div>
 
 <div class="content-section">
+<h2>How long should a paragraph be?</h2>
+<p>There's no universal rule, and anyone who tells you there is hasn't written much. Length depends entirely on the format and the reader. That said, there are conventions worth knowing:</p>
+<div class="table-wrapper">
+<table class="info-table">
+<thead><tr><th scope="col">Type of writing</th><th scope="col">Typical paragraph length</th><th scope="col">Why</th></tr></thead>
+<tbody>
+<tr><td><strong>Blog post / web article</strong></td><td>40–80 words (2–4 sentences)</td><td>Short blocks are easier to scan on a phone screen</td></tr>
+<tr><td><strong>News article</strong></td><td>25–40 words (1–2 sentences)</td><td>The inverted-pyramid style favours short, punchy blocks</td></tr>
+<tr><td><strong>Academic essay</strong></td><td>100–200 words (5–8 sentences)</td><td>One idea per paragraph, developed properly</td></tr>
+<tr><td><strong>Business report</strong></td><td>75–150 words</td><td>Headings do a lot of the structural work</td></tr>
+<tr><td><strong>Fiction / novels</strong></td><td>Highly variable</td><td>Dialogue paragraphs can be a single line</td></tr>
+<tr><td><strong>Legal contract</strong></td><td>Highly variable</td><td>Clauses are usually numbered rather than split by blank lines</td></tr>
+</tbody>
+</table>
+</div>
+<p>The <em>average words per paragraph</em> figure in the results panel is the fastest way to check yourself against these numbers. If your average is sitting above 150, you're probably writing in blocks that are too dense for comfortable reading. If it's under 20, your text may read as choppy.</p>
+</div>
+
+<div class="content-section">
 <h2>Paragraph count vs. word count vs. sentence count</h2>
-<p>These three metrics measure different things, and each is useful in different situations.</p>
+<p>These three metrics measure genuinely different things, and each one is the right tool for a different job.</p>
 <div class="table-wrapper">
 <table class="info-table">
 <thead><tr><th scope="col">Metric</th><th scope="col">What it measures</th><th scope="col">Best for</th></tr></thead>
 <tbody>
-<tr><td><strong>Paragraph count</strong></td><td>Blocks of text separated by blank lines</td><td>Essay structure, formatting checks, legal docs</td></tr>
-<tr><td><strong>Word count</strong></td><td>Whitespace-separated words</td><td>Word-limit enforcement, SEO, essays</td></tr>
-<tr><td><strong>Sentence count</strong></td><td>Sentence-ending punctuation marks</td><td>Readability, structure, editing</td></tr>
-<tr><td><strong>Character count</strong></td><td>Every character, including spaces</td><td>Twitter/X, SMS, meta descriptions, forms</td></tr>
+<tr><td><strong>Paragraph count</strong></td><td>Blocks of text separated by blank lines</td><td>Essay structure, formatting checks, legal documents</td></tr>
+<tr><td><strong>Word count</strong></td><td>Whitespace-separated words</td><td>Word limits, SEO targets, admissions essays</td></tr>
+<tr><td><strong>Sentence count</strong></td><td>Sentence-ending punctuation marks</td><td>Readability, pacing, editing</td></tr>
+<tr><td><strong>Character count</strong></td><td>Every character, including spaces</td><td>Twitter/X, SMS, meta descriptions, form fields</td></tr>
 </tbody>
 </table>
 </div>
-<p>For most writing, word count is the primary metric — but paragraph count tells you something the others can't: how the ideas are visually distributed on the page. A 500-word block with 3 paragraphs reads very differently from a 500-word block with 15 paragraphs.</p>
+<p>For most writing, word count is the number that matters most — it's what gets graded and what gets paid. But paragraph count tells you something the others can't: how your ideas are distributed on the page. A 500-word piece split into three paragraphs reads completely differently from the same 500 words split into fifteen. Same word count, very different experience for the reader.</p>
+<p>If you need a dedicated word counter, our <a href="/word-counter">Word Counter</a> goes deeper on that metric. For sentence-level analysis, try the <a href="/sentence-counter">Sentence Counter</a>.</p>
 </div>
 
 <div class="content-section">
-<h2>What makes our tool unique?</h2>
-<p>Unlike other paragraph counters that may require sign-ups or send your data to a server, ours is 100% client-side. That means:</p>
-<div class="feature-grid">
-<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-zap"/></svg> Instant results</h4><p>No page reloads, no waiting for a server response. Everything happens in your browser as you type.</p></div>
-<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-shield-check"/></svg> Complete privacy</h4><p>Your text never touches our servers. No logs, no storage, no tracking of content.</p></div>
-<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-smartphone"/></svg> Works offline</h4><p>Once the page is loaded, you can even disconnect the internet and keep using the tool.</p></div>
-<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-infinity"/></svg> No limits</h4><p>No character cap, no daily usage limit, no premium plans. Paste as much as you want.</p></div>
+<h2>Common mistakes that throw off a paragraph count</h2>
+<p>Almost every "the tool is broken" moment comes down to one of these four things. Worth checking before you assume the count is wrong.</p>
+<ul>
+<li><strong>Single line breaks instead of blank lines.</strong> This is by far the most common cause. Text copied from PDFs, plain-text editors, and some content management systems arrives with a line break at the end of every visual line rather than a blank line between ideas. The count will read as one paragraph, and technically it's right.</li>
+<li><strong>Pasting straight out of a PDF.</strong> PDF text extraction often inserts a hard line break at the end of every rendered line, so a single paragraph can land in the box as fifteen separate lines. Our <a href="/remove-line-breaks">Remove Line Breaks</a> tool fixes that in one pass.</li>
+<li><strong>Headings counted as paragraphs.</strong> A heading on its own line, separated by blank lines, is a paragraph by the blank-line rule. If you're counting body paragraphs for an assignment, subtract your headings from the total.</li>
+<li><strong>Bullet lists counted as paragraphs.</strong> Same logic — a bulleted list separated by blank lines counts as several paragraphs. That's technically correct, but rarely what someone means when they ask how many paragraphs an article has.</li>
+</ul>
+<p>None of these are bugs. The tool counts what's actually in the text, not what you meant to write. If the number looks off, the structure is usually the place to look.</p>
 </div>
+
+<div class="content-section">
+<h2>What makes this tool different</h2>
+<p>A lot of "free" counters want an email address, load three ad networks, or quietly ship your text to a server. This one doesn't do any of that.</p>
+<div class="feature-grid">
+<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-zap"/></svg> Instant results</h4><p>No page reloads and no waiting on a server. The numbers change as fast as you can type.</p></div>
+<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-shield-check"/></svg> Complete privacy</h4><p>Your text never touches our servers. No logs, no storage, no content tracking of any kind.</p></div>
+<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-smartphone"/></svg> Works offline</h4><p>Once the page has loaded you can disconnect the internet entirely and keep using it.</p></div>
+<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-infinity"/></svg> No limits</h4><p>No character cap, no daily quota, no premium tier. Paste as much as your browser can handle.</p></div>
+</div>
+</div>
+
+<div class="content-section">
+<h2>Paragraph Counter Online — Free and Instant</h2>
+<p>If you need a paragraph counter online that works the moment the page loads, you're in the right place. This free online paragraph counter doubles as an online paragraph counter tool and a text paragraph counter — one box, one set of numbers, no setup. You can count paragraphs online from any device, and because it's also an online text counter, you get words, sentences, and characters alongside the paragraph total.</p>
+<p>There's no separate app to install and no account to create. The paragraph counter tool online runs entirely in your browser, which means it's fast, private, and free. Whether you searched for a free paragraph counter or a full online paragraph counter tool, this page does both jobs without asking anything in return.</p>
+</div>
+
+<div class="content-section">
+<h2>Who Uses a Paragraph Counting Tool?</h2>
+<p>A paragraph counting tool is more useful than it sounds. Here's who tends to reach for one:</p>
+<ul>
+<li><strong>Students and essay writers.</strong> An online paragraph counter for students — and a paragraph counter for essays — is the quickest way to check essay structure before handing work in. If you need to count paragraphs in an essay online, paste it in and read the number.</li>
+<li><strong>Writers and bloggers.</strong> A paragraph counter for articles and blogs helps keep paragraphs short enough to read comfortably on a phone.</li>
+<li><strong>Editors and proofreaders.</strong> A paragraph analyzer reveals which paragraphs are unusually long or short, which is often the first sign that a piece needs restructuring.</li>
+<li><strong>Professionals.</strong> A paragraph counter for documents is handy for reports, contracts, and anything where structure matters.</li>
+<li><strong>Anyone asking "how many paragraphs are in my text?"</strong> That's the simplest use case of all — paste, look at the number, done.</li>
+</ul>
+<p>If you need to check paragraph count in an essay, or you're just curious about the shape of a document, this tool answers the question in seconds.</p>
+</div>
+
+<div class="content-section">
+<h2>How to Count Paragraphs in a Text</h2>
+<p>There are three ways to count paragraphs in a text, and only one of them is fast.</p>
+<ol>
+<li><strong>Count by hand.</strong> Reliable for a three-paragraph note, miserable for anything longer.</li>
+<li><strong>Use a word processor.</strong> Word and Google Docs show word count prominently, but paragraph count is either hidden or missing entirely.</li>
+<li><strong>Use this page.</strong> That's how to count paragraphs online — paste, read, done. If you want to count paragraphs by pasting text, this is the whole workflow.</li>
+</ol>
+<p>The tool uses the standard blank-line rule, so the number you see matches what most editors and publishers would call a paragraph. Paste your text into the box above and the paragraph checker updates instantly.</p>
+</div>
+
+<div class="content-section">
+<h2>Count Paragraphs in Word Documents and Other Editors</h2>
+<p>Plenty of people ask how to find the number of paragraphs in a document, usually after hunting through menus in Word and giving up. Microsoft Word does track paragraph count, but it's tucked inside the Word Count dialog rather than the status bar. If you want to count paragraphs in Word documents without the menu-diving, copy the text and paste it here.</p>
+<p>The same applies to Google Docs, LibreOffice, Pages, and any other editor that doesn't surface a paragraph total. This paragraph count tool doesn't care where the text came from — if it's text, it counts it.</p>
+</div>
+
+<div class="content-section">
+<h2>Paragraph Counter With Word Count and Other Stats</h2>
+<p>This paragraph counter with word count does more than the name suggests. Alongside paragraphs and words you get sentence count, character count with and without spaces, average words per paragraph, average sentences per paragraph, longest and shortest paragraphs, and a blank line total.</p>
+<p>That combination makes it a genuine text paragraph analyzer rather than a one-trick paragraph checker. If you want to know whether your writing is dense, choppy, or well balanced, the detailed stats tell you more than the paragraph number alone ever could.</p>
+</div>
+
+<div class="content-section">
+<h2>Paragraph Counter Without Login — A Free Tool to Count Paragraphs</h2>
+<p>There's no sign-up wall here. This is a paragraph counter without login, and it stays that way. It's a free tool to count paragraphs as many times as you like, on as many documents as you like, with no daily limit and no premium tier waiting behind a paywall.</p>
+<p>Use it to count the number of paragraphs in an essay, a blog draft, a contract, a speech, or a message. Paste the text, read the number, move on.</p>
 </div>
 
 <div class="content-section">
@@ -690,17 +787,25 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 
 <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" data-action="toggle-faq">How does the paragraph counter detect paragraphs?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-2">The tool splits your text on one or more blank lines (double newlines). Every non-empty block of text between blank lines is counted as one paragraph. This matches how most word processors and text editors treat paragraphs.</div></div>
 
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" data-action="toggle-faq">Does it count paragraphs in real time?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-3">Yes. As you type or paste text, the paragraph count, word count, sentence count, and character count update instantly. There is no button to press and no waiting — everything runs locally in your browser.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" data-action="toggle-faq">How many paragraphs should an essay have?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-3">It depends on the assignment. A short essay is often five paragraphs — introduction, three body paragraphs, and a conclusion. Longer work usually runs one paragraph per idea, which could be anywhere from eight to thirty. If a teacher or client gave you a number, follow it. Otherwise aim for one main idea per paragraph rather than chasing a specific count.</div></div>
 
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" data-action="toggle-faq">Is there a character or word limit?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-4">There is no artificial limit. You can paste whole essays, articles, or even book chapters. Extremely long inputs (over 100,000 words) may slow down your browser tab, but the tool itself does not impose a cap.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" data-action="toggle-faq">How many sentences are in a paragraph?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-4">On the web, two to four sentences per paragraph is the norm. Academic writing tends to run five to eight. News writing often uses one or two. There's no fixed rule — the right length is whatever lets a reader follow your point without losing their place on the page.</div></div>
 
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-5" data-action="toggle-faq">Does the paragraph counter work on mobile?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-5">Yes. The tool is fully responsive and works on phones, tablets, laptops, and desktops. You can even add it to your home screen for quick access.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-5" data-action="toggle-faq">Does it count paragraphs in real time?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-5">Yes. As you type or paste text, the paragraph count, word count, sentence count, and character count update instantly. There is no button to press and no waiting — everything runs locally in your browser.</div></div>
 
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-6" data-action="toggle-faq">Is my text uploaded to a server?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-6">No. Everything runs locally in your browser using JavaScript. Your text never leaves your device, there is no server processing, and nothing is logged or stored.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-6" data-action="toggle-faq">Is there a character or word limit?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-6">There is no artificial limit. You can paste whole essays, articles, or even book chapters. Extremely long inputs (over 100,000 words) may slow down your browser tab, but the tool itself does not impose a cap.</div></div>
 
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-7" data-action="toggle-faq">Can I export the results?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-7">Yes. You can copy a summary of all counts to your clipboard, copy the full text, or download your text as TXT, CSV, JSON, or HTML.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-7" data-action="toggle-faq">Why does my pasted text show only one paragraph?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-7">Almost always because it uses single line breaks between paragraphs instead of blank lines. Text copied from PDFs, plain-text editors, and some CMS fields arrives that way. Replace the single line breaks with double line breaks and the count will be correct. Our <a href="/line-break-converter">Line Break Converter</a> can do it automatically.</div></div>
 
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-8" data-action="toggle-faq">Does it work offline?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-8">Yes. Once the page has loaded, the paragraph counter keeps working even without an internet connection because all processing is local.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-8" data-action="toggle-faq">Does the paragraph counter work on mobile?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-8">Yes. The tool is fully responsive and works on phones, tablets, laptops, and desktops. You can even add it to your home screen for quick access.</div></div>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-9" data-action="toggle-faq">Is my text uploaded to a server?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-9">No. Everything runs locally in your browser using JavaScript. Your text never leaves your device, there is no server processing, and nothing is logged or stored.</div></div>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-10" data-action="toggle-faq">Can I export the results?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-10">Yes. You can copy a plain-text summary of all counts to your clipboard, copy the original text back, or download your text as a <code>.txt</code> file.</div></div>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-11" data-action="toggle-faq">Does it work offline?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-11">Yes. Once the page has loaded, the paragraph counter keeps working even without an internet connection because all processing is local.</div></div>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-answer-12" data-action="toggle-faq">Is the paragraph counter free to use?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-answer-12">Completely free. There's no account, no paywall, no daily limit, and no premium tier. The tool is supported by optional donations from people who find it useful.</div></div>
 </div>
 
 </div>
@@ -1405,9 +1510,13 @@ function countWords(text){
 function countSentences(text){
     if (!text.trim()) return 0;
     /* Count terminal punctuation marks: . ? ! … followed by whitespace/end
-       or quotes/brackets. Ignores decimals and common abbreviations. */
-    const ABBREV = /\b(Mr|Mrs|Ms|Miss|Dr|Prof|Rev|Hon|Sr|Jr|St|Mt|vs|etc|e\.g|i\.e|cf|al|ed|eds|esp|approx|dept|est|fig|figs|no|vol|vols|p|pp|ch|chap|sec|inc|ltd|co|corp|plc|llc|gov|sen|rep|gen|col|capt|lt|sgt|maj|adm|pres|supt|insp|det|amb|min|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|Mon|Tue|Tues|Wed|Thu|Thur|Thurs|Fri|Sat|Sun|a\.m|p\.m|am|pm|AD|BC|BCE|CE|mph|kph|ft|lb|oz|cm|mm|kg|km|ml|hr|hrs|min|mins|sec|secs)\./gi;
-    const cleaned = text.replace(ABBREV, function(m){ return m.replace('.', '\u0000'); });
+       or quotes/brackets. Ignores decimals and common abbreviations.
+       FIXED: replaces ALL periods inside a matched abbreviation, not just
+       the first one, so a.m. / p.m. / e.g. / i.e. are handled correctly.
+       Also removed ambiguous bare abbreviations (am, pm, no, ed, eds, min,
+       mins, sec, secs) that commonly appear as ordinary words. */
+    const ABBREV = /\b(Mr|Mrs|Ms|Miss|Dr|Prof|Rev|Hon|Sr|Jr|St|Mt|vs|etc|e\.g|i\.e|cf|al|esp|approx|dept|est|fig|figs|vol|vols|p|pp|ch|chap|inc|ltd|co|corp|plc|llc|gov|sen|rep|gen|col|capt|lt|sgt|maj|adm|pres|supt|insp|det|amb|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec|Mon|Tue|Tues|Wed|Thu|Thur|Thurs|Fri|Sat|Sun|a\.m|p\.m|AD|BC|BCE|CE|mph|kph|ft|lb|oz|cm|mm|kg|km|ml|hr|hrs)\./gi;
+    const cleaned = text.replace(ABBREV, function(m){ return m.replace(/\./g, '\u0000'); });
     const withoutDecimals = cleaned.replace(/(\d)\.(\d)/g, '$1\u0000$2');
     const withoutInitials = withoutDecimals.replace(/\b([A-Z])\.(?=\s[A-Z]|\s*$)/g, '$1\u0000');
     const sentences = withoutInitials.match(/[^.!?…]+[.!?…]+(\s|$)/g) || [];
@@ -1667,6 +1776,7 @@ function init(){
     document.getElementById('exampleBtn').addEventListener('click', loadExample);
     document.getElementById('copyStatsBtn').addEventListener('click', copyStats);
     document.getElementById('copyBtn').addEventListener('click', copyText);
+    document.getElementById('downloadBtn').addEventListener('click', downloadText);
 
     document.querySelectorAll('.mobile-sidebar-nav a').forEach(function(l){
         l.addEventListener('click', closeMobileSidebar);
