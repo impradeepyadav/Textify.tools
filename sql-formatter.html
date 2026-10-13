@@ -1,0 +1,2264 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+<title>SQL Formatter – Free Online SQL Beautifier &amp; Minifier</title>
+<meta name="description" content="Free online SQL formatter and beautifier. Format messy SQL queries into clean, readable code with proper indentation — or minify SQL for storage. Supports SELECT, INSERT, UPDATE, DELETE, JOINs, CTEs and subqueries. No signup, runs entirely in your browser.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Pradeep Yadav">
+<link rel="canonical" href="https://textify.tools/sql-formatter">
+<link rel="alternate" hreflang="en" href="https://textify.tools/sql-formatter">
+<link rel="alternate" hreflang="x-default" href="https://textify.tools/sql-formatter">
+<meta name="theme-color" content="#ffffff" id="themeColorMeta">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://textify.tools/sql-formatter">
+<meta property="og:title" content="SQL Formatter – Free Online SQL Beautifier &amp; Minifier">
+<meta property="og:description" content="Format messy SQL into clean, readable queries — or minify SQL for storage. Free, no signup, runs in your browser.">
+<meta property="og:site_name" content="Textify.tools">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://textify.tools/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SQL Formatter – beautify and minify SQL queries in your browser">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@BuiltByPradeep">
+<meta name="twitter:creator" content="@BuiltByPradeep">
+<meta name="twitter:title" content="SQL Formatter – Free Online SQL Beautifier &amp; Minifier">
+<meta name="twitter:description" content="Format messy SQL into clean, readable queries — or minify SQL for storage. Free, no signup, runs in your browser.">
+<meta name="twitter:image" content="https://textify.tools/og-image.png">
+<meta name="twitter:image:width" content="1200">
+<meta name="twitter:image:height" content="630">
+<meta name="twitter:image:alt" content="SQL Formatter – beautify and minify SQL queries in your browser">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/mstile-150x150.png">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://scripts.scriptwrapper.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<meta name="yandex-verification" content="6e105f6188a8c833" />
+<script>
+(function() {
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = stored === 'dark' || (!stored && prefersDark);
+    if (isDark) {
+        document.documentElement.classList.add('dark-mode');
+        var meta = document.getElementById('themeColorMeta');
+        if (meta) meta.setAttribute('content', '#0f172a');
+    }
+})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VGXXT81MB"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() { dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-6VGXXT81MB');
+</script>
+<script type="text/javascript" async data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        { "@type": "WebSite", "@id": "https://textify.tools/#website", "url": "https://textify.tools/", "name": "Textify.tools", "description": "Free online text tools you can use right in your browser.", "publisher": { "@id": "https://textify.tools/#organization" }, "inLanguage": "en-US" },
+        { "@type": "Organization", "@id": "https://textify.tools/#organization", "name": "Textify.tools", "url": "https://textify.tools/", "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 }, "sameAs": ["https://x.com/BuiltByPradeep"] },
+        { "@type": "Person", "@id": "https://textify.tools/#author", "name": "Pradeep Yadav", "url": "https://textify.tools/about-us", "worksFor": { "@id": "https://textify.tools/#organization" } },
+        {
+            "@type": "WebApplication",
+            "@id": "https://textify.tools/sql-formatter/#app",
+            "name": "SQL Formatter",
+            "url": "https://textify.tools/sql-formatter",
+            "description": "Free online SQL formatter and beautifier. Format messy SQL queries into readable code, or minify SQL for storage and transmission.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Web Browser",
+            "browserRequirements": "Requires JavaScript",
+            "softwareVersion": "1.0",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": "SQL formatter, SQL beautifier, SQL minifier, SQL pretty printer, SQL indentation, Uppercase keywords, Preserve strings, Preserve comments, Size comparison, Copy formatted SQL, Download formatted SQL"
+        },
+        {
+            "@type": "HowTo",
+            "@id": "https://textify.tools/sql-formatter/#howto",
+            "name": "How to format and beautify SQL queries",
+            "description": "Format messy or compact SQL into clean, readable code using this free online SQL formatter.",
+            "totalTime": "PT1M",
+            "step": [
+                { "@type": "HowToStep", "position": 1, "name": "Paste your SQL", "text": "Paste any SQL query into the input box." },
+                { "@type": "HowToStep", "position": 2, "name": "Choose your options", "text": "Pick the indentation size, keyword casing and whether to preserve comments." },
+                { "@type": "HowToStep", "position": 3, "name": "Click Beautify SQL", "text": "The formatter rewrites your query with consistent indentation and clause breaks." },
+                { "@type": "HowToStep", "position": 4, "name": "Or click Minify SQL", "text": "For storage or transmission, use the Minify button to collapse the query into a compact form." },
+                { "@type": "HowToStep", "position": 5, "name": "Copy or download", "text": "Copy the formatted or minified SQL to your clipboard, or download it as a .sql file." }
+            ]
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                { "@type": "Question", "name": "What does an SQL formatter do?", "acceptedAnswer": { "@type": "Answer", "text": "An SQL formatter (also called a SQL beautifier or SQL pretty printer) takes messy or compact SQL and rewrites it with consistent indentation, spacing and line breaks so it is readable and editable. Major clauses like SELECT, FROM and WHERE are placed on their own lines, and column lists are indented for clarity." } },
+                { "@type": "Question", "name": "Is this SQL formatter free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free. No signup, no watermark, no hidden charges. Format or minify as much SQL as you want, for personal or commercial projects." } },
+                { "@type": "Question", "name": "Does formatting SQL change how it works?", "acceptedAnswer": { "@type": "Answer", "text": "No. Formatting only changes whitespace and line breaks. Keywords, identifiers, string literals and values stay exactly the same. The query behaves identically when run against your database." } },
+                { "@type": "Question", "name": "Which SQL dialects are supported?", "acceptedAnswer": { "@type": "Answer", "text": "The formatter is dialect-agnostic for common SQL: SELECT, INSERT, UPDATE, DELETE, CREATE TABLE, ALTER TABLE, JOINs, subqueries, CTEs (WITH), CASE expressions, and standard functions. Specialized dialect-specific syntax (PostgreSQL-specific types, MySQL-specific extensions, T-SQL features) will format reasonably but may not be perfectly aligned." } },
+                { "@type": "Question", "name": "Does it preserve SQL comments?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Both line comments (--) and block comments (/* */) are preserved by default. You can toggle comment preservation off for a cleaner output." } },
+                { "@type": "Question", "name": "Can it uppercase my SQL keywords?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Toggle the uppercase keywords option and every SQL keyword (SELECT, FROM, WHERE, JOIN, etc.) gets converted to uppercase. String literals, quoted identifiers and comments are never touched." } },
+                { "@type": "Question", "name": "Is my SQL data safe?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Everything runs in your browser. The SQL you paste never leaves your device — no server processing, no logging, no data storage." } },
+                { "@type": "Question", "name": "Does this tool work offline?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once the page loads, the SQL formatter works without an internet connection. Bookmark it for offline work." } },
+                { "@type": "Question", "name": "Can I use this SQL formatter on my phone?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool is fully responsive and works on phones, tablets and desktops. The input and output panels stack vertically on small screens." } },
+                { "@type": "Question", "name": "What is the difference between SQL beautify and SQL minify?", "acceptedAnswer": { "@type": "Answer", "text": "Beautify expands SQL with indentation and line breaks for readability — perfect for development, debugging and code review. Minify compresses SQL by removing whitespace and comments for smaller size — useful for storing queries as strings in source code." } }
+            ]
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
+                { "@type": "ListItem", "position": 2, "name": "SQL Formatter", "item": "https://textify.tools/sql-formatter" }
+            ]
+        }
+    ]
+}
+</script>
+
+<style>
+:root {
+    color-scheme: light dark;
+    --bg:#ffffff;--text:#0a0a0a;--text-light:#525252;--line:#e5e5e5;--primary:#0f172a;--hover:#f3f4f6;
+    --card:#fafafa;--footer-text:#333333;--footer-heading:#000000;--footer-link-color:#2563eb;--footer-link-hover:#1d4ed8;
+    --footer-border:#e5e5e5;--faq-bg:#fafafa;--faq-active:#f3f4f6;--table-header:#f3f4f6;--table-hover:#fafafa;
+    --shadow:rgba(0,0,0,0.1);--overlay-bg:rgba(0,0,0,0.5);--sidebar-bg:#ffffff;--accent:#f8fafc;
+    --card-shadow:0 4px 12px rgba(0,0,0,0.04);--card-hover-shadow:0 8px 24px rgba(0,0,0,0.08);
+    --chip-bg:#f1f5f9;--chip-active-bg:#334155;--chip-active-text:#ffffff;--chip-hover:#e2e8f0;
+    --mark-bg:#dbeafe;--mark-text:#1e3a8a;--border-hover:#cbd5e1;--focus-ring:rgba(59,130,246,0.25);
+    --page-max:1920px;--gutter:clamp(16px,3vw,56px);--header-h:64px;
+    --input-bg:#ffffff;--input-border:#e5e5e5;--panel-bg:#ffffff;--soft-bg:#f9fafb;
+    --tool-accent:#000000;--tool-accent-contrast:#ffffff;
+    --tool-accent-light:rgba(0,0,0,0.06);--tool-accent-soft:rgba(0,0,0,0.03);
+    --toast-bg:#000000;--toast-text:#ffffff;
+    --good:#16a34a;--good-bg:rgba(22,163,74,0.1);
+    --warn:#d97706;--warn-bg:rgba(217,119,6,0.1);
+    --bad:#dc2626;--bad-bg:rgba(220,38,38,0.1);
+    --code-bg:#1e1e1e;--code-text:#d4d4d4;
+}
+html.dark-mode {
+    color-scheme: dark;
+    --bg:#0f172a;--text:#f1f5f9;--text-light:#94a3b8;--line:#1e293b;--primary:#f1f5f9;--hover:#1e293b;
+    --card:#1e293b;--footer-text:#e2e8f0;--footer-heading:#ffffff;--footer-link-color:#60a5fa;--footer-link-hover:#ffffff;
+    --footer-border:#334155;--faq-bg:#1e293b;--faq-active:#334155;--table-header:#1e293b;--table-hover:#1e293b;
+    --shadow:rgba(0,0,0,0.5);--overlay-bg:rgba(0,0,0,0.75);--sidebar-bg:#0f172a;--accent:#1e293b;
+    --card-shadow:0 4px 12px rgba(0,0,0,0.3);--card-hover-shadow:0 8px 24px rgba(0,0,0,0.5);
+    --chip-bg:#1e293b;--chip-active-bg:#cbd5e1;--chip-active-text:#0f172a;--chip-hover:#334155;
+    --mark-bg:#1e3a8a;--mark-text:#dbeafe;--border-hover:#334155;--focus-ring:rgba(96,165,250,0.3);
+    --input-bg:#0f172a;--input-border:#1e293b;--panel-bg:#0f172a;--soft-bg:#0f172a;
+    --tool-accent:#ffffff;--tool-accent-contrast:#0f172a;
+    --tool-accent-light:rgba(255,255,255,0.08);--tool-accent-soft:rgba(255,255,255,0.04);
+    --toast-bg:#f1f5f9;--toast-text:#0f172a;
+    --good:#4ade80;--good-bg:rgba(74,222,128,0.1);
+    --warn:#fbbf24;--warn-bg:rgba(251,191,36,0.1);
+    --bad:#f87171;--bad-bg:rgba(248,113,113,0.1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s;overflow-x:hidden;width:100%;max-width:100%;overflow-wrap:break-word;word-wrap:break-word;-webkit-font-smoothing:antialiased}
+.page-wrapper{width:100%;max-width:100%;margin:0 auto;display:flex;flex-direction:column;min-height:100vh;min-width:0}
+img,video,canvas,iframe,embed,object{max-width:100%;height:auto}
+svg{max-width:100%}table{max-width:100%}
+pre,code{white-space:pre-wrap;word-wrap:break-word;overflow-wrap:anywhere}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus-ring);border-radius:6px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;top:-100px;left:8px;z-index:9999;background:var(--primary);color:var(--bg);padding:10px 16px;border-radius:8px;font-weight:600;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:8px;outline:none;box-shadow:0 0 0 3px var(--focus-ring)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}}
+h1,h2,h3,h4,h5,h6,.logo,.tool-card h3,.feature-card h4,.section h2,.section h3,.faq-question{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:700}
+html.dark-mode .icon-sun{display:none !important}
+html.dark-mode .icon-moon{display:block !important}
+html:not(.dark-mode) .icon-moon{display:none !important}
+html:not(.dark-mode) .icon-sun{display:block !important}
+.icon{display:inline-block;vertical-align:middle;flex-shrink:0}
+
+/* ============ HEADER ============ */
+header{border-bottom:1px solid var(--line);display:flex;justify-content:center;align-items:center;padding:0 var(--gutter);min-height:var(--header-h);width:100%;transition:border-color .3s;background:var(--bg);position:relative;z-index:100}
+.header-inner{width:100%;max-width:var(--page-max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px;min-width:0}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-size:clamp(17px,2vw,22px);font-weight:800;white-space:nowrap;flex-shrink:0}
+.logo-img{width:24px;height:24px;border-radius:4px;object-fit:contain;flex-shrink:0}
+.header-right{display:flex;align-items:center;gap:clamp(6px,1vw,12px);min-width:0}
+.desktop-nav{display:flex;gap:clamp(2px,.8vw,12px);align-items:center;min-width:0}
+.desktop-nav a{text-decoration:none;color:var(--text-light);font-weight:500;font-size:clamp(13px,1.05vw,14px);padding:6px 8px;border-radius:6px;transition:.2s;white-space:nowrap}
+.desktop-nav a:hover{color:var(--text);background:var(--hover)}
+.tools-menu-container{position:relative}
+.tools-trigger{display:flex;align-items:center;gap:4px;cursor:pointer;padding:6px 8px;border-radius:6px;color:var(--text-light);font-weight:500;font-size:clamp(13px,1.05vw,14px);transition:.2s;background:none;border:none;font-family:inherit;white-space:nowrap}
+.tools-trigger:hover{color:var(--text);background:var(--hover)}
+.tools-trigger .icon{width:14px;height:14px;transition:transform .2s;flex-shrink:0}
+.tools-mega-menu{position:absolute;top:calc(100% + 8px);right:0;left:auto;transform:translateY(8px);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 8px;width:min(320px,calc(100vw - 24px));max-height:min(70vh,560px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;box-shadow:0 20px 40px var(--shadow);opacity:0;visibility:hidden;transition:.25s;z-index:200}
+.tools-menu-container:hover .tools-mega-menu,
+.tools-menu-container.open .tools-mega-menu,
+.tools-menu-container:focus-within .tools-mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.tools-menu-container:hover .tools-trigger .icon,
+.tools-menu-container.open .tools-trigger .icon,
+.tools-menu-container:focus-within .tools-trigger .icon{transform:rotate(180deg)}
+.tools-mega-menu a{display:block;padding:8px 14px;border-radius:6px;color:var(--text);font-size:13px;font-weight:500;text-decoration:none;transition:.2s;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.tools-mega-menu a:hover{background:var(--hover);color:var(--text)}
+.tools-mega-menu::-webkit-scrollbar{width:6px}
+.tools-mega-menu::-webkit-scrollbar-thumb{background:var(--text-light);border-radius:3px}
+.theme-btn{background:none;border:none;cursor:pointer;padding:8px;border-radius:8px;color:var(--text);display:flex;align-items:center;flex-shrink:0}
+.theme-btn:hover{background:var(--hover)}
+.search-trigger{background:var(--hover);border:1px solid var(--line);padding:10px 18px;border-radius:25px;cursor:pointer;display:flex;align-items:center;gap:8px;color:var(--text-light);font-size:14px;white-space:nowrap;font-family:inherit;transition:.2s;flex-shrink:0}
+.search-trigger:hover{border-color:var(--border-hover);color:var(--text)}
+.hamburger-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text);border-radius:8px;flex-shrink:0}
+.hamburger-btn:hover{background:var(--hover)}
+.hamburger-btn .menu-icon{display:flex;flex-direction:column;gap:5px}
+.hamburger-btn .menu-icon span{display:block;width:22px;height:2px;background:currentColor;border-radius:2px;transition:.2s}
+.hamburger-btn .menu-icon span:first-child{width:16px}
+
+/* ============ MOBILE SIDEBAR ============ */
+.mobile-sidebar-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:150;opacity:0;visibility:hidden;transition:.3s}
+.mobile-sidebar-overlay.active{opacity:1;visibility:visible}
+.mobile-sidebar{position:fixed;top:0;left:-320px;width:min(300px,86vw);height:100vh;height:100dvh;max-height:100vh;max-height:100dvh;background:var(--sidebar-bg);z-index:160;box-shadow:4px 0 20px rgba(0,0,0,.1);padding:20px;display:flex;flex-direction:column;visibility:hidden;transition:left .35s cubic-bezier(.4,0,.2,1),visibility .35s;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.mobile-sidebar.active{left:0;visibility:visible}
+.mobile-sidebar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;padding-bottom:18px;border-bottom:1px solid var(--line);flex-shrink:0}
+.mobile-sidebar-logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);font-size:20px;font-weight:800}
+.mobile-sidebar-logo .logo-img{width:20px;height:20px}
+.mobile-sidebar-close{background:var(--hover);border:none;cursor:pointer;padding:8px;border-radius:8px;color:var(--text);display:flex;align-items:center;flex-shrink:0}
+.mobile-sidebar-nav{display:flex;flex-direction:column;gap:4px}
+.mobile-sidebar-nav > a{display:block;padding:12px 14px;border-radius:10px;text-decoration:none;color:var(--text);font-weight:500;font-size:15px;transition:.2s}
+.mobile-sidebar-nav > a:hover{background:var(--hover);color:var(--text)}
+.mobile-tools-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;padding:12px 14px;border-radius:10px;background:none;border:none;cursor:pointer;color:var(--text);font-weight:500;font-size:15px;font-family:inherit;transition:.2s}
+.mobile-tools-toggle:hover{background:var(--hover);color:var(--text)}
+.mobile-tools-toggle .icon{width:16px;height:16px;transition:transform .3s;flex-shrink:0}
+.mobile-tools-toggle.active .icon{transform:rotate(180deg)}
+.mobile-tools-menu{display:none;flex-direction:column;padding-left:10px;gap:1px;margin-bottom:6px;border-left:1px solid var(--line)}
+.mobile-tools-menu.active{display:flex}
+.mobile-tools-menu a{font-size:13.5px;padding:8px 12px;color:var(--text-light);text-decoration:none;border-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background .15s,color .15s;flex-shrink:0}
+.mobile-tools-menu a:hover{background:var(--hover);color:var(--text)}
+.mobile-sidebar-actions{display:flex;gap:8px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line);flex-shrink:0}
+.mobile-sidebar-actions button{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--hover);color:var(--text);font-weight:500;font-size:14px;cursor:pointer;font-family:inherit;transition:.2s}
+.mobile-sidebar-actions button:hover{border-color:var(--border-hover);color:var(--text)}
+.mobile-sidebar-actions button .icon{width:16px;height:16px;flex-shrink:0}
+.mobile-sidebar-actions button .icon-sun,.mobile-sidebar-actions button .icon-moon{display:none}
+html:not(.dark-mode) .mobile-sidebar-actions button .icon-sun{display:block !important}
+html.dark-mode .mobile-sidebar-actions button .icon-moon{display:block !important}
+
+/* ============ SEARCH OVERLAY ============ */
+.search-overlay-full{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--overlay-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:300;display:flex;flex-direction:column;align-items:center;padding:clamp(16px,6vh,60px) 16px 16px;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;overflow:hidden}
+.search-overlay-full.active{opacity:1;visibility:visible}
+.search-container{width:100%;max-width:620px;display:flex;flex-direction:column;max-height:100%;min-height:0}
+.search-box{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:14px;padding:4px 10px 4px 16px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.18);margin-bottom:12px;flex-shrink:0;min-width:0}
+.search-box input{flex:1;border:none;background:transparent;font-size:16px;color:var(--text);outline:none;font-family:inherit;padding:12px 0;min-width:0;width:100%}
+.search-box input::placeholder{color:var(--text-light);opacity:1}
+.search-box input:focus,.search-box input:focus-visible{outline:none;box-shadow:none}
+.search-box .search-clear-btn{display:none;background:var(--hover);border:none;cursor:pointer;padding:6px;border-radius:50%;color:var(--text-light);align-items:center;justify-content:center;flex-shrink:0}
+.search-box .search-clear-btn.show{display:flex}
+.search-box .search-close-btn{background:var(--hover);border:none;cursor:pointer;padding:8px;border-radius:50%;color:var(--text);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.search-box .search-close-btn:hover,.search-box .search-clear-btn:hover{background:var(--chip-hover)}
+.search-box .search-icon-leading{color:var(--text-light);flex-shrink:0}
+.search-results-list{background:var(--bg);border-radius:16px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.2);overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;min-height:0;contain:content}
+.search-results-list:empty{display:none}
+.search-results-list .search-result-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;text-decoration:none;color:var(--text);font-weight:500;font-size:15px;transition:.15s;border-bottom:1px solid var(--line);min-width:0}
+.search-results-list .search-result-item:last-child{border-bottom:none}
+.search-results-list .search-result-item:hover,.search-results-list .search-result-item.active{background:var(--hover);color:var(--text)}
+.search-results-list .search-result-item.active{box-shadow:inset 3px 0 0 #3b82f6}
+.search-result-item .result-main{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.search-result-item .result-name{font-weight:600;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.search-result-item .result-desc{font-size:12px;color:var(--text-light);font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.search-results-list .result-tag{font-size:11px;background:var(--hover);padding:3px 8px;border-radius:12px;color:var(--text-light);text-transform:uppercase;font-weight:600;flex-shrink:0;white-space:nowrap}
+.search-no-result{text-align:center;padding:28px 20px;color:var(--text-light);font-size:14px;display:none;background:var(--bg);border-radius:16px;border:1px solid var(--line);margin-top:8px}
+.search-no-result.show{display:block}
+mark{background:var(--mark-bg);color:var(--mark-text);border-radius:3px;padding:0 2px}
+@keyframes searchResultIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.search-results-list .search-result-item{animation:searchResultIn .25s ease both}
+.search-results-list.no-anim .search-result-item{animation:none}
+
+/* ============ MAIN ============ */
+main{flex:1;padding:clamp(20px,3.5vw,50px) 0;width:100%;min-width:0}
+main:focus{outline:none}
+.content-container{width:100%;max-width:var(--page-max);margin:0 auto;padding:0 var(--gutter);min-width:0}
+
+/* ============ TOOL HERO ============ */
+.tool-hero{text-align:left;margin-bottom:30px;min-width:0}
+.tool-hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;margin-bottom:12px;line-height:1.25;letter-spacing:-.6px;overflow-wrap:break-word}
+.tool-hero .subtitle{font-size:clamp(15px,1.5vw,18px);color:var(--text-light);line-height:1.7;max-width:100%;word-wrap:break-word}
+
+/* ============ TOOL LAYOUT ============ */
+.tool-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-bottom:60px;align-items:start;width:100%;min-width:0}
+@media (max-width:900px){.tool-layout{grid-template-columns:minmax(0,1fr);gap:14px}}
+
+.tool-panel{
+    background:var(--panel-bg);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px;
+    box-shadow:var(--card-shadow);
+    width:100%;
+    min-width:0;
+    outline:none;
+}
+.tool-panel:focus,
+.tool-panel:focus-visible,
+.tool-panel:focus-within,
+.tool-panel:hover,
+.tool-panel:active{
+    outline:none !important;
+    box-shadow:var(--card-shadow) !important;
+    border-color:var(--line) !important;
+}
+.tool-panel-header{display:flex;align-items:center;gap:12px;padding-bottom:18px;margin-bottom:20px;border-bottom:1px solid var(--line)}
+.tool-panel-icon{width:36px;height:36px;border-radius:10px;background:var(--tool-accent-soft);color:var(--tool-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+html.dark-mode .tool-panel-icon{background:var(--tool-accent-light)}
+.tool-panel-icon svg,.tool-panel-icon i{width:18px;height:18px}
+.tool-panel-title{display:flex;flex-direction:column;gap:2px;min-width:0}
+.tool-panel-title h2{font-size:16px;font-weight:700;margin:0;letter-spacing:-.2px}
+.tool-panel-title .tpt-sub{font-size:12px;color:var(--text-light);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* ============ FORM SECTIONS ============ */
+.form-section{margin-bottom:22px;min-width:0}
+.form-section:last-of-type{margin-bottom:0}
+.form-label{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-light);margin-bottom:8px;gap:8px;flex-wrap:wrap}
+.form-label .label-hint{font-size:11px;font-weight:600;text-transform:none;letter-spacing:0;color:var(--text-light);opacity:.75}
+.form-textarea{width:100%;padding:15px;border-radius:12px;border:1.5px solid var(--input-border);background:var(--input-bg);color:var(--text);font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:13.5px;line-height:1.7;outline:none;min-height:300px;resize:vertical;white-space:pre;overflow-wrap:normal;overflow-x:auto;-webkit-overflow-scrolling:touch;transition:border-color .2s}
+.form-textarea:focus{border-color:var(--text-light)}
+
+/* ============ OPTIONS ROW ============ */
+.options-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px;align-items:center}
+.check-pill{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:24px;border:1.5px solid var(--input-border);background:var(--input-bg);cursor:pointer;font-size:13px;font-weight:500;transition:all .2s;user-select:none;color:var(--text)}
+.check-pill:hover{border-color:var(--text-light)}
+.check-pill input[type="checkbox"]{width:15px;height:15px;cursor:pointer;accent-color:var(--tool-accent);flex-shrink:0}
+.check-pill.active{background:var(--tool-accent-soft);border-color:var(--tool-accent)}
+html.dark-mode .check-pill.active{background:var(--tool-accent-light)}
+.select-pill{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:24px;border:1.5px solid var(--input-border);background:var(--input-bg);font-size:13px;font-weight:500;color:var(--text)}
+.select-pill label{font-size:13px;color:var(--text-light)}
+.select-pill select{border:none;background:transparent;color:var(--text);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;outline:none;padding-right:4px}
+.select-pill select option{background:var(--bg);color:var(--text)}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:11px;font-weight:600;font-size:14px;font-family:inherit;cursor:pointer;border:none;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.btn-primary{background:var(--tool-accent);color:var(--tool-accent-contrast);width:100%;margin-top:8px}
+.btn-primary:hover{filter:brightness(1.1)}
+.btn-primary:active{filter:brightness(.95)}
+.btn-outline{background:var(--input-bg);color:var(--text);border:1.5px solid var(--input-border)}
+.btn-outline:hover{background:var(--hover)}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.btn-row .btn{flex:1 1 140px;min-width:0}
+
+/* ============ INFO TIP ============ */
+.info-tip{display:flex;gap:11px;padding:13px 15px;background:var(--tool-accent-soft);border:1px solid var(--line);border-radius:11px;margin-top:14px;font-size:13px;line-height:1.6;color:var(--text-light);min-width:0}
+html.dark-mode .info-tip{background:var(--tool-accent-light)}
+.info-tip svg,.info-tip i{width:16px;height:16px;flex-shrink:0;color:var(--tool-accent);margin-top:2px}
+.info-tip strong{color:var(--text);font-weight:700}
+.info-tip code{background:var(--hover);padding:1px 5px;border-radius:4px;font-size:12px;font-weight:600}
+
+/* ============ STATS TILES ============ */
+.stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:20px}
+@media (max-width:500px){.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat-tile{background:var(--soft-bg);border:1px solid var(--line);border-radius:12px;padding:16px 14px;text-align:center;min-width:0}
+.stat-tile.primary{background:var(--tool-accent);border-color:var(--tool-accent);color:var(--tool-accent-contrast)}
+.stat-tile.primary .stat-label{color:var(--tool-accent-contrast);opacity:.75}
+.stat-tile.primary .stat-value{color:var(--tool-accent-contrast)}
+.stat-tile .stat-icon{display:flex;justify-content:center;margin-bottom:8px;color:var(--text-light)}
+.stat-tile.primary .stat-icon{color:var(--tool-accent-contrast);opacity:.75}
+.stat-tile .stat-icon svg,.stat-tile .stat-icon i{width:16px;height:16px}
+.stat-tile .stat-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-light);margin-bottom:6px}
+.stat-tile .stat-value{font-size:clamp(20px,3.5vw,26px);font-weight:800;color:var(--text);line-height:1.15;font-variant-numeric:tabular-nums;letter-spacing:-.6px;overflow-wrap:break-word}
+.stat-tile .stat-sub{font-size:11px;color:var(--text-light);margin-top:4px;font-weight:500}
+
+/* ============ OUTPUT CODE ============ */
+.output-wrap{margin-top:16px}
+.output-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-light);margin-bottom:8px;flex-wrap:wrap}
+.output-toolbar .ot-left{display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden}
+.output-toolbar .ot-left span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.output-toolbar .ot-left svg{width:13px;height:13px;flex-shrink:0}
+.output-code{
+    background:var(--code-bg);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:14px;
+    font-family:ui-monospace,'SF Mono',Menlo,monospace;
+    font-size:13px;
+    line-height:1.6;
+    color:var(--code-text);
+    max-height:380px;
+    overflow:auto;
+    white-space:pre-wrap;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+    max-width:100%;
+    margin:0;
+    tab-size:2;
+}
+.result-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--text-light);text-align:center;padding:40px 20px;min-height:220px}
+.result-placeholder .placeholder-icon{width:56px;height:56px;border-radius:16px;background:var(--tool-accent-soft);color:var(--tool-accent);display:flex;align-items:center;justify-content:center;opacity:.85}
+html.dark-mode .result-placeholder .placeholder-icon{background:var(--tool-accent-light)}
+.result-placeholder .placeholder-icon svg{width:26px;height:26px}
+.result-placeholder h3{font-size:15px;font-weight:700;color:var(--text);margin:0;letter-spacing:-.2px}
+.result-placeholder p{font-size:13px;max-width:300px;line-height:1.6;margin:0;color:var(--text-light)}
+
+/* ============ CONTENT SECTIONS ============ */
+.content-section{margin-bottom:clamp(34px,4.5vw,50px);width:100%;max-width:100%;min-width:0}
+.content-section h2{font-size:clamp(20px,2.6vw,28px);font-weight:700;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--hover);overflow-wrap:break-word}
+.content-section h3{font-size:clamp(17px,2vw,20px);font-weight:700;margin:25px 0 12px}
+.content-section p{line-height:1.8;color:var(--text-light);margin-bottom:15px;font-size:clamp(15px,1.5vw,16px)}
+.content-section ul,.content-section ol{padding-left:22px;color:var(--text-light);margin-bottom:22px}
+.content-section li{margin-bottom:10px;line-height:1.7;font-size:clamp(15px,1.5vw,16px)}
+.content-section a{color:var(--footer-link-color);text-decoration:none}
+.content-section a:hover{text-decoration:underline}
+.content-section code{background:var(--hover);padding:2px 6px;border-radius:4px;font-size:14px;font-family:ui-monospace,'SF Mono',Menlo,monospace}
+
+/* ============ FEATURE GRID ============ */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:clamp(12px,1.4vw,20px);margin-top:25px;width:100%;min-width:0}
+.feature-card{background:var(--accent);padding:clamp(16px,1.6vw,20px);border-radius:12px;border:1px solid var(--line);min-width:0}
+.feature-card h4{font-size:clamp(15px,1.4vw,17px);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px;overflow-wrap:break-word}
+.feature-card h4 svg{width:18px;height:18px;flex-shrink:0;color:var(--tool-accent)}
+.feature-card p{font-size:14px;color:var(--text-light);margin:0;line-height:1.6}
+
+/* ============ TABLE ============ */
+.table-wrapper{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:25px 0;border:1px solid var(--line);border-radius:10px;width:100%;max-width:100%}
+.info-table{width:100%;border-collapse:collapse;min-width:560px}
+.info-table th,.info-table td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);color:var(--text-light);font-size:14px;line-height:1.6}
+.info-table th{background:var(--table-header);font-weight:700;color:var(--text);font-size:13px;text-transform:uppercase;letter-spacing:.3px}
+.info-table tr:last-child td{border-bottom:none}
+.info-table tr:hover{background:var(--table-hover)}
+.info-table td strong{color:var(--text)}
+
+/* ============ FAQ ============ */
+.faq-item{margin-bottom:16px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.faq-question{background:var(--faq-bg);padding:16px 18px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--text);font-size:clamp(14px,1.4vw,15px);border:none;width:100%;text-align:left;font-family:inherit;line-height:1.5}
+.faq-question svg{width:16px;height:16px;flex-shrink:0;transition:transform .25s}
+.faq-item.active .faq-question{background:var(--faq-active);color:var(--text)}
+.faq-item.active .faq-question svg{transform:rotate(180deg)}
+.faq-answer{padding:16px 18px;display:none;color:var(--text-light);line-height:1.7;border-top:1px solid var(--line);font-size:clamp(14px,1.4vw,15px)}
+.faq-item.active .faq-answer{display:block}
+.faq-answer code{background:var(--hover);padding:2px 6px;border-radius:4px;font-size:13px}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) var(--gutter) clamp(40px,6vw,80px);width:100%}
+.footer-container{width:100%;max-width:var(--page-max);margin:0 auto;min-width:0}
+.footer-middle{display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,30px);justify-content:space-between;align-items:flex-start;min-width:0}
+.footer-left-column{flex:1 1 320px;min-width:0;max-width:420px}
+.footer-right-columns{display:flex;flex:2 1 420px;gap:clamp(18px,3vw,40px);justify-content:flex-end;flex-wrap:wrap;min-width:0}
+.footer-column{min-width:140px;flex:0 1 auto}
+.footer-heading{font-size:16px;font-weight:700;color:var(--footer-heading);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+.footer-links{list-style:none;padding:0;margin:0}
+.footer-links li{margin-bottom:8px}
+.footer-links a,.footer-credit a,.footer-about-text a{color:var(--footer-link-color);text-decoration:none;display:inline-block;transition:color .2s ease,transform .2s ease;will-change:transform}
+.footer-links a{font-size:14px}
+.footer-links a:hover,.footer-links a:focus-visible,.footer-credit a:hover,.footer-credit a:focus-visible,.footer-about-text a:hover,.footer-about-text a:focus-visible{color:var(--footer-link-hover);text-decoration:none;transform:translateX(4px)}
+.footer-credit{font-size:16px;font-weight:700;color:var(--footer-heading);margin-bottom:4px}
+.footer-copyright{font-size:14px;color:var(--footer-text);margin-bottom:15px}
+.footer-about-text{font-size:15px;color:var(--footer-text);line-height:1.7}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1180px){.search-trigger{width:40px;height:40px;padding:0;justify-content:center;border-radius:50%}.search-trigger .search-trigger-label{display:none}}
+@media (max-width:1024px){.desktop-nav{gap:2px}.desktop-nav a{padding:6px 6px;font-size:13px}.tools-trigger{padding:6px 6px;font-size:13px}}
+@media (max-width:900px){.footer-middle{flex-direction:column;align-items:stretch;gap:28px}.footer-left-column{max-width:100%;flex:0 1 auto}.footer-right-columns{justify-content:flex-start;flex:0 1 auto}}
+@media (max-width:768px){:root{--header-h:58px}header{padding:0 16px}.logo{font-size:19px}.logo-img{width:22px;height:22px}.desktop-nav{display:none}.theme-btn{display:none}.search-trigger{display:none}.hamburger-btn{display:flex}main{padding:20px 0}h1{font-size:clamp(23px,7vw,30px)}.subtitle{font-size:15px}.tool-panel{padding:20px;border-radius:14px}.search-overlay-full{padding:16px 12px 12px}.search-box input{font-size:16px}.search-result-item .result-tag{display:none}footer{padding:30px 16px 60px}.footer-links a{display:block}.info-table{min-width:520px}.info-table th,.info-table td{padding:12px 14px;font-size:14px}.faq-question{padding:14px 14px;font-size:14px}.faq-answer{padding:14px;font-size:14px}}
+@media (max-width:560px){:root{--gutter:14px}.footer-right-columns{flex-direction:column;gap:22px;width:100%}.footer-column{width:100%;min-width:0}.tool-panel{padding:16px;border-radius:14px}.tool-panel-header{padding-bottom:14px;margin-bottom:16px}.tool-panel-icon{width:32px;height:32px;border-radius:9px}.tool-panel-icon svg,.tool-panel-icon i{width:16px;height:16px}.tool-panel-title h2{font-size:15px}.form-textarea{min-height:220px;font-size:12.5px;padding:12px}.btn{padding:12px 16px;font-size:13.5px}.btn-row .btn{flex:1 1 100%}.stat-tile{padding:14px 10px}.stat-tile .stat-value{font-size:20px}.tool-hero h1{font-size:23px}.tool-hero .subtitle{font-size:14.5px}.faq-question{padding:13px 12px;font-size:13.5px}.faq-answer{padding:13px 12px;font-size:13.5px}.feature-grid{grid-template-columns:1fr}.output-code{font-size:12px;padding:12px}}
+@media (max-width:400px){.tool-hero h1{font-size:21px}.logo{font-size:18px}.logo-img{width:20px;height:20px}.tool-panel{padding:14px}.mobile-sidebar-actions button{font-size:13px;padding:11px 8px}.options-row{gap:6px}.check-pill,.select-pill{padding:7px 10px;font-size:12px}}
+@media (min-width:769px){.hamburger-btn{display:none}.mobile-sidebar-overlay{display:none !important}.mobile-sidebar{display:none !important}}
+@media (min-width:1800px){.tool-hero h1{font-size:44px}.tool-layout{gap:24px}.tool-panel{padding:30px}.content-section h2{font-size:30px}}
+@media (max-height:500px) and (orientation:landscape){.mobile-sidebar{padding:14px}.mobile-sidebar-header{margin-bottom:14px;padding-bottom:12px}.search-overlay-full{padding-top:10px}}
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--toast-bg);color:var(--toast-text);padding:14px 28px;border-radius:18px;font-weight:600;font-size:14px;z-index:9999;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .4s;pointer-events:none;max-width:min(90vw,480px);text-align:center;line-height:1.45;overflow-wrap:break-word}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ============================================================
+   TOOL PANEL — static borders, no focus rings inside.
+   ============================================================ */
+.tool-panel,
+.tool-panel:focus,
+.tool-panel:focus-visible,
+.tool-panel:focus-within,
+.tool-panel:hover,
+.tool-panel:active{
+    outline: none !important;
+    border-color: var(--line) !important;
+    box-shadow: var(--card-shadow) !important;
+}
+.tool-panel,
+.tool-panel-header,
+.tool-panel-icon,
+.tool-panel-title{transition:none !important}
+.tool-panel *:focus,
+.tool-panel *:focus-visible,
+.tool-panel *:focus-within,
+.tool-panel *:active{
+    outline: none !important;
+    box-shadow: none !important;
+}
+.tool-panel input:focus,
+.tool-panel input:focus-visible,
+.tool-panel textarea:focus,
+.tool-panel textarea:focus-visible,
+.tool-panel .form-textarea:focus,
+.tool-panel .form-textarea:focus-visible{
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: var(--text-light) !important;
+}
+</style>
+</head>
+<body>
+
+<a href="#mainContent" class="skip-link">Skip to main content</a>
+
+<!-- ============ SVG SPRITE ============ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+<defs>
+<symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+<symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="i-database" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></symbol>
+<symbol id="i-file-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12.5 8 15l2 2.5"/><path d="m14 12.5 2 2.5-2 2.5"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/></symbol>
+<symbol id="i-bar-chart-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+<symbol id="i-align-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="3" y1="6" y2="6"/><line x1="15" x2="3" y1="12" y2="12"/><line x1="17" x2="3" y1="18" y2="18"/></symbol>
+<symbol id="i-minimize-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" x2="21" y1="10" y2="3"/><line x1="3" x2="10" y1="21" y2="14"/></symbol>
+<symbol id="i-maximize-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" x2="14" y1="3" y2="10"/><line x1="3" x2="10" y1="21" y2="14"/></symbol>
+<symbol id="i-trash-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></symbol>
+<symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/><line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/><line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/><line x1="2" x2="6" y1="14" y2="14"/><line x1="10" x2="14" y1="8" y2="8"/><line x1="18" x2="22" y1="16" y2="16"/></symbol>
+<symbol id="i-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><polyline points="10 9 9 9 8 9"/></symbol>
+<symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-wifi-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 5.17-2.69"/><path d="M19 12.859a10 10 0 0 0-2.007-1.523"/><path d="M2 8.82a15 15 0 0 1 4.177-2.643"/><path d="M22 8.82a15 15 0 0 0-11.288-3.764"/><path d="m2 2 20 20"/></symbol>
+<symbol id="i-hash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/><line x1="10" x2="8" y1="3" y2="21"/><line x1="16" x2="14" y1="3" y2="21"/></symbol>
+<symbol id="i-gauge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+<symbol id="i-trending-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></symbol>
+<symbol id="i-lightbulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+</defs>
+</svg>
+
+<div class="page-wrapper" id="pageWrapper">
+<header>
+<div class="header-inner">
+<a href="/" class="logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">Textify.tools</a>
+<div class="header-right">
+<nav class="desktop-nav" aria-label="Main navigation">
+<div class="tools-menu-container" id="toolsMenuContainer">
+<button type="button" class="tools-trigger" id="toolsTrigger" aria-expanded="false" aria-controls="megaMenu" data-action="toggle-tools">Tools <svg class="icon" aria-hidden="true" width="14" height="14"><use href="#i-chevron-down"/></svg></button>
+<div class="tools-mega-menu" id="megaMenu" aria-label="All tools"></div>
+</div>
+<a href="/privacy-policy">Privacy</a><a href="/blog">Blog</a><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
+</nav>
+<button type="button" class="theme-btn" data-action="toggle-theme" aria-label="Toggle dark mode"><svg class="icon icon-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg></button>
+<button type="button" class="search-trigger" data-action="open-search" aria-label="Search tools"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
+<button type="button" class="hamburger-btn" id="hamburgerBtn" data-action="open-sidebar" aria-label="Open menu" aria-expanded="false" aria-controls="mobileSidebar"><span class="menu-icon" aria-hidden="true"><span></span><span></span></span></button>
+</div>
+</div>
+</header>
+
+<main id="mainContent" tabindex="-1">
+<div class="content-container">
+
+<div class="tool-hero">
+<h1>SQL Formatter</h1>
+<p class="subtitle">Free online <strong>SQL formatter</strong> and <strong>SQL beautifier</strong> that turns compact or messy queries into clean, readable SQL. Major clauses get their own lines, column lists are indented, and keywords can be uppercased with one click. Switch to <strong>SQL minifier</strong> mode for storing queries as strings. Works with SELECT, INSERT, UPDATE, DELETE, JOINs, CTEs and subqueries. No signup, runs entirely in your browser.</p>
+</div>
+
+<div class="tool-layout">
+<!-- ============ INPUT PANEL ============ -->
+<div class="tool-panel">
+<div class="tool-panel-header">
+<div class="tool-panel-icon"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-database"/></svg></div>
+<div class="tool-panel-title">
+<h2>Paste Your SQL</h2>
+<span class="tpt-sub">Any query, any dialect</span>
+</div>
+</div>
+
+<div class="form-section">
+<label class="form-label" for="sqlInput">
+<span>Your SQL</span>
+<span class="label-hint" id="inputLiveHint">0 chars</span>
+</label>
+<textarea id="sqlInput" class="form-textarea" placeholder="-- Paste your SQL query here&#10;SELECT u.id, u.name, u.email, COUNT(o.id) AS order_count FROM users u LEFT JOIN orders o ON o.user_id = u.id WHERE u.status = 'active' AND u.created_at >= '2024-01-01' GROUP BY u.id, u.name, u.email HAVING COUNT(o.id) > 0 ORDER BY order_count DESC LIMIT 50;" autocomplete="off" spellcheck="false" aria-label="SQL input for formatting"></textarea>
+</div>
+
+<div class="options-row">
+<div class="select-pill">
+<label for="indentSize">Indent</label>
+<select id="indentSize">
+<option value="2" selected>2 spaces</option>
+<option value="4">4 spaces</option>
+<option value="tab">Tab</option>
+</select>
+</div>
+<label class="check-pill active" for="uppercaseKeywords">
+<input type="checkbox" id="uppercaseKeywords" checked>
+Uppercase keywords
+</label>
+<label class="check-pill active" for="preserveComments">
+<input type="checkbox" id="preserveComments" checked>
+Preserve comments
+</label>
+</div>
+
+<button type="button" class="btn btn-primary" id="formatBtn">
+<svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-align-left"/></svg> Beautify SQL
+</button>
+<button type="button" class="btn btn-primary" id="minifyBtn">
+<svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-minimize-2"/></svg> Minify SQL
+</button>
+
+<div class="btn-row">
+<button type="button" class="btn btn-outline" id="clearBtn">
+<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-trash-2"/></svg> Clear
+</button>
+<button type="button" class="btn btn-outline" id="exampleBtn">
+<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-sparkles"/></svg> Try Example
+</button>
+</div>
+
+<div class="info-tip">
+<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-lightbulb"/></svg>
+<div>
+<strong>Pro tip:</strong> Press <code>Ctrl</code>+<code>Enter</code> (or <code>Cmd</code>+<code>Enter</code>) inside the textarea to beautify instantly. String literals, quoted identifiers and comments are never touched, so your data stays exactly as you wrote it.
+</div>
+</div>
+</div>
+
+<!-- ============ OUTPUT PANEL ============ -->
+<div class="tool-panel">
+<div class="tool-panel-header">
+<div class="tool-panel-icon"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-bar-chart-3"/></svg></div>
+<div class="tool-panel-title">
+<h2>Output</h2>
+<span class="tpt-sub" id="outputSubtitle">Ready when you are</span>
+</div>
+</div>
+
+<div class="result-placeholder" id="resultPlaceholder">
+<div class="placeholder-icon"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-database"/></svg></div>
+<h3>Your formatted or minified SQL will appear here</h3>
+<p>Paste a query and click <strong>Beautify SQL</strong> or <strong>Minify SQL</strong>.</p>
+</div>
+
+<div id="resultContent" style="display:none;">
+<div class="stats-grid" aria-live="polite" aria-atomic="true">
+<div class="stat-tile primary">
+<div class="stat-icon"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-trending-down"/></svg></div>
+<div class="stat-label">Saved</div>
+<div class="stat-value" id="statSaved">0 B</div>
+<div class="stat-sub" id="statSavedPct">0%</div>
+</div>
+<div class="stat-tile">
+<div class="stat-icon"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-file-text"/></svg></div>
+<div class="stat-label">Input Size</div>
+<div class="stat-value" id="statInput">0 B</div>
+<div class="stat-sub">original</div>
+</div>
+<div class="stat-tile">
+<div class="stat-icon"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-file-code"/></svg></div>
+<div class="stat-label">Output Size</div>
+<div class="stat-value" id="statOutput">0 B</div>
+<div class="stat-sub">result</div>
+</div>
+<div class="stat-tile">
+<div class="stat-icon"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-hash"/></svg></div>
+<div class="stat-label">Lines</div>
+<div class="stat-value" id="statLines">0</div>
+<div class="stat-sub">output</div>
+</div>
+</div>
+
+<div class="btn-row" style="margin-bottom:14px;">
+<button type="button" class="btn btn-outline" id="copyBtn">
+<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-copy"/></svg> Copy Output
+</button>
+<button type="button" class="btn btn-outline" id="downloadBtn">
+<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-download"/></svg> Download .sql
+</button>
+</div>
+
+<div class="output-wrap">
+<div class="output-toolbar">
+<div class="ot-left">
+<svg class="icon" width="13" height="13" aria-hidden="true"><use href="#i-database"/></svg>
+<span id="outputMode">Beautified SQL</span>
+</div>
+<span id="outputLines"></span>
+</div>
+<pre class="output-code" id="outputPre"></pre>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ============ CONTENT SECTIONS ============ -->
+<div class="content-section">
+<h2>What does this SQL Formatter do?</h2>
+<p>This free online <strong>SQL formatter</strong> — also called a <strong>SQL beautifier</strong> or <strong>SQL pretty printer</strong> — takes compact, poorly indented or copy-pasted SQL and rewrites it with consistent indentation, spacing and line breaks so it is readable and editable. Major clauses like <code>SELECT</code>, <code>FROM</code> and <code>WHERE</code> get their own lines, column lists are indented, and joins and subqueries are aligned so the structure of the query is obvious at a glance.</p>
+<p>The same tool works in reverse. Switch to <strong>SQL minifier</strong> mode and it collapses your query into the most compact safe form, removing extra whitespace and comments. That is exactly what you want when you're storing queries as strings inside application code, config files or test fixtures.</p>
+<p>Everything runs locally in your browser. The SQL you paste never leaves your device, there is no signup, and there are no usage limits. Format or minify as many queries as you want, as many times as you want, for personal or professional projects.</p>
+</div>
+
+<div class="content-section">
+<h2>How to format and beautify SQL queries</h2>
+<ol>
+<li><strong>Paste your SQL</strong> into the input box on the left. Any query works — hand-written, copied from a logs viewer, or auto-generated by an ORM.</li>
+<li><strong>Choose your options.</strong> Pick the indentation size (2 spaces, 4 spaces or tab), whether to uppercase SQL keywords, and whether to keep comments.</li>
+<li><strong>Click Beautify SQL.</strong> The formatter rewrites the query with clause breaks and consistent indentation. The output appears instantly on the right.</li>
+<li><strong>Or click Minify SQL</strong> for compact form. The stats panel shows how many bytes you saved.</li>
+<li><strong>Copy or download.</strong> Use <strong>Copy Output</strong> to grab the result, or <strong>Download .sql</strong> to save it as a file.</li>
+</ol>
+</div>
+
+<div class="content-section">
+<h2>Why use this SQL Formatter?</h2>
+<div class="feature-grid">
+<div class="feature-card">
+<h4><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-zap"/></svg> Instant formatting</h4>
+<p>The formatter runs entirely in your browser, so the output appears the moment you click. No server round-trip, no waiting.</p>
+</div>
+<div class="feature-card">
+<h4><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-sliders"/></svg> Configurable style</h4>
+<p>Choose 2-space, 4-space or tab indentation. Toggle uppercase keywords and comment preservation on or off.</p>
+</div>
+<div class="feature-card">
+<h4><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-minimize-2"/></svg> Beautify + minify</h4>
+<p>One tool does both: expand compact SQL for reading, or compress readable SQL for storing. The stats panel shows exactly how many bytes you saved.</p>
+</div>
+<div class="feature-card">
+<h4><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-database"/></svg> Dialect-agnostic</h4>
+<p>Handles standard SQL used by PostgreSQL, MySQL, SQLite, SQL Server and Oracle: SELECT, INSERT, UPDATE, DELETE, JOINs, CTEs and subqueries.</p>
+</div>
+<div class="feature-card">
+<h4><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-shield-check"/></svg> 100% private</h4>
+<p>Everything runs locally. The SQL you paste never leaves your device — no server, no logs, no tracking.</p>
+</div>
+<div class="feature-card">
+<h4><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-wifi-off"/></svg> Works offline</h4>
+<p>Once the page loads, you can format or minify SQL without an internet connection. Bookmark it for offline work.</p>
+</div>
+</div>
+</div>
+
+<div class="content-section">
+<h2>What exactly gets changed?</h2>
+<p>Here is a complete list of what the formatter handles and how, so you know exactly what to expect.</p>
+<div class="table-wrapper">
+<table class="info-table">
+<thead><tr><th scope="col">Element</th><th scope="col">Beautify</th><th scope="col">Minify</th></tr></thead>
+<tbody>
+<tr><td><strong>Major clauses</strong> (SELECT, FROM, WHERE, GROUP BY…)</td><td>Each on its own line at base indent</td><td>Kept inline with single spaces</td></tr>
+<tr><td><strong>Column lists</strong> (after SELECT, GROUP BY, ORDER BY)</td><td>One column per line, indented</td><td>Kept on one line, comma-separated</td></tr>
+<tr><td><strong>JOIN clauses</strong></td><td>Each on its own line at base indent</td><td>Kept inline</td></tr>
+<tr><td><strong>ON / USING</strong> conditions</td><td>Indented under the JOIN</td><td>Kept inline</td></tr>
+<tr><td><strong>AND / OR in WHERE</strong></td><td>Each on its own line, indented</td><td>Kept inline</td></tr>
+<tr><td><strong>Keywords</strong></td><td>Uppercased (toggleable)</td><td>Uppercased (toggleable)</td></tr>
+<tr><td><strong>String literals</strong> (<code>'...'</code>)</td><td>Preserved exactly</td><td>Preserved exactly</td></tr>
+<tr><td><strong>Quoted identifiers</strong> (<code>"..."</code>, <code>`...`</code>, <code>[...]</code>)</td><td>Preserved exactly</td><td>Preserved exactly</td></tr>
+<tr><td><strong>Line comments</strong> (<code>--</code>)</td><td>Preserved (toggleable)</td><td>Removed</td></tr>
+<tr><td><strong>Block comments</strong> (<code>/* */</code>)</td><td>Preserved (toggleable)</td><td>Removed</td></tr>
+<tr><td><strong>Numbers &amp; operators</strong></td><td>Untouched</td><td>Untouched</td></tr>
+<tr><td><strong>Query semantics</strong></td><td>Identical</td><td>Identical</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="content-section">
+<h2>Who uses an SQL formatter?</h2>
+<p>Anyone who reads, writes or reviews SQL benefits from formatting. Here are the most common use cases:</p>
+<h3>Back-end and full-stack developers</h3>
+<ul>
+<li>Format auto-generated queries from ORMs before debugging them</li>
+<li>Standardise indentation across a codebase where different teammates have different styles</li>
+<li>Minify queries before storing them as strings in source code</li>
+<li>Format pasted queries from logs, error reports or bug trackers</li>
+</ul>
+<h3>Data analysts and BI engineers</h3>
+<ul>
+<li>Format long analytical queries before running them in a notebook</li>
+<li>Make CTEs and window functions readable so reviewers can follow the logic</li>
+<li>Format queries from other analysts to understand their approach</li>
+</ul>
+<h3>DBAs and database engineers</h3>
+<ul>
+<li>Format stored procedures and views for code review</li>
+<li>Compare two versions of a query side by side after formatting</li>
+<li>Standardise migration scripts before committing them</li>
+</ul>
+<h3>Students and learners</h3>
+<ul>
+<li>Format textbook examples to see the structure clearly</li>
+<li>Learn how major clauses nest and how JOINs relate to their tables</li>
+<li>Practice writing consistent, professional-looking SQL</li>
+</ul>
+</div>
+
+<div class="content-section">
+<h2>SQL beautify vs. SQL minify — what is the difference?</h2>
+<p>These two operations are opposites, and this tool does both.</p>
+<div class="table-wrapper">
+<table class="info-table">
+<thead><tr><th scope="col">Mode</th><th scope="col">What it does</th><th scope="col">Best for</th><th scope="col">Typical size change</th></tr></thead>
+<tbody>
+<tr><td><strong>Beautify / Format</strong></td><td>Adds indentation, line breaks and clause breaks. Expands compact SQL into a readable structure.</td><td>Development, debugging, code review, learning</td><td>Increases size (adds whitespace)</td></tr>
+<tr><td><strong>Minify</strong></td><td>Removes whitespace and comments. Collapses the query into the smallest safe form.</td><td>Storing queries in source code, config files, test fixtures</td><td>20–50% smaller</td></tr>
+</tbody>
+</table>
+</div>
+<p>If you have readable SQL and need to compact it — for example to embed in a JavaScript string or a YAML config — use <strong>Minify SQL</strong>. If you have a wall of SQL and need to understand it, use <strong>Beautify SQL</strong>.</p>
+</div>
+
+<div class="content-section">
+<h2>SQL formatting best practices</h2>
+<p>Whatever style you choose, keep it consistent across your team. Here are the conventions most teams follow:</p>
+<ul>
+<li><strong>Uppercase SQL keywords.</strong> Makes keywords stand out against identifiers and strings.</li>
+<li><strong>One clause per line.</strong> SELECT, FROM, WHERE, GROUP BY etc. each start on their own line.</li>
+<li><strong>One column per line.</strong> A long SELECT list is easier to scan vertically than horizontally.</li>
+<li><strong>Indent subqueries and CTEs.</strong> Nesting should be visible at a glance — the deeper you go, the more indent.</li>
+<li><strong>Lead with <code>AND</code> / <code>OR</code>.</strong> In a WHERE clause, put the operator at the start of the line so a reviewer can count conditions easily.</li>
+<li><strong>Group JOINs under FROM.</strong> Every JOIN at the same indent level as FROM, with its ON condition indented below.</li>
+<li><strong>Align column aliases.</strong> Optional but makes wide SELECT lists more readable (<code>u.id AS user_id</code>).</li>
+<li><strong>Use comments for intent, not mechanics.</strong> Explain <em>why</em> a filter is there, not what the syntax does.</li>
+<li><strong>Keep lines under ~100 characters.</strong> Wrap long expressions with parentheses and indentation.</li>
+<li><strong>Run the formatter before committing.</strong> A consistent diff is easier to review than one that mixes styles.</li>
+</ul>
+</div>
+
+<div class="content-section">
+<h2>Frequently asked questions</h2>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">What does an SQL formatter do?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">An SQL formatter (also called a SQL beautifier or SQL pretty printer) takes messy or compact SQL and rewrites it with consistent indentation, spacing and line breaks so it is readable and editable. Major clauses like SELECT, FROM and WHERE are placed on their own lines, and column lists are indented for clarity.</div></div>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">Is this SQL formatter free?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes, completely free. No signup, no watermark, no hidden charges. Format or minify as much SQL as you want, for personal or commercial projects.</div></div>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">Does formatting SQL change how it works?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">No. Formatting only changes whitespace and line breaks. Keywords, identifiers, string literals and values stay exactly the same. The query behaves identically when run against your database.</div></div>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">Which SQL dialects are supported?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">The formatter is dialect-agnostic for common SQL: SELECT, INSERT, UPDATE, DELETE, CREATE TABLE, ALTER TABLE, JOINs, subqueries, CTEs (WITH), CASE expressions, and standard functions. Specialized dialect-specific syntax (PostgreSQL-specific types, MySQL-specific extensions, T-SQL features) will format reasonably but may not be perfectly aligned.</div></div>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">Does it preserve SQL comments?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. Both line comments (--) and block comments (/* */) are preserved by default. You can toggle comment preservation off for a cleaner output.</div></div>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">Can it uppercase my SQL keywords?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. Toggle the uppercase keywords option and every SQL keyword (SELECT, FROM, WHERE, JOIN, etc.) gets converted to uppercase. String literals, quoted identifiers and comments are never touched.</div></div>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">Is my SQL data safe?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Absolutely. Everything runs in your browser. The SQL you paste never leaves your device — no server processing, no logging, no data storage.</div></div>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">Does this tool work offline?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. Once the page loads, the SQL formatter works without an internet connection. Bookmark it for offline work.</div></div>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">Can I use this SQL formatter on my phone?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. The tool is fully responsive and works on phones, tablets and desktops. The input and output panels stack vertically on small screens.</div></div>
+
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">What is the difference between SQL beautify and SQL minify?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Beautify expands SQL with indentation and line breaks for readability — perfect for development, debugging and code review. Minify compresses SQL by removing whitespace and comments for smaller size — useful for storing queries as strings in source code.</div></div>
+</div>
+
+</div>
+</main>
+
+<footer>
+<div class="footer-container">
+<div class="footer-middle">
+<div class="footer-left-column">
+<p class="footer-credit">Created by: <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">Pradeep Yadav</a></p>
+<p class="footer-copyright">Copyright © <span id="dynamicYear"></span></p>
+<h3 class="footer-heading" style="margin-top:10px;">About</h3>
+<p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking of what you type, no fuss. If you have a suggestion, feel free to <a href="https://x.com/intent/tweet?text=Just%20found%20Textify.tools&url=https%3A%2F%2Ftextify.tools%2F" target="_blank" rel="nofollow noopener noreferrer">say hello.</a> Feedback is much appreciated!</p>
+</div>
+<div class="footer-right-columns">
+<nav class="footer-column" aria-labelledby="footer-popular-tools"><h3 class="footer-heading" id="footer-popular-tools">Popular Tools</h3><ul class="footer-links">
+<li><a href="/word-counter">Word Counter</a></li><li><a href="/json-formatter">JSON Formatter</a></li><li><a href="/css-formatter">CSS Formatter</a></li><li><a href="/javascript-formatter">JavaScript Formatter</a></li><li><a href="/sql-formatter">SQL Formatter</a></li><li><a href="/case-converter">Case Converter</a></li><li><a href="/password-generator">Password Generator</a></li><li><a href="/text-to-handwriting">Text to Handwriting</a></li><li><a href="/qr-code-generator">QR Code Generator</a></li><li><a href="/image-compressor">Image Compressor</a></li><li><a href="/pdf-merge">PDF Merge</a></li><li><a href="/resume-builder">Resume Builder</a></li>
+</ul></nav>
+<nav class="footer-column" aria-labelledby="footer-quick-links"><h3 class="footer-heading" id="footer-quick-links">Quick Links</h3><ul class="footer-links">
+<li><a href="/">Home</a></li><li><a href="/about-us">About Us</a></li><li><a href="/contact-us">Contact Us</a></li><li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li><li><a href="/blog">Blog</a></li>
+</ul></nav>
+<nav class="footer-column" aria-labelledby="footer-legal"><h3 class="footer-heading" id="footer-legal">Legal Pages</h3><ul class="footer-links">
+<li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms-of-use">Terms of Use</a></li><li><a href="/disclaimer">Disclaimer</a></li>
+</ul></nav>
+</div>
+</div>
+</div>
+</footer>
+</div>
+
+<div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" data-action="close-sidebar"></div>
+<div class="mobile-sidebar" id="mobileSidebar" role="dialog" aria-modal="true" aria-label="Mobile navigation menu" aria-hidden="true">
+<div class="mobile-sidebar-header">
+<a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
+<button type="button" class="mobile-sidebar-close" id="mobileSidebarClose" data-action="close-sidebar" aria-label="Close menu"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
+</div>
+<nav class="mobile-sidebar-nav" aria-label="Mobile navigation">
+<button type="button" class="mobile-tools-toggle" id="mobileToolsToggle" data-action="toggle-mobile-tools" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+<div class="mobile-tools-menu" id="mobileToolsMenu"></div>
+<a href="/privacy-policy">Privacy</a>
+<a href="/blog">Blog</a>
+<a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
+</nav>
+<div class="mobile-sidebar-actions">
+<button type="button" data-action="search-from-sidebar"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg> Search</button>
+<button type="button" data-action="toggle-theme"><svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg> Theme</button>
+</div>
+</div>
+
+<div class="search-overlay-full" id="searchOverlayFull" role="dialog" aria-modal="true" aria-label="Search tools" aria-hidden="true">
+<div class="search-container">
+<div class="search-box">
+<svg class="icon search-icon-leading" width="20" height="20" aria-hidden="true"><use href="#i-search"/></svg>
+<label for="fullSearchInput" class="sr-only">Search all tools</label>
+<input type="text" id="fullSearchInput" placeholder="Search tools…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="fullSearchResultsList" aria-activedescendant="">
+<button type="button" class="search-clear-btn" id="searchClearBtn" data-action="clear-search" aria-label="Clear search"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg></button>
+<button type="button" class="search-close-btn" data-action="close-search" aria-label="Close search"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
+</div>
+<div class="search-results-list" id="fullSearchResultsList" role="listbox" aria-label="Tool suggestions"></div>
+<div class="search-no-result" id="fullNoResult" role="status" aria-live="polite">No tools found for "<span id="fullSearchQuery"></span>"</div>
+</div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+const categories = [
+    { key: 'all', label: 'All Tools' },
+    { key: 'text', label: 'Text Tools' },
+    { key: 'developer', label: 'Developer' },
+    { key: 'generator', label: 'Generators' },
+    { key: 'image', label: 'Image' },
+    { key: 'pdf', label: 'PDF' },
+    { key: 'business', label: 'Business' },
+    { key: 'calculator', label: 'Calculators & Converters' },
+    { key: 'finance', label: 'Finance' }
+];
+const categoryLabelMap = {};
+categories.forEach(function (c) { categoryLabelMap[c.key] = c.label; });
+
+const tools = [
+    { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', link: '/word-counter', keywords: 'word count character counter letters essay limit', category: 'text' },
+    { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', link: '/sentence-counter', keywords: 'sentence count enumerate grammar', category: 'text' },
+    { name: 'Paragraph Counter', desc: 'Quickly count paragraphs in your writing.', link: '/paragraph-counter', keywords: 'paragraph count block format', category: 'text' },
+    { name: 'Line Counter', desc: 'Count lines in text.', link: '/line-counter', keywords: 'line count text lines rows', category: 'text' },
+    { name: 'Reading Time Estimator', desc: 'Estimate how long it takes to read your text.', link: '/reading-time-estimator', keywords: 'reading time estimate duration words per minute blog', category: 'text' },
+    { name: 'Speaking Time Calculator', desc: 'Estimate how long it takes to speak your text aloud.', link: '/speaking-time-calculator', keywords: 'speaking time talk duration speech presentation', category: 'text' },
+    { name: 'Keyword Counter', desc: 'Count occurrences of each keyword in your text.', link: '/keyword-counter', keywords: 'keyword frequency count word seo', category: 'text' },
+    { name: 'Keyword Density Checker', desc: 'Analyze keyword density as a percentage.', link: '/keyword-density-checker', keywords: 'keyword density seo percentage frequency', category: 'text' },
+    { name: 'Duplicate Word Finder', desc: 'Find and highlight duplicate words in your text.', link: '/duplicate-word-finder', keywords: 'duplicate word find highlight repeat', category: 'text' },
+    { name: 'Text Statistics', desc: 'Full summary: words, chars, sentences, readability, and more.', link: '/text-statistics', keywords: 'text stats readability summary data analysis', category: 'text' },
+    { name: 'Regex Tester', desc: 'Test regular expressions with match highlighting.', link: '/regex-tester', keywords: 'regex regular expression test match pattern', category: 'text' },
+    { name: 'Word Frequency Counter', desc: 'Count frequency of each word.', link: '/word-frequency-counter', keywords: 'word frequency count repeat', category: 'text' },
+    { name: 'Character Frequency Counter', desc: 'Count frequency of each character.', link: '/character-frequency-counter', keywords: 'character frequency count letters', category: 'text' },
+    { name: 'Password Strength Checker', desc: 'Check the strength of your password.', link: '/password-strength-checker', keywords: 'password strength check secure safety', category: 'text' },
+    { name: 'Duplicate Line Remover', desc: 'Remove duplicate lines and keep only unique ones.', link: '/duplicate-line-remover', keywords: 'duplicate unique lines remove dedupe list', category: 'text' },
+    { name: 'Whitespace Cleaner', desc: 'Remove extra spaces, tabs, and blank lines.', link: '/whitespace-cleaner', keywords: 'whitespace spaces tabs clean trim format', category: 'text' },
+    { name: 'Remove Extra Spaces', desc: 'Clean up unwanted spaces with one click.', link: '/remove-extra-spaces', keywords: 'remove spaces extra blanks cleanup double', category: 'text' },
+    { name: 'Remove Empty Lines', desc: 'Delete all blank lines instantly.', link: '/remove-empty-lines', keywords: 'empty lines remove delete blank', category: 'text' },
+    { name: 'Remove Blank Characters', desc: 'Strip out invisible blank characters.', link: '/remove-blank-characters', keywords: 'blank chars invisible characters remove zero width', category: 'text' },
+    { name: 'Remove Emojis', desc: 'Get rid of all emojis in one go.', link: '/remove-emojis', keywords: 'emoji remove strip smiley', category: 'text' },
+    { name: 'Remove Symbols', desc: 'Delete symbols and special characters.', link: '/remove-symbols', keywords: 'symbols remove special characters clean', category: 'text' },
+    { name: 'Remove Punctuation', desc: 'Strip punctuation marks.', link: '/remove-punctuation', keywords: 'punctuation remove comma period full stop', category: 'text' },
+    { name: 'Remove Numbers', desc: 'Delete all numeric digits.', link: '/remove-numbers', keywords: 'numbers remove digits numeric', category: 'text' },
+    { name: 'Remove HTML Tags', desc: 'Strip HTML/XML tags, leaving only text.', link: '/remove-html-tags', keywords: 'html tags strip remove clean markup', category: 'text' },
+    { name: 'Remove Line Breaks', desc: 'Remove line breaks and join lines.', link: '/remove-line-breaks', keywords: 'line break remove join newline', category: 'text' },
+    { name: 'Text Cleaner', desc: 'All-in-one text cleaning.', link: '/text-cleaner', keywords: 'clean text sanitize format tidy', category: 'text' },
+    { name: 'Remove Duplicate Words', desc: 'Remove duplicate words from text.', link: '/remove-duplicate-words', keywords: 'duplicate words remove repeat', category: 'text' },
+    { name: 'Case Converter', desc: 'Convert to uppercase, lowercase, title case and more.', link: '/case-converter', keywords: 'uppercase lowercase title case sentence change case', category: 'text' },
+    { name: 'Uppercase Converter', desc: 'Convert text to uppercase.', link: '/uppercase-converter', keywords: 'uppercase converter caps capital letters', category: 'text' },
+    { name: 'Lowercase Converter', desc: 'Convert text to lowercase.', link: '/lowercase-converter', keywords: 'lowercase converter small letters', category: 'text' },
+    { name: 'Title Case Converter', desc: 'Proper title case for headlines.', link: '/title-case-converter', keywords: 'title case headline capitalize proper apa mla', category: 'text' },
+    { name: 'Sentence Case Converter', desc: 'First letter of each sentence capitalized.', link: '/sentence-case-converter', keywords: 'sentence case capitalize first letter', category: 'text' },
+    { name: 'Capitalize Words', desc: 'Capitalize first letter of each word.', link: '/capitalize-words', keywords: 'capitalize first letter each word', category: 'text' },
+    { name: 'Toggle Case Converter', desc: 'Toggle case of every letter.', link: '/toggle-case-converter', keywords: 'toggle case invert swap alternating', category: 'text' },
+    { name: 'Text Repeater', desc: 'Repeat text up to 100,000 times.', link: '/text-repeater', keywords: 'repeat duplicate multiply copy paste spam', category: 'text' },
+    { name: 'Text Finder & Replacer', desc: 'Find and replace words or phrases in bulk.', link: '/text-finder-replacer', keywords: 'find replace search and replace bulk', category: 'text' },
+    { name: 'Line Break Converter', desc: 'Convert line breaks between Windows, Unix, Mac.', link: '/line-break-converter', keywords: 'line break crlf lf converter newline', category: 'text' },
+    { name: 'Text Indenter', desc: 'Add spaces or tabs at the beginning of each line.', link: '/text-indenter', keywords: 'indent text tab spaces code', category: 'text' },
+    { name: 'Wrap Text', desc: 'Wrap long lines to a specified width.', link: '/wrap-text', keywords: 'word wrap text line width column', category: 'text' },
+    { name: 'Unwrap Text', desc: 'Join broken lines into a single paragraph.', link: '/unwrap-text', keywords: 'unwrap text join lines paragraph merge', category: 'text' },
+    { name: 'Join Lines', desc: 'Merge multiple lines into one single continuous line or paragraph.', link: '/join-lines', keywords: 'join lines merge combine single line paragraph unwrap newline concatenate', category: 'text' },
+    { name: 'Text Diff Checker', desc: 'Compare two texts side by side and highlight every difference.', link: '/text-diff-checker', keywords: 'diff compare text changes version differences side by side review', category: 'text' },
+    { name: 'Text Sorter', desc: 'Sort lines alphabetically, numerically, by length, or in reverse.', link: '/text-sorter', keywords: 'sort lines alphabetical numeric order arrange a-z z-a', category: 'text' },
+    { name: 'Text to Handwriting', desc: 'Convert typed text into realistic handwriting.', link: '/text-to-handwriting', keywords: 'handwriting text converter script assignment notes', category: 'text' },
+    { name: 'Bold Text Generator', desc: 'Bold Unicode text for social media bios.', link: '/bold-text-generator', keywords: 'bold unicode text style font bio', category: 'text' },
+    { name: 'Italic Text Generator', desc: 'Italic Unicode text using math symbols.', link: '/italic-text-generator', keywords: 'italic unicode text style font', category: 'text' },
+    { name: 'Strikethrough Generator', desc: 'Strikethrough Unicode text.', link: '/strikethrough-generator', keywords: 'strikethrough cross out unicode', category: 'text' },
+    { name: 'Fancy Text Generator', desc: 'Generate multiple fancy Unicode styles at once.', link: '/fancy-text-generator', keywords: 'fancy font styles unicode aesthetic instagram', category: 'text' },
+    { name: 'Upside Down Text', desc: 'Flip your text upside down.', link: '/upside-down-text', keywords: 'upside down flip text reverse', category: 'text' },
+    { name: 'Small Text Generator', desc: 'Generate small caps text.', link: '/small-text-generator', keywords: 'small caps tiny text superscript', category: 'text' },
+    { name: 'Zalgo Text Generator', desc: 'Create cursed zalgo text.', link: '/zalgo-text-generator', keywords: 'zalgo cursed text generator creepy', category: 'text' },
+    { name: 'Unicode Text Converter', desc: 'Convert text to Unicode variants.', link: '/unicode-text-converter', keywords: 'unicode text converter encode', category: 'text' },
+    { name: 'Email Extractor', desc: 'Extract all email addresses from text.', link: '/email-extractor', keywords: 'email extract find emails scrape address', category: 'text' },
+    { name: 'URL Extractor', desc: 'Pull out all URLs from text.', link: '/url-extractor', keywords: 'url extract link http https website', category: 'text' },
+    { name: 'Phone Extractor', desc: 'Extract phone numbers using common formats.', link: '/phone-extractor', keywords: 'phone number extract landline mobile contact', category: 'text' },
+    { name: 'Number Extractor', desc: 'Get every number (integer or decimal) from text.', link: '/number-extractor', keywords: 'number extract digits numeric decimal', category: 'text' },
+    { name: 'Date Extractor', desc: 'Find and extract dates like 12/05/2025.', link: '/date-extractor', keywords: 'date extract calendar find day month year', category: 'text' },
+    { name: 'Domain Extractor', desc: 'Extract domain names from URLs or emails.', link: '/domain-extractor', keywords: 'domain name website extract host', category: 'text' },
+    { name: 'Hashtag Extractor', desc: 'List all #hashtags from social media text.', link: '/hashtag-extractor', keywords: 'hashtag extract social media instagram twitter', category: 'text' },
+    { name: 'Mention Extractor', desc: 'Pull out @usernames from text.', link: '/mention-extractor', keywords: 'mention extract username @ social twitter', category: 'text' },
+    { name: 'Keyword Extractor', desc: 'Extract the most important words and phrases.', link: '/keyword-extractor', keywords: 'keyword extract important terms seo', category: 'text' },
+    { name: 'Duplicate Line Finder', desc: 'Show which lines appear more than once.', link: '/duplicate-line-finder', keywords: 'duplicate line find report repeat', category: 'text' },
+    { name: 'JSON Formatter/Beautifier', desc: 'Format messy JSON into readable, indented structure.', link: '/json-formatter', keywords: 'json format beautify pretty print indent api', category: 'developer' },
+    { name: 'JSON Minifier', desc: 'Minify JSON to remove unnecessary spaces.', link: '/json-minifier', keywords: 'json minify compress compact', category: 'developer' },
+    { name: 'JSON Validator', desc: 'Validate JSON syntax.', link: '/json-validator', keywords: 'json validate check syntax error', category: 'developer' },
+    { name: 'XML Formatter', desc: 'Beautify and indent XML data.', link: '/xml-formatter', keywords: 'xml format beautify indent', category: 'developer' },
+    { name: 'XML Minifier', desc: 'Minify XML.', link: '/xml-minifier', keywords: 'xml minify compress', category: 'developer' },
+    { name: 'HTML Formatter', desc: 'Format HTML code.', link: '/html-formatter', keywords: 'html format beautify indent', category: 'developer' },
+    { name: 'HTML Minifier', desc: 'Minify HTML.', link: '/html-minifier', keywords: 'html minify compress', category: 'developer' },
+    { name: 'CSS Formatter', desc: 'Beautify and format CSS code.', link: '/css-formatter', keywords: 'css formatter beautifier pretty print', category: 'developer' },
+    { name: 'CSS Minifier', desc: 'Minify and compress CSS.', link: '/css-minifier', keywords: 'css minify compress shrink', category: 'developer' },
+    { name: 'JavaScript Formatter', desc: 'Beautify and format JavaScript code.', link: '/javascript-formatter', keywords: 'javascript formatter js beautifier pretty print', category: 'developer' },
+    { name: 'JavaScript Minifier', desc: 'Minify and compress JavaScript.', link: '/javascript-minifier', keywords: 'javascript minify compress js shrink', category: 'developer' },
+    { name: 'SQL Formatter', desc: 'Beautify and format SQL queries.', link: '/sql-formatter', keywords: 'sql formatter beautifier pretty print database query', category: 'developer' },
+    { name: 'Text to Binary', desc: 'Convert text to binary.', link: '/text-to-binary', keywords: 'text binary convert bits', category: 'developer' },
+    { name: 'Binary to Text', desc: 'Convert binary to text.', link: '/binary-to-text', keywords: 'binary text convert bits', category: 'developer' },
+    { name: 'Text to Hex', desc: 'Convert text to hexadecimal.', link: '/text-to-hex', keywords: 'text hex convert hexadecimal', category: 'developer' },
+    { name: 'Hex to Text', desc: 'Convert hex to text.', link: '/hex-to-text', keywords: 'hex text convert hexadecimal', category: 'developer' },
+    { name: 'Text to ASCII', desc: 'Convert text to ASCII codes.', link: '/text-to-ascii', keywords: 'text ascii convert code', category: 'developer' },
+    { name: 'ASCII to Text', desc: 'Convert ASCII codes to text.', link: '/ascii-to-text', keywords: 'ascii text convert code', category: 'developer' },
+    { name: 'Morse Code Translator', desc: 'Convert text to Morse code and back.', link: '/morse-code-translator', keywords: 'morse code translator dots dashes', category: 'developer' },
+    { name: 'Braille Translator', desc: 'Convert text to Braille.', link: '/braille-translator', keywords: 'braille translator blind', category: 'developer' },
+    { name: 'NATO Alphabet Generator', desc: 'Convert text to NATO phonetic alphabet.', link: '/nato-alphabet-generator', keywords: 'nato phonetic alphabet alpha bravo', category: 'developer' },
+    { name: 'Text to CSV', desc: 'Convert text to CSV format.', link: '/text-to-csv', keywords: 'text csv convert comma separated excel', category: 'developer' },
+    { name: 'CSV to Text', desc: 'Convert CSV to text.', link: '/csv-to-text', keywords: 'csv text convert', category: 'developer' },
+    { name: 'CSV to JSON', desc: 'Convert CSV to JSON.', link: '/csv-to-json', keywords: 'csv json convert', category: 'developer' },
+    { name: 'JSON to CSV', desc: 'Convert JSON to CSV.', link: '/json-to-csv', keywords: 'json csv convert', category: 'developer' },
+    { name: 'Markdown to HTML', desc: 'Convert Markdown to HTML.', link: '/markdown-to-html', keywords: 'markdown html convert md', category: 'developer' },
+    { name: 'HTML to Markdown', desc: 'Convert HTML to Markdown.', link: '/html-to-markdown', keywords: 'html markdown convert md', category: 'developer' },
+    { name: 'Markdown Table Generator', desc: 'Generate Markdown tables.', link: '/markdown-table-generator', keywords: 'markdown table generator md', category: 'developer' },
+    { name: 'HTML Table Generator', desc: 'Generate HTML tables.', link: '/html-table-generator', keywords: 'html table generator', category: 'developer' },
+    { name: 'Roman Numeral Converter', desc: 'Convert numbers to Roman numerals.', link: '/roman-numeral-converter', keywords: 'roman numeral converter latin', category: 'developer' },
+    { name: 'Number to Words', desc: 'Convert numbers to English words.', link: '/number-to-words', keywords: 'number to words converter cheque', category: 'developer' },
+    { name: 'Words to Number', desc: 'Convert English words to numbers.', link: '/words-to-number', keywords: 'words to number converter', category: 'developer' },
+    { name: 'Timestamp Converter', desc: 'Convert Unix timestamps to date and back.', link: '/timestamp-converter', keywords: 'timestamp unix converter date epoch', category: 'developer' },
+    { name: 'Color Converter', desc: 'Convert colors between HEX, RGB, HSL.', link: '/color-converter', keywords: 'color converter hex rgb hsl', category: 'developer' },
+    { name: 'Base64 Encoder', desc: 'Encode text to Base64.', link: '/base64-encoder', keywords: 'base64 encode', category: 'developer' },
+    { name: 'Base64 Decoder', desc: 'Decode Base64 text.', link: '/base64-decoder', keywords: 'base64 decode', category: 'developer' },
+    { name: 'URL Encoder', desc: 'Encode URLs.', link: '/url-encoder', keywords: 'url encode percent uri', category: 'developer' },
+    { name: 'URL Decoder', desc: 'Decode URLs.', link: '/url-decoder', keywords: 'url decode percent uri', category: 'developer' },
+    { name: 'HTML Entity Encoder', desc: 'Encode HTML entities.', link: '/html-entity-encoder', keywords: 'html entity encode amp lt', category: 'developer' },
+    { name: 'HTML Entity Decoder', desc: 'Decode HTML entities.', link: '/html-entity-decoder', keywords: 'html entity decode amp lt', category: 'developer' },
+    { name: 'Regex Generator', desc: 'Generate regex patterns from sample text.', link: '/regex-generator', keywords: 'regex generate pattern regular expression', category: 'developer' },
+    { name: 'Regex Escape Tool', desc: 'Escape special characters in regex.', link: '/regex-escape-tool', keywords: 'regex escape special characters', category: 'developer' },
+    { name: 'JWT Decoder', desc: 'Decode JWT tokens to view header and payload.', link: '/jwt-decoder', keywords: 'jwt decode token header payload auth', category: 'developer' },
+    { name: 'UUID Generator', desc: 'Generate random UUID v4 identifiers.', link: '/uuid-generator', keywords: 'uuid guid unique identifier random v4', category: 'developer' },
+    { name: 'UUID Validator', desc: 'Check if a UUID is valid.', link: '/uuid-validator', keywords: 'uuid validate check guid', category: 'developer' },
+    { name: 'MD5 Generator', desc: 'Generate MD5 hash.', link: '/md5-generator', keywords: 'md5 hash generator checksum', category: 'developer' },
+    { name: 'SHA-1 Generator', desc: 'Generate SHA-1 hash.', link: '/sha1-generator', keywords: 'sha1 hash generator checksum', category: 'developer' },
+    { name: 'SHA-256 Generator', desc: 'Generate SHA-256 hash.', link: '/sha256-generator', keywords: 'sha256 hash generator checksum', category: 'developer' },
+    { name: 'SHA-512 Generator', desc: 'Generate SHA-512 hash.', link: '/sha512-generator', keywords: 'sha512 hash generator checksum', category: 'developer' },
+    { name: 'HMAC Generator', desc: 'Generate HMAC hash.', link: '/hmac-generator', keywords: 'hmac hash generator secret key', category: 'developer' },
+    { name: 'Cron Expression Generator', desc: 'Generate cron expressions.', link: '/cron-expression-generator', keywords: 'cron expression generator schedule', category: 'developer' },
+    { name: 'Cron Expression Tester', desc: 'Test cron expressions.', link: '/cron-expression-tester', keywords: 'cron expression tester schedule', category: 'developer' },
+    { name: 'Password Generator', desc: 'Generate strong random passwords.', link: '/password-generator', keywords: 'password generator random strong secure', category: 'generator' },
+    { name: 'PIN Generator', desc: 'Generate random PIN numbers.', link: '/pin-generator', keywords: 'pin generator random number', category: 'generator' },
+    { name: 'Random Number Generator', desc: 'Generate random numbers within a custom range.', link: '/random-number-generator', keywords: 'random number range integer generator lottery', category: 'generator' },
+    { name: 'Number Sequence Generator', desc: 'Generate arithmetic sequences.', link: '/number-sequence-generator', keywords: 'number sequence generator series', category: 'generator' },
+    { name: 'Lorem Ipsum Generator', desc: 'Placeholder text for designs and mockups.', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum placeholder dummy text design', category: 'generator' },
+    { name: 'Random Word Generator', desc: 'Generate random English words.', link: '/random-word-generator', keywords: 'random word generator english vocabulary', category: 'generator' },
+    { name: 'Random Text Generator', desc: 'Generate random letters, numbers, and symbols.', link: '/random-text-generator', keywords: 'random text generate string dummy', category: 'generator' },
+    { name: 'QR Code Generator', desc: 'Convert any text or URL into a QR code image.', link: '/qr-code-generator', keywords: 'qr code generate text url image scan', category: 'generator' },
+    { name: 'Barcode Generator', desc: 'Generate barcodes from text or numbers.', link: '/barcode-generator', keywords: 'barcode generate code ean upc product', category: 'generator' },
+    { name: 'UTM Builder', desc: 'Add UTM parameters to URLs for campaign tracking.', link: '/utm-builder', keywords: 'utm campaign tracking url builder marketing analytics', category: 'generator' },
+    { name: 'WhatsApp Link Generator', desc: 'Create wa.me links from phone numbers and pre-filled messages.', link: '/whatsapp-link-generator', keywords: 'whatsapp link generator wa.me phone number message chat', category: 'generator' },
+    { name: 'Business Name Generator', desc: 'Generate business name ideas.', link: '/business-name-generator', keywords: 'business name generator brand startup', category: 'generator' },
+    { name: 'Invoice Number Generator', desc: 'Generate invoice numbers.', link: '/invoice-number-generator', keywords: 'invoice number generator billing', category: 'generator' },
+    { name: 'Image Compressor', desc: 'Compress images in your browser.', link: '/image-compressor', keywords: 'image compressor reduce size jpg png', category: 'image' },
+    { name: 'Image Resizer', desc: 'Resize images without losing quality.', link: '/image-resizer', keywords: 'image resize dimensions scale', category: 'image' },
+    { name: 'Image Cropper', desc: 'Crop images easily.', link: '/image-cropper', keywords: 'image crop trim cut', category: 'image' },
+    { name: 'Image Rotator', desc: 'Rotate images by degrees.', link: '/image-rotator', keywords: 'image rotate turn degrees', category: 'image' },
+    { name: 'Image Flipper', desc: 'Flip images horizontally or vertically.', link: '/image-flipper', keywords: 'image flip mirror horizontal vertical', category: 'image' },
+    { name: 'JPG to PNG', desc: 'Convert JPG images to PNG.', link: '/jpg-to-png', keywords: 'jpg png converter image', category: 'image' },
+    { name: 'PNG to JPG', desc: 'Convert PNG images to JPG.', link: '/png-to-jpg', keywords: 'png jpg converter image', category: 'image' },
+    { name: 'WebP to JPG', desc: 'Convert WebP images to JPG.', link: '/webp-to-jpg', keywords: 'webp jpg converter image', category: 'image' },
+    { name: 'JPG to WebP', desc: 'Convert JPG images to WebP.', link: '/jpg-to-webp', keywords: 'jpg webp converter image', category: 'image' },
+    { name: 'PNG to WebP', desc: 'Convert PNG images to WebP.', link: '/png-to-webp', keywords: 'png webp converter image', category: 'image' },
+    { name: 'Image to Base64', desc: 'Convert image to Base64 string.', link: '/image-to-base64', keywords: 'image base64 converter encode', category: 'image' },
+    { name: 'Base64 to Image', desc: 'Convert Base64 string to image.', link: '/base64-to-image', keywords: 'base64 image converter decode', category: 'image' },
+    { name: 'Grayscale Image', desc: 'Convert image to grayscale.', link: '/grayscale-image', keywords: 'grayscale image black white filter', category: 'image' },
+    { name: 'Photo 20KB', desc: 'Compress photo to 20KB.', link: '/photo-20kb', keywords: 'photo 20kb compress resize upload form', category: 'image' },
+    { name: 'Photo 50KB', desc: 'Compress photo to 50KB.', link: '/photo-50kb', keywords: 'photo 50kb compress resize upload form', category: 'image' },
+    { name: 'Photo 100KB', desc: 'Compress photo to 100KB.', link: '/photo-100kb', keywords: 'photo 100kb compress resize upload form', category: 'image' },
+    { name: 'Photo 200KB', desc: 'Compress photo to 200KB.', link: '/photo-200kb', keywords: 'photo 200kb compress resize upload form', category: 'image' },
+    { name: 'Signature Resizer', desc: 'Resize signatures for documents and forms.', link: '/signature-resizer', keywords: 'signature resize image document form exam', category: 'image' },
+    { name: 'Passport Size Photo Maker', desc: 'Create passport size photos from any image.', link: '/passport-size-photo-maker', keywords: 'passport photo size maker image visa', category: 'image' },
+    { name: 'JPG to PDF', desc: 'Convert JPG images to PDF.', link: '/jpg-to-pdf', keywords: 'jpg pdf converter image document', category: 'pdf' },
+    { name: 'PNG to PDF', desc: 'Convert PNG images to PDF.', link: '/png-to-pdf', keywords: 'png pdf converter image document', category: 'pdf' },
+    { name: 'Images to PDF', desc: 'Combine multiple images into a PDF.', link: '/images-to-pdf', keywords: 'images pdf converter combine merge', category: 'pdf' },
+    { name: 'PDF Page Counter', desc: 'Count pages in a PDF file.', link: '/pdf-page-counter', keywords: 'pdf page counter count pages', category: 'pdf' },
+    { name: 'PDF Metadata Viewer', desc: 'View PDF metadata.', link: '/pdf-metadata-viewer', keywords: 'pdf metadata viewer info author', category: 'pdf' },
+    { name: 'PDF to Images', desc: 'Convert PDF pages to images.', link: '/pdf-to-images', keywords: 'pdf images converter jpg png', category: 'pdf' },
+    { name: 'PDF Merge', desc: 'Merge multiple PDF files.', link: '/pdf-merge', keywords: 'pdf merge combine join files', category: 'pdf' },
+    { name: 'PDF Split', desc: 'Split a PDF into multiple files.', link: '/pdf-split', keywords: 'pdf split separate cut pages', category: 'pdf' },
+    { name: 'PDF Rotate', desc: 'Rotate PDF pages.', link: '/pdf-rotate', keywords: 'pdf rotate page turn', category: 'pdf' },
+    { name: 'PDF Page Extractor', desc: 'Extract specific pages from PDF.', link: '/pdf-page-extractor', keywords: 'pdf extract page range', category: 'pdf' },
+    { name: 'PDF Compressor', desc: 'Compress PDF file size.', link: '/pdf-compressor', keywords: 'pdf compress reduce size shrink smaller', category: 'pdf' },
+    { name: 'PDF to 50KB', desc: 'Compress a PDF down to roughly 50KB.', link: '/pdf-50kb', keywords: 'pdf 50kb compress reduce size shrink small upload form limit', category: 'pdf' },
+    { name: 'PDF to 100KB', desc: 'Compress a PDF down to roughly 100KB.', link: '/pdf-100kb', keywords: 'pdf 100kb compress reduce size shrink small upload form limit', category: 'pdf' },
+    { name: 'PDF to 200KB', desc: 'Compress a PDF down to roughly 200KB.', link: '/pdf-200kb', keywords: 'pdf 200kb compress reduce size shrink small upload form limit', category: 'pdf' },
+    { name: 'PDF to 500KB', desc: 'Compress a PDF down to roughly 500KB.', link: '/pdf-500kb', keywords: 'pdf 500kb compress reduce size shrink upload form limit', category: 'pdf' },
+    { name: 'PDF Text Extractor', desc: 'Extract text from PDF.', link: '/pdf-text-extractor', keywords: 'pdf text extractor copy', category: 'pdf' },
+    { name: 'PDF Lock', desc: 'Add password protection to PDF.', link: '/pdf-lock', keywords: 'pdf lock password protect encrypt', category: 'pdf' },
+    { name: 'PDF Unlock', desc: 'Remove password from PDF.', link: '/pdf-unlock', keywords: 'pdf unlock password remove decrypt', category: 'pdf' },
+    { name: 'Invoice Generator', desc: 'Generate invoices.', link: '/invoice-generator', keywords: 'invoice generator bill billing', category: 'business' },
+    { name: 'Quotation Generator', desc: 'Generate quotations.', link: '/quotation-generator', keywords: 'quotation generator quote estimate', category: 'business' },
+    { name: 'Receipt Generator', desc: 'Generate receipts.', link: '/receipt-generator', keywords: 'receipt generator payment', category: 'business' },
+    { name: 'Payslip Generator', desc: 'Generate payslips.', link: '/payslip-generator', keywords: 'payslip generator salary payroll', category: 'business' },
+    { name: 'Shipping Label Generator', desc: 'Create printable shipping and courier labels with sender, receiver and tracking details.', link: '/shipping-label-generator', keywords: 'shipping label generator courier parcel address tracking printable', category: 'business' },
+    { name: 'Resume Builder', desc: 'Build a clean, professional resume from your details and export it in seconds.', link: '/resume-builder', keywords: 'resume builder cv curriculum vitae job application template', category: 'business' },
+    { name: 'GST Calculator', desc: 'Calculate GST amounts.', link: '/gst-calculator', keywords: 'gst calculator tax goods services', category: 'business' },
+    { name: 'Discount Calculator', desc: 'Calculate discounts.', link: '/discount-calculator', keywords: 'discount calculator sale off price', category: 'business' },
+    { name: 'Profit Margin Calculator', desc: 'Calculate profit margins.', link: '/profit-margin-calculator', keywords: 'profit margin calculator business', category: 'business' },
+    { name: 'Salary Calculator', desc: 'Calculate salary.', link: '/salary-calculator', keywords: 'salary calculator income wage', category: 'business' },
+    { name: 'EMI Calculator', desc: 'Calculate loan EMI.', link: '/emi-calculator', keywords: 'emi calculator loan equated monthly installment', category: 'finance' },
+    { name: 'Loan Calculator', desc: 'Calculate loan details.', link: '/loan-calculator', keywords: 'loan calculator interest', category: 'finance' },
+    { name: 'SIP Calculator', desc: 'Calculate SIP returns.', link: '/sip-calculator', keywords: 'sip calculator mutual fund investment returns', category: 'finance' },
+    { name: 'Income Tax Calculator', desc: 'Calculate income tax.', link: '/income-tax-calculator', keywords: 'income tax calculator slab', category: 'finance' },
+    { name: 'Tax Calculator', desc: 'Calculate taxes.', link: '/tax-calculator', keywords: 'tax calculator', category: 'finance' },
+    { name: 'Tip Calculator', desc: 'Calculate tips.', link: '/tip-calculator', keywords: 'tip calculator restaurant gratuity', category: 'finance' },
+    { name: 'GPA Calculator', desc: 'Calculate GPA.', link: '/gpa-calculator', keywords: 'gpa calculator student grade point', category: 'calculator' },
+    { name: 'CGPA Calculator', desc: 'Calculate CGPA.', link: '/cgpa-calculator', keywords: 'cgpa calculator student grade', category: 'calculator' },
+    { name: 'Percentage Calculator', desc: 'Calculate percentages.', link: '/percentage-calculator', keywords: 'percentage calculator percent', category: 'calculator' },
+    { name: 'Grade Calculator', desc: 'Calculate grades.', link: '/grade-calculator', keywords: 'grade calculator student marks', category: 'calculator' },
+    { name: 'Marks Percentage Calculator', desc: 'Calculate marks percentage.', link: '/marks-percentage-calculator', keywords: 'marks percentage calculator exam', category: 'calculator' },
+    { name: 'Attendance Calculator', desc: 'Calculate attendance percentage.', link: '/attendance-calculator', keywords: 'attendance calculator college percentage', category: 'calculator' },
+    { name: 'Study Time Calculator', desc: 'Calculate study time.', link: '/study-time-calculator', keywords: 'study time calculator planner', category: 'calculator' },
+    { name: 'Exam Countdown', desc: 'Countdown to exams.', link: '/exam-countdown', keywords: 'exam countdown timer days', category: 'calculator' },
+    { name: 'Age Calculator', desc: 'Calculate age from date of birth.', link: '/age-calculator', keywords: 'age calculator birth date dob', category: 'calculator' },
+    { name: 'Scientific Calculator', desc: 'Advanced scientific calculator.', link: '/scientific-calculator', keywords: 'scientific calculator math trigonometry', category: 'calculator' },
+    { name: 'Quadratic Equation Calculator', desc: 'Solve quadratic equations.', link: '/quadratic-equation-calculator', keywords: 'quadratic equation calculator roots', category: 'calculator' },
+    { name: 'Matrix Calculator', desc: 'Perform matrix operations.', link: '/matrix-calculator', keywords: 'matrix calculator determinant multiply', category: 'calculator' },
+    { name: 'Probability Calculator', desc: 'Calculate probabilities.', link: '/probability-calculator', keywords: 'probability calculator chance', category: 'calculator' },
+    { name: 'Standard Deviation Calculator', desc: 'Calculate standard deviation.', link: '/standard-deviation-calculator', keywords: 'standard deviation calculator statistics', category: 'calculator' },
+    { name: 'Mean Median Mode Calculator', desc: 'Calculate mean, median, mode.', link: '/mean-median-mode-calculator', keywords: 'mean median mode calculator average statistics', category: 'calculator' },
+    { name: 'Prime Number Checker', desc: 'Check if a number is prime.', link: '/prime-number-checker', keywords: 'prime number check', category: 'calculator' },
+    { name: 'Prime Number Generator', desc: 'Generate prime numbers.', link: '/prime-number-generator', keywords: 'prime number generator', category: 'calculator' },
+    { name: 'Factorial Calculator', desc: 'Calculate factorial of a number.', link: '/factorial-calculator', keywords: 'factorial calculator', category: 'calculator' },
+    { name: 'GCD Calculator', desc: 'Find greatest common divisor.', link: '/gcd-calculator', keywords: 'gcd calculator greatest common divisor hcf', category: 'calculator' },
+    { name: 'LCM Calculator', desc: 'Find least common multiple.', link: '/lcm-calculator', keywords: 'lcm calculator least common multiple', category: 'calculator' },
+    { name: 'Binary Calculator', desc: 'Perform binary calculations.', link: '/binary-calculator', keywords: 'binary calculator bits', category: 'calculator' },
+    { name: 'Decimal to Binary', desc: 'Convert decimal to binary.', link: '/decimal-to-binary', keywords: 'decimal binary convert', category: 'calculator' },
+    { name: 'Binary to Decimal', desc: 'Convert binary to decimal.', link: '/binary-to-decimal', keywords: 'binary decimal convert', category: 'calculator' },
+    { name: 'Decimal to Hex', desc: 'Convert decimal to hex.', link: '/decimal-to-hex', keywords: 'decimal hex convert hexadecimal', category: 'calculator' },
+    { name: 'Hex to Decimal', desc: 'Convert hex to decimal.', link: '/hex-to-decimal', keywords: 'hex decimal convert hexadecimal', category: 'calculator' },
+    { name: 'Decimal to Octal', desc: 'Convert decimal to octal.', link: '/decimal-to-octal', keywords: 'decimal octal convert', category: 'calculator' },
+    { name: 'Average Calculator', desc: 'Calculate average of numbers.', link: '/average-calculator', keywords: 'average calculator mean', category: 'calculator' },
+    { name: 'Ratio Calculator', desc: 'Calculate ratios.', link: '/ratio-calculator', keywords: 'ratio calculator proportion', category: 'calculator' },
+    { name: 'Fraction Calculator', desc: 'Calculate fractions.', link: '/fraction-calculator', keywords: 'fraction calculator numerator denominator', category: 'calculator' },
+    { name: 'Date Difference Calculator', desc: 'Calculate days between two dates.', link: '/date-difference-calculator', keywords: 'date difference days between', category: 'calculator' },
+    { name: 'Days Between Dates', desc: 'Find days between dates.', link: '/days-between-dates', keywords: 'days between dates calculator', category: 'calculator' },
+    { name: 'Add Days to Date', desc: 'Add days to a date.', link: '/add-days-to-date', keywords: 'add days date calculator', category: 'calculator' },
+    { name: 'Subtract Days from Date', desc: 'Subtract days from a date.', link: '/subtract-days-from-date', keywords: 'subtract days date calculator', category: 'calculator' },
+    { name: 'Business Days Calculator', desc: 'Calculate business days between dates.', link: '/business-days-calculator', keywords: 'business days calculator working days', category: 'calculator' },
+    { name: 'Date to Unix Timestamp', desc: 'Convert date to Unix timestamp.', link: '/date-to-unix-timestamp', keywords: 'date unix timestamp epoch', category: 'calculator' },
+    { name: 'Unix Timestamp to Date', desc: 'Convert Unix timestamp to date.', link: '/unix-timestamp-to-date', keywords: 'unix timestamp date epoch', category: 'calculator' },
+    { name: 'Time Duration Calculator', desc: 'Calculate time duration between two times.', link: '/time-duration-calculator', keywords: 'time duration calculator hours minutes', category: 'calculator' },
+    { name: 'Countdown Calculator', desc: 'Countdown to a future date.', link: '/countdown-calculator', keywords: 'countdown calculator timer', category: 'calculator' },
+    { name: 'Week Number Calculator', desc: 'Find week number of a date.', link: '/week-number-calculator', keywords: 'week number calculator iso', category: 'calculator' },
+    { name: 'Leap Year Checker', desc: 'Check if a year is a leap year.', link: '/leap-year-checker', keywords: 'leap year checker february', category: 'calculator' },
+    { name: 'World Clock', desc: 'View current time in different time zones.', link: '/world-clock', keywords: 'world clock time zones current time', category: 'calculator' },
+    { name: 'Time Zone Converter', desc: 'Convert time between time zones.', link: '/time-zone-converter', keywords: 'time zone converter utc gmt', category: 'calculator' },
+    { name: 'Length Converter', desc: 'Convert length units.', link: '/length-converter', keywords: 'length converter units meter feet inch', category: 'calculator' },
+    { name: 'Weight Converter', desc: 'Convert weight units.', link: '/weight-converter', keywords: 'weight converter units kg pound', category: 'calculator' },
+    { name: 'Temperature Converter', desc: 'Convert temperature units.', link: '/temperature-converter', keywords: 'temperature converter celsius fahrenheit kelvin', category: 'calculator' },
+    { name: 'Area Converter', desc: 'Convert area units.', link: '/area-converter', keywords: 'area converter units square meter acre', category: 'calculator' },
+    { name: 'Volume Converter', desc: 'Convert volume units.', link: '/volume-converter', keywords: 'volume converter units litre gallon', category: 'calculator' },
+    { name: 'Speed Converter', desc: 'Convert speed units.', link: '/speed-converter', keywords: 'speed converter units kmph mph', category: 'calculator' },
+    { name: 'Data Storage Converter', desc: 'Convert data storage units.', link: '/data-storage-converter', keywords: 'data storage converter units mb gb tb', category: 'calculator' },
+    { name: 'Energy Converter', desc: 'Convert energy units.', link: '/energy-converter', keywords: 'energy converter units joule calorie', category: 'calculator' },
+    { name: 'Pressure Converter', desc: 'Convert pressure units.', link: '/pressure-converter', keywords: 'pressure converter units pascal bar', category: 'calculator' },
+    { name: 'Power Converter', desc: 'Convert power units.', link: '/power-converter', keywords: 'power converter units watt horsepower', category: 'calculator' },
+    { name: 'Frequency Converter', desc: 'Convert frequency units.', link: '/frequency-converter', keywords: 'frequency converter units hertz', category: 'calculator' },
+    { name: 'Angle Converter', desc: 'Convert angle units.', link: '/angle-converter', keywords: 'angle converter units degree radian', category: 'calculator' },
+    { name: 'Pace Converter', desc: 'Convert pace units.', link: '/pace-converter', keywords: 'pace converter running units', category: 'calculator' },
+    { name: 'Fuel Economy Converter', desc: 'Convert fuel economy units.', link: '/fuel-economy-converter', keywords: 'fuel economy converter units mileage', category: 'calculator' }
+];
+
+tools.forEach(function(t){
+    t._nameLower = t.name.toLowerCase();
+    t._descLower = (t.desc || '').toLowerCase();
+    t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
+});
+
+function escAttr(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function highlight(text, q){
+    if (!q) return escHtml(text);
+    const lower = text.toLowerCase();
+    const ql = q.toLowerCase();
+    if (ql.length === 0) return escHtml(text);
+    let out = '';
+    let from = 0;
+    let idx;
+    while ((idx = lower.indexOf(ql, from)) !== -1){
+        out += escHtml(text.slice(from, idx)) + '<mark>' + escHtml(text.slice(idx, idx + ql.length)) + '</mark>';
+        from = idx + ql.length;
+    }
+    out += escHtml(text.slice(from));
+    return out;
+}
+
+function trapFocus(e, container){
+    if (e.key !== 'Tab') return;
+    const focusable = container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+    const list = Array.prototype.filter.call(focusable, function(el){ return el.getClientRects().length > 0; });
+    if (!list.length) return;
+    const first = list[0];
+    const last = list[list.length - 1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+}
+
+let toastTimer;
+function showToast(msg, dur){
+    dur = dur || 2200;
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ t.classList.remove('show'); }, dur);
+}
+
+function setThemeColorMeta(isDark){
+    const meta = document.getElementById('themeColorMeta');
+    if (meta) meta.setAttribute('content', isDark ? '#0b1220' : '#ffffff');
+}
+function toggleTheme(){
+    const root = document.documentElement;
+    if (root.classList.contains('dark-mode')){
+        root.classList.remove('dark-mode');
+        try { localStorage.setItem('theme','light'); } catch (e) {}
+        setThemeColorMeta(false);
+    } else {
+        root.classList.add('dark-mode');
+        try { localStorage.setItem('theme','dark'); } catch (e) {}
+        setThemeColorMeta(true);
+    }
+}
+function initSystemThemeListener(){
+    if (!window.matchMedia) return;
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const handler = function(e){
+        let stored = null;
+        try { stored = localStorage.getItem('theme'); } catch (err) {}
+        if (stored) return;
+        const isDark = e.matches;
+        document.documentElement.classList.toggle('dark-mode', isDark);
+        setThemeColorMeta(isDark);
+    };
+    if (typeof mq.addEventListener === 'function') mq.addEventListener('change', handler);
+    else if (typeof mq.addListener === 'function') mq.addListener(handler);
+}
+
+function closeToolsMenu(returnFocus){
+    const container = document.getElementById('toolsMenuContainer');
+    const trigger = document.getElementById('toolsTrigger');
+    if (!container || !container.classList.contains('open')) return;
+    container.classList.remove('open');
+    if (trigger){ trigger.setAttribute('aria-expanded','false'); if (returnFocus) trigger.focus(); }
+}
+function toggleToolsMenu(){
+    const container = document.getElementById('toolsMenuContainer');
+    const trigger = document.getElementById('toolsTrigger');
+    const isOpen = container.classList.contains('open');
+    if (isOpen) closeToolsMenu(true);
+    else {
+        container.classList.add('open');
+        trigger.setAttribute('aria-expanded','true');
+        const firstLink = container.querySelector('.tools-mega-menu a');
+        if (firstLink) firstLink.focus();
+    }
+}
+
+let searchIsOpen = false;
+function openMobileSidebar(){
+    const sb = document.getElementById('mobileSidebar');
+    sb.classList.add('active');
+    sb.setAttribute('aria-hidden','false');
+    document.getElementById('mobileSidebarOverlay').classList.add('active');
+    const hb = document.getElementById('hamburgerBtn');
+    if (hb) hb.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+    const closeBtn = document.getElementById('mobileSidebarClose');
+    if (closeBtn) setTimeout(function(){ if (sb.classList.contains('active')) closeBtn.focus(); }, 100);
+}
+function closeMobileSidebar(){
+    const sb = document.getElementById('mobileSidebar');
+    if (!sb || !sb.classList.contains('active')) return;
+    if (sb.contains(document.activeElement) && document.activeElement.blur){
+        document.activeElement.blur();
+    }
+    sb.classList.remove('active');
+    sb.setAttribute('aria-hidden','true');
+    document.getElementById('mobileSidebarOverlay').classList.remove('active');
+    const hb = document.getElementById('hamburgerBtn');
+    if (hb){ hb.setAttribute('aria-expanded','false'); }
+    const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
+    if (!searchOpen) document.body.style.overflow = '';
+    if (hb && !searchIsOpen && hb.offsetParent !== null){
+        try { hb.focus(); } catch (e) {}
+    }
+}
+function toggleMobileTools(){
+    const toggle = document.getElementById('mobileToolsToggle');
+    const menu = document.getElementById('mobileToolsMenu');
+    const isOpen = menu.classList.contains('active');
+    menu.classList.toggle('active');
+    toggle.classList.toggle('active');
+    if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
+}
+
+let resizeRaf = 0;
+function initResizeHandler(){
+    let lastWasDesktop = window.innerWidth > 768;
+    window.addEventListener('resize', function(){
+        if (resizeRaf) return;
+        resizeRaf = requestAnimationFrame(function(){
+            resizeRaf = 0;
+            const isDesktop = window.innerWidth > 768;
+            if (isDesktop && !lastWasDesktop){
+                if (document.getElementById('mobileSidebar').classList.contains('active')) closeMobileSidebar();
+            }
+            lastWasDesktop = isDesktop;
+        });
+    });
+}
+
+function populateNavMenus(){
+    const mega = document.getElementById('megaMenu');
+    const mobileMenu = document.getElementById('mobileToolsMenu');
+    const parts = [];
+    for (let i = 0; i < tools.length; i++){
+        const t = tools[i];
+        parts.push('<a href="' + escAttr(t.link) + '">' + escHtml(t.name) + '</a>');
+    }
+    const joined = parts.join('');
+    if (mega) mega.innerHTML = joined;
+    if (mobileMenu) mobileMenu.innerHTML = joined;
+}
+
+let lastFocusedBeforeSearch = null;
+let searchResultsRaf = 0;
+const searchState = { activeIndex: -1 };
+
+function setActiveDescendant(el){
+    const input = document.getElementById('fullSearchInput');
+    if (!input) return;
+    if (el) input.setAttribute('aria-activedescendant', el.id);
+    else input.setAttribute('aria-activedescendant', '');
+}
+
+function openFullSearch(){
+    const overlay = document.getElementById('searchOverlayFull');
+    if (overlay.classList.contains('active')){
+        document.getElementById('fullSearchInput').focus();
+        return;
+    }
+    lastFocusedBeforeSearch = document.activeElement;
+    searchIsOpen = true;
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    buildSearchResults('');
+    setTimeout(function(){
+        if (searchIsOpen) document.getElementById('fullSearchInput').focus();
+    }, 200);
+}
+function closeFullSearch(){
+    const overlay = document.getElementById('searchOverlayFull');
+    if (!overlay.classList.contains('active')) return;
+    searchIsOpen = false;
+    if (searchResultsRaf){ cancelAnimationFrame(searchResultsRaf); searchResultsRaf = 0; }
+    if (overlay.contains(document.activeElement) && document.activeElement.blur){
+        document.activeElement.blur();
+    }
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden','true');
+    const inp = document.getElementById('fullSearchInput');
+    inp.value = '';
+    inp.setAttribute('aria-expanded','false');
+    inp.setAttribute('aria-activedescendant','');
+    document.getElementById('searchClearBtn').classList.remove('show');
+    const list = document.getElementById('fullSearchResultsList');
+    if (list) list.innerHTML = '';
+    const nr = document.getElementById('fullNoResult');
+    if (nr) nr.classList.remove('show');
+    const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
+    if (!sidebarOpen) document.body.style.overflow = '';
+    if (lastFocusedBeforeSearch && document.contains(lastFocusedBeforeSearch) && lastFocusedBeforeSearch.offsetParent !== null && lastFocusedBeforeSearch.focus){
+        try { lastFocusedBeforeSearch.focus(); } catch (e) {}
+    }
+    lastFocusedBeforeSearch = null;
+}
+function openSearchFromSidebar(){
+    closeMobileSidebar();
+    setTimeout(openFullSearch, 60);
+}
+
+function buildSearchResults(q){
+    const list = document.getElementById('fullSearchResultsList');
+    const nr = document.getElementById('fullNoResult');
+    let matched;
+    if (q === ''){
+        list.classList.add('no-anim');
+        matched = tools.map(function(t, i){ return { t: t, idx: i, score: 0 }; });
+    } else {
+        list.classList.remove('no-anim');
+        matched = [];
+        for (let i = 0; i < tools.length; i++){
+            const t = tools[i];
+            if (t._hay.indexOf(q) === -1) continue;
+            let score = 3;
+            if (t._nameLower.startsWith(q)) score = 0;
+            else if (t._nameLower.indexOf(q) !== -1) score = 1;
+            else if (t._descLower.indexOf(q) !== -1) score = 2;
+            matched.push({ t: t, idx: i, score: score });
+        }
+        matched.sort(function(a, b){ return a.score - b.score || a.idx - b.idx; });
+    }
+    const total = matched.length;
+    const parts = [];
+    for (let i = 0; i < total; i++){
+        const t = matched[i].t;
+        parts.push('<a href="' + escAttr(t.link) + '" class="search-result-item" id="search-result-' + i + '" role="option">' +
+            '<span class="result-main">' +
+            '<span class="result-name">' + highlight(t.name, q) + '</span>' +
+            '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
+            '</span>' +
+            '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
+            '</a>');
+    }
+    list.innerHTML = parts.join('');
+    searchState.activeIndex = -1;
+    setActiveDescendant(null);
+    const input = document.getElementById('fullSearchInput');
+    if (input) input.setAttribute('aria-expanded', total > 0 ? 'true' : 'false');
+    if (total === 0 && q !== ''){
+        nr.classList.add('show');
+        document.getElementById('fullSearchQuery').textContent = q;
+    } else {
+        nr.classList.remove('show');
+    }
+}
+function filterFullSearch(){
+    const input = document.getElementById('fullSearchInput');
+    const q = input.value.toLowerCase().trim();
+    document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
+    if (!searchIsOpen) return;
+    if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
+    searchResultsRaf = requestAnimationFrame(function(){ searchResultsRaf = 0; buildSearchResults(q); });
+}
+function handleSearchKey(e){
+    const items = Array.prototype.slice.call(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
+    if (e.key === 'ArrowDown'){
+        e.preventDefault();
+        if (!items.length) return;
+        searchState.activeIndex = (searchState.activeIndex + 1) % items.length;
+        items.forEach(function(i){ i.classList.remove('active'); });
+        items[searchState.activeIndex].classList.add('active');
+        setActiveDescendant(items[searchState.activeIndex]);
+        items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'ArrowUp'){
+        e.preventDefault();
+        if (!items.length) return;
+        searchState.activeIndex = (searchState.activeIndex - 1 + items.length) % items.length;
+        items.forEach(function(i){ i.classList.remove('active'); });
+        items[searchState.activeIndex].classList.add('active');
+        setActiveDescendant(items[searchState.activeIndex]);
+        items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter'){
+        e.preventDefault();
+        if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) {
+            window.location.href = items[searchState.activeIndex].getAttribute('href');
+        } else if (items.length) {
+            window.location.href = items[0].getAttribute('href');
+        }
+    }
+}
+function clearSearchInput(){
+    const input = document.getElementById('fullSearchInput');
+    input.value = '';
+    filterFullSearch();
+    input.focus();
+}
+
+function initDelegatedActions(){
+    document.addEventListener('click', function(e){
+        const actionEl = e.target.closest('[data-action]');
+        if (!actionEl) return;
+        const action = actionEl.getAttribute('data-action');
+        switch (action){
+            case 'toggle-theme': toggleTheme(); break;
+            case 'open-search': openFullSearch(); break;
+            case 'close-search': closeFullSearch(); break;
+            case 'clear-search': clearSearchInput(); break;
+            case 'open-sidebar': openMobileSidebar(); break;
+            case 'close-sidebar': closeMobileSidebar(); break;
+            case 'toggle-tools': toggleToolsMenu(); break;
+            case 'toggle-mobile-tools': toggleMobileTools(); break;
+            case 'search-from-sidebar': openSearchFromSidebar(); break;
+            case 'toggle-faq': toggleFaq(actionEl); break;
+        }
+    });
+    document.addEventListener('click', function(e){
+        const container = document.getElementById('toolsMenuContainer');
+        if (container && !container.contains(e.target) && container.classList.contains('open')) closeToolsMenu(false);
+    });
+    const searchOverlay = document.getElementById('searchOverlayFull');
+    if (searchOverlay) searchOverlay.addEventListener('click', function(e){ if (e.target === searchOverlay) closeFullSearch(); });
+}
+
+document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){
+        closeToolsMenu(true);
+        closeFullSearch();
+        closeMobileSidebar();
+        return;
+    }
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k'){ e.preventDefault(); openFullSearch(); return; }
+    if (searchIsOpen){ trapFocus(e, document.getElementById('searchOverlayFull')); return; }
+    const sb = document.getElementById('mobileSidebar');
+    if (sb.classList.contains('active')) trapFocus(e, sb);
+});
+
+function toggleFaq(btnEl){
+    const item = btnEl.closest('.faq-item');
+    if (!item) return;
+    const expanded = btnEl.getAttribute('aria-expanded') === 'true';
+    item.classList.toggle('active');
+    btnEl.setAttribute('aria-expanded', String(!expanded));
+}
+
+/* ===================== SQL FORMATTER TOOL LOGIC ===================== */
+
+/* Comprehensive SQL keyword set — used for uppercasing and clause detection. */
+const SQL_KEYWORDS = new Set([
+    'SELECT','FROM','WHERE','GROUP','BY','HAVING','ORDER','LIMIT','OFFSET',
+    'UNION','ALL','INTERSECT','EXCEPT',
+    'INSERT','INTO','VALUES','UPDATE','SET','DELETE','RETURNING',
+    'CREATE','TABLE','VIEW','INDEX','DATABASE','SCHEMA','ALTER','DROP','TRUNCATE',
+    'ADD','COLUMN','CONSTRAINT','PRIMARY','FOREIGN','KEY','REFERENCES','UNIQUE','CHECK','DEFAULT',
+    'CASCADE','RESTRICT','BEGIN','COMMIT','ROLLBACK','TRANSACTION','SAVEPOINT',
+    'WITH','RECURSIVE','AS','ON','USING','AND','OR','NOT','IN','EXISTS','BETWEEN','LIKE','ILIKE',
+    'IS','NULL','TRUE','FALSE','UNKNOWN','CASE','WHEN','THEN','ELSE','END',
+    'JOIN','INNER','LEFT','RIGHT','FULL','OUTER','CROSS','NATURAL',
+    'DISTINCT','ASC','DESC','NULLS','FIRST','LAST',
+    'IF','REPLACE','TEMPORARY','TEMP','GRANT','REVOKE','TO','PUBLIC','OPTION',
+    'INT','INTEGER','VARCHAR','TEXT','CHAR','BOOLEAN','DATE','TIMESTAMP','TIME',
+    'NUMERIC','DECIMAL','FLOAT','DOUBLE','REAL','BIGINT','SMALLINT','SERIAL',
+    'BIGSERIAL','AUTO_INCREMENT','IDENTITY','UNSIGNED','NULLABLE','COLLATE','CHARACTER',
+    'OVER','PARTITION','RANGE','ROWS','PRECEDING','FOLLOWING','UNBOUNDED','CURRENT','ROW',
+    'LATERAL','CROSS','APPLY','FILTER','WITHIN','GROUP_CONCAT','ARRAY_AGG','STRING_AGG',
+    'CAST','CONVERT','EXTRACT','INTERVAL','COALESCE','NULLIF','GREATEST','LEAST',
+    'EXPLAIN','ANALYZE','VACUUM','CLUSTER','REINDEX','REFRESH','MATERIALIZED'
+]);
+
+/* Major clause phrases that trigger a newline at base indent level */
+const MAJOR_CLAUSES = [
+    'GROUP BY','ORDER BY','UNION ALL','INSERT INTO','DELETE FROM','CREATE TABLE',
+    'CREATE VIEW','CREATE INDEX','CREATE DATABASE','ALTER TABLE','DROP TABLE',
+    'DROP VIEW','DROP INDEX','DROP DATABASE','TRUNCATE TABLE','ON CONFLICT',
+    'ON DUPLICATE KEY UPDATE','RETURNING','WINDOW','PARTITION BY',
+    'SELECT','FROM','WHERE','HAVING','LIMIT','OFFSET','UNION','INTERSECT','EXCEPT',
+    'INSERT','VALUES','UPDATE','SET','DELETE','CREATE','ALTER','DROP','TRUNCATE',
+    'WITH','EXPLAIN','ANALYZE'
+];
+
+/* JOIN-related phrases that also trigger a newline at base indent */
+const JOIN_PHRASES = [
+    'LEFT OUTER JOIN','RIGHT OUTER JOIN','FULL OUTER JOIN','LEFT JOIN','RIGHT JOIN',
+    'FULL JOIN','INNER JOIN','CROSS JOIN','NATURAL JOIN','JOIN'
+];
+
+/* Phrases that stay inline but are handled as single units */
+const MULTI_WORD_PHRASES = MAJOR_CLAUSES.concat(JOIN_PHRASES).concat([
+    'IS NOT','NOT NULL','NOT IN','NOT LIKE','NOT BETWEEN','NOT EXISTS',
+    'IS NULL','IS NOT NULL','ORDER SIBLINGS BY','FOR UPDATE','FOR SHARE',
+    'DELETE CASCADE','SET NULL','SET DEFAULT','NO ACTION'
+]).sort(function(a,b){ return b.length - a.length; });
+
+/* ---- Tokenizer ---- */
+function tokenizeSQL(sql){
+    const tokens = [];
+    const len = sql.length;
+    let i = 0;
+
+    while (i < len){
+        const ch = sql[i];
+        const next = i + 1 < len ? sql[i+1] : '';
+
+        /* Whitespace */
+        if (/\s/.test(ch)){ i++; continue; }
+
+        /* Line comment -- */
+        if (ch === '-' && next === '-'){
+            let end = sql.indexOf('\n', i);
+            if (end === -1) end = len;
+            tokens.push({ type: 'line-comment', value: sql.slice(i, end) });
+            i = end;
+            continue;
+        }
+
+        /* Block comment /* */
+        if (ch === '/' && next === '*'){
+            let end = sql.indexOf('*/', i + 2);
+            if (end === -1) end = len - 2;
+            tokens.push({ type: 'block-comment', value: sql.slice(i, end + 2) });
+            i = end + 2;
+            continue;
+        }
+
+        /* String literal '...' with '' escape */
+        if (ch === "'"){
+            let j = i + 1;
+            while (j < len){
+                if (sql[j] === "'"){
+                    if (sql[j+1] === "'"){ j += 2; continue; }
+                    j++;
+                    break;
+                }
+                if (sql[j] === '\\' && j + 1 < len){ j += 2; continue; }
+                j++;
+            }
+            tokens.push({ type: 'string', value: sql.slice(i, j) });
+            i = j;
+            continue;
+        }
+
+        /* Double-quoted identifier "..." */
+        if (ch === '"'){
+            let j = i + 1;
+            while (j < len){
+                if (sql[j] === '"'){
+                    if (sql[j+1] === '"'){ j += 2; continue; }
+                    j++;
+                    break;
+                }
+                j++;
+            }
+            tokens.push({ type: 'quoted-id', value: sql.slice(i, j) });
+            i = j;
+            continue;
+        }
+
+        /* Backtick identifier `...` */
+        if (ch === '`'){
+            let j = i + 1;
+            while (j < len && sql[j] !== '`') j++;
+            if (j < len) j++;
+            tokens.push({ type: 'quoted-id', value: sql.slice(i, j) });
+            i = j;
+            continue;
+        }
+
+        /* Bracket identifier [...] */
+        if (ch === '['){
+            let j = i + 1;
+            while (j < len && sql[j] !== ']') j++;
+            if (j < len) j++;
+            tokens.push({ type: 'quoted-id', value: sql.slice(i, j) });
+            i = j;
+            continue;
+        }
+
+        /* Number (including decimals and scientific) */
+        if (/\d/.test(ch) || (ch === '.' && /\d/.test(next))){
+            let j = i;
+            while (j < len && /[0-9.]/.test(sql[j])) j++;
+            if (j < len && /[eE]/.test(sql[j])){
+                j++;
+                if (j < len && /[+-]/.test(sql[j])) j++;
+                while (j < len && /[0-9]/.test(sql[j])) j++;
+            }
+            tokens.push({ type: 'number', value: sql.slice(i, j) });
+            i = j;
+            continue;
+        }
+
+        /* Word — identifier or keyword */
+        if (/[A-Za-z_]/.test(ch)){
+            let j = i;
+            while (j < len && /[A-Za-z0-9_$]/.test(sql[j])) j++;
+            tokens.push({ type: 'word', value: sql.slice(i, j) });
+            i = j;
+            continue;
+        }
+
+        /* Multi-char operators */
+        const multiOps = ['<=', '>=', '<>', '!=', '||', '::', '->>', '->', ':=', '&&', '@>', '<@'];
+        let found = null;
+        for (let k = 0; k < multiOps.length; k++){
+            if (sql.substr(i, multiOps[k].length) === multiOps[k]){ found = multiOps[k]; break; }
+        }
+        if (found){
+            tokens.push({ type: 'op', value: found });
+            i += found.length;
+            continue;
+        }
+
+        /* Single-character punctuation */
+        tokens.push({ type: 'punct', value: ch });
+        i++;
+    }
+
+    return tokens;
+}
+
+/* Group consecutive word tokens into multi-word phrases like "GROUP BY" or "LEFT JOIN". */
+function groupPhrases(tokens){
+    const out = [];
+    const len = tokens.length;
+    let i = 0;
+
+    while (i < len){
+        const t = tokens[i];
+        if (t.type !== 'word'){
+            out.push(t);
+            i++;
+            continue;
+        }
+
+        /* Try to match the longest phrase starting here */
+        let matched = null;
+        for (let p = 0; p < MULTI_WORD_PHRASES.length; p++){
+            const phrase = MULTI_WORD_PHRASES[p];
+            const parts = phrase.split(' ');
+            if (i + parts.length > len) continue;
+            let ok = true;
+            for (let k = 0; k < parts.length; k++){
+                const tok = tokens[i + k];
+                if (!tok || tok.type !== 'word' || tok.value.toUpperCase() !== parts[k]){ ok = false; break; }
+            }
+            if (ok){
+                matched = { type: 'phrase', value: phrase, original: tokens.slice(i, i + parts.length).map(function(x){ return x.value; }).join(' ') };
+                i += parts.length;
+                break;
+            }
+        }
+
+        if (matched){ out.push(matched); }
+        else { out.push(t); i++; }
+    }
+    return out;
+}
+
+function getIndentString(){
+    const val = document.getElementById('indentSize').value;
+    if (val === 'tab') return '\t';
+    const n = parseInt(val, 10) || 2;
+    return ' '.repeat(n);
+}
+
+/* ---- Beautify ---- */
+function beautifySQL(tokens, opts){
+    const indentStr = opts.indent;
+    const uppercase = opts.uppercase;
+    const preserveComments = opts.preserveComments;
+
+    let out = '';
+    let parenDepth = 0;
+    /* columnList: true when we're between SELECT and its terminating clause
+       and are still at paren depth 0. */
+    let inColumnList = false;
+    /* inWhere: true after WHERE and until next major clause — for AND/OR indent. */
+    let inWhere = false;
+    /* joinJustEmitted: track if we just wrote a JOIN clause. */
+    let pendingJoinOn = false;
+
+    let atLineStart = true;
+
+    function writeIndent(depth){
+        out += indentStr.repeat(depth);
+        atLineStart = false;
+    }
+    function newline(){
+        /* strip trailing spaces */
+        out = out.replace(/[ \t]+$/, '');
+        if (!out.endsWith('\n')) out += '\n';
+        atLineStart = true;
+    }
+    function space(){
+        if (out.length > 0 && !out.endsWith('\n') && !atLineStart && !out.endsWith(' ')){
+            out += ' ';
+        }
+    }
+
+    for (let i = 0; i < tokens.length; i++){
+        const t = tokens[i];
+        const next = tokens[i + 1];
+        const val = t.value;
+
+        /* Comments */
+        if (t.type === 'line-comment'){
+            if (!preserveComments) continue;
+            if (!atLineStart) space();
+            if (atLineStart){ writeIndent(parenDepth); } else { out += ''; }
+            out += val;
+            newline();
+            continue;
+        }
+        if (t.type === 'block-comment'){
+            if (!preserveComments) continue;
+            if (!atLineStart) space();
+            if (atLineStart){ writeIndent(parenDepth); }
+            out += val;
+            if (val.indexOf('\n') !== -1){ newline(); }
+            else { space(); }
+            continue;
+        }
+
+        /* Multi-word phrase (GROUP BY, LEFT JOIN, etc.) */
+        if (t.type === 'phrase'){
+            const phraseUpper = val;
+            const isJoin = JOIN_PHRASES.indexOf(phraseUpper) !== -1;
+            const isMajor = MAJOR_CLAUSES.indexOf(phraseUpper) !== -1;
+
+            /* Special: AND / OR in WHERE clause get their own line */
+            if (inWhere && parenDepth === 0 && (phraseUpper === 'AND' || phraseUpper === 'OR')){
+                newline();
+                writeIndent(1);
+                out += (uppercase ? phraseUpper : t.original);
+                space();
+                continue;
+            }
+
+            if (isJoin){
+                newline();
+                writeIndent(parenDepth === 0 ? 0 : parenDepth);
+                out += (uppercase ? phraseUpper : t.original);
+                space();
+                pendingJoinOn = true;
+                inColumnList = false;
+                continue;
+            }
+
+            if (isMajor){
+                /* ON as sub-clause of JOIN */
+                if (phraseUpper === 'ON' && pendingJoinOn){
+                    newline();
+                    writeIndent(parenDepth === 0 ? 1 : parenDepth);
+                    out += (uppercase ? 'ON' : t.original);
+                    space();
+                    pendingJoinOn = false;
+                    inColumnList = false;
+                    continue;
+                }
+
+                newline();
+                writeIndent(parenDepth === 0 ? 0 : parenDepth);
+                out += (uppercase ? phraseUpper : t.original);
+
+                /* After certain clause headers we enter column-list mode */
+                if (phraseUpper === 'SELECT' || phraseUpper === 'GROUP BY' || phraseUpper === 'ORDER BY'){
+                    if (parenDepth === 0){
+                        inColumnList = true;
+                        inWhere = false;
+                        newline();
+                        writeIndent(1);
+                        continue;
+                    }
+                }
+
+                if (phraseUpper === 'WHERE'){
+                    if (parenDepth === 0){
+                        inWhere = true;
+                        inColumnList = false;
+                    }
+                } else if (phraseUpper === 'FROM' ||
+                           phraseUpper === 'HAVING' ||
+                           phraseUpper === 'LIMIT' ||
+                           phraseUpper === 'OFFSET' ||
+                           phraseUpper === 'UNION' ||
+                           phraseUpper === 'UNION ALL' ||
+                           phraseUpper === 'INTERSECT' ||
+                           phraseUpper === 'EXCEPT' ||
+                           phraseUpper === 'VALUES'){
+                    if (parenDepth === 0){
+                        inColumnList = false;
+                        inWhere = false;
+                    }
+                }
+
+                space();
+                continue;
+            }
+
+            /* Other multi-word phrases (IS NOT, NOT IN, etc.) stay inline */
+            space();
+            out += (uppercase ? phraseUpper : t.original);
+            space();
+            continue;
+        }
+
+        /* Single tokens */
+        if (t.type === 'punct'){
+            if (val === '('){
+                /* Check if this is a subquery: '(' followed by SELECT */
+                const isSubqueryStart = next && (next.type === 'word' || next.type === 'phrase') &&
+                    (next.value.toUpperCase() === 'SELECT' || next.value.toUpperCase() === 'WITH');
+                out += '(';
+                parenDepth++;
+                if (isSubqueryStart){
+                    newline();
+                    /* indent inside subquery */
+                }
+                continue;
+            }
+            if (val === ')'){
+                parenDepth = Math.max(0, parenDepth - 1);
+                /* strip trailing newline if any */
+                out = out.replace(/\s+$/, '');
+                out += ')';
+                continue;
+            }
+            if (val === ','){
+                out += ',';
+                if (inColumnList && parenDepth === 0){
+                    newline();
+                    writeIndent(1);
+                } else if (parenDepth > 0){
+                    /* Inside parens, keep inline with space */
+                    space();
+                } else {
+                    space();
+                }
+                continue;
+            }
+            if (val === '.'){
+                /* no spaces around dot */
+                out = out.replace(/\s+$/, '');
+                out += '.';
+                continue;
+            }
+            if (val === ';'){
+                out = out.replace(/\s+$/, '');
+                out += ';';
+                newline();
+                inColumnList = false;
+                inWhere = false;
+                continue;
+            }
+            /* Default: space around operator */
+            space();
+            out += val;
+            space();
+            continue;
+        }
+
+        if (t.type === 'op'){
+            space();
+            out += val;
+            space();
+            continue;
+        }
+
+        /* Words, strings, numbers, quoted ids */
+        let tokenVal = t.value;
+        if (t.type === 'word' && uppercase && SQL_KEYWORDS.has(tokenVal.toUpperCase())){
+            tokenVal = tokenVal.toUpperCase();
+        }
+
+        /* Add a space before if needed */
+        const prevChar = out.length > 0 ? out[out.length - 1] : '';
+        if (prevChar && prevChar !== ' ' && prevChar !== '\n' && prevChar !== '(' && prevChar !== '.'){
+            /* No space after '(' or '.' */
+            if (!/^[\w$]/.test(prevChar) === false && /^[\w$"']/.test(tokenVal)){
+                space();
+            } else if (/[\w$"']$/.test(prevChar) && /^[\w$"']/.test(tokenVal)){
+                space();
+            } else if (prevChar === ')' && /^[\w$]/.test(tokenVal)){
+                space();
+            }
+        }
+
+        if (atLineStart){ writeIndent(parenDepth); }
+        out += tokenVal;
+
+        /* Add a space after if next token is a word-like token */
+        const nextChar = next ? next.value : '';
+        if (next && (next.type === 'word' || next.type === 'string' || next.type === 'number' || next.type === 'quoted-id' || next.type === 'phrase')){
+            if (/^[\w$"']$/.test(out[out.length - 1]) || out[out.length - 1] === ')'){
+                space();
+            }
+        }
+    }
+
+    /* Clean up */
+    out = out.replace(/[ \t]+\n/g, '\n');
+    out = out.replace(/\n{3,}/g, '\n\n');
+    return out.trim() + '\n';
+}
+
+/* ---- Minify ---- */
+function minifySQL(tokens, opts){
+    const uppercase = opts.uppercase;
+    const preserveComments = opts.preserveComments;
+
+    /* Filter comments */
+    const kept = [];
+    for (let i = 0; i < tokens.length; i++){
+        const t = tokens[i];
+        if (t.type === 'line-comment') continue;
+        if (t.type === 'block-comment') continue;
+        kept.push(t);
+    }
+
+    let out = '';
+    for (let i = 0; i < kept.length; i++){
+        const t = kept[i];
+        const prev = kept[i - 1];
+
+        let val = t.value;
+        if (t.type === 'word' && uppercase && SQL_KEYWORDS.has(val.toUpperCase())){
+            val = val.toUpperCase();
+        }
+        if (t.type === 'phrase' && uppercase){
+            val = t.value;
+        } else if (t.type === 'phrase'){
+            val = t.original;
+        }
+
+        /* Decide whether to add a space before */
+        if (out.length > 0 && prev){
+            const prevLastChar = out[out.length - 1];
+            const curFirstChar = val[0];
+
+            let needSpace = false;
+
+            if (prev.type === 'word' || prev.type === 'number' || prev.type === 'quoted-id' || prev.type === 'phrase'){
+                if (t.type === 'word' || t.type === 'number' || t.type === 'quoted-id' || t.type === 'phrase'){
+                    needSpace = true;
+                }
+            }
+
+            /* Don't add space after '(' or before ')' or before ',' or before '.' */
+            if (prevLastChar === '(' || curFirstChar === ')' || curFirstChar === ',' || curFirstChar === '.' || prevLastChar === '.') needSpace = false;
+
+            /* Don't add space before '(' if previous was a function-like word */
+            if (curFirstChar === '(') needSpace = false;
+
+            if (needSpace) out += ' ';
+        }
+        out += val;
+    }
+    return out;
+}
+
+/* ---- Utilities ---- */
+function countLines(str){
+    if (str === '') return 0;
+    let n = 1;
+    for (let i = 0; i < str.length; i++){ if (str.charCodeAt(i) === 10) n++; }
+    return n;
+}
+function formatBytes(n){
+    if (n < 1024) return n.toLocaleString() + ' B';
+    if (n < 1024 * 1024) return (n / 1024).toFixed(1) + ' KB';
+    return (n / (1024 * 1024)).toFixed(2) + ' MB';
+}
+
+let currentOutput = null;
+let currentMode = 'beautify';
+
+function getOptions(){
+    return {
+        indent: getIndentString(),
+        uppercase: document.getElementById('uppercaseKeywords').checked,
+        preserveComments: document.getElementById('preserveComments').checked
+    };
+}
+
+function runBeautify(){
+    const raw = document.getElementById('sqlInput').value;
+    if (raw === ''){ showToast('Please paste some SQL first.'); return; }
+    let tokens;
+    try { tokens = tokenizeSQL(raw); }
+    catch (e){ showToast('Formatting failed. Check for unclosed strings or brackets.'); return; }
+    let grouped;
+    try { grouped = groupPhrases(tokens); }
+    catch (e){ showToast('Formatting failed.'); return; }
+    let output;
+    try { output = beautifySQL(grouped, getOptions()); }
+    catch (e){ showToast('Formatting failed.'); return; }
+    currentOutput = output;
+    currentMode = 'beautify';
+    renderOutput(output, 'beautify', raw.length);
+    showToast('SQL beautified.');
+}
+
+function runMinify(){
+    const raw = document.getElementById('sqlInput').value;
+    if (raw === ''){ showToast('Please paste some SQL first.'); return; }
+    let tokens;
+    try { tokens = tokenizeSQL(raw); }
+    catch (e){ showToast('Minification failed. Check for unclosed strings or brackets.'); return; }
+    let grouped;
+    try { grouped = groupPhrases(tokens); }
+    catch (e){ showToast('Minification failed.'); return; }
+    let output;
+    try { output = minifySQL(grouped, getOptions()); }
+    catch (e){ showToast('Minification failed.'); return; }
+    if (!output){ showToast('Nothing to minify.'); return; }
+    currentOutput = output;
+    currentMode = 'minify';
+    renderOutput(output, 'minify', raw.length);
+    showToast('SQL minified.');
+}
+
+function renderOutput(output, mode, inputLen){
+    const outLen = output.length;
+    const saved = Math.max(0, inputLen - outLen);
+    const savedPct = inputLen > 0 ? (saved / inputLen) * 100 : 0;
+    const lines = countLines(output);
+
+    document.getElementById('statInput').textContent = formatBytes(inputLen);
+    document.getElementById('statOutput').textContent = formatBytes(outLen);
+    document.getElementById('statSaved').textContent = saved > 0 ? formatBytes(saved) : '0 B';
+    document.getElementById('statSavedPct').textContent = saved > 0
+        ? savedPct.toFixed(1) + '% smaller'
+        : (mode === 'beautify' ? 'beautify expands' : 'no change');
+    document.getElementById('statLines').textContent = lines.toLocaleString();
+
+    document.getElementById('outputMode').textContent =
+        mode === 'beautify' ? 'Beautified SQL' : 'Minified SQL';
+    document.getElementById('outputLines').textContent =
+        (mode === 'minify' && lines === 1)
+            ? '1 line · minified'
+            : lines + ' line' + (lines === 1 ? '' : 's');
+
+    document.getElementById('outputSubtitle').textContent =
+        (mode === 'beautify' ? 'Beautified' : 'Minified') + ' · ' +
+        (mode === 'minify' ? savedPct.toFixed(0) + '% smaller' : lines + ' lines');
+
+    const pre = document.getElementById('outputPre');
+    const MAX_PREVIEW = 20000;
+    if (output.length > MAX_PREVIEW){
+        pre.textContent = output.slice(0, MAX_PREVIEW) +
+            '\n\n-- … output truncated for preview. Copy or download to get the full SQL.';
+    } else {
+        pre.textContent = output;
+    }
+
+    document.getElementById('resultPlaceholder').style.display = 'none';
+    document.getElementById('resultContent').style.display = 'block';
+}
+
+function clearAll(){
+    document.getElementById('sqlInput').value = '';
+    document.getElementById('inputLiveHint').textContent = '0 chars';
+    document.getElementById('resultPlaceholder').style.display = 'flex';
+    document.getElementById('resultContent').style.display = 'none';
+    document.getElementById('outputPre').textContent = '';
+    document.getElementById('outputSubtitle').textContent = 'Ready when you are';
+    currentOutput = null;
+    currentMode = 'beautify';
+    showToast('Cleared.');
+}
+
+function loadExample(){
+    const example = [
+        '-- Get active users with their order count',
+        'SELECT',
+        '  u.id,',
+        '  u.name,',
+        '  u.email,',
+        '  COUNT(o.id) AS order_count,',
+        '  SUM(o.total) AS lifetime_value',
+        'FROM users u',
+        'LEFT JOIN orders o ON o.user_id = u.id AND o.status != \'cancelled\'',
+        'WHERE',
+        '  u.status = \'active\'',
+        '  AND u.created_at >= \'2024-01-01\'',
+        '  AND (u.country = \'US\' OR u.country = \'CA\')',
+        'GROUP BY u.id, u.name, u.email',
+        'HAVING COUNT(o.id) > 0',
+        'ORDER BY lifetime_value DESC, u.name ASC',
+        'LIMIT 50 OFFSET 0;'
+    ].join('\n');
+    document.getElementById('sqlInput').value = example;
+    document.getElementById('inputLiveHint').textContent = example.length.toLocaleString() + ' chars';
+    runBeautify();
+}
+
+function copyOutput(){
+    if (!currentOutput){ showToast('Nothing to copy yet.'); return; }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(currentOutput).then(function(){
+            showToast('SQL copied to clipboard!');
+        }).catch(function(){ fallbackCopyOutput(); });
+    } else fallbackCopyOutput();
+}
+function fallbackCopyOutput(){
+    try {
+        const ta = document.createElement('textarea');
+        ta.value = currentOutput;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('SQL copied to clipboard!');
+    } catch (e){ showToast('Clipboard not supported.'); }
+}
+
+function downloadOutput(){
+    if (!currentOutput){ showToast('Nothing to download yet.'); return; }
+    const blob = new Blob([currentOutput], { type: 'application/sql;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = currentMode === 'minify' ? 'query.min.sql' : 'query.sql';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+    showToast('Downloading ' + a.download + '…');
+}
+
+/* ----- Check pill visual sync ----- */
+function initCheckPills(){
+    document.querySelectorAll('.check-pill input[type="checkbox"]').forEach(function(cb){
+        const pill = cb.closest('.check-pill');
+        const sync = function(){ if (pill) pill.classList.toggle('active', cb.checked); };
+        cb.addEventListener('change', sync);
+        sync();
+    });
+}
+
+function init(){
+    document.getElementById('dynamicYear').textContent = new Date().getFullYear();
+    populateNavMenus();
+    initDelegatedActions();
+    initResizeHandler();
+    initSystemThemeListener();
+    initCheckPills();
+
+    document.getElementById('formatBtn').addEventListener('click', runBeautify);
+    document.getElementById('minifyBtn').addEventListener('click', runMinify);
+    document.getElementById('clearBtn').addEventListener('click', clearAll);
+    document.getElementById('exampleBtn').addEventListener('click', loadExample);
+    document.getElementById('copyBtn').addEventListener('click', copyOutput);
+    document.getElementById('downloadBtn').addEventListener('click', downloadOutput);
+
+    const input = document.getElementById('sqlInput');
+    input.addEventListener('input', function(){
+        const len = this.value.length;
+        document.getElementById('inputLiveHint').textContent = len.toLocaleString() + ' char' + (len === 1 ? '' : 's');
+    });
+    input.addEventListener('keydown', function(e){
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter'){ e.preventDefault(); runBeautify(); }
+    });
+
+    document.querySelectorAll('.mobile-sidebar-nav a').forEach(function(l){
+        l.addEventListener('click', closeMobileSidebar);
+    });
+
+    const searchInput = document.getElementById('fullSearchInput');
+    if (searchInput){
+        searchInput.addEventListener('input', filterFullSearch);
+        searchInput.addEventListener('keydown', handleSearchKey);
+    }
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+else init();
+</script>
+</body>
+</html>
