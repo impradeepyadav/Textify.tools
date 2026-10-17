@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Lorem Ipsum Generator – Free Placeholder Text | Textify.tools</title>
-<meta name="description" content="Generate Lorem Ipsum placeholder text by paragraphs, sentences, words, characters, or list items. Five text styles, HTML/Markdown/JSON output, live stats. Free, private, runs in your browser.">
+<title>Lorem Ipsum Generator – Free Online Dummy Text Tool | Textify.tools</title>
+<meta name="description" content="Free online Lorem Ipsum generator. Create placeholder or dummy text by paragraphs, sentences, words, characters or list items. Five text styles, HTML/Markdown/JSON output, copy and paste in one click.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="author" content="Pradeep Yadav">
 <link rel="canonical" href="https://textify.tools/lorem-ipsum-generator">
@@ -13,13 +13,13 @@
 <meta name="theme-color" content="#ffffff" id="themeColorMeta">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://textify.tools/lorem-ipsum-generator">
-<meta property="og:title" content="Lorem Ipsum Generator – Free Placeholder Text | Textify.tools">
-<meta property="og:description" content="Generate Lorem Ipsum placeholder text by paragraphs, sentences, words, characters, or list items. Five text styles, HTML/Markdown/JSON output, live stats.">
+<meta property="og:title" content="Lorem Ipsum Generator – Free Online Dummy Text Tool | Textify.tools">
+<meta property="og:description" content="Free online Lorem Ipsum generator. Create placeholder or dummy text by paragraphs, sentences, words, characters or list items. Copy and paste in one click.">
 <meta property="og:site_name" content="Textify.tools">
 <meta property="og:image" content="https://textify.tools/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lorem Ipsum Generator – Free Placeholder Text | Textify.tools">
-<meta name="twitter:description" content="Generate Lorem Ipsum placeholder text by paragraphs, sentences, words, characters, or list items. Five text styles, HTML/Markdown/JSON output, live stats.">
+<meta name="twitter:title" content="Lorem Ipsum Generator – Free Online Dummy Text Tool | Textify.tools">
+<meta name="twitter:description" content="Free online Lorem Ipsum generator. Create placeholder or dummy text by paragraphs, sentences, words, characters or list items. Copy and paste in one click.">
 <meta name="twitter:image" content="https://textify.tools/og-image.png">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -63,8 +63,8 @@ gtag('config', 'G-6VGXXT81MB');
             "@type": "WebPage",
             "@id": "https://textify.tools/lorem-ipsum-generator#webpage",
             "url": "https://textify.tools/lorem-ipsum-generator",
-            "name": "Lorem Ipsum Generator – Free Placeholder Text | Textify.tools",
-            "description": "Generate Lorem Ipsum placeholder text by paragraphs, sentences, words, characters, or list items. Five text styles, HTML/Markdown/JSON output, live stats.",
+            "name": "Lorem Ipsum Generator – Free Online Dummy Text Tool | Textify.tools",
+            "description": "Free online Lorem Ipsum generator. Create placeholder or dummy text by paragraphs, sentences, words, characters or list items. Five text styles, HTML/Markdown/JSON output, copy and paste in one click.",
             "isPartOf": { "@id": "https://textify.tools/#website" },
             "inLanguage": "en-US",
             "author": { "@id": "https://textify.tools/#author" }
@@ -83,6 +83,11 @@ gtag('config', 'G-6VGXXT81MB');
                     "@type": "Question",
                     "name": "What is Lorem Ipsum?",
                     "acceptedAnswer": { "@type": "Answer", "text": "Lorem Ipsum is scrambled Latin placeholder text used by designers and developers since the 1500s. An unknown printer rearranged a passage from Cicero's De Finibus Bonorum et Malorum to create a type specimen book. It lets you preview layout, typography, and spacing without the distraction of meaningful content." }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is this Lorem Ipsum generator free to use?",
+                    "acceptedAnswer": { "@type": "Answer", "text": "Yes. The generator is completely free. There is no signup, no email required, and no daily limit. Every mode, every text style, and every output format is available without paying anything." }
                 },
                 {
                     "@type": "Question",
@@ -108,6 +113,11 @@ gtag('config', 'G-6VGXXT81MB');
                     "@type": "Question",
                     "name": "Does the generator work offline?",
                     "acceptedAnswer": { "@type": "Answer", "text": "Yes. Once the page has loaded, generation runs entirely in your browser. No internet connection is needed after the initial page load, and nothing you generate is sent anywhere." }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I use this as a dummy text generator for client mockups?",
+                    "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. The output is designed for mockups, wireframes, staging pages, and design reviews. Just keep it off production pages until real copy replaces it, and add a noindex tag to staging environments." }
                 }
             ]
         }
@@ -250,7 +260,17 @@ main:focus{outline:none}
 h1{font-size:clamp(24px,4vw,42px);font-weight:800;margin-bottom:12px;line-height:1.25;text-align:left;overflow-wrap:break-word}
 .subtitle{font-size:clamp(15px,1.5vw,18px);color:var(--text-light);line-height:1.7;margin-bottom:clamp(18px,2.5vw,28px);text-align:left;overflow-wrap:break-word}
 .page-hero{margin-bottom:clamp(22px,3vw,32px)}
-.page-hero .subtitle{margin-bottom:0;max-width:860px}
+.page-hero .subtitle{
+    margin-bottom:0;
+    width:100vw;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+    padding-left:var(--gutter);
+    padding-right:var(--gutter);
+    max-width:100vw;
+    box-sizing:border-box;
+}
 
 .tool-layout{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:clamp(16px,2vw,24px);align-items:start;margin-bottom:clamp(32px,5vw,56px)}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(16px,2vw,22px);box-shadow:var(--card-shadow);min-width:0}
@@ -306,10 +326,12 @@ html.dark-mode .output-box{scrollbar-color:rgba(255,255,255,0.15) transparent}
 .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);background:var(--primary);color:var(--bg);padding:11px 18px;border-radius:10px;font-size:14px;font-weight:600;box-shadow:0 10px 30px var(--shadow);opacity:0;pointer-events:none;transition:.25s;z-index:400;max-width:calc(100vw - 32px);text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
-.warning-box{display:flex;gap:12px;padding:16px 18px;border:1px solid #f59e0b55;background:#f59e0b14;border-radius:12px;color:var(--text);line-height:1.7;margin:18px 0}
-html.dark-mode .warning-box{background:#f59e0b1a;border-color:#f59e0b44}
-.warning-box .icon{width:22px;height:22px;color:#d97706;flex-shrink:0;margin-top:2px}
-.warning-box p{margin:0;color:var(--text-light);font-size:15px}
+.warning-box{display:flex;gap:12px;padding:16px 18px;border:1px solid #ef4444;background:#fee2e2;border-radius:12px;color:var(--text);line-height:1.7;margin:18px 0}
+html.dark-mode .warning-box{background:#7f1d1d;border-color:#ef4444}
+.warning-box .icon{width:22px;height:22px;color:#dc2626;flex-shrink:0;margin-top:2px}
+html.dark-mode .warning-box .icon{color:#fca5a5}
+.warning-box p{margin:0;color:#991b1b;font-size:15px}
+html.dark-mode .warning-box p{color:#fecaca}
 
 .section{margin-bottom:clamp(34px,4.5vw,50px);width:100%;max-width:100%;min-width:0}
 .section h2{font-size:clamp(20px,2.6vw,28px);font-weight:700;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--hover);overflow-wrap:break-word}
@@ -413,7 +435,7 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 
 <div class="page-hero">
 <h1>Lorem Ipsum Generator</h1>
-<p class="subtitle">Generate clean placeholder text for mockups, wireframes, and test data. Choose paragraphs, sentences, words, characters, or list items — then pick a style and an output format. Everything runs in your browser, and nothing you generate leaves your device.</p>
+<p class="subtitle">A free online Lorem Ipsum generator that gives you clean placeholder text in one click. Generate Lorem Ipsum text by paragraphs, sentences, words, characters, or list items, choose from five text styles, and copy or download the result. No signup, no ads, and nothing you generate ever leaves your browser.</p>
 </div>
 
 <div class="tool-layout">
@@ -516,40 +538,74 @@ Start with the classic "Lorem ipsum dolor sit amet…"
 </div>
 
 <div class="section">
-<h2>What is Lorem Ipsum?</h2>
-<p>Lorem Ipsum is scrambled Latin placeholder text that designers and developers have been using since the 1500s. An unknown printer took a passage from Cicero's <em>De Finibus Bonorum et Malorum</em> and rearranged it to create a type specimen book. Five centuries later, it is still the default way to fill a layout before the real copy exists.</p>
-<p>The reason it survived is simple: it looks like real text. A page full of "text text text text" looks wrong at a glance, but Lorem Ipsum has natural word lengths and sentence rhythm. That makes it ideal for mockups, wireframes, and design reviews where the eye should be on layout rather than meaning.</p>
-<p>This generator gives you five distinct styles — Classic Latin, Tech/Developer, Business/Corporate, Hipster/Artisan, and Nature/Science — so the placeholder text can match the tone of the project. It also outputs plain text, HTML, Markdown, or JSON, depending on where the text is going.</p>
+<h2>Free Online Lorem Ipsum Generator Tool</h2>
+<p>This is a free online Lorem Ipsum generator, and it does one job properly: it hands you placeholder text you can use right away. No account, no email, no "upgrade to unlock" screen. Set the options on the left, hit Generate, and the text is sitting there in front of you.</p>
+<p>Everything runs inside your browser. That means the tool keeps working after the page loads, even if your connection drops, and the text you generate never goes anywhere near a server. If you're mocking up a client's unreleased product page, that detail actually matters.</p>
+<p>People arrive here looking for all sorts of things — a Lorem Ipsum text generator, a dummy text generator, a placeholder text generator, a paragraph generator, or just a quick way to fill an empty wireframe. They're all the same tool wearing different hats. The controls decide how much text you get and what shape it takes.</p>
+<p>And if you were hunting for a Lorem Ipsum generator free of charge and free of clutter, that's exactly what this is. Generate Lorem Ipsum text online free, as many times as you like, without ever hitting a paywall or a daily cap.</p>
 </div>
 
 <div class="section">
-<h2>How to generate Lorem Ipsum</h2>
+<h2>What is Lorem Ipsum placeholder text?</h2>
+<p>Lorem Ipsum is scrambled Latin that designers have used as filler since the 1500s. An unknown printer took a passage from Cicero's <em>De Finibus Bonorum et Malorum</em>, rearranged it, and used it to build a type specimen book. Five hundred years later it is still the default way to fill a layout before the real copy exists.</p>
+<p>The reason it stuck is simple: it looks like real text. A page full of "text text text text" looks broken at a glance, but Lorem Ipsum has natural word lengths and sentence rhythm. Your eye reads it as content, so you can judge spacing, typography, and layout without getting distracted by what the words actually say.</p>
+<p>This generator gives you five styles — Classic Latin, Tech/Developer, Business/Corporate, Hipster/Artisan, and Nature/Science — so the placeholder text can match the tone of the project instead of fighting it. It also outputs plain text, HTML, Markdown, or JSON, depending on where the text is headed.</p>
+</div>
+
+<div class="section">
+<h2>How to generate Lorem Ipsum text</h2>
 <ol>
-<li><strong>Choose a generation mode.</strong> Pick paragraphs, sentences, words, characters, or list items, depending on what your mockup or test needs.</li>
-<li><strong>Set the count.</strong> Enter how many units you want — up to 100 paragraphs, 100 sentences, 500 words, 5,000 characters, or 50 list items.</li>
-<li><strong>Pick a text style.</strong> Choose from Classic Latin, Tech, Business, Hipster, or Nature. Each style has its own vocabulary and feel.</li>
-<li><strong>Choose an output format.</strong> Plain text for general use, HTML with proper paragraph tags for web development, Markdown for documentation, or JSON for test data.</li>
-<li><strong>Fine-tune the rhythm (optional).</strong> Use the sentence length dropdown and the sentences-per-paragraph control to shape the output.</li>
-<li><strong>Click Generate.</strong> The placeholder text appears instantly, with live word, character, paragraph, and sentence counts.</li>
-<li><strong>Copy or download.</strong> Grab the text with one click, or download it as a file for later use.</li>
+<li><strong>Pick a generation mode.</strong> Paragraphs, sentences, words, characters, or list items — choose whatever your mockup or test needs.</li>
+<li><strong>Set the count.</strong> Up to 100 paragraphs, 100 sentences, 500 words, 5,000 characters, or 50 list items in a single pass.</li>
+<li><strong>Choose a text style.</strong> Classic Latin, Tech, Business, Hipster, or Nature. Each one has its own vocabulary and feel.</li>
+<li><strong>Pick an output format.</strong> Plain text for general use, HTML with paragraph tags for web work, Markdown for docs, or JSON for test data.</li>
+<li><strong>Tweak the rhythm (optional).</strong> The sentence length dropdown and the sentences-per-paragraph control let you shape how the text reads.</li>
+<li><strong>Click Generate.</strong> The text appears instantly, with live word, character, paragraph, and sentence counts underneath.</li>
+<li><strong>Copy or download.</strong> One click to copy, or download a file to keep for later.</li>
 </ol>
 </div>
 
 <div class="section">
-<h2>Why use this Lorem Ipsum generator?</h2>
+<h2>Lorem Ipsum generator by paragraphs, sentences, and words</h2>
+<p>Not every job needs the same amount of text. A business card needs a line or two. A blog template needs a few hundred words. A test fixture might need exactly 250 characters. That's why this Lorem Ipsum generator works in five modes.</p>
+
+<h3>Lorem Ipsum generator by paragraphs</h3>
+<p>This is the mode most people want. You choose how many paragraphs and how many sentences go in each one, and the generator fills them with proper, readable filler. It's a standard Lorem Ipsum generator with paragraphs — good for blog layouts, article templates, and long-form wireframes.</p>
+
+<h3>Lorem Ipsum generator by sentences</h3>
+<p>Need a headline, a caption, or a single line of filler? The sentence mode works as a Lorem Ipsum sentence generator: it produces one or more complete sentences with no paragraph breaks in between. Handy for cards, testimonials, and short UI copy.</p>
+
+<h3>Lorem Ipsum generator by words</h3>
+<p>Sometimes a design just needs a fixed number of words — nav labels, table cells, a word-count target. Set a number between 1 and 500 and the word generator gives you exactly that many words, trimmed cleanly at the end.</p>
+
+<h3>Character mode</h3>
+<p>Character limits are the worst part of any form. This mode lets you hit an exact character count between 10 and 5,000, so you can test how a truncation or a meta description will behave before writing the real thing.</p>
+
+<h3>List mode</h3>
+<p>For menus, feature lists, and bulleted content, list mode generates up to 50 items and outputs them as HTML <code>&lt;ul&gt;</code>, Markdown bullets, a JSON array, or plain lines.</p>
+</div>
+
+<div class="section">
+<h2>Random Lorem Ipsum text generator</h2>
+<p>Set sentences per paragraph to <strong>Random</strong> and each paragraph gets between three and six sentences. That small variation makes the output look a lot more like a real article and a lot less like a generated block — which is exactly what you want when you're judging whether a layout holds up with uneven content.</p>
+<p>The sentence pool gets shuffled too, so you won't see the same opening line every time. Repeated generations produce genuinely different text rather than the same paragraph rearranged. If you need a fresh random Lorem Ipsum block for a new mockup, just hit Generate again.</p>
+</div>
+
+<div class="section">
+<h2>Why use this free Lorem Ipsum generator?</h2>
 <div class="feature-grid">
 <div class="feature-card"><h4><svg class="icon" aria-hidden="true"><use href="#i-layout"/></svg> Five generation modes</h4><p>Generate by paragraphs, sentences, words, characters, or list items — whatever the mockup or test requires.</p></div>
-<div class="feature-card"><h4><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg> Five text styles</h4><p>Classic Latin, Tech/Developer, Business/Corporate, Hipster/Artisan, and Nature/Science. Each uses curated vocabulary.</p></div>
-<div class="feature-card"><h4><svg class="icon" aria-hidden="true"><use href="#i-braces"/></svg> Four output formats</h4><p>Plain text, HTML with proper paragraph tags, Markdown, and a JSON array. Ready for any workflow.</p></div>
+<div class="feature-card"><h4><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg> Five text styles</h4><p>Classic Latin, Tech/Developer, Business/Corporate, Hipster/Artisan, and Nature/Science, each with curated vocabulary.</p></div>
+<div class="feature-card"><h4><svg class="icon" aria-hidden="true"><use href="#i-braces"/></svg> Four output formats</h4><p>Plain text, HTML with paragraph tags, Markdown, and a JSON array. Ready for whatever workflow you already use.</p></div>
 <div class="feature-card"><h4><svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg> Live statistics</h4><p>Word count, character count, paragraph count, and sentence count update in real time as you generate.</p></div>
-<div class="feature-card"><h4><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg> Session history</h4><p>Your last ten generations are saved locally. Click any history row to restore that output and its settings.</p></div>
-<div class="feature-card"><h4><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg> Private and offline</h4><p>Generation runs entirely on your device. No text is uploaded, and the tool keeps working after the page has loaded.</p></div>
+<div class="feature-card"><h4><svg class="icon" aria-hidden="true"><use href="#i-history"/></svg> Session history</h4><p>Your last ten generations are saved locally. Click any row to restore that output and its settings.</p></div>
+<div class="feature-card"><h4><svg class="icon" aria-hidden="true"><use href="#i-shield-check"/></svg> Private and offline</h4><p>Generation happens entirely on your device. No text is uploaded, and the tool keeps working once the page has loaded.</p></div>
 </div>
 </div>
 
 <div class="section">
-<h2>Text styles explained</h2>
-<p>Different projects call for different placeholder content. A tech startup's landing page needs a different feel from a bakery's menu or a research paper's abstract. This generator gives you five styles to match.</p>
+<h2>Five text styles for your dummy text</h2>
+<p>Different projects call for different filler. A tech startup's landing page needs a different feel from a bakery's menu or a research paper's abstract. The style dropdown gives you five options that match the tone of the project.</p>
 <div class="table-wrapper"><table class="info-table"><thead><tr><th>Style</th><th>Vocabulary source</th><th>Best for</th></tr></thead><tbody>
 <tr><td><strong>Classic Latin</strong></td><td>Traditional Lorem Ipsum derived from Cicero's <em>De Finibus Bonorum et Malorum</em></td><td>General mockups, wireframes, print layouts</td></tr>
 <tr><td><strong>Tech / Developer</strong></td><td>Programming, infrastructure, and DevOps vocabulary</td><td>SaaS landing pages, developer docs, API mockups</td></tr>
@@ -560,40 +616,51 @@ Start with the classic "Lorem ipsum dolor sit amet…"
 </div>
 
 <div class="section">
-<h2>Output formats explained</h2>
-<p>Each format is designed for a specific workflow. Pick the one that matches how you plan to use the text.</p>
+<h2>Output formats: plain text, HTML, Markdown, and JSON</h2>
+<p>Each format is built for a specific workflow. Pick the one that matches how you plan to use the text, and you won't have to clean it up afterwards.</p>
 <div class="table-wrapper"><table class="info-table"><thead><tr><th>Format</th><th>What it produces</th><th>Best for</th></tr></thead><tbody>
 <tr><td><strong>Plain text</strong></td><td>Paragraphs separated by blank lines, with no markup</td><td>General use, pasting into design tools, word processors</td></tr>
 <tr><td><strong>HTML</strong></td><td>Paragraphs wrapped in <code>&lt;p&gt;…&lt;/p&gt;</code> tags; list mode uses <code>&lt;ul&gt;&lt;li&gt;</code></td><td>Web mockups, CMS templates, static site drafts</td></tr>
 <tr><td><strong>Markdown</strong></td><td>Paragraphs separated by blank lines; list mode uses <code>- item</code></td><td>Documentation, README files, CMS drafts, note-taking apps</td></tr>
 <tr><td><strong>JSON</strong></td><td>A JSON array of paragraph or item strings</td><td>Test fixtures, API seed data, database seeding, unit tests</td></tr>
 </tbody></table></div>
+<h3>Copy and paste Lorem Ipsum text</h3>
+<p>Every format is ready to copy and paste. Hit Copy and the output goes straight to your clipboard — no manual selecting needed. The Download button saves the current format as a file, so you can keep a block of filler around for the next mockup without regenerating it. Both buttons work with whatever is showing in the output panel, so what you see is exactly what you get.</p>
+</div>
+
+<div class="section">
+<h2>Lorem Ipsum text for web development and website design</h2>
+<p>Filler copy shows up in every stage of a build, and the right format depends on who's using it. The sections below cover the two biggest groups, but the tool itself doesn't care — pick whatever mode and format saves you time.</p>
+<h3>Lorem Ipsum generator for developers</h3>
+<p>If you're wiring up templates, HTML output with proper <code>&lt;p&gt;</code> tags drops straight into a view file. JSON output works well for fixtures and seed scripts. Markdown output is the quickest way to fill a README or a docs page without touching the HTML. And because generation is instant and local, you can regenerate the whole block every time a component needs new filler.</p>
+<h3>Lorem Ipsum generator for website design</h3>
+<p>Designers usually want plain text they can paste into Figma, Sketch, or a CMS preview. Paragraph mode with random sentence counts gives you the uneven, natural-looking blocks that reveal layout problems early — a grid that only looks tidy with identical paragraphs is a grid that will break the moment real copy arrives.</p>
 </div>
 
 <div class="section">
 <h2>SEO note: never publish Lorem Ipsum to a live page</h2>
 <div class="warning-box">
 <svg class="icon" aria-hidden="true"><use href="#i-alert-triangle"/></svg>
-<p>Lorem Ipsum is a design tool, not content. If you leave placeholder text on a production page, search engines will index it. Your page can rank for gibberish instead of the keywords you are targeting, and a page full of placeholder text may be treated as unfinished or low-quality.</p>
+<p>Lorem Ipsum is a design tool, not content. If you leave dummy text on a production page, search engines will index it. Your page can rank for gibberish instead of the keywords you're targeting, and a page full of placeholder text may be treated as unfinished or low-quality.</p>
 </div>
-<p>Staging environments are not safe either. Crawlers do not know the difference between staging and production, and lorem-filled staging pages have ended up indexed more than once. If you use Lorem Ipsum for mockups, password-protect the staging environment or add a <code>noindex</code> meta tag. The rule is simple: Lorem Ipsum is for mockups, wireframes, and design reviews. Real content goes live.</p>
+<p>Staging environments aren't safe either. Crawlers don't know the difference between staging and production, and lorem-filled staging pages have ended up in search results more than once. If you use placeholder text for mockups, password-protect the staging environment or add a <code>noindex</code> meta tag. The rule is simple: dummy text is for mockups, wireframes, and design reviews. Real content goes live.</p>
 </div>
 
 <div class="section">
 <h2>Who uses a Lorem Ipsum generator?</h2>
 <h3>Designers and UX researchers</h3>
 <ul>
-<li>Fill wireframes and mockups with realistic-looking text without writing copy.</li>
+<li>Fill wireframes and mockups with realistic-looking text without writing copy first.</li>
 <li>Test typography, line height, and paragraph spacing.</li>
 <li>Compare layout options before the real content is available.</li>
-<li>Present design concepts without placeholder text distracting from the layout.</li>
+<li>Present design concepts without filler distracting from the layout.</li>
 </ul>
 <h3>Web developers and CMS builders</h3>
 <ul>
 <li>Populate CMS templates with dummy content during development.</li>
 <li>Test responsive layouts at different content lengths.</li>
 <li>Generate HTML or Markdown snippets for documentation and READMEs.</li>
-<li>Seed databases and test fixtures with realistic-looking text.</li>
+<li>Seed databases and test fixtures with realistic-looking strings.</li>
 </ul>
 <h3>Content teams and copywriters</h3>
 <ul>
@@ -612,11 +679,13 @@ Start with the classic "Lorem ipsum dolor sit amet…"
 <div class="section">
 <h2>Frequently asked questions</h2>
 <div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a1">What is Lorem Ipsum?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a1">Lorem Ipsum is scrambled Latin placeholder text used by designers and developers since the 1500s. An unknown printer rearranged a passage from Cicero's <em>De Finibus Bonorum et Malorum</em> to create a type specimen book. It lets you preview layout, typography, and spacing without the distraction of meaningful content.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a2">Is it safe to publish Lorem Ipsum on a live website?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a2">No. Search engines index placeholder text, and a page full of Lorem Ipsum can rank for gibberish or be treated as unfinished, low-quality content. Use it only for mockups, wireframes, and staging environments, and always replace it with real content before publishing.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a3">What output formats does this generator support?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a3">Four formats: plain text, HTML with proper paragraph tags, Markdown, and a JSON array. Pick the format that matches your workflow, then copy or download the result.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a4">How much text can I generate at once?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a4">You can generate up to 100 paragraphs, 100 sentences, 500 words, 5,000 characters, or 50 list items in a single pass.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a5">What are the five text styles?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a5">Classic Latin, Tech/Developer, Business/Corporate, Hipster/Artisan, and Nature/Science. Each style uses curated vocabulary from its domain so the placeholder text matches the tone of your project.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a6">Does the generator work offline?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a6">Yes. Once the page has loaded, generation runs entirely in your browser. No internet connection is needed after the initial page load, and nothing you generate is sent anywhere.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a2">Is this Lorem Ipsum generator free to use?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a2">Yes. The generator is completely free. There's no signup, no email required, and no daily limit. Every mode, every text style, and every output format is available without paying anything.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a3">Is it safe to publish Lorem Ipsum on a live website?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a3">No. Search engines index placeholder text, and a page full of Lorem Ipsum can rank for gibberish or be treated as unfinished, low-quality content. Use it only for mockups, wireframes, and staging environments, and always replace it with real content before publishing.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a4">What output formats does this generator support?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a4">Four formats: plain text, HTML with proper paragraph tags, Markdown, and a JSON array. Pick the format that matches your workflow, then copy or download the result.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a5">How much text can I generate at once?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a5">You can generate up to 100 paragraphs, 100 sentences, 500 words, 5,000 characters, or 50 list items in a single pass.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a6">What are the five text styles?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a6">Classic Latin, Tech/Developer, Business/Corporate, Hipster/Artisan, and Nature/Science. Each style uses curated vocabulary from its domain so the placeholder text matches the tone of your project.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a7">Does the generator work offline?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a7">Yes. Once the page has loaded, generation runs entirely in your browser. No internet connection is needed after the initial page load, and nothing you generate is sent anywhere.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a8">Can I use this as a dummy text generator for client mockups?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer" id="faq-a8">Absolutely. The output is designed for mockups, wireframes, staging pages, and design reviews. Just keep it off production pages until real copy replaces it, and add a noindex tag to staging environments.</div></div>
 </div>
 
 </div>
@@ -686,12 +755,6 @@ Start with the classic "Lorem ipsum dolor sit amet…"
 (function () {
     "use strict";
 
-    /* ------------------------------------------------------------------
-       Tool catalogue — 4-field format:
-       Name|slug|category|description
-       The description field is shown in the search results, matching the
-       index page exactly.
-       ------------------------------------------------------------------ */
     var TOOL_DATA = `Word Counter|word-counter|text|Count words, characters, sentences and paragraphs instantly.
 Sentence Counter|sentence-counter|text|Count the number of sentences in any text.
 Paragraph Counter|paragraph-counter|text|Quickly count paragraphs in your writing.
@@ -950,9 +1013,6 @@ Fuel Economy Converter|fuel-economy-converter|calculator|Convert fuel economy un
         calculator: "Calculators & Converters"
     };
 
-    /* ------------------------------------------------------------------
-       Helpers
-       ------------------------------------------------------------------ */
     function escapeHtml(value) {
         return String(value)
             .replace(/&/g, "&amp;")
@@ -1003,9 +1063,6 @@ Fuel Economy Converter|fuel-economy-converter|calculator|Convert fuel economy un
         }, 2200);
     }
 
-    /* ------------------------------------------------------------------
-       Theme
-       ------------------------------------------------------------------ */
     function setThemeColorMeta(isDark) {
         var meta = document.getElementById("themeColorMeta");
         if (meta) meta.setAttribute("content", isDark ? "#0f172a" : "#ffffff");
@@ -1042,9 +1099,6 @@ Fuel Economy Converter|fuel-economy-converter|calculator|Convert fuel economy un
         else if (typeof mq.addListener === "function") mq.addListener(handler);
     }
 
-    /* ------------------------------------------------------------------
-       Navigation menus
-       ------------------------------------------------------------------ */
     function populateNavigation() {
         var links = TOOLS.map(function (tool) {
             return '<a href="' + tool.link + '">' + escapeHtml(tool.name) + "</a>";
@@ -1089,9 +1143,6 @@ Fuel Economy Converter|fuel-economy-converter|calculator|Convert fuel economy un
         });
     }
 
-    /* ------------------------------------------------------------------
-       Mobile sidebar
-       ------------------------------------------------------------------ */
     function openMobileSidebar() {
         var sidebar = document.getElementById("mobileSidebar");
         var overlay = document.getElementById("mobileSidebarOverlay");
@@ -1162,10 +1213,6 @@ Fuel Economy Converter|fuel-economy-converter|calculator|Convert fuel economy un
         });
     }
 
-    /* ------------------------------------------------------------------
-       Search overlay — renders ALL tools, shows name + description
-       + category tag, exactly like the index page.
-       ------------------------------------------------------------------ */
     var searchIsOpen = false;
     var searchActiveIndex = -1;
     var lastFocusedBeforeSearch = null;
@@ -1185,8 +1232,6 @@ Fuel Economy Converter|fuel-economy-converter|calculator|Convert fuel economy un
         var noResult = document.getElementById("fullNoResult");
         if (!list) return;
         var normalized = query.trim().toLowerCase();
-
-        /* Filter by name OR description — matches index page behaviour */
         var results = normalized
             ? TOOLS.filter(function (tool) {
                 return tool.name.toLowerCase().indexOf(normalized) !== -1 ||
@@ -1194,7 +1239,6 @@ Fuel Economy Converter|fuel-economy-converter|calculator|Convert fuel economy un
             })
             : TOOLS;
 
-        /* Show ALL results — no artificial cap */
         list.innerHTML = results.map(function (tool, index) {
             return buildResultItemHtml(tool, normalized, index);
         }).join("");
@@ -1331,9 +1375,6 @@ Fuel Economy Converter|fuel-economy-converter|calculator|Convert fuel economy un
         });
     }
 
-    /* ------------------------------------------------------------------
-       FAQ
-       ------------------------------------------------------------------ */
     function initFaq() {
         document.querySelectorAll(".faq-question").forEach(function (button) {
             button.addEventListener("click", function () {
@@ -1346,9 +1387,6 @@ Fuel Economy Converter|fuel-economy-converter|calculator|Convert fuel economy un
         });
     }
 
-    /* ------------------------------------------------------------------
-       Lorem Ipsum generator
-       ------------------------------------------------------------------ */
     var CLASSIC_OPENER = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
 
     var POOLS = {
@@ -1890,9 +1928,6 @@ Fuel Economy Converter|fuel-economy-converter|calculator|Convert fuel economy un
         generate();
     }
 
-    /* ------------------------------------------------------------------
-       Boot
-       ------------------------------------------------------------------ */
     function init() {
         var year = document.getElementById("dynamicYear");
         if (year) year.textContent = new Date().getFullYear();
