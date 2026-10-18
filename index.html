@@ -163,12 +163,10 @@ header{border-bottom:1px solid var(--line);display:flex;justify-content:center;a
 .tools-trigger:hover{color:var(--text);background:var(--hover)}
 .tools-trigger .icon{width:14px;height:14px;transition:transform .2s;flex-shrink:0}
 .tools-mega-menu{position:absolute;top:calc(100% + 8px);right:0;left:auto;transform:translateY(8px);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 8px;width:min(320px,calc(100vw - 24px));max-height:min(70vh,560px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;box-shadow:0 20px 40px var(--shadow);opacity:0;visibility:hidden;transition:.25s;z-index:200}
-.tools-menu-container:hover .tools-mega-menu,
-.tools-menu-container.open .tools-mega-menu,
-.tools-menu-container:focus-within .tools-mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
-.tools-menu-container:hover .tools-trigger .icon,
-.tools-menu-container.open .tools-trigger .icon,
-.tools-menu-container:focus-within .tools-trigger .icon{transform:rotate(180deg)}
+.tools-menu-container.hover-open .tools-mega-menu,
+.tools-menu-container.open .tools-mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.tools-menu-container.hover-open .tools-trigger .icon,
+.tools-menu-container.open .tools-trigger .icon{transform:rotate(180deg)}
 .tools-mega-menu a{display:block;padding:8px 14px;border-radius:6px;color:var(--text);font-size:13px;font-weight:500;text-decoration:none;transition:.2s;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .tools-mega-menu a:hover{background:var(--hover);color:var(--text)}
 .tools-mega-menu::-webkit-scrollbar{width:6px}
@@ -1300,7 +1298,7 @@ function applyFilters(){
 const searchState = { activeIndex: -1 };
 
 function buildResultItemHtml(t, q, idx){
-    return '<a href="' + escAttr(t.link) + '" class="search-result-item" id="search-result-' + idx + '" role="option">' +
+    return '<a href="' + escAttr(t.link) + '" class="search-result-item" id="search-result-' + idx + '" role="option" aria-selected="false">' +
         '<span class="result-main">' +
         '<span class="result-name">' + highlight(t.name, q) + '</span>' +
         '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
@@ -1365,11 +1363,13 @@ function buildSearchResults(q, displayQuery){
 }
 
 function filterFullSearch(){
+    /* Guard early: nothing to do when the overlay isn't open. This keeps the
+       clear button and rendered results in sync with the visible overlay. */
+    if (!searchIsOpen) return;
     const input = document.getElementById('fullSearchInput');
     const raw = input.value;
     const q = raw.toLowerCase().trim();
     document.getElementById('searchClearBtn').classList.toggle('show', raw.length > 0);
-    if (!searchIsOpen) return;
     if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
     searchResultsRaf = requestAnimationFrame(function(){ searchResultsRaf = 0; buildSearchResults(q, raw.trim()); });
 }
@@ -1380,16 +1380,18 @@ function handleSearchKey(e){
         e.preventDefault();
         if (!items.length) return;
         searchState.activeIndex = (searchState.activeIndex + 1) % items.length;
-        items.forEach(i => i.classList.remove('active'));
+        items.forEach(i => { i.classList.remove('active'); i.setAttribute('aria-selected','false'); });
         items[searchState.activeIndex].classList.add('active');
+        items[searchState.activeIndex].setAttribute('aria-selected','true');
         setActiveDescendant(items[searchState.activeIndex]);
         items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
     } else if (e.key === 'ArrowUp'){
         e.preventDefault();
         if (!items.length) return;
         searchState.activeIndex = (searchState.activeIndex - 1 + items.length) % items.length;
-        items.forEach(i => i.classList.remove('active'));
+        items.forEach(i => { i.classList.remove('active'); i.setAttribute('aria-selected','false'); });
         items[searchState.activeIndex].classList.add('active');
+        items[searchState.activeIndex].setAttribute('aria-selected','true');
         setActiveDescendant(items[searchState.activeIndex]);
         items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
     } else if (e.key === 'Enter'){
@@ -1502,19 +1504,35 @@ function initSystemThemeListener(){
     else if (typeof mq.addListener === 'function') mq.addListener(handler);
 }
 
+/* ============ Tools menu (click-pin + hover-preview) ============
+   The menu visibility is now driven by TWO classes:
+     .open       → pinned open via click (survives focus moves)
+     .hover-open → transient, set on mouseenter, cleared on mouseleave
+   Both are removed together on Escape / outside click / a second click,
+   and CSS no longer uses :hover or :focus-within for visibility. This
+   guarantees Escape can actually dismiss the menu, even when the trigger
+   still has focus or the mouse is still over the button. */
 function closeToolsMenu(returnFocus){
     const container = document.getElementById('toolsMenuContainer');
     const trigger = document.getElementById('toolsTrigger');
-    if (!container || !container.classList.contains('open')) return;
+    if (!container) return;
+    const hadOpen = container.classList.contains('open') || container.classList.contains('hover-open');
     container.classList.remove('open');
-    if (trigger){ trigger.setAttribute('aria-expanded','false'); if (returnFocus) trigger.focus(); }
+    container.classList.remove('hover-open');
+    if (trigger){
+        trigger.setAttribute('aria-expanded','false');
+        if (returnFocus && hadOpen && trigger.focus){
+            try { trigger.focus(); } catch (e) {}
+        }
+    }
 }
 function toggleToolsMenu(){
     const container = document.getElementById('toolsMenuContainer');
     const trigger = document.getElementById('toolsTrigger');
     const isOpen = container.classList.contains('open');
-    if (isOpen) closeToolsMenu(true);
-    else {
+    if (isOpen) {
+        closeToolsMenu(true);
+    } else {
         container.classList.add('open');
         trigger.setAttribute('aria-expanded','true');
         const firstLink = container.querySelector('.tools-mega-menu a');
@@ -1548,10 +1566,13 @@ function closeMobileSidebar(){
     if (ov) ov.classList.remove('active');
     if (!searchIsOpen) document.body.style.overflow = '';
 
-    /* Return focus to the hamburger only if it is currently visible */
+    /* Reset the trigger state so assistive tech stops reporting "expanded" */
     const hb = document.getElementById('hamburgerBtn');
-    if (hb && !searchIsOpen && hb.offsetParent !== null){
-        try { hb.focus(); } catch (e) {}
+    if (hb){
+        hb.setAttribute('aria-expanded','false');
+        if (!searchIsOpen && hb.offsetParent !== null){
+            try { hb.focus(); } catch (e) {}
+        }
     }
 }
 function toggleMobileTools(){
@@ -1631,8 +1652,18 @@ function initDelegatedHandlers(){
     const container = document.getElementById('toolsMenuContainer');
     const trigger = document.getElementById('toolsTrigger');
     if (container && trigger){
-        container.addEventListener('mouseenter', () => { trigger.setAttribute('aria-expanded','true'); });
-        container.addEventListener('mouseleave', () => { if (!container.classList.contains('open')) trigger.setAttribute('aria-expanded','false'); });
+        /* Hover shows the menu via .hover-open (no CSS :hover rule needed,
+           so Escape can dismiss it even while the mouse is still inside). */
+        container.addEventListener('mouseenter', function(){
+            container.classList.add('hover-open');
+            trigger.setAttribute('aria-expanded','true');
+        });
+        container.addEventListener('mouseleave', function(){
+            container.classList.remove('hover-open');
+            if (!container.classList.contains('open')){
+                trigger.setAttribute('aria-expanded','false');
+            }
+        });
     }
 }
 
@@ -1680,7 +1711,7 @@ function initEventListeners(){
     }
     document.addEventListener('click', function(e){
         const container = document.getElementById('toolsMenuContainer');
-        if (container && !container.contains(e.target) && container.classList.contains('open')) closeToolsMenu(false);
+        if (container && !container.contains(e.target) && (container.classList.contains('open') || container.classList.contains('hover-open'))) closeToolsMenu(false);
     });
 }
 
@@ -1699,7 +1730,7 @@ function initKeyboardShortcuts(){
     document.addEventListener('keydown', e => {
         if (e.key === 'Escape'){
             const container = document.getElementById('toolsMenuContainer');
-            if (container && container.classList.contains('open')) closeToolsMenu(true);
+            if (container && (container.classList.contains('open') || container.classList.contains('hover-open'))) closeToolsMenu(true);
             closeFullSearch();
             closeMobileSidebar();
         }
