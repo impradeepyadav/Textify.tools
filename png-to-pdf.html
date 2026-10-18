@@ -34,10 +34,11 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/mstile-150x150.png">
 <link rel="preconnect" href="https://www.googletagmanager.com">
-<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<link rel="preconnect" href="https://scripts.scriptwrapper.com">
 <link rel="preconnect" href="https://unpkg.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <meta name="yandex-verification" content="6e105f6188a8c833">
 <script>
@@ -61,7 +62,6 @@ gtag('js', new Date());
 gtag('config', 'G-6VGXXT81MB');
 </script>
 <script type="text/javascript" async="async" data-noptimize="1" data-cfasync="false" src="https://scripts.scriptwrapper.com/tags/597e9f53-384c-48e1-a7a4-4eea66818d35.js"></script>
-<script src="https://unpkg.com/lucide@0.344.0" defer></script>
 <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
 <script type="application/ld+json">
 {
@@ -88,6 +88,7 @@ gtag('config', 'G-6VGXXT81MB');
 </script>
 <style>
 :root {
+    color-scheme: light dark;
     --bg:#ffffff;--text:#0a0a0a;--text-light:#525252;--line:#e5e5e5;--primary:#0f172a;--hover:#f3f4f6;
     --card:#fafafa;--footer-text:#333333;--footer-heading:#000000;--footer-link-color:#2563eb;--footer-link-hover:#1d4ed8;
     --footer-border:#e5e5e5;--faq-bg:#fafafa;--faq-active:#f3f4f6;--table-header:#f3f4f6;--table-hover:#fafafa;
@@ -106,6 +107,7 @@ gtag('config', 'G-6VGXXT81MB');
     --bad:#dc2626;--bad-bg:rgba(220,38,38,0.1);
 }
 html.dark-mode {
+    color-scheme: dark;
     --bg:#0f172a;--text:#f1f5f9;--text-light:#94a3b8;--line:#1e293b;--primary:#f1f5f9;--hover:#1e293b;
     --card:#1e293b;--footer-text:#e2e8f0;--footer-heading:#ffffff;--footer-link-color:#60a5fa;--footer-link-hover:#ffffff;
     --footer-border:#334155;--faq-bg:#1e293b;--faq-active:#334155;--table-header:#1e293b;--table-hover:#1e293b;
@@ -124,34 +126,25 @@ html.dark-mode {
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s;overflow-x:hidden;width:100%;max-width:100%;overflow-wrap:break-word;word-wrap:break-word;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s;overflow-x:hidden;width:100%;max-width:100%;overflow-wrap:break-word;word-wrap:break-word;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
 .page-wrapper{width:100%;max-width:100%;margin:0 auto;display:flex;flex-direction:column;min-height:100vh;min-width:0}
 img,video,canvas,iframe,embed,object{max-width:100%;height:auto}
-svg{max-width:100%}table{max-width:100%}
+svg{max-width:100%}
+table{max-width:100%}
 pre,code{white-space:pre-wrap;word-wrap:break-word;overflow-wrap:anywhere}
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus-ring);border-radius:6px}
-button:focus:not(:focus-visible),
-a:focus:not(:focus-visible),
-.cat-chip:focus:not(:focus-visible),
-.category-card:focus:not(:focus-visible),
-.tool-card:focus:not(:focus-visible),
-.theme-btn:focus:not(:focus-visible),
-.search-trigger:focus:not(:focus-visible),
-.hamburger-btn:focus:not(:focus-visible),
-.tools-trigger:focus:not(:focus-visible),
-.mobile-tools-toggle:focus:not(:focus-visible),
-.mobile-sidebar-close:focus:not(:focus-visible),
-.search-close-btn:focus:not(:focus-visible),
-.search-clear-btn:focus:not(:focus-visible),
-.faq-question:focus:not(:focus-visible){box-shadow:none !important;outline:none !important}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:none;box-shadow:0 0 0 3px var(--focus-ring);border-radius:6px}
+button:focus:not(:focus-visible),a:focus:not(:focus-visible),.theme-btn:focus:not(:focus-visible),.search-trigger:focus:not(:focus-visible),.hamburger-btn:focus:not(:focus-visible),.tools-trigger:focus:not(:focus-visible),.mobile-tools-toggle:focus:not(:focus-visible),.mobile-sidebar-close:focus:not(:focus-visible),.search-close-btn:focus:not(:focus-visible),.search-clear-btn:focus:not(:focus-visible),.faq-question:focus:not(:focus-visible),.icon-btn:focus:not(:focus-visible){box-shadow:none !important;outline:none !important}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link{position:absolute;top:-100px;left:8px;z-index:9999;background:var(--primary);color:var(--bg);padding:10px 16px;border-radius:8px;font-weight:600;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:8px;outline:none;box-shadow:0 0 0 3px var(--focus-ring)}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}}
-h1,h2,h3,h4,h5,h6,.logo,.tool-card h3,.feature-card h4,.section h2,.section h3,.faq-question{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:700}
+h1,h2,h3,h4,h5,h6,.logo,.faq-question{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:700}
 html.dark-mode .icon-sun{display:none !important}
 html.dark-mode .icon-moon{display:block !important}
 html:not(.dark-mode) .icon-moon{display:none !important}
 html:not(.dark-mode) .icon-sun{display:block !important}
 .icon{display:inline-block;vertical-align:middle;flex-shrink:0}
+mark{background:var(--mark-bg);color:var(--mark-text);border-radius:3px;padding:0 2px}
 
 /* ============ HEADER ============ */
 header{border-bottom:1px solid var(--line);display:flex;justify-content:center;align-items:center;padding:0 var(--gutter);min-height:var(--header-h);width:100%;transition:border-color .3s;background:var(--bg);position:relative;z-index:100}
@@ -167,8 +160,12 @@ header{border-bottom:1px solid var(--line);display:flex;justify-content:center;a
 .tools-trigger:hover{color:var(--text);background:var(--hover)}
 .tools-trigger .icon{width:14px;height:14px;transition:transform .2s;flex-shrink:0}
 .tools-mega-menu{position:absolute;top:calc(100% + 8px);right:0;left:auto;transform:translateY(8px);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 8px;width:min(320px,calc(100vw - 24px));max-height:min(70vh,560px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;box-shadow:0 20px 40px var(--shadow);opacity:0;visibility:hidden;transition:.25s;z-index:200}
-.tools-menu-container:hover .tools-mega-menu,.tools-menu-container.open .tools-mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
-.tools-menu-container:hover .tools-trigger .icon,.tools-menu-container.open .tools-trigger .icon{transform:rotate(180deg)}
+.tools-menu-container:hover .tools-mega-menu,
+.tools-menu-container.open .tools-mega-menu,
+.tools-menu-container:focus-within .tools-mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.tools-menu-container:hover .tools-trigger .icon,
+.tools-menu-container.open .tools-trigger .icon,
+.tools-menu-container:focus-within .tools-trigger .icon{transform:rotate(180deg)}
 .tools-mega-menu a{display:block;padding:8px 14px;border-radius:6px;color:var(--text);font-size:13px;font-weight:500;text-decoration:none;transition:.2s;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .tools-mega-menu a:hover{background:var(--hover);color:var(--text)}
 .tools-mega-menu::-webkit-scrollbar{width:6px}
@@ -233,15 +230,16 @@ html.dark-mode .mobile-sidebar-actions button .icon-moon{display:block !importan
 .search-result-item .result-main{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
 .search-result-item .result-name{font-weight:600;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .search-result-item .result-desc{font-size:12px;color:var(--text-light);font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.search-results-list .result-tag{font-size:10px;background:var(--hover);padding:3px 8px;border-radius:12px;color:var(--text-light);text-transform:uppercase;font-weight:600;flex-shrink:0;white-space:nowrap}
+.search-results-list .result-tag{font-size:11px;background:var(--hover);padding:3px 8px;border-radius:12px;color:var(--text-light);text-transform:uppercase;font-weight:600;flex-shrink:0;white-space:nowrap}
 .search-no-result{text-align:center;padding:28px 20px;color:var(--text-light);font-size:14px;display:none;background:var(--bg);border-radius:16px;border:1px solid var(--line);margin-top:8px}
 .search-no-result.show{display:block}
-mark{background:var(--mark-bg);color:var(--mark-text);border-radius:3px;padding:0 2px}
 @keyframes searchResultIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .search-results-list .search-result-item{animation:searchResultIn .25s ease both}
+.search-results-list.no-anim .search-result-item{animation:none}
 
 /* ============ MAIN ============ */
 main{flex:1;padding:clamp(20px,3.5vw,50px) 0;width:100%;min-width:0}
+main:focus{outline:none}
 .content-container{width:100%;max-width:var(--page-max);margin:0 auto;padding:0 var(--gutter);min-width:0}
 
 /* ============ TOOL HERO ============ */
@@ -256,7 +254,7 @@ main{flex:1;padding:clamp(20px,3.5vw,50px) 0;width:100%;min-width:0}
 .tool-panel-header{display:flex;align-items:center;gap:12px;padding-bottom:18px;margin-bottom:20px;border-bottom:1px solid var(--line)}
 .tool-panel-icon{width:36px;height:36px;border-radius:10px;background:var(--tool-accent-soft);color:var(--tool-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 html.dark-mode .tool-panel-icon{background:var(--tool-accent-light)}
-.tool-panel-icon i,.tool-panel-icon svg{width:18px;height:18px;flex-shrink:0}
+.tool-panel-icon svg{width:18px;height:18px;flex-shrink:0}
 .tool-panel-title{display:flex;flex-direction:column;gap:2px;min-width:0}
 .tool-panel-title h2{font-size:16px;font-weight:700;margin:0;letter-spacing:-.2px}
 .tool-panel-title .tpt-sub{font-size:12px;color:var(--text-light);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -283,6 +281,9 @@ html.dark-mode .tool-panel-icon{background:var(--tool-accent-light)}
 .image-list-toolbar .ilt-left{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-light);min-width:0;overflow:hidden}
 .image-list-toolbar .ilt-left svg{width:13px;height:13px;flex-shrink:0}
 .image-list-toolbar .ilt-right{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.icon-btn{background:none;border:none;padding:6px;border-radius:6px;cursor:pointer;color:var(--text-light);display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s;font-family:inherit}
+.icon-btn:hover{background:var(--hover);color:var(--text)}
+.icon-btn svg{width:14px;height:14px;flex-shrink:0}
 .image-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;padding:12px;max-height:360px;overflow-y:auto}
 .image-card{position:relative;border:1.5px solid var(--input-border);border-radius:10px;overflow:hidden;background:var(--card);aspect-ratio:1;cursor:grab;transition:border-color .15s,box-shadow .15s}
 .image-card:hover{border-color:var(--tool-accent);box-shadow:0 4px 12px var(--tool-accent-light)}
@@ -311,6 +312,7 @@ html.dark-mode .tool-panel-icon{background:var(--tool-accent-light)}
 .btn-outline{background:var(--input-bg);color:var(--text);border:1.5px solid var(--input-border)}
 .btn-outline:hover:not(:disabled){border-color:var(--tool-accent);color:var(--tool-accent);background:var(--tool-accent-soft)}
 .btn-outline:disabled{opacity:.5;cursor:not-allowed}
+.btn .icon{width:16px;height:16px;flex-shrink:0}
 .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 .btn-row .btn{flex:1 1 120px;min-width:0}
 @media (max-width:600px){
@@ -348,14 +350,14 @@ html.dark-mode .info-tip{background:var(--tool-accent-light)}
 .info-tip > div{min-width:0}
 
 /* ============ CONTENT SECTIONS ============ */
-.section,.content-section{margin-bottom:clamp(34px,4.5vw,50px);width:100%;max-width:100%;min-width:0}
-.section h2,.content-section h2{font-size:clamp(20px,2.6vw,28px);font-weight:700;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--hover);overflow-wrap:break-word;letter-spacing:-.4px}
-.section h3,.content-section h3{font-size:clamp(17px,2vw,20px);font-weight:700;margin:25px 0 12px}
-.section p,.content-section p{line-height:1.8;color:var(--text-light);margin-bottom:15px;font-size:clamp(15px,1.5vw,16px)}
-.section ul,.section ol,.content-section ul,.content-section ol{padding-left:22px;color:var(--text-light);margin-bottom:22px}
-.section li,.content-section li{margin-bottom:10px;line-height:1.7;font-size:clamp(15px,1.5vw,16px)}
-.section a,.content-section a{color:var(--footer-link-color);text-decoration:none}
-.section a:hover,.content-section a:hover{text-decoration:underline}
+.content-section{margin-bottom:clamp(34px,4.5vw,50px);width:100%;max-width:100%;min-width:0}
+.content-section h2{font-size:clamp(20px,2.6vw,28px);font-weight:700;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--hover);overflow-wrap:break-word;letter-spacing:-.4px}
+.content-section h3{font-size:clamp(17px,2vw,20px);font-weight:700;margin:25px 0 12px}
+.content-section p{line-height:1.8;color:var(--text-light);margin-bottom:15px;font-size:clamp(15px,1.5vw,16px)}
+.content-section ul,.content-section ol{padding-left:22px;color:var(--text-light);margin-bottom:22px}
+.content-section li{margin-bottom:10px;line-height:1.7;font-size:clamp(15px,1.5vw,16px)}
+.content-section a{color:var(--footer-link-color);text-decoration:none}
+.content-section a:hover{text-decoration:underline}
 .content-section code{background:var(--hover);padding:2px 6px;border-radius:4px;font-size:14px;font-family:ui-monospace,'SF Mono',Menlo,monospace}
 
 .feature-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:clamp(12px,1.4vw,20px);margin-top:25px;width:100%;min-width:0}
@@ -381,7 +383,7 @@ html.dark-mode .info-tip{background:var(--tool-accent-light)}
 .faq-item.active .faq-question{background:var(--faq-active);color:var(--text)}
 
 /* ============ FOOTER ============ */
-footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) var(--gutter) clamp(60px,12vw,180px);width:100%}
+footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) var(--gutter) clamp(40px,6vw,80px);width:100%}
 .footer-container{width:100%;max-width:var(--page-max);margin:0 auto;min-width:0}
 .footer-middle{display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,30px);justify-content:space-between;align-items:flex-start;min-width:0}
 .footer-left-column{flex:1 1 320px;min-width:0;max-width:420px}
@@ -397,24 +399,12 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 .footer-copyright{font-size:14px;color:var(--footer-text);margin-bottom:15px}
 .footer-about-text{font-size:15px;color:var(--footer-text);line-height:1.7}
 
-/* ============ TOAST & MODAL ============ */
+/* ============ TOAST ============ */
 .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--toast-bg);color:var(--toast-text);padding:14px 28px;border-radius:30px;font-weight:600;font-size:14px;z-index:9999;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .4s;pointer-events:none;max-width:min(90vw,480px);text-align:center;line-height:1.45;overflow-wrap:break-word}
 .toast.show{transform:translateX(-50%) translateY(0)}
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);z-index:10000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;padding:16px}
-.modal-overlay.active{opacity:1;visibility:visible}
-.modal-box{background:var(--bg);border:1px solid var(--line);border-radius:24px;padding:32px 28px 28px;max-width:400px;width:100%;box-shadow:0 25px 50px -12px rgba(0,0,0,.4);text-align:center;transform:translateY(20px) scale(.95);transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .3s ease;opacity:0;min-width:0}
-.modal-overlay.active .modal-box{transform:translateY(0) scale(1);opacity:1}
-.modal-icon{width:64px;height:64px;border-radius:50%;background:var(--tool-accent-soft);color:var(--tool-accent);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;animation:modalIconPop .5s cubic-bezier(.34,1.56,.64,1) both}
-html.dark-mode .modal-icon{background:var(--tool-accent-light)}
-.modal-icon svg{width:32px;height:32px}
-@keyframes modalIconPop{0%{transform:scale(.5);opacity:0}100%{transform:scale(1);opacity:1}}
-.modal-title{font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;letter-spacing:-.3px}
-.modal-message{font-size:15px;color:var(--text-light);line-height:1.6;margin-bottom:24px}
-.modal-close-btn{background:var(--tool-accent);color:var(--tool-accent-contrast);border:none;padding:12px 32px;border-radius:12px;font-weight:700;font-size:15px;font-family:inherit;cursor:pointer;transition:all .2s;box-shadow:0 4px 12px var(--tool-accent-light);width:100%;outline:none}
-.modal-close-btn:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 8px 20px var(--tool-accent-light)}
 
 /* ============ RESPONSIVE ============ */
-@media (max-width:1180px){.search-trigger{width:40px;height:40px;padding:0;justify-content:center;border-radius:50%}.search-trigger .search-trigger-label,.search-trigger .search-text{display:none}}
+@media (max-width:1180px){.search-trigger{width:40px;height:40px;padding:0;justify-content:center;border-radius:50%}.search-trigger .search-trigger-label{display:none}}
 @media (max-width:1024px){.desktop-nav{gap:2px}.desktop-nav a{padding:6px 6px;font-size:13px}.tools-trigger{padding:6px 6px;font-size:13px}}
 @media (max-width:900px){.footer-middle{flex-direction:column;align-items:stretch;gap:28px}.footer-left-column{max-width:100%;flex:0 1 auto}.footer-right-columns{justify-content:flex-start;flex:0 1 auto}}
 @media (max-width:768px){
@@ -432,7 +422,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
   .search-overlay-full{padding:16px 12px 12px}
   .search-box input{font-size:16px}
   .search-result-item .result-tag{display:none}
-  footer{padding:30px 16px 120px}
+  footer{padding:30px 16px 60px}
   .footer-links a{display:block}
   .info-table{min-width:520px}
   .info-table th,.info-table td{padding:12px 14px;font-size:14px}
@@ -459,20 +449,36 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
   .image-grid{grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;padding:10px}
 }
 @media (min-width:769px){.hamburger-btn{display:none}.mobile-sidebar-overlay{display:none !important}.mobile-sidebar{display:none !important}}
-@media (min-width:1800px){header{padding-left:max(60px,env(safe-area-inset-left));padding-right:max(60px,env(safe-area-inset-right))}.content-container{padding-left:max(60px,env(safe-area-inset-left));padding-right:max(60px,env(safe-area-inset-right))}main{padding:50px 0}.tool-hero h1{font-size:44px}.tool-layout{gap:24px}.tool-panel{padding:30px}.feature-grid{gap:24px}.content-section h2{font-size:30px}footer{padding-left:max(60px,env(safe-area-inset-left));padding-right:max(60px,env(safe-area-inset-right))}}
+@media (min-width:1800px){.content-container{padding:0 60px}main{padding:50px 0}.tool-hero h1{font-size:44px}.tool-layout{gap:24px}.tool-panel{padding:30px}.feature-grid{gap:24px}.content-section h2{font-size:30px}}
 @media (max-height:500px) and (orientation:landscape){.mobile-sidebar{padding:14px}.mobile-sidebar-header{margin-bottom:14px;padding-bottom:12px}.search-overlay-full{padding-top:10px}}
 </style>
 </head>
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
-<defs>
+
+<a href="#mainContent" class="skip-link">Skip to main content</a>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true"><defs>
 <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
 <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
 <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
 <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
 <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
-</defs>
-</svg>
+<symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></symbol>
+<symbol id="i-upload-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m16 16-4-4-4 4"/></symbol>
+<symbol id="i-lightbulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+<symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></symbol>
+<symbol id="i-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><polyline points="10 9 9 9 8 9"/></symbol>
+<symbol id="i-file-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><circle cx="10" cy="12" r="2"/><path d="m20 17-1.296-1.296a2.41 2.41 0 0 0-3.408 0L9 22"/></symbol>
+<symbol id="i-file-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+<symbol id="i-refresh-cw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+<symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/><line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/><line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/><line x1="2" x2="6" y1="14" y2="14"/><line x1="10" x2="14" y1="8" y2="8"/><line x1="18" x2="22" y1="16" y2="16"/></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+<symbol id="i-smartphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
+<symbol id="i-alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></symbol>
+</defs></svg>
 
 <div class="page-wrapper" id="pageWrapper">
 <header>
@@ -481,21 +487,19 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <div class="header-right">
 <div class="desktop-nav">
 <div class="tools-menu-container" id="toolsMenuContainer">
-<button type="button" class="tools-trigger" id="toolsTrigger" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu" onclick="toggleToolsMenu()">Tools <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
-<div class="tools-mega-menu" id="megaMenu">
-<a href="/word-counter">Word Counter</a><a href="/sentence-counter">Sentence Counter</a><a href="/paragraph-counter">Paragraph Counter</a><a href="/line-counter">Line Counter</a><a href="/reading-time-estimator">Reading Time Estimator</a><a href="/speaking-time-calculator">Speaking Time Calculator</a><a href="/keyword-counter">Keyword Counter</a><a href="/keyword-density-checker">Keyword Density Checker</a><a href="/duplicate-word-finder">Duplicate Word Finder</a><a href="/text-statistics">Text Statistics</a><a href="/regex-tester">Regex Tester</a><a href="/word-frequency-counter">Word Frequency Counter</a><a href="/character-frequency-counter">Character Frequency Counter</a><a href="/password-strength-checker">Password Strength Checker</a><a href="/duplicate-line-remover">Duplicate Line Remover</a><a href="/whitespace-cleaner">Whitespace Cleaner</a><a href="/remove-extra-spaces">Remove Extra Spaces</a><a href="/remove-empty-lines">Remove Empty Lines</a><a href="/remove-blank-characters">Remove Blank Characters</a><a href="/remove-emojis">Remove Emojis</a><a href="/remove-symbols">Remove Symbols</a><a href="/remove-punctuation">Remove Punctuation</a><a href="/remove-numbers">Remove Numbers</a><a href="/remove-html-tags">Remove HTML Tags</a><a href="/remove-line-breaks">Remove Line Breaks</a><a href="/text-cleaner">Text Cleaner</a><a href="/remove-duplicate-words">Remove Duplicate Words</a><a href="/case-converter">Case Converter</a><a href="/uppercase-converter">Uppercase Converter</a><a href="/lowercase-converter">Lowercase Converter</a><a href="/title-case-converter">Title Case Converter</a><a href="/sentence-case-converter">Sentence Case Converter</a><a href="/capitalize-words">Capitalize Words</a><a href="/toggle-case-converter">Toggle Case Converter</a><a href="/text-repeater">Text Repeater</a><a href="/text-finder-replacer">Text Finder &amp; Replacer</a><a href="/line-break-converter">Line Break Converter</a><a href="/text-indenter">Text Indenter</a><a href="/wrap-text">Wrap Text</a><a href="/unwrap-text">Unwrap Text</a><a href="/join-lines">Join Lines</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/text-sorter">Text Sorter</a><a href="/text-to-handwriting">Text to Handwriting</a><a href="/bold-text-generator">Bold Text Generator</a><a href="/italic-text-generator">Italic Text Generator</a><a href="/strikethrough-generator">Strikethrough Generator</a><a href="/fancy-text-generator">Fancy Text Generator</a><a href="/upside-down-text">Upside Down Text</a><a href="/small-text-generator">Small Text Generator</a><a href="/zalgo-text-generator">Zalgo Text Generator</a><a href="/unicode-text-converter">Unicode Text Converter</a><a href="/email-extractor">Email Extractor</a><a href="/url-extractor">URL Extractor</a><a href="/phone-extractor">Phone Extractor</a><a href="/number-extractor">Number Extractor</a><a href="/date-extractor">Date Extractor</a><a href="/domain-extractor">Domain Extractor</a><a href="/hashtag-extractor">Hashtag Extractor</a><a href="/mention-extractor">Mention Extractor</a><a href="/keyword-extractor">Keyword Extractor</a><a href="/duplicate-line-finder">Duplicate Line Finder</a><a href="/json-formatter">JSON Formatter/Beautifier</a><a href="/json-minifier">JSON Minifier</a><a href="/json-validator">JSON Validator</a><a href="/xml-formatter">XML Formatter</a><a href="/xml-minifier">XML Minifier</a><a href="/html-formatter">HTML Formatter</a><a href="/html-minifier">HTML Minifier</a><a href="/css-formatter">CSS Formatter</a><a href="/css-minifier">CSS Minifier</a><a href="/javascript-formatter">JavaScript Formatter</a><a href="/javascript-minifier">JavaScript Minifier</a><a href="/sql-formatter">SQL Formatter</a><a href="/text-to-binary">Text to Binary</a><a href="/binary-to-text">Binary to Text</a><a href="/text-to-hex">Text to Hex</a><a href="/hex-to-text">Hex to Text</a><a href="/text-to-ascii">Text to ASCII</a><a href="/ascii-to-text">ASCII to Text</a><a href="/morse-code-translator">Morse Code Translator</a><a href="/braille-translator">Braille Translator</a><a href="/nato-alphabet-generator">NATO Alphabet Generator</a><a href="/text-to-csv">Text to CSV</a><a href="/csv-to-text">CSV to Text</a><a href="/csv-to-json">CSV to JSON</a><a href="/json-to-csv">JSON to CSV</a><a href="/markdown-to-html">Markdown to HTML</a><a href="/html-to-markdown">HTML to Markdown</a><a href="/markdown-table-generator">Markdown Table Generator</a><a href="/html-table-generator">HTML Table Generator</a><a href="/roman-numeral-converter">Roman Numeral Converter</a><a href="/number-to-words">Number to Words</a><a href="/words-to-number">Words to Number</a><a href="/timestamp-converter">Timestamp Converter</a><a href="/color-converter">Color Converter</a><a href="/base64-encoder">Base64 Encoder</a><a href="/base64-decoder">Base64 Decoder</a><a href="/url-encoder">URL Encoder</a><a href="/url-decoder">URL Decoder</a><a href="/html-entity-encoder">HTML Entity Encoder</a><a href="/html-entity-decoder">HTML Entity Decoder</a><a href="/regex-generator">Regex Generator</a><a href="/regex-escape-tool">Regex Escape Tool</a><a href="/jwt-decoder">JWT Decoder</a><a href="/uuid-generator">UUID Generator</a><a href="/uuid-validator">UUID Validator</a><a href="/md5-generator">MD5 Generator</a><a href="/sha1-generator">SHA-1 Generator</a><a href="/sha256-generator">SHA-256 Generator</a><a href="/sha512-generator">SHA-512 Generator</a><a href="/hmac-generator">HMAC Generator</a><a href="/cron-expression-generator">Cron Expression Generator</a><a href="/cron-expression-tester">Cron Expression Tester</a><a href="/password-generator">Password Generator</a><a href="/pin-generator">PIN Generator</a><a href="/random-number-generator">Random Number Generator</a><a href="/number-sequence-generator">Number Sequence Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a><a href="/random-word-generator">Random Word Generator</a><a href="/random-text-generator">Random Text Generator</a><a href="/qr-code-generator">QR Code Generator</a><a href="/barcode-generator">Barcode Generator</a><a href="/utm-builder">UTM Builder</a><a href="/whatsapp-link-generator">WhatsApp Link Generator</a><a href="/business-name-generator">Business Name Generator</a><a href="/invoice-number-generator">Invoice Number Generator</a><a href="/image-compressor">Image Compressor</a><a href="/image-resizer">Image Resizer</a><a href="/image-cropper">Image Cropper</a><a href="/image-rotator">Image Rotator</a><a href="/image-flipper">Image Flipper</a><a href="/jpg-to-png">JPG to PNG</a><a href="/png-to-jpg">PNG to JPG</a><a href="/webp-to-jpg">WebP to JPG</a><a href="/jpg-to-webp">JPG to WebP</a><a href="/png-to-webp">PNG to WebP</a><a href="/image-to-base64">Image to Base64</a><a href="/base64-to-image">Base64 to Image</a><a href="/grayscale-image">Grayscale Image</a><a href="/photo-20kb">Photo 20KB</a><a href="/photo-50kb">Photo 50KB</a><a href="/photo-100kb">Photo 100KB</a><a href="/photo-200kb">Photo 200KB</a><a href="/signature-resizer">Signature Resizer</a><a href="/passport-size-photo-maker">Passport Size Photo Maker</a><a href="/jpg-to-pdf">JPG to PDF</a><a href="/png-to-pdf">PNG to PDF</a><a href="/images-to-pdf">Images to PDF</a><a href="/pdf-page-counter">PDF Page Counter</a><a href="/pdf-metadata-viewer">PDF Metadata Viewer</a><a href="/pdf-to-images">PDF to Images</a><a href="/pdf-merge">PDF Merge</a><a href="/pdf-split">PDF Split</a><a href="/pdf-rotate">PDF Rotate</a><a href="/pdf-page-extractor">PDF Page Extractor</a><a href="/pdf-compressor">PDF Compressor</a><a href="/pdf-50kb">PDF to 50KB</a><a href="/pdf-100kb">PDF to 100KB</a><a href="/pdf-200kb">PDF to 200KB</a><a href="/pdf-500kb">PDF to 500KB</a><a href="/pdf-text-extractor">PDF Text Extractor</a><a href="/pdf-lock">PDF Lock</a><a href="/pdf-unlock">PDF Unlock</a><a href="/invoice-generator">Invoice Generator</a><a href="/quotation-generator">Quotation Generator</a><a href="/receipt-generator">Receipt Generator</a><a href="/payslip-generator">Payslip Generator</a><a href="/shipping-label-generator">Shipping Label Generator</a><a href="/resume-builder">Resume Builder</a><a href="/gst-calculator">GST Calculator</a><a href="/discount-calculator">Discount Calculator</a><a href="/profit-margin-calculator">Profit Margin Calculator</a><a href="/salary-calculator">Salary Calculator</a><a href="/emi-calculator">EMI Calculator</a><a href="/loan-calculator">Loan Calculator</a><a href="/sip-calculator">SIP Calculator</a><a href="/income-tax-calculator">Income Tax Calculator</a><a href="/tax-calculator">Tax Calculator</a><a href="/tip-calculator">Tip Calculator</a><a href="/gpa-calculator">GPA Calculator</a><a href="/cgpa-calculator">CGPA Calculator</a><a href="/percentage-calculator">Percentage Calculator</a><a href="/grade-calculator">Grade Calculator</a><a href="/marks-percentage-calculator">Marks Percentage Calculator</a><a href="/attendance-calculator">Attendance Calculator</a><a href="/study-time-calculator">Study Time Calculator</a><a href="/exam-countdown">Exam Countdown</a><a href="/age-calculator">Age Calculator</a><a href="/scientific-calculator">Scientific Calculator</a><a href="/quadratic-equation-calculator">Quadratic Equation Calculator</a><a href="/matrix-calculator">Matrix Calculator</a><a href="/probability-calculator">Probability Calculator</a><a href="/standard-deviation-calculator">Standard Deviation Calculator</a><a href="/mean-median-mode-calculator">Mean Median Mode Calculator</a><a href="/prime-number-checker">Prime Number Checker</a><a href="/prime-number-generator">Prime Number Generator</a><a href="/factorial-calculator">Factorial Calculator</a><a href="/gcd-calculator">GCD Calculator</a><a href="/lcm-calculator">LCM Calculator</a><a href="/binary-calculator">Binary Calculator</a><a href="/decimal-to-binary">Decimal to Binary</a><a href="/binary-to-decimal">Binary to Decimal</a><a href="/decimal-to-hex">Decimal to Hex</a><a href="/hex-to-decimal">Hex to Decimal</a><a href="/decimal-to-octal">Decimal to Octal</a><a href="/average-calculator">Average Calculator</a><a href="/ratio-calculator">Ratio Calculator</a><a href="/fraction-calculator">Fraction Calculator</a><a href="/date-difference-calculator">Date Difference Calculator</a><a href="/days-between-dates">Days Between Dates</a><a href="/add-days-to-date">Add Days to Date</a><a href="/subtract-days-from-date">Subtract Days from Date</a><a href="/business-days-calculator">Business Days Calculator</a><a href="/date-to-unix-timestamp">Date to Unix Timestamp</a><a href="/unix-timestamp-to-date">Unix Timestamp to Date</a><a href="/time-duration-calculator">Time Duration Calculator</a><a href="/countdown-calculator">Countdown Calculator</a><a href="/week-number-calculator">Week Number Calculator</a><a href="/leap-year-checker">Leap Year Checker</a><a href="/world-clock">World Clock</a><a href="/time-zone-converter">Time Zone Converter</a><a href="/length-converter">Length Converter</a><a href="/weight-converter">Weight Converter</a><a href="/temperature-converter">Temperature Converter</a><a href="/area-converter">Area Converter</a><a href="/volume-converter">Volume Converter</a><a href="/speed-converter">Speed Converter</a><a href="/data-storage-converter">Data Storage Converter</a><a href="/energy-converter">Energy Converter</a><a href="/pressure-converter">Pressure Converter</a><a href="/power-converter">Power Converter</a><a href="/frequency-converter">Frequency Converter</a><a href="/angle-converter">Angle Converter</a><a href="/pace-converter">Pace Converter</a><a href="/fuel-economy-converter">Fuel Economy Converter</a>
-</div>
+<button type="button" class="tools-trigger" id="toolsTrigger" aria-expanded="false" aria-controls="megaMenu" data-action="toggle-tools">Tools <svg class="icon" aria-hidden="true" width="14" height="14"><use href="#i-chevron-down"/></svg></button>
+<div class="tools-mega-menu" id="megaMenu"></div>
 </div>
 <a href="/privacy-policy">Privacy</a><a href="/blog">Blog</a><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
 </div>
-<button type="button" class="theme-btn" onclick="toggleTheme()" aria-label="Toggle dark mode"><svg class="icon icon-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg></button>
-<button type="button" class="search-trigger" onclick="openFullSearch()" aria-label="Search tools"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
-<button type="button" class="hamburger-btn" id="hamburgerBtn" onclick="openMobileSidebar()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileSidebar"><span class="menu-icon" aria-hidden="true"><span></span><span></span></span></button>
+<button type="button" class="theme-btn" data-action="toggle-theme" aria-label="Toggle dark mode"><svg class="icon icon-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg></button>
+<button type="button" class="search-trigger" data-action="open-search" aria-label="Search tools"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
+<button type="button" class="hamburger-btn" id="hamburgerBtn" data-action="open-sidebar" aria-label="Open menu" aria-expanded="false" aria-controls="mobileSidebar"><span class="menu-icon" aria-hidden="true"><span></span><span></span></span></button>
 </div>
 </div>
 </header>
 
-<main>
+<main id="mainContent" tabindex="-1">
 <div class="content-container">
 <div class="tool-hero">
 <h1>PNG to PDF Converter</h1>
@@ -503,10 +507,10 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 </div>
 
 <div class="tool-layout">
-<!-- ===== LEFT PANEL: INPUT ===== -->
+<!-- LEFT PANEL: INPUT -->
 <div class="tool-panel">
 <div class="tool-panel-header">
-<div class="tool-panel-icon"><i data-lucide="image" aria-hidden="true"></i></div>
+<div class="tool-panel-icon"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-image"/></svg></div>
 <div class="tool-panel-title">
 <h2>Upload PNG Images</h2>
 <span class="tpt-sub">Select or drop PNGs to convert</span>
@@ -514,14 +518,14 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 </div>
 
 <div class="form-section">
-<div class="upload-zone" id="uploadZone">
+<label class="upload-zone" id="uploadZone" for="fileInput">
 <input type="file" id="fileInput" accept="image/png,image/jpeg,image/webp,image/gif,image/bmp" multiple aria-label="Choose PNG images to convert">
-<div class="upload-zone-icon"><i data-lucide="upload-cloud" aria-hidden="true"></i></div>
+<div class="upload-zone-icon"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-upload-cloud"/></svg></div>
 <h3>Drop PNG images here or click to browse</h3>
 <p>Supports PNG (recommended), JPG, WebP, GIF, and BMP. <span class="browse-link">Choose files</span></p>
-</div>
+</label>
 <div class="info-tip">
-<i data-lucide="lightbulb" aria-hidden="true"></i>
+<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-lightbulb"/></svg>
 <div><strong>Tip:</strong> PNG transparency is automatically flattened onto a white background so the PDF looks correct on screen and in print.</div>
 </div>
 </div>
@@ -530,9 +534,9 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <div class="form-label"><span>Images</span><span class="label-hint" id="imageCount">0 images</span></div>
 <div class="image-list-wrap">
 <div class="image-list-toolbar">
-<div class="ilt-left"><i data-lucide="layers" aria-hidden="true"></i><span>Drag to reorder</span></div>
+<div class="ilt-left"><svg class="icon" width="13" height="13" aria-hidden="true"><use href="#i-layers"/></svg><span>Drag to reorder</span></div>
 <div class="ilt-right">
-<button type="button" class="icon-btn" id="clearImagesBtn" title="Remove all images" aria-label="Clear all images"><i data-lucide="trash-2" aria-hidden="true"></i></button>
+<button type="button" class="icon-btn" id="clearImagesBtn" title="Remove all images" aria-label="Clear all images"><svg class="icon" width="14" height="14" aria-hidden="true"><use href="#i-trash"/></svg></button>
 </div>
 </div>
 <div class="image-grid" id="imageGrid"></div>
@@ -544,7 +548,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <div class="options-grid">
 <div class="option-group">
 <label for="pageSize">Page Size</label>
-<select id="pageSize" class="option-select" onchange="updatePreview()">
+<select id="pageSize" class="option-select">
 <option value="a4">A4 (210 × 297 mm)</option>
 <option value="letter">Letter (216 × 279 mm)</option>
 <option value="legal">Legal (216 × 356 mm)</option>
@@ -554,14 +558,14 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 </div>
 <div class="option-group">
 <label for="orientation">Orientation</label>
-<select id="orientation" class="option-select" onchange="updatePreview()">
+<select id="orientation" class="option-select">
 <option value="portrait">Portrait</option>
 <option value="landscape">Landscape</option>
 </select>
 </div>
 <div class="option-group">
 <label for="margin">Margin</label>
-<select id="margin" class="option-select" onchange="updatePreview()">
+<select id="margin" class="option-select">
 <option value="0">None</option>
 <option value="10" selected>10 mm</option>
 <option value="20">20 mm</option>
@@ -569,7 +573,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 </div>
 <div class="option-group">
 <label for="fitMode">Image Fit</label>
-<select id="fitMode" class="option-select" onchange="updatePreview()">
+<select id="fitMode" class="option-select">
 <option value="contain">Contain (keep aspect ratio)</option>
 <option value="cover">Cover (fill page)</option>
 <option value="stretch">Stretch (ignore aspect ratio)</option>
@@ -579,14 +583,14 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 </div>
 
 <button type="button" class="btn btn-primary" id="convertBtn" disabled>
-<i data-lucide="file-down" width="18" height="18" aria-hidden="true"></i> Convert to PDF
+<svg class="icon" aria-hidden="true"><use href="#i-file-down"/></svg> Convert to PDF
 </button>
 </div>
 
-<!-- ===== RIGHT PANEL: OUTPUT ===== -->
+<!-- RIGHT PANEL: OUTPUT -->
 <div class="tool-panel">
 <div class="tool-panel-header">
-<div class="tool-panel-icon"><i data-lucide="file-text" aria-hidden="true"></i></div>
+<div class="tool-panel-icon"><svg class="icon" width="18" height="18" aria-hidden="true"><use href="#i-file-text"/></svg></div>
 <div class="tool-panel-title">
 <h2>PDF Preview</h2>
 <span class="tpt-sub" id="outputSubtitle">Ready to convert</span>
@@ -597,7 +601,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <div class="warning-banner" id="warningBanner"></div>
 
 <div class="result-placeholder" id="resultPlaceholder">
-<div class="placeholder-icon"><i data-lucide="file-image" aria-hidden="true"></i></div>
+<div class="placeholder-icon"><svg class="icon" width="26" height="26" aria-hidden="true"><use href="#i-file-image"/></svg></div>
 <h3>Your PDF preview will appear here</h3>
 <p>Upload some PNG images and click <strong>Convert to PDF</strong>.</p>
 </div>
@@ -611,10 +615,10 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 
 <div class="btn-row">
 <button type="button" class="btn btn-outline" id="downloadPdfBtn">
-<i data-lucide="download" width="16" height="16" aria-hidden="true"></i> Download PDF
+<svg class="icon" aria-hidden="true"><use href="#i-download"/></svg> Download PDF
 </button>
 <button type="button" class="btn btn-outline" id="newConversionBtn">
-<i data-lucide="refresh-cw" width="16" height="16" aria-hidden="true"></i> New Conversion
+<svg class="icon" aria-hidden="true"><use href="#i-refresh-cw"/></svg> New Conversion
 </button>
 </div>
 </div>
@@ -642,12 +646,12 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <div class="content-section">
 <h2>Why use this PNG to PDF converter?</h2>
 <div class="feature-grid">
-<div class="feature-card"><h4><i data-lucide="shield-check" aria-hidden="true"></i> 100% private</h4><p>Everything runs in your browser. Your PNG files never leave your device — no upload, no server, no logs, no tracking.</p></div>
-<div class="feature-card"><h4><i data-lucide="layers" aria-hidden="true"></i> Handles transparency</h4><p>PNG images with transparent backgrounds are flattened onto white so they look correct in the PDF instead of showing black.</p></div>
-<div class="feature-card"><h4><i data-lucide="sliders" aria-hidden="true"></i> Full page control</h4><p>Choose page size, orientation, margin, and image fit mode. Your PDF looks the way you need it to.</p></div>
-<div class="feature-card"><h4><i data-lucide="zap" aria-hidden="true"></i> Instant conversion</h4><p>No queue, no waiting. Images are processed immediately using the Canvas API and jsPDF.</p></div>
-<div class="feature-card"><h4><i data-lucide="smartphone" aria-hidden="true"></i> Works on mobile</h4><p>Fully responsive. Convert PNGs to PDF from a phone, tablet, or desktop — no app install required.</p></div>
-<div class="feature-card"><h4><i data-lucide="download" aria-hidden="true"></i> No watermark</h4><p>Your PDF is clean — no watermarks, no branding, no limitations. Use it for personal or commercial projects.</p></div>
+<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-shield-check"/></svg> 100% private</h4><p>Everything runs in your browser. Your PNG files never leave your device — no upload, no server, no logs, no tracking.</p></div>
+<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-layers"/></svg> Handles transparency</h4><p>PNG images with transparent backgrounds are flattened onto white so they look correct in the PDF instead of showing black.</p></div>
+<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-sliders"/></svg> Full page control</h4><p>Choose page size, orientation, margin, and image fit mode. Your PDF looks the way you need it to.</p></div>
+<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-zap"/></svg> Instant conversion</h4><p>No queue, no waiting. Images are processed immediately using the Canvas API and jsPDF.</p></div>
+<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-smartphone"/></svg> Works on mobile</h4><p>Fully responsive. Convert PNGs to PDF from a phone, tablet, or desktop — no app install required.</p></div>
+<div class="feature-card"><h4><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-download"/></svg> No watermark</h4><p>Your PDF is clean — no watermarks, no branding, no limitations. Use it for personal or commercial projects.</p></div>
 </div>
 </div>
 
@@ -665,13 +669,13 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 
 <div class="content-section">
 <h2>Frequently asked questions</h2>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Is this PNG to PDF converter free?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes, completely free. No signup, no watermark, no hidden charges. Convert as many PNG images as you want, for personal or commercial use.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Are my PNG images uploaded to a server?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">No. Everything runs in your browser using JavaScript. Your PNG files never leave your device — there is no server processing, no logging, and no data storage. Close the tab and it's gone.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">How does the tool handle PNG transparency?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">PNG images with transparent backgrounds are flattened onto a white background before being embedded in the PDF. This means transparent areas appear white instead of showing up as black or corrupted in the final file.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I convert multiple PNG images into one PDF?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. Select multiple PNG files and they will be combined into a single PDF, one image per page in the order you arrange them. Drag the image cards to change the order.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Can I reorder the images before converting?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. Drag and drop the image cards to change their order. The first card becomes page 1 in the PDF, the second becomes page 2, and so on.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">Does it work offline?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. Once the page loads, the converter works without an internet connection. All processing happens locally in your browser.</div></div>
-<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">What does "Contain" fit mode do?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">"Contain" scales the image to fit entirely within the page while keeping its aspect ratio. The whole image is visible, with possible empty space on the sides or top and bottom.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">Is this PNG to PDF converter free?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes, completely free. No signup, no watermark, no hidden charges. Convert as many PNG images as you want, for personal or commercial use.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">Are my PNG images uploaded to a server?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">No. Everything runs in your browser using JavaScript. Your PNG files never leave your device — there is no server processing, no logging, and no data storage. Close the tab and it's gone.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">How does the tool handle PNG transparency?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">PNG images with transparent backgrounds are flattened onto a white background before being embedded in the PDF. This means transparent areas appear white instead of showing up as black or corrupted in the final file.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">Can I convert multiple PNG images into one PDF?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. Select multiple PNG files and they will be combined into a single PDF, one image per page in the order you arrange them. Drag the image cards to change the order.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">Can I reorder the images before converting?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. Drag and drop the image cards to change their order. The first card becomes page 1 in the PDF, the second becomes page 2, and so on.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">Does it work offline?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">Yes. Once the page loads, the converter works without an internet connection. All processing happens locally in your browser.</div></div>
+<div class="faq-item"><button type="button" class="faq-question" aria-expanded="false" data-action="toggle-faq">What does "Contain" fit mode do?<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button><div class="faq-answer">"Contain" scales the image to fit entirely within the page while keeping its aspect ratio. The whole image is visible, with possible empty space on the sides or top and bottom.</div></div>
 </div>
 </div>
 </main>
@@ -701,24 +705,22 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 </footer>
 </div>
 
-<div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" onclick="closeMobileSidebar()"></div>
+<div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" data-action="close-sidebar"></div>
 <div class="mobile-sidebar" id="mobileSidebar" role="dialog" aria-modal="true" aria-label="Mobile navigation menu" aria-hidden="true">
 <div class="mobile-sidebar-header">
 <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="20" height="20" loading="lazy"> Textify.tools</a>
-<button type="button" class="mobile-sidebar-close" id="mobileSidebarClose" onclick="closeMobileSidebar()" aria-label="Close menu"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
+<button type="button" class="mobile-sidebar-close" id="mobileSidebarClose" data-action="close-sidebar" aria-label="Close menu"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
 </div>
 <nav class="mobile-sidebar-nav" aria-label="Mobile navigation">
-<button type="button" class="mobile-tools-toggle" id="mobileToolsToggle" onclick="toggleMobileTools()" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
-<div class="mobile-tools-menu" id="mobileToolsMenu">
-<a href="/word-counter">Word Counter</a><a href="/sentence-counter">Sentence Counter</a><a href="/paragraph-counter">Paragraph Counter</a><a href="/line-counter">Line Counter</a><a href="/reading-time-estimator">Reading Time Estimator</a><a href="/speaking-time-calculator">Speaking Time Calculator</a><a href="/keyword-counter">Keyword Counter</a><a href="/keyword-density-checker">Keyword Density Checker</a><a href="/duplicate-word-finder">Duplicate Word Finder</a><a href="/text-statistics">Text Statistics</a><a href="/regex-tester">Regex Tester</a><a href="/word-frequency-counter">Word Frequency Counter</a><a href="/character-frequency-counter">Character Frequency Counter</a><a href="/password-strength-checker">Password Strength Checker</a><a href="/duplicate-line-remover">Duplicate Line Remover</a><a href="/whitespace-cleaner">Whitespace Cleaner</a><a href="/remove-extra-spaces">Remove Extra Spaces</a><a href="/remove-empty-lines">Remove Empty Lines</a><a href="/remove-blank-characters">Remove Blank Characters</a><a href="/remove-emojis">Remove Emojis</a><a href="/remove-symbols">Remove Symbols</a><a href="/remove-punctuation">Remove Punctuation</a><a href="/remove-numbers">Remove Numbers</a><a href="/remove-html-tags">Remove HTML Tags</a><a href="/remove-line-breaks">Remove Line Breaks</a><a href="/text-cleaner">Text Cleaner</a><a href="/remove-duplicate-words">Remove Duplicate Words</a><a href="/case-converter">Case Converter</a><a href="/uppercase-converter">Uppercase Converter</a><a href="/lowercase-converter">Lowercase Converter</a><a href="/title-case-converter">Title Case Converter</a><a href="/sentence-case-converter">Sentence Case Converter</a><a href="/capitalize-words">Capitalize Words</a><a href="/toggle-case-converter">Toggle Case Converter</a><a href="/text-repeater">Text Repeater</a><a href="/text-finder-replacer">Text Finder &amp; Replacer</a><a href="/line-break-converter">Line Break Converter</a><a href="/text-indenter">Text Indenter</a><a href="/wrap-text">Wrap Text</a><a href="/unwrap-text">Unwrap Text</a><a href="/join-lines">Join Lines</a><a href="/text-diff-checker">Text Diff Checker</a><a href="/text-sorter">Text Sorter</a><a href="/text-to-handwriting">Text to Handwriting</a><a href="/bold-text-generator">Bold Text Generator</a><a href="/italic-text-generator">Italic Text Generator</a><a href="/strikethrough-generator">Strikethrough Generator</a><a href="/fancy-text-generator">Fancy Text Generator</a><a href="/upside-down-text">Upside Down Text</a><a href="/small-text-generator">Small Text Generator</a><a href="/zalgo-text-generator">Zalgo Text Generator</a><a href="/unicode-text-converter">Unicode Text Converter</a><a href="/email-extractor">Email Extractor</a><a href="/url-extractor">URL Extractor</a><a href="/phone-extractor">Phone Extractor</a><a href="/number-extractor">Number Extractor</a><a href="/date-extractor">Date Extractor</a><a href="/domain-extractor">Domain Extractor</a><a href="/hashtag-extractor">Hashtag Extractor</a><a href="/mention-extractor">Mention Extractor</a><a href="/keyword-extractor">Keyword Extractor</a><a href="/duplicate-line-finder">Duplicate Line Finder</a><a href="/json-formatter">JSON Formatter/Beautifier</a><a href="/json-minifier">JSON Minifier</a><a href="/json-validator">JSON Validator</a><a href="/xml-formatter">XML Formatter</a><a href="/xml-minifier">XML Minifier</a><a href="/html-formatter">HTML Formatter</a><a href="/html-minifier">HTML Minifier</a><a href="/css-formatter">CSS Formatter</a><a href="/css-minifier">CSS Minifier</a><a href="/javascript-formatter">JavaScript Formatter</a><a href="/javascript-minifier">JavaScript Minifier</a><a href="/sql-formatter">SQL Formatter</a><a href="/text-to-binary">Text to Binary</a><a href="/binary-to-text">Binary to Text</a><a href="/text-to-hex">Text to Hex</a><a href="/hex-to-text">Hex to Text</a><a href="/text-to-ascii">Text to ASCII</a><a href="/ascii-to-text">ASCII to Text</a><a href="/morse-code-translator">Morse Code Translator</a><a href="/braille-translator">Braille Translator</a><a href="/nato-alphabet-generator">NATO Alphabet Generator</a><a href="/text-to-csv">Text to CSV</a><a href="/csv-to-text">CSV to Text</a><a href="/csv-to-json">CSV to JSON</a><a href="/json-to-csv">JSON to CSV</a><a href="/markdown-to-html">Markdown to HTML</a><a href="/html-to-markdown">HTML to Markdown</a><a href="/markdown-table-generator">Markdown Table Generator</a><a href="/html-table-generator">HTML Table Generator</a><a href="/roman-numeral-converter">Roman Numeral Converter</a><a href="/number-to-words">Number to Words</a><a href="/words-to-number">Words to Number</a><a href="/timestamp-converter">Timestamp Converter</a><a href="/color-converter">Color Converter</a><a href="/base64-encoder">Base64 Encoder</a><a href="/base64-decoder">Base64 Decoder</a><a href="/url-encoder">URL Encoder</a><a href="/url-decoder">URL Decoder</a><a href="/html-entity-encoder">HTML Entity Encoder</a><a href="/html-entity-decoder">HTML Entity Decoder</a><a href="/regex-generator">Regex Generator</a><a href="/regex-escape-tool">Regex Escape Tool</a><a href="/jwt-decoder">JWT Decoder</a><a href="/uuid-generator">UUID Generator</a><a href="/uuid-validator">UUID Validator</a><a href="/md5-generator">MD5 Generator</a><a href="/sha1-generator">SHA-1 Generator</a><a href="/sha256-generator">SHA-256 Generator</a><a href="/sha512-generator">SHA-512 Generator</a><a href="/hmac-generator">HMAC Generator</a><a href="/cron-expression-generator">Cron Expression Generator</a><a href="/cron-expression-tester">Cron Expression Tester</a><a href="/password-generator">Password Generator</a><a href="/pin-generator">PIN Generator</a><a href="/random-number-generator">Random Number Generator</a><a href="/number-sequence-generator">Number Sequence Generator</a><a href="/lorem-ipsum-generator">Lorem Ipsum Generator</a><a href="/random-word-generator">Random Word Generator</a><a href="/random-text-generator">Random Text Generator</a><a href="/qr-code-generator">QR Code Generator</a><a href="/barcode-generator">Barcode Generator</a><a href="/utm-builder">UTM Builder</a><a href="/whatsapp-link-generator">WhatsApp Link Generator</a><a href="/business-name-generator">Business Name Generator</a><a href="/invoice-number-generator">Invoice Number Generator</a><a href="/image-compressor">Image Compressor</a><a href="/image-resizer">Image Resizer</a><a href="/image-cropper">Image Cropper</a><a href="/image-rotator">Image Rotator</a><a href="/image-flipper">Image Flipper</a><a href="/jpg-to-png">JPG to PNG</a><a href="/png-to-jpg">PNG to JPG</a><a href="/webp-to-jpg">WebP to JPG</a><a href="/jpg-to-webp">JPG to WebP</a><a href="/png-to-webp">PNG to WebP</a><a href="/image-to-base64">Image to Base64</a><a href="/base64-to-image">Base64 to Image</a><a href="/grayscale-image">Grayscale Image</a><a href="/photo-20kb">Photo 20KB</a><a href="/photo-50kb">Photo 50KB</a><a href="/photo-100kb">Photo 100KB</a><a href="/photo-200kb">Photo 200KB</a><a href="/signature-resizer">Signature Resizer</a><a href="/passport-size-photo-maker">Passport Size Photo Maker</a><a href="/jpg-to-pdf">JPG to PDF</a><a href="/png-to-pdf">PNG to PDF</a><a href="/images-to-pdf">Images to PDF</a><a href="/pdf-page-counter">PDF Page Counter</a><a href="/pdf-metadata-viewer">PDF Metadata Viewer</a><a href="/pdf-to-images">PDF to Images</a><a href="/pdf-merge">PDF Merge</a><a href="/pdf-split">PDF Split</a><a href="/pdf-rotate">PDF Rotate</a><a href="/pdf-page-extractor">PDF Page Extractor</a><a href="/pdf-compressor">PDF Compressor</a><a href="/pdf-50kb">PDF to 50KB</a><a href="/pdf-100kb">PDF to 100KB</a><a href="/pdf-200kb">PDF to 200KB</a><a href="/pdf-500kb">PDF to 500KB</a><a href="/pdf-text-extractor">PDF Text Extractor</a><a href="/pdf-lock">PDF Lock</a><a href="/pdf-unlock">PDF Unlock</a><a href="/invoice-generator">Invoice Generator</a><a href="/quotation-generator">Quotation Generator</a><a href="/receipt-generator">Receipt Generator</a><a href="/payslip-generator">Payslip Generator</a><a href="/shipping-label-generator">Shipping Label Generator</a><a href="/resume-builder">Resume Builder</a><a href="/gst-calculator">GST Calculator</a><a href="/discount-calculator">Discount Calculator</a><a href="/profit-margin-calculator">Profit Margin Calculator</a><a href="/salary-calculator">Salary Calculator</a><a href="/emi-calculator">EMI Calculator</a><a href="/loan-calculator">Loan Calculator</a><a href="/sip-calculator">SIP Calculator</a><a href="/income-tax-calculator">Income Tax Calculator</a><a href="/tax-calculator">Tax Calculator</a><a href="/tip-calculator">Tip Calculator</a><a href="/gpa-calculator">GPA Calculator</a><a href="/cgpa-calculator">CGPA Calculator</a><a href="/percentage-calculator">Percentage Calculator</a><a href="/grade-calculator">Grade Calculator</a><a href="/marks-percentage-calculator">Marks Percentage Calculator</a><a href="/attendance-calculator">Attendance Calculator</a><a href="/study-time-calculator">Study Time Calculator</a><a href="/exam-countdown">Exam Countdown</a><a href="/age-calculator">Age Calculator</a><a href="/scientific-calculator">Scientific Calculator</a><a href="/quadratic-equation-calculator">Quadratic Equation Calculator</a><a href="/matrix-calculator">Matrix Calculator</a><a href="/probability-calculator">Probability Calculator</a><a href="/standard-deviation-calculator">Standard Deviation Calculator</a><a href="/mean-median-mode-calculator">Mean Median Mode Calculator</a><a href="/prime-number-checker">Prime Number Checker</a><a href="/prime-number-generator">Prime Number Generator</a><a href="/factorial-calculator">Factorial Calculator</a><a href="/gcd-calculator">GCD Calculator</a><a href="/lcm-calculator">LCM Calculator</a><a href="/binary-calculator">Binary Calculator</a><a href="/decimal-to-binary">Decimal to Binary</a><a href="/binary-to-decimal">Binary to Decimal</a><a href="/decimal-to-hex">Decimal to Hex</a><a href="/hex-to-decimal">Hex to Decimal</a><a href="/decimal-to-octal">Decimal to Octal</a><a href="/average-calculator">Average Calculator</a><a href="/ratio-calculator">Ratio Calculator</a><a href="/fraction-calculator">Fraction Calculator</a><a href="/date-difference-calculator">Date Difference Calculator</a><a href="/days-between-dates">Days Between Dates</a><a href="/add-days-to-date">Add Days to Date</a><a href="/subtract-days-from-date">Subtract Days from Date</a><a href="/business-days-calculator">Business Days Calculator</a><a href="/date-to-unix-timestamp">Date to Unix Timestamp</a><a href="/unix-timestamp-to-date">Unix Timestamp to Date</a><a href="/time-duration-calculator">Time Duration Calculator</a><a href="/countdown-calculator">Countdown Calculator</a><a href="/week-number-calculator">Week Number Calculator</a><a href="/leap-year-checker">Leap Year Checker</a><a href="/world-clock">World Clock</a><a href="/time-zone-converter">Time Zone Converter</a><a href="/length-converter">Length Converter</a><a href="/weight-converter">Weight Converter</a><a href="/temperature-converter">Temperature Converter</a><a href="/area-converter">Area Converter</a><a href="/volume-converter">Volume Converter</a><a href="/speed-converter">Speed Converter</a><a href="/data-storage-converter">Data Storage Converter</a><a href="/energy-converter">Energy Converter</a><a href="/pressure-converter">Pressure Converter</a><a href="/power-converter">Power Converter</a><a href="/frequency-converter">Frequency Converter</a><a href="/angle-converter">Angle Converter</a><a href="/pace-converter">Pace Converter</a><a href="/fuel-economy-converter">Fuel Economy Converter</a>
-</div>
+<button type="button" class="mobile-tools-toggle" id="mobileToolsToggle" data-action="toggle-mobile-tools" aria-expanded="false" aria-controls="mobileToolsMenu">Tools <svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-chevron-down"/></svg></button>
+<div class="mobile-tools-menu" id="mobileToolsMenu"></div>
 <a href="/privacy-policy">Privacy</a>
 <a href="/blog">Blog</a>
 <a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
 </nav>
 <div class="mobile-sidebar-actions">
-<button type="button" onclick="openSearchFromSidebar()"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg> Search</button>
-<button type="button" onclick="toggleTheme()"><svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"/></svg> Theme</button>
+<button type="button" data-action="search-from-sidebar"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg> Search</button>
+<button type="button" data-action="toggle-theme"><svg class="icon icon-sun" width="16" height="16" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" width="16" height="16" aria-hidden="true"><use href="#i-moon"/></svg> Theme</button>
 </div>
 </div>
 
@@ -727,615 +729,652 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <div class="search-box" id="searchBoxAnimated">
 <svg class="icon search-icon-leading" width="20" height="20" aria-hidden="true"><use href="#i-search"/></svg>
 <label for="fullSearchInput" class="sr-only">Search all tools</label>
-<input type="text" id="fullSearchInput" placeholder="Search tools…" oninput="filterFullSearch()" onkeydown="handleSearchKey(event)" autocomplete="off" aria-label="Search all tools" role="combobox" aria-expanded="false" aria-controls="fullSearchResultsList">
-<button type="button" class="search-clear-btn" id="searchClearBtn" onclick="clearSearchInput()" aria-label="Clear search"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg></button>
-<button type="button" class="search-close-btn" onclick="closeFullSearch()" aria-label="Close search"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
+<input type="text" id="fullSearchInput" placeholder="Search tools…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="fullSearchResultsList" aria-activedescendant="">
+<button type="button" class="search-clear-btn" id="searchClearBtn" data-action="clear-search" aria-label="Clear search"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg></button>
+<button type="button" class="search-close-btn" data-action="close-search" aria-label="Close search"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
 </div>
 <div class="search-results-list" id="fullSearchResultsList" role="listbox" aria-label="Tool suggestions"></div>
 <div class="search-no-result" id="fullNoResult" role="status" aria-live="polite">No tools found for "<span id="fullSearchQuery"></span>"</div>
 </div>
 </div>
 
-<div class="modal-overlay" id="actionModal" role="dialog" aria-modal="true" aria-label="Action confirmation">
-<div class="modal-box">
-<div class="modal-icon" id="modalIcon"><i data-lucide="check-circle" id="modalIconCheck" aria-hidden="true"></i></div>
-<h3 class="modal-title" id="modalTitle">Done!</h3>
-<p class="modal-message" id="modalMessage">Done.</p>
-<button type="button" class="modal-close-btn" onclick="closeModal()">Got it</button>
-</div>
-</div>
-
 <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
 <script>
-// ============ Categories ============
-const categories = [
-    { key: 'all', label: 'All Tools' }, { key: 'text', label: 'Text Tools' },
-    { key: 'developer', label: 'Developer' }, { key: 'generator', label: 'Generators' },
-    { key: 'image', label: 'Image' }, { key: 'pdf', label: 'PDF' },
-    { key: 'business', label: 'Business' }, { key: 'calculator', label: 'Calculators & Converters' },
-    { key: 'finance', label: 'Finance' }
-];
-const categoryLabelMap = {};
-categories.forEach(function(c) { categoryLabelMap[c.key] = c.label; });
+const categoryLabelMap = { all:'All Tools', text:'Text Tools', developer:'Developer', generator:'Generators', image:'Image', pdf:'PDF', business:'Business', calculator:'Calculators & Converters', finance:'Finance' };
 
-// ============ Tools ============
 const tools = [
-    { name: 'Word Counter', desc: 'Count words, characters, sentences and paragraphs instantly.', link: '/word-counter', keywords: 'word count', category: 'text' },
-    { name: 'Sentence Counter', desc: 'Count the number of sentences in any text.', link: '/sentence-counter', keywords: 'sentence count', category: 'text' },
-    { name: 'Paragraph Counter', desc: 'Quickly count paragraphs in your writing.', link: '/paragraph-counter', keywords: 'paragraph count', category: 'text' },
-    { name: 'Line Counter', desc: 'Count lines in text.', link: '/line-counter', keywords: 'line count', category: 'text' },
-    { name: 'Reading Time Estimator', desc: 'Estimate how long it takes to read your text.', link: '/reading-time-estimator', keywords: 'reading time', category: 'text' },
-    { name: 'Speaking Time Calculator', desc: 'Estimate speaking time.', link: '/speaking-time-calculator', keywords: 'speaking time', category: 'text' },
-    { name: 'Keyword Counter', desc: 'Count keyword occurrences.', link: '/keyword-counter', keywords: 'keyword frequency', category: 'text' },
-    { name: 'Keyword Density Checker', desc: 'Analyze keyword density.', link: '/keyword-density-checker', keywords: 'keyword density', category: 'text' },
-    { name: 'Duplicate Word Finder', desc: 'Find duplicate words.', link: '/duplicate-word-finder', keywords: 'duplicate word', category: 'text' },
-    { name: 'Text Statistics', desc: 'Full summary of your text.', link: '/text-statistics', keywords: 'text stats', category: 'text' },
-    { name: 'Regex Tester', desc: 'Test regular expressions.', link: '/regex-tester', keywords: 'regex test', category: 'text' },
-    { name: 'Word Frequency Counter', desc: 'Count word frequency.', link: '/word-frequency-counter', keywords: 'word frequency', category: 'text' },
-    { name: 'Character Frequency Counter', desc: 'Count character frequency.', link: '/character-frequency-counter', keywords: 'character frequency', category: 'text' },
-    { name: 'Password Strength Checker', desc: 'Check password strength.', link: '/password-strength-checker', keywords: 'password strength', category: 'text' },
-    { name: 'Duplicate Line Remover', desc: 'Remove duplicate lines.', link: '/duplicate-line-remover', keywords: 'duplicate lines', category: 'text' },
-    { name: 'Whitespace Cleaner', desc: 'Remove extra spaces and tabs.', link: '/whitespace-cleaner', keywords: 'whitespace clean', category: 'text' },
-    { name: 'Remove Extra Spaces', desc: 'Clean up unwanted spaces.', link: '/remove-extra-spaces', keywords: 'remove spaces', category: 'text' },
-    { name: 'Remove Empty Lines', desc: 'Delete blank lines.', link: '/remove-empty-lines', keywords: 'empty lines', category: 'text' },
-    { name: 'Remove Blank Characters', desc: 'Strip invisible characters.', link: '/remove-blank-characters', keywords: 'blank chars', category: 'text' },
-    { name: 'Remove Emojis', desc: 'Remove all emojis.', link: '/remove-emojis', keywords: 'remove emoji', category: 'text' },
-    { name: 'Remove Symbols', desc: 'Delete symbols.', link: '/remove-symbols', keywords: 'remove symbols', category: 'text' },
-    { name: 'Remove Punctuation', desc: 'Strip punctuation.', link: '/remove-punctuation', keywords: 'remove punctuation', category: 'text' },
-    { name: 'Remove Numbers', desc: 'Delete numeric digits.', link: '/remove-numbers', keywords: 'remove numbers', category: 'text' },
-    { name: 'Remove HTML Tags', desc: 'Strip HTML/XML tags.', link: '/remove-html-tags', keywords: 'remove html', category: 'text' },
-    { name: 'Remove Line Breaks', desc: 'Remove line breaks.', link: '/remove-line-breaks', keywords: 'remove line breaks', category: 'text' },
-    { name: 'Text Cleaner', desc: 'All-in-one text cleaning.', link: '/text-cleaner', keywords: 'text cleaner', category: 'text' },
-    { name: 'Remove Duplicate Words', desc: 'Remove duplicate words.', link: '/remove-duplicate-words', keywords: 'remove duplicate words', category: 'text' },
-    { name: 'Case Converter', desc: 'Convert case styles.', link: '/case-converter', keywords: 'case converter', category: 'text' },
-    { name: 'Uppercase Converter', desc: 'Uppercase text.', link: '/uppercase-converter', keywords: 'uppercase', category: 'text' },
-    { name: 'Lowercase Converter', desc: 'Lowercase text.', link: '/lowercase-converter', keywords: 'lowercase', category: 'text' },
-    { name: 'Title Case Converter', desc: 'Proper title case.', link: '/title-case-converter', keywords: 'title case', category: 'text' },
-    { name: 'Sentence Case Converter', desc: 'Sentence case.', link: '/sentence-case-converter', keywords: 'sentence case', category: 'text' },
-    { name: 'Capitalize Words', desc: 'Capitalize words.', link: '/capitalize-words', keywords: 'capitalize', category: 'text' },
-    { name: 'Toggle Case Converter', desc: 'Toggle case.', link: '/toggle-case-converter', keywords: 'toggle case', category: 'text' },
-    { name: 'Text Repeater', desc: 'Repeat text up to 100,000 times.', link: '/text-repeater', keywords: 'repeat text', category: 'text' },
-    { name: 'Text Finder & Replacer', desc: 'Find and replace text.', link: '/text-finder-replacer', keywords: 'find replace', category: 'text' },
-    { name: 'Line Break Converter', desc: 'Convert line breaks.', link: '/line-break-converter', keywords: 'line break', category: 'text' },
-    { name: 'Text Indenter', desc: 'Indent text lines.', link: '/text-indenter', keywords: 'indent text', category: 'text' },
-    { name: 'Wrap Text', desc: 'Wrap long lines.', link: '/wrap-text', keywords: 'wrap text', category: 'text' },
-    { name: 'Unwrap Text', desc: 'Unwrap text.', link: '/unwrap-text', keywords: 'unwrap text', category: 'text' },
-    { name: 'Join Lines', desc: 'Join broken lines.', link: '/join-lines', keywords: 'join lines', category: 'text' },
-    { name: 'Text Diff Checker', desc: 'Compare two texts.', link: '/text-diff-checker', keywords: 'text diff', category: 'text' },
-    { name: 'Text Sorter', desc: 'Sort lines.', link: '/text-sorter', keywords: 'text sorter', category: 'text' },
-    { name: 'Text to Handwriting', desc: 'Convert text to handwriting.', link: '/text-to-handwriting', keywords: 'text to handwriting', category: 'text' },
-    { name: 'Bold Text Generator', desc: 'Bold Unicode text.', link: '/bold-text-generator', keywords: 'bold text', category: 'text' },
-    { name: 'Italic Text Generator', desc: 'Italic Unicode text.', link: '/italic-text-generator', keywords: 'italic text', category: 'text' },
-    { name: 'Strikethrough Generator', desc: 'Strikethrough Unicode.', link: '/strikethrough-generator', keywords: 'strikethrough', category: 'text' },
-    { name: 'Fancy Text Generator', desc: 'Fancy Unicode styles.', link: '/fancy-text-generator', keywords: 'fancy text', category: 'text' },
-    { name: 'Upside Down Text', desc: 'Flip text upside down.', link: '/upside-down-text', keywords: 'upside down', category: 'text' },
-    { name: 'Small Text Generator', desc: 'Small caps text.', link: '/small-text-generator', keywords: 'small text', category: 'text' },
-    { name: 'Zalgo Text Generator', desc: 'Cursed zalgo text.', link: '/zalgo-text-generator', keywords: 'zalgo text', category: 'text' },
-    { name: 'Unicode Text Converter', desc: 'Convert to Unicode variants.', link: '/unicode-text-converter', keywords: 'unicode text', category: 'text' },
-    { name: 'Email Extractor', desc: 'Extract email addresses.', link: '/email-extractor', keywords: 'email extractor', category: 'text' },
-    { name: 'URL Extractor', desc: 'Extract URLs from text.', link: '/url-extractor', keywords: 'url extractor', category: 'text' },
-    { name: 'Phone Extractor', desc: 'Extract phone numbers.', link: '/phone-extractor', keywords: 'phone extractor', category: 'text' },
-    { name: 'Number Extractor', desc: 'Extract numbers.', link: '/number-extractor', keywords: 'number extractor', category: 'text' },
-    { name: 'Date Extractor', desc: 'Extract dates.', link: '/date-extractor', keywords: 'date extractor', category: 'text' },
-    { name: 'Domain Extractor', desc: 'Extract domain names from text, URLs, and emails.', link: '/domain-extractor', keywords: 'domain extractor domain name extract url email', category: 'text' },
-    { name: 'Hashtag Extractor', desc: 'Extract hashtags.', link: '/hashtag-extractor', keywords: 'hashtag extractor', category: 'text' },
-    { name: 'Mention Extractor', desc: 'Extract @mentions.', link: '/mention-extractor', keywords: 'mention extractor', category: 'text' },
-    { name: 'Keyword Extractor', desc: 'Extract keywords.', link: '/keyword-extractor', keywords: 'keyword extractor', category: 'text' },
-    { name: 'Duplicate Line Finder', desc: 'Find duplicate lines.', link: '/duplicate-line-finder', keywords: 'duplicate lines', category: 'text' },
-    { name: 'JSON Formatter/Beautifier', desc: 'Format JSON.', link: '/json-formatter', keywords: 'json formatter', category: 'developer' },
-    { name: 'JSON Minifier', desc: 'Minify JSON.', link: '/json-minifier', keywords: 'json minifier', category: 'developer' },
-    { name: 'JSON Validator', desc: 'Validate JSON.', link: '/json-validator', keywords: 'json validator', category: 'developer' },
-    { name: 'XML Formatter', desc: 'Beautify XML.', link: '/xml-formatter', keywords: 'xml formatter', category: 'developer' },
-    { name: 'XML Minifier', desc: 'Minify XML.', link: '/xml-minifier', keywords: 'xml minifier', category: 'developer' },
-    { name: 'HTML Formatter', desc: 'Format HTML.', link: '/html-formatter', keywords: 'html formatter', category: 'developer' },
-    { name: 'HTML Minifier', desc: 'Minify HTML.', link: '/html-minifier', keywords: 'html minifier', category: 'developer' },
-    { name: 'CSS Formatter', desc: 'Format CSS.', link: '/css-formatter', keywords: 'css formatter', category: 'developer' },
-    { name: 'CSS Minifier', desc: 'Minify CSS.', link: '/css-minifier', keywords: 'css minifier', category: 'developer' },
-    { name: 'JavaScript Formatter', desc: 'Format JavaScript.', link: '/javascript-formatter', keywords: 'js formatter', category: 'developer' },
-    { name: 'JavaScript Minifier', desc: 'Minify JavaScript.', link: '/javascript-minifier', keywords: 'js minifier', category: 'developer' },
-    { name: 'SQL Formatter', desc: 'Format SQL queries.', link: '/sql-formatter', keywords: 'sql formatter', category: 'developer' },
-    { name: 'Text to Binary', desc: 'Text to binary.', link: '/text-to-binary', keywords: 'text to binary', category: 'developer' },
-    { name: 'Binary to Text', desc: 'Binary to text.', link: '/binary-to-text', keywords: 'binary to text', category: 'developer' },
-    { name: 'Text to Hex', desc: 'Text to hex.', link: '/text-to-hex', keywords: 'text to hex', category: 'developer' },
-    { name: 'Hex to Text', desc: 'Hex to text.', link: '/hex-to-text', keywords: 'hex to text', category: 'developer' },
-    { name: 'Text to ASCII', desc: 'Text to ASCII.', link: '/text-to-ascii', keywords: 'text to ascii', category: 'developer' },
-    { name: 'ASCII to Text', desc: 'ASCII to text.', link: '/ascii-to-text', keywords: 'ascii to text', category: 'developer' },
-    { name: 'Morse Code Translator', desc: 'Morse translator.', link: '/morse-code-translator', keywords: 'morse code', category: 'developer' },
-    { name: 'Braille Translator', desc: 'Braille translator.', link: '/braille-translator', keywords: 'braille', category: 'developer' },
-    { name: 'NATO Alphabet Generator', desc: 'NATO phonetic alphabet.', link: '/nato-alphabet-generator', keywords: 'nato alphabet', category: 'developer' },
-    { name: 'Text to CSV', desc: 'Text to CSV.', link: '/text-to-csv', keywords: 'text to csv', category: 'developer' },
-    { name: 'CSV to Text', desc: 'CSV to text.', link: '/csv-to-text', keywords: 'csv to text', category: 'developer' },
-    { name: 'CSV to JSON', desc: 'CSV to JSON.', link: '/csv-to-json', keywords: 'csv to json', category: 'developer' },
-    { name: 'JSON to CSV', desc: 'JSON to CSV.', link: '/json-to-csv', keywords: 'json to csv', category: 'developer' },
-    { name: 'Markdown to HTML', desc: 'Markdown to HTML.', link: '/markdown-to-html', keywords: 'markdown to html', category: 'developer' },
-    { name: 'HTML to Markdown', desc: 'HTML to Markdown.', link: '/html-to-markdown', keywords: 'html to markdown', category: 'developer' },
-    { name: 'Markdown Table Generator', desc: 'Markdown tables.', link: '/markdown-table-generator', keywords: 'markdown table', category: 'developer' },
-    { name: 'HTML Table Generator', desc: 'HTML tables.', link: '/html-table-generator', keywords: 'html table', category: 'developer' },
-    { name: 'Roman Numeral Converter', desc: 'Roman numerals.', link: '/roman-numeral-converter', keywords: 'roman numeral', category: 'developer' },
-    { name: 'Number to Words', desc: 'Number to words.', link: '/number-to-words', keywords: 'number to words', category: 'developer' },
-    { name: 'Words to Number', desc: 'Words to number.', link: '/words-to-number', keywords: 'words to number', category: 'developer' },
-    { name: 'Timestamp Converter', desc: 'Timestamp converter.', link: '/timestamp-converter', keywords: 'timestamp', category: 'developer' },
-    { name: 'Color Converter', desc: 'Color converter.', link: '/color-converter', keywords: 'color converter', category: 'developer' },
-    { name: 'Base64 Encoder', desc: 'Base64 encode.', link: '/base64-encoder', keywords: 'base64 encode', category: 'developer' },
-    { name: 'Base64 Decoder', desc: 'Base64 decode.', link: '/base64-decoder', keywords: 'base64 decode', category: 'developer' },
-    { name: 'URL Encoder', desc: 'URL encode.', link: '/url-encoder', keywords: 'url encode', category: 'developer' },
-    { name: 'URL Decoder', desc: 'URL decode.', link: '/url-decoder', keywords: 'url decode', category: 'developer' },
-    { name: 'HTML Entity Encoder', desc: 'HTML entity encode.', link: '/html-entity-encoder', keywords: 'html entity encode', category: 'developer' },
-    { name: 'HTML Entity Decoder', desc: 'HTML entity decode.', link: '/html-entity-decoder', keywords: 'html entity decode', category: 'developer' },
-    { name: 'Regex Generator', desc: 'Generate regex.', link: '/regex-generator', keywords: 'regex generator', category: 'developer' },
-    { name: 'Regex Escape Tool', desc: 'Escape regex chars.', link: '/regex-escape-tool', keywords: 'regex escape', category: 'developer' },
-    { name: 'JWT Decoder', desc: 'Decode JWT tokens.', link: '/jwt-decoder', keywords: 'jwt decoder', category: 'developer' },
-    { name: 'UUID Generator', desc: 'Generate UUIDs.', link: '/uuid-generator', keywords: 'uuid generator', category: 'developer' },
-    { name: 'UUID Validator', desc: 'Validate UUIDs.', link: '/uuid-validator', keywords: 'uuid validator', category: 'developer' },
-    { name: 'MD5 Generator', desc: 'Generate MD5 hash.', link: '/md5-generator', keywords: 'md5 hash', category: 'developer' },
-    { name: 'SHA-1 Generator', desc: 'Generate SHA-1 hash.', link: '/sha1-generator', keywords: 'sha1 hash', category: 'developer' },
-    { name: 'SHA-256 Generator', desc: 'Generate SHA-256 hash.', link: '/sha256-generator', keywords: 'sha256 hash', category: 'developer' },
-    { name: 'SHA-512 Generator', desc: 'Generate SHA-512 hash.', link: '/sha512-generator', keywords: 'sha512 hash', category: 'developer' },
-    { name: 'HMAC Generator', desc: 'Generate HMAC hash.', link: '/hmac-generator', keywords: 'hmac hash', category: 'developer' },
-    { name: 'Cron Expression Generator', desc: 'Generate cron expressions.', link: '/cron-expression-generator', keywords: 'cron generator', category: 'developer' },
-    { name: 'Cron Expression Tester', desc: 'Test cron expressions.', link: '/cron-expression-tester', keywords: 'cron tester', category: 'developer' },
-    { name: 'Password Generator', desc: 'Strong random passwords.', link: '/password-generator', keywords: 'password generator', category: 'generator' },
-    { name: 'PIN Generator', desc: 'Random PIN numbers.', link: '/pin-generator', keywords: 'pin generator', category: 'generator' },
-    { name: 'Random Number Generator', desc: 'Random numbers.', link: '/random-number-generator', keywords: 'random number', category: 'generator' },
-    { name: 'Number Sequence Generator', desc: 'Number sequences.', link: '/number-sequence-generator', keywords: 'number sequence', category: 'generator' },
-    { name: 'Lorem Ipsum Generator', desc: 'Lorem ipsum text.', link: '/lorem-ipsum-generator', keywords: 'lorem ipsum', category: 'generator' },
-    { name: 'Random Word Generator', desc: 'Random words.', link: '/random-word-generator', keywords: 'random word', category: 'generator' },
-    { name: 'Random Text Generator', desc: 'Random text.', link: '/random-text-generator', keywords: 'random text', category: 'generator' },
-    { name: 'QR Code Generator', desc: 'QR code from text or URL.', link: '/qr-code-generator', keywords: 'qr code', category: 'generator' },
-    { name: 'Barcode Generator', desc: 'Barcodes from text.', link: '/barcode-generator', keywords: 'barcode', category: 'generator' },
-    { name: 'UTM Builder', desc: 'UTM parameters.', link: '/utm-builder', keywords: 'utm builder', category: 'generator' },
-    { name: 'WhatsApp Link Generator', desc: 'Create wa.me links.', link: '/whatsapp-link-generator', keywords: 'whatsapp link', category: 'generator' },
-    { name: 'Business Name Generator', desc: 'Business name ideas.', link: '/business-name-generator', keywords: 'business name', category: 'generator' },
-    { name: 'Invoice Number Generator', desc: 'Invoice numbers.', link: '/invoice-number-generator', keywords: 'invoice number', category: 'generator' },
-    { name: 'Image Compressor', desc: 'Compress images.', link: '/image-compressor', keywords: 'image compressor', category: 'image' },
-    { name: 'Image Resizer', desc: 'Resize images.', link: '/image-resizer', keywords: 'image resizer', category: 'image' },
-    { name: 'Image Cropper', desc: 'Crop images.', link: '/image-cropper', keywords: 'image cropper', category: 'image' },
-    { name: 'Image Rotator', desc: 'Rotate images.', link: '/image-rotator', keywords: 'image rotator', category: 'image' },
-    { name: 'Image Flipper', desc: 'Flip images.', link: '/image-flipper', keywords: 'image flipper', category: 'image' },
-    { name: 'JPG to PNG', desc: 'JPG to PNG.', link: '/jpg-to-png', keywords: 'jpg to png', category: 'image' },
-    { name: 'PNG to JPG', desc: 'PNG to JPG.', link: '/png-to-jpg', keywords: 'png to jpg', category: 'image' },
-    { name: 'WebP to JPG', desc: 'WebP to JPG.', link: '/webp-to-jpg', keywords: 'webp to jpg', category: 'image' },
-    { name: 'JPG to WebP', desc: 'JPG to WebP.', link: '/jpg-to-webp', keywords: 'jpg to webp', category: 'image' },
-    { name: 'PNG to WebP', desc: 'PNG to WebP.', link: '/png-to-webp', keywords: 'png to webp', category: 'image' },
-    { name: 'Image to Base64', desc: 'Image to Base64.', link: '/image-to-base64', keywords: 'image to base64', category: 'image' },
-    { name: 'Base64 to Image', desc: 'Base64 to image.', link: '/base64-to-image', keywords: 'base64 to image', category: 'image' },
-    { name: 'Grayscale Image', desc: 'Grayscale image.', link: '/grayscale-image', keywords: 'grayscale image', category: 'image' },
-    { name: 'Photo 20KB', desc: 'Compress photo to 20KB.', link: '/photo-20kb', keywords: 'photo 20kb', category: 'image' },
-    { name: 'Photo 50KB', desc: 'Compress photo to 50KB.', link: '/photo-50kb', keywords: 'photo 50kb', category: 'image' },
-    { name: 'Photo 100KB', desc: 'Compress photo to 100KB.', link: '/photo-100kb', keywords: 'photo 100kb', category: 'image' },
-    { name: 'Photo 200KB', desc: 'Compress photo to 200KB.', link: '/photo-200kb', keywords: 'photo 200kb', category: 'image' },
-    { name: 'Signature Resizer', desc: 'Resize signatures.', link: '/signature-resizer', keywords: 'signature resizer', category: 'image' },
-    { name: 'Passport Size Photo Maker', desc: 'Passport photo maker.', link: '/passport-size-photo-maker', keywords: 'passport photo', category: 'image' },
-    { name: 'JPG to PDF', desc: 'Convert JPG images to PDF.', link: '/jpg-to-pdf', keywords: 'jpg to pdf image to pdf convert jpg', category: 'pdf' },
-    { name: 'PNG to PDF', desc: 'Convert PNG images to PDF.', link: '/png-to-pdf', keywords: 'png to pdf image to pdf convert png', category: 'pdf' },
-    { name: 'Images to PDF', desc: 'Combine images into a PDF.', link: '/images-to-pdf', keywords: 'images to pdf', category: 'pdf' },
-    { name: 'PDF Page Counter', desc: 'Count PDF pages.', link: '/pdf-page-counter', keywords: 'pdf page counter', category: 'pdf' },
-    { name: 'PDF Metadata Viewer', desc: 'View PDF metadata.', link: '/pdf-metadata-viewer', keywords: 'pdf metadata', category: 'pdf' },
-    { name: 'PDF to Images', desc: 'PDF to images.', link: '/pdf-to-images', keywords: 'pdf to images', category: 'pdf' },
-    { name: 'PDF Merge', desc: 'Merge PDFs.', link: '/pdf-merge', keywords: 'pdf merge', category: 'pdf' },
-    { name: 'PDF Split', desc: 'Split PDFs.', link: '/pdf-split', keywords: 'pdf split', category: 'pdf' },
-    { name: 'PDF Rotate', desc: 'Rotate PDF pages.', link: '/pdf-rotate', keywords: 'pdf rotate', category: 'pdf' },
-    { name: 'PDF Page Extractor', desc: 'Extract PDF pages.', link: '/pdf-page-extractor', keywords: 'pdf extractor', category: 'pdf' },
-    { name: 'PDF Compressor', desc: 'Compress PDF size.', link: '/pdf-compressor', keywords: 'pdf compressor', category: 'pdf' },
-    { name: 'PDF to 50KB', desc: 'Compress PDF to 50KB.', link: '/pdf-50kb', keywords: 'pdf 50kb', category: 'pdf' },
-    { name: 'PDF to 100KB', desc: 'Compress PDF to 100KB.', link: '/pdf-100kb', keywords: 'pdf 100kb', category: 'pdf' },
-    { name: 'PDF to 200KB', desc: 'Compress PDF to 200KB.', link: '/pdf-200kb', keywords: 'pdf 200kb', category: 'pdf' },
-    { name: 'PDF to 500KB', desc: 'Compress PDF to 500KB.', link: '/pdf-500kb', keywords: 'pdf 500kb', category: 'pdf' },
-    { name: 'PDF Text Extractor', desc: 'Extract PDF text.', link: '/pdf-text-extractor', keywords: 'pdf text extractor', category: 'pdf' },
-    { name: 'PDF Lock', desc: 'Password protect PDF.', link: '/pdf-lock', keywords: 'pdf lock', category: 'pdf' },
-    { name: 'PDF Unlock', desc: 'Remove PDF password.', link: '/pdf-unlock', keywords: 'pdf unlock', category: 'pdf' },
-    { name: 'Invoice Generator', desc: 'Generate invoices.', link: '/invoice-generator', keywords: 'invoice generator', category: 'business' },
-    { name: 'Quotation Generator', desc: 'Generate quotations.', link: '/quotation-generator', keywords: 'quotation generator', category: 'business' },
-    { name: 'Receipt Generator', desc: 'Generate receipts.', link: '/receipt-generator', keywords: 'receipt generator', category: 'business' },
-    { name: 'Payslip Generator', desc: 'Generate payslips.', link: '/payslip-generator', keywords: 'payslip generator', category: 'business' },
-    { name: 'Shipping Label Generator', desc: 'Shipping labels.', link: '/shipping-label-generator', keywords: 'shipping label', category: 'business' },
-    { name: 'Resume Builder', desc: 'Build a resume.', link: '/resume-builder', keywords: 'resume builder', category: 'business' },
-    { name: 'GST Calculator', desc: 'Calculate GST.', link: '/gst-calculator', keywords: 'gst calculator', category: 'business' },
-    { name: 'Discount Calculator', desc: 'Calculate discounts.', link: '/discount-calculator', keywords: 'discount calculator', category: 'business' },
-    { name: 'Profit Margin Calculator', desc: 'Profit margins.', link: '/profit-margin-calculator', keywords: 'profit margin', category: 'business' },
-    { name: 'Salary Calculator', desc: 'Calculate salary.', link: '/salary-calculator', keywords: 'salary calculator', category: 'business' },
-    { name: 'EMI Calculator', desc: 'Calculate EMI.', link: '/emi-calculator', keywords: 'emi calculator', category: 'finance' },
-    { name: 'Loan Calculator', desc: 'Calculate loans.', link: '/loan-calculator', keywords: 'loan calculator', category: 'finance' },
-    { name: 'SIP Calculator', desc: 'Calculate SIP returns.', link: '/sip-calculator', keywords: 'sip calculator', category: 'finance' },
-    { name: 'Income Tax Calculator', desc: 'Income tax.', link: '/income-tax-calculator', keywords: 'income tax calculator', category: 'finance' },
-    { name: 'Tax Calculator', desc: 'Tax calculator.', link: '/tax-calculator', keywords: 'tax calculator', category: 'finance' },
-    { name: 'Tip Calculator', desc: 'Tip calculator.', link: '/tip-calculator', keywords: 'tip calculator', category: 'finance' },
-    { name: 'GPA Calculator', desc: 'Calculate GPA.', link: '/gpa-calculator', keywords: 'gpa calculator', category: 'calculator' },
-    { name: 'CGPA Calculator', desc: 'Calculate CGPA.', link: '/cgpa-calculator', keywords: 'cgpa calculator', category: 'calculator' },
-    { name: 'Percentage Calculator', desc: 'Calculate percentages.', link: '/percentage-calculator', keywords: 'percentage calculator', category: 'calculator' },
-    { name: 'Grade Calculator', desc: 'Calculate grades.', link: '/grade-calculator', keywords: 'grade calculator', category: 'calculator' },
-    { name: 'Marks Percentage Calculator', desc: 'Marks percentage.', link: '/marks-percentage-calculator', keywords: 'marks percentage', category: 'calculator' },
-    { name: 'Attendance Calculator', desc: 'Attendance percentage.', link: '/attendance-calculator', keywords: 'attendance calculator', category: 'calculator' },
-    { name: 'Study Time Calculator', desc: 'Study time.', link: '/study-time-calculator', keywords: 'study time', category: 'calculator' },
-    { name: 'Exam Countdown', desc: 'Exam countdown.', link: '/exam-countdown', keywords: 'exam countdown', category: 'calculator' },
-    { name: 'Age Calculator', desc: 'Calculate age.', link: '/age-calculator', keywords: 'age calculator', category: 'calculator' },
-    { name: 'Scientific Calculator', desc: 'Scientific calc.', link: '/scientific-calculator', keywords: 'scientific calculator', category: 'calculator' },
-    { name: 'Quadratic Equation Calculator', desc: 'Quadratic equations.', link: '/quadratic-equation-calculator', keywords: 'quadratic calculator', category: 'calculator' },
-    { name: 'Matrix Calculator', desc: 'Matrix operations.', link: '/matrix-calculator', keywords: 'matrix calculator', category: 'calculator' },
-    { name: 'Probability Calculator', desc: 'Probabilities.', link: '/probability-calculator', keywords: 'probability calculator', category: 'calculator' },
-    { name: 'Standard Deviation Calculator', desc: 'Standard deviation.', link: '/standard-deviation-calculator', keywords: 'standard deviation', category: 'calculator' },
-    { name: 'Mean Median Mode Calculator', desc: 'Mean median mode.', link: '/mean-median-mode-calculator', keywords: 'mean median mode', category: 'calculator' },
-    { name: 'Prime Number Checker', desc: 'Prime check.', link: '/prime-number-checker', keywords: 'prime number check', category: 'calculator' },
-    { name: 'Prime Number Generator', desc: 'Prime numbers.', link: '/prime-number-generator', keywords: 'prime number generator', category: 'calculator' },
-    { name: 'Factorial Calculator', desc: 'Factorial.', link: '/factorial-calculator', keywords: 'factorial calculator', category: 'calculator' },
-    { name: 'GCD Calculator', desc: 'Greatest common divisor.', link: '/gcd-calculator', keywords: 'gcd calculator', category: 'calculator' },
-    { name: 'LCM Calculator', desc: 'Least common multiple.', link: '/lcm-calculator', keywords: 'lcm calculator', category: 'calculator' },
-    { name: 'Binary Calculator', desc: 'Binary calculations.', link: '/binary-calculator', keywords: 'binary calculator', category: 'calculator' },
-    { name: 'Decimal to Binary', desc: 'Decimal to binary.', link: '/decimal-to-binary', keywords: 'decimal to binary', category: 'calculator' },
-    { name: 'Binary to Decimal', desc: 'Binary to decimal.', link: '/binary-to-decimal', keywords: 'binary to decimal', category: 'calculator' },
-    { name: 'Decimal to Hex', desc: 'Decimal to hex.', link: '/decimal-to-hex', keywords: 'decimal to hex', category: 'calculator' },
-    { name: 'Hex to Decimal', desc: 'Hex to decimal.', link: '/hex-to-decimal', keywords: 'hex to decimal', category: 'calculator' },
-    { name: 'Decimal to Octal', desc: 'Decimal to octal.', link: '/decimal-to-octal', keywords: 'decimal to octal', category: 'calculator' },
-    { name: 'Average Calculator', desc: 'Average.', link: '/average-calculator', keywords: 'average calculator', category: 'calculator' },
-    { name: 'Ratio Calculator', desc: 'Ratios.', link: '/ratio-calculator', keywords: 'ratio calculator', category: 'calculator' },
-    { name: 'Fraction Calculator', desc: 'Fractions.', link: '/fraction-calculator', keywords: 'fraction calculator', category: 'calculator' },
-    { name: 'Date Difference Calculator', desc: 'Date difference.', link: '/date-difference-calculator', keywords: 'date difference', category: 'calculator' },
-    { name: 'Days Between Dates', desc: 'Days between.', link: '/days-between-dates', keywords: 'days between dates', category: 'calculator' },
-    { name: 'Add Days to Date', desc: 'Add days to date.', link: '/add-days-to-date', keywords: 'add days to date', category: 'calculator' },
-    { name: 'Subtract Days from Date', desc: 'Subtract days.', link: '/subtract-days-from-date', keywords: 'subtract days', category: 'calculator' },
-    { name: 'Business Days Calculator', desc: 'Business days.', link: '/business-days-calculator', keywords: 'business days', category: 'calculator' },
-    { name: 'Date to Unix Timestamp', desc: 'Date to timestamp.', link: '/date-to-unix-timestamp', keywords: 'date to timestamp', category: 'calculator' },
-    { name: 'Unix Timestamp to Date', desc: 'Timestamp to date.', link: '/unix-timestamp-to-date', keywords: 'timestamp to date', category: 'calculator' },
-    { name: 'Time Duration Calculator', desc: 'Time duration.', link: '/time-duration-calculator', keywords: 'time duration', category: 'calculator' },
-    { name: 'Countdown Calculator', desc: 'Countdown.', link: '/countdown-calculator', keywords: 'countdown calculator', category: 'calculator' },
-    { name: 'Week Number Calculator', desc: 'Week number.', link: '/week-number-calculator', keywords: 'week number', category: 'calculator' },
-    { name: 'Leap Year Checker', desc: 'Leap year.', link: '/leap-year-checker', keywords: 'leap year', category: 'calculator' },
-    { name: 'World Clock', desc: 'World clock.', link: '/world-clock', keywords: 'world clock', category: 'calculator' },
-    { name: 'Time Zone Converter', desc: 'Time zone.', link: '/time-zone-converter', keywords: 'time zone converter', category: 'calculator' },
-    { name: 'Length Converter', desc: 'Length units.', link: '/length-converter', keywords: 'length converter', category: 'calculator' },
-    { name: 'Weight Converter', desc: 'Weight units.', link: '/weight-converter', keywords: 'weight converter', category: 'calculator' },
-    { name: 'Temperature Converter', desc: 'Temperature.', link: '/temperature-converter', keywords: 'temperature converter', category: 'calculator' },
-    { name: 'Area Converter', desc: 'Area units.', link: '/area-converter', keywords: 'area converter', category: 'calculator' },
-    { name: 'Volume Converter', desc: 'Volume units.', link: '/volume-converter', keywords: 'volume converter', category: 'calculator' },
-    { name: 'Speed Converter', desc: 'Speed units.', link: '/speed-converter', keywords: 'speed converter', category: 'calculator' },
-    { name: 'Data Storage Converter', desc: 'Data storage.', link: '/data-storage-converter', keywords: 'data storage', category: 'calculator' },
-    { name: 'Energy Converter', desc: 'Energy units.', link: '/energy-converter', keywords: 'energy converter', category: 'calculator' },
-    { name: 'Pressure Converter', desc: 'Pressure units.', link: '/pressure-converter', keywords: 'pressure converter', category: 'calculator' },
-    { name: 'Power Converter', desc: 'Power units.', link: '/power-converter', keywords: 'power converter', category: 'calculator' },
-    { name: 'Frequency Converter', desc: 'Frequency units.', link: '/frequency-converter', keywords: 'frequency converter', category: 'calculator' },
-    { name: 'Angle Converter', desc: 'Angle units.', link: '/angle-converter', keywords: 'angle converter', category: 'calculator' },
-    { name: 'Pace Converter', desc: 'Pace units.', link: '/pace-converter', keywords: 'pace converter', category: 'calculator' },
-    { name: 'Fuel Economy Converter', desc: 'Fuel economy.', link: '/fuel-economy-converter', keywords: 'fuel economy', category: 'calculator' }
+    { name:'Word Counter', desc:'Count words, characters, sentences and paragraphs instantly.', link:'/word-counter', keywords:'word count character counter letters essay limit', category:'text' },
+    { name:'Sentence Counter', desc:'Count the number of sentences in any text.', link:'/sentence-counter', keywords:'sentence count enumerate grammar', category:'text' },
+    { name:'Paragraph Counter', desc:'Quickly count paragraphs in your writing.', link:'/paragraph-counter', keywords:'paragraph count block format', category:'text' },
+    { name:'Line Counter', desc:'Count lines in text.', link:'/line-counter', keywords:'line count text lines rows', category:'text' },
+    { name:'Reading Time Estimator', desc:'Estimate how long it takes to read your text.', link:'/reading-time-estimator', keywords:'reading time estimate duration words per minute blog', category:'text' },
+    { name:'Speaking Time Calculator', desc:'Estimate how long it takes to speak your text aloud.', link:'/speaking-time-calculator', keywords:'speaking time talk duration speech presentation', category:'text' },
+    { name:'Keyword Counter', desc:'Count occurrences of each keyword in your text.', link:'/keyword-counter', keywords:'keyword frequency count word seo', category:'text' },
+    { name:'Keyword Density Checker', desc:'Analyze keyword density as a percentage.', link:'/keyword-density-checker', keywords:'keyword density seo percentage frequency', category:'text' },
+    { name:'Duplicate Word Finder', desc:'Find and highlight duplicate words in your text.', link:'/duplicate-word-finder', keywords:'duplicate word find highlight repeat', category:'text' },
+    { name:'Text Statistics', desc:'Full summary: words, chars, sentences, readability, and more.', link:'/text-statistics', keywords:'text stats readability summary data analysis', category:'text' },
+    { name:'Regex Tester', desc:'Test regular expressions with match highlighting.', link:'/regex-tester', keywords:'regex regular expression test match pattern', category:'text' },
+    { name:'Word Frequency Counter', desc:'Count frequency of each word.', link:'/word-frequency-counter', keywords:'word frequency count repeat', category:'text' },
+    { name:'Character Frequency Counter', desc:'Count frequency of each character.', link:'/character-frequency-counter', keywords:'character frequency count letters', category:'text' },
+    { name:'Password Strength Checker', desc:'Check the strength of your password.', link:'/password-strength-checker', keywords:'password strength check secure safety', category:'text' },
+    { name:'Duplicate Line Remover', desc:'Remove duplicate lines and keep only unique ones.', link:'/duplicate-line-remover', keywords:'duplicate unique lines remove dedupe list', category:'text' },
+    { name:'Whitespace Cleaner', desc:'Remove extra spaces, tabs, and blank lines.', link:'/whitespace-cleaner', keywords:'whitespace spaces tabs clean trim format', category:'text' },
+    { name:'Remove Extra Spaces', desc:'Clean up unwanted spaces with one click.', link:'/remove-extra-spaces', keywords:'remove spaces extra blanks cleanup double', category:'text' },
+    { name:'Remove Empty Lines', desc:'Delete all blank lines instantly.', link:'/remove-empty-lines', keywords:'empty lines remove delete blank', category:'text' },
+    { name:'Remove Blank Characters', desc:'Strip out invisible blank characters.', link:'/remove-blank-characters', keywords:'blank chars invisible characters remove zero width', category:'text' },
+    { name:'Remove Emojis', desc:'Get rid of all emojis in one go.', link:'/remove-emojis', keywords:'emoji remove strip smiley', category:'text' },
+    { name:'Remove Symbols', desc:'Delete symbols and special characters.', link:'/remove-symbols', keywords:'symbols remove special characters clean', category:'text' },
+    { name:'Remove Punctuation', desc:'Strip punctuation marks.', link:'/remove-punctuation', keywords:'punctuation remove comma period full stop', category:'text' },
+    { name:'Remove Numbers', desc:'Delete all numeric digits.', link:'/remove-numbers', keywords:'numbers remove digits numeric', category:'text' },
+    { name:'Remove HTML Tags', desc:'Strip HTML/XML tags, leaving only text.', link:'/remove-html-tags', keywords:'html tags strip remove clean markup', category:'text' },
+    { name:'Remove Line Breaks', desc:'Remove line breaks and join lines.', link:'/remove-line-breaks', keywords:'line break remove join newline', category:'text' },
+    { name:'Text Cleaner', desc:'All-in-one text cleaning.', link:'/text-cleaner', keywords:'clean text sanitize format tidy', category:'text' },
+    { name:'Remove Duplicate Words', desc:'Remove duplicate words from text.', link:'/remove-duplicate-words', keywords:'duplicate words remove repeat', category:'text' },
+    { name:'Case Converter', desc:'Convert to uppercase, lowercase, title case and more.', link:'/case-converter', keywords:'uppercase lowercase title case sentence change case', category:'text' },
+    { name:'Uppercase Converter', desc:'Convert text to uppercase.', link:'/uppercase-converter', keywords:'uppercase converter caps capital letters', category:'text' },
+    { name:'Lowercase Converter', desc:'Convert text to lowercase.', link:'/lowercase-converter', keywords:'lowercase converter small letters', category:'text' },
+    { name:'Title Case Converter', desc:'Proper title case for headlines.', link:'/title-case-converter', keywords:'title case headline capitalize proper apa mla', category:'text' },
+    { name:'Sentence Case Converter', desc:'First letter of each sentence capitalized.', link:'/sentence-case-converter', keywords:'sentence case capitalize first letter', category:'text' },
+    { name:'Capitalize Words', desc:'Capitalize first letter of each word.', link:'/capitalize-words', keywords:'capitalize first letter each word', category:'text' },
+    { name:'Toggle Case Converter', desc:'Toggle case of every letter.', link:'/toggle-case-converter', keywords:'toggle case invert swap alternating', category:'text' },
+    { name:'Text Repeater', desc:'Repeat text up to 100,000 times.', link:'/text-repeater', keywords:'repeat duplicate multiply copy paste spam', category:'text' },
+    { name:'Text Finder & Replacer', desc:'Find and replace words or phrases in bulk.', link:'/text-finder-replacer', keywords:'find replace search and replace bulk', category:'text' },
+    { name:'Line Break Converter', desc:'Convert line breaks between Windows, Unix, Mac.', link:'/line-break-converter', keywords:'line break crlf lf converter newline', category:'text' },
+    { name:'Text Indenter', desc:'Add spaces or tabs at the beginning of each line.', link:'/text-indenter', keywords:'indent text tab spaces code', category:'text' },
+    { name:'Wrap Text', desc:'Wrap long lines to a specified width.', link:'/wrap-text', keywords:'word wrap text line width column', category:'text' },
+    { name:'Unwrap Text', desc:'Join broken lines into a single paragraph.', link:'/unwrap-text', keywords:'unwrap text join lines paragraph merge', category:'text' },
+    { name:'Join Lines', desc:'Merge multiple lines into one single continuous line or paragraph.', link:'/join-lines', keywords:'join lines merge combine single line paragraph unwrap newline concatenate', category:'text' },
+    { name:'Text Diff Checker', desc:'Compare two texts side by side and highlight every difference.', link:'/text-diff-checker', keywords:'diff compare text changes version differences side by side review', category:'text' },
+    { name:'Text Sorter', desc:'Sort lines alphabetically, numerically, by length, or in reverse.', link:'/text-sorter', keywords:'sort lines alphabetical numeric order arrange a-z z-a', category:'text' },
+    { name:'Text to Handwriting', desc:'Convert typed text into realistic handwriting.', link:'/text-to-handwriting', keywords:'handwriting text converter script assignment notes', category:'text' },
+    { name:'Bold Text Generator', desc:'Bold Unicode text for social media bios.', link:'/bold-text-generator', keywords:'bold unicode text style font bio', category:'text' },
+    { name:'Italic Text Generator', desc:'Italic Unicode text using math symbols.', link:'/italic-text-generator', keywords:'italic unicode text style font', category:'text' },
+    { name:'Strikethrough Generator', desc:'Strikethrough Unicode text.', link:'/strikethrough-generator', keywords:'strikethrough cross out unicode', category:'text' },
+    { name:'Fancy Text Generator', desc:'Generate multiple fancy Unicode styles at once.', link:'/fancy-text-generator', keywords:'fancy font styles unicode aesthetic instagram', category:'text' },
+    { name:'Upside Down Text', desc:'Flip your text upside down.', link:'/upside-down-text', keywords:'upside down flip text reverse', category:'text' },
+    { name:'Small Text Generator', desc:'Generate small caps text.', link:'/small-text-generator', keywords:'small caps tiny text superscript', category:'text' },
+    { name:'Zalgo Text Generator', desc:'Create cursed zalgo text.', link:'/zalgo-text-generator', keywords:'zalgo cursed text generator creepy', category:'text' },
+    { name:'Unicode Text Converter', desc:'Convert text to Unicode variants.', link:'/unicode-text-converter', keywords:'unicode text converter encode', category:'text' },
+    { name:'Email Extractor', desc:'Extract all email addresses from text.', link:'/email-extractor', keywords:'email extract find emails scrape address', category:'text' },
+    { name:'URL Extractor', desc:'Pull out all URLs from text.', link:'/url-extractor', keywords:'url extract link http https website', category:'text' },
+    { name:'Phone Extractor', desc:'Extract phone numbers using common formats.', link:'/phone-extractor', keywords:'phone number extract landline mobile contact', category:'text' },
+    { name:'Number Extractor', desc:'Get every number (integer or decimal) from text.', link:'/number-extractor', keywords:'number extract digits numeric decimal', category:'text' },
+    { name:'Date Extractor', desc:'Find and extract dates like 12/05/2025.', link:'/date-extractor', keywords:'date extract calendar find day month year', category:'text' },
+    { name:'Domain Extractor', desc:'Extract domain names from URLs or emails.', link:'/domain-extractor', keywords:'domain name website extract host', category:'text' },
+    { name:'Hashtag Extractor', desc:'List all #hashtags from social media text.', link:'/hashtag-extractor', keywords:'hashtag extract social media instagram twitter', category:'text' },
+    { name:'Mention Extractor', desc:'Pull out @usernames from text.', link:'/mention-extractor', keywords:'mention extract username @ social twitter', category:'text' },
+    { name:'Keyword Extractor', desc:'Extract the most important words and phrases.', link:'/keyword-extractor', keywords:'keyword extract important terms seo', category:'text' },
+    { name:'Duplicate Line Finder', desc:'Show which lines appear more than once.', link:'/duplicate-line-finder', keywords:'duplicate line find report repeat', category:'text' },
+    { name:'JSON Formatter/Beautifier', desc:'Format messy JSON into readable, indented structure.', link:'/json-formatter', keywords:'json format beautify pretty print indent api', category:'developer' },
+    { name:'JSON Minifier', desc:'Minify JSON to remove unnecessary spaces.', link:'/json-minifier', keywords:'json minify compress compact', category:'developer' },
+    { name:'JSON Validator', desc:'Validate JSON syntax.', link:'/json-validator', keywords:'json validate check syntax error', category:'developer' },
+    { name:'XML Formatter', desc:'Beautify and indent XML data.', link:'/xml-formatter', keywords:'xml format beautify indent', category:'developer' },
+    { name:'XML Minifier', desc:'Minify XML.', link:'/xml-minifier', keywords:'xml minify compress', category:'developer' },
+    { name:'HTML Formatter', desc:'Format HTML code.', link:'/html-formatter', keywords:'html format beautify indent', category:'developer' },
+    { name:'HTML Minifier', desc:'Minify HTML.', link:'/html-minifier', keywords:'html minify compress', category:'developer' },
+    { name:'CSS Formatter', desc:'Format CSS code.', link:'/css-formatter', keywords:'css format beautify indent', category:'developer' },
+    { name:'CSS Minifier', desc:'Minify CSS.', link:'/css-minifier', keywords:'css minify compress', category:'developer' },
+    { name:'JavaScript Formatter', desc:'Format JavaScript code.', link:'/javascript-formatter', keywords:'javascript format beautify js', category:'developer' },
+    { name:'JavaScript Minifier', desc:'Minify JavaScript.', link:'/javascript-minifier', keywords:'javascript minify compress js', category:'developer' },
+    { name:'SQL Formatter', desc:'Format SQL queries.', link:'/sql-formatter', keywords:'sql format query beautify database', category:'developer' },
+    { name:'Text to Binary', desc:'Convert text to binary.', link:'/text-to-binary', keywords:'text binary convert bits', category:'developer' },
+    { name:'Binary to Text', desc:'Convert binary to text.', link:'/binary-to-text', keywords:'binary text convert bits', category:'developer' },
+    { name:'Text to Hex', desc:'Convert text to hexadecimal.', link:'/text-to-hex', keywords:'text hex convert hexadecimal', category:'developer' },
+    { name:'Hex to Text', desc:'Convert hex to text.', link:'/hex-to-text', keywords:'hex text convert hexadecimal', category:'developer' },
+    { name:'Text to ASCII', desc:'Convert text to ASCII codes.', link:'/text-to-ascii', keywords:'text ascii convert code', category:'developer' },
+    { name:'ASCII to Text', desc:'Convert ASCII codes to text.', link:'/ascii-to-text', keywords:'ascii text convert code', category:'developer' },
+    { name:'Morse Code Translator', desc:'Convert text to Morse code and back.', link:'/morse-code-translator', keywords:'morse code translator dots dashes', category:'developer' },
+    { name:'Braille Translator', desc:'Convert text to Braille.', link:'/braille-translator', keywords:'braille translator blind', category:'developer' },
+    { name:'NATO Alphabet Generator', desc:'Convert text to NATO phonetic alphabet.', link:'/nato-alphabet-generator', keywords:'nato phonetic alphabet alpha bravo', category:'developer' },
+    { name:'Text to CSV', desc:'Convert text to CSV format.', link:'/text-to-csv', keywords:'text csv convert comma separated excel', category:'developer' },
+    { name:'CSV to Text', desc:'Convert CSV to text.', link:'/csv-to-text', keywords:'csv text convert', category:'developer' },
+    { name:'CSV to JSON', desc:'Convert CSV to JSON.', link:'/csv-to-json', keywords:'csv json convert', category:'developer' },
+    { name:'JSON to CSV', desc:'Convert JSON to CSV.', link:'/json-to-csv', keywords:'json csv convert', category:'developer' },
+    { name:'Markdown to HTML', desc:'Convert Markdown to HTML.', link:'/markdown-to-html', keywords:'markdown html convert md', category:'developer' },
+    { name:'HTML to Markdown', desc:'Convert HTML to Markdown.', link:'/html-to-markdown', keywords:'html markdown convert md', category:'developer' },
+    { name:'Markdown Table Generator', desc:'Generate Markdown tables.', link:'/markdown-table-generator', keywords:'markdown table generator md', category:'developer' },
+    { name:'HTML Table Generator', desc:'Generate HTML tables.', link:'/html-table-generator', keywords:'html table generator', category:'developer' },
+    { name:'Roman Numeral Converter', desc:'Convert numbers to Roman numerals.', link:'/roman-numeral-converter', keywords:'roman numeral converter latin', category:'developer' },
+    { name:'Number to Words', desc:'Convert numbers to English words.', link:'/number-to-words', keywords:'number to words converter cheque', category:'developer' },
+    { name:'Words to Number', desc:'Convert English words to numbers.', link:'/words-to-number', keywords:'words to number converter', category:'developer' },
+    { name:'Timestamp Converter', desc:'Convert Unix timestamps to date and back.', link:'/timestamp-converter', keywords:'timestamp unix converter date epoch', category:'developer' },
+    { name:'Color Converter', desc:'Convert colors between HEX, RGB, HSL.', link:'/color-converter', keywords:'color converter hex rgb hsl', category:'developer' },
+    { name:'Base64 Encoder', desc:'Encode text to Base64.', link:'/base64-encoder', keywords:'base64 encode', category:'developer' },
+    { name:'Base64 Decoder', desc:'Decode Base64 text.', link:'/base64-decoder', keywords:'base64 decode', category:'developer' },
+    { name:'URL Encoder', desc:'Encode URLs.', link:'/url-encoder', keywords:'url encode percent uri', category:'developer' },
+    { name:'URL Decoder', desc:'Decode URLs.', link:'/url-decoder', keywords:'url decode percent uri', category:'developer' },
+    { name:'HTML Entity Encoder', desc:'Encode HTML entities.', link:'/html-entity-encoder', keywords:'html entity encode amp lt', category:'developer' },
+    { name:'HTML Entity Decoder', desc:'Decode HTML entities.', link:'/html-entity-decoder', keywords:'html entity decode amp lt', category:'developer' },
+    { name:'Regex Generator', desc:'Generate regex patterns from sample text.', link:'/regex-generator', keywords:'regex generate pattern regular expression', category:'developer' },
+    { name:'Regex Escape Tool', desc:'Escape special characters in regex.', link:'/regex-escape-tool', keywords:'regex escape special characters', category:'developer' },
+    { name:'JWT Decoder', desc:'Decode JWT tokens to view header and payload.', link:'/jwt-decoder', keywords:'jwt decode token header payload auth', category:'developer' },
+    { name:'UUID Generator', desc:'Generate random UUID v4 identifiers.', link:'/uuid-generator', keywords:'uuid guid unique identifier random v4', category:'developer' },
+    { name:'UUID Validator', desc:'Check if a UUID is valid.', link:'/uuid-validator', keywords:'uuid validate check guid', category:'developer' },
+    { name:'MD5 Generator', desc:'Generate MD5 hash.', link:'/md5-generator', keywords:'md5 hash generator checksum', category:'developer' },
+    { name:'SHA-1 Generator', desc:'Generate SHA-1 hash.', link:'/sha1-generator', keywords:'sha1 hash generator checksum', category:'developer' },
+    { name:'SHA-256 Generator', desc:'Generate SHA-256 hash.', link:'/sha256-generator', keywords:'sha256 hash generator checksum', category:'developer' },
+    { name:'SHA-512 Generator', desc:'Generate SHA-512 hash.', link:'/sha512-generator', keywords:'sha512 hash generator checksum', category:'developer' },
+    { name:'HMAC Generator', desc:'Generate HMAC hash.', link:'/hmac-generator', keywords:'hmac hash generator secret key', category:'developer' },
+    { name:'Cron Expression Generator', desc:'Generate cron expressions.', link:'/cron-expression-generator', keywords:'cron expression generator schedule', category:'developer' },
+    { name:'Cron Expression Tester', desc:'Test cron expressions.', link:'/cron-expression-tester', keywords:'cron expression tester schedule', category:'developer' },
+    { name:'Password Generator', desc:'Generate strong random passwords.', link:'/password-generator', keywords:'password generator random strong secure', category:'generator' },
+    { name:'PIN Generator', desc:'Generate random PIN numbers.', link:'/pin-generator', keywords:'pin generator random number', category:'generator' },
+    { name:'Random Number Generator', desc:'Generate random numbers within a custom range.', link:'/random-number-generator', keywords:'random number range integer generator lottery', category:'generator' },
+    { name:'Number Sequence Generator', desc:'Generate arithmetic sequences.', link:'/number-sequence-generator', keywords:'number sequence generator series', category:'generator' },
+    { name:'Lorem Ipsum Generator', desc:'Placeholder text for designs and mockups.', link:'/lorem-ipsum-generator', keywords:'lorem ipsum placeholder dummy text design', category:'generator' },
+    { name:'Random Word Generator', desc:'Generate random English words.', link:'/random-word-generator', keywords:'random word generator english vocabulary', category:'generator' },
+    { name:'Random Text Generator', desc:'Generate random letters, numbers, and symbols.', link:'/random-text-generator', keywords:'random text generate string dummy', category:'generator' },
+    { name:'QR Code Generator', desc:'Convert any text or URL into a QR code image.', link:'/qr-code-generator', keywords:'qr code generate text url image scan', category:'generator' },
+    { name:'Barcode Generator', desc:'Generate barcodes from text or numbers.', link:'/barcode-generator', keywords:'barcode generate code ean upc product', category:'generator' },
+    { name:'UTM Builder', desc:'Add UTM parameters to URLs for campaign tracking.', link:'/utm-builder', keywords:'utm campaign tracking url builder marketing analytics', category:'generator' },
+    { name:'WhatsApp Link Generator', desc:'Create wa.me links from phone numbers and pre-filled messages.', link:'/whatsapp-link-generator', keywords:'whatsapp link generator wa.me phone number message chat', category:'generator' },
+    { name:'Business Name Generator', desc:'Generate unique business name ideas by industry and style.', link:'/business-name-generator', keywords:'business name generator brand company startup name ideas', category:'generator' },
+    { name:'Invoice Number Generator', desc:'Generate invoice numbers.', link:'/invoice-number-generator', keywords:'invoice number generator billing', category:'generator' },
+    { name:'Image Compressor', desc:'Compress JPG, PNG, WebP and GIF images in your browser. Compress to 20KB, 50KB, 100KB, 200KB.', link:'/image-compressor', keywords:'image compressor compress image jpg png webp photo optimizer 50kb 100kb 20kb 200kb', category:'image' },
+    { name:'Image Resizer', desc:'Resize images without losing quality.', link:'/image-resizer', keywords:'image resize dimensions scale', category:'image' },
+    { name:'Image Cropper', desc:'Crop images easily.', link:'/image-cropper', keywords:'image crop trim cut', category:'image' },
+    { name:'Image Rotator', desc:'Rotate images by degrees.', link:'/image-rotator', keywords:'image rotate turn degrees', category:'image' },
+    { name:'Image Flipper', desc:'Flip images horizontally or vertically.', link:'/image-flipper', keywords:'image flip mirror horizontal vertical', category:'image' },
+    { name:'JPG to PNG', desc:'Convert JPG images to PNG.', link:'/jpg-to-png', keywords:'jpg png converter image', category:'image' },
+    { name:'PNG to JPG', desc:'Convert PNG images to JPG.', link:'/png-to-jpg', keywords:'png jpg converter image', category:'image' },
+    { name:'WebP to JPG', desc:'Convert WebP images to JPG.', link:'/webp-to-jpg', keywords:'webp jpg converter image', category:'image' },
+    { name:'JPG to WebP', desc:'Convert JPG images to WebP.', link:'/jpg-to-webp', keywords:'jpg webp converter image', category:'image' },
+    { name:'PNG to WebP', desc:'Convert PNG images to WebP.', link:'/png-to-webp', keywords:'png webp converter image', category:'image' },
+    { name:'Image to Base64', desc:'Convert image to Base64 string.', link:'/image-to-base64', keywords:'image base64 converter encode', category:'image' },
+    { name:'Base64 to Image', desc:'Convert Base64 string to image.', link:'/base64-to-image', keywords:'base64 image converter decode', category:'image' },
+    { name:'Grayscale Image', desc:'Convert image to grayscale.', link:'/grayscale-image', keywords:'grayscale image black white filter', category:'image' },
+    { name:'Photo 20KB', desc:'Compress photo to 20KB.', link:'/photo-20kb', keywords:'photo 20kb compress resize upload form', category:'image' },
+    { name:'Photo 50KB', desc:'Compress photo to 50KB.', link:'/photo-50kb', keywords:'photo 50kb compress resize upload form', category:'image' },
+    { name:'Photo 100KB', desc:'Compress photo to 100KB.', link:'/photo-100kb', keywords:'photo 100kb compress resize upload form', category:'image' },
+    { name:'Photo 200KB', desc:'Compress photo to 200KB.', link:'/photo-200kb', keywords:'photo 200kb compress resize upload form', category:'image' },
+    { name:'Signature Resizer', desc:'Resize signatures for documents and forms.', link:'/signature-resizer', keywords:'signature resize image document form exam', category:'image' },
+    { name:'Passport Size Photo Maker', desc:'Create passport size photos from any image.', link:'/passport-size-photo-maker', keywords:'passport photo size maker image visa', category:'image' },
+    { name:'JPG to PDF', desc:'Convert JPG images to PDF.', link:'/jpg-to-pdf', keywords:'jpg pdf converter image document', category:'pdf' },
+    { name:'PNG to PDF', desc:'Convert PNG images to PDF.', link:'/png-to-pdf', keywords:'png pdf converter image document transparency', category:'pdf' },
+    { name:'Images to PDF', desc:'Combine multiple images into a PDF.', link:'/images-to-pdf', keywords:'images pdf converter combine merge', category:'pdf' },
+    { name:'PDF Page Counter', desc:'Count pages in a PDF file.', link:'/pdf-page-counter', keywords:'pdf page counter count pages', category:'pdf' },
+    { name:'PDF Metadata Viewer', desc:'View PDF metadata.', link:'/pdf-metadata-viewer', keywords:'pdf metadata viewer info author', category:'pdf' },
+    { name:'PDF to Images', desc:'Convert PDF pages to images.', link:'/pdf-to-images', keywords:'pdf images converter jpg png', category:'pdf' },
+    { name:'PDF Merge', desc:'Merge multiple PDF files.', link:'/pdf-merge', keywords:'pdf merge combine join files', category:'pdf' },
+    { name:'PDF Split', desc:'Split a PDF into multiple files.', link:'/pdf-split', keywords:'pdf split separate cut pages', category:'pdf' },
+    { name:'PDF Rotate', desc:'Rotate PDF pages.', link:'/pdf-rotate', keywords:'pdf rotate page turn', category:'pdf' },
+    { name:'PDF Page Extractor', desc:'Extract specific pages from PDF.', link:'/pdf-page-extractor', keywords:'pdf extract page range', category:'pdf' },
+    { name:'PDF Compressor', desc:'Compress PDF file size.', link:'/pdf-compressor', keywords:'pdf compress reduce size shrink smaller', category:'pdf' },
+    { name:'PDF to 50KB', desc:'Compress a PDF down to roughly 50KB.', link:'/pdf-50kb', keywords:'pdf 50kb compress reduce size shrink small upload form limit', category:'pdf' },
+    { name:'PDF to 100KB', desc:'Compress a PDF down to roughly 100KB.', link:'/pdf-100kb', keywords:'pdf 100kb compress reduce size shrink small upload form limit', category:'pdf' },
+    { name:'PDF to 200KB', desc:'Compress a PDF down to roughly 200KB.', link:'/pdf-200kb', keywords:'pdf 200kb compress reduce size shrink small upload form limit', category:'pdf' },
+    { name:'PDF to 500KB', desc:'Compress a PDF down to roughly 500KB.', link:'/pdf-500kb', keywords:'pdf 500kb compress reduce size shrink upload form limit', category:'pdf' },
+    { name:'PDF Text Extractor', desc:'Extract text from PDF.', link:'/pdf-text-extractor', keywords:'pdf text extractor copy', category:'pdf' },
+    { name:'PDF Lock', desc:'Add password protection to PDF.', link:'/pdf-lock', keywords:'pdf lock password protect encrypt', category:'pdf' },
+    { name:'PDF Unlock', desc:'Remove password from PDF.', link:'/pdf-unlock', keywords:'pdf unlock password remove decrypt', category:'pdf' },
+    { name:'Invoice Generator', desc:'Generate invoices.', link:'/invoice-generator', keywords:'invoice generator bill billing', category:'business' },
+    { name:'Quotation Generator', desc:'Generate quotations.', link:'/quotation-generator', keywords:'quotation generator quote estimate', category:'business' },
+    { name:'Receipt Generator', desc:'Generate receipts.', link:'/receipt-generator', keywords:'receipt generator payment', category:'business' },
+    { name:'Payslip Generator', desc:'Generate payslips.', link:'/payslip-generator', keywords:'payslip generator salary payroll', category:'business' },
+    { name:'Shipping Label Generator', desc:'Create printable shipping and courier labels with sender, receiver and tracking details.', link:'/shipping-label-generator', keywords:'shipping label generator courier parcel address tracking printable', category:'business' },
+    { name:'Resume Builder', desc:'Build a clean, professional resume from your details and export it in seconds.', link:'/resume-builder', keywords:'resume builder cv curriculum vitae job application template', category:'business' },
+    { name:'GST Calculator', desc:'Calculate GST amounts.', link:'/gst-calculator', keywords:'gst calculator tax goods services', category:'business' },
+    { name:'Discount Calculator', desc:'Calculate discounts.', link:'/discount-calculator', keywords:'discount calculator sale off price', category:'business' },
+    { name:'Profit Margin Calculator', desc:'Calculate profit margins.', link:'/profit-margin-calculator', keywords:'profit margin calculator business', category:'business' },
+    { name:'Salary Calculator', desc:'Calculate salary.', link:'/salary-calculator', keywords:'salary calculator income wage', category:'business' },
+    { name:'EMI Calculator', desc:'Calculate loan EMI.', link:'/emi-calculator', keywords:'emi calculator loan equated monthly installment', category:'finance' },
+    { name:'Loan Calculator', desc:'Calculate loan details.', link:'/loan-calculator', keywords:'loan calculator interest', category:'finance' },
+    { name:'SIP Calculator', desc:'Calculate SIP returns.', link:'/sip-calculator', keywords:'sip calculator mutual fund investment returns', category:'finance' },
+    { name:'Income Tax Calculator', desc:'Calculate income tax.', link:'/income-tax-calculator', keywords:'income tax calculator slab', category:'finance' },
+    { name:'Tax Calculator', desc:'Calculate taxes.', link:'/tax-calculator', keywords:'tax calculator', category:'finance' },
+    { name:'Tip Calculator', desc:'Calculate tips.', link:'/tip-calculator', keywords:'tip calculator restaurant gratuity', category:'finance' },
+    { name:'GPA Calculator', desc:'Calculate GPA.', link:'/gpa-calculator', keywords:'gpa calculator student grade point', category:'calculator' },
+    { name:'CGPA Calculator', desc:'Calculate CGPA.', link:'/cgpa-calculator', keywords:'cgpa calculator student grade', category:'calculator' },
+    { name:'Percentage Calculator', desc:'Calculate percentages.', link:'/percentage-calculator', keywords:'percentage calculator percent', category:'calculator' },
+    { name:'Grade Calculator', desc:'Calculate grades.', link:'/grade-calculator', keywords:'grade calculator student marks', category:'calculator' },
+    { name:'Marks Percentage Calculator', desc:'Calculate marks percentage.', link:'/marks-percentage-calculator', keywords:'marks percentage calculator exam', category:'calculator' },
+    { name:'Attendance Calculator', desc:'Calculate attendance percentage.', link:'/attendance-calculator', keywords:'attendance calculator college percentage', category:'calculator' },
+    { name:'Study Time Calculator', desc:'Calculate study time.', link:'/study-time-calculator', keywords:'study time calculator planner', category:'calculator' },
+    { name:'Exam Countdown', desc:'Countdown to exams.', link:'/exam-countdown', keywords:'exam countdown timer days', category:'calculator' },
+    { name:'Age Calculator', desc:'Calculate age from date of birth.', link:'/age-calculator', keywords:'age calculator birth date dob', category:'calculator' },
+    { name:'Scientific Calculator', desc:'Advanced scientific calculator.', link:'/scientific-calculator', keywords:'scientific calculator math trigonometry', category:'calculator' },
+    { name:'Quadratic Equation Calculator', desc:'Solve quadratic equations.', link:'/quadratic-equation-calculator', keywords:'quadratic equation calculator roots', category:'calculator' },
+    { name:'Matrix Calculator', desc:'Perform matrix operations.', link:'/matrix-calculator', keywords:'matrix calculator determinant multiply', category:'calculator' },
+    { name:'Probability Calculator', desc:'Calculate probabilities.', link:'/probability-calculator', keywords:'probability calculator chance', category:'calculator' },
+    { name:'Standard Deviation Calculator', desc:'Calculate standard deviation.', link:'/standard-deviation-calculator', keywords:'standard deviation calculator statistics', category:'calculator' },
+    { name:'Mean Median Mode Calculator', desc:'Calculate mean, median, mode.', link:'/mean-median-mode-calculator', keywords:'mean median mode calculator average statistics', category:'calculator' },
+    { name:'Prime Number Checker', desc:'Check if a number is prime.', link:'/prime-number-checker', keywords:'prime number check', category:'calculator' },
+    { name:'Prime Number Generator', desc:'Generate prime numbers.', link:'/prime-number-generator', keywords:'prime number generator', category:'calculator' },
+    { name:'Factorial Calculator', desc:'Calculate factorial of a number.', link:'/factorial-calculator', keywords:'factorial calculator', category:'calculator' },
+    { name:'GCD Calculator', desc:'Find greatest common divisor.', link:'/gcd-calculator', keywords:'gcd calculator greatest common divisor hcf', category:'calculator' },
+    { name:'LCM Calculator', desc:'Find least common multiple.', link:'/lcm-calculator', keywords:'lcm calculator least common multiple', category:'calculator' },
+    { name:'Binary Calculator', desc:'Perform binary calculations.', link:'/binary-calculator', keywords:'binary calculator bits', category:'calculator' },
+    { name:'Decimal to Binary', desc:'Convert decimal to binary.', link:'/decimal-to-binary', keywords:'decimal binary convert', category:'calculator' },
+    { name:'Binary to Decimal', desc:'Convert binary to decimal.', link:'/binary-to-decimal', keywords:'binary decimal convert', category:'calculator' },
+    { name:'Decimal to Hex', desc:'Convert decimal to hex.', link:'/decimal-to-hex', keywords:'decimal hex convert hexadecimal', category:'calculator' },
+    { name:'Hex to Decimal', desc:'Convert hex to decimal.', link:'/hex-to-decimal', keywords:'hex decimal convert hexadecimal', category:'calculator' },
+    { name:'Decimal to Octal', desc:'Convert decimal to octal.', link:'/decimal-to-octal', keywords:'decimal octal convert', category:'calculator' },
+    { name:'Average Calculator', desc:'Calculate average of numbers.', link:'/average-calculator', keywords:'average calculator mean', category:'calculator' },
+    { name:'Ratio Calculator', desc:'Calculate ratios.', link:'/ratio-calculator', keywords:'ratio calculator proportion', category:'calculator' },
+    { name:'Fraction Calculator', desc:'Calculate fractions.', link:'/fraction-calculator', keywords:'fraction calculator numerator denominator', category:'calculator' },
+    { name:'Date Difference Calculator', desc:'Calculate days between two dates.', link:'/date-difference-calculator', keywords:'date difference days between', category:'calculator' },
+    { name:'Days Between Dates', desc:'Find days between dates.', link:'/days-between-dates', keywords:'days between dates calculator', category:'calculator' },
+    { name:'Add Days to Date', desc:'Add days to a date.', link:'/add-days-to-date', keywords:'add days date calculator', category:'calculator' },
+    { name:'Subtract Days from Date', desc:'Subtract days from a date.', link:'/subtract-days-from-date', keywords:'subtract days date calculator', category:'calculator' },
+    { name:'Business Days Calculator', desc:'Calculate business days between dates.', link:'/business-days-calculator', keywords:'business days calculator working days', category:'calculator' },
+    { name:'Date to Unix Timestamp', desc:'Convert date to Unix timestamp.', link:'/date-to-unix-timestamp', keywords:'date unix timestamp epoch', category:'calculator' },
+    { name:'Unix Timestamp to Date', desc:'Convert Unix timestamp to date.', link:'/unix-timestamp-to-date', keywords:'unix timestamp date epoch', category:'calculator' },
+    { name:'Time Duration Calculator', desc:'Calculate time duration between two times.', link:'/time-duration-calculator', keywords:'time duration calculator hours minutes', category:'calculator' },
+    { name:'Countdown Calculator', desc:'Countdown to a future date.', link:'/countdown-calculator', keywords:'countdown calculator timer', category:'calculator' },
+    { name:'Week Number Calculator', desc:'Find week number of a date.', link:'/week-number-calculator', keywords:'week number calculator iso', category:'calculator' },
+    { name:'Leap Year Checker', desc:'Check if a year is a leap year.', link:'/leap-year-checker', keywords:'leap year checker february', category:'calculator' },
+    { name:'World Clock', desc:'View current time in different time zones.', link:'/world-clock', keywords:'world clock time zones current time', category:'calculator' },
+    { name:'Time Zone Converter', desc:'Convert time between time zones.', link:'/time-zone-converter', keywords:'time zone converter utc gmt', category:'calculator' },
+    { name:'Length Converter', desc:'Convert length units.', link:'/length-converter', keywords:'length converter units meter feet inch', category:'calculator' },
+    { name:'Weight Converter', desc:'Convert weight units.', link:'/weight-converter', keywords:'weight converter units kg pound', category:'calculator' },
+    { name:'Temperature Converter', desc:'Convert temperature units.', link:'/temperature-converter', keywords:'temperature converter celsius fahrenheit kelvin', category:'calculator' },
+    { name:'Area Converter', desc:'Convert area units.', link:'/area-converter', keywords:'area converter units square meter acre', category:'calculator' },
+    { name:'Volume Converter', desc:'Convert volume units.', link:'/volume-converter', keywords:'volume converter units litre gallon', category:'calculator' },
+    { name:'Speed Converter', desc:'Convert speed units.', link:'/speed-converter', keywords:'speed converter units kmph mph', category:'calculator' },
+    { name:'Data Storage Converter', desc:'Convert data storage units.', link:'/data-storage-converter', keywords:'data storage converter units mb gb tb', category:'calculator' },
+    { name:'Energy Converter', desc:'Convert energy units.', link:'/energy-converter', keywords:'energy converter units joule calorie', category:'calculator' },
+    { name:'Pressure Converter', desc:'Convert pressure units.', link:'/pressure-converter', keywords:'pressure converter units pascal bar', category:'calculator' },
+    { name:'Power Converter', desc:'Convert power units.', link:'/power-converter', keywords:'power converter units watt horsepower', category:'calculator' },
+    { name:'Frequency Converter', desc:'Convert frequency units.', link:'/frequency-converter', keywords:'frequency converter units hertz', category:'calculator' },
+    { name:'Angle Converter', desc:'Convert angle units.', link:'/angle-converter', keywords:'angle converter units degree radian', category:'calculator' },
+    { name:'Pace Converter', desc:'Convert pace units.', link:'/pace-converter', keywords:'pace converter running units', category:'calculator' },
+    { name:'Fuel Economy Converter', desc:'Convert fuel economy units.', link:'/fuel-economy-converter', keywords:'fuel economy converter units mileage', category:'calculator' }
 ];
-tools.forEach(function(t) {
+
+tools.forEach(function(t){
     t._nameLower = t.name.toLowerCase();
-    t._descLower = (t.desc || '').toLowerCase();
-    t._hay = (t.name + ' ' + (t.desc || '') + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
+    t._descLower = t.desc.toLowerCase();
+    t._hay = (t.name + ' ' + t.desc + ' ' + t.keywords + ' ' + (categoryLabelMap[t.category] || '')).toLowerCase();
 });
 
-function escAttr(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
-function highlight(text,q){
-    if(!q) return escHtml(text);
-    const lower=text.toLowerCase();const qLen=q.length;
-    let idx=lower.indexOf(q);if(idx===-1) return escHtml(text);
-    let result='';let lastIdx=0;
-    while(idx!==-1){result+=escHtml(text.slice(lastIdx,idx));result+='<mark>'+escHtml(text.slice(idx,idx+qLen))+'</mark>';lastIdx=idx+qLen;idx=lower.indexOf(q,lastIdx);}
-    result+=escHtml(text.slice(lastIdx));return result;
+function escAttr(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+function highlight(text, q){
+    if (!q) return escHtml(text);
+    const lower = text.toLowerCase();
+    const qLen = q.length;
+    let idx = lower.indexOf(q);
+    if (idx === -1) return escHtml(text);
+    let result = '';
+    let lastIdx = 0;
+    while (idx !== -1){
+        result += escHtml(text.slice(lastIdx, idx));
+        result += '<mark>' + escHtml(text.slice(idx, idx + qLen)) + '</mark>';
+        lastIdx = idx + qLen;
+        idx = lower.indexOf(q, lastIdx);
+    }
+    result += escHtml(text.slice(lastIdx));
+    return result;
 }
-function trapFocus(e,container){
-    if(e.key!=='Tab')return;
-    const focusable=container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
-    const list=Array.prototype.filter.call(focusable,function(el){return el.getClientRects().length>0;});
-    if(!list.length)return;
-    const first=list[0];const last=list[list.length-1];
-    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
-    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+function isVisible(el){ return el.getClientRects().length > 0; }
+function trapFocus(e, container){
+    if (e.key !== 'Tab') return;
+    const focusable = container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+    const list = Array.prototype.filter.call(focusable, isVisible);
+    if (!list.length) return;
+    const first = list[0];
+    const last = list[list.length - 1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
 }
 
-/* ============ Toast ============ */
 let toastTimer;
-function showToast(msg,dur){
-    dur=dur||2400;
-    const t=document.getElementById('toast');
-    t.textContent=msg;t.classList.add('show');
+function showToast(msg, dur){
+    dur = dur || 2400;
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
     clearTimeout(toastTimer);
-    toastTimer=setTimeout(function(){t.classList.remove('show');},dur);
+    toastTimer = setTimeout(function(){ t.classList.remove('show'); }, dur);
 }
 
-/* ============ Theme ============ */
 function setThemeColorMeta(isDark){
-    const meta=document.getElementById('themeColorMeta');
-    if(meta)meta.setAttribute('content',isDark?'#0f172a':'#ffffff');
+    const meta = document.getElementById('themeColorMeta');
+    if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
 }
 function toggleTheme(){
-    const root=document.documentElement;
-    if(root.classList.contains('dark-mode')){
+    const root = document.documentElement;
+    if (root.classList.contains('dark-mode')){
         root.classList.remove('dark-mode');
-        try{localStorage.setItem('theme','light');}catch(e){}
+        try { localStorage.setItem('theme','light'); } catch (e) {}
         setThemeColorMeta(false);
     } else {
         root.classList.add('dark-mode');
-        try{localStorage.setItem('theme','dark');}catch(e){}
+        try { localStorage.setItem('theme','dark'); } catch (e) {}
         setThemeColorMeta(true);
     }
 }
 function initSystemThemeListener(){
-    if(!window.matchMedia)return;
-    const mq=window.matchMedia('(prefers-color-scheme: dark)');
-    const handler=function(e){
-        let stored=null;
-        try{stored=localStorage.getItem('theme');}catch(err){}
-        if(stored)return;
-        const isDark=e.matches;
-        document.documentElement.classList.toggle('dark-mode',isDark);
+    if (!window.matchMedia) return;
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const handler = function(e){
+        let stored = null;
+        try { stored = localStorage.getItem('theme'); } catch (err) {}
+        if (stored) return;
+        const isDark = e.matches;
+        document.documentElement.classList.toggle('dark-mode', isDark);
         setThemeColorMeta(isDark);
     };
-    if(typeof mq.addEventListener==='function')mq.addEventListener('change',handler);
-    else if(typeof mq.addListener==='function')mq.addListener(handler);
+    if (typeof mq.addEventListener === 'function') mq.addEventListener('change', handler);
+    else if (typeof mq.addListener === 'function') mq.addListener(handler);
 }
 
-/* ============ Tools Menu ============ */
 function closeToolsMenu(returnFocus){
-    const container=document.getElementById('toolsMenuContainer');
-    const trigger=document.getElementById('toolsTrigger');
-    if(!container||!container.classList.contains('open'))return;
+    const container = document.getElementById('toolsMenuContainer');
+    const trigger = document.getElementById('toolsTrigger');
+    if (!container || !container.classList.contains('open')) return;
     container.classList.remove('open');
-    if(trigger){trigger.setAttribute('aria-expanded','false');if(returnFocus)trigger.focus();}
+    if (trigger){ trigger.setAttribute('aria-expanded','false'); if (returnFocus) trigger.focus(); }
 }
 function toggleToolsMenu(){
-    const container=document.getElementById('toolsMenuContainer');
-    const trigger=document.getElementById('toolsTrigger');
-    const isOpen=container.classList.contains('open');
-    if(isOpen){closeToolsMenu(true);}
-    else{container.classList.add('open');trigger.setAttribute('aria-expanded','true');const firstLink=container.querySelector('.tools-mega-menu a');if(firstLink)firstLink.focus();}
+    const container = document.getElementById('toolsMenuContainer');
+    const trigger = document.getElementById('toolsTrigger');
+    const isOpen = container.classList.contains('open');
+    if (isOpen) closeToolsMenu(true);
+    else {
+        container.classList.add('open');
+        trigger.setAttribute('aria-expanded','true');
+        const firstLink = container.querySelector('.tools-mega-menu a');
+        if (firstLink) firstLink.focus();
+    }
 }
-document.addEventListener('click',function(e){
-    const container=document.getElementById('toolsMenuContainer');
-    if(container&&!container.contains(e.target)&&container.classList.contains('open'))closeToolsMenu(false);
-});
 
-let searchIsOpen=false;
-
-/* ============ Mobile Sidebar ============ */
 function openMobileSidebar(){
-    const sb=document.getElementById('mobileSidebar');
-    sb.classList.add('active');sb.setAttribute('aria-hidden','false');
+    const sb = document.getElementById('mobileSidebar');
+    sb.classList.add('active');
+    sb.setAttribute('aria-hidden','false');
     document.getElementById('mobileSidebarOverlay').classList.add('active');
-    const hb=document.getElementById('hamburgerBtn');
-    if(hb)hb.setAttribute('aria-expanded','true');
-    document.body.style.overflow='hidden';
-    const closeBtn=document.getElementById('mobileSidebarClose');
-    if(closeBtn)setTimeout(function(){if(sb.classList.contains('active'))closeBtn.focus();},100);
+    const hb = document.getElementById('hamburgerBtn');
+    if (hb) hb.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+    const closeBtn = document.getElementById('mobileSidebarClose');
+    if (closeBtn) setTimeout(function(){ if (sb.classList.contains('active')) closeBtn.focus(); }, 100);
 }
 function closeMobileSidebar(){
-    const sb=document.getElementById('mobileSidebar');
-    if(!sb||!sb.classList.contains('active'))return;
-    sb.classList.remove('active');sb.setAttribute('aria-hidden','true');
-    document.getElementById('mobileSidebarOverlay').classList.remove('active');
-    const hb=document.getElementById('hamburgerBtn');
-    if(hb){hb.setAttribute('aria-expanded','false');if(!searchIsOpen){try{hb.focus();}catch(e){}}}
-    const searchOpen=document.getElementById('searchOverlayFull').classList.contains('active');
-    const modalOpen=document.getElementById('actionModal').classList.contains('active');
-    if(!searchOpen&&!modalOpen)document.body.style.overflow='';
+    const sb = document.getElementById('mobileSidebar');
+    if (!sb || !sb.classList.contains('active')) return;
+    if (sb.contains(document.activeElement) && document.activeElement.blur){
+        document.activeElement.blur();
+    }
+    sb.classList.remove('active');
+    sb.setAttribute('aria-hidden','true');
+    const ov = document.getElementById('mobileSidebarOverlay');
+    if (ov) ov.classList.remove('active');
+    if (!searchIsOpen) document.body.style.overflow = '';
+    const hb = document.getElementById('hamburgerBtn');
+    if (hb && !searchIsOpen && hb.offsetParent !== null){
+        try { hb.focus(); } catch (e) {}
+    }
 }
 function toggleMobileTools(){
-    const toggle=document.getElementById('mobileToolsToggle');
-    const menu=document.getElementById('mobileToolsMenu');
-    const isOpen=menu.classList.contains('active');
+    const toggle = document.getElementById('mobileToolsToggle');
+    const menu = document.getElementById('mobileToolsMenu');
+    const isOpen = menu.classList.contains('active');
     menu.classList.toggle('active');
     toggle.classList.toggle('active');
-    if(toggle)toggle.setAttribute('aria-expanded',String(!isOpen));
+    if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
 }
-document.getElementById('mobileSidebar').addEventListener('click',function(e){
-    if(e.target.closest('a'))closeMobileSidebar();
-});
-function openSearchFromSidebar(){closeMobileSidebar();openFullSearch();}
-
-(function initResizeHandler(){
-    let resizeRaf=0;let lastWasDesktop=window.innerWidth>768;
-    window.addEventListener('resize',function(){
-        if(resizeRaf)return;
-        resizeRaf=requestAnimationFrame(function(){
-            resizeRaf=0;
-            const isDesktop=window.innerWidth>768;
-            if(isDesktop&&!lastWasDesktop){
-                if(document.getElementById('mobileSidebar').classList.contains('active'))closeMobileSidebar();
+let resizeRaf = 0;
+function initResizeHandler(){
+    let lastWasDesktop = window.innerWidth > 768;
+    window.addEventListener('resize', function(){
+        if (resizeRaf) return;
+        resizeRaf = requestAnimationFrame(function(){
+            resizeRaf = 0;
+            const isDesktop = window.innerWidth > 768;
+            if (isDesktop && !lastWasDesktop){
+                if (document.getElementById('mobileSidebar').classList.contains('active')) closeMobileSidebar();
             }
-            lastWasDesktop=isDesktop;
+            lastWasDesktop = isDesktop;
         });
     });
-})();
-
-/* ============ Search ============ */
-let lastFocusedBeforeSearch=null;
-let searchResultsRaf=0;
-const searchState={activeIndex:-1};
-
-function openFullSearch(){
-    const overlay=document.getElementById('searchOverlayFull');
-    if(!overlay)return;
-    if(overlay.classList.contains('active')){document.getElementById('fullSearchInput').focus();return;}
-    lastFocusedBeforeSearch=document.activeElement;
-    searchIsOpen=true;
-    overlay.classList.add('active');overlay.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
-    var input=document.getElementById('fullSearchInput');
-    if(input){input.value='';input.setAttribute('aria-expanded','true');}
-    var clearBtn=document.getElementById('searchClearBtn');
-    if(clearBtn)clearBtn.classList.remove('show');
-    buildSearchResults('','');
-    setTimeout(function(){if(searchIsOpen)document.getElementById('fullSearchInput').focus();},200);
 }
-function closeFullSearch(){
-    const overlay=document.getElementById('searchOverlayFull');
-    if(!overlay||!overlay.classList.contains('active'))return;
-    searchIsOpen=false;
-    if(searchResultsRaf){cancelAnimationFrame(searchResultsRaf);searchResultsRaf=0;}
-    overlay.classList.remove('active');overlay.setAttribute('aria-hidden','true');
-    var inp=document.getElementById('fullSearchInput');
-    if(inp){inp.value='';inp.setAttribute('aria-expanded','false');}
-    var clearBtn=document.getElementById('searchClearBtn');
-    if(clearBtn)clearBtn.classList.remove('show');
-    var list=document.getElementById('fullSearchResultsList');
-    if(list)list.innerHTML='';
-    var nr=document.getElementById('fullNoResult');
-    if(nr)nr.classList.remove('show');
-    const sidebarOpen=document.getElementById('mobileSidebar').classList.contains('active');
-    const modalOpen=document.getElementById('actionModal').classList.contains('active');
-    if(!sidebarOpen&&!modalOpen)document.body.style.overflow='';
-    if(lastFocusedBeforeSearch&&lastFocusedBeforeSearch.focus){try{lastFocusedBeforeSearch.focus();}catch(e){}}
-    lastFocusedBeforeSearch=null;
-}
-function buildResultItemHtml(t,q){
-    return '<a href="'+escAttr(t.link)+'" class="search-result-item" role="option">'+
-        '<span class="result-main">'+
-        '<span class="result-name">'+highlight(t.name,q)+'</span>'+
-        '<span class="result-desc">'+highlight(t.desc,q)+'</span>'+
-        '</span>'+
-        '<span class="result-tag">'+escHtml(categoryLabelMap[t.category]||t.category)+'</span>'+
+
+let lastFocusedBeforeSearch = null;
+let searchResultsRaf = 0;
+let searchIsOpen = false;
+const searchState = { activeIndex: -1 };
+
+function buildResultItemHtml(t, q, idx){
+    return '<a href="' + escAttr(t.link) + '" class="search-result-item" id="search-result-' + idx + '" role="option">' +
+        '<span class="result-main">' +
+        '<span class="result-name">' + highlight(t.name, q) + '</span>' +
+        '<span class="result-desc">' + highlight(t.desc, q) + '</span>' +
+        '</span>' +
+        '<span class="result-tag">' + escHtml(categoryLabelMap[t.category] || t.category) + '</span>' +
         '</a>';
 }
-function renderSuggestions(){
-    const list=document.getElementById('fullSearchResultsList');
-    if(!list)return;
-    if(!tools.length){list.innerHTML='';return;}
-    let html='';
-    for(let i=0;i<tools.length;i++)html+=buildResultItemHtml(tools[i],'');
-    list.innerHTML=html;searchState.activeIndex=-1;
+function setActiveDescendant(el){
+    const input = document.getElementById('fullSearchInput');
+    if (!input) return;
+    if (el) input.setAttribute('aria-activedescendant', el.id);
+    else input.setAttribute('aria-activedescendant', '');
 }
-function buildSearchResults(q,displayQuery){
-    const list=document.getElementById('fullSearchResultsList');
-    const nr=document.getElementById('fullNoResult');
-    if(!list)return;
-    if(q===''){renderSuggestions();if(nr)nr.classList.remove('show');return;}
-    let matched=[];
-    for(let i=0;i<tools.length;i++){
-        const t=tools[i];
-        if(t._hay.indexOf(q)===-1)continue;
-        let score=3;
-        if(t._nameLower.startsWith(q))score=0;
-        else if(t._nameLower.indexOf(q)!==-1)score=1;
-        else if(t._descLower.indexOf(q)!==-1)score=2;
-        matched.push({t:t,idx:i,score:score});
+function renderAllSuggestions(){
+    const list = document.getElementById('fullSearchResultsList');
+    if (!list) return;
+    list.classList.add('no-anim');
+    let html = '';
+    for (let i = 0; i < tools.length; i++) html += buildResultItemHtml(tools[i], '', i);
+    list.innerHTML = html;
+    searchState.activeIndex = -1;
+    setActiveDescendant(null);
+    const input = document.getElementById('fullSearchInput');
+    if (input) input.setAttribute('aria-expanded', 'true');
+}
+function buildSearchResults(q, displayQuery){
+    const list = document.getElementById('fullSearchResultsList');
+    const nr = document.getElementById('fullNoResult');
+    const input = document.getElementById('fullSearchInput');
+    if (!list) return;
+    if (q === ''){ renderAllSuggestions(); if (nr) nr.classList.remove('show'); return; }
+    list.classList.remove('no-anim');
+    let matched = [];
+    for (let i = 0; i < tools.length; i++){
+        const t = tools[i];
+        if (t._hay.indexOf(q) === -1) continue;
+        let score = 3;
+        if (t._nameLower.startsWith(q)) score = 0;
+        else if (t._nameLower.indexOf(q) !== -1) score = 1;
+        else if (t._descLower.indexOf(q) !== -1) score = 2;
+        matched.push({ t: t, idx: i, score: score });
     }
-    matched.sort(function(a,b){return a.score-b.score||a.idx-b.idx;});
-    const total=matched.length;const parts=[];
-    for(let i=0;i<total;i++)parts.push(buildResultItemHtml(matched[i].t,q));
-    list.innerHTML=parts.join('');
-    searchState.activeIndex=-1;
-    if(total===0&&q!==''){nr.classList.add('show');document.getElementById('fullSearchQuery').textContent=displayQuery||q;}
-    else nr.classList.remove('show');
+    matched.sort(function(a, b){ return a.score - b.score || a.idx - b.idx; });
+    const total = matched.length;
+    const parts = [];
+    for (let i = 0; i < total; i++) parts.push(buildResultItemHtml(matched[i].t, q, i));
+    list.innerHTML = parts.join('');
+    searchState.activeIndex = -1;
+    setActiveDescendant(null);
+    if (input) input.setAttribute('aria-expanded', total > 0 ? 'true' : 'false');
+    if (total === 0){
+        nr.classList.add('show');
+        document.getElementById('fullSearchQuery').textContent = displayQuery || q;
+    } else {
+        nr.classList.remove('show');
+    }
 }
 function filterFullSearch(){
-    const input=document.getElementById('fullSearchInput');
-    const raw=input.value;
-    const q=raw.toLowerCase().trim();
-    document.getElementById('searchClearBtn').classList.toggle('show',raw.length>0);
-    if(!searchIsOpen)return;
-    if(searchResultsRaf)cancelAnimationFrame(searchResultsRaf);
-    searchResultsRaf=requestAnimationFrame(function(){searchResultsRaf=0;buildSearchResults(q,raw.trim());});
+    const input = document.getElementById('fullSearchInput');
+    const raw = input.value;
+    const q = raw.toLowerCase().trim();
+    document.getElementById('searchClearBtn').classList.toggle('show', raw.length > 0);
+    if (!searchIsOpen) return;
+    if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
+    searchResultsRaf = requestAnimationFrame(function(){ searchResultsRaf = 0; buildSearchResults(q, raw.trim()); });
 }
 function handleSearchKey(e){
-    const items=Array.prototype.slice.call(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
-    if(e.key==='ArrowDown'){
-        e.preventDefault();if(!items.length)return;
-        searchState.activeIndex=(searchState.activeIndex+1)%items.length;
-        items.forEach(function(i){i.classList.remove('active');});
-        items[searchState.activeIndex].classList.add('active');
-        items[searchState.activeIndex].scrollIntoView({block:'nearest'});
-    } else if(e.key==='ArrowUp'){
-        e.preventDefault();if(!items.length)return;
-        searchState.activeIndex=(searchState.activeIndex-1+items.length)%items.length;
-        items.forEach(function(i){i.classList.remove('active');});
-        items[searchState.activeIndex].classList.add('active');
-        items[searchState.activeIndex].scrollIntoView({block:'nearest'});
-    } else if(e.key==='Enter'){
+    const items = Array.from(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
+    if (e.key === 'ArrowDown'){
         e.preventDefault();
-        if(searchState.activeIndex>=0&&items[searchState.activeIndex])window.location.href=items[searchState.activeIndex].getAttribute('href');
-        else if(items.length===1)window.location.href=items[0].getAttribute('href');
+        if (!items.length) return;
+        searchState.activeIndex = (searchState.activeIndex + 1) % items.length;
+        items.forEach(function(i){ i.classList.remove('active'); });
+        items[searchState.activeIndex].classList.add('active');
+        setActiveDescendant(items[searchState.activeIndex]);
+        items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'ArrowUp'){
+        e.preventDefault();
+        if (!items.length) return;
+        searchState.activeIndex = (searchState.activeIndex - 1 + items.length) % items.length;
+        items.forEach(function(i){ i.classList.remove('active'); });
+        items[searchState.activeIndex].classList.add('active');
+        setActiveDescendant(items[searchState.activeIndex]);
+        items[searchState.activeIndex].scrollIntoView({ block: 'nearest' });
+    } else if (e.key === 'Enter'){
+        e.preventDefault();
+        if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) {
+            window.location.href = items[searchState.activeIndex].getAttribute('href');
+        } else if (items.length) {
+            window.location.href = items[0].getAttribute('href');
+        }
     }
 }
 function clearSearchInput(){
-    const input=document.getElementById('fullSearchInput');
-    input.value='';filterFullSearch();input.focus();
+    const input = document.getElementById('fullSearchInput');
+    input.value = '';
+    filterFullSearch();
+    input.focus();
 }
-(function initSearchBackdrop(){
-    const overlay=document.getElementById('searchOverlayFull');
-    if(overlay)overlay.addEventListener('click',function(e){if(e.target===overlay)closeFullSearch();});
-})();
-document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){
-        closeToolsMenu(true);closeFullSearch();closeMobileSidebar();closeModal();
+function openFullSearch(){
+    const overlay = document.getElementById('searchOverlayFull');
+    if (!overlay) return;
+    if (overlay.classList.contains('active')){
+        document.getElementById('fullSearchInput').focus();
         return;
     }
-    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openFullSearch();return;}
-    const modalOverlay=document.getElementById('actionModal');
-    if(modalOverlay.classList.contains('active')){trapFocus(e,modalOverlay.querySelector('.modal-box'));return;}
-    if(searchIsOpen){trapFocus(e,document.getElementById('searchOverlayFull'));return;}
-    const sb=document.getElementById('mobileSidebar');
-    if(sb.classList.contains('active'))trapFocus(e,sb);
-});
+    lastFocusedBeforeSearch = document.activeElement;
+    searchIsOpen = true;
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    const input = document.getElementById('fullSearchInput');
+    if (input){ input.value = ''; }
+    document.getElementById('searchClearBtn').classList.remove('show');
+    renderAllSuggestions();
+    document.getElementById('fullNoResult').classList.remove('show');
+    setTimeout(function(){
+        if (searchIsOpen) document.getElementById('fullSearchInput').focus();
+    }, 200);
+}
+function closeFullSearch(){
+    const overlay = document.getElementById('searchOverlayFull');
+    if (!overlay || !overlay.classList.contains('active')) return;
+    searchIsOpen = false;
+    if (searchResultsRaf){ cancelAnimationFrame(searchResultsRaf); searchResultsRaf = 0; }
+    if (overlay.contains(document.activeElement) && document.activeElement.blur){
+        document.activeElement.blur();
+    }
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden','true');
+    const inp = document.getElementById('fullSearchInput');
+    if (inp){ inp.value = ''; inp.setAttribute('aria-expanded', 'false'); inp.setAttribute('aria-activedescendant', ''); }
+    document.getElementById('searchClearBtn').classList.remove('show');
+    document.getElementById('fullSearchResultsList').innerHTML = '';
+    document.getElementById('fullNoResult').classList.remove('show');
+    const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
+    if (!sidebarOpen) document.body.style.overflow = '';
+    if (lastFocusedBeforeSearch && document.contains(lastFocusedBeforeSearch) && lastFocusedBeforeSearch.offsetParent !== null && lastFocusedBeforeSearch.focus){
+        try { lastFocusedBeforeSearch.focus(); } catch (e) {}
+    }
+    lastFocusedBeforeSearch = null;
+}
+function openSearchFromSidebar(){
+    closeMobileSidebar();
+    setTimeout(openFullSearch, 60);
+}
+
 function toggleFaq(btnEl){
-    const item=btnEl.closest('.faq-item');
-    if(!item)return;
-    const expanded=btnEl.getAttribute('aria-expanded')==='true';
+    const item = btnEl.closest('.faq-item');
+    if (!item) return;
+    const expanded = btnEl.getAttribute('aria-expanded') === 'true';
     item.classList.toggle('active');
-    btnEl.setAttribute('aria-expanded',String(!expanded));
+    btnEl.setAttribute('aria-expanded', String(!expanded));
+}
+
+function populateNavMenus(){
+    const mega = document.getElementById('megaMenu');
+    const mobileMenu = document.getElementById('mobileToolsMenu');
+    if (mega){
+        const parts = [];
+        for (let i = 0; i < tools.length; i++) parts.push('<a href="' + escAttr(tools[i].link) + '">' + escHtml(tools[i].name) + '</a>');
+        mega.innerHTML = parts.join('');
+    }
+    if (mobileMenu){
+        const parts = [];
+        for (let i = 0; i < tools.length; i++) parts.push('<a href="' + escAttr(tools[i].link) + '">' + escHtml(tools[i].name) + '</a>');
+        mobileMenu.innerHTML = parts.join('');
+    }
+}
+
+function initEventListeners(){
+    document.querySelectorAll('[data-action="toggle-theme"]').forEach(function(btn){ btn.addEventListener('click', toggleTheme); });
+    document.querySelectorAll('[data-action="open-search"]').forEach(function(btn){ btn.addEventListener('click', openFullSearch); });
+    document.querySelectorAll('[data-action="close-search"]').forEach(function(btn){ btn.addEventListener('click', closeFullSearch); });
+    document.querySelectorAll('[data-action="clear-search"]').forEach(function(btn){ btn.addEventListener('click', clearSearchInput); });
+    document.querySelectorAll('[data-action="open-sidebar"]').forEach(function(btn){ btn.addEventListener('click', openMobileSidebar); });
+    document.querySelectorAll('[data-action="close-sidebar"]').forEach(function(btn){ btn.addEventListener('click', closeMobileSidebar); });
+    document.querySelectorAll('[data-action="toggle-tools"]').forEach(function(btn){ btn.addEventListener('click', toggleToolsMenu); });
+    document.querySelectorAll('[data-action="toggle-mobile-tools"]').forEach(function(btn){ btn.addEventListener('click', toggleMobileTools); });
+    document.querySelectorAll('[data-action="search-from-sidebar"]').forEach(function(btn){ btn.addEventListener('click', openSearchFromSidebar); });
+    document.querySelectorAll('[data-action="toggle-faq"]').forEach(function(btn){ btn.addEventListener('click', function(){ toggleFaq(this); }); });
+
+    const searchInput = document.getElementById('fullSearchInput');
+    if (searchInput){
+        searchInput.addEventListener('input', filterFullSearch);
+        searchInput.addEventListener('keydown', handleSearchKey);
+    }
+    const searchOverlay = document.getElementById('searchOverlayFull');
+    if (searchOverlay){
+        searchOverlay.addEventListener('click', function(e){ if (e.target === searchOverlay) closeFullSearch(); });
+    }
+    document.addEventListener('click', function(e){
+        const container = document.getElementById('toolsMenuContainer');
+        if (container && !container.contains(e.target) && container.classList.contains('open')) closeToolsMenu(false);
+    });
+    const sb = document.getElementById('mobileSidebar');
+    if (sb) sb.addEventListener('click', function(e){
+        if (e.target.closest('a')) closeMobileSidebar();
+    });
+    const container = document.getElementById('toolsMenuContainer');
+    const trigger = document.getElementById('toolsTrigger');
+    if (container && trigger){
+        container.addEventListener('mouseenter', function(){ trigger.setAttribute('aria-expanded','true'); });
+        container.addEventListener('mouseleave', function(){ if (!container.classList.contains('open')) trigger.setAttribute('aria-expanded','false'); });
+    }
+}
+function initKeyboardShortcuts(){
+    document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape'){
+            const container = document.getElementById('toolsMenuContainer');
+            if (container && container.classList.contains('open')) closeToolsMenu(true);
+            closeFullSearch();
+            closeMobileSidebar();
+        }
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k'){ e.preventDefault(); openFullSearch(); }
+        if (searchIsOpen) trapFocus(e, document.getElementById('searchOverlayFull'));
+        else if (document.getElementById('mobileSidebar').classList.contains('active')) trapFocus(e, document.getElementById('mobileSidebar'));
+    });
 }
 
 /* ============================================================
-   PNG TO PDF CONVERTER LOGIC
+   PNG TO PDF CONVERTER
    ============================================================ */
-var imageFiles = []; // { file, dataUrl (original), flattenedDataUrl (white bg), width, height, name }
+var imageFiles = []; // { file, dataUrl, flattenedDataUrl, width, height, name }
 
-/* ---- Drag & drop ---- */
-(function initUploadZone(){
-    var zone = document.getElementById('uploadZone');
-    var input = document.getElementById('fileInput');
-    if (!zone || !input) return;
+var PAGE_SIZES = {
+    a4:     { w: 210, h: 297 },
+    letter: { w: 216, h: 279 },
+    legal:  { w: 216, h: 356 },
+    a3:     { w: 297, h: 420 },
+    a5:     { w: 148, h: 210 }
+};
 
-    ['dragenter','dragover','dragleave','drop'].forEach(function(evt){
-        zone.addEventListener(evt, function(e){ e.preventDefault(); e.stopPropagation(); }, false);
-    });
-    zone.addEventListener('dragenter', function(){ zone.classList.add('dragover'); });
-    zone.addEventListener('dragover',  function(){ zone.classList.add('dragover'); });
-    zone.addEventListener('dragleave', function(){ zone.classList.remove('dragover'); });
-    zone.addEventListener('drop', function(e){
-        zone.classList.remove('dragover');
-        var files = e.dataTransfer && e.dataTransfer.files;
-        if (files && files.length) handleFiles(files);
-    });
-    input.addEventListener('change', function(){
-        if (this.files && this.files.length) handleFiles(this.files);
-        this.value = '';
-    });
-})();
-
-function handleFiles(fileList){
-    var files = Array.prototype.slice.call(fileList).filter(function(f){
-        return f.type && f.type.indexOf('image/') === 0;
-    });
-    if (!files.length){ showToast('Please select image files.'); return; }
-    var pending = files.length;
-    files.forEach(function(f){
-        var reader = new FileReader();
-        reader.onload = function(ev){
-            var img = new Image();
-            img.onload = function(){
-                var flatUrl = flattenToWhite(ev.target.result, img.naturalWidth, img.naturalHeight);
-                imageFiles.push({
-                    file: f,
-                    dataUrl: ev.target.result,
-                    flattenedDataUrl: flatUrl,
-                    width: img.naturalWidth,
-                    height: img.naturalHeight,
-                    name: f.name
-                });
-                pending--;
-                if (pending === 0) renderImageGrid();
-            };
-            img.onerror = function(){ pending--; if (pending === 0) renderImageGrid(); };
-            img.src = ev.target.result;
-        };
-        reader.readAsDataURL(f);
-    });
-}
-
-/* Flatten any transparency onto a white background, and return a JPEG data URL.
-   This guarantees the PDF never shows black patches where PNG was transparent. */
-function flattenToWhite(srcDataUrl, w, h){
+/* Bug fix: flattenToWhite now receives the ALREADY LOADED Image element,
+   so drawImage works synchronously and reliably. */
+function flattenToWhite(loadedImg, w, h){
     try {
         var canvas = document.createElement('canvas');
         canvas.width = w;
@@ -1343,23 +1382,63 @@ function flattenToWhite(srcDataUrl, w, h){
         var ctx = canvas.getContext('2d');
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, w, h);
-        // Note: image is drawn synchronously because we already have the loaded Image element.
-        // We re-create an Image so we can draw immediately.
-        var tmp = new Image();
-        tmp.src = srcDataUrl;
-        // If cached, drawImage works synchronously; otherwise fall back to original dataUrl.
-        try {
-            ctx.drawImage(tmp, 0, 0, w, h);
-            return canvas.toDataURL('image/jpeg', 0.92);
-        } catch (e) {
-            return srcDataUrl;
-        }
+        ctx.drawImage(loadedImg, 0, 0, w, h);
+        return canvas.toDataURL('image/jpeg', 0.92);
     } catch (err){
-        return srcDataUrl;
+        return null;
     }
 }
 
-/* ---- Image grid rendering ---- */
+function handleImageFiles(fileList){
+    if (!fileList || !fileList.length) return;
+    var files = Array.prototype.filter.call(fileList, function(f){
+        return f.type && f.type.indexOf('image/') === 0;
+    });
+    if (!files.length){
+        showToast('Please select image files (PNG, JPG, WebP, GIF, BMP).');
+        return;
+    }
+    var pending = files.length;
+    var added = 0;
+    files.forEach(function(f){
+        if (f.size > 40 * 1024 * 1024){
+            pending--;
+            showToast('One of the files is over 40 MB and was skipped.');
+            if (pending === 0 && added > 0) renderImageGrid();
+            return;
+        }
+        var reader = new FileReader();
+        reader.onload = function(ev){
+            var img = new Image();
+            img.onload = function(){
+                var flatUrl = flattenToWhite(img, img.naturalWidth, img.naturalHeight) || ev.target.result;
+                imageFiles.push({
+                    file: f,
+                    dataUrl: ev.target.result,
+                    flattenedDataUrl: flatUrl,
+                    width: img.naturalWidth,
+                    height: img.naturalHeight,
+                    name: f.name || 'image'
+                });
+                added++;
+                pending--;
+                if (pending === 0) renderImageGrid();
+            };
+            img.onerror = function(){
+                pending--;
+                showToast('Could not read one of the images.');
+                if (pending === 0 && added > 0) renderImageGrid();
+            };
+            img.src = ev.target.result;
+        };
+        reader.onerror = function(){
+            pending--;
+            if (pending === 0 && added > 0) renderImageGrid();
+        };
+        reader.readAsDataURL(f);
+    });
+}
+
 function renderImageGrid(){
     var grid = document.getElementById('imageGrid');
     var section = document.getElementById('imageListSection');
@@ -1372,23 +1451,23 @@ function renderImageGrid(){
         return;
     }
     section.style.display = 'block';
-    count.textContent = imageFiles.length + ' image' + (imageFiles.length===1?'':'s');
+    count.textContent = imageFiles.length + ' image' + (imageFiles.length === 1 ? '' : 's');
     var html = '';
     imageFiles.forEach(function(img, i){
-        html += '<div class="image-card" draggable="true" data-index="'+i+'">'
-             +   '<span class="img-index">'+(i+1)+'</span>'
-             +   '<button type="button" class="img-remove" onclick="removeImage('+i+')" aria-label="Remove image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>'
-             +   '<img src="'+escAttr(img.dataUrl)+'" alt="'+escAttr(img.name)+'" loading="lazy">'
-             +   '<span class="img-name">'+escHtml(img.name)+'</span>'
+        html += '<div class="image-card" draggable="true" data-index="' + i + '">'
+             +   '<span class="img-index">' + (i + 1) + '</span>'
+             +   '<button type="button" class="img-remove" data-action="remove-image" data-index="' + i + '" aria-label="Remove image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>'
+             +   '<img src="' + escAttr(img.dataUrl) + '" alt="' + escAttr(img.name) + '" loading="lazy">'
+             +   '<span class="img-name">' + escHtml(img.name) + '</span>'
              + '</div>';
     });
     grid.innerHTML = html;
     initDragReorder();
     updateConvertBtnState();
-    if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
 }
 
 function removeImage(index){
+    if (!imageFiles[index]) return;
     imageFiles.splice(index, 1);
     renderImageGrid();
     updateConvertBtnState();
@@ -1399,7 +1478,6 @@ function updateConvertBtnState(){
     if (btn) btn.disabled = imageFiles.length === 0;
 }
 
-/* ---- Drag reorder ---- */
 var dragSrcIndex = null;
 function initDragReorder(){
     var grid = document.getElementById('imageGrid');
@@ -1409,7 +1487,7 @@ function initDragReorder(){
         card.addEventListener('dragstart', function(e){
             dragSrcIndex = parseInt(this.getAttribute('data-index'), 10);
             this.classList.add('dragging');
-            e.dataTransfer.effectAllowed = 'move';
+            if (e.dataTransfer) e.dataTransfer.effectAllowed = 'move';
         });
         card.addEventListener('dragend', function(){
             this.classList.remove('dragging');
@@ -1417,7 +1495,7 @@ function initDragReorder(){
         });
         card.addEventListener('dragover', function(e){
             e.preventDefault();
-            e.dataTransfer.dropEffect = 'move';
+            if (e.dataTransfer) e.dataTransfer.dropEffect = 'move';
         });
         card.addEventListener('drop', function(e){
             e.preventDefault();
@@ -1430,15 +1508,6 @@ function initDragReorder(){
     });
 }
 
-/* ---- Page size mapping (mm) ---- */
-var PAGE_SIZES = {
-    a4:     { w: 210, h: 297 },
-    letter: { w: 216, h: 279 },
-    legal:  { w: 216, h: 356 },
-    a3:     { w: 297, h: 420 },
-    a5:     { w: 148, h: 210 }
-};
-
 function getPageSize(){
     var key = document.getElementById('pageSize').value;
     var size = PAGE_SIZES[key] || PAGE_SIZES.a4;
@@ -1449,12 +1518,12 @@ function getPageSize(){
 }
 
 function updatePreview(){
-    if (imageFiles.length > 0 && document.getElementById('resultContent').style.display !== 'none'){
+    var rc = document.getElementById('resultContent');
+    if (rc && imageFiles.length > 0 && rc.style.display !== 'none'){
         showToast('Settings updated. Click Convert to PDF again.');
     }
 }
 
-/* ---- Convert ---- */
 function convertToPDF(){
     var errorEl = document.getElementById('errorMsg');
     var warnEl = document.getElementById('warningBanner');
@@ -1462,17 +1531,15 @@ function convertToPDF(){
     warnEl.classList.remove('show');
 
     if (imageFiles.length === 0){
-        errorEl.innerHTML = '<i data-lucide="alert-circle" aria-hidden="true"></i><div>Please upload at least one PNG image to convert.</div>';
+        errorEl.innerHTML = '<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-alert-circle"/></svg><div>Please upload at least one PNG image to convert.</div>';
         errorEl.classList.add('show');
-        if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
         showToast('Please upload images first.');
         return;
     }
 
     var btn = document.getElementById('convertBtn');
     btn.disabled = true;
-    btn.innerHTML = '<i data-lucide="loader-2" width="18" height="18" aria-hidden="true"></i> Converting…';
-    if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
+    btn.textContent = 'Converting…';
 
     setTimeout(function(){
         try {
@@ -1480,8 +1547,7 @@ function convertToPDF(){
             if (!jsPDF){
                 showToast('PDF library failed to load. Please refresh.');
                 btn.disabled = false;
-                btn.innerHTML = '<i data-lucide="file-down" width="18" height="18" aria-hidden="true"></i> Convert to PDF';
-                if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
+                btn.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-file-down"/></svg> Convert to PDF';
                 return;
             }
 
@@ -1519,7 +1585,7 @@ function convertToPDF(){
                         drawW = usableW;
                         drawH = usableW / ratio;
                     }
-                } else { // contain
+                } else {
                     if (ratio > usableW / usableH){
                         drawW = usableW;
                         drawH = usableW / ratio;
@@ -1532,41 +1598,34 @@ function convertToPDF(){
                 var x = marginMm + (usableW - drawW) / 2;
                 var y = marginMm + (usableH - drawH) / 2;
 
-                // Use the white-flattened JPEG version so PNG transparency
-                // never shows up as black in the PDF.
                 doc.addImage(img.flattenedDataUrl, 'JPEG', x, y, drawW, drawH, undefined, 'FAST');
             });
 
             var blob = doc.output('blob');
+            if (window._currentPdfUrl){ try { URL.revokeObjectURL(window._currentPdfUrl); } catch(e){} }
             var url = URL.createObjectURL(blob);
-
-            // Store for download
             window._currentPdfBlob = blob;
             window._currentPdfUrl = url;
 
-            // Update stats
             document.getElementById('statImages').textContent = imageFiles.length;
             document.getElementById('statPages').textContent = imageFiles.length;
             var sizeKB = (blob.size / 1024).toFixed(1);
             document.getElementById('statSize').textContent = sizeKB + ' KB';
-            document.getElementById('outputSubtitle').textContent = imageFiles.length + ' page' + (imageFiles.length===1?'':'s') + ' ready';
+            document.getElementById('outputSubtitle').textContent = imageFiles.length + ' page' + (imageFiles.length === 1 ? '' : 's') + ' ready';
 
-            // Show result
             document.getElementById('resultPlaceholder').style.display = 'none';
             document.getElementById('resultContent').style.display = 'block';
 
             showToast('PDF ready! Click Download PDF.');
         } catch (err){
             console.error(err);
-            errorEl.innerHTML = '<i data-lucide="alert-circle" aria-hidden="true"></i><div>Something went wrong while creating the PDF. Please try again.</div>';
+            errorEl.innerHTML = '<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-alert-circle"/></svg><div>Something went wrong while creating the PDF. Please try again.</div>';
             errorEl.classList.add('show');
-            if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
             showToast('Conversion failed.');
         }
 
         btn.disabled = false;
-        btn.innerHTML = '<i data-lucide="file-down" width="18" height="18" aria-hidden="true"></i> Convert to PDF';
-        if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons();
+        btn.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-file-down"/></svg> Convert to PDF';
     }, 50);
 }
 
@@ -1592,6 +1651,8 @@ function resetConversion(){
     document.getElementById('errorMsg').classList.remove('show');
     document.getElementById('warningBanner').classList.remove('show');
     document.getElementById('outputSubtitle').textContent = 'Ready to convert';
+    const fi = document.getElementById('fileInput');
+    if (fi) fi.value = '';
     showToast('Cleared. Upload new images.');
 }
 
@@ -1601,50 +1662,79 @@ function clearImages(){
     renderImageGrid();
     document.getElementById('resultPlaceholder').style.display = 'flex';
     document.getElementById('resultContent').style.display = 'none';
+    document.getElementById('outputSubtitle').textContent = 'Ready to convert';
     showToast('Images cleared.');
 }
 
-/* ============ Modal ============ */
-let modalTimer;
-function showModal(type){
-    const overlay=document.getElementById('actionModal');
-    const title=document.getElementById('modalTitle');
-    const message=document.getElementById('modalMessage');
-    if(type==='copy'){title.textContent='Copied!';message.textContent='Your list is in the clipboard.';}
-    else if(type==='download'){title.textContent='Download Started!';message.textContent='Your PDF file is downloading.';}
-    overlay.classList.add('active');overlay.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
-    if(window.lucide&&typeof window.lucide.createIcons==='function')window.lucide.createIcons();
-    const closeBtn=overlay.querySelector('.modal-close-btn');
-    if(closeBtn)setTimeout(function(){if(overlay.classList.contains('active'))closeBtn.focus();},50);
-    clearTimeout(modalTimer);modalTimer=setTimeout(closeModal,4000);
-}
-function closeModal(){
-    const overlay=document.getElementById('actionModal');
-    if(!overlay||!overlay.classList.contains('active'))return;
-    overlay.classList.remove('active');overlay.setAttribute('aria-hidden','true');
-    const searchOpen=document.getElementById('searchOverlayFull').classList.contains('active');
-    const sidebarOpen=document.getElementById('mobileSidebar').classList.contains('active');
-    if(!searchOpen&&!sidebarOpen)document.body.style.overflow='';
-    clearTimeout(modalTimer);
-}
-document.getElementById('actionModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+function initTool(){
+    const uploadZone = document.getElementById('uploadZone');
+    const fileInput = document.getElementById('fileInput');
+    const imageGrid = document.getElementById('imageGrid');
+    const convertBtn = document.getElementById('convertBtn');
+    const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+    const newConversionBtn = document.getElementById('newConversionBtn');
+    const clearImagesBtn = document.getElementById('clearImagesBtn');
+    const pageSizeSelect = document.getElementById('pageSize');
+    const orientationSelect = document.getElementById('orientation');
+    const marginSelect = document.getElementById('margin');
+    const fitModeSelect = document.getElementById('fitMode');
 
-/* ============ Init ============ */
-document.getElementById('dynamicYear').textContent=new Date().getFullYear();
-initSystemThemeListener();
+    if (fileInput){
+        fileInput.addEventListener('change', function(){
+            if (this.files && this.files.length) handleImageFiles(this.files);
+            this.value = '';
+        });
+    }
+    if (uploadZone && fileInput){
+        ['dragenter','dragover'].forEach(function(ev){
+            uploadZone.addEventListener(ev, function(e){
+                e.preventDefault(); e.stopPropagation();
+                uploadZone.classList.add('dragover');
+            });
+        });
+        ['dragleave','drop'].forEach(function(ev){
+            uploadZone.addEventListener(ev, function(e){
+                e.preventDefault(); e.stopPropagation();
+                uploadZone.classList.remove('dragover');
+            });
+        });
+        uploadZone.addEventListener('drop', function(e){
+            if (e.dataTransfer && e.dataTransfer.files) handleImageFiles(e.dataTransfer.files);
+        });
+    }
 
-document.getElementById('convertBtn').addEventListener('click', convertToPDF);
-document.getElementById('downloadPdfBtn').addEventListener('click', downloadPDF);
-document.getElementById('newConversionBtn').addEventListener('click', resetConversion);
-document.getElementById('clearImagesBtn').addEventListener('click', clearImages);
+    if (imageGrid){
+        imageGrid.addEventListener('click', function(e){
+            const btn = e.target.closest('[data-action="remove-image"]');
+            if (!btn) return;
+            const idx = parseInt(btn.getAttribute('data-index'), 10);
+            removeImage(idx);
+        });
+    }
 
-function initLucide(){
-    if(window.lucide&&typeof window.lucide.createIcons==='function')window.lucide.createIcons();
+    if (convertBtn) convertBtn.addEventListener('click', convertToPDF);
+    if (downloadPdfBtn) downloadPdfBtn.addEventListener('click', downloadPDF);
+    if (newConversionBtn) newConversionBtn.addEventListener('click', resetConversion);
+    if (clearImagesBtn) clearImagesBtn.addEventListener('click', clearImages);
+
+    if (pageSizeSelect) pageSizeSelect.addEventListener('change', updatePreview);
+    if (orientationSelect) orientationSelect.addEventListener('change', updatePreview);
+    if (marginSelect) marginSelect.addEventListener('change', updatePreview);
+    if (fitModeSelect) fitModeSelect.addEventListener('change', updatePreview);
 }
-if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initLucide);}
-else initLucide();
-window.addEventListener('load',initLucide);
+
+function init(){
+    const yearEl = document.getElementById('dynamicYear');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    populateNavMenus();
+    initEventListeners();
+    initKeyboardShortcuts();
+    initResizeHandler();
+    initSystemThemeListener();
+    initTool();
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+else init();
 </script>
 </body>
 </html>
