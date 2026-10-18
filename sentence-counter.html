@@ -84,6 +84,7 @@ gtag('config', 'G-6VGXXT81MB');
             "operatingSystem": "Web Browser",
             "browserRequirements": "Requires JavaScript",
             "softwareVersion": "1.0",
+            "dateModified": "2025-10-18",
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
             "featureList": "Sentence count, Word count, Character count, Paragraph count, Reading time estimate, Live updates, Sentence-by-sentence breakdown, Copy to clipboard, Download as text"
         },
@@ -308,7 +309,11 @@ html.dark-mode .tool-panel-icon{background:var(--tool-accent-light)}
 .form-textarea:focus{border-color:var(--text-light)}
 .form-input{width:100%;padding:13px 15px;border-radius:11px;border:1.5px solid var(--input-border);background:var(--input-bg);color:var(--text);font-family:inherit;font-size:15px;outline:none;min-width:0;transition:border-color .2s}
 .form-input:focus{border-color:var(--text-light)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:11px;font-weight:600;font-size:14px;font-family:inherit;cursor:pointer;border:none;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 20px;border-radius:11px;font-weight:600;font-size:14px;font-family:inherit;cursor:pointer;border:none;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent;position:relative;overflow:hidden;transition:transform .15s ease,filter .2s ease,background .2s ease;will-change:transform}
+.btn:hover:not(.btn-busy):not(:active){transform:translateY(-1px)}
+.btn:active:not(.btn-busy){transform:scale(.96)}
 .btn-primary{background:var(--tool-accent);color:var(--tool-accent-contrast);width:100%;margin-top:8px}
 .btn-primary:hover{filter:brightness(1.1)}
 .btn-primary:active{filter:brightness(.95)}
@@ -316,6 +321,32 @@ html.dark-mode .tool-panel-icon{background:var(--tool-accent-light)}
 .btn-outline:hover{background:var(--hover)}
 .btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
 .btn-row .btn{flex:1 1 140px;min-width:0}
+
+/* ============ BUTTON ANIMATIONS ============ */
+.btn-label{display:inline;position:relative;z-index:1}
+.btn .icon{position:relative;z-index:1}
+
+.btn.btn-busy{pointer-events:none;cursor:wait;transform:translateY(-1px) !important}
+.btn.btn-busy .btn-label,
+.btn.btn-busy > .icon{visibility:hidden}
+
+.btn-busy-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;pointer-events:none}
+.btn-spinner{display:inline-block;width:16px;height:16px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:btnSpin .7s linear infinite}
+@keyframes btnSpin{to{transform:rotate(360deg)}}
+
+.ripple{position:absolute;border-radius:50%;background:rgba(0,0,0,.18);transform:scale(0);animation:rippleAnim .65s ease-out;pointer-events:none;z-index:0}
+html.dark-mode .ripple{background:rgba(255,255,255,.22)}
+@keyframes rippleAnim{to{transform:scale(4.5);opacity:0}}
+
+.icon.anim-pulse{animation:iconPulse .55s ease}
+@keyframes iconPulse{0%{transform:scale(1)}40%{transform:scale(1.35)}70%{transform:scale(.9)}100%{transform:scale(1)}}
+
+.icon.anim-shake{animation:iconShake .45s ease}
+@keyframes iconShake{0%,100%{transform:rotate(0)}20%{transform:rotate(-15deg)}50%{transform:rotate(15deg)}80%{transform:rotate(-8deg)}}
+
+.icon.anim-drop{animation:iconDrop .55s ease}
+@keyframes iconDrop{0%{transform:translateY(0)}40%{transform:translateY(4px)}70%{transform:translateY(-2px)}100%{transform:translateY(0)}}
+
 .info-tip{display:flex;gap:11px;padding:13px 15px;background:var(--tool-accent-soft);border:1px solid var(--line);border-radius:11px;margin-top:14px;font-size:13px;line-height:1.6;color:var(--text-light);min-width:0}
 html.dark-mode .info-tip{background:var(--tool-accent-light)}
 .info-tip svg,.info-tip i{width:16px;height:16px;flex-shrink:0;color:var(--tool-accent);margin-top:2px}
@@ -402,7 +433,7 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 @media (max-height:500px) and (orientation:landscape){.mobile-sidebar{padding:14px}.mobile-sidebar-header{margin-bottom:14px;padding-bottom:12px}.search-overlay-full{padding-top:10px}}
 
 /* ============================================================
-   TOAST + MODAL (copy / download feedback)
+   TOAST + MODAL
    ============================================================ */
 .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--toast-bg);color:var(--toast-text);padding:14px 28px;border-radius:18px;font-weight:600;font-size:14px;z-index:9999;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .4s;pointer-events:none;max-width:min(90vw,480px);text-align:center;line-height:1.45;overflow-wrap:break-word}
 .toast.show{transform:translateX(-50%) translateY(0)}
@@ -510,7 +541,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <div class="content-container">
 
 <div class="tool-hero">
-<h1>Sentence Counter</h1>
+<h1>Sentence Counter – Count Sentences Online</h1>
 <p class="subtitle">Paste your text below and the count updates as you type — sentences, words, characters, paragraphs, lines, and a rough reading time. Everything runs locally in your browser. Nothing gets uploaded, and there's nothing to sign up for.</p>
 </div>
 
@@ -541,16 +572,16 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 
 <div class="btn-row" style="margin-top:16px;">
 <button type="button" class="btn btn-outline" id="clearBtn">
-<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-trash-2"/></svg> Clear
+<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-trash-2"/></svg><span class="btn-label">Clear</span>
 </button>
 <button type="button" class="btn btn-outline" id="exampleBtn">
-<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-sparkles"/></svg> Load example
+<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-sparkles"/></svg><span class="btn-label">Load example</span>
 </button>
 <button type="button" class="btn btn-outline" id="copyBtn">
-<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-copy"/></svg> Copy text
+<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-copy"/></svg><span class="btn-label">Copy text</span>
 </button>
 <button type="button" class="btn btn-outline" id="downloadBtn">
-<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-download"/></svg> Download
+<svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-download"/></svg><span class="btn-label">Download</span>
 </button>
 </div>
 </div>
@@ -565,7 +596,11 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 </div>
 </div>
 
-<div class="stats-grid" aria-live="polite" aria-atomic="true">
+<!-- aria-live on the whole grid fires on every keystroke. Use a
+     dedicated sr-only live region (debounced) instead. -->
+<div class="sr-only" id="srStatsAnnounce" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<div class="stats-grid">
 <div class="stat-tile primary">
 <div class="stat-icon"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-align-left"/></svg></div>
 <div class="stat-label">Sentences</div>
@@ -615,7 +650,7 @@ Start typing or paste some text — each sentence will appear here as a numbered
 <!-- ============ CONTENT SECTIONS ============ -->
 <div class="content-section">
 <h2>What this sentence counter does</h2>
-<p>This is a free sentence counter that runs entirely in your browser. Drop in whatever you're working on — an essay, a blog draft, a tweet, a single paragraph, a whole chapter — and it'll tell you how many sentences are in there. You also get word count, character count, paragraph count, line count, and a rough reading time estimate.</p>
+<p>This is a free sentence counter that runs entirely in your browser. Drop in whatever you're working on — an essay, a blog draft, a tweet, a single paragraph, a whole chapter — and it'll tell you how many sentences are in there. You also get <a href="/word-counter">word count</a>, character count, <a href="/paragraph-counter">paragraph count</a>, line count, and a rough <a href="/reading-time-estimator">reading time estimate</a>.</p>
 <p>The numbers update as you type. There's no button to press and nothing to submit. Under the stats you'll see every sentence listed out with a number next to it, which makes it easy to catch a run-on, spot a fragment, or just see how your paragraphs are put together.</p>
 <p>Because everything runs locally with JavaScript, nothing you paste ever leaves your device. No accounts, no servers, no logging, no rate limits. Paste in ten thousand words if you want — the tool doesn't care.</p>
 </div>
@@ -635,6 +670,7 @@ Start typing or paste some text — each sentence will appear here as a numbered
 <li><strong>Decimals and money</strong> — <code>3.14</code>, <code>$19.99</code>, <code>v2.0</code> stay whole.</li>
 <li><strong>Abbreviations</strong> — <code>Dr.</code>, <code>Mr.</code>, <code>etc.</code>, <code>e.g.</code>, <code>vs.</code>, and a long list of others.</li>
 <li><strong>Initials</strong> — <code>J. K. Rowling</code> doesn't get chopped into three pieces.</li>
+<li><strong>Multi-part acronyms</strong> — <code>U.S.</code> and <code>U.S.A.</code> stay whole.</li>
 <li><strong>URLs and emails</strong> — the dots inside them don't count.</li>
 </ul>
 <p>If you write in a style that breaks the usual rules — poetry, screenplays, dialogue with lots of dashes — the breakdown list is worth glancing at. It'll show you exactly where the tool thinks each sentence ends, and you can decide if that matches what you meant.</p>
@@ -667,7 +703,7 @@ Start typing or paste some text — each sentence will appear here as a numbered
 </tbody>
 </table>
 </div>
-<p>For most writing, word count is what people ask about. But sentence count tells you how the words are distributed. A 400-word paragraph with three sentences has a very different feel from one with fifteen. If readability matters to you, this is the number to watch.</p>
+<p>For most writing, <a href="/word-counter">word count</a> is what people ask about. But sentence count tells you how the words are distributed. A 400-word paragraph with three sentences has a very different feel from one with fifteen. If readability matters to you, this is the number to watch.</p>
 </div>
 
 <div class="content-section">
@@ -1408,12 +1444,13 @@ function toggleFaq(btnEl){
 
 /* ===================== SENTENCE COUNTER TOOL LOGIC ===================== */
 
-/* Common abbreviations that end in a period but should NOT be treated
-   as sentence boundaries. Kept lowercase, matched case-insensitively. */
+/* FIX: 'no' removed from ABBREVIATIONS — it collided with the literal word
+   "no", causing "He said no. She agreed." to be counted as one sentence.
+   "No. 5" (number abbreviation) is handled separately in splitSentences(). */
 const ABBREVIATIONS = new Set([
     'mr','mrs','ms','miss','dr','prof','rev','hon','sr','jr','st','mt',
     'vs','etc','e.g','i.e','eg','ie','cf','al','ed','eds','esp','approx',
-    'dept','est','fig','figs','no','vol','vols','p','pp','ch','chap','sec',
+    'dept','est','fig','figs','vol','vols','p','pp','ch','chap','sec',
     'inc','ltd','co','corp','plc','llc','gov','sen','rep','gen','col','capt',
     'lt','sgt','maj','adm','hon','pres','supt','insp','det','amb','min',
     'jan','feb','mar','apr','jun','jul','aug','sep','sept','oct','nov','dec',
@@ -1429,7 +1466,6 @@ function countWords(text){
 
 function countParagraphs(text){
     if (!text.trim()) return 0;
-    /* Paragraphs are separated by one or more blank lines (2+ newlines). */
     const blocks = text.trim().split(/\n\s*\n+/);
     let count = 0;
     for (let i = 0; i < blocks.length; i++){
@@ -1438,17 +1474,13 @@ function countParagraphs(text){
     return count;
 }
 
+/* FIX: trailing newline no longer adds a phantom line. */
 function countLines(text){
     if (text === '') return 0;
-    let n = 1;
-    for (let i = 0; i < text.length; i++){
-        if (text.charCodeAt(i) === 10) n++;
-    }
-    return n;
+    const n = text.split('\n').length;
+    return text.endsWith('\n') ? n - 1 : n;
 }
 
-/* Split a block of text into sentences.
-   Handles decimals, abbreviations, initials, URLs, and emails. */
 function splitSentences(text){
     if (!text) return [];
     const cleaned = text.replace(/\r\n?/g, '\n');
@@ -1464,30 +1496,22 @@ function splitSentences(text){
         const isTerminal = ch === '.' || ch === '?' || ch === '!';
         const isEllipsis = ch === '…';
         if (!isTerminal && !isEllipsis){
-            /* Detect full ellipsis sequence "..." — consume remaining dots */
             i++;
             continue;
         }
 
         if (ch === '.'){
-            /* Look at the character immediately before the period. */
             const before = cleaned[i - 1] || '';
 
-            /* 1. Skip if this is a decimal number: digit.digit */
+            /* 1. Skip decimal: digit.digit */
             if (/\d/.test(before) && /\d/.test(cleaned[i + 1] || '')){
                 i++;
                 continue;
             }
 
-            /* 2. Skip if this is a URL-like sequence (domain.tld): consume
-                  the period as part of the token. We detect this by checking
-                  that the previous chars look like a domain (letters/digits)
-                  and the next chars are 2-6 letters. */
+            /* 2. Skip domain-like tokens: word.tld */
             const nextChars = cleaned.slice(i + 1, i + 7);
             if (/^[a-z]{2,6}\b/i.test(nextChars) && /[a-z0-9]/i.test(before)){
-                /* Only skip if we're also NOT at whitespace before the period
-                   AND the character before is not a space (which would suggest
-                   an abbreviation rather than a domain). */
                 const beforeBefore = cleaned[i - 2] || '';
                 if (beforeBefore && /\S/.test(beforeBefore)){
                     i++;
@@ -1495,8 +1519,7 @@ function splitSentences(text){
                 }
             }
 
-            /* 3. Skip if this is a known abbreviation. Walk back over
-                  letters, dots, and hyphens to find the token. */
+            /* 3. Skip known abbreviations */
             let j = i - 1;
             let token = '';
             while (j >= 0 && /[\p{L}\p{N}.'’\-]/u.test(cleaned[j])){
@@ -1504,18 +1527,32 @@ function splitSentences(text){
                 j--;
             }
             const tokenLower = token.toLowerCase();
-            /* Strip a leading period if present (from "e.g." -> "e.g") */
             if (ABBREVIATIONS.has(tokenLower) || ABBREVIATIONS.has(tokenLower.replace(/\.$/, ''))){
                 i++;
                 continue;
             }
+            /* FIX: "No. 5" (number abbreviation) — only skip when followed by a digit.
+               "no." at end of a sentence ("He said no. She left.") breaks correctly. */
+            if (tokenLower === 'no' && /^\s\d/.test(cleaned.slice(i + 1, i + 3))){
+                i++;
+                continue;
+            }
 
-            /* 4. Skip if this looks like an initial, e.g. "J. K." – single
-                  uppercase letter before the period. */
+            /* 4. Skip initial-style periods: single uppercase letter before period */
             if (/^[\p{Lu}]$/u.test(before)){
-                /* But only if followed by whitespace + uppercase letter or end */
                 const after = cleaned.slice(i + 1, i + 3);
-                if (/^\s[\p{Lu}]/u.test(after) || /^\s$/u.test(after) || after === ''){
+                /* FIX: detect multi-part acronym like U.S. / U.S.A. */
+                const beforeBefore = cleaned[i - 2] || '';
+                const beforeBeforeBefore = cleaned[i - 3] || '';
+                const insideAcronym = beforeBefore === '.' && /^[\p{Lu}]$/u.test(beforeBeforeBefore);
+
+                if (/^\s[\p{Lu}]/u.test(after) || /^\s$/u.test(after) || after === '' || /^[\p{Lu}]\./u.test(after)){
+                    i++;
+                    continue;
+                }
+                /* Continuation of an acronym followed by a lowercase word
+                   (e.g. "U.S.A. is big." → keep as one sentence). */
+                if (insideAcronym && /^\s[a-z]/.test(after)){
                     i++;
                     continue;
                 }
@@ -1523,15 +1560,13 @@ function splitSentences(text){
         }
 
         if (ch === '…'){
-            /* Ellipsis always ends a sentence-ish chunk. */
             sentences.push(buffer.trim());
             buffer = '';
             i++;
             continue;
         }
 
-        /* This is a real sentence boundary. Consume any trailing quotes
-           or closing brackets so they stay attached to the sentence. */
+        /* Consume trailing quotes / brackets so they stay attached to the sentence. */
         while (i + 1 < len && /["'”’)\]}]/.test(cleaned[i + 1])){
             buffer += cleaned[i + 1];
             i++;
@@ -1543,7 +1578,7 @@ function splitSentences(text){
         i++;
     }
 
-    /* Anything left over without terminal punctuation is a trailing sentence. */
+    /* Trailing chunk without terminal punctuation is still a sentence. */
     const tail = buffer.trim();
     if (tail) sentences.push(tail);
 
@@ -1551,7 +1586,6 @@ function splitSentences(text){
 }
 
 function formatReadingTime(words){
-    /* Average reading speed: 200 words per minute (a common default). */
     if (words === 0) return '0s';
     const minutes = words / 200;
     const totalSeconds = Math.round(minutes * 60);
@@ -1565,6 +1599,18 @@ function formatReadingTime(words){
 }
 
 let updateRaf = 0;
+let announceTimer = 0;
+
+function announceStats(sentenceCount, wordCount){
+    clearTimeout(announceTimer);
+    announceTimer = setTimeout(function(){
+        const el = document.getElementById('srStatsAnnounce');
+        if (el){
+            el.textContent = sentenceCount + ' sentence' + (sentenceCount === 1 ? '' : 's') + ', ' +
+                             wordCount + ' word' + (wordCount === 1 ? '' : 's');
+        }
+    }, 1000);
+}
 
 function scheduleUpdate(){
     if (updateRaf) return;
@@ -1591,7 +1637,9 @@ function updateStats(){
 
     document.getElementById('inputLiveHint').textContent = chars.toLocaleString() + ' char' + (chars === 1 ? '' : 's');
 
-    /* Sentence breakdown list */
+    /* Debounced sr-only announce — prevents screen reader spam on every keystroke */
+    announceStats(sentences.length, words);
+
     const list = document.getElementById('sentenceList');
     const empty = document.getElementById('sentenceEmpty');
     const hint = document.getElementById('sentenceListHint');
@@ -1630,20 +1678,138 @@ function updateStats(){
     }
 }
 
-function clearAll(){
+/* ===================== BUTTON ANIMATION HELPERS ===================== */
+
+function addRipple(e){
+    const btn = e.currentTarget;
+    if (btn.classList.contains('btn-busy')) return;
+    const rect = btn.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height) * 1.2;
+    let x, y;
+    if (e.clientX && e.clientY){
+        x = e.clientX - rect.left - size / 2;
+        y = e.clientY - rect.top - size / 2;
+    } else {
+        x = rect.width / 2 - size / 2;
+        y = rect.height / 2 - size / 2;
+    }
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+    btn.appendChild(ripple);
+    setTimeout(function(){ ripple.remove(); }, 700);
+}
+
+function pulseIcon(btn, cls){
+    const icon = btn.querySelector('svg.icon');
+    if (!icon) return;
+    icon.classList.remove('anim-pulse', 'anim-shake', 'anim-drop');
+    void icon.getBoundingClientRect();
+    icon.classList.add(cls);
+    setTimeout(function(){ icon.classList.remove(cls); }, 700);
+}
+
+function setButtonBusy(btn){
+    if (btn.classList.contains('btn-busy')) return false;
+    btn.classList.add('btn-busy');
+    const overlay = document.createElement('span');
+    overlay.className = 'btn-busy-overlay';
+    overlay.innerHTML = '<span class="btn-spinner" aria-hidden="true"></span>';
+    btn.appendChild(overlay);
+    return true;
+}
+
+function clearButtonBusy(btn){
+    btn.classList.remove('btn-busy');
+    const overlay = btn.querySelector('.btn-busy-overlay');
+    if (overlay) overlay.remove();
+}
+
+/* ===================== TOOL ACTIONS ===================== */
+
+function clearAll(btn){
     document.getElementById('textInput').value = '';
     updateStats();
     document.getElementById('textInput').focus();
+    if (btn) pulseIcon(btn, 'anim-shake');
     showToast('Cleared.');
 }
 
-function loadExample(){
+function loadExample(btn){
     const example = 'The quick brown fox jumps over the lazy dog. Does it really? Yes, it does! ' +
         'Dr. Smith said he would arrive at 3.30 p.m. on Monday. Mr. Jones replied that he was running late. ' +
         'It cost $9.99 — quite a bargain, wasn\'t it? The end.';
     document.getElementById('textInput').value = example;
     updateStats();
+    if (btn) pulseIcon(btn, 'anim-pulse');
     showToast('Example loaded.');
+}
+
+function fallbackCopyText(text){
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.top = '-9999px';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch (e){}
+    document.body.removeChild(ta);
+    return ok;
+}
+
+function copyText(btn){
+    const text = document.getElementById('textInput').value;
+    if (!text){ showToast('Nothing to copy yet.'); return; }
+    if (!setButtonBusy(btn)) return;
+
+    let done = false;
+    const finish = function(success){
+        if (done) return;
+        done = true;
+        setTimeout(function(){
+            clearButtonBusy(btn);
+            if (success){
+                pulseIcon(btn, 'anim-pulse');
+                showModal('copy');
+            } else {
+                showToast('Copy failed. Try selecting manually.');
+            }
+        }, 350);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ finish(true); }).catch(function(){
+            finish(fallbackCopyText(text));
+        });
+    } else {
+        finish(fallbackCopyText(text));
+    }
+}
+
+function downloadText(btn){
+    const text = document.getElementById('textInput').value;
+    if (!text){ showToast('Nothing to download yet.'); return; }
+    if (!setButtonBusy(btn)) return;
+
+    setTimeout(function(){
+        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'text.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+
+        clearButtonBusy(btn);
+        pulseIcon(btn, 'anim-drop');
+        showModal('download');
+    }, 400);
 }
 
 let modalTimer;
@@ -1686,34 +1852,6 @@ function closeModal(){
     clearTimeout(modalTimer);
 }
 
-function copyText(){
-    const text = document.getElementById('textInput').value;
-    if (!text){ showToast('Nothing to copy yet.'); return; }
-    if (navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(text).then(function(){ showModal('copy'); }).catch(function(){ fallbackCopy(); });
-    } else fallbackCopy();
-}
-function fallbackCopy(){
-    const ta = document.getElementById('textInput');
-    ta.select();
-    try { document.execCommand('copy'); showModal('copy'); }
-    catch (e){ showToast('Copy failed. Try selecting manually.'); }
-}
-function downloadText(){
-    const text = document.getElementById('textInput').value;
-    if (!text){ showToast('Nothing to download yet.'); return; }
-    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'text.txt';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
-    showModal('download');
-}
-
 function init(){
     document.getElementById('dynamicYear').textContent = new Date().getFullYear();
     populateNavMenus();
@@ -1728,10 +1866,15 @@ function init(){
     input.addEventListener('cut', scheduleUpdate);
     input.addEventListener('change', scheduleUpdate);
 
-    document.getElementById('clearBtn').addEventListener('click', clearAll);
-    document.getElementById('exampleBtn').addEventListener('click', loadExample);
-    document.getElementById('copyBtn').addEventListener('click', copyText);
-    document.getElementById('downloadBtn').addEventListener('click', downloadText);
+    /* Ripple MUST be attached before action handlers so ripple shows first */
+    document.querySelectorAll('.btn').forEach(function(b){
+        b.addEventListener('click', addRipple);
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', function(){ clearAll(this); });
+    document.getElementById('exampleBtn').addEventListener('click', function(){ loadExample(this); });
+    document.getElementById('copyBtn').addEventListener('click', function(){ copyText(this); });
+    document.getElementById('downloadBtn').addEventListener('click', function(){ downloadText(this); });
 
     document.querySelectorAll('.mobile-sidebar-nav a').forEach(function(l){
         l.addEventListener('click', closeMobileSidebar);
