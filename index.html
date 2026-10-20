@@ -18,6 +18,7 @@
 <meta property="og:site_name" content="Textify.tools">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://textify.tools/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Textify.tools – free online text tools that run entirely in your browser">
@@ -27,6 +28,8 @@
 <meta name="twitter:title" content="Free Online Text Tools – Textify.tools">
 <meta name="twitter:description" content="No signup, no uploads. Just open the page and get stuff done. Word counter, JSON formatter, password generator and loads more.">
 <meta name="twitter:image" content="https://textify.tools/og-image.png">
+<meta name="twitter:image:width" content="1200">
+<meta name="twitter:image:height" content="630">
 <meta name="twitter:image:alt" content="Textify.tools – free online text tools that run entirely in your browser">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -308,7 +311,7 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 .footer-left-column{flex:1 1 320px;min-width:0;max-width:420px}
 .footer-right-columns{display:flex;flex:2 1 420px;gap:clamp(18px,3vw,40px);justify-content:flex-end;flex-wrap:wrap;min-width:0}
 .footer-column{min-width:140px;flex:0 1 auto}
-.footer-heading{font-size:16px;font-weight:700;color:var(--footer-heading);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+.footer-heading{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-size:16px;font-weight:700;color:var(--footer-heading);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
 .footer-links{list-style:none;padding:0;margin:0}
 .footer-links li{margin-bottom:8px}
 .footer-links a,.footer-credit a,.footer-about-text a{color:var(--footer-link-color);text-decoration:none;display:inline-block;transition:color .2s ease,transform .2s ease;will-change:transform}
@@ -484,7 +487,7 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 <div class="desktop-nav">
 <div class="tools-menu-container" id="toolsMenuContainer">
 <button type="button" class="tools-trigger" id="toolsTrigger" aria-expanded="false" aria-controls="megaMenu" data-action="toggle-tools">Tools <svg class="icon" aria-hidden="true" width="14" height="14"><use href="#i-chevron-down"/></svg></button>
-<div class="tools-mega-menu" id="megaMenu"></div>
+<div class="tools-mega-menu" id="megaMenu" aria-label="All tools"></div>
 </div>
 <a href="/privacy-policy">Privacy</a><a href="/blog">Blog</a><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
 </div>
@@ -929,17 +932,17 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 <div class="footer-left-column">
 <p class="footer-credit">Created by: <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">Pradeep Yadav</a></p>
 <p class="footer-copyright">Copyright © <span id="dynamicYear"></span></p>
-<h3 class="footer-heading" style="margin-top:10px;">About</h3>
+<p class="footer-heading" style="margin-top:10px;">About</p>
 <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking of what you type, no fuss. If you have a suggestion, feel free to <a href="https://x.com/intent/tweet?text=Just%20found%20Textify.tools&url=https%3A%2F%2Ftextify.tools%2F" target="_blank" rel="nofollow noopener noreferrer">say hello.</a> Feedback is much appreciated!</p>
 </div>
 <div class="footer-right-columns">
-<div class="footer-column"><h3 class="footer-heading">Popular Tools</h3><ul class="footer-links">
+<div class="footer-column"><p class="footer-heading">Popular Tools</p><ul class="footer-links">
 <li><a href="/word-counter">Word Counter</a></li><li><a href="/json-formatter">JSON Formatter</a></li><li><a href="/case-converter">Case Converter</a></li><li><a href="/password-generator">Password Generator</a></li><li><a href="/text-to-handwriting">Text to Handwriting</a></li><li><a href="/image-resizer">Image Resizer</a></li><li><a href="/qr-code-generator">QR Code Generator</a></li><li><a href="/image-compressor">Image Compressor</a></li><li><a href="/pdf-merge">PDF Merge</a></li><li><a href="/resume-builder">Resume Builder</a></li><li><a href="/whatsapp-link-generator">WhatsApp Link</a></li><li><a href="/signature-resizer">Signature Resizer</a></li>
 </ul></div>
-<div class="footer-column"><h3 class="footer-heading">Quick Links</h3><ul class="footer-links">
+<div class="footer-column"><p class="footer-heading">Quick Links</p><ul class="footer-links">
 <li><a href="/">Home</a></li><li><a href="/about-us">About Us</a></li><li><a href="/contact-us">Contact Us</a></li><li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li><li><a href="/blog">Blog</a></li>
 </ul></div>
-<div class="footer-column"><h3 class="footer-heading">Legal Pages</h3><ul class="footer-links">
+<div class="footer-column"><p class="footer-heading">Legal Pages</p><ul class="footer-links">
 <li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms-of-use">Terms of Use</a></li><li><a href="/disclaimer">Disclaimer</a></li>
 </ul></div>
 </div>
@@ -1292,6 +1295,7 @@ function applyFilters(){
         line.classList.add('show');
     } else {
         line.classList.remove('show');
+        line.textContent = '';
     }
 }
 
@@ -1317,7 +1321,6 @@ function setActiveDescendant(el){
 function renderAllSuggestions(){
     const list = document.getElementById('fullSearchResultsList');
     if (!list) return;
-    /* Disable entry animation for the bulk render to avoid 200+ simultaneous animations */
     list.classList.add('no-anim');
     let html = '';
     for (let i = 0; i < tools.length; i++) html += buildResultItemHtml(tools[i], '', i);
@@ -1334,7 +1337,6 @@ function buildSearchResults(q, displayQuery){
     const input = document.getElementById('fullSearchInput');
     if (!list) return;
     if (q === ''){ renderAllSuggestions(); if (nr) nr.classList.remove('show'); return; }
-    /* Filtered results are fewer — allow the entry animation */
     list.classList.remove('no-anim');
     let matched = [];
     for (let i = 0; i < tools.length; i++){
@@ -1363,8 +1365,6 @@ function buildSearchResults(q, displayQuery){
 }
 
 function filterFullSearch(){
-    /* Guard early: nothing to do when the overlay isn't open. This keeps the
-       clear button and rendered results in sync with the visible overlay. */
     if (!searchIsOpen) return;
     const input = document.getElementById('fullSearchInput');
     const raw = input.value;
@@ -1399,7 +1399,6 @@ function handleSearchKey(e){
         if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) {
             window.location.href = items[searchState.activeIndex].getAttribute('href');
         } else if (items.length) {
-            /* Open the top result even when nothing is highlighted */
             window.location.href = items[0].getAttribute('href');
         }
     }
@@ -1442,9 +1441,6 @@ function closeFullSearch(){
     searchIsOpen = false;
     if (searchResultsRaf){ cancelAnimationFrame(searchResultsRaf); searchResultsRaf = 0; }
 
-    /* Move focus OUT of the overlay BEFORE hiding it. Setting aria-hidden on an
-       ancestor of the focused element causes browsers to block the attribute
-       and log a console warning. */
     if (overlay.contains(document.activeElement) && document.activeElement.blur){
         document.activeElement.blur();
     }
@@ -1460,7 +1456,6 @@ function closeFullSearch(){
     const sidebarOpen = sidebarEl && sidebarEl.classList.contains('active');
     if (!sidebarOpen) document.body.style.overflow = '';
 
-    /* Restore focus only if the previous target is still visible/attached */
     if (lastFocusedBeforeSearch && document.contains(lastFocusedBeforeSearch) && lastFocusedBeforeSearch.offsetParent !== null && lastFocusedBeforeSearch.focus){
         try { lastFocusedBeforeSearch.focus(); } catch (e) {}
     }
@@ -1469,7 +1464,6 @@ function closeFullSearch(){
 
 function openSearchFromSidebar(){
     closeMobileSidebar();
-    /* Defer opening until the sidebar's aria-hidden transition settles */
     setTimeout(openFullSearch, 60);
 }
 
@@ -1504,14 +1498,10 @@ function initSystemThemeListener(){
     else if (typeof mq.addListener === 'function') mq.addListener(handler);
 }
 
-/* ============ Tools menu (click-pin + hover-preview) ============
-   The menu visibility is now driven by TWO classes:
-     .open       → pinned open via click (survives focus moves)
-     .hover-open → transient, set on mouseenter, cleared on mouseleave
-   Both are removed together on Escape / outside click / a second click,
-   and CSS no longer uses :hover or :focus-within for visibility. This
-   guarantees Escape can actually dismiss the menu, even when the trigger
-   still has focus or the mouse is still over the button. */
+/* Tools menu (click-pin + hover-preview):
+   Two classes control visibility — .open (pinned via click) and
+   .hover-open (transient via mouse). Both are removed together on
+   Escape / outside click / a second click, so Escape always works. */
 function closeToolsMenu(returnFocus){
     const container = document.getElementById('toolsMenuContainer');
     const trigger = document.getElementById('toolsTrigger');
@@ -1555,7 +1545,6 @@ function closeMobileSidebar(){
     const sb = document.getElementById('mobileSidebar');
     if (!sb || !sb.classList.contains('active')) return;
 
-    /* Blur any focused descendant BEFORE setting aria-hidden on the sidebar */
     if (sb.contains(document.activeElement) && document.activeElement.blur){
         document.activeElement.blur();
     }
@@ -1566,7 +1555,6 @@ function closeMobileSidebar(){
     if (ov) ov.classList.remove('active');
     if (!searchIsOpen) document.body.style.overflow = '';
 
-    /* Reset the trigger state so assistive tech stops reporting "expanded" */
     const hb = document.getElementById('hamburgerBtn');
     if (hb){
         hb.setAttribute('aria-expanded','false');
@@ -1600,8 +1588,7 @@ function initResizeHandler(){
     });
 }
 
-/* Build the desktop mega menu and mobile tools menu from the tools array.
-   This removes ~400 duplicated anchors of markup from the HTML source. */
+/* Build the desktop mega menu and mobile tools menu from the tools array. */
 function populateNavMenus(){
     const mega = document.getElementById('megaMenu');
     const mobileMenu = document.getElementById('mobileToolsMenu');
@@ -1652,8 +1639,6 @@ function initDelegatedHandlers(){
     const container = document.getElementById('toolsMenuContainer');
     const trigger = document.getElementById('toolsTrigger');
     if (container && trigger){
-        /* Hover shows the menu via .hover-open (no CSS :hover rule needed,
-           so Escape can dismiss it even while the mouse is still inside). */
         container.addEventListener('mouseenter', function(){
             container.classList.add('hover-open');
             trigger.setAttribute('aria-expanded','true');
@@ -1667,7 +1652,7 @@ function initDelegatedHandlers(){
     }
 }
 
-/* Attach all previously inline onclick handlers here — keeps the HTML free of
+/* Attach all previously inline onclick handlers here — keeps HTML free of
    inline script, which is required for a strict Content-Security-Policy. */
 function initEventListeners(){
     document.querySelectorAll('[data-action="toggle-theme"]').forEach(function(btn){
@@ -1750,7 +1735,7 @@ function toggleFaq(btnEl){
 
 function init(){
     const yearEl = document.getElementById('dynamicYear');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
     populateNavMenus();
     cacheToolCards();
     initDelegatedHandlers();
