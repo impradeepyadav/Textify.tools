@@ -13,7 +13,7 @@
 <meta name="theme-color" content="#ffffff" id="themeColorMeta">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://textify.tools/text-repeater">
-<meta property="og:title" content="Text Repeater – Repeat Text &amp; Emojis 100, 1000, 100K Times">
+<meta property="og:title" content="Text Repeater – Repeat Text, Emojis &amp; Messages Up to 100K">
 <meta property="og:description" content="Free text repeater to repeat any text, emoji, or message up to 100,000 times. Copy and paste 100, 1000, 10000 times for WhatsApp, Instagram, Discord.">
 <meta property="og:site_name" content="Textify.tools">
 <meta property="og:locale" content="en_US">
@@ -25,7 +25,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@BuiltByPradeep">
 <meta name="twitter:creator" content="@BuiltByPradeep">
-<meta name="twitter:title" content="Text Repeater – Repeat Text &amp; Emojis 100, 1000, 100K Times">
+<meta name="twitter:title" content="Text Repeater – Repeat Text, Emojis &amp; Messages Up to 100K">
 <meta name="twitter:description" content="Free text repeater to repeat any text, emoji, or message up to 100,000 times. Copy and paste 100, 1000, 10000 times for WhatsApp, Instagram, Discord.">
 <meta name="twitter:image" content="https://textify.tools/og-image.png">
 <meta name="twitter:image:width" content="1200">
@@ -84,6 +84,7 @@ gtag('config', 'G-6VGXXT81MB');
             "operatingSystem": "Web Browser",
             "browserRequirements": "Requires JavaScript",
             "softwareVersion": "1.0",
+            "screenshot": "https://textify.tools/og-image.png",
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
             "featureList": "Text repetition, Emoji repetition, Word repetition, Custom repeat count, Separator options, Auto-numbering, Live character count, Word count, Line count, Copy to clipboard, Download as text"
         },
@@ -93,6 +94,7 @@ gtag('config', 'G-6VGXXT81MB');
             "name": "How to repeat a text message 1000 times",
             "description": "Use the free Text Repeater to duplicate any message 1000 times and copy it to WhatsApp, Instagram, or Discord.",
             "totalTime": "PT1M",
+            "image": "https://textify.tools/og-image.png",
             "step": [
                 { "@type": "HowToStep", "position": 1, "name": "Enter your message", "text": "Type or paste the message you want to repeat (for example \"hi\", \"I love you\", or an emoji)." },
                 { "@type": "HowToStep", "position": 2, "name": "Set the count", "text": "Type 1000 in the repeat count field, or click the ×1000 preset." },
@@ -306,14 +308,46 @@ main:focus{outline:none}
     min-width:0;
     outline:none;
 }
+.tool-panel,
 .tool-panel:focus,
 .tool-panel:focus-visible,
 .tool-panel:focus-within,
 .tool-panel:hover,
 .tool-panel:active{
     outline:none !important;
-    box-shadow:var(--card-shadow) !important;
     border-color:var(--line) !important;
+    box-shadow:var(--card-shadow) !important;
+}
+.tool-panel,
+.tool-panel-header,
+.tool-panel-icon,
+.tool-panel-title{transition:none !important}
+/* Kill every focus outline/ring inside the tool panel */
+.tool-panel *:focus,
+.tool-panel *:focus-visible,
+.tool-panel *:focus-within,
+.tool-panel *:active{
+    outline:none !important;
+    box-shadow:none !important;
+}
+/* Inputs/textareas keep their own subtle border colour change on focus */
+.tool-panel input:focus,
+.tool-panel input:focus-visible,
+.tool-panel textarea:focus,
+.tool-panel textarea:focus-visible,
+.tool-panel select:focus,
+.tool-panel select:focus-visible,
+.tool-panel .form-input:focus,
+.tool-panel .form-input:focus-visible,
+.tool-panel .form-textarea:focus,
+.tool-panel .form-textarea:focus-visible,
+.tool-panel .count-field:focus,
+.tool-panel .count-field:focus-visible,
+.tool-panel #customSeparator:focus,
+.tool-panel #customSeparator:focus-visible{
+    outline:none !important;
+    box-shadow:none !important;
+    border-color:var(--text-light) !important;
 }
 .tool-panel-header{display:flex;align-items:center;gap:12px;padding-bottom:18px;margin-bottom:20px;border-bottom:1px solid var(--line)}
 .tool-panel-icon{width:36px;height:36px;border-radius:10px;background:var(--tool-accent-soft);color:var(--tool-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -455,7 +489,7 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 .footer-left-column{flex:1 1 320px;min-width:0;max-width:420px}
 .footer-right-columns{display:flex;flex:2 1 420px;gap:clamp(18px,3vw,40px);justify-content:flex-end;flex-wrap:wrap;min-width:0}
 .footer-column{min-width:140px;flex:0 1 auto}
-.footer-heading{font-size:16px;font-weight:700;color:var(--footer-heading);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+.footer-heading{font-size:16px;font-weight:700;color:var(--footer-heading);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif}
 .footer-links{list-style:none;padding:0;margin:0}
 .footer-links li{margin-bottom:8px}
 .footer-links a,.footer-credit a,.footer-about-text a{color:var(--footer-link-color);text-decoration:none;display:inline-block;transition:color .2s ease,transform .2s ease;will-change:transform}
@@ -492,56 +526,6 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 #repeatBtn.btn-primary.click-anim { animation: repeatBtnPulse 0.45s cubic-bezier(0.25, 0.8, 0.25, 1); }
 html.dark-mode #repeatBtn.btn-primary.click-anim { animation: repeatBtnPulseDark 0.45s cubic-bezier(0.25, 0.8, 0.25, 1); }
 @media (prefers-reduced-motion: reduce) { #repeatBtn.btn-primary.click-anim { animation: none !important; } }
-
-/* ============================================================
-   TOOL PANEL — static borders + focus rings fully suppressed.
-   No focus outline or box-shadow appears on any element inside
-   the tool panel. Text inputs keep only their subtle border
-   colour change on focus (which is the browser default look
-   you already had). Nothing extra is added.
-   ============================================================ */
-.tool-panel,
-.tool-panel:focus,
-.tool-panel:focus-visible,
-.tool-panel:focus-within,
-.tool-panel:hover,
-.tool-panel:active{
-    outline: none !important;
-    border-color: var(--line) !important;
-    box-shadow: var(--card-shadow) !important;
-}
-.tool-panel,
-.tool-panel-header,
-.tool-panel-icon,
-.tool-panel-title{transition:none !important}
-
-/* Kill every focus outline/ring inside the tool panel */
-.tool-panel *:focus,
-.tool-panel *:focus-visible,
-.tool-panel *:focus-within,
-.tool-panel *:active{
-    outline: none !important;
-    box-shadow: none !important;
-}
-/* Inputs/textareas keep their own subtle border colour change on focus */
-.tool-panel input:focus,
-.tool-panel input:focus-visible,
-.tool-panel textarea:focus,
-.tool-panel textarea:focus-visible,
-.tool-panel select:focus,
-.tool-panel select:focus-visible,
-.tool-panel .form-input:focus,
-.tool-panel .form-input:focus-visible,
-.tool-panel .form-textarea:focus,
-.tool-panel .form-textarea:focus-visible,
-.tool-panel .count-field:focus,
-.tool-panel .count-field:focus-visible,
-.tool-panel #customSeparator:focus,
-.tool-panel #customSeparator:focus-visible{
-    outline: none !important;
-    box-shadow: none !important;
-    border-color: var(--text-light) !important;
-}
 </style>
 </head>
 <body>
@@ -636,26 +620,26 @@ html.dark-mode #repeatBtn.btn-primary.click-anim { animation: repeatBtnPulseDark
 <button type="button" class="count-stepper-btn" id="countPlus" aria-label="Increase count">+</button>
 </div>
 <span id="countLimitHint" class="sr-only">Maximum 100,000 repetitions allowed</span>
-<div class="presets" id="presetRow" role="group" aria-label="Quick repeat count presets">
-<button type="button" class="preset-chip" data-count="5" aria-pressed="false">×5</button>
-<button type="button" class="preset-chip active" data-count="10" aria-pressed="true">×10</button>
-<button type="button" class="preset-chip" data-count="50" aria-pressed="false">×50</button>
-<button type="button" class="preset-chip" data-count="100" aria-pressed="false">×100</button>
-<button type="button" class="preset-chip" data-count="1000" aria-pressed="false">×1000</button>
+<div class="presets" id="presetRow" role="radiogroup" aria-label="Quick repeat count presets">
+<button type="button" class="preset-chip" role="radio" data-count="5" aria-checked="false" tabindex="-1">×5</button>
+<button type="button" class="preset-chip active" role="radio" data-count="10" aria-checked="true" tabindex="0">×10</button>
+<button type="button" class="preset-chip" role="radio" data-count="50" aria-checked="false" tabindex="-1">×50</button>
+<button type="button" class="preset-chip" role="radio" data-count="100" aria-checked="false" tabindex="-1">×100</button>
+<button type="button" class="preset-chip" role="radio" data-count="1000" aria-checked="false" tabindex="-1">×1000</button>
 </div>
 </div>
 
 <div class="form-section">
 <div class="form-label" id="sepGroupLabel"><span>Separator between copies</span></div>
-<div class="sep-grid" id="sepGrid" role="group" aria-labelledby="sepGroupLabel">
-<button type="button" class="sep-option active" data-sep="\n" aria-pressed="true"><span class="sep-icon" aria-hidden="true">↵</span><span class="sep-label">New line</span></button>
-<button type="button" class="sep-option" data-sep=" " aria-pressed="false"><span class="sep-icon" aria-hidden="true">␣</span><span class="sep-label">Space</span></button>
-<button type="button" class="sep-option" data-sep=", " aria-pressed="false"><span class="sep-icon" aria-hidden="true">,</span><span class="sep-label">Comma</span></button>
-<button type="button" class="sep-option" data-sep=" | " aria-pressed="false"><span class="sep-icon" aria-hidden="true">|</span><span class="sep-label">Pipe</span></button>
-<button type="button" class="sep-option" data-sep=" • " aria-pressed="false"><span class="sep-icon" aria-hidden="true">•</span><span class="sep-label">Bullet</span></button>
-<button type="button" class="sep-option" data-sep="" aria-pressed="false"><span class="sep-icon" aria-hidden="true">∅</span><span class="sep-label">None</span></button>
-<button type="button" class="sep-option" data-sep="\t" aria-pressed="false"><span class="sep-icon" aria-hidden="true">⇥</span><span class="sep-label">Tab</span></button>
-<button type="button" class="sep-option" data-sep="custom" aria-pressed="false"><span class="sep-icon" aria-hidden="true">…</span><span class="sep-label">Custom</span></button>
+<div class="sep-grid" id="sepGrid" role="radiogroup" aria-labelledby="sepGroupLabel">
+<button type="button" class="sep-option active" role="radio" data-sep="\n" aria-checked="true" tabindex="0"><span class="sep-icon" aria-hidden="true">↵</span><span class="sep-label">New line</span></button>
+<button type="button" class="sep-option" role="radio" data-sep=" " aria-checked="false" tabindex="-1"><span class="sep-icon" aria-hidden="true">␣</span><span class="sep-label">Space</span></button>
+<button type="button" class="sep-option" role="radio" data-sep=", " aria-checked="false" tabindex="-1"><span class="sep-icon" aria-hidden="true">,</span><span class="sep-label">Comma</span></button>
+<button type="button" class="sep-option" role="radio" data-sep=" | " aria-checked="false" tabindex="-1"><span class="sep-icon" aria-hidden="true">|</span><span class="sep-label">Pipe</span></button>
+<button type="button" class="sep-option" role="radio" data-sep=" • " aria-checked="false" tabindex="-1"><span class="sep-icon" aria-hidden="true">•</span><span class="sep-label">Bullet</span></button>
+<button type="button" class="sep-option" role="radio" data-sep="" aria-checked="false" tabindex="-1"><span class="sep-icon" aria-hidden="true">∅</span><span class="sep-label">None</span></button>
+<button type="button" class="sep-option" role="radio" data-sep="\t" aria-checked="false" tabindex="-1"><span class="sep-icon" aria-hidden="true">⇥</span><span class="sep-label">Tab</span></button>
+<button type="button" class="sep-option" role="radio" data-sep="custom" aria-checked="false" tabindex="-1"><span class="sep-icon" aria-hidden="true">…</span><span class="sep-label">Custom</span></button>
 </div>
 <div class="custom-sep-row" id="customSepRow">
 <label for="customSeparator" class="sr-only">Custom separator</label>
@@ -949,17 +933,17 @@ html.dark-mode #repeatBtn.btn-primary.click-anim { animation: repeatBtnPulseDark
 <div class="footer-left-column">
 <p class="footer-credit">Created by: <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">Pradeep Yadav</a></p>
 <p class="footer-copyright">Copyright © <span id="dynamicYear"></span></p>
-<h3 class="footer-heading" style="margin-top:10px;">About</h3>
+<p class="footer-heading" style="margin-top:10px;">About</p>
 <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking of what you type, no fuss. If you have a suggestion, feel free to <a href="https://x.com/intent/tweet?text=Just%20found%20Textify.tools&url=https%3A%2F%2Ftextify.tools%2F" target="_blank" rel="nofollow noopener noreferrer">say hello.</a> Feedback is much appreciated!</p>
 </div>
 <div class="footer-right-columns">
-<nav class="footer-column" aria-labelledby="footer-popular-tools"><h3 class="footer-heading" id="footer-popular-tools">Popular Tools</h3><ul class="footer-links">
+<nav class="footer-column" aria-labelledby="footer-popular-tools"><p class="footer-heading" id="footer-popular-tools">Popular Tools</p><ul class="footer-links">
 <li><a href="/word-counter">Word Counter</a></li><li><a href="/json-formatter">JSON Formatter</a></li><li><a href="/case-converter">Case Converter</a></li><li><a href="/password-generator">Password Generator</a></li><li><a href="/text-to-handwriting">Text to Handwriting</a></li><li><a href="/image-resizer">Image Resizer</a></li><li><a href="/qr-code-generator">QR Code Generator</a></li><li><a href="/image-compressor">Image Compressor</a></li><li><a href="/pdf-merge">PDF Merge</a></li><li><a href="/resume-builder">Resume Builder</a></li><li><a href="/whatsapp-link-generator">WhatsApp Link</a></li><li><a href="/signature-resizer">Signature Resizer</a></li>
 </ul></nav>
-<nav class="footer-column" aria-labelledby="footer-quick-links"><h3 class="footer-heading" id="footer-quick-links">Quick Links</h3><ul class="footer-links">
+<nav class="footer-column" aria-labelledby="footer-quick-links"><p class="footer-heading" id="footer-quick-links">Quick Links</p><ul class="footer-links">
 <li><a href="/">Home</a></li><li><a href="/about-us">About Us</a></li><li><a href="/contact-us">Contact Us</a></li><li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li><li><a href="/blog">Blog</a></li>
 </ul></nav>
-<nav class="footer-column" aria-labelledby="footer-legal"><h3 class="footer-heading" id="footer-legal">Legal Pages</h3><ul class="footer-links">
+<nav class="footer-column" aria-labelledby="footer-legal"><p class="footer-heading" id="footer-legal">Legal Pages</p><ul class="footer-links">
 <li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms-of-use">Terms of Use</a></li><li><a href="/disclaimer">Disclaimer</a></li>
 </ul></nav>
 </div>
@@ -1316,7 +1300,7 @@ function showToast(msg, dur){
 
 function setThemeColorMeta(isDark){
     const meta = document.getElementById('themeColorMeta');
-    if (meta) meta.setAttribute('content', isDark ? '#0b1220' : '#ffffff');
+    if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
 }
 function toggleTheme(){
     const root = document.documentElement;
@@ -1381,8 +1365,6 @@ function closeMobileSidebar(){
     const sb = document.getElementById('mobileSidebar');
     if (!sb || !sb.classList.contains('active')) return;
 
-    /* Blur any focused descendant BEFORE hiding so the browser doesn't
-       block aria-hidden and log a console warning. */
     if (sb.contains(document.activeElement) && document.activeElement.blur){
         document.activeElement.blur();
     }
@@ -1395,7 +1377,6 @@ function closeMobileSidebar(){
     const searchOpen = document.getElementById('searchOverlayFull').classList.contains('active');
     const modalOpen = document.getElementById('actionModal').classList.contains('active');
     if (!searchOpen && !modalOpen) document.body.style.overflow = '';
-    /* Return focus to the hamburger only if it is actually visible */
     if (hb && !searchIsOpen && hb.offsetParent !== null){
         try { hb.focus(); } catch (e) {}
     }
@@ -1425,8 +1406,6 @@ function initResizeHandler(){
     });
 }
 
-/* Build the desktop mega menu and mobile tools menu from the tools array,
-   so we don't have ~400 duplicated anchors of markup in the HTML source. */
 function populateNavMenus(){
     const mega = document.getElementById('megaMenu');
     const mobileMenu = document.getElementById('mobileToolsMenu');
@@ -1473,7 +1452,6 @@ function closeFullSearch(){
     searchIsOpen = false;
     if (searchResultsRaf){ cancelAnimationFrame(searchResultsRaf); searchResultsRaf = 0; }
 
-    /* Blur any focused descendant BEFORE setting aria-hidden */
     if (overlay.contains(document.activeElement) && document.activeElement.blur){
         document.activeElement.blur();
     }
@@ -1507,8 +1485,6 @@ function buildSearchResults(q){
     const nr = document.getElementById('fullNoResult');
     let matched;
     if (q === ''){
-        /* Disable entry animation for the bulk render — 200+ simultaneous
-           keyframe animations cause a visible stutter on low-end devices. */
         list.classList.add('no-anim');
         matched = tools.map(function(t, i){ return { t: t, idx: i, score: 0 }; });
     } else {
@@ -1580,7 +1556,6 @@ function handleSearchKey(e){
         if (searchState.activeIndex >= 0 && items[searchState.activeIndex]) {
             window.location.href = items[searchState.activeIndex].getAttribute('href');
         } else if (items.length) {
-            /* Open the top result even when nothing is highlighted */
             window.location.href = items[0].getAttribute('href');
         }
     }
@@ -1592,8 +1567,6 @@ function clearSearchInput(){
     input.focus();
 }
 
-/* Single click delegator — removes all inline onclick attributes,
-   which lets us add a strict Content-Security-Policy later. */
 function initDelegatedActions(){
     document.addEventListener('click', function(e){
         const actionEl = e.target.closest('[data-action]');
@@ -1613,34 +1586,34 @@ function initDelegatedActions(){
             case 'close-modal': closeModal(); break;
         }
     });
-    /* Close the tools menu when clicking anywhere outside it */
     document.addEventListener('click', function(e){
         const container = document.getElementById('toolsMenuContainer');
         if (container && !container.contains(e.target) && container.classList.contains('open')) closeToolsMenu(false);
     });
-    /* Click outside the search overlay to close it */
     const searchOverlay = document.getElementById('searchOverlayFull');
     if (searchOverlay) searchOverlay.addEventListener('click', function(e){ if (e.target === searchOverlay) closeFullSearch(); });
-    /* Click outside the modal to close it */
     const modal = document.getElementById('actionModal');
     if (modal) modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
 }
 
-document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape'){
-        closeToolsMenu(true);
-        closeFullSearch();
-        closeMobileSidebar();
-        closeModal();
-        return;
-    }
-    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k'){ e.preventDefault(); openFullSearch(); return; }
-    const modalOverlay = document.getElementById('actionModal');
-    if (modalOverlay.classList.contains('active')){ trapFocus(e, modalOverlay.querySelector('.modal-box')); return; }
-    if (searchIsOpen){ trapFocus(e, document.getElementById('searchOverlayFull')); return; }
-    const sb = document.getElementById('mobileSidebar');
-    if (sb.classList.contains('active')) trapFocus(e, sb);
-});
+/* Global keydown handler — set up inside init() so it runs after DOM ready */
+function initGlobalKeydown(){
+    document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape'){
+            closeToolsMenu(true);
+            closeFullSearch();
+            closeMobileSidebar();
+            closeModal();
+            return;
+        }
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k'){ e.preventDefault(); openFullSearch(); return; }
+        const modalOverlay = document.getElementById('actionModal');
+        if (modalOverlay.classList.contains('active')){ trapFocus(e, modalOverlay.querySelector('.modal-box')); return; }
+        if (searchIsOpen){ trapFocus(e, document.getElementById('searchOverlayFull')); return; }
+        const sb = document.getElementById('mobileSidebar');
+        if (sb.classList.contains('active')) trapFocus(e, sb);
+    });
+}
 
 function toggleFaq(btnEl){
     const item = btnEl.closest('.faq-item');
@@ -1667,7 +1640,9 @@ function clampRepeatCount(raw){
 }
 function resolveSeparator(sepValue){
     if (sepValue === 'custom'){
-        let custom = document.getElementById('customSeparator').value;
+        const el = document.getElementById('customSeparator');
+        if (!el) return '';
+        const custom = el.value;
         return custom.replace(/\\n/g,'\n').replace(/\\t/g,'\t').replace(/\\r/g,'\r');
     }
     return sepValue.replace(/\\n/g,'\n').replace(/\\t/g,'\t').replace(/\\r/g,'\r');
@@ -1710,7 +1685,7 @@ function repeatText(){
     }
 
     let count = clampRepeatCount(document.getElementById('repeatCount').value);
-    document.getElementById('repeatCount').value = count;
+    document.getElementById('repeatCount').value = String(count);
 
     const separator = resolveSeparator(currentSeparator);
     const doNumber = document.getElementById('numberThem').checked;
@@ -1743,7 +1718,7 @@ function repeatText(){
     }
 
     let output;
-    if (trailing) output = parts.join(separator) + (separator || '');
+    if (trailing) output = parts.join(separator) + separator;
     else output = parts.join(separator);
 
     const charCount = output.length;
@@ -1769,7 +1744,8 @@ function setActiveSeparator(sepAttr){
     document.querySelectorAll('.sep-option').forEach(function(b){
         const isActive = b.getAttribute('data-sep') === sepAttr;
         b.classList.toggle('active', isActive);
-        b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        b.setAttribute('aria-checked', isActive ? 'true' : 'false');
+        b.setAttribute('tabindex', isActive ? '0' : '-1');
     });
     if (sepAttr === 'custom') document.getElementById('customSepRow').classList.add('show');
     else document.getElementById('customSepRow').classList.remove('show');
@@ -1778,32 +1754,35 @@ function syncPresetChips(activeCount){
     document.querySelectorAll('.preset-chip').forEach(function(b){
         const isActive = b.getAttribute('data-count') === String(activeCount);
         b.classList.toggle('active', isActive);
-        b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        b.setAttribute('aria-checked', isActive ? 'true' : 'false');
+        b.setAttribute('tabindex', isActive ? '0' : '-1');
     });
 }
 function clearAll(){
-    document.getElementById('repeatInput').value = '';
-    document.getElementById('repeatCount').value = 10;
+    const input = document.getElementById('repeatInput');
+    input.value = '';
+    input.dispatchEvent(new Event('input'));
+    document.getElementById('repeatCount').value = '10';
     document.getElementById('customSeparator').value = '';
     document.getElementById('numberThem').checked = false;
     document.getElementById('trailingSeparator').checked = false;
     document.getElementById('errorMsg').classList.remove('show');
     document.getElementById('warningBanner').classList.remove('show');
-    document.getElementById('inputCharCount').textContent = '0 chars';
     resetOutputPanel();
     setActiveSeparator(DEFAULT_SEP_ATTR);
     syncPresetChips(10);
     showToast('Cleared.');
 }
 function loadExample(){
-    document.getElementById('repeatInput').value = 'Hello World';
-    document.getElementById('repeatCount').value = 10;
+    const input = document.getElementById('repeatInput');
+    input.value = 'Hello World';
+    input.dispatchEvent(new Event('input'));
+    document.getElementById('repeatCount').value = '10';
     document.getElementById('numberThem').checked = false;
     document.getElementById('trailingSeparator').checked = false;
     document.getElementById('customSeparator').value = '';
     setActiveSeparator(DEFAULT_SEP_ATTR);
     syncPresetChips(10);
-    document.getElementById('inputCharCount').textContent = '11 chars';
     repeatText();
 }
 
@@ -1837,7 +1816,6 @@ function closeModal(){
     const overlay = document.getElementById('actionModal');
     if (!overlay.classList.contains('active')) return;
 
-    /* Blur any focused descendant BEFORE setting aria-hidden */
     if (overlay.contains(document.activeElement) && document.activeElement.blur){
         document.activeElement.blur();
     }
@@ -1876,6 +1854,23 @@ function downloadOutput(){
     showModal('download');
 }
 
+/* Radio group arrow-key navigation */
+function handleRadioKeydown(e, containerSelector, itemSelector){
+    const keys = ['ArrowDown','ArrowRight','ArrowUp','ArrowLeft','Home','End'];
+    if (keys.indexOf(e.key) === -1) return;
+    const items = Array.prototype.slice.call(document.querySelectorAll(containerSelector + ' ' + itemSelector));
+    const current = items.indexOf(document.activeElement);
+    if (current === -1) return;
+    e.preventDefault();
+    let next;
+    if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = items.length - 1;
+    else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = (current + 1) % items.length;
+    else next = (current - 1 + items.length) % items.length;
+    items[next].focus();
+    items[next].click();
+}
+
 function initPresets(){
     document.querySelectorAll('.preset-chip').forEach(function(btn){
         btn.addEventListener('click', function(){
@@ -1885,6 +1880,12 @@ function initPresets(){
             if (document.getElementById('repeatInput').value.trim() !== '' && lastOutput) repeatText();
         });
     });
+    const presetRow = document.getElementById('presetRow');
+    if (presetRow){
+        presetRow.addEventListener('keydown', function(e){
+            handleRadioKeydown(e, '#presetRow', '.preset-chip');
+        });
+    }
 }
 function initCountStepper(){
     const input = document.getElementById('repeatCount');
@@ -1897,13 +1898,13 @@ function initCountStepper(){
         if (isNaN(n)) n = 1;
         if (n < 1) n = 1;
         if (n > MAX_REPEAT) n = MAX_REPEAT;
-        if (this.value !== String(n)) this.value = n;
+        if (this.value !== String(n)) this.value = String(n);
         syncPresetChips(n);
     });
 
     input.addEventListener('blur', function(){
         const n = clampRepeatCount(this.value);
-        this.value = n;
+        this.value = String(n);
         syncPresetChips(n);
     });
 
@@ -1922,13 +1923,13 @@ function initCountStepper(){
     document.getElementById('countMinus').addEventListener('click', function(){
         let v = clampRepeatCount(input.value);
         v = Math.max(1, v - 1);
-        input.value = v; syncPresetChips(v);
+        input.value = String(v); syncPresetChips(v);
         if (document.getElementById('repeatInput').value.trim() !== '' && lastOutput) repeatText();
     });
     document.getElementById('countPlus').addEventListener('click', function(){
         let v = clampRepeatCount(input.value);
         v = Math.min(MAX_REPEAT, v + 1);
-        input.value = v; syncPresetChips(v);
+        input.value = String(v); syncPresetChips(v);
         if (document.getElementById('repeatInput').value.trim() !== '' && lastOutput) repeatText();
     });
 }
@@ -1936,22 +1937,19 @@ function initSeparators(){
     document.querySelectorAll('.sep-option').forEach(function(btn){
         btn.addEventListener('click', function(){
             const sep = this.getAttribute('data-sep');
-            document.querySelectorAll('.sep-option').forEach(function(b){
-                b.classList.remove('active');
-                b.setAttribute('aria-pressed','false');
-            });
-            this.classList.add('active');
-            this.setAttribute('aria-pressed','true');
-            currentSeparator = sep;
+            setActiveSeparator(sep);
             if (sep === 'custom'){
-                document.getElementById('customSepRow').classList.add('show');
                 setTimeout(function(){ document.getElementById('customSeparator').focus(); }, 100);
-            } else {
-                document.getElementById('customSepRow').classList.remove('show');
             }
             if (document.getElementById('repeatInput').value.trim() !== '' && lastOutput) repeatText();
         });
     });
+    const sepGrid = document.getElementById('sepGrid');
+    if (sepGrid){
+        sepGrid.addEventListener('keydown', function(e){
+            handleRadioKeydown(e, '#sepGrid', '.sep-option');
+        });
+    }
 }
 function initInputCounter(){
     const input = document.getElementById('repeatInput');
@@ -1970,9 +1968,10 @@ function triggerRepeatBtnAnim(btn){
 }
 
 function init(){
-    document.getElementById('dynamicYear').textContent = new Date().getFullYear();
+    document.getElementById('dynamicYear').textContent = String(new Date().getFullYear());
     populateNavMenus();
     initDelegatedActions();
+    initGlobalKeydown();
     initResizeHandler();
     initSystemThemeListener();
     initPresets();
