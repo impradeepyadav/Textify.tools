@@ -25,10 +25,11 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@BuiltByPradeep">
     <meta name="twitter:creator" content="@BuiltByPradeep">
-    <meta name="twitter:url" content="https://textify.tools/text-to-handwriting">
     <meta name="twitter:title" content="Text to Handwriting Converter – Free Online Tool">
     <meta name="twitter:description" content="Free text to handwriting converter. Custom fonts, multi-page PDF, ruled/grid/plain paper, ink colors. Runs in your browser.">
     <meta name="twitter:image" content="https://textify.tools/og-image.png">
+    <meta name="twitter:image:width" content="1200">
+    <meta name="twitter:image:height" content="630">
     <meta name="twitter:image:alt" content="Text to Handwriting Converter – transform typed text into realistic handwritten pages">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -77,7 +78,7 @@
                 { "@type": "Organization", "@id": "https://textify.tools/#organization", "name": "Textify.tools", "url": "https://textify.tools/", "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 }, "sameAs": ["https://x.com/BuiltByPradeep"] },
                 { "@type": "Person", "@id": "https://textify.tools/#author", "name": "Pradeep Yadav", "url": "https://textify.tools/about-us", "worksFor": { "@id": "https://textify.tools/#organization" } },
                 { "@type": "WebApplication", "@id": "https://textify.tools/text-to-handwriting/#app", "name": "Text to Handwriting Converter", "url": "https://textify.tools/text-to-handwriting", "description": "Free text to handwriting converter. Turn any typed text into realistic handwritten pages on ruled, grid, or plain paper. Custom font upload, multi-page PDF export, and print support.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web Browser", "browserRequirements": "Requires JavaScript and HTML5 Canvas support.", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }, "featureList": "Text to handwriting conversion, Custom font upload, 11 handwriting styles, Ruled/grid/plain paper, Ink color selection, Font size control, Line height, Letter spacing, Ink pressure simulation, Random jitter for realism, Text alignment, Page orientation, Multi-page PDF export, PNG export, Direct print, Live preview", "screenshot": "https://textify.tools/og-image.png", "datePublished": "2024-01-15", "dateModified": "2026-10-04" },
-                { "@type": "HowTo", "name": "How to Convert Text to Handwriting Online", "description": "Free text to handwriting converter – turn typed text into realistic handwritten pages in your browser.", "step": [
+                { "@type": "HowTo", "name": "How to Convert Text to Handwriting Online", "description": "Free text to handwriting converter – turn typed text into realistic handwritten pages in your browser.", "image": "https://textify.tools/og-image.png", "step": [
                     { "@type": "HowToStep", "position": 1, "name": "Type or paste your text", "text": "Type or paste your content into the input box on the left. Any amount works — a single line, a full page, or a multi-chapter document." },
                     { "@type": "HowToStep", "position": 2, "name": "Pick a handwriting style", "text": "Choose from 11 built-in handwriting fonts like Neat Cursive, Elegant Script, and Casual Print. Or upload your own TTF, OTF, or WOFF font for a truly personal handwriting look." },
                     { "@type": "HowToStep", "position": 3, "name": "Choose your paper", "text": "Ruled, grid, plain, dotted, yellow pad, and aged paper options are available. Ruled paper is the default and works best for most assignments." },
@@ -164,7 +165,6 @@
         html:not(.dark-mode) .icon-sun{display:block !important}
         .icon{display:inline-block;vertical-align:middle;flex-shrink:0}
 
-        /* ============ HEADER ============ */
         header{border-bottom:1px solid var(--line);display:flex;justify-content:center;align-items:center;padding:0 var(--gutter);min-height:var(--header-h);width:100%;transition:border-color .3s;background:var(--bg);position:relative;z-index:100}
         .header-inner{width:100%;max-width:var(--page-max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px;min-width:0}
         .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-size:clamp(17px,2vw,22px);font-weight:800;white-space:nowrap;flex-shrink:0}
@@ -178,12 +178,10 @@
         .tools-trigger:hover{color:var(--text);background:var(--hover)}
         .tools-trigger .icon{width:14px;height:14px;transition:transform .2s;flex-shrink:0}
         .tools-mega-menu{position:absolute;top:calc(100% + 8px);right:0;left:auto;transform:translateY(8px);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 8px;width:min(320px,calc(100vw - 24px));max-height:min(70vh,560px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;box-shadow:0 20px 40px var(--shadow);opacity:0;visibility:hidden;transition:.25s;z-index:200}
-        .tools-menu-container:hover .tools-mega-menu,
-        .tools-menu-container.open .tools-mega-menu,
-        .tools-menu-container:focus-within .tools-mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
-        .tools-menu-container:hover .tools-trigger .icon,
-        .tools-menu-container.open .tools-trigger .icon,
-        .tools-menu-container:focus-within .tools-trigger .icon{transform:rotate(180deg)}
+        .tools-menu-container.hover-open .tools-mega-menu,
+        .tools-menu-container.open .tools-mega-menu{opacity:1;visibility:visible;transform:translateY(0)}
+        .tools-menu-container.hover-open .tools-trigger .icon,
+        .tools-menu-container.open .tools-trigger .icon{transform:rotate(180deg)}
         .tools-mega-menu a{display:block;padding:8px 14px;border-radius:6px;color:var(--text);font-size:13px;font-weight:500;text-decoration:none;transition:.2s;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
         .tools-mega-menu a:hover{background:var(--hover);color:var(--text)}
         .tools-mega-menu::-webkit-scrollbar{width:6px}
@@ -198,7 +196,6 @@
         .hamburger-btn .menu-icon span{display:block;width:22px;height:2px;background:currentColor;border-radius:2px;transition:.2s}
         .hamburger-btn .menu-icon span:first-child{width:16px}
 
-        /* ============ MOBILE SIDEBAR ============ */
         .mobile-sidebar-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:150;opacity:0;visibility:hidden;transition:.3s}
         .mobile-sidebar-overlay.active{opacity:1;visibility:visible}
         .mobile-sidebar{position:fixed;top:0;left:-320px;width:min(300px,86vw);height:100vh;height:100dvh;max-height:100vh;max-height:100dvh;background:var(--sidebar-bg);z-index:160;box-shadow:4px 0 20px rgba(0,0,0,.1);padding:20px;display:flex;flex-direction:column;visibility:hidden;transition:left .35s cubic-bezier(.4,0,.2,1),visibility .35s;overflow-y:auto;-webkit-overflow-scrolling:touch}
@@ -226,7 +223,6 @@
         html:not(.dark-mode) .mobile-sidebar-actions button .icon-sun{display:block !important}
         html.dark-mode .mobile-sidebar-actions button .icon-moon{display:block !important}
 
-        /* ============ SEARCH OVERLAY ============ */
         .search-overlay-full{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--overlay-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:300;display:flex;flex-direction:column;align-items:center;padding:clamp(16px,6vh,60px) 16px 16px;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;overflow:hidden}
         .search-overlay-full.active{opacity:1;visibility:visible}
         .search-container{width:100%;max-width:620px;display:flex;flex-direction:column;max-height:100%;min-height:0}
@@ -256,41 +252,30 @@
         .search-results-list .search-result-item{animation:searchResultIn .25s ease both}
         .search-results-list.no-anim .search-result-item{animation:none}
 
-        /* ============ MAIN ============ */
         main{flex:1;padding:clamp(20px,3.5vw,50px) 0;width:100%;min-width:0}
         main:focus{outline:none}
         .content-container{width:100%;max-width:var(--page-max);margin:0 auto;padding:0 var(--gutter);min-width:0}
 
-        /* ============ TOOL HERO ============ */
         .tool-hero{text-align:left;margin-bottom:30px;min-width:0}
         .tool-hero h1{font-size:clamp(24px,4vw,42px);font-weight:800;margin-bottom:12px;line-height:1.25;letter-spacing:-.6px;overflow-wrap:break-word}
         .tool-hero .subtitle{font-size:clamp(15px,1.5vw,18px);color:var(--text-light);line-height:1.7;max-width:100%;word-wrap:break-word}
 
-        /* ============ TOOL LAYOUT ============ */
         .tool-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-bottom:60px;align-items:start;width:100%;min-width:0}
         @media (max-width:900px){.tool-layout{grid-template-columns:minmax(0,1fr);gap:14px}}
 
-        /* ============================================================
-           TOOL PANEL — ALL animations, transitions, focus effects
-           are stripped from the panel and everything inside it.
-           Nothing outside the panel is affected.
-           ============================================================ */
         .tool-panel{background:var(--panel-bg);border:none;border-radius:18px;padding:26px;box-shadow:var(--card-shadow);width:100%;min-width:0;outline:none !important;transition:none !important;animation:none !important}
         .tool-panel:focus,
         .tool-panel:focus-visible,
         .tool-panel:focus-within,
         .tool-panel:hover,
         .tool-panel:active{outline:none !important;border:none !important;box-shadow:var(--card-shadow) !important;transition:none !important;animation:none !important}
-
         .tool-panel *,
         .tool-panel *::before,
         .tool-panel *::after{transition:none !important;animation:none !important}
-
         .tool-panel *:focus,
         .tool-panel *:focus-visible,
         .tool-panel *:focus-within,
         .tool-panel *:active{outline:none !important}
-
         .tool-panel input,
         .tool-panel input:focus,
         .tool-panel input:focus-visible,
@@ -309,11 +294,9 @@
         .tool-panel .count-field,
         .tool-panel .count-field:focus,
         .tool-panel .count-field:focus-visible{outline:none !important;box-shadow:none !important;border-color:var(--input-border) !important}
-
         .tool-panel .color-swatch:hover,
         .tool-panel .color-swatch:active,
         .tool-panel .color-swatch:focus{transform:none !important}
-
         .tool-panel .preview-wrap,
         .tool-panel .preview-wrap:hover,
         .tool-panel .preview-wrap:focus,
@@ -327,7 +310,6 @@
         .tool-panel-title h2{font-size:16px;font-weight:700;margin:0;letter-spacing:-.2px}
         .tool-panel-title .tpt-sub{font-size:12px;color:var(--text-light);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
-        /* ============ FORM SECTIONS ============ */
         .form-section{margin-bottom:22px;min-width:0}
         .form-section:last-of-type{margin-bottom:0}
         .form-label{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-light);margin-bottom:8px;gap:8px;flex-wrap:wrap}
@@ -426,21 +408,19 @@
         .modal-overlay.active{opacity:1;visibility:visible}
         .modal-box{background:var(--bg);border:1px solid var(--line);border-radius:24px;padding:32px 28px 28px;max-width:400px;width:100%;box-shadow:0 25px 50px -12px rgba(0,0,0,.4);text-align:center;transform:translateY(20px) scale(.95);transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .3s ease;opacity:0;min-width:0}
         .modal-overlay.active .modal-box{transform:translateY(0) scale(1);opacity:1}
-        .modal-icon{width:64px;height:64px;border-radius:50%;background:var(--tool-accent-soft);color:var(--tool-accent);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;animation:modalIconPop .5s cubic-bezier(.34,1.56,.64,1) both}
+        .modal-icon{width:64px;height:64px;border-radius:50%;background:var(--tool-accent-soft);color:var(--tool-accent);display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
         html.dark-mode .modal-icon{background:var(--tool-accent-light)}
         .modal-icon svg,.modal-icon i{width:32px;height:32px}
         #modalIconCheck{display:flex;align-items:center;justify-content:center;line-height:0}
         #modalIconDownload{display:none;align-items:center;justify-content:center;line-height:0}
         #actionModal[data-variant="download"] #modalIconCheck{display:none}
         #actionModal[data-variant="download"] #modalIconDownload{display:flex}
-        @keyframes modalIconPop{0%{transform:scale(.5);opacity:0}100%{transform:scale(1);opacity:1}}
         .modal-title{font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;letter-spacing:-.3px}
         .modal-message{font-size:15px;color:var(--text-light);line-height:1.6;margin-bottom:24px}
         .modal-close-btn{background:var(--tool-accent);color:var(--tool-accent-contrast);border:none;padding:12px 32px;border-radius:12px;font-weight:700;font-size:15px;font-family:inherit;cursor:pointer;transition:filter .2s;width:100%}
         .modal-close-btn:hover{filter:brightness(1.1)}
         .modal-close-btn:active{filter:brightness(.95)}
 
-        /* ============ CONTENT SECTIONS ============ */
         .content-section{margin-bottom:clamp(34px,4.5vw,50px);width:100%;max-width:100%;min-width:0}
         .content-section h2{font-size:clamp(20px,2.6vw,28px);font-weight:700;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--hover);overflow-wrap:break-word}
         .content-section h3{font-size:clamp(17px,2vw,20px);font-weight:700;margin:25px 0 12px}
@@ -476,14 +456,13 @@
         .feature-card h4 svg,.feature-card h4 i{width:18px;height:18px;color:var(--tool-accent);flex-shrink:0}
         .feature-card p{font-size:14px;color:var(--text-light);margin:0;line-height:1.6}
 
-        /* ============ FOOTER ============ */
         footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) var(--gutter) clamp(40px,6vw,80px);width:100%}
         .footer-container{width:100%;max-width:var(--page-max);margin:0 auto;min-width:0}
         .footer-middle{display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,30px);justify-content:space-between;align-items:flex-start;min-width:0}
         .footer-left-column{flex:1 1 320px;min-width:0;max-width:420px}
         .footer-right-columns{display:flex;flex:2 1 420px;gap:clamp(18px,3vw,40px);justify-content:flex-end;flex-wrap:wrap;min-width:0}
         .footer-column{min-width:140px;flex:0 1 auto}
-        .footer-heading{font-size:16px;font-weight:700;color:var(--footer-heading);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+        .footer-heading{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-size:16px;font-weight:700;color:var(--footer-heading);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
         .footer-links{list-style:none;padding:0;margin:0}
         .footer-links li{margin-bottom:8px}
         .footer-links a,.footer-credit a,.footer-about-text a{color:var(--footer-link-color);text-decoration:none;display:inline-block;transition:color .2s ease,transform .2s ease;will-change:transform}
@@ -493,7 +472,6 @@
         .footer-copyright{font-size:14px;color:var(--footer-text);margin-bottom:15px}
         .footer-about-text{font-size:15px;color:var(--footer-text);line-height:1.7}
 
-        /* ============ RESPONSIVE ============ */
         @media (max-width:1180px){.search-trigger{width:40px;height:40px;padding:0;justify-content:center;border-radius:50%}.search-trigger .search-trigger-label{display:none}}
         @media (max-width:1024px){.desktop-nav{gap:2px}.desktop-nav a{padding:6px 6px;font-size:13px}.tools-trigger{padding:6px 6px;font-size:13px}}
         @media (max-width:900px){.footer-middle{flex-direction:column;align-items:stretch;gap:28px}.footer-left-column{max-width:100%;flex:0 1 auto}.footer-right-columns{justify-content:flex-start;flex:0 1 auto}}
@@ -510,7 +488,6 @@
 
 <a href="#mainContent" class="skip-link">Skip to main content</a>
 
-<!-- ============ SVG SPRITE (all icons) ============ -->
 <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
 <defs>
 <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
@@ -898,17 +875,17 @@
                 <div class="footer-left-column">
                     <p class="footer-credit">Created by: <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">Pradeep Yadav</a></p>
                     <p class="footer-copyright">Copyright © <span id="dynamicYear"></span></p>
-                    <h3 class="footer-heading" style="margin-top:10px;">About</h3>
+                    <p class="footer-heading" style="margin-top:10px;">About</p>
                     <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking of what you type, no fuss. If you have a suggestion, feel free to <a href="https://x.com/intent/tweet?text=Just%20found%20Textify.tools&url=https%3A%2F%2Ftextify.tools%2F" target="_blank" rel="nofollow noopener noreferrer">say hello.</a> Feedback is much appreciated!</p>
                 </div>
                 <div class="footer-right-columns">
-                    <nav class="footer-column" aria-labelledby="footer-popular-tools"><h3 class="footer-heading" id="footer-popular-tools">Popular Tools</h3><ul class="footer-links">
+                    <nav class="footer-column" aria-labelledby="footer-popular-tools"><p class="footer-heading" id="footer-popular-tools">Popular Tools</p><ul class="footer-links">
                         <li><a href="/word-counter">Word Counter</a></li><li><a href="/json-formatter">JSON Formatter</a></li><li><a href="/case-converter">Case Converter</a></li><li><a href="/password-generator">Password Generator</a></li><li><a href="/text-to-handwriting">Text to Handwriting</a></li><li><a href="/image-resizer">Image Resizer</a></li><li><a href="/qr-code-generator">QR Code Generator</a></li><li><a href="/image-compressor">Image Compressor</a></li><li><a href="/pdf-merge">PDF Merge</a></li><li><a href="/resume-builder">Resume Builder</a></li><li><a href="/whatsapp-link-generator">WhatsApp Link</a></li><li><a href="/signature-resizer">Signature Resizer</a></li>
                     </ul></nav>
-                    <nav class="footer-column" aria-labelledby="footer-quick-links"><h3 class="footer-heading" id="footer-quick-links">Quick Links</h3><ul class="footer-links">
+                    <nav class="footer-column" aria-labelledby="footer-quick-links"><p class="footer-heading" id="footer-quick-links">Quick Links</p><ul class="footer-links">
                         <li><a href="/">Home</a></li><li><a href="/about-us">About Us</a></li><li><a href="/contact-us">Contact Us</a></li><li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li><li><a href="/blog">Blog</a></li>
                     </ul></nav>
-                    <nav class="footer-column" aria-labelledby="footer-legal"><h3 class="footer-heading" id="footer-legal">Legal Pages</h3><ul class="footer-links">
+                    <nav class="footer-column" aria-labelledby="footer-legal"><p class="footer-heading" id="footer-legal">Legal Pages</p><ul class="footer-links">
                         <li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms-of-use">Terms of Use</a></li><li><a href="/disclaimer">Disclaimer</a></li>
                     </ul></nav>
                 </div>
@@ -966,10 +943,8 @@
 <div id="printArea"></div>
 
 <script>
-// ============ Category labels ============
 const categoryLabelMap = { text:'Text Tools', developer:'Developer', generator:'Generators', image:'Image', pdf:'PDF', business:'Business', calculator:'Calculators & Converters', finance:'Finance' };
 
-// ============ Tools index ============
 const tools = [
     { name:'Word Counter', desc:'Count words, characters, sentences and paragraphs instantly.', link:'/word-counter', keywords:'word count character counter letters essay limit', category:'text' },
     { name:'Sentence Counter', desc:'Count the number of sentences in any text.', link:'/sentence-counter', keywords:'sentence count enumerate grammar', category:'text' },
@@ -1222,10 +1197,31 @@ function setThemeColorMeta(isDark){ const meta=document.getElementById('themeCol
 function toggleTheme(){ const root=document.documentElement; if(root.classList.contains('dark-mode')){root.classList.remove('dark-mode');try{localStorage.setItem('theme','light');}catch(e){}setThemeColorMeta(false);} else {root.classList.add('dark-mode');try{localStorage.setItem('theme','dark');}catch(e){}setThemeColorMeta(true);} }
 function initSystemThemeListener(){ if(!window.matchMedia) return; const mq=window.matchMedia('(prefers-color-scheme: dark)'); const handler=function(e){let stored=null;try{stored=localStorage.getItem('theme');}catch(err){} if(stored) return; const isDark=e.matches; document.documentElement.classList.toggle('dark-mode',isDark); setThemeColorMeta(isDark);}; if(typeof mq.addEventListener==='function') mq.addEventListener('change',handler); else if(typeof mq.addListener==='function') mq.addListener(handler); }
 
-function closeToolsMenu(returnFocus){ const container=document.getElementById('toolsMenuContainer'); const trigger=document.getElementById('toolsTrigger'); if(!container||!container.classList.contains('open')) return; container.classList.remove('open'); if(trigger){trigger.setAttribute('aria-expanded','false'); if(returnFocus) trigger.focus();} }
-function toggleToolsMenu(){ const container=document.getElementById('toolsMenuContainer'); const trigger=document.getElementById('toolsTrigger'); const isOpen=container.classList.contains('open'); if(isOpen) closeToolsMenu(true); else {container.classList.add('open'); trigger.setAttribute('aria-expanded','true'); const firstLink=container.querySelector('.tools-mega-menu a'); if(firstLink) firstLink.focus();} }
+function closeToolsMenu(returnFocus){
+    const container=document.getElementById('toolsMenuContainer');
+    const trigger=document.getElementById('toolsTrigger');
+    if(!container) return;
+    const hadOpen = container.classList.contains('open') || container.classList.contains('hover-open');
+    container.classList.remove('open');
+    container.classList.remove('hover-open');
+    if(trigger){
+        trigger.setAttribute('aria-expanded','false');
+        if(returnFocus && hadOpen && trigger.focus){try{trigger.focus();}catch(e){}}
+    }
+}
+function toggleToolsMenu(){
+    const container=document.getElementById('toolsMenuContainer');
+    const trigger=document.getElementById('toolsTrigger');
+    const isOpen=container.classList.contains('open');
+    if(isOpen) closeToolsMenu(true);
+    else {
+        container.classList.add('open');
+        trigger.setAttribute('aria-expanded','true');
+        const firstLink=container.querySelector('.tools-mega-menu a');
+        if(firstLink) firstLink.focus();
+    }
+}
 
-/* Populate the two nav menus from the tools array so we don't duplicate ~460 anchors in HTML. */
 function populateNavMenus(){
     const mega = document.getElementById('megaMenu');
     const mobileMenu = document.getElementById('mobileToolsMenu');
@@ -1244,7 +1240,6 @@ function openMobileSidebar(){ const sb=document.getElementById('mobileSidebar');
 function closeMobileSidebar(){
     const sb=document.getElementById('mobileSidebar');
     if(!sb||!sb.classList.contains('active')) return;
-    /* Blur before hiding so the browser doesn't block aria-hidden */
     if (sb.contains(document.activeElement) && document.activeElement.blur){ document.activeElement.blur(); }
     sb.classList.remove('active');
     sb.setAttribute('aria-hidden','true');
@@ -1257,8 +1252,6 @@ function closeMobileSidebar(){
     if (hb && !searchIsOpen && hb.offsetParent !== null){ try{hb.focus();}catch(e){} }
 }
 function toggleMobileTools(){ const toggle=document.getElementById('mobileToolsToggle'); const menu=document.getElementById('mobileToolsMenu'); const isOpen=menu.classList.contains('active'); menu.classList.toggle('active'); toggle.classList.toggle('active'); if(toggle) toggle.setAttribute('aria-expanded',String(!isOpen)); }
-
-(function initResizeHandler(){ let resizeRaf=0,lastWasDesktop=window.innerWidth>768; window.addEventListener('resize',function(){ if(resizeRaf) return; resizeRaf=requestAnimationFrame(function(){resizeRaf=0; const isDesktop=window.innerWidth>768; if(isDesktop&&!lastWasDesktop){if(document.getElementById('mobileSidebar').classList.contains('active')) closeMobileSidebar();} lastWasDesktop=isDesktop;}); }); })();
 
 let lastFocusedBeforeSearch=null;
 let searchResultsRaf=0;
@@ -1302,7 +1295,6 @@ function buildSearchResults(q){
     const nr=document.getElementById('fullNoResult');
     let matched;
     if(q===''){
-        /* Skip the entry animation for the 200+ items bulk render */
         list.classList.add('no-anim');
         matched=tools.map(function(t,i){return {t:t,idx:i,score:0};});
     } else {
@@ -1323,7 +1315,7 @@ function buildSearchResults(q){
     const parts=[];
     for(let i=0;i<total;i++){
         const t=matched[i].t;
-        parts.push('<a href="'+escAttr(t.link)+'" class="search-result-item" id="search-result-'+i+'" role="option"><span class="result-main"><span class="result-name">'+highlight(t.name,q)+'</span><span class="result-desc">'+highlight(t.desc,q)+'</span></span><span class="result-tag">'+escHtml(categoryLabelMap[t.category]||t.category)+'</span></a>');
+        parts.push('<a href="'+escAttr(t.link)+'" class="search-result-item" id="search-result-'+i+'" role="option" aria-selected="false"><span class="result-main"><span class="result-name">'+highlight(t.name,q)+'</span><span class="result-desc">'+highlight(t.desc,q)+'</span></span><span class="result-tag">'+escHtml(categoryLabelMap[t.category]||t.category)+'</span></a>');
     }
     list.innerHTML=parts.join('');
     searchState.activeIndex=-1;
@@ -1347,16 +1339,18 @@ function handleSearchKey(e){
         e.preventDefault();
         if(!items.length) return;
         searchState.activeIndex=(searchState.activeIndex+1)%items.length;
-        items.forEach(function(i){i.classList.remove('active');});
+        items.forEach(function(i){i.classList.remove('active'); i.setAttribute('aria-selected','false');});
         items[searchState.activeIndex].classList.add('active');
+        items[searchState.activeIndex].setAttribute('aria-selected','true');
         setActiveDescendant(items[searchState.activeIndex]);
         items[searchState.activeIndex].scrollIntoView({block:'nearest'});
     } else if(e.key==='ArrowUp'){
         e.preventDefault();
         if(!items.length) return;
         searchState.activeIndex=(searchState.activeIndex-1+items.length)%items.length;
-        items.forEach(function(i){i.classList.remove('active');});
+        items.forEach(function(i){i.classList.remove('active'); i.setAttribute('aria-selected','false');});
         items[searchState.activeIndex].classList.add('active');
+        items[searchState.activeIndex].setAttribute('aria-selected','true');
         setActiveDescendant(items[searchState.activeIndex]);
         items[searchState.activeIndex].scrollIntoView({block:'nearest'});
     } else if(e.key==='Enter'){
@@ -1370,11 +1364,10 @@ function handleSearchKey(e){
 }
 function clearSearchInput(){ const input=document.getElementById('fullSearchInput'); input.value=''; filterFullSearch(); input.focus(); }
 
-/* Single click delegator — removes inline onclick and enables a strict CSP. */
 function initDelegatedActions(){
     document.addEventListener('click', function(e){
         const container=document.getElementById('toolsMenuContainer');
-        if(container && !container.contains(e.target) && container.classList.contains('open')) { closeToolsMenu(false); }
+        if(container && !container.contains(e.target) && (container.classList.contains('open') || container.classList.contains('hover-open'))) { closeToolsMenu(false); }
         const actionEl = e.target.closest('[data-action]');
         if(!actionEl) return;
         const action = actionEl.getAttribute('data-action');
@@ -1401,17 +1394,47 @@ function initDelegatedActions(){
         searchInput.addEventListener('input', filterFullSearch);
         searchInput.addEventListener('keydown', handleSearchKey);
     }
+    /* Tools menu hover — pure JS class toggling so Escape works */
+    const container = document.getElementById('toolsMenuContainer');
+    const trigger = document.getElementById('toolsTrigger');
+    if (container && trigger){
+        container.addEventListener('mouseenter', function(){
+            container.classList.add('hover-open');
+            trigger.setAttribute('aria-expanded','true');
+        });
+        container.addEventListener('mouseleave', function(){
+            container.classList.remove('hover-open');
+            if(!container.classList.contains('open')){
+                trigger.setAttribute('aria-expanded','false');
+            }
+        });
+    }
 }
 
-document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){closeToolsMenu(true); closeFullSearch(); closeMobileSidebar(); closeModal(); return;}
-    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault(); openFullSearch(); return;}
-    const modalOverlay=document.getElementById('actionModal');
-    if(modalOverlay.classList.contains('active')){trapFocus(e,modalOverlay.querySelector('.modal-box')); return;}
-    if(searchIsOpen){trapFocus(e,document.getElementById('searchOverlayFull')); return;}
-    const sb=document.getElementById('mobileSidebar');
-    if(sb.classList.contains('active')) trapFocus(e,sb);
-});
+function initGlobalKeydown(){
+    document.addEventListener('keydown',function(e){
+        if(e.key==='Escape'){closeToolsMenu(true); closeFullSearch(); closeMobileSidebar(); closeModal(); return;}
+        if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault(); openFullSearch(); return;}
+        const modalOverlay=document.getElementById('actionModal');
+        if(modalOverlay.classList.contains('active')){trapFocus(e,modalOverlay.querySelector('.modal-box')); return;}
+        if(searchIsOpen){trapFocus(e,document.getElementById('searchOverlayFull')); return;}
+        const sb=document.getElementById('mobileSidebar');
+        if(sb.classList.contains('active')) trapFocus(e,sb);
+    });
+}
+
+function initResizeHandler(){
+    let resizeRaf=0,lastWasDesktop=window.innerWidth>768;
+    window.addEventListener('resize',function(){
+        if(resizeRaf) return;
+        resizeRaf=requestAnimationFrame(function(){
+            resizeRaf=0;
+            const isDesktop=window.innerWidth>768;
+            if(isDesktop&&!lastWasDesktop){if(document.getElementById('mobileSidebar').classList.contains('active')) closeMobileSidebar();}
+            lastWasDesktop=isDesktop;
+        });
+    });
+}
 
 function toggleFaq(btnEl){ const item=btnEl.closest('.faq-item'); if(!item) return; const expanded=btnEl.getAttribute('aria-expanded')==='true'; item.classList.toggle('active'); btnEl.setAttribute('aria-expanded',String(!expanded)); }
 
@@ -1496,10 +1519,10 @@ function clearPreview(){
 
 function scheduleRender(delay){
     if(renderTimer){clearTimeout(renderTimer); renderTimer=null;}
+    if(renderRaf){cancelAnimationFrame(renderRaf); renderRaf=0;}
     if(delay&&delay>0){
         renderTimer=setTimeout(function(){renderTimer=null; renderHandwriting();},delay);
     } else {
-        if(renderRaf) cancelAnimationFrame(renderRaf);
         renderRaf=requestAnimationFrame(function(){renderRaf=0; renderHandwriting();});
     }
 }
@@ -1904,7 +1927,6 @@ function showModal(type,title,message){
 function closeModal(){
     const overlay=document.getElementById('actionModal');
     if(!overlay.classList.contains('active')) return;
-    /* Blur before hiding so the browser doesn't block aria-hidden */
     if (overlay.contains(document.activeElement) && document.activeElement.blur){ document.activeElement.blur(); }
     overlay.classList.remove('active');
     overlay.setAttribute('aria-hidden','true');
@@ -2072,12 +2094,13 @@ function initFontUploader(){
     });
 }
 
-/* ============ Init ============ */
 function init(){
-    document.getElementById('dynamicYear').textContent=new Date().getFullYear();
+    document.getElementById('dynamicYear').textContent=String(new Date().getFullYear());
     populateNavMenus();
     initDelegatedActions();
+    initGlobalKeydown();
     initSystemThemeListener();
+    initResizeHandler();
     initStyleGrid();
     initPaperGrid();
     initOrientationGrid();
