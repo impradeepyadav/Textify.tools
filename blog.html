@@ -285,7 +285,6 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 @media (max-width:900px){.footer-middle{flex-direction:column;align-items:stretch;gap:28px}.footer-left-column{max-width:100%;flex:0 1 auto}.footer-right-columns{justify-content:flex-start;flex:0 1 auto}}
 @media (max-width:768px){:root{--header-h:58px}header{padding:0 16px}.logo{font-size:19px}.logo-img{width:22px;height:22px}.desktop-nav{display:none}.theme-btn{display:none}.search-trigger{display:none}.hamburger-btn{display:flex}.search-overlay-full{padding:16px 12px 12px}.search-box input{font-size:16px}.search-result-item .result-tag{display:none}footer{padding:30px 16px 60px}.footer-links a{display:block}
     .hero-search{padding:4px 6px 4px 14px;gap:8px}
-    .hero-search kbd{display:none}
     .hero-search .hero-clear{min-width:40px;min-height:40px;padding:0}
 }
 @media (max-width:560px){:root{--gutter:14px}.footer-right-columns{flex-direction:column;gap:22px;width:100%}.footer-column{width:100%;min-width:0}.mobile-sidebar-actions{flex-wrap:wrap}}
@@ -312,7 +311,6 @@ main:focus{outline:none}
 .hero-search .hero-clear{display:none;background:var(--hover);border:none;border-radius:50%;padding:6px;cursor:pointer;color:var(--text-light);align-items:center;justify-content:center;flex-shrink:0}
 .hero-search .hero-clear.show{display:flex}
 .hero-search .hero-clear:hover{background:var(--chip-hover)}
-.hero-search kbd{font-family:inherit;font-size:11px;font-weight:600;color:var(--text-light);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:3px 7px;flex-shrink:0}
 
 .featured-post{display:grid;grid-template-columns:1.2fr 1fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:clamp(28px,4vw,40px);text-decoration:none;color:var(--text);transition:box-shadow .2s,border-color .2s;box-shadow:var(--card-shadow)}
 .featured-post:hover{box-shadow:var(--card-hover-shadow);border-color:var(--border-hover)}
@@ -476,9 +474,8 @@ html.dark-mode .blog-card-img{box-shadow:0 2px 8px rgba(0,0,0,.35)}
 <div class="hero-search" role="search" aria-label="Search blog posts">
 <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-search"/></svg>
 <label for="blogSearchInput" class="sr-only">Search blog</label>
-<input type="text" id="blogSearchInput" placeholder="Search blog… e.g. JSON, password, PDF" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" inputmode="search" enterkeyhint="search" aria-describedby="blogKbdHint">
+<input type="text" id="blogSearchInput" placeholder="Search blog… e.g. JSON, password, PDF" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" inputmode="search" enterkeyhint="search">
 <button type="button" class="hero-clear" id="blogClearBtn" aria-label="Clear search"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg></button>
-<kbd id="blogKbdHint">Ctrl K</kbd>
 </div>
 </div>
 
@@ -992,8 +989,6 @@ function renderAllSuggestions(){
     if (!list) return;
     list.classList.add('no-anim');
     let html = '';
-    // FIX: render EVERY tool in the search overlay — not just the first 15.
-    // Users can scroll the list to browse all tools, or type to filter.
     for (let i = 0; i < tools.length; i++) html += buildResultItemHtml(tools[i], '', i);
     list.innerHTML = html;
     searchState.activeIndex = -1;
@@ -1610,18 +1605,6 @@ function initBlog(){
         return !!(window.matchMedia && window.matchMedia('(max-width:768px)').matches);
     };
 
-    if (window.matchMedia) {
-        const mq = window.matchMedia('(max-width:768px)');
-        const syncAria = (matches) => {
-            if (matches) input.removeAttribute('aria-describedby');
-            else input.setAttribute('aria-describedby', 'blogKbdHint');
-        };
-        syncAria(mq.matches);
-        const onChange = (e) => syncAria(e.matches);
-        if (typeof mq.addEventListener === 'function') mq.addEventListener('change', onChange);
-        else if (typeof mq.addListener === 'function') mq.addListener(onChange);
-    }
-
     readStateFromURL();
     if (blogSearchQueryRaw) input.value = blogSearchQueryRaw;
     if (clearBtn) clearBtn.classList.toggle('show', input.value.length > 0);
@@ -1661,27 +1644,6 @@ function initBlog(){
         const page = parseInt(btn.dataset.page, 10);
         if (page && page !== currentPage) goToPage(page);
     });
-
-    const kbd = document.getElementById('blogKbdHint');
-    if (kbd){
-        const platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || navigator.userAgent || '';
-        const isMac = /Mac|iPhone|iPad|iPod/.test(platform);
-        kbd.textContent = isMac ? '⌘ K' : 'Ctrl K';
-    }
-
-    document.addEventListener('keydown', function(e){
-        if ((e.ctrlKey || e.metaKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'k'){
-            if (isMobile()) return;
-            const toolsOverlay = document.getElementById('searchOverlayFull');
-            const sidebar = document.getElementById('mobileSidebar');
-            if (toolsOverlay && toolsOverlay.classList.contains('active')) return;
-            if (sidebar && sidebar.classList.contains('active')) return;
-            e.preventDefault();
-            e.stopPropagation();
-            input.focus();
-            input.select();
-        }
-    }, true);
 
     window.addEventListener('popstate', function(){
         if (blogSearchRaf){ cancelAnimationFrame(blogSearchRaf); blogSearchRaf = 0; }
