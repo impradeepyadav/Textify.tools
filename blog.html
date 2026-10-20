@@ -20,6 +20,7 @@
 <meta property="og:image" content="https://textify.tools/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:alt" content="Textify.tools blog – guides, tutorials, and productivity tips">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@BuiltByPradeep">
@@ -27,6 +28,8 @@
 <meta name="twitter:title" content="Blog – Textify.tools">
 <meta name="twitter:description" content="Text tool tutorials, cleaning workflows, and productivity tips for writers, developers, and students.">
 <meta name="twitter:image" content="https://textify.tools/og-image.png">
+<meta name="twitter:image:width" content="1200">
+<meta name="twitter:image:height" content="630">
 <meta name="twitter:image:alt" content="Textify.tools blog – guides, tutorials, and productivity tips">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -118,9 +121,6 @@ gtag('config', 'G-6VGXXT81MB');
 </script>
 
 <style>
-/* ================================================================
-   INDEX CSS — shared header, footer, search bar, mobile sidebar
-   ================================================================ */
 :root {
     color-scheme: light dark;
     --bg:#ffffff;--text:#0a0a0a;--text-light:#525252;--line:#e5e5e5;--primary:#0f172a;--hover:#f3f4f6;
@@ -262,13 +262,16 @@ mark{background:var(--mark-bg);color:var(--mark-text);border-radius:3px;padding:
 .search-results-list .search-result-item{animation:searchResultIn .25s ease both}
 .search-results-list.no-anim .search-result-item{animation:none}
 
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--text);color:var(--bg);padding:14px 28px;border-radius:18px;font-weight:600;font-size:14px;z-index:9999;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .4s;pointer-events:none;max-width:min(90vw,480px);text-align:center;line-height:1.45;overflow-wrap:break-word}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
 footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) var(--gutter) clamp(40px,6vw,80px);width:100%}
 .footer-container{width:100%;max-width:var(--page-max);margin:0 auto;min-width:0}
 .footer-middle{display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,30px);justify-content:space-between;align-items:flex-start;min-width:0}
 .footer-left-column{flex:1 1 320px;min-width:0;max-width:420px}
 .footer-right-columns{display:flex;flex:2 1 420px;gap:clamp(18px,3vw,40px);justify-content:flex-end;flex-wrap:wrap;min-width:0}
 .footer-column{min-width:140px;flex:0 1 auto}
-.footer-heading{font-size:16px;font-weight:700;color:var(--footer-heading);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
+.footer-heading{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-size:16px;font-weight:700;color:var(--footer-heading);margin-bottom:15px;text-transform:uppercase;letter-spacing:.5px}
 .footer-links{list-style:none;padding:0;margin:0}
 .footer-links li{margin-bottom:8px}
 .footer-links a,.footer-credit a,.footer-about-text a{color:var(--footer-link-color);text-decoration:none;display:inline-block;transition:color .2s ease,transform .2s ease;will-change:transform}
@@ -280,7 +283,11 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 @media (max-width:1180px){.search-trigger{width:40px;height:40px;padding:0;justify-content:center;border-radius:50%}.search-trigger .search-trigger-label{display:none}}
 @media (max-width:1024px){.desktop-nav{gap:2px}.desktop-nav a{padding:6px 6px;font-size:13px}.tools-trigger{padding:6px 6px;font-size:13px}}
 @media (max-width:900px){.footer-middle{flex-direction:column;align-items:stretch;gap:28px}.footer-left-column{max-width:100%;flex:0 1 auto}.footer-right-columns{justify-content:flex-start;flex:0 1 auto}}
-@media (max-width:768px){:root{--header-h:58px}header{padding:0 16px}.logo{font-size:19px}.logo-img{width:22px;height:22px}.desktop-nav{display:none}.theme-btn{display:none}.search-trigger{display:none}.hamburger-btn{display:flex}.search-overlay-full{padding:16px 12px 12px}.search-box input{font-size:16px}.search-result-item .result-tag{display:none}footer{padding:30px 16px 60px}.footer-links a{display:block}}
+@media (max-width:768px){:root{--header-h:58px}header{padding:0 16px}.logo{font-size:19px}.logo-img{width:22px;height:22px}.desktop-nav{display:none}.theme-btn{display:none}.search-trigger{display:none}.hamburger-btn{display:flex}.search-overlay-full{padding:16px 12px 12px}.search-box input{font-size:16px}.search-result-item .result-tag{display:none}footer{padding:30px 16px 60px}.footer-links a{display:block}
+    .hero-search{padding:4px 6px 4px 14px;gap:8px}
+    .hero-search kbd{display:none}
+    .hero-search .hero-clear{min-width:40px;min-height:40px;padding:0}
+}
 @media (max-width:560px){:root{--gutter:14px}.footer-right-columns{flex-direction:column;gap:22px;width:100%}.footer-column{width:100%;min-width:0}.mobile-sidebar-actions{flex-wrap:wrap}}
 @media (min-width:769px){.hamburger-btn{display:none}.mobile-sidebar-overlay{display:none !important}.mobile-sidebar{display:none !important}}
 @media (max-height:500px) and (orientation:landscape){.mobile-sidebar{padding:14px}.mobile-sidebar-header{margin-bottom:14px;padding-bottom:12px}.search-overlay-full{padding-top:10px}}
@@ -296,7 +303,7 @@ main:focus{outline:none}
 .blog-hero h1{font-size:clamp(26px,4vw,38px);font-weight:800;margin-bottom:12px;line-height:1.25;letter-spacing:-.6px;overflow-wrap:break-word}
 .blog-hero p{font-size:clamp(15px,1.5vw,18px);color:var(--text-light);line-height:1.7;max-width:100%;margin-bottom:22px;overflow-wrap:break-word}
 
-.hero-search{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 10px 4px 16px;max-width:100%;margin:0 0 26px;transition:border-color .2s,box-shadow .2s;width:100%;min-width:0;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.hero-search{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 10px 4px 16px;max-width:100%;margin:0 0 26px;transition:border-color .2s,box-shadow .2s;width:100%;min-width:0;box-shadow:0 10px 30px rgba(0,0,0,.06);scroll-margin-top:80px}
 .hero-search:focus-within{border-color:var(--border-hover);box-shadow:0 10px 30px rgba(0,0,0,.10)}
 .hero-search>.icon{color:var(--text-light);flex-shrink:0}
 .hero-search input{flex:1;border:none;background:transparent;outline:none;font-family:inherit;font-size:16px;color:var(--text);padding:12px 0;min-width:0;width:100%}
@@ -413,7 +420,7 @@ html.dark-mode .blog-card-img{box-shadow:0 2px 8px rgba(0,0,0,.35)}
 @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
-    .blog-card:hover,.tool-strip-card:hover,.extras-card:hover,.featured-post:hover,.tool-strip-card:hover{transform:none !important}
+    .blog-card:hover,.tool-strip-card:hover,.extras-card:hover,.featured-post:hover{transform:none !important}
 }
 </style>
 </head>
@@ -447,15 +454,15 @@ html.dark-mode .blog-card-img{box-shadow:0 2px 8px rgba(0,0,0,.35)}
 <div class="header-inner">
 <a href="/" class="logo"><img src="/favicon.ico" alt="Textify.tools" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager">Textify.tools</a>
 <div class="header-right">
-<div class="desktop-nav">
+<nav class="desktop-nav" aria-label="Main navigation">
 <div class="tools-menu-container" id="toolsMenuContainer">
 <button type="button" class="tools-trigger" id="toolsTrigger" aria-expanded="false" aria-controls="megaMenu" data-action="toggle-tools">Tools <svg class="icon" aria-hidden="true" width="14" height="14"><use href="#i-chevron-down"/></svg></button>
-<div class="tools-mega-menu" id="megaMenu"></div>
+<div class="tools-mega-menu" id="megaMenu" role="navigation" aria-label="All tools"></div>
 </div>
 <a href="/privacy-policy">Privacy</a><a href="/blog" aria-current="page">Blog</a><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
-</div>
+</nav>
 <button type="button" class="theme-btn" data-action="toggle-theme" aria-label="Toggle dark mode"><svg class="icon icon-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg></button>
-<button type="button" class="search-trigger" data-action="open-search" aria-label="Search tools"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
+<button type="button" class="search-trigger" data-action="open-search" aria-label="Search tools" aria-haspopup="dialog" aria-expanded="false"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
 <button type="button" class="hamburger-btn" id="hamburgerBtn" data-action="open-sidebar" aria-label="Open menu" aria-expanded="false" aria-controls="mobileSidebar"><span class="menu-icon" aria-hidden="true"><span></span><span></span></span></button>
 </div>
 </div>
@@ -466,10 +473,10 @@ html.dark-mode .blog-card-img{box-shadow:0 2px 8px rgba(0,0,0,.35)}
 <div class="blog-hero">
 <h1>Textify Blog</h1>
 <p>Practical guides, tool tutorials, and productivity tips for anyone who works with text. No fluff — just the stuff that actually helps you get things done faster. From cleaning messy text and formatting JSON to writing better and shipping faster, every article here is written to save you time and give you a workflow you can actually use.</p>
-<div class="hero-search" role="search">
+<div class="hero-search" role="search" aria-label="Search blog posts">
 <svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-search"/></svg>
 <label for="blogSearchInput" class="sr-only">Search blog</label>
-<input type="text" id="blogSearchInput" placeholder="Search blog… e.g. JSON, password, PDF" autocomplete="off" aria-describedby="blogKbdHint">
+<input type="text" id="blogSearchInput" placeholder="Search blog… e.g. JSON, password, PDF" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" inputmode="search" enterkeyhint="search" aria-describedby="blogKbdHint">
 <button type="button" class="hero-clear" id="blogClearBtn" aria-label="Clear search"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-x"/></svg></button>
 <kbd id="blogKbdHint">Ctrl K</kbd>
 </div>
@@ -496,72 +503,58 @@ html.dark-mode .blog-card-img{box-shadow:0 2px 8px rgba(0,0,0,.35)}
 <div class="results-line" id="blogResultsLine" role="status" aria-live="polite"></div>
 <h2 class="sr-only">Latest blog posts</h2>
 <div class="blog-grid" id="blogGrid">
-<!-- Post 1 -->
 <a href="/blog/how-to-repeat-text-100000-times" class="blog-card" data-slug="how-to-repeat-text-100000-times" data-category="Generators">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/how-to-repeat-text-100000-times.webp" alt="How to Repeat Text 100,000 Times (Without Freezing Your Browser)" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Generators</span><span>Sep 28, 2025</span><span>•</span><span>6 min read</span></div><h3>How to Repeat Text 100,000 Times (Without Freezing Your Browser)</h3><p>Need the same line repeated thousands of times for a test file, a load test, or a prank? Here's the fastest way to do it in one click — and how to keep the output manageable.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- Post 2 (Featured — hidden in grid unless filtered) -->
 <a href="/blog/how-to-calculate-meeting-cost" class="blog-card" data-slug="how-to-calculate-meeting-cost" data-category="Business" data-featured="true">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/how-to-calculate-meeting-cost.webp" alt="Meeting Cost Calculator: How Much Is That Meeting Really Costing You?" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Business</span><span>Sep 26, 2025</span><span>•</span><span>8 min read</span></div><h3>Meeting Cost Calculator: How Much Is That Meeting Really Costing You?</h3><p>A 1-hour meeting with 8 people costs more than you think. Use the free Meeting Cost Calculator to see the real cost of any meeting — including hidden recovery time.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- Post 3 -->
 <a href="/blog/how-to-clean-messy-text-before-publishing" class="blog-card" data-slug="how-to-clean-messy-text-before-publishing" data-category="Text Cleaning">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/how-to-clean-messy-text-before-publishing.png" alt="How to Clean Messy Text Before Publishing (Step-by-Step)" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Text Cleaning</span><span>Sep 12, 2025</span><span>•</span><span>7 min read</span></div><h3>How to Clean Messy Text Before Publishing (Step-by-Step)</h3><p>Copied text from a PDF or web page? It's probably full of hidden characters, broken lines, and double spaces. Here's a repeatable workflow to fix it in under two minutes.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- Post 4 -->
 <a href="/blog/json-formatter-common-mistakes-beginners-guide" class="blog-card" data-slug="json-formatter-common-mistakes-beginners-guide" data-category="Developer">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/json-formatter-common-mistakes-beginners-guide.png" alt="JSON Formatter: 5 Mistakes Beginners Make (and How to Fix Them)" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Developer</span><span>Sep 8, 2025</span><span>•</span><span>5 min read</span></div><h3>JSON Formatter: 5 Mistakes Beginners Make (and How to Fix Them)</h3><p>Trailing commas, unquoted keys, and single quotes are the usual suspects. Here's how to spot them fast and fix them faster with the JSON Formatter.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- Post 5 -->
 <a href="/blog/word-counter-vs-character-counter-guide" class="blog-card" data-slug="word-counter-vs-character-counter-guide" data-category="Writing">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/word-counter-vs-character-counter-guide.png" alt="Word Counter vs. Character Counter: Which One Do You Actually Need?" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Writing</span><span>Sep 3, 2025</span><span>•</span><span>4 min read</span></div><h3>Word Counter vs. Character Counter: Which One Do You Actually Need?</h3><p>Essays care about words. Tweets and meta descriptions care about characters. Here's when to use each — and why the difference matters.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- Post 6 -->
 <a href="/blog/how-to-remove-duplicate-lines-without-excel" class="blog-card" data-slug="how-to-remove-duplicate-lines-without-excel" data-category="Text Cleaning">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/how-to-remove-duplicate-lines-without-excel.png" alt="How to Remove Duplicate Lines from a List (Without Excel)" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Text Cleaning</span><span>Aug 28, 2025</span><span>•</span><span>4 min read</span></div><h3>How to Remove Duplicate Lines from a List (Without Excel)</h3><p>Got a list with repeats? You don't need a spreadsheet. The Duplicate Line Remover keeps unique entries and drops the rest in one click.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- Post 7 -->
 <a href="/blog/case-converter-title-sentence-uppercase-guide" class="blog-card" data-slug="case-converter-title-sentence-uppercase-guide" data-category="Writing">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/case-converter-title-sentence-uppercase-guide.png" alt="Case Converter Guide: When to Use Title Case, Sentence Case, and UPPERCASE" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Writing</span><span>Aug 22, 2025</span><span>•</span><span>6 min read</span></div><h3>Case Converter Guide: When to Use Title Case, Sentence Case, and UPPERCASE</h3><p>Headings, body text, and acronyms all follow different rules. This guide walks through the most common capitalization styles and when to use each.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- Post 8 -->
 <a href="/blog/how-to-compress-pdf-to-100kb-online" class="blog-card" data-slug="how-to-compress-pdf-to-100kb-online" data-category="PDF &amp; Files">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/how-to-compress-pdf-to-100kb-online.png" alt="How to Compress a PDF to 100KB for Upload Forms" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">PDF &amp; Files</span><span>Aug 18, 2025</span><span>•</span><span>5 min read</span></div><h3>How to Compress a PDF to 100KB for Upload Forms</h3><p>Government portals and job applications often reject files over 100KB. Here's how to shrink your PDF without losing readability.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- Post 9 -->
 <a href="/blog/how-to-create-strong-passwords-you-can-remember" class="blog-card" data-slug="how-to-create-strong-passwords-you-can-remember" data-category="Privacy &amp; Security">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/how-to-create-strong-passwords-you-can-remember.png" alt="Password Generator: How to Create Strong Passwords You Can Actually Remember" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Privacy &amp; Security</span><span>Aug 12, 2025</span><span>•</span><span>6 min read</span></div><h3>Password Generator: How to Create Strong Passwords You Can Actually Remember</h3><p>Random passwords are secure but forgettable. Here's a practical approach to generating strong passwords and storing them safely.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- Post 10 -->
 <a href="/blog/reading-time-estimator-for-blogs-and-speeches" class="blog-card" data-slug="reading-time-estimator-for-blogs-and-speeches" data-category="Writing">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/reading-time-estimator-for-blogs-and-speeches.png" alt="Reading Time Estimator: Why It Matters for Blog Posts and Speeches" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Writing</span><span>Aug 5, 2025</span><span>•</span><span>4 min read</span></div><h3>Reading Time Estimator: Why It Matters for Blog Posts and Speeches</h3><p>Readers skim. Speech-givers panic. Knowing the reading time of your text helps you set expectations and keep your audience engaged.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- Post 11 -->
 <a href="/blog/how-to-extract-emails-from-text-file" class="blog-card" data-slug="how-to-extract-emails-from-text-file" data-category="Text Cleaning">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/how-to-extract-emails-from-text-file.png" alt="How to Extract Emails from a Messy Text File" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Text Cleaning</span><span>Jul 28, 2025</span><span>•</span><span>3 min read</span></div><h3>How to Extract Emails from a Messy Text File</h3><p>Got a wall of text with email addresses buried inside? The Email Extractor pulls them all out — no regex required.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- Post 12 -->
 <a href="/blog/what-is-jwt-token-and-how-to-decode-it" class="blog-card" data-slug="what-is-jwt-token-and-how-to-decode-it" data-category="Developer">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/what-is-jwt-token-and-how-to-decode-it.png" alt="What Is a JWT and How Do You Decode One?" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Developer</span><span>Jul 20, 2025</span><span>•</span><span>7 min read</span></div><h3>What Is a JWT and How Do You Decode One?</h3><p>JSON Web Tokens are everywhere in modern auth. Here's a plain-English explanation of what they contain and how to inspect them safely.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- Post 13 -->
 <a href="/blog/shipping-label-generator-guide-for-small-sellers" class="blog-card" data-slug="shipping-label-generator-guide-for-small-sellers" data-category="Business">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/shipping-label-generator-guide-for-small-sellers.png" alt="Shipping Label Generator: How Small Sellers Can Print Labels at Home" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Business</span><span>Jul 14, 2025</span><span>•</span><span>5 min read</span></div><h3>Shipping Label Generator: How Small Sellers Can Print Labels at Home</h3><p>No need for a design tool or a dedicated label printer. Generate a clean, printable shipping label in your browser and tape it on.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- Post 14 -->
 <a href="/blog/creative-qr-code-uses-beyond-links" class="blog-card" data-slug="creative-qr-code-uses-beyond-links" data-category="Generators">
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/creative-qr-code-uses-beyond-links.png" alt="QR Code Generator: 7 Clever Ways to Use QR Codes (Beyond Links)" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Generators</span><span>Jul 6, 2025</span><span>•</span><span>5 min read</span></div><h3>QR Code Generator: 7 Clever Ways to Use QR Codes (Beyond Links)</h3><p>QR codes can do more than open a URL. Here are practical ways to use them for menus, packaging, business cards, and event check-ins.</p><span class="blog-card-readmore">Read more →</span></div>
@@ -574,7 +567,7 @@ html.dark-mode .blog-card-img{box-shadow:0 2px 8px rgba(0,0,0,.35)}
 <div class="extras-grid">
 <div class="extras-card">
 <h3>Browse by topic</h3>
-<div class="extras-chips" id="extrasChips"></div>
+<div class="extras-chips" id="extrasChips" role="group" aria-label="Filter blog posts by topic"></div>
 </div>
 <div class="extras-card">
 <h3>Popular guides</h3>
@@ -641,17 +634,17 @@ html.dark-mode .blog-card-img{box-shadow:0 2px 8px rgba(0,0,0,.35)}
 <div class="footer-left-column">
 <p class="footer-credit">Created by: <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">Pradeep Yadav</a></p>
 <p class="footer-copyright">Copyright © <span id="dynamicYear"></span></p>
-<h3 class="footer-heading" style="margin-top:10px;">About</h3>
+<p class="footer-heading" style="margin-top:10px;">About</p>
 <p class="footer-about-text">I built this because text tools should be simple and free. No signup, no tracking of what you type, no fuss. If you have a suggestion, feel free to <a href="https://x.com/BuiltByPradeep" target="_blank" rel="nofollow noopener noreferrer">say hello.</a> Feedback is much appreciated!</p>
 </div>
 <div class="footer-right-columns">
-<div class="footer-column"><h3 class="footer-heading">Popular Tools</h3><ul class="footer-links">
+<div class="footer-column"><p class="footer-heading">Popular Tools</p><ul class="footer-links">
 <li><a href="/word-counter">Word Counter</a></li><li><a href="/json-formatter">JSON Formatter</a></li><li><a href="/case-converter">Case Converter</a></li><li><a href="/password-generator">Password Generator</a></li><li><a href="/text-to-handwriting">Text to Handwriting</a></li><li><a href="/image-resizer">Image Resizer</a></li><li><a href="/qr-code-generator">QR Code Generator</a></li><li><a href="/image-compressor">Image Compressor</a></li><li><a href="/pdf-merge">PDF Merge</a></li><li><a href="/resume-builder">Resume Builder</a></li><li><a href="/whatsapp-link-generator">WhatsApp Link</a></li><li><a href="/signature-resizer">Signature Resizer</a></li>
 </ul></div>
-<div class="footer-column"><h3 class="footer-heading">Quick Links</h3><ul class="footer-links">
+<div class="footer-column"><p class="footer-heading">Quick Links</p><ul class="footer-links">
 <li><a href="/">Home</a></li><li><a href="/about-us">About Us</a></li><li><a href="/contact-us">Contact Us</a></li><li><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a></li><li><a href="/blog">Blog</a></li>
 </ul></div>
-<div class="footer-column"><h3 class="footer-heading">Legal Pages</h3><ul class="footer-links">
+<div class="footer-column"><p class="footer-heading">Legal Pages</p><ul class="footer-links">
 <li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms-of-use">Terms of Use</a></li><li><a href="/disclaimer">Disclaimer</a></li>
 </ul></div>
 </div>
@@ -693,10 +686,9 @@ html.dark-mode .blog-card-img{box-shadow:0 2px 8px rgba(0,0,0,.35)}
 </div>
 </div>
 
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
 <script>
-/* ================================================================
-   SHARED DATA (same as index)
-   ================================================================ */
 const categoryLabelMap = { all:'All Tools', text:'Text Tools', developer:'Developer', generator:'Generators', image:'Image', pdf:'PDF', business:'Business', calculator:'Calculators & Converters', finance:'Finance' };
 
 const tools = [
@@ -965,13 +957,20 @@ function highlight(text, q){
     return result;
 }
 
-/* ================================================================
-   SEARCH STATE
-   ================================================================ */
+let toastTimer;
+function showToast(msg, dur){
+    dur = dur || 2200;
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ t.classList.remove('show'); }, dur);
+}
+
 let searchResultsRaf = 0;
 let searchIsOpen = false;
 const searchState = { activeIndex: -1 };
-const DEFAULT_SUGGESTION_COUNT = 15;
 
 function buildResultItemHtml(t, q, idx){
     return '<a href="' + escAttr(t.link) + '" class="search-result-item" id="search-result-' + idx + '" role="option" aria-selected="false">' +
@@ -993,8 +992,9 @@ function renderAllSuggestions(){
     if (!list) return;
     list.classList.add('no-anim');
     let html = '';
-    const limit = Math.min(DEFAULT_SUGGESTION_COUNT, tools.length);
-    for (let i = 0; i < limit; i++) html += buildResultItemHtml(tools[i], '', i);
+    // FIX: render EVERY tool in the search overlay — not just the first 15.
+    // Users can scroll the list to browse all tools, or type to filter.
+    for (let i = 0; i < tools.length; i++) html += buildResultItemHtml(tools[i], '', i);
     list.innerHTML = html;
     searchState.activeIndex = -1;
     setActiveDescendant(null);
@@ -1027,10 +1027,11 @@ function buildSearchResults(q, displayQuery){
     setActiveDescendant(null);
     if (input) input.setAttribute('aria-expanded', total > 0 ? 'true' : 'false');
     if (total === 0){
-        nr.classList.add('show');
-        document.getElementById('fullSearchQuery').textContent = displayQuery || q;
+        if (nr) nr.classList.add('show');
+        const qEl = document.getElementById('fullSearchQuery');
+        if (qEl) qEl.textContent = displayQuery || q;
     } else {
-        nr.classList.remove('show');
+        if (nr) nr.classList.remove('show');
     }
 }
 function filterFullSearch(){
@@ -1056,7 +1057,9 @@ function handleSearchKey(e){
     } else if (e.key === 'ArrowUp'){
         e.preventDefault();
         if (!items.length) return;
-        searchState.activeIndex = (searchState.activeIndex - 1 + items.length) % items.length;
+        searchState.activeIndex = searchState.activeIndex <= 0
+            ? items.length - 1
+            : searchState.activeIndex - 1;
         items.forEach(i => { i.classList.remove('active'); i.setAttribute('aria-selected','false'); });
         items[searchState.activeIndex].classList.add('active');
         items[searchState.activeIndex].setAttribute('aria-selected','true');
@@ -1077,15 +1080,12 @@ function clearSearchInput(){
     filterFullSearch();
     input.focus();
 }
-let lastFocusedBeforeSearch = null;
-function isElementVisible(el){
-    if (!el || !document.contains(el)) return false;
-    if (el.offsetParent !== null) return true;
-    const rects = el.getClientRects();
-    if (!rects || rects.length === 0) return false;
-    const style = window.getComputedStyle(el);
-    return style.visibility !== 'hidden' && style.display !== 'none';
+function setSearchTriggersExpanded(expanded){
+    document.querySelectorAll('[data-action="open-search"]').forEach(function(b){
+        b.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    });
 }
+let lastFocusedBeforeSearch = null;
 function openFullSearch(){
     const overlay = document.getElementById('searchOverlayFull');
     if (!overlay) return;
@@ -1097,6 +1097,7 @@ function openFullSearch(){
     searchIsOpen = true;
     overlay.classList.add('active');
     overlay.setAttribute('aria-hidden','false');
+    setSearchTriggersExpanded(true);
     document.body.style.overflow = 'hidden';
     const input = document.getElementById('fullSearchInput');
     if (input){ input.value = ''; }
@@ -1117,6 +1118,7 @@ function closeFullSearch(){
     }
     overlay.classList.remove('active');
     overlay.setAttribute('aria-hidden','true');
+    setSearchTriggersExpanded(false);
     const inp = document.getElementById('fullSearchInput');
     if (inp){ inp.value = ''; inp.setAttribute('aria-expanded', 'false'); inp.setAttribute('aria-activedescendant', ''); }
     document.getElementById('searchClearBtn').classList.remove('show');
@@ -1125,7 +1127,7 @@ function closeFullSearch(){
     const sidebarEl = document.getElementById('mobileSidebar');
     const sidebarOpen = sidebarEl && sidebarEl.classList.contains('active');
     if (!sidebarOpen) document.body.style.overflow = '';
-    if (isElementVisible(lastFocusedBeforeSearch) && lastFocusedBeforeSearch.focus){
+    if (lastFocusedBeforeSearch && document.contains(lastFocusedBeforeSearch) && lastFocusedBeforeSearch.offsetParent !== null && lastFocusedBeforeSearch.focus){
         try { lastFocusedBeforeSearch.focus(); } catch (e) {}
     }
     lastFocusedBeforeSearch = null;
@@ -1135,9 +1137,6 @@ function openSearchFromSidebar(){
     setTimeout(openFullSearch, 60);
 }
 
-/* ================================================================
-   THEME
-   ================================================================ */
 function setThemeColorMeta(isDark){
     const meta = document.getElementById('themeColorMeta');
     if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#ffffff');
@@ -1169,9 +1168,6 @@ function initSystemThemeListener(){
     else if (typeof mq.addListener === 'function') mq.addListener(handler);
 }
 
-/* ================================================================
-   LAZY NAV MENUS
-   ================================================================ */
 let megaMenuBuilt = false;
 let mobileMenuBuilt = false;
 
@@ -1229,9 +1225,6 @@ function toggleToolsMenu(){
     }
 }
 
-/* ================================================================
-   MOBILE SIDEBAR
-   ================================================================ */
 function openMobileSidebar(){
     buildMobileToolsMenu();
     const sb = document.getElementById('mobileSidebar');
@@ -1273,9 +1266,6 @@ function toggleMobileTools(){
     if (toggle) toggle.setAttribute('aria-expanded', String(!isOpen));
 }
 
-/* ================================================================
-   RESIZE
-   ================================================================ */
 let resizeRaf = 0;
 function initResizeHandler(){
     let lastWasDesktop = window.innerWidth > 768;
@@ -1292,9 +1282,25 @@ function initResizeHandler(){
     });
 }
 
-/* ================================================================
-   DELEGATED HANDLERS
-   ================================================================ */
+function applyImageFallback(img){
+    if (!img || img.tagName !== 'IMG' || img._fallbackApplied) return;
+    const wrap = img.closest('.blog-card-img-wrap, .featured-post-img');
+    if (!wrap) return;
+    img._fallbackApplied = true;
+    img.style.display = 'none';
+    if (wrap.querySelector('.blog-card-img-fallback, .featured-post-img-fallback')) return;
+    const card = img.closest('.blog-card');
+    const fb = document.createElement('div');
+    fb.className = card ? 'blog-card-img-fallback' : 'featured-post-img-fallback';
+    fb.textContent = card ? (card.dataset.category || 'Article') : 'Featured Article';
+    wrap.appendChild(fb);
+}
+function sweepFailedImages(){
+    document.querySelectorAll('.blog-card-img, .featured-post-img img').forEach(function(img){
+        if (img.complete && img.naturalWidth === 0) applyImageFallback(img);
+    });
+}
+
 function initDelegatedHandlers(){
     const sb = document.getElementById('mobileSidebar');
     if (sb) sb.addEventListener('click', (e) => {
@@ -1316,25 +1322,11 @@ function initDelegatedHandlers(){
             }
         });
     }
-    // Image error fallback (capture phase — error events don't bubble)
     document.addEventListener('error', function(e){
-        const img = e.target;
-        if (!img || img.tagName !== 'IMG') return;
-        const wrap = img.closest('.blog-card-img-wrap, .featured-post-img');
-        if (!wrap) return;
-        img.style.display = 'none';
-        const card = img.closest('.blog-card');
-        if (wrap.querySelector('.blog-card-img-fallback, .featured-post-img-fallback')) return;
-        const fb = document.createElement('div');
-        fb.className = card ? 'blog-card-img-fallback' : 'featured-post-img-fallback';
-        fb.textContent = card ? (card.dataset.category || 'Article') : 'Featured Article';
-        wrap.appendChild(fb);
+        applyImageFallback(e.target);
     }, true);
 }
 
-/* ================================================================
-   EVENT LISTENERS
-   ================================================================ */
 function initEventListeners(){
     document.querySelectorAll('[data-action="toggle-theme"]').forEach(function(btn){
         btn.addEventListener('click', toggleTheme);
@@ -1378,9 +1370,6 @@ function initEventListeners(){
     });
 }
 
-/* ================================================================
-   FOCUS TRAP + KEYBOARD SHORTCUTS
-   ================================================================ */
 function trapFocus(e, container){
     if (e.key !== 'Tab') return;
     const focusable = container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
@@ -1425,6 +1414,7 @@ const blogCategories = [
 let currentCategory = 'all';
 let currentPage = 1;
 let blogSearchQuery = '';
+let blogSearchQueryRaw = '';
 
 function prefersReducedMotion(){
     return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -1443,7 +1433,8 @@ function readStateFromURL(){
     const q = params.get('q');
     const page = parseInt(params.get('page'), 10);
     currentCategory = (cat && blogCategories.some(function(c){ return c.key === cat; })) ? cat : 'all';
-    blogSearchQuery = q ? q.trim().toLowerCase() : '';
+    blogSearchQueryRaw = q ? q.trim() : '';
+    blogSearchQuery = blogSearchQueryRaw.toLowerCase();
     currentPage = (page && page > 0) ? page : 1;
 }
 function updateURL(replace){
@@ -1451,7 +1442,7 @@ function updateURL(replace){
     try { params = new URLSearchParams(); } catch (e) { return; }
     if (currentPage > 1) params.set('page', String(currentPage));
     if (currentCategory !== 'all') params.set('cat', currentCategory);
-    if (blogSearchQuery) params.set('q', blogSearchQuery);
+    if (blogSearchQueryRaw) params.set('q', blogSearchQueryRaw);
     const qs = params.toString();
     const url = location.pathname + (qs ? '?' + qs : '');
     try {
@@ -1509,7 +1500,8 @@ function updateGridVisibility(){
     }
 
     const totalPages = Math.max(1, Math.ceil(visible.length / POSTS_PER_PAGE));
-    if (currentPage > totalPages) currentPage = totalPages;
+    const clamped = currentPage > totalPages;
+    if (clamped) currentPage = totalPages;
     const start = (currentPage - 1) * POSTS_PER_PAGE;
     const pageSet = {};
     for (let i = start; i < start + POSTS_PER_PAGE && i < visible.length; i++) pageSet[visible[i].dataset.slug] = true;
@@ -1529,7 +1521,7 @@ function updateGridVisibility(){
         if (resultsLine){
             if (isFiltering){
                 let msg = visible.length + ' blog' + (visible.length === 1 ? '' : 's') + ' found';
-                if (blogSearchQuery) msg += ' for "' + blogSearchQuery + '"';
+                if (blogSearchQueryRaw) msg += ' for "' + blogSearchQueryRaw + '"';
                 if (currentCategory !== 'all') msg += ' in ' + currentCategory;
                 resultsLine.textContent = msg;
                 resultsLine.classList.add('show');
@@ -1539,9 +1531,10 @@ function updateGridVisibility(){
         }
     }
 
-    renderPagination(visible.length, totalPages);
+    renderPagination(totalPages);
+    return clamped;
 }
-function renderPagination(totalItems, totalPages){
+function renderPagination(totalPages){
     const pag = document.getElementById('blogPagination');
     if (!pag) return;
     if (totalPages <= 1) { pag.innerHTML = ''; return; }
@@ -1565,7 +1558,7 @@ function scrollToGridTop(){
     }
 }
 function goToPage(page){
-    if (!page || page < 1) return;
+    if (!page || page < 1 || page === currentPage) return;
     currentPage = page;
     updateGridVisibility();
     updateURL(false);
@@ -1574,7 +1567,8 @@ function goToPage(page){
 
 let blogSearchRaf = 0;
 function onBlogSearch(val){
-    blogSearchQuery = val.trim().toLowerCase();
+    blogSearchQueryRaw = val.trim();
+    blogSearchQuery = blogSearchQueryRaw.toLowerCase();
     const clearBtn = document.getElementById('blogClearBtn');
     if (clearBtn) clearBtn.classList.toggle('show', val.length > 0);
     currentPage = 1;
@@ -1586,10 +1580,12 @@ function onBlogSearch(val){
     });
 }
 function clearBlogSearch(){
+    if (blogSearchRaf){ cancelAnimationFrame(blogSearchRaf); blogSearchRaf = 0; }
     const input = document.getElementById('blogSearchInput');
     if (!input) return;
     input.value = '';
     blogSearchQuery = '';
+    blogSearchQueryRaw = '';
     const clearBtn = document.getElementById('blogClearBtn');
     if (clearBtn) clearBtn.classList.remove('show');
     currentPage = 1;
@@ -1610,17 +1606,40 @@ function initBlog(){
     const clearBtn = document.getElementById('blogClearBtn');
     if (!input) return;
 
+    const isMobile = function(){
+        return !!(window.matchMedia && window.matchMedia('(max-width:768px)').matches);
+    };
+
+    if (window.matchMedia) {
+        const mq = window.matchMedia('(max-width:768px)');
+        const syncAria = (matches) => {
+            if (matches) input.removeAttribute('aria-describedby');
+            else input.setAttribute('aria-describedby', 'blogKbdHint');
+        };
+        syncAria(mq.matches);
+        const onChange = (e) => syncAria(e.matches);
+        if (typeof mq.addEventListener === 'function') mq.addEventListener('change', onChange);
+        else if (typeof mq.addListener === 'function') mq.addListener(onChange);
+    }
+
     readStateFromURL();
-    if (blogSearchQuery) input.value = blogSearchQuery;
+    if (blogSearchQueryRaw) input.value = blogSearchQueryRaw;
     if (clearBtn) clearBtn.classList.toggle('show', input.value.length > 0);
 
     renderBlogCategories();
     renderExtrasChips();
     syncCategoryChips();
-    updateGridVisibility();
+    if (updateGridVisibility()) updateURL(true);
 
     input.addEventListener('input', function(){ onBlogSearch(this.value); });
     if (clearBtn) clearBtn.addEventListener('click', clearBlogSearch);
+
+    input.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' && isMobile()){
+            e.preventDefault();
+            input.blur();
+        }
+    });
 
     const catBar = document.getElementById('blogCategoryBar');
     if (catBar) catBar.addEventListener('click', function(e){
@@ -1640,10 +1659,9 @@ function initBlog(){
         const btn = e.target.closest('.page-btn');
         if (!btn || btn.disabled) return;
         const page = parseInt(btn.dataset.page, 10);
-        if (page) goToPage(page);
+        if (page && page !== currentPage) goToPage(page);
     });
 
-    // Keyboard hint (accurate: Ctrl/Cmd+K focuses this input on the blog page)
     const kbd = document.getElementById('blogKbdHint');
     if (kbd){
         const platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || navigator.userAgent || '';
@@ -1651,9 +1669,13 @@ function initBlog(){
         kbd.textContent = isMac ? '⌘ K' : 'Ctrl K';
     }
 
-    // Ctrl/Cmd+K focuses the blog search box (capture beats the global tool-search handler)
     document.addEventListener('keydown', function(e){
         if ((e.ctrlKey || e.metaKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'k'){
+            if (isMobile()) return;
+            const toolsOverlay = document.getElementById('searchOverlayFull');
+            const sidebar = document.getElementById('mobileSidebar');
+            if (toolsOverlay && toolsOverlay.classList.contains('active')) return;
+            if (sidebar && sidebar.classList.contains('active')) return;
             e.preventDefault();
             e.stopPropagation();
             input.focus();
@@ -1661,31 +1683,30 @@ function initBlog(){
         }
     }, true);
 
-    // Back/forward between paginated / filtered states
     window.addEventListener('popstate', function(){
+        if (blogSearchRaf){ cancelAnimationFrame(blogSearchRaf); blogSearchRaf = 0; }
         readStateFromURL();
-        input.value = blogSearchQuery;
+        input.value = blogSearchQueryRaw;
         if (clearBtn) clearBtn.classList.toggle('show', input.value.length > 0);
         syncCategoryChips();
-        updateGridVisibility();
+        if (updateGridVisibility()) updateURL(true);
     });
 }
 
-/* ================================================================
-   INIT
-   ================================================================ */
 function init(){
     const yearEl = document.getElementById('dynamicYear');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
     initDelegatedHandlers();
     initEventListeners();
     initKeyboardShortcuts();
     initResizeHandler();
     initSystemThemeListener();
     initBlog();
+    sweepFailedImages();
 }
 
-init();
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+else init();
 </script>
 </body>
 </html>
