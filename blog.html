@@ -4,28 +4,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Blog – Textify.tools</title>
-<meta name="description" content="Practical guides, text tool tutorials, and productivity tips from the Textify.tools team. Learn to clean data, format JSON, write better, and work faster.">
+<meta name="description" content="Useful text tool tutorials, practical formatting tips, and productivity guides to help you work smarter and get more done.">
+<meta name="keywords" content="text tool tutorials, text cleaning guide, JSON formatter guide, word counter guide, case converter guide, productivity tips, blog">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="bingbot" content="index, follow">
+<meta name="format-detection" content="telephone=no">
 <meta name="author" content="Pradeep Yadav">
 <link rel="canonical" href="https://textify.tools/blog">
 <link rel="alternate" hreflang="en" href="https://textify.tools/blog">
 <link rel="alternate" hreflang="x-default" href="https://textify.tools/blog">
 <meta name="theme-color" content="#ffffff" id="themeColorMeta">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Textify Blog">
+<meta name="application-name" content="Textify.tools">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://textify.tools/blog" id="ogUrlMeta">
-<meta property="og:title" content="Blog – Textify.tools">
-<meta property="og:description" content="Practical guides, tool tutorials, and text productivity tips. No fluff — just useful stuff.">
+<meta property="og:title" content="Blog – Text Tool Guides, Tutorials &amp; Productivity Tips">
+<meta property="og:description" content="Practical guides, tool tutorials, and productivity tips. No fluff — just useful stuff for anyone who works with text.">
 <meta property="og:site_name" content="Textify.tools">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://textify.tools/og-image.png">
+<meta property="og:image:secure_url" content="https://textify.tools/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:alt" content="Textify.tools blog – guides, tutorials, and productivity tips">
+<meta property="og:updated_time" content="2026-10-23T00:00:00+00:00">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@BuiltByPradeep">
 <meta name="twitter:creator" content="@BuiltByPradeep">
-<meta name="twitter:title" content="Blog – Textify.tools">
+<meta name="twitter:title" content="Blog – Text Tool Guides, Tutorials &amp; Productivity Tips">
 <meta name="twitter:description" content="Text tool tutorials, cleaning workflows, and productivity tips for writers, developers, and students.">
 <meta name="twitter:image" content="https://textify.tools/og-image.png">
 <meta name="twitter:image:width" content="1200">
@@ -40,6 +50,10 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/mstile-150x150.png">
 <link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//scripts.scriptwrapper.com">
+<link rel="dns-prefetch" href="//buymeacoffee.com">
+<link rel="preconnect" href="https://scripts.scriptwrapper.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
@@ -73,21 +87,100 @@ gtag('config', 'G-6VGXXT81MB');
 {
     "@context": "https://schema.org",
     "@graph": [
-        { "@type": "WebSite", "@id": "https://textify.tools/#website", "url": "https://textify.tools/", "name": "Textify.tools", "description": "Free online text tools that run entirely in your browser.", "publisher": { "@id": "https://textify.tools/#organization" }, "inLanguage": "en-US" },
-        { "@type": "Organization", "@id": "https://textify.tools/#organization", "name": "Textify.tools", "url": "https://textify.tools/", "logo": { "@type": "ImageObject", "url": "https://textify.tools/apple-touch-icon.png", "width": 180, "height": 180 }, "sameAs": ["https://x.com/BuiltByPradeep"] },
-        { "@type": "Person", "@id": "https://textify.tools/#author", "name": "Pradeep Yadav", "url": "https://textify.tools/about-us", "worksFor": { "@id": "https://textify.tools/#organization" } },
-        { "@type": "Blog", "@id": "https://textify.tools/blog#blog", "url": "https://textify.tools/blog", "name": "Textify.tools Blog", "description": "Practical guides, tool tutorials, and productivity tips for anyone who works with text.", "isPartOf": { "@id": "https://textify.tools/#website" }, "author": { "@id": "https://textify.tools/#author" }, "datePublished": "2025-07-06", "dateModified": "2025-09-28", "inLanguage": "en-US" },
-        { "@type": "WebPage", "@id": "https://textify.tools/blog#webpage", "url": "https://textify.tools/blog", "name": "Blog – Textify.tools", "description": "Practical guides, text tool tutorials, and productivity tips from the Textify.tools team.", "isPartOf": { "@id": "https://textify.tools/#website" }, "inLanguage": "en-US", "author": { "@id": "https://textify.tools/#author" } },
+        {
+            "@type": "WebSite",
+            "@id": "https://textify.tools/#website",
+            "url": "https://textify.tools/",
+            "name": "Textify.tools",
+            "alternateName": "Textify",
+            "description": "Free online text tools that run entirely in your browser.",
+            "publisher": { "@id": "https://textify.tools/#organization" },
+            "inLanguage": "en-US",
+            "copyrightYear": 2024,
+            "copyrightHolder": { "@id": "https://textify.tools/#organization" }
+        },
+        {
+            "@type": "Organization",
+            "@id": "https://textify.tools/#organization",
+            "name": "Textify.tools",
+            "url": "https://textify.tools/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://textify.tools/apple-touch-icon.png",
+                "width": 180,
+                "height": 180
+            },
+            "image": "https://textify.tools/og-image.png",
+            "sameAs": ["https://x.com/BuiltByPradeep"],
+            "founder": { "@id": "https://textify.tools/#author" },
+            "foundingDate": "2024-01-01",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "url": "https://textify.tools/contact-us"
+            }
+        },
+        {
+            "@type": "Person",
+            "@id": "https://textify.tools/#author",
+            "name": "Pradeep Yadav",
+            "url": "https://textify.tools/about-us",
+            "worksFor": { "@id": "https://textify.tools/#organization" },
+            "sameAs": ["https://x.com/BuiltByPradeep"]
+        },
+        {
+            "@type": "ImageObject",
+            "@id": "https://textify.tools/blog#primaryimage",
+            "url": "https://textify.tools/og-image.png",
+            "contentUrl": "https://textify.tools/og-image.png",
+            "width": 1200,
+            "height": 630,
+            "caption": "Textify.tools blog – guides, tutorials, and productivity tips"
+        },
         {
             "@type": "BreadcrumbList",
+            "@id": "https://textify.tools/blog#breadcrumb",
             "itemListElement": [
                 { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
-                { "@type": "ListItem", "position": 2, "name": "Blog" }
+                { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://textify.tools/blog" }
             ]
         },
         {
+            "@type": "Blog",
+            "@id": "https://textify.tools/blog#blog",
+            "url": "https://textify.tools/blog",
+            "name": "Textify.tools Blog",
+            "description": "Practical guides, tool tutorials, and productivity tips for anyone who works with text.",
+            "image": "https://textify.tools/og-image.png",
+            "isPartOf": { "@id": "https://textify.tools/#website" },
+            "author": { "@id": "https://textify.tools/#author" },
+            "publisher": { "@id": "https://textify.tools/#organization" },
+            "datePublished": "2025-07-06",
+            "dateModified": "2026-10-23",
+            "inLanguage": "en-US"
+        },
+        {
+            "@type": "WebPage",
+            "@id": "https://textify.tools/blog#webpage",
+            "url": "https://textify.tools/blog",
+            "name": "Blog – Text Tool Guides, Tutorials & Productivity Tips",
+            "description": "Practical guides, text tool tutorials, and productivity tips from the Textify.tools team.",
+            "isPartOf": { "@id": "https://textify.tools/#website" },
+            "inLanguage": "en-US",
+            "author": { "@id": "https://textify.tools/#author" },
+            "publisher": { "@id": "https://textify.tools/#organization" },
+            "datePublished": "2025-07-06",
+            "dateModified": "2026-10-23",
+            "breadcrumb": { "@id": "https://textify.tools/blog#breadcrumb" },
+            "primaryImageOfPage": { "@id": "https://textify.tools/blog#primaryimage" },
+            "mainEntity": { "@id": "https://textify.tools/blog#post-list" }
+        },
+        {
             "@type": "ItemList",
+            "@id": "https://textify.tools/blog#post-list",
             "name": "Textify.tools Blog Posts",
+            "numberOfItems": 14,
+            "itemListOrder": "https://schema.org/ItemListOrderDescending",
             "itemListElement": [
                 { "@type": "ListItem", "position": 1, "name": "How to Repeat Text 100,000 Times (Without Freezing Your Browser)", "url": "https://textify.tools/blog/how-to-repeat-text-100000-times" },
                 { "@type": "ListItem", "position": 2, "name": "Meeting Cost Calculator: How Much Is That Meeting Really Costing You?", "url": "https://textify.tools/blog/how-to-calculate-meeting-cost" },
@@ -107,6 +200,7 @@ gtag('config', 'G-6VGXXT81MB');
         },
         {
             "@type": "FAQPage",
+            "@id": "https://textify.tools/blog#faq",
             "mainEntity": [
                 { "@type": "Question", "name": "Are all Textify tools really free to use?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every tool on Textify.tools is free, with no signup, no hidden limits, and no watermark. You can use them as often as you want, for personal or commercial work." } },
                 { "@type": "Question", "name": "Do you store or track what I type into the tools?", "acceptedAnswer": { "@type": "Answer", "text": "No. Most tools run entirely in your browser, which means your text never leaves your device. We don't log input, and we don't sell data. The only analytics we keep are anonymous page views to see which tools are actually useful." } },
@@ -148,9 +242,6 @@ img,video,canvas,iframe,embed,object{max-width:100%;height:auto}
 svg{max-width:100%}table{max-width:100%}
 pre,code{white-space:pre-wrap;word-wrap:break-word;overflow-wrap:anywhere}
 
-/* ============================================================
-   ACCESSIBILITY: solid-outline focus (no glow ring), keyboard-only
-   ============================================================ */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -309,9 +400,6 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
 @media (min-width:769px){.hamburger-btn{display:none}.mobile-sidebar-overlay{display:none !important}.mobile-sidebar{display:none !important}}
 @media (max-height:500px) and (orientation:landscape){.mobile-sidebar{padding:14px}.mobile-sidebar-header{margin-bottom:14px;padding-bottom:12px}.search-overlay-full{padding-top:10px}}
 
-/* ================================================================
-   BLOG-SPECIFIC CSS
-   ================================================================ */
 main{flex:1;padding:clamp(20px,3.5vw,50px) 0;width:100%;min-width:0}
 main:focus{outline:none}
 .content-container{width:100%;max-width:var(--page-max);margin:0 auto;padding:0 var(--gutter);min-width:0}
@@ -372,7 +460,6 @@ main:focus{outline:none}
 .extras-chips{display:flex;flex-wrap:wrap;gap:6px}
 .extras-chip{padding:7px 13px;border-radius:20px;border:1px solid var(--line);background:var(--bg);color:var(--text-light);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:.2s;text-decoration:none;display:inline-block}
 .extras-chip:hover{background:var(--hover);color:var(--text);border-color:var(--border-hover)}
-/* FIX #2: active state for Browse-by-topic chips */
 .extras-chip.active{background:var(--chip-active-bg);color:var(--chip-active-text);border-color:var(--chip-active-bg)}
 .extras-list{list-style:none;padding:0;margin:0}
 .extras-list li{margin-bottom:2px}
@@ -423,7 +510,6 @@ main:focus{outline:none}
 .blog-cta-btn .icon{width:16px;height:16px}
 @media (max-width:500px){.blog-cta-btn{width:100%;justify-content:center}}
 
-/* FIX #9: persistent SR-only live region for announcements */
 #liveAnnouncer{position:absolute !important;width:1px !important;height:1px !important;padding:0 !important;margin:-1px !important;overflow:hidden !important;clip:rect(0,0,0,0) !important;white-space:nowrap !important;border:0 !important}
 
 @media (prefers-reduced-motion: reduce){
@@ -437,7 +523,6 @@ main:focus{outline:none}
 
 <a href="#mainContent" class="skip-link">Skip to main content</a>
 
-<!-- FIX #9: dedicated live region for status announcements -->
 <div id="liveAnnouncer" role="status" aria-live="polite" aria-atomic="true"></div>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
@@ -463,7 +548,6 @@ main:focus{outline:none}
 <div class="page-wrapper">
 <header>
 <div class="header-inner">
-<!-- FIX #11: logo img alt="" (decorative; text follows) -->
 <a href="/" class="logo"><img src="/favicon.ico" alt="" class="logo-img" width="24" height="24" fetchpriority="high" loading="eager" aria-hidden="true">Textify.tools</a>
 <div class="header-right">
 <nav class="desktop-nav" aria-label="Main navigation">
@@ -505,7 +589,6 @@ main:focus{outline:none}
 </a>
 
 <div class="category-filter-bar" id="blogCategoryBar" role="group" aria-label="Filter blog posts by category"></div>
-<!-- FIX #9: results line stays a visual element only; the live region is #liveAnnouncer -->
 <div class="results-line" id="blogResultsLine"></div>
 <h2 class="sr-only">Latest blog posts</h2>
 <div class="blog-grid" id="blogGrid">
@@ -513,7 +596,6 @@ main:focus{outline:none}
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/how-to-repeat-text-100000-times.webp" alt="How to Repeat Text 100,000 Times (Without Freezing Your Browser)" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Generators</span><span>Sep 28, 2025</span><span>•</span><span>6 min read</span></div><h3>How to Repeat Text 100,000 Times (Without Freezing Your Browser)</h3><p>Need the same line repeated thousands of times for a test file, a load test, or a prank? Here's the fastest way to do it in one click — and how to keep the output manageable.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
-<!-- FIX #5: featured grid card now has real href; no dead link if JS fails -->
 <a href="/blog/how-to-calculate-meeting-cost" class="blog-card" data-slug="how-to-calculate-meeting-cost" data-category="Business" data-featured="true" hidden>
 <div class="blog-card-img-wrap"><img class="blog-card-img" src="/images/how-to-calculate-meeting-cost.webp" alt="Meeting Cost Calculator: How Much Is That Meeting Really Costing You?" width="640" height="360" loading="lazy" decoding="async"></div>
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Business</span><span>Sep 26, 2025</span><span>•</span><span>8 min read</span></div><h3>Meeting Cost Calculator: How Much Is That Meeting Really Costing You?</h3><p>A 1-hour meeting with 8 people costs more than you think. Use the free Meeting Cost Calculator to see the real cost of any meeting — including hidden recovery time.</p><span class="blog-card-readmore">Read more →</span></div>
@@ -567,7 +649,6 @@ main:focus{outline:none}
 <div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-cat">Generators</span><span>Jul 6, 2025</span><span>•</span><span>5 min read</span></div><h3>QR Code Generator: 7 Clever Ways to Use QR Codes (Beyond Links)</h3><p>QR codes can do more than open a URL. Here are practical ways to use them for menus, packaging, business cards, and event check-ins.</p><span class="blog-card-readmore">Read more →</span></div>
 </a>
 </div>
-<!-- FIX #9: no live region on the visual no-result block -->
 <div class="search-no-result" id="blogNoResult" style="max-width:600px;margin:0 auto 40px;">No blogs found in this category.</div>
 <div class="pagination" id="blogPagination"></div>
 
@@ -664,7 +745,6 @@ main:focus{outline:none}
 <div class="mobile-sidebar-overlay" id="mobileSidebarOverlay" data-action="close-sidebar"></div>
 <div class="mobile-sidebar" id="mobileSidebar" role="dialog" aria-modal="true" aria-label="Mobile navigation menu" aria-hidden="true">
 <div class="mobile-sidebar-header">
-<!-- FIX #11: alt="" on mobile logo -->
 <a href="/" class="mobile-sidebar-logo"><img src="/favicon.ico" alt="" class="logo-img" width="20" height="20" loading="lazy" aria-hidden="true"> Textify.tools</a>
 <button type="button" class="mobile-sidebar-close" id="mobileSidebarClose" data-action="close-sidebar" aria-label="Close menu"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
 </div>
@@ -691,7 +771,6 @@ main:focus{outline:none}
 <button type="button" class="search-close-btn" data-action="close-search" aria-label="Close search"><svg class="icon" width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg></button>
 </div>
 <div class="search-results-list" id="fullSearchResultsList" role="listbox" aria-label="Tool suggestions"></div>
-<!-- FIX #9: no live region on the visible no-result block -->
 <div class="search-no-result" id="fullNoResult">No tools found for "<span id="fullSearchQuery"></span>"</div>
 </div>
 </div>
@@ -965,7 +1044,6 @@ function highlight(text, q){
     return result || escHtml(text);
 }
 
-/* FIX #9: single persistent live region drives all status announcements */
 let announceTimer = 0;
 function announce(msg){
     const el = document.getElementById('liveAnnouncer');
@@ -1092,7 +1170,6 @@ function setSearchTriggersExpanded(expanded){
     });
 }
 
-/* FIX #4: robust focusability check + fallback to hamburger */
 function isVisibleFocusable(el){
     if (!el || typeof el.focus !== 'function' || !document.contains(el)) return false;
     if (el.disabled) return false;
@@ -1121,7 +1198,6 @@ function openFullSearch(){
     document.getElementById('searchClearBtn').classList.remove('show');
     renderAllSuggestions();
     document.getElementById('fullNoResult').classList.remove('show');
-    /* FIX #10: focus synchronously — visibility:visible is applied immediately */
     if (input) input.focus();
 }
 function closeFullSearch(){
@@ -1143,7 +1219,6 @@ function closeFullSearch(){
     const sidebarEl = document.getElementById('mobileSidebar');
     const sidebarOpen = sidebarEl && sidebarEl.classList.contains('active');
     if (!sidebarOpen) document.body.style.overflow = '';
-    /* FIX #4: only restore focus to a genuinely visible element; fall back to hamburger */
     let target = isVisibleFocusable(lastFocusedBeforeSearch) ? lastFocusedBeforeSearch : null;
     if (!target){
         const hb = document.getElementById('hamburgerBtn');
@@ -1266,7 +1341,6 @@ function openMobileSidebar(){
     const hb = document.getElementById('hamburgerBtn');
     if (hb) hb.setAttribute('aria-expanded','true');
     document.body.style.overflow = 'hidden';
-    /* FIX #10: focus synchronously */
     const closeBtn = document.getElementById('mobileSidebarClose');
     if (closeBtn) closeBtn.focus();
 }
@@ -1473,7 +1547,6 @@ function readStateFromURL(){
     currentPage = (page && page > 0) ? page : 1;
 }
 
-/* FIX #7: canonical is ALWAYS /blog; title/meta reflect current view */
 function updateMeta(){
     const canonUrl = 'https://textify.tools/blog';
     const link = document.querySelector('link[rel="canonical"]');
@@ -1481,8 +1554,8 @@ function updateMeta(){
     const ogUrl = document.getElementById('ogUrlMeta');
     if (ogUrl) ogUrl.setAttribute('content', canonUrl);
 
-    const baseTitle = 'Blog – Textify.tools';
-    const baseDesc = 'Practical guides, text tool tutorials, and productivity tips from the Textify.tools team.';
+    const baseTitle = 'Blog – Text Tool Guides, Tutorials & Productivity Tips | Textify.tools';
+    const baseDesc = 'Practical guides, text tool tutorials, and productivity tips from Textify.tools. Learn to clean messy text, format JSON, write better, and work faster — no fluff, no paywalls.';
     const isFiltered = currentCategory !== 'all';
     const isPaged = currentPage > 1;
     let title = baseTitle;
@@ -1509,7 +1582,6 @@ function updateMeta(){
     if (twDesc) twDesc.setAttribute('content', desc);
 }
 
-/* FIX #12: no location.hash appended */
 function updateURL(replace){
     const url = blogPageURL(currentPage, currentCategory);
     try {
@@ -1531,7 +1603,6 @@ function renderExtrasChips(){
     if (!wrap) return;
     wrap.innerHTML = blogCategories.filter(function(c){ return c.key !== 'all'; }).map(function(c){
         const active = c.key === currentCategory;
-        /* FIX #2: include active class */
         return '<a href="' + blogPageURL(1, c.key) + '" class="extras-chip' + (active ? ' active' : '') + '" data-cat="' + escAttr(c.key) + '"' + (active ? ' aria-current="page"' : '') + '>' + escHtml(c.label) + '</a>';
     }).join('');
 }
@@ -1544,7 +1615,6 @@ function syncCategoryChips(){
     });
     document.querySelectorAll('#extrasChips .extras-chip').forEach(function(c){
         const active = c.dataset.cat === currentCategory;
-        /* FIX #2: toggle the active class on Browse-by-topic chips */
         c.classList.toggle('active', active);
         if (active) c.setAttribute('aria-current', 'page');
         else c.removeAttribute('aria-current');
@@ -1577,7 +1647,6 @@ function updateGridVisibility(){
     cards.forEach(function(card){
         card.hidden = !pageSet[card.dataset.slug];
     });
-    /* FIX #5: no need to strip/restore href — the card always has it */
 
     const resultsLine = document.getElementById('blogResultsLine');
     const noResult = document.getElementById('blogNoResult');
@@ -1613,7 +1682,6 @@ function renderPagination(totalPages){
 
     let html = '';
     const prevDisabled = currentPage === 1;
-    /* FIX #8: rel="prev" / rel="next" on pagination links */
     html += '<a class="page-btn" rel="prev" href="' + blogPageURL(Math.max(1, currentPage - 1), currentCategory) + '" data-page="' + (currentPage - 1) + '" aria-label="Previous page"' + (prevDisabled ? ' aria-disabled="true" tabindex="-1"' : '') + '>← Prev</a>';
     for (let i = 1; i <= totalPages; i++){
         const active = i === currentPage;
@@ -1640,7 +1708,6 @@ function goToPage(page){
     updateURL(false);
     scrollToGridTop();
 }
-/* FIX #1 + #6: returns true only when the view actually changed; uses pushState */
 function filterBlogCategory(catKey){
     if (catKey === currentCategory){
         if (currentPage === 1) return false;
@@ -1668,7 +1735,6 @@ function initBlog(){
     syncCategoryChips();
 
     updateGridVisibility();
-    /* FIX #3: replaceState after clamp (no-op if URL already matches); also updates meta */
     updateURL(true);
 
     const catBar = document.getElementById('blogCategoryBar');
@@ -1677,7 +1743,6 @@ function initBlog(){
         if (!chip) return;
         if (!isPlainLeftClick(e)) return;
         e.preventDefault();
-        /* FIX #6: only scroll when state actually changed */
         if (filterBlogCategory(chip.dataset.cat)) scrollToGridTop();
     });
     const extras = document.getElementById('extrasChips');
@@ -1703,7 +1768,6 @@ function initBlog(){
         readStateFromURL();
         syncCategoryChips();
         updateGridVisibility();
-        /* FIX #3: rewrite the URL if clamping occurred; also refreshes meta */
         updateURL(true);
     });
 }
