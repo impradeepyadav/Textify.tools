@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-<title>Reading Time Calculator – Estimate Read Time</title>
+<title>Reading Time Calculator – Estimate Read Time | Textify</title>
 <meta name="description" content="Free reading time calculator. Paste text and instantly estimate reading time, speaking time, word count, sentences, and paragraphs — 100% private, no signup.">
 <meta name="keywords" content="reading time calculator, reading time estimator, read time calculator, speaking time calculator, words per minute calculator, wpm calculator, reading speed calculator, text reading time, article reading time, blog reading time">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -128,14 +128,6 @@ gtag('config', 'G-6VGXXT81MB');
             "caption": "Reading Time Estimator – estimate how long it takes to read or speak your text"
         },
         {
-            "@type": "BreadcrumbList",
-            "@id": "https://textify.tools/reading-time-estimator/#breadcrumb",
-            "itemListElement": [
-                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://textify.tools/" },
-                { "@type": "ListItem", "position": 2, "name": "Reading Time Estimator", "item": "https://textify.tools/reading-time-estimator" }
-            ]
-        },
-        {
             "@type": "WebPage",
             "@id": "https://textify.tools/reading-time-estimator/#webpage",
             "url": "https://textify.tools/reading-time-estimator",
@@ -147,7 +139,6 @@ gtag('config', 'G-6VGXXT81MB');
             "publisher": { "@id": "https://textify.tools/#organization" },
             "datePublished": "2024-01-01",
             "dateModified": "2026-10-23",
-            "breadcrumb": { "@id": "https://textify.tools/reading-time-estimator/#breadcrumb" },
             "primaryImageOfPage": { "@id": "https://textify.tools/reading-time-estimator/#primaryimage" },
             "mainEntity": { "@id": "https://textify.tools/reading-time-estimator/#app" },
             "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".tool-hero .subtitle"] }
@@ -247,7 +238,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans
 img,video,canvas,iframe,embed,object{max-width:100%;height:auto}
 svg{max-width:100%}table{max-width:100%}
 pre,code{white-space:pre-wrap;word-wrap:break-word;overflow-wrap:anywhere}
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--text) !important;outline-offset:2px !important;border-radius:6px;box-shadow:none !important}
+/* Bug 1 fix: no border-radius on global focus-visible — shapes stay as-authored */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--text) !important;outline-offset:2px !important;box-shadow:none !important}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .skip-link{position:absolute;top:-100px;left:8px;z-index:9999;background:var(--primary);color:var(--bg);padding:10px 16px;border-radius:8px;font-weight:600;text-decoration:none;transition:top .2s}
 .skip-link:focus{top:8px;outline:2px solid var(--text);outline-offset:2px}
@@ -258,15 +250,6 @@ html.dark-mode .icon-moon{display:block !important}
 html:not(.dark-mode) .icon-moon{display:none !important}
 html:not(.dark-mode) .icon-sun{display:block !important}
 .icon{display:inline-block;vertical-align:middle;flex-shrink:0}
-
-/* ============ BREADCRUMB ============ */
-.breadcrumb{margin:0 0 18px;font-size:13px;color:var(--text-light);line-height:1.5}
-.breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0}
-.breadcrumb li{display:inline-flex;align-items:center;gap:6px;min-width:0}
-.breadcrumb li + li::before{content:'/';color:var(--line);padding:0 2px}
-.breadcrumb a{color:var(--text-light);text-decoration:none;transition:color .2s;padding:2px 0}
-.breadcrumb a:hover{color:var(--text);text-decoration:underline}
-.breadcrumb [aria-current="page"]{color:var(--text);font-weight:600}
 
 /* ============ HEADER ============ */
 header{border-bottom:1px solid var(--line);display:flex;justify-content:center;align-items:center;padding:0 var(--gutter);min-height:var(--header-h);width:100%;transition:border-color .3s;background:var(--bg);position:relative;z-index:100}
@@ -294,6 +277,12 @@ header{border-bottom:1px solid var(--line);display:flex;justify-content:center;a
 .theme-btn:hover{background:var(--hover)}
 .search-trigger{background:var(--hover);border:1px solid var(--line);padding:10px 18px;border-radius:25px;cursor:pointer;display:flex;align-items:center;gap:8px;color:var(--text-light);font-size:14px;white-space:nowrap;font-family:inherit;transition:.2s;flex-shrink:0}
 .search-trigger:hover{border-color:var(--border-hover);color:var(--text)}
+.search-trigger:focus,
+.search-trigger:focus-visible{
+    outline: none !important;
+    box-shadow: 0 0 0 3px var(--focus-ring) !important;
+    border-color: var(--border-hover) !important;
+}
 .hamburger-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text);border-radius:8px;flex-shrink:0;min-width:40px;min-height:40px;align-items:center;justify-content:center}
 .hamburger-btn:hover{background:var(--hover)}
 .hamburger-btn .menu-icon{display:flex;flex-direction:column;gap:5px}
@@ -332,10 +321,18 @@ html.dark-mode .mobile-sidebar-actions button .icon-moon{display:block !importan
 .search-overlay-full{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--overlay-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:300;display:flex;flex-direction:column;align-items:center;padding:clamp(16px,6vh,60px) 16px 16px;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;overflow:hidden}
 .search-overlay-full.active{opacity:1;visibility:visible}
 .search-container{width:100%;max-width:620px;display:flex;flex-direction:column;max-height:100%;min-height:0}
-.search-box{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:14px;padding:4px 10px 4px 16px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.18);margin-bottom:12px;flex-shrink:0;min-width:0}
+.search-box{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:14px;padding:4px 10px 4px 16px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.18);margin-bottom:12px;flex-shrink:0;min-width:0;transition:border-color .15s,box-shadow .15s}
+.search-box:focus-within{border-color:var(--border-hover)}
 .search-box input{flex:1;border:none;background:transparent;font-size:16px;color:var(--text);outline:none;font-family:inherit;padding:12px 0;min-width:0;width:100%}
 .search-box input::placeholder{color:var(--text-light);opacity:1}
-.search-box input:focus,.search-box input:focus-visible{outline:none;box-shadow:none}
+.search-box input:focus,
+.search-box input:focus-visible,
+#fullSearchInput:focus,
+#fullSearchInput:focus-visible{
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
 .search-box .search-clear-btn{display:none;background:var(--hover);border:none;cursor:pointer;padding:6px;border-radius:50%;color:var(--text-light);align-items:center;justify-content:center;flex-shrink:0;min-width:36px;min-height:36px}
 .search-box .search-clear-btn.show{display:flex}
 .search-box .search-close-btn{background:var(--hover);border:none;cursor:pointer;padding:8px;border-radius:50%;color:var(--text);display:flex;align-items:center;justify-content:center;flex-shrink:0;min-width:36px;min-height:36px}
@@ -468,14 +465,12 @@ html.dark-mode .info-tip{background:var(--tool-accent-light)}
 .info-table tr:hover{background:var(--table-hover)}
 .info-table td strong{color:var(--text)}
 
-/* Related tools */
 .related-tools-list{list-style:none;padding:0;margin:16px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:10px}
 .related-tools-list li{margin:0;padding:0}
 .related-tools-list a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--accent);color:var(--text);text-decoration:none;font-weight:600;font-size:14px;transition:border-color .15s,background .15s;min-height:44px}
 .related-tools-list a:hover{border-color:var(--border-hover);background:var(--hover);text-decoration:none}
 .related-tools-list a small{font-weight:400;color:var(--text-light);font-size:12px;line-height:1.5}
 
-/* FAQ */
 .faq-item{margin-bottom:16px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .faq-question{background:var(--faq-bg);padding:16px 18px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--text);font-size:clamp(14px,1.4vw,15px);border:none;width:100%;text-align:left;font-family:inherit;line-height:1.5;min-height:44px}
 .faq-question svg,.faq-question i{width:16px;height:16px;flex-shrink:0;transition:transform .25s}
@@ -530,7 +525,6 @@ footer{border-top:1px solid var(--footer-border);padding:clamp(28px,4vw,60px) va
     .modal-box{padding:28px 22px 24px;border-radius:20px}
     .modal-title{font-size:20px}
     .modal-message{font-size:14px}
-    /* iOS auto-zoom prevention */
     input, textarea, select, .form-textarea, .wpm-input, #textInput, .search-box input {
         font-size: 16px !important;
     }
@@ -589,7 +583,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 .modal-close-btn:hover{filter:brightness(1.1)}
 .modal-close-btn:active{filter:brightness(.95)}
 
-/* ============ TOOL PANEL — clean inside, but keep focus visible ============ */
+/* Tool panel focus indicators — preserve each control's own border-radius via inherit */
 .tool-panel input:focus-visible,
 .tool-panel textarea:focus-visible,
 .tool-panel .form-textarea:focus-visible,
@@ -597,16 +591,18 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
     outline: 2px solid var(--text) !important;
     outline-offset: 2px;
     border-color: var(--text-light) !important;
+    border-radius: inherit;
 }
 .tool-panel .wpm-slider:focus-visible{
     outline: 2px solid var(--text) !important;
-    outline-offset: 6px;
+    outline-offset: 6px !important; /* Bug 2 fix: needs !important to beat the global rule */
 }
 .tool-panel .speed-chip:focus-visible,
 .tool-panel .btn:focus-visible{
     outline: 2px solid var(--text) !important;
-    outline-offset: 2px;
+    outline-offset: 2px !important;
     box-shadow: none !important;
+    border-radius: inherit;
 }
 </style>
 <noscript><style>.faq-answer{display:block !important}.faq-question{cursor:default}.faq-question svg,.faq-question i{display:none}</style></noscript>
@@ -659,7 +655,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 <a href="/privacy-policy">Privacy</a><a href="/blog">Blog</a><a href="https://buymeacoffee.com/builtbypradeep" target="_blank" rel="nofollow noopener noreferrer">Support</a>
 </nav>
 <button type="button" class="theme-btn" data-action="toggle-theme" aria-label="Toggle dark mode" aria-pressed="false"><svg class="icon icon-sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon icon-moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg></button>
-<button type="button" class="search-trigger" data-action="open-search" aria-label="Search tools" aria-haspopup="dialog"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
+<button type="button" class="search-trigger" data-action="open-search" aria-label="Search tools" aria-haspopup="dialog" aria-expanded="false"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-search"/></svg><span class="search-trigger-label">Search tools...</span></button>
 <button type="button" class="hamburger-btn" id="hamburgerBtn" data-action="open-sidebar" aria-label="Open menu" aria-expanded="false" aria-haspopup="dialog" aria-controls="mobileSidebar"><span class="menu-icon" aria-hidden="true"><span></span><span></span></span></button>
 </div>
 </div>
@@ -667,13 +663,6 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 
 <main id="mainContent" tabindex="-1">
 <div class="content-container">
-
-<nav class="breadcrumb" aria-label="Breadcrumb">
-<ol>
-<li><a href="/">Home</a></li>
-<li aria-current="page">Reading Time Estimator</li>
-</ol>
-</nav>
 
 <div class="tool-hero">
 <h1>Free Online Reading Time Estimator</h1>
@@ -765,13 +754,13 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 </div>
 </div>
 
-<div class="result-banner" id="resultBanner" aria-live="polite" aria-atomic="true">
+<div class="result-banner" id="resultBanner" aria-live="polite">
 <div class="rb-line" id="resultLine">0 min read · 0 min speak</div>
 <div class="rb-sub" id="resultSub">Your reading time and speaking time estimates will appear here.</div>
 <div class="rb-placeholder" id="resultPlaceholderText" style="display:none;">Paste some text to get started.</div>
 </div>
 
-<div class="stats-grid" aria-live="polite" aria-atomic="true">
+<div class="stats-grid">
 <div class="stat-tile primary">
 <div class="stat-icon"><svg class="icon" width="16" height="16" aria-hidden="true"><use href="#i-clock"/></svg></div>
 <div class="stat-label">Reading Time</div>
@@ -1064,7 +1053,7 @@ html.dark-mode .modal-icon{background:var(--tool-accent-light)}
 </div>
 </div>
 
-<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+<div class="toast" id="toast"></div>
 <div id="liveAnnouncer" role="status" aria-live="polite" aria-atomic="true" class="sr-only"></div>
 
 <script>
@@ -1354,6 +1343,12 @@ function isVisibleFocusable(el){
     return true;
 }
 
+/* Bug 8 fix: skip <body>/<html> — they "focus" as a no-op and lose keyboard context */
+function isUsableFocusTarget(el){
+    if (el === document.body || el === document.documentElement) return false;
+    return isVisibleFocusable(el);
+}
+
 function trapFocus(e, container){
     if (e.key !== 'Tab') return;
     const focusable = container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
@@ -1365,7 +1360,6 @@ function trapFocus(e, container){
     else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
 }
 
-/* Live announcer */
 function announce(msg){
     const el = document.getElementById('liveAnnouncer');
     if (!el) return;
@@ -1381,6 +1375,13 @@ function showToast(msg, dur){
     t.classList.add('show');
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function(){ t.classList.remove('show'); }, dur);
+}
+
+/* Bug 6 fix: keep aria-expanded on the header search trigger in sync */
+function setSearchTriggerExpanded(v){
+    document.querySelectorAll('[data-action="open-search"]').forEach(function(b){
+        b.setAttribute('aria-expanded', v ? 'true' : 'false');
+    });
 }
 
 function setThemeColorMeta(isDark){
@@ -1422,7 +1423,6 @@ function initSystemThemeListener(){
     else if (typeof mq.addListener === 'function') mq.addListener(handler);
 }
 
-/* Tools menu */
 function closeToolsMenu(returnFocus){
     const container = document.getElementById('toolsMenuContainer');
     const trigger = document.getElementById('toolsTrigger');
@@ -1471,7 +1471,6 @@ function initToolsMenuHover(){
     });
 }
 
-/* Mobile sidebar */
 let searchIsOpen = false;
 function openMobileSidebar(){
     const sb = document.getElementById('mobileSidebar');
@@ -1538,7 +1537,6 @@ function populateNavMenus(){
     if (mobileMenu) mobileMenu.innerHTML = joined;
 }
 
-/* Search */
 let lastFocusedBeforeSearch = null;
 let searchResultsRaf = 0;
 const searchState = { activeIndex: -1 };
@@ -1550,8 +1548,12 @@ function setActiveDescendant(el){
     else input.removeAttribute('aria-activedescendant');
 }
 
+/* Bug 3 fix: don't open search behind an active modal */
 function openFullSearch(){
+    const modal = document.getElementById('actionModal');
+    if (modal && modal.classList.contains('active')) return;
     const overlay = document.getElementById('searchOverlayFull');
+    setSearchTriggerExpanded(true);
     if (overlay.classList.contains('active')){
         searchIsOpen = true;
         const input = document.getElementById('fullSearchInput');
@@ -1563,7 +1565,7 @@ function openFullSearch(){
     document.body.style.overflow = 'hidden';
     overlay.classList.add('active');
     overlay.setAttribute('aria-hidden','false');
-    buildSearchResults('');
+    buildSearchResults('', '');
     setTimeout(function(){
         if (searchIsOpen){
             const inp = document.getElementById('fullSearchInput');
@@ -1573,6 +1575,7 @@ function openFullSearch(){
 }
 function closeFullSearch(){
     const overlay = document.getElementById('searchOverlayFull');
+    setSearchTriggerExpanded(false);
     if (!overlay.classList.contains('active')) return;
     searchIsOpen = false;
     if (searchResultsRaf){ cancelAnimationFrame(searchResultsRaf); searchResultsRaf = 0; }
@@ -1593,7 +1596,7 @@ function closeFullSearch(){
     const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
     const modalOpen = document.getElementById('actionModal').classList.contains('active');
     if (!sidebarOpen && !modalOpen) document.body.style.overflow = '';
-    if (isVisibleFocusable(lastFocusedBeforeSearch)){
+    if (isUsableFocusTarget(lastFocusedBeforeSearch)){
         try { lastFocusedBeforeSearch.focus(); } catch (e) {}
     }
     lastFocusedBeforeSearch = null;
@@ -1603,7 +1606,8 @@ function openSearchFromSidebar(){
     openFullSearch();
 }
 
-function buildSearchResults(q){
+/* Bug 7 fix: display the raw trimmed query; match against lowercased */
+function buildSearchResults(q, displayQuery){
     const list = document.getElementById('fullSearchResultsList');
     const nr = document.getElementById('fullNoResult');
     let matched;
@@ -1643,8 +1647,8 @@ function buildSearchResults(q){
     if (input) input.setAttribute('aria-expanded', total > 0 ? 'true' : 'false');
     if (total === 0 && q !== ''){
         nr.classList.add('show');
-        document.getElementById('fullSearchQuery').textContent = q;
-        announce('No tools found for ' + q);
+        document.getElementById('fullSearchQuery').textContent = displayQuery || q;
+        announce('No tools found for ' + (displayQuery || q));
     } else {
         nr.classList.remove('show');
         if (q !== '') announce(total + ' tool' + (total === 1 ? '' : 's') + ' found');
@@ -1652,11 +1656,13 @@ function buildSearchResults(q){
 }
 function filterFullSearch(){
     const input = document.getElementById('fullSearchInput');
-    const q = input.value.toLowerCase().trim();
+    const raw = input.value;
+    const q = raw.toLowerCase().trim();
+    const display = raw.trim();
     document.getElementById('searchClearBtn').classList.toggle('show', q.length > 0);
     if (!searchIsOpen) return;
     if (searchResultsRaf) cancelAnimationFrame(searchResultsRaf);
-    searchResultsRaf = requestAnimationFrame(function(){ searchResultsRaf = 0; buildSearchResults(q); });
+    searchResultsRaf = requestAnimationFrame(function(){ searchResultsRaf = 0; buildSearchResults(q, display); });
 }
 function handleSearchKey(e){
     const items = Array.prototype.slice.call(document.querySelectorAll('#fullSearchResultsList .search-result-item'));
@@ -1736,7 +1742,10 @@ document.addEventListener('keydown', function(e){
         openFullSearch();
         return;
     }
+    /* Bug 4 fix: Ctrl+Enter must not fire while search or modal is open */
     if ((e.ctrlKey || e.metaKey) && e.key === 'Enter'){
+        const modal = document.getElementById('actionModal');
+        if (searchIsOpen || modal.classList.contains('active')) return;
         e.preventDefault();
         const s = window._lastStats || {};
         updateStats();
@@ -1763,8 +1772,6 @@ function toggleFaq(btnEl){
     item.classList.toggle('active');
     btnEl.setAttribute('aria-expanded', String(!expanded));
 }
-
-/* ===================== READING TIME TOOL LOGIC ===================== */
 
 function countWords(text){
     const matches = text.match(/[\p{L}\p{N}'’\-]+/gu);
@@ -1849,6 +1856,13 @@ function scheduleUpdate(){
     });
 }
 
+/* Bug 9 fix: skip DOM updates when text is unchanged so the aria-live banner
+   only fires on meaningful changes (word boundaries), not every keystroke. */
+function setTextIfChanged(el, text){
+    if (!el) return;
+    if (el.textContent !== text) el.textContent = text;
+}
+
 function updateStats(){
     const input = document.getElementById('textInput').value;
     const words = countWords(input);
@@ -1869,13 +1883,13 @@ function updateStats(){
     const resultPlaceholder = document.getElementById('resultPlaceholderText');
 
     if (words === 0){
-        resultLine.textContent = '0 min read · 0 min speak';
-        resultSub.textContent = 'Your reading time and speaking time estimates will appear here.';
+        setTextIfChanged(resultLine, '0 min read · 0 min speak');
+        setTextIfChanged(resultSub, 'Your reading time and speaking time estimates will appear here.');
         resultPlaceholder.style.display = '';
         resultSub.style.display = 'none';
     } else {
-        resultLine.textContent = formatDurationShort(readingMinutes) + ' read · ' + formatDurationShort(speakingMinutes) + ' speak';
-        resultSub.textContent = words.toLocaleString() + ' words at ' + readingWpm + ' WPM reading, ' + speakingWpm + ' WPM speaking.';
+        setTextIfChanged(resultLine, formatDurationShort(readingMinutes) + ' read · ' + formatDurationShort(speakingMinutes) + ' speak');
+        setTextIfChanged(resultSub, words.toLocaleString() + ' words at ' + readingWpm + ' WPM reading, ' + speakingWpm + ' WPM speaking.');
         resultPlaceholder.style.display = 'none';
         resultSub.style.display = '';
     }
@@ -1897,9 +1911,9 @@ function updateStats(){
 
     const subtitle = document.getElementById('outputSubtitle');
     if (words === 0){
-        subtitle.textContent = 'Live estimates';
+        setTextIfChanged(subtitle, 'Live estimates');
     } else {
-        subtitle.textContent = words.toLocaleString() + ' word' + (words === 1 ? '' : 's') + ' · ' + formatDurationShort(readingMinutes) + ' read';
+        setTextIfChanged(subtitle, words.toLocaleString() + ' word' + (words === 1 ? '' : 's') + ' · ' + formatDurationShort(readingMinutes) + ' read');
     }
 
     window._lastStats = {
@@ -2038,7 +2052,7 @@ function closeModal(){
     const sidebarOpen = document.getElementById('mobileSidebar').classList.contains('active');
     if (!searchOpen && !sidebarOpen) document.body.style.overflow = '';
     clearTimeout(modalTimer);
-    if (focusWasInside && isVisibleFocusable(lastFocusedBeforeModal)){
+    if (focusWasInside && isUsableFocusTarget(lastFocusedBeforeModal)){
         try { lastFocusedBeforeModal.focus(); } catch (e) {}
     }
     lastFocusedBeforeModal = null;
@@ -2113,23 +2127,19 @@ function initWpmControls(){
     });
     speakingInput.addEventListener('blur', function(){ setSpeakingWpm(this.value); });
 
-    /* Preset chips with arrow-key roving tabindex (radiogroup pattern) */
     document.querySelectorAll('.speed-chips[data-preset-group]').forEach(function(group){
         const chips = Array.prototype.slice.call(group.querySelectorAll('.speed-chip'));
         const kind = group.getAttribute('data-preset-group');
         const attr = kind === 'reading' ? 'data-reading' : 'data-speaking';
 
-        function activateChip(chip){
-            setSpeakingWpmIfSpeaking(chip, kind);
-        }
-        function setSpeakingWpmIfSpeaking(chip, kind){
+        function activate(chip){
             const val = chip.getAttribute(attr);
             if (kind === 'reading') setReadingWpm(val);
             else setSpeakingWpm(val);
         }
 
         chips.forEach(function(chip){
-            chip.addEventListener('click', function(){ setSpeakingWpmIfSpeaking(chip, kind); });
+            chip.addEventListener('click', function(){ activate(chip); });
             chip.addEventListener('keydown', function(e){
                 const i = chips.indexOf(chip);
                 let next = -1;
@@ -2137,10 +2147,10 @@ function initWpmControls(){
                 else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp'){ e.preventDefault(); next = (i - 1 + chips.length) % chips.length; }
                 else if (e.key === 'Home'){ e.preventDefault(); next = 0; }
                 else if (e.key === 'End'){ e.preventDefault(); next = chips.length - 1; }
-                else if (e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); setSpeakingWpmIfSpeaking(chip, kind); return; }
+                else if (e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); activate(chip); return; }
                 if (next >= 0){
                     const target = chips[next];
-                    setSpeakingWpmIfSpeaking(target, kind);
+                    activate(target);
                     target.focus();
                 }
             });
@@ -2169,6 +2179,7 @@ function init(){
     initWpmControls();
     initImageFallback();
     syncThemeAria();
+    setSearchTriggerExpanded(false);
     updateStats();
 
     const input = document.getElementById('textInput');
